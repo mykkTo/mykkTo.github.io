@@ -2,14 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://mykkto.github.io/posts/19d2a4e6.html</loc>
+    <loc>https://mykkto.github.io/posts/4b3510a4.html</loc>
     
     <lastmod>2022-01-09</lastmod>
     
   </url>
   
   <url>
-    <loc>https://mykkto.github.io/posts/9639fcc6.html</loc>
+    <loc>https://mykkto.github.io/posts/19d2a4e6.html</loc>
     
     <lastmod>2022-01-09</lastmod>
     
@@ -23,7 +23,7 @@
   </url>
   
   <url>
-    <loc>https://mykkto.github.io/posts/4b3510a4.html</loc>
+    <loc>https://mykkto.github.io/posts/d74d8b76.html</loc>
     
     <lastmod>2022-01-09</lastmod>
     
@@ -37,7 +37,7 @@
   </url>
   
   <url>
-    <loc>https://mykkto.github.io/posts/d74d8b76.html</loc>
+    <loc>https://mykkto.github.io/posts/9639fcc6.html</loc>
     
     <lastmod>2022-01-09</lastmod>
     
@@ -291,6 +291,13 @@
   </url>
   
   <url>
+    <loc>https://mykkto.github.io/tags/%E9%98%BF%E9%87%8C%E4%BA%91QQ/</loc>
+    <lastmod>2022-01-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://mykkto.github.io/tags/PicGo/</loc>
     <lastmod>2022-01-09</lastmod>
     <changefreq>daily</changefreq>
@@ -299,13 +306,6 @@
   
   <url>
     <loc>https://mykkto.github.io/tags/GitHub%E5%9B%BE%E5%BA%8A/</loc>
-    <lastmod>2022-01-09</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://mykkto.github.io/tags/%E9%98%BF%E9%87%8C%E4%BA%91QQ/</loc>
     <lastmod>2022-01-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -342,14 +342,14 @@
   </url>
   
   <url>
-    <loc>https://mykkto.github.io/categories/%E5%89%8D%E7%AB%AF%E7%AF%87/</loc>
+    <loc>https://mykkto.github.io/categories/%E5%8D%9A%E5%AE%A2%E7%AF%871/%E5%8D%9A%E5%AE%A2%E7%AF%872/</loc>
     <lastmod>2022-01-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://mykkto.github.io/categories/%E5%8D%9A%E5%AE%A2%E7%AF%871/%E5%8D%9A%E5%AE%A2%E7%AF%872/</loc>
+    <loc>https://mykkto.github.io/categories/%E5%89%8D%E7%AB%AF%E7%AF%87/</loc>
     <lastmod>2022-01-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
