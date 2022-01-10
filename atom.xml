@@ -6,7 +6,7 @@
   <link href="https://mykkto.github.io/atom.xml" rel="self"/>
   
   <link href="https://mykkto.github.io/"/>
-  <updated>2022-01-10T13:22:58.069Z</updated>
+  <updated>2022-01-10T15:58:15.392Z</updated>
   <id>https://mykkto.github.io/</id>
   
   <author>
@@ -17,13 +17,101 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>springcloud and alibaba合集</title>
+    <link href="https://mykkto.github.io/posts/58914314.html"/>
+    <id>https://mykkto.github.io/posts/58914314.html</id>
+    <published>2022-01-10T16:42:15.000Z</published>
+    <updated>2022-01-10T15:58:15.392Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="1、项目构建and技术选型"><a href="#1、项目构建and技术选型" class="headerlink" title="1、项目构建and技术选型"></a><a href="">1、项目构建and技术选型</a></h3><h3 id="2、Eureka服务注册与发现"><a href="#2、Eureka服务注册与发现" class="headerlink" title="2、Eureka服务注册与发现"></a><a href="">2、Eureka服务注册与发现</a></h3><h3 id="4、Consul服务注册与发现"><a href="#4、Consul服务注册与发现" class="headerlink" title="4、Consul服务注册与发现"></a><a href="">4、Consul服务注册与发现</a></h3><h3 id="5、Ribbon负载均衡服务调用"><a href="#5、Ribbon负载均衡服务调用" class="headerlink" title="5、Ribbon负载均衡服务调用"></a><a href="">5、Ribbon负载均衡服务调用</a></h3><h3 id="6、OpenFeign服务接口调用"><a href="#6、OpenFeign服务接口调用" class="headerlink" title="6、OpenFeign服务接口调用"></a><a href="">6、OpenFeign服务接口调用</a></h3><h3 id="7、Hystrix断路器"><a href="#7、Hystrix断路器" class="headerlink" title="7、Hystrix断路器"></a><a href="">7、Hystrix断路器</a></h3><h3 id="8、zuul路由网关"><a href="#8、zuul路由网关" class="headerlink" title="8、zuul路由网关"></a><a href="">8、zuul路由网关</a></h3><h3 id="9、Gateway新一代网关"><a href="#9、Gateway新一代网关" class="headerlink" title="9、Gateway新一代网关"></a><a href="">9、Gateway新一代网关</a></h3><h3 id="10、Seata处理分布式事务"><a href="#10、Seata处理分布式事务" class="headerlink" title="10、Seata处理分布式事务"></a><a href="">10、Seata处理分布式事务</a></h3><h3 id="11、Sentinel实现熔断与限流"><a href="#11、Sentinel实现熔断与限流" class="headerlink" title="11、Sentinel实现熔断与限流"></a><a href="">11、Sentinel实现熔断与限流</a></h3><h3 id="12、Nacos服务注册和配置中心"><a href="#12、Nacos服务注册和配置中心" class="headerlink" title="12、Nacos服务注册和配置中心"></a><a href="">12、Nacos服务注册和配置中心</a></h3><h3 id="13、Sleuth分布式请求链路追踪"><a href="#13、Sleuth分布式请求链路追踪" class="headerlink" title="13、Sleuth分布式请求链路追踪"></a><a href="">13、Sleuth分布式请求链路追踪</a></h3><h3 id="14、Stream消息驱动"><a href="#14、Stream消息驱动" class="headerlink" title="14、Stream消息驱动"></a><a href="">14、Stream消息驱动</a></h3><h3 id="15、Bus-消息总线"><a href="#15、Bus-消息总线" class="headerlink" title="15、Bus 消息总线"></a><a href="">15、Bus 消息总线</a></h3><h3 id="16、config分布式配置中心"><a href="#16、config分布式配置中心" class="headerlink" title="16、config分布式配置中心"></a><a href="">16、config分布式配置中心</a></h3>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla</summary>
+      
+    
+    
+    
+    <category term="分布式架构技术栈" scheme="https://mykkto.github.io/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E6%9E%B6%E6%9E%84%E6%8A%80%E6%9C%AF%E6%A0%88/"/>
+    
+    
+    <category term="springcloud" scheme="https://mykkto.github.io/tags/springcloud/"/>
+    
+    <category term="springcloud alibaba" scheme="https://mykkto.github.io/tags/springcloud-alibaba/"/>
+    
+    <category term="分布式" scheme="https://mykkto.github.io/tags/%E5%88%86%E5%B8%83%E5%BC%8F/"/>
+    
+    <category term="java框架" scheme="https://mykkto.github.io/tags/java%E6%A1%86%E6%9E%B6/"/>
+    
+    <category term="合集" scheme="https://mykkto.github.io/tags/%E5%90%88%E9%9B%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>KK语录（日记）</title>
+    <link href="https://mykkto.github.io/posts/bd37926a.html"/>
+    <id>https://mykkto.github.io/posts/bd37926a.html</id>
+    <published>2022-01-10T15:12:19.000Z</published>
+    <updated>2022-01-10T15:20:15.674Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla</summary>
+      
+    
+    
+    
+    <category term="生活碎片化" scheme="https://mykkto.github.io/categories/%E7%94%9F%E6%B4%BB%E7%A2%8E%E7%89%87%E5%8C%96/"/>
+    
+    
+    <category term="日历" scheme="https://mykkto.github.io/tags/%E6%97%A5%E5%8E%86/"/>
+    
+    <category term="话痨" scheme="https://mykkto.github.io/tags/%E8%AF%9D%E7%97%A8/"/>
+    
+    <category term="语录" scheme="https://mykkto.github.io/tags/%E8%AF%AD%E5%BD%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>美文</title>
+    <link href="https://mykkto.github.io/posts/c3e91221.html"/>
+    <id>https://mykkto.github.io/posts/c3e91221.html</id>
+    <published>2022-01-10T14:33:12.000Z</published>
+    <updated>2022-01-10T14:37:01.360Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla</summary>
+      
+    
+    
+    
+    <category term="生活碎片化" scheme="https://mykkto.github.io/categories/%E7%94%9F%E6%B4%BB%E7%A2%8E%E7%89%87%E5%8C%96/"/>
+    
+    
+    <category term="美文" scheme="https://mykkto.github.io/tags/%E7%BE%8E%E6%96%87/"/>
+    
+    <category term="日历" scheme="https://mykkto.github.io/tags/%E6%97%A5%E5%8E%86/"/>
+    
+    <category term="话痨" scheme="https://mykkto.github.io/tags/%E8%AF%9D%E7%97%A8/"/>
+    
+  </entry>
+  
+  <entry>
     <title>生活碎片文章集合汇总</title>
     <link href="https://mykkto.github.io/posts/1565718c.html"/>
     <id>https://mykkto.github.io/posts/1565718c.html</id>
-    <published>2022-01-10T11:50:35.812Z</published>
-    <updated>2022-01-10T13:22:58.069Z</updated>
+    <published>2022-01-10T13:22:55.000Z</published>
+    <updated>2022-01-10T13:55:50.327Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="1、技术（较为系统编排）"><a href="#1、技术（较为系统编排）" class="headerlink" title="1、技术（较为系统编排）"></a>1、技术（较为系统编排）</h3><p>1、java数据结构与算法 ★<br><a href="https://www.jianshu.com/p/929ca9e209e8">https://www.jianshu.com/p/929ca9e209e8</a></p><p>2、java设计模式<br><a href="https://www.jianshu.com/p/63df8cd03619">https://www.jianshu.com/p/63df8cd03619</a></p><p>8、java单体架构技术栈<br><a href="https://www.jianshu.com/p/0a4a1ced23c7">https://www.jianshu.com/p/0a4a1ced23c7</a></p><p>9、java分布式架构技术栈<br><a href="https://www.jianshu.com/p/00aa796bb5b8">https://www.jianshu.com/p/00aa796bb5b8</a></p><p>10、框架之外技术栈汇总<br><a href="https://www.jianshu.com/p/d0167f082cbf">https://www.jianshu.com/p/d0167f082cbf</a></p><p>N1、内力篇汇总<br><a href="https://www.jianshu.com/p/0c8538c1d014">0-java内力——总纲 - 简书 (jianshu.com)</a></p><p>11、Liunx<br><a href="https://www.jianshu.com/p/409970d8d0f1">https://www.jianshu.com/p/409970d8d0f1</a></p><p>12、前端大杂烩<br><a href="https://www.jianshu.com/p/82fa0c99e019">https://www.jianshu.com/p/82fa0c99e019</a></p><p>13、各项目整合分解大杂烩<br><a href="https://www.jianshu.com/p/d30b07569dc3">https://www.jianshu.com/p/d30b07569dc3</a></p><p>14、面试题汇总：技术=面试题+项目总结 ★<br><a href="https://www.jianshu.com/p/5e3b81aef034">https://www.jianshu.com/p/5e3b81aef034</a></p><p>15、一些不错的网站：<br><a href="https://www.jianshu.com/p/53bf0d4a930d">https://www.jianshu.com/p/53bf0d4a930d</a></p><p>16、随性记录一小点<br><a href="https://www.jianshu.com/p/ed3159f299b4">随性记录一小点 2021-07-15至未来 </a></p><p>7、工具代码备份<br><a href="https://www.jianshu.com/p/e322e82721f4">UT-工具代码 </a></p><p>JDK各版本演变</p><p>4、netty</p><p>5、JVM【重量级】</p><p>n、大数据<br>n、前端<br>n、golang<br>n、以太坊<br>n、区块链<br>n、scala</p><h3 id="2、工作，博客，公众号等所学技术汇总"><a href="#2、工作，博客，公众号等所学技术汇总" class="headerlink" title="2、工作，博客，公众号等所学技术汇总"></a>2、工作，博客，公众号等所学技术汇总</h3><h3 id="3、心得（工作）"><a href="#3、心得（工作）" class="headerlink" title="3、心得（工作）"></a>3、心得（工作）</h3><h3 id="4、语录（感悟）"><a href="#4、语录（感悟）" class="headerlink" title="4、语录（感悟）"></a>4、语录（感悟）</h3>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="1、美文"><a href="#1、美文" class="headerlink" title="1、美文"></a>1、美文</h3><h3 id="2、语录"><a href="#2、语录" class="headerlink" title="2、语录"></a>2、语录</h3><h3 id="3、电影"><a href="#3、电影" class="headerlink" title="3、电影"></a>3、电影</h3><h3 id="4、美图"><a href="#4、美图" class="headerlink" title="4、美图"></a>4、美图</h3><h3 id="5、心得"><a href="#5、心得" class="headerlink" title="5、心得"></a>5、心得</h3>]]></content>
     
     
       
@@ -45,13 +133,13 @@
   </entry>
   
   <entry>
-    <title>(旧)简书文章过往两年纲要</title>
-    <link href="https://mykkto.github.io/posts/d74d5468748.html"/>
-    <id>https://mykkto.github.io/posts/d74d5468748.html</id>
-    <published>2022-01-10T11:50:31.071Z</published>
-    <updated>2022-01-10T11:50:31.073Z</updated>
+    <title>(新)技术文章集合汇总</title>
+    <link href="https://mykkto.github.io/posts/f747eac7.html"/>
+    <id>https://mykkto.github.io/posts/f747eac7.html</id>
+    <published>2022-01-09T14:55:55.000Z</published>
+    <updated>2022-01-10T14:28:57.099Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="1、技术（较为系统编排）"><a href="#1、技术（较为系统编排）" class="headerlink" title="1、技术（较为系统编排）"></a>1、技术（较为系统编排）</h3><p>1、java数据结构与算法 ★<br><a href="https://www.jianshu.com/p/929ca9e209e8">https://www.jianshu.com/p/929ca9e209e8</a></p><p>2、java设计模式<br><a href="https://www.jianshu.com/p/63df8cd03619">https://www.jianshu.com/p/63df8cd03619</a></p><p>8、java单体架构技术栈<br><a href="https://www.jianshu.com/p/0a4a1ced23c7">https://www.jianshu.com/p/0a4a1ced23c7</a></p><p>9、java分布式架构技术栈<br><a href="https://www.jianshu.com/p/00aa796bb5b8">https://www.jianshu.com/p/00aa796bb5b8</a></p><p>10、框架之外技术栈汇总<br><a href="https://www.jianshu.com/p/d0167f082cbf">https://www.jianshu.com/p/d0167f082cbf</a></p><p>N1、内力篇汇总<br><a href="https://www.jianshu.com/p/0c8538c1d014">0-java内力——总纲 - 简书 (jianshu.com)</a></p><p>11、Liunx<br><a href="https://www.jianshu.com/p/409970d8d0f1">https://www.jianshu.com/p/409970d8d0f1</a></p><p>12、前端大杂烩<br><a href="https://www.jianshu.com/p/82fa0c99e019">https://www.jianshu.com/p/82fa0c99e019</a></p><p>13、各项目整合分解大杂烩<br><a href="https://www.jianshu.com/p/d30b07569dc3">https://www.jianshu.com/p/d30b07569dc3</a></p><p>14、面试题汇总：技术=面试题+项目总结 ★<br><a href="https://www.jianshu.com/p/5e3b81aef034">https://www.jianshu.com/p/5e3b81aef034</a></p><p>15、一些不错的网站：<br><a href="https://www.jianshu.com/p/53bf0d4a930d">https://www.jianshu.com/p/53bf0d4a930d</a></p><p>16、随性记录一小点<br><a href="https://www.jianshu.com/p/ed3159f299b4">随性记录一小点 2021-07-15至未来 </a></p><p>7、工具代码备份<br><a href="https://www.jianshu.com/p/e322e82721f4">UT-工具代码 </a></p><p>JDK各版本演变</p><p>4、netty</p><p>5、JVM【重量级】</p><p>n、大数据<br>n、前端<br>n、golang<br>n、以太坊<br>n、区块链<br>n、scala</p><h3 id="2、工作，博客，公众号等所学技术汇总"><a href="#2、工作，博客，公众号等所学技术汇总" class="headerlink" title="2、工作，博客，公众号等所学技术汇总"></a>2、工作，博客，公众号等所学技术汇总</h3><h3 id="3、心得（工作）"><a href="#3、心得（工作）" class="headerlink" title="3、心得（工作）"></a>3、心得（工作）</h3><h3 id="4、语录（感悟）"><a href="#4、语录（感悟）" class="headerlink" title="4、语录（感悟）"></a>4、语录（感悟）</h3>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="一、技术（较为系统编排）"><a href="#一、技术（较为系统编排）" class="headerlink" title="一、技术（较为系统编排）"></a>一、技术（较为系统编排）</h3><h4 id="1、java数据结构与算法-★"><a href="#1、java数据结构与算法-★" class="headerlink" title="1、java数据结构与算法 ★"></a>1、java数据结构与算法 ★</h4><p><a href="/posts/f747eac7.html">11</a></p><p><a href="https://www.jianshu.com/p/929ca9e209e8">https://www.jianshu.com/p/929ca9e209e8</a></p><p>2、java设计模式<br><a href="https://www.jianshu.com/p/63df8cd03619">https://www.jianshu.com/p/63df8cd03619</a></p><p>8、java单体架构技术栈<br><a href="https://www.jianshu.com/p/0a4a1ced23c7">https://www.jianshu.com/p/0a4a1ced23c7</a></p><p>9、java分布式架构技术栈<br><a href="https://www.jianshu.com/p/00aa796bb5b8">https://www.jianshu.com/p/00aa796bb5b8</a></p><p>10、框架之外技术栈汇总<br><a href="https://www.jianshu.com/p/d0167f082cbf">https://www.jianshu.com/p/d0167f082cbf</a></p><p>N1、内力篇汇总<br><a href="https://www.jianshu.com/p/0c8538c1d014">0-java内力——总纲 - 简书 (jianshu.com)</a></p><p>11、Liunx<br><a href="https://www.jianshu.com/p/409970d8d0f1">https://www.jianshu.com/p/409970d8d0f1</a></p><p>12、前端大杂烩<br><a href="https://www.jianshu.com/p/82fa0c99e019">https://www.jianshu.com/p/82fa0c99e019</a></p><p>13、各项目整合分解大杂烩<br><a href="https://www.jianshu.com/p/d30b07569dc3">https://www.jianshu.com/p/d30b07569dc3</a></p><p>14、面试题汇总：技术=面试题+项目总结 ★<br><a href="https://www.jianshu.com/p/5e3b81aef034">https://www.jianshu.com/p/5e3b81aef034</a></p><p>15、一些不错的网站：<br><a href="https://www.jianshu.com/p/53bf0d4a930d">https://www.jianshu.com/p/53bf0d4a930d</a></p><p>16、随性记录一小点<br><a href="https://www.jianshu.com/p/ed3159f299b4">随性记录一小点 2021-07-15至未来 </a></p><p>7、工具代码备份<br><a href="https://www.jianshu.com/p/e322e82721f4">UT-工具代码 </a></p><p>JDK各版本演变</p><p>4、netty</p><p>5、JVM【重量级】</p><p>n、大数据<br>n、前端<br>n、golang<br>n、以太坊<br>n、区块链<br>n、scala</p><h3 id="2、工作，博客，公众号等所学技术汇总"><a href="#2、工作，博客，公众号等所学技术汇总" class="headerlink" title="2、工作，博客，公众号等所学技术汇总"></a>2、工作，博客，公众号等所学技术汇总</h3><h3 id="3、心得（工作）"><a href="#3、心得（工作）" class="headerlink" title="3、心得（工作）"></a>3、心得（工作）</h3><h3 id="4、语录（感悟）"><a href="#4、语录（感悟）" class="headerlink" title="4、语录（感悟）"></a>4、语录（感悟）</h3>]]></content>
     
     
       
@@ -71,11 +159,11 @@
   </entry>
   
   <entry>
-    <title>(新)技术文章集合汇总</title>
-    <link href="https://mykkto.github.io/posts/f747eac7.html"/>
-    <id>https://mykkto.github.io/posts/f747eac7.html</id>
-    <published>2022-01-09T14:47:33.766Z</published>
-    <updated>2022-01-10T12:48:29.878Z</updated>
+    <title>(旧)简书文章过往两年纲要</title>
+    <link href="https://mykkto.github.io/posts/d74d5468748.html"/>
+    <id>https://mykkto.github.io/posts/d74d5468748.html</id>
+    <published>2022-01-09T11:19:19.000Z</published>
+    <updated>2022-01-10T13:46:52.919Z</updated>
     
     <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="1、技术（较为系统编排）"><a href="#1、技术（较为系统编排）" class="headerlink" title="1、技术（较为系统编排）"></a>1、技术（较为系统编排）</h3><p>1、java数据结构与算法 ★<br><a href="https://www.jianshu.com/p/929ca9e209e8">https://www.jianshu.com/p/929ca9e209e8</a></p><p>2、java设计模式<br><a href="https://www.jianshu.com/p/63df8cd03619">https://www.jianshu.com/p/63df8cd03619</a></p><p>8、java单体架构技术栈<br><a href="https://www.jianshu.com/p/0a4a1ced23c7">https://www.jianshu.com/p/0a4a1ced23c7</a></p><p>9、java分布式架构技术栈<br><a href="https://www.jianshu.com/p/00aa796bb5b8">https://www.jianshu.com/p/00aa796bb5b8</a></p><p>10、框架之外技术栈汇总<br><a href="https://www.jianshu.com/p/d0167f082cbf">https://www.jianshu.com/p/d0167f082cbf</a></p><p>N1、内力篇汇总<br><a href="https://www.jianshu.com/p/0c8538c1d014">0-java内力——总纲 - 简书 (jianshu.com)</a></p><p>11、Liunx<br><a href="https://www.jianshu.com/p/409970d8d0f1">https://www.jianshu.com/p/409970d8d0f1</a></p><p>12、前端大杂烩<br><a href="https://www.jianshu.com/p/82fa0c99e019">https://www.jianshu.com/p/82fa0c99e019</a></p><p>13、各项目整合分解大杂烩<br><a href="https://www.jianshu.com/p/d30b07569dc3">https://www.jianshu.com/p/d30b07569dc3</a></p><p>14、面试题汇总：技术=面试题+项目总结 ★<br><a href="https://www.jianshu.com/p/5e3b81aef034">https://www.jianshu.com/p/5e3b81aef034</a></p><p>15、一些不错的网站：<br><a href="https://www.jianshu.com/p/53bf0d4a930d">https://www.jianshu.com/p/53bf0d4a930d</a></p><p>16、随性记录一小点<br><a href="https://www.jianshu.com/p/ed3159f299b4">随性记录一小点 2021-07-15至未来 </a></p><p>7、工具代码备份<br><a href="https://www.jianshu.com/p/e322e82721f4">UT-工具代码 </a></p><p>JDK各版本演变</p><p>4、netty</p><p>5、JVM【重量级】</p><p>n、大数据<br>n、前端<br>n、golang<br>n、以太坊<br>n、区块链<br>n、scala</p><h3 id="2、工作，博客，公众号等所学技术汇总"><a href="#2、工作，博客，公众号等所学技术汇总" class="headerlink" title="2、工作，博客，公众号等所学技术汇总"></a>2、工作，博客，公众号等所学技术汇总</h3><h3 id="3、心得（工作）"><a href="#3、心得（工作）" class="headerlink" title="3、心得（工作）"></a>3、心得（工作）</h3><h3 id="4、语录（感悟）"><a href="#4、语录（感悟）" class="headerlink" title="4、语录（感悟）"></a>4、语录（感悟）</h3>]]></content>
     
