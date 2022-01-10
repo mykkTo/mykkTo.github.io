@@ -9,14 +9,7 @@
   </url>
   
   <url>
-    <loc>https://mykkto.github.io/posts/58914314.html</loc>
-    
-    <lastmod>2022-01-10</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://mykkto.github.io/posts/bd37926a.html</loc>
+    <loc>https://mykkto.github.io/posts/f747eac7.html</loc>
     
     <lastmod>2022-01-10</lastmod>
     
@@ -30,7 +23,14 @@
   </url>
   
   <url>
-    <loc>https://mykkto.github.io/posts/f747eac7.html</loc>
+    <loc>https://mykkto.github.io/posts/58914314.html</loc>
+    
+    <lastmod>2022-01-10</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://mykkto.github.io/posts/bd37926a.html</loc>
     
     <lastmod>2022-01-10</lastmod>
     
@@ -128,14 +128,14 @@
   </url>
   
   <url>
-    <loc>https://mykkto.github.io/census/index.html</loc>
+    <loc>https://mykkto.github.io/categories/index.html</loc>
     
     <lastmod>2022-01-06</lastmod>
     
   </url>
   
   <url>
-    <loc>https://mykkto.github.io/categories/index.html</loc>
+    <loc>https://mykkto.github.io/census/index.html</loc>
     
     <lastmod>2022-01-06</lastmod>
     
@@ -291,6 +291,20 @@
 
   
   <url>
+    <loc>https://mykkto.github.io/tags/%E7%AE%80%E4%B9%A6/</loc>
+    <lastmod>2022-01-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://mykkto.github.io/tags/%E6%8A%80%E6%9C%AF%E6%80%BB%E7%BA%B2/</loc>
+    <lastmod>2022-01-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://mykkto.github.io/tags/%E7%94%9F%E6%B4%BB/</loc>
     <lastmod>2022-01-10</lastmod>
     <changefreq>daily</changefreq>
@@ -312,21 +326,7 @@
   </url>
   
   <url>
-    <loc>https://mykkto.github.io/tags/%E7%AE%80%E4%B9%A6/</loc>
-    <lastmod>2022-01-10</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://mykkto.github.io/tags/%E6%8A%80%E6%9C%AF%E6%80%BB%E7%BA%B2/</loc>
-    <lastmod>2022-01-10</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://mykkto.github.io/tags/%E8%AF%AD%E5%BD%95/</loc>
+    <loc>https://mykkto.github.io/tags/%E7%BE%8E%E6%96%87/</loc>
     <lastmod>2022-01-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -347,7 +347,7 @@
   </url>
   
   <url>
-    <loc>https://mykkto.github.io/tags/%E7%BE%8E%E6%96%87/</loc>
+    <loc>https://mykkto.github.io/tags/%E8%AF%AD%E5%BD%95/</loc>
     <lastmod>2022-01-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -389,20 +389,6 @@
   </url>
   
   <url>
-    <loc>https://mykkto.github.io/tags/hexo-blog-lucky/</loc>
-    <lastmod>2022-01-10</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://mykkto.github.io/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/</loc>
-    <lastmod>2022-01-10</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://mykkto.github.io/tags/Hexo/</loc>
     <lastmod>2022-01-10</lastmod>
     <changefreq>daily</changefreq>
@@ -418,6 +404,20 @@
   
   <url>
     <loc>https://mykkto.github.io/tags/%E5%8D%9A%E5%AE%A2/</loc>
+    <lastmod>2022-01-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://mykkto.github.io/tags/hexo-blog-lucky/</loc>
+    <lastmod>2022-01-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://mykkto.github.io/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/</loc>
     <lastmod>2022-01-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -503,14 +503,14 @@
   </url>
   
   <url>
-    <loc>https://mykkto.github.io/categories/%E5%89%8D%E7%AB%AF%E7%AF%87/</loc>
+    <loc>https://mykkto.github.io/categories/%E5%8D%9A%E5%AE%A2%E7%AF%871/%E5%8D%9A%E5%AE%A2%E7%AF%872/</loc>
     <lastmod>2022-01-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://mykkto.github.io/categories/%E5%8D%9A%E5%AE%A2%E7%AF%871/%E5%8D%9A%E5%AE%A2%E7%AF%872/</loc>
+    <loc>https://mykkto.github.io/categories/%E5%89%8D%E7%AB%AF%E7%AF%87/</loc>
     <lastmod>2022-01-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
