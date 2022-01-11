@@ -3,6 +3,11 @@
 body{
     font-family: 'Mulish', -apple-system, 'Noto Serif SC', "PingFang SC", "Microsoft Yahei UI", "Microsoft Yahei", sans-serif;
 }
+
+#mykk_tag_text_color{
+    color: rgb(28, 9, 197);
+   /* font-weight:bold;*/
+}
    
 /* 增加每日一言模块 */
 .poem-wrap {
