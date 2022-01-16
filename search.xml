@@ -4,6 +4,39 @@
   
     
     <entry>
+      <title>hexo + github 在百度和谷歌 SEO站点收录</title>
+      <link href="posts/f1d997d.html"/>
+      <url>posts/f1d997d.html</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="1、百度-seo"><a href="#1、百度-seo" class="headerlink" title="1、百度 seo"></a>1、百度 seo</h2><h3 id="1、登陆百度站长管理"><a href="#1、登陆百度站长管理" class="headerlink" title="1、登陆百度站长管理"></a>1、登陆百度站长管理</h3><p><a href="https://ziyuan.baidu.com/linksubmit/url?sitename=http://site:abc.github.io">https://ziyuan.baidu.com/linksubmit/url?sitename=http://site:abc.github.io</a></p><h3 id="2、填写自己的blog地址"><a href="#2、填写自己的blog地址" class="headerlink" title="2、填写自己的blog地址"></a>2、填写自己的blog地址</h3><p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220116214312.png"></p><h3 id="3、hexo设置校验"><a href="#3、hexo设置校验" class="headerlink" title="3、hexo设置校验"></a>3、hexo设置校验</h3><p><code>C:\Users\Administrator\Desktop\myblog\mykkTo.github.io\themes\matery\layout\_partial</code></p><p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220116215507.png"></p><h3 id="4、成功"><a href="#4、成功" class="headerlink" title="4、成功"></a>4、成功</h3><p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220116214527.png"></p><h3 id="5、站点收录"><a href="#5、站点收录" class="headerlink" title="5、站点收录"></a>5、站点收录</h3><p><code>https://mykkto.github.io/baidu_urls.txt</code></p><p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220116215941.png"></p><p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220116220224.png"></p><h2 id="2、谷歌-seo"><a href="#2、谷歌-seo" class="headerlink" title="2、谷歌 seo"></a>2、谷歌 seo</h2><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://www.jianshu.com/p/9be9b4786f97">https://www.jianshu.com/p/9be9b4786f97</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 博客 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> hexo </tag>
+            
+            <tag> github </tag>
+            
+            <tag> seo </tag>
+            
+            <tag> 百度 </tag>
+            
+            <tag> 谷歌 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>SpringCloud-Consul</title>
       <link href="posts/51c7125f.html"/>
       <url>posts/51c7125f.html</url>
