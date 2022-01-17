@@ -16,7 +16,7 @@
   </url>
   
   <url>
-    <loc>https://mykkto.github.io/posts/402d692e.html</loc>
+    <loc>https://mykkto.github.io/posts/58914314.html</loc>
     
     <lastmod>2022-01-17</lastmod>
     
@@ -30,7 +30,7 @@
   </url>
   
   <url>
-    <loc>https://mykkto.github.io/posts/58914314.html</loc>
+    <loc>https://mykkto.github.io/posts/402d692e.html</loc>
     
     <lastmod>2022-01-17</lastmod>
     
@@ -142,14 +142,14 @@
   </url>
   
   <url>
-    <loc>https://mykkto.github.io/archives/index.html</loc>
+    <loc>https://mykkto.github.io/about/index.html</loc>
     
     <lastmod>2022-01-06</lastmod>
     
   </url>
   
   <url>
-    <loc>https://mykkto.github.io/about/index.html</loc>
+    <loc>https://mykkto.github.io/archives/index.html</loc>
     
     <lastmod>2022-01-06</lastmod>
     
@@ -439,13 +439,6 @@
   
   <url>
     <loc>https://mykkto.github.io/tags/Eureka/</loc>
-    <lastmod>2022-01-17</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://mykkto.github.io/tags/SpringcCoud/</loc>
     <lastmod>2022-01-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
