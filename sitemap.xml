@@ -2,14 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://mykkto.github.io/posts/c0125b8a.html</loc>
+    <loc>https://mykkto.github.io/posts/51c7125f.html</loc>
     
     <lastmod>2022-01-17</lastmod>
     
   </url>
   
   <url>
-    <loc>https://mykkto.github.io/posts/51c7125f.html</loc>
+    <loc>https://mykkto.github.io/posts/c0125b8a.html</loc>
     
     <lastmod>2022-01-17</lastmod>
     
@@ -142,14 +142,14 @@
   </url>
   
   <url>
-    <loc>https://mykkto.github.io/about/index.html</loc>
+    <loc>https://mykkto.github.io/archives/index.html</loc>
     
     <lastmod>2022-01-06</lastmod>
     
   </url>
   
   <url>
-    <loc>https://mykkto.github.io/archives/index.html</loc>
+    <loc>https://mykkto.github.io/about/index.html</loc>
     
     <lastmod>2022-01-06</lastmod>
     
@@ -191,14 +191,14 @@
   </url>
   
   <url>
-    <loc>https://mykkto.github.io/List/galleries/%E7%94%9C%E7%BE%8E%E9%A3%9F%E5%93%81/index.html</loc>
+    <loc>https://mykkto.github.io/List/galleries/%E7%92%80%E7%92%A8%E6%98%9F%E7%A9%BA/index.html</loc>
     
     <lastmod>2022-01-06</lastmod>
     
   </url>
   
   <url>
-    <loc>https://mykkto.github.io/List/galleries/%E7%92%80%E7%92%A8%E6%98%9F%E7%A9%BA/index.html</loc>
+    <loc>https://mykkto.github.io/List/galleries/%E7%94%9C%E7%BE%8E%E9%A3%9F%E5%93%81/index.html</loc>
     
     <lastmod>2022-01-06</lastmod>
     
@@ -424,6 +424,13 @@
   </url>
   
   <url>
+    <loc>https://mykkto.github.io/tags/%E6%90%AD%E5%BB%BA/</loc>
+    <lastmod>2022-01-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://mykkto.github.io/tags/%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%E4%B8%8E%E5%8F%91%E7%8E%B0/</loc>
     <lastmod>2022-01-17</lastmod>
     <changefreq>daily</changefreq>
@@ -446,13 +453,6 @@
   
   <url>
     <loc>https://mykkto.github.io/tags/Zookeeper/</loc>
-    <lastmod>2022-01-17</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://mykkto.github.io/tags/%E6%90%AD%E5%BB%BA/</loc>
     <lastmod>2022-01-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
