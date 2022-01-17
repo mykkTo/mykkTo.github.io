@@ -191,7 +191,7 @@
     <link href="https://mykkto.github.io/posts/58914314.html"/>
     <id>https://mykkto.github.io/posts/58914314.html</id>
     <published>2022-01-10T16:42:15.000Z</published>
-    <updated>2022-01-17T15:12:11.281Z</updated>
+    <updated>2022-01-17T15:14:29.115Z</updated>
     
     <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="1、项目构建and技术选型"><a href="#1、项目构建and技术选型" class="headerlink" title="1、项目构建and技术选型"></a><a href="">1、项目构建and技术选型</a></h3><h3 id="2、Eureka服务注册与发现"><a href="#2、Eureka服务注册与发现" class="headerlink" title="2、Eureka服务注册与发现"></a><a href="">2、Eureka服务注册与发现</a></h3><h3 id="4、Consul服务注册与发现"><a href="#4、Consul服务注册与发现" class="headerlink" title="4、Consul服务注册与发现"></a><a href="">4、Consul服务注册与发现</a></h3><h3 id="5、Ribbon负载均衡服务调用"><a href="#5、Ribbon负载均衡服务调用" class="headerlink" title="5、Ribbon负载均衡服务调用"></a><a href="">5、Ribbon负载均衡服务调用</a></h3><h3 id="6、OpenFeign服务接口调用"><a href="#6、OpenFeign服务接口调用" class="headerlink" title="6、OpenFeign服务接口调用"></a><a href="">6、OpenFeign服务接口调用</a></h3><h3 id="7、Hystrix断路器"><a href="#7、Hystrix断路器" class="headerlink" title="7、Hystrix断路器"></a><a href="">7、Hystrix断路器</a></h3><h3 id="8、zuul路由网关"><a href="#8、zuul路由网关" class="headerlink" title="8、zuul路由网关"></a><a href="">8、zuul路由网关</a></h3><h3 id="9、Gateway新一代网关"><a href="#9、Gateway新一代网关" class="headerlink" title="9、Gateway新一代网关"></a><a href="">9、Gateway新一代网关</a></h3><h3 id="10、Seata处理分布式事务"><a href="#10、Seata处理分布式事务" class="headerlink" title="10、Seata处理分布式事务"></a><a href="">10、Seata处理分布式事务</a></h3><h3 id="11、Sentinel实现熔断与限流"><a href="#11、Sentinel实现熔断与限流" class="headerlink" title="11、Sentinel实现熔断与限流"></a><a href="">11、Sentinel实现熔断与限流</a></h3><h3 id="12、Nacos服务注册和配置中心"><a href="#12、Nacos服务注册和配置中心" class="headerlink" title="12、Nacos服务注册和配置中心"></a><a href="">12、Nacos服务注册和配置中心</a></h3><h3 id="13、Sleuth分布式请求链路追踪"><a href="#13、Sleuth分布式请求链路追踪" class="headerlink" title="13、Sleuth分布式请求链路追踪"></a><a href="">13、Sleuth分布式请求链路追踪</a></h3><h3 id="14、Stream消息驱动"><a href="#14、Stream消息驱动" class="headerlink" title="14、Stream消息驱动"></a><a href="">14、Stream消息驱动</a></h3><h3 id="15、Bus-消息总线"><a href="#15、Bus-消息总线" class="headerlink" title="15、Bus 消息总线"></a><a href="">15、Bus 消息总线</a></h3><h3 id="16、config分布式配置中心"><a href="#16、config分布式配置中心" class="headerlink" title="16、config分布式配置中心"></a><a href="">16、config分布式配置中心</a></h3><h2 id=""><a href="#" class="headerlink" title=""></a></h2>]]></content>
     
@@ -208,7 +208,7 @@
     
     <category term="springcloud" scheme="https://mykkto.github.io/tags/springcloud/"/>
     
-    <category term="springcloud-Alibaba" scheme="https://mykkto.github.io/tags/springcloud-Alibaba/"/>
+    <category term="springcloud-alibaba" scheme="https://mykkto.github.io/tags/springcloud-alibaba/"/>
     
     <category term="合集" scheme="https://mykkto.github.io/tags/%E5%90%88%E9%9B%86/"/>
     
