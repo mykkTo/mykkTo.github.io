@@ -53,9 +53,9 @@
       
         <tags>
             
-            <tag> SpringCloud </tag>
-            
             <tag> 服务注册与发现 </tag>
+            
+            <tag> SpringCloud </tag>
             
             <tag> Consul </tag>
             
@@ -82,7 +82,7 @@
       
         <tags>
             
-            <tag> SpringCloud </tag>
+            <tag> springcloud </tag>
             
             <tag> 服务注册与发现 </tag>
             
@@ -111,7 +111,7 @@
       
         <tags>
             
-            <tag> SpringCloud </tag>
+            <tag> springcloud </tag>
             
             <tag> 服务注册与发现 </tag>
             
@@ -140,7 +140,7 @@
       
         <tags>
             
-            <tag> SpringCloud </tag>
+            <tag> springcloud </tag>
             
             <tag> 搭建 </tag>
             
@@ -196,9 +196,9 @@
       
         <tags>
             
-            <tag> SpringCloud </tag>
+            <tag> springcloud </tag>
             
-            <tag> SpringCloud-Alibaba </tag>
+            <tag> springcloud-Alibaba </tag>
             
             <tag> 合集 </tag>
             
