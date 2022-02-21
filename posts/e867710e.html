@@ -677,21 +677,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-02-20
+                    2022-02-21
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.5k
+                    2.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    11 分
+                    12 分
                 </div>
                 
 
@@ -1109,7 +1109,35 @@ public class StreamMQMain8803 {
 <h5 id="如何解决：分组和持久化属性group"><a href="#如何解决：分组和持久化属性group" class="headerlink" title="如何解决：分组和持久化属性group"></a>如何解决：<code>分组和持久化属性group</code></h5><p>比如在如下场景中，订单系统我们做集群部署，都会从RabbitMQ中获取订单信息，<br>那<code>如果一个订单同时被两个服务获取到</code>，那么就会造成数据错误，我们得避免这种情况。<br><code>这时我们就可以使用Stream中的消息分组来解决</code></p>
 <p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220220232152.png"></p>
 <p>注意在Stream中处于同一个group中的多个消费者是竞争关系，就能够保证消息只会被其中一个应用消费一次。<br><code>不同组是可以全面消费的(重复消费)， 同一组内会发生竞争关系，只有其中一个可以消费。</code></p>
-<h3 id="5、分组"><a href="#5、分组" class="headerlink" title="5、分组"></a>5、分组</h3><h3 id="6、持久化"><a href="#6、持久化" class="headerlink" title="6、持久化"></a>6、持久化</h3>
+<h3 id="5、分组"><a href="#5、分组" class="headerlink" title="5、分组"></a>5、分组</h3><h4 id="1、原理"><a href="#1、原理" class="headerlink" title="1、原理"></a>1、原理</h4><p>微服务应用放置于同一个group中，就能够保证消息只会被其中一个应用消费一次。<br><code>不同的组是可以消费的，同一个组内会发生竞争关系，只有其中一个可以消费</code>。</p>
+<h4 id="2、划分组-不同组"><a href="#2、划分组-不同组" class="headerlink" title="2、划分组(不同组)"></a>2、划分组(不同组)</h4><ul>
+<li>8802/8803都变成不同组，group两个不同组（kkA,kkB）</li>
+<li>8802修改YML</li>
+</ul>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">group: kkA<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220221221056.png"></p>
+<ul>
+<li>8803修改YML</li>
+</ul>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">group: kkB<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220221221835.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220221223137.png"></p>
+<h4 id="3、结论-不同组"><a href="#3、结论-不同组" class="headerlink" title="3、结论(不同组)"></a>3、结论(不同组)</h4><p>不同组的还是重复消费</p>
+<h4 id="4、划分组-不同组"><a href="#4、划分组-不同组" class="headerlink" title="4、划分组(不同组)"></a>4、划分组(不同组)</h4><p>两边都配置为：kkA</p>
+<h4 id="5、结论-不同组"><a href="#5、结论-不同组" class="headerlink" title="5、结论(不同组)"></a>5、结论(不同组)</h4><p>同一个组的多个微服务实例，每次只会有一个拿到。（解决重复消费问题）</p>
+<h3 id="6、持久化"><a href="#6、持久化" class="headerlink" title="6、持久化"></a>6、持久化</h3><p>目前两个消费者8802/8803都是归类于 kkA分组</p>
+<p>1、下面要做的是将 8802分组配置注释</p>
+<p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220221230211.png"></p>
+<p>2、关闭8002/8003服务</p>
+<p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220221232008.png"></p>
+<p>3、8801先发送4条消息到rabbitmq</p>
+<p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220221232637.png"></p>
+<p>4、启动8802（无分组），没有任何打印</p>
+<p>5、启动8803（有分组），接收离线数据</p>
+<p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220221233738.png"></p>
+
                 
             </div>
             <hr/>
@@ -2000,7 +2028,7 @@ new Valine({
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">41.2k</span>&nbsp;字
+                class="white-color">41.4k</span>&nbsp;字
             
             
             
