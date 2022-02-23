@@ -4,7 +4,7 @@
   
     
     <entry>
-      <title>SpringCloud-Alibaba-Seata</title>
+      <title>SpringCloud-Alibaba-Seata 处理分布式事务</title>
       <link href="posts/e1138fa5.html"/>
       <url>posts/e1138fa5.html</url>
       
@@ -33,7 +33,7 @@
     
     
     <entry>
-      <title>SpringCloud-Alibaba-Sentinel</title>
+      <title>SpringCloud-Alibaba-Sentinel 实现熔断与限流</title>
       <link href="posts/32724da3.html"/>
       <url>posts/32724da3.html</url>
       
