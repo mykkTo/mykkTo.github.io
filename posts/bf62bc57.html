@@ -715,26 +715,26 @@
 <p>之前还是好的，可能挺久没用的权限自己关闭了，安装是docker 可以参考之前博主的简书文章 ：</p>
 <p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/f554c85b25c1">https://www.jianshu.com/p/f554c85b25c1</a></p>
 <h3 id="版本顺便说下"><a href="#版本顺便说下" class="headerlink" title="版本顺便说下"></a>版本顺便说下</h3><p>5.7.35 MySQL Community Server (GPL)</p>
-<h2 id="2、开启远程连接"><a href="#2、开启远程连接" class="headerlink" title="2、开启远程连接"></a>2、开启远程连接</h2><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">#开启远程连接
-GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'a1b2c3' WITH GRANT OPTION;
-#root 用户名
-#a1b2c3 密码<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="2、开启远程连接"><a href="#2、开启远程连接" class="headerlink" title="2、开启远程连接"></a>2、开启远程连接</h2><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment">#开启远程连接</span>
+GRANT ALL PRIVILEGES ON *.* TO <span class="token string">'root'</span>@<span class="token string">'%'</span> IDENTIFIED BY <span class="token string">'a1b2c3'</span> WITH GRANT OPTION<span class="token punctuation">;</span>
+<span class="token comment">#root 用户名</span>
+<span class="token comment">#a1b2c3 密码</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">#刷新权限，立即生效
-flush privileges;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment">#刷新权限，立即生效</span>
+flush privileges<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 
 
-<h2 id="3、修改密码"><a href="#3、修改密码" class="headerlink" title="3、修改密码"></a>3、修改密码</h2><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">#修改密码(5.7.35)
-set password = password ('a1b2c3');
+<h2 id="3、修改密码"><a href="#3、修改密码" class="headerlink" title="3、修改密码"></a>3、修改密码</h2><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment">#修改密码(5.7.35)</span>
+<span class="token builtin class-name">set</span> password <span class="token operator">=</span> password <span class="token punctuation">(</span><span class="token string">'a1b2c3'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-#修改密码（高版本 8.0+）
-update mysql.user set authentication_string=password('a1b2c3') where user='a1b2c3';
+<span class="token comment">#修改密码（高版本 8.0+）</span>
+update mysql.user <span class="token builtin class-name">set</span> <span class="token assign-left variable">authentication_string</span><span class="token operator">=</span>password<span class="token punctuation">(</span><span class="token string">'a1b2c3'</span><span class="token punctuation">)</span> where <span class="token assign-left variable">user</span><span class="token operator">=</span><span class="token string">'a1b2c3'</span><span class="token punctuation">;</span>
 
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">#刷新权限，立即生效
-flush privileges;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment">#刷新权限，立即生效</span>
+flush privileges<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 
                 
@@ -1629,7 +1629,7 @@ new Valine({
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">46.2k</span>&nbsp;字
+                class="white-color">47.8k</span>&nbsp;字
             
             
             
