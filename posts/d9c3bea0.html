@@ -688,14 +688,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    62
+                    1.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    6 分
                 </div>
                 
 
@@ -719,7 +719,238 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="一、架构"><a href="#一、架构" class="headerlink" title="一、架构"></a>一、架构</h2><h3 id="1、前言"><a href="#1、前言" class="headerlink" title="1、前言"></a>1、前言</h3><p>本来这部分是要在  <a href="/posts/af0a257d">Spring-nacos 手册</a>中 ，但是后面搭建遇到很多坑找了很多资料，就单独整理后写出这篇。</p>
-<h3 id="2、"><a href="#2、" class="headerlink" title="2、"></a>2、</h3><h3 id="3、"><a href="#3、" class="headerlink" title="3、"></a>3、</h3><h3 id="4、"><a href="#4、" class="headerlink" title="4、"></a>4、</h3><h3 id="5、"><a href="#5、" class="headerlink" title="5、"></a>5、</h3><h2 id="二、"><a href="#二、" class="headerlink" title="二、"></a>二、</h2><h3 id="1、"><a href="#1、" class="headerlink" title="1、"></a>1、</h3><h3 id="2、-1"><a href="#2、-1" class="headerlink" title="2、"></a>2、</h3><h3 id="3、-1"><a href="#3、-1" class="headerlink" title="3、"></a>3、</h3><h3 id="4、-1"><a href="#4、-1" class="headerlink" title="4、"></a>4、</h3><h3 id="5、-1"><a href="#5、-1" class="headerlink" title="5、"></a>5、</h3><h2 id="三、"><a href="#三、" class="headerlink" title="三、"></a>三、</h2><h3 id="1、-1"><a href="#1、-1" class="headerlink" title="1、"></a>1、</h3><h3 id="2、-2"><a href="#2、-2" class="headerlink" title="2、"></a>2、</h3><h3 id="3、-2"><a href="#3、-2" class="headerlink" title="3、"></a>3、</h3><h3 id="4、-2"><a href="#4、-2" class="headerlink" title="4、"></a>4、</h3><h3 id="5、-2"><a href="#5、-2" class="headerlink" title="5、"></a>5、</h3>
+<h3 id="2、架构图"><a href="#2、架构图" class="headerlink" title="2、架构图"></a>2、架构图</h3><p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220312143557.png"></p>
+<p>一个ngxin 负载 三个 nacos节点，mysql 主从两个节点</p>
+<h2 id="二、搭建-mysql-主从"><a href="#二、搭建-mysql-主从" class="headerlink" title="二、搭建 mysql 主从"></a>二、搭建 mysql 主从</h2><h3 id="1、拉取和创建"><a href="#1、拉取和创建" class="headerlink" title="1、拉取和创建"></a>1、拉取和创建</h3><pre class="line-numbers language-docker" data-language="docker"><code class="language-docker"><span class="token comment"># 1、拉取</span>
+<span class="token punctuation">[</span>root@VM_0_17_centos ~<span class="token punctuation">]</span>docker pull mysql<span class="token punctuation">:</span>5.7.13
+
+<span class="token comment"># 2、启动</span>
+<span class="token punctuation">[</span>root@VM_0_17_centos ~<span class="token punctuation">]</span>docker run <span class="token punctuation">-</span><span class="token punctuation">-</span>name master <span class="token punctuation">-</span>p 3306<span class="token punctuation">:</span>3306 <span class="token punctuation">-</span>e MYSQL_ROOT_PASSWORD=root <span class="token punctuation">-</span>d mysql<span class="token punctuation">:</span>5.7.13
+
+<span class="token comment"># 参数说明</span>
+
+<span class="token punctuation">-</span><span class="token punctuation">-</span>name 为容器指定名称，这里是master
+<span class="token punctuation">-</span>p 将容器的指定端口映射到主机的指定端口，这里是将容器的3306端口映射到主机的3306端口
+<span class="token punctuation">-</span>e 设置环境变量，这里是指定root账号的密码为root
+<span class="token punctuation">-</span>d 后台运行容器，并返回容器ID
+mysql<span class="token punctuation">:</span>5.7.13 指定运行的mysql版
+
+<span class="token comment"># 3、查看是否启动,以有容器</span>
+<span class="token punctuation">[</span>root@VM_0_17_centos ~<span class="token punctuation">]</span><span class="token comment"># docker ps -a</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h3 id="2、开放端口"><a href="#2、开放端口" class="headerlink" title="2、开放端口"></a>2、开放端口</h3><pre class="line-numbers language-linux" data-language="linux"><code class="language-linux">firewall-cmd --zone=public --add-port=3306/tcp --permanent
+
+firewall-cmd --reload
+
+
+# 说明
+--permanent 永久开启，避免下次开机需要再次手动开启端口<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+<h3 id="3、创建-主容器-的复制账号"><a href="#3、创建-主容器-的复制账号" class="headerlink" title="3、创建[主容器]的复制账号"></a>3、创建[主容器]的复制账号</h3><p>使用Navicat友好的图像化界面执行SQL</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">GRANT</span> <span class="token keyword">REPLICATION</span> SLAVE <span class="token keyword">ON</span> <span class="token operator">*</span><span class="token punctuation">.</span><span class="token operator">*</span> <span class="token keyword">to</span> <span class="token string">'backup'</span><span class="token variable">@'%'</span> identified <span class="token keyword">by</span> <span class="token string">'backup'</span><span class="token punctuation">;</span>
+<span class="token keyword">show</span> grants <span class="token keyword">for</span> <span class="token string">'backup'</span><span class="token variable">@'%'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+
+
+<h3 id="4、修改MySQL-主容器-配置环境"><a href="#4、修改MySQL-主容器-配置环境" class="headerlink" title="4、修改MySQL[主容器]配置环境"></a>4、修改MySQL[主容器]配置环境</h3><h4 id="1、创建配置文件目录，目录结构如下："><a href="#1、创建配置文件目录，目录结构如下：" class="headerlink" title="1、创建配置文件目录，目录结构如下："></a>1、创建配置文件目录，目录结构如下：</h4><p>/usr/local/mysql/master<br>/usr/local/mysql/slave1<br>/usr/local/mysql/slave2</p>
+<pre class="line-numbers language-linux" data-language="linux"><code class="language-linux">[root@VM_0_17_centos ~]# mkdir -p /usr/local/mysql/master /usr/local/mysql/slave1 /usr/local/mysql/slave2<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<h4 id="2、拷贝一份MySQL配置文件"><a href="#2、拷贝一份MySQL配置文件" class="headerlink" title="2、拷贝一份MySQL配置文件"></a>2、拷贝一份MySQL配置文件</h4><pre class="line-numbers language-linux" data-language="linux"><code class="language-linux">[root@VM_0_17_centos local]# docker cp master:/etc/mysql/my.cnf /usr/local/mysql/master/my.cnf<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<h4 id="3、进到master目录下，已存在拷贝的my-cnf"><a href="#3、进到master目录下，已存在拷贝的my-cnf" class="headerlink" title="3、进到master目录下，已存在拷贝的my.cnf"></a>3、进到master目录下，已存在拷贝的my.cnf</h4><pre class="line-numbers language-linux" data-language="linux"><code class="language-linux">[root@VM_0_17_centos master]# ll
+total 4
+-rw-r--r-- 1 root root 1801 May 10 10:27 my.cnf<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="4、修改my-cnf，在-mysqld-节点最后加上后保存"><a href="#4、修改my-cnf，在-mysqld-节点最后加上后保存" class="headerlink" title="4、修改my.cnf，在 [mysqld] 节点最后加上后保存"></a>4、修改my.cnf，在 [mysqld] 节点最后加上后保存</h4><pre class="line-numbers language-my.cnf" data-language="my.cnf"><code class="language-my.cnf">log-bin=mysql-bin
+server-id=1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p><code>log-bin=mysql-bin</code> 使用binary logging，mysql-bin是log文件名的前缀</p>
+<p><code>server-id=1</code> 唯一服务器ID，非0整数，不能和其他服务器的server-id重复</p>
+<h4 id="5、将修改后的文件覆盖Docker中MySQL中的配置文件"><a href="#5、将修改后的文件覆盖Docker中MySQL中的配置文件" class="headerlink" title="5、将修改后的文件覆盖Docker中MySQL中的配置文件"></a>5、将修改后的文件覆盖Docker中MySQL中的配置文件</h4><pre class="line-numbers language-linux" data-language="linux"><code class="language-linux">docker cp /usr/local/mysql/master/my.cnf master:/etc/mysql/my.cnf<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<h4 id="6、重启-mysql-的docker-让配置生效"><a href="#6、重启-mysql-的docker-让配置生效" class="headerlink" title="6、重启 mysql 的docker , 让配置生效"></a>6、重启 mysql 的docker , 让配置生效</h4><pre class="line-numbers language-linux" data-language="linux"><code class="language-linux">[root@VM_0_17_centos master]# docker restart master<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<h3 id="5、运行MySQL-从-容器"><a href="#5、运行MySQL-从-容器" class="headerlink" title="5、运行MySQL [从]容器"></a>5、运行MySQL [从]容器</h3><h4 id="1、首先运行从容器"><a href="#1、首先运行从容器" class="headerlink" title="1、首先运行从容器"></a>1、首先运行从容器</h4><pre class="line-numbers language-linux" data-language="linux"><code class="language-linux">[root@VM_0_17_centos ~]# docker run --name slave1 -p 3307:3306 -e MYSQL_ROOT_PASSWORD=root -d mysql:5.7.13<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<h4 id="2、与主容器相似，拷贝配置文件至slave1目录修改后覆盖回Docker中"><a href="#2、与主容器相似，拷贝配置文件至slave1目录修改后覆盖回Docker中" class="headerlink" title="2、与主容器相似，拷贝配置文件至slave1目录修改后覆盖回Docker中"></a>2、与主容器相似，拷贝配置文件至slave1目录修改后覆盖回Docker中</h4><pre class="line-numbers language-my.cof" data-language="my.cof"><code class="language-my.cof">log-bin=mysql-bin
+server-id=2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="3、别忘记，重启slave1容器，使配置生效"><a href="#3、别忘记，重启slave1容器，使配置生效" class="headerlink" title="3、别忘记，重启slave1容器，使配置生效"></a>3、别忘记，重启slave1容器，使配置生效</h4><h4 id=""><a href="#" class="headerlink" title=""></a></h4><pre class="line-numbers language-linux" data-language="linux"><code class="language-linux">[root@VM_0_17_centos master]# docker slave1 master<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<h3 id="6、配置主从复制"><a href="#6、配置主从复制" class="headerlink" title="6、配置主从复制"></a>6、配置主从复制</h3><h4 id="1、使用Navicat连接-slave1-后新建查询，执行以下SQL"><a href="#1、使用Navicat连接-slave1-后新建查询，执行以下SQL" class="headerlink" title="1、使用Navicat连接 [slave1]后新建查询，执行以下SQL"></a>1、使用Navicat连接 [slave1]后新建查询，执行以下SQL</h4><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">CHANGE MASTER <span class="token keyword">TO</span> 
+MASTER_HOST<span class="token operator">=</span><span class="token string">'连接Navicat的ip'</span><span class="token punctuation">,</span>
+MASTER_PORT<span class="token operator">=</span><span class="token number">3306</span><span class="token punctuation">,</span>
+MASTER_USER<span class="token operator">=</span><span class="token string">'backup'</span><span class="token punctuation">,</span>
+MASTER_PASSWORD<span class="token operator">=</span><span class="token string">'backup'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">START</span> SLAVE<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p>MASTER_HOST 填Navicat连接配置中的ip应该就可以</p>
+<p>MASTER_PORT 主容器的端口</p>
+<p>MASTER_USER 同步账号的用户名</p>
+<p>MASTER_PASSWORD 同步账号的密码</p>
+<h4 id="2、检查是否配置成功"><a href="#2、检查是否配置成功" class="headerlink" title="2、检查是否配置成功"></a>2、检查是否配置成功</h4><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">show</span> slave <span class="token keyword">status</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220312161305.png"></p>
+<h3 id="7、检查主从"><a href="#7、检查主从" class="headerlink" title="7、检查主从"></a>7、检查主从</h3><p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220312161712.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220312161734.png"></p>
+<h2 id="三、搭建-nacos-集群"><a href="#三、搭建-nacos-集群" class="headerlink" title="三、搭建 nacos 集群"></a>三、搭建 nacos 集群</h2><h3 id="1、前言-1"><a href="#1、前言-1" class="headerlink" title="1、前言"></a>1、前言</h3><p>docker-compose配置的源码，已经上传到 github,可直接clone ：</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/mykkTo/nacos-cluster-docker.git">https://github.com/mykkTo/nacos-cluster-docker.git</a></p>
+<h3 id="2、配置文件说明"><a href="#2、配置文件说明" class="headerlink" title="2、配置文件说明"></a>2、配置文件说明</h3><p>1、Nacos共用的<code>init.d/custom.properties</code>，与官方保持一致，按需使用</p>
+<p>2、docker-compose-nacos1.yml</p>
+<p>以 1为例， 带个都大同小异</p>
+<p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220312163817.png"></p>
+<h3 id="3、启动-nacos-集群"><a href="#3、启动-nacos-集群" class="headerlink" title="3、启动 nacos 集群"></a>3、启动 nacos 集群</h3><h4 id="1、将源代码配置修改后，分别上传到三台主机"><a href="#1、将源代码配置修改后，分别上传到三台主机" class="headerlink" title="1、将源代码配置修改后，分别上传到三台主机"></a>1、将源代码配置修改后，分别上传到三台主机</h4><ul>
+<li><strong>101.34.180.133 对应 nacos-1</strong></li>
+<li><strong>106.52.23.202 对应 nacos-2</strong></li>
+<li><strong>119.45.122.161 对应 nacos-3</strong></li>
+</ul>
+<h4 id="2、启动容器"><a href="#2、启动容器" class="headerlink" title="2、启动容器"></a>2、启动容器</h4><p>分别在各主机上进入各自对应的nacos目录中，启动容器，命令如下：</p>
+<p>133服务器：</p>
+<pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">$ cd nacos<span class="token punctuation">-</span>cluster<span class="token punctuation">-</span>docker/nacos<span class="token punctuation">-</span>1
+$ docker<span class="token punctuation">-</span>compose <span class="token punctuation">-</span>f docker<span class="token punctuation">-</span>compose<span class="token punctuation">-</span>nacos1.yml up <span class="token punctuation">-</span>d<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+
+
+<p>202服务器：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token builtin class-name">cd</span> nacos-cluster-docker/nacos-2
+$ docker-compose -f docker-compose-nacos2.yml up -d<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>161服务器：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token builtin class-name">cd</span> nacos-cluster-docker/nacos-3
+$ docker-compose -f docker-compose-nacos3.yml up -d<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h3 id="-1"><a href="#-1" class="headerlink" title=""></a></h3><h4 id="3、查看日志"><a href="#3、查看日志" class="headerlink" title="3、查看日志"></a>3、查看日志</h4><p>查看日志分别在对应的nacos-*目录下，执行</p>
+<pre class="line-numbers language-linux" data-language="linux"><code class="language-linux">tail -f cluster-logs/nacos*/nacos.log<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<h4 id="4、停止容器"><a href="#4、停止容器" class="headerlink" title="4、停止容器"></a>4、停止容器</h4><pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">$ docker<span class="token punctuation">-</span>compose <span class="token punctuation">-</span>f docker<span class="token punctuation">-</span>compose<span class="token punctuation">-</span>nacos1.yml stop<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<h4 id="5、访问Nacos-UI界面"><a href="#5、访问Nacos-UI界面" class="headerlink" title="5、访问Nacos UI界面"></a>5、访问Nacos UI界面</h4><p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/P9RM@BX1BNB%7D%8_G%7B7UT9SQ.png"></p>
+<p>这里我们看到Nacos集群各节点已经正常了，LEADER与FOLLOWER已经选出，一切正常了</p>
+<h2 id="四、nginx-负载"><a href="#四、nginx-负载" class="headerlink" title="四、nginx  负载"></a>四、nginx  负载</h2><h3 id="1、创建并启动"><a href="#1、创建并启动" class="headerlink" title="1、创建并启动"></a>1、创建并启动</h3><h4 id="1、拉取"><a href="#1、拉取" class="headerlink" title="1、拉取"></a>1、拉取</h4><pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker pull nginx<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<h4 id="2、启动"><a href="#2、启动" class="headerlink" title="2、启动"></a>2、启动</h4><pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker run <span class="token punctuation">-</span><span class="token punctuation">-</span>name nginx<span class="token punctuation">-</span>test <span class="token punctuation">-</span>p 80<span class="token punctuation">:</span>80 <span class="token punctuation">-</span>d nginx<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>– name 容器命名</p>
+<p>-v 映射目录</p>
+<p>-d 设置容器后台运行</p>
+<p>-p 本机端口映射 将容器的80端口映射到本机的80端口</p>
+<h3 id="2、映射到本地"><a href="#2、映射到本地" class="headerlink" title="2、映射到本地"></a>2、映射到本地</h3><h4 id="1、创建"><a href="#1、创建" class="headerlink" title="1、创建"></a>1、创建</h4><p>首先在本机创建nginx的一些文件存储目录</p>
+<pre class="line-numbers language-linux" data-language="linux"><code class="language-linux">mkdir -p /root/nginx/www /root/nginx/logs /root/nginx/conf<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<p><strong>www</strong>: nginx存储网站网页的目录</p>
+<p><strong>logs</strong>: nginx日志目录</p>
+<p><strong>conf</strong>: nginx配置文件目录</p>
+<h4 id="2、映射"><a href="#2、映射" class="headerlink" title="2、映射"></a>2、映射</h4><p>（1）先查看容器</p>
+<pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker ps <span class="token punctuation">-</span>a<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<p>（2）映射</p>
+<pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker cp 481e121fb29f<span class="token punctuation">:</span>/etc/nginx/nginx.conf /root/nginx/conf<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<h3 id="3、启动容器"><a href="#3、启动容器" class="headerlink" title="3、启动容器"></a>3、启动容器</h3><p>需要说明下，ngxin-test 容器是为了获得容器的配置文件，最终使用的是 nginx-web</p>
+<p>目前已经启动 nginx-test 80端口，若是 nginx-web指定的也是 80，就需要关闭 nginx-test了</p>
+<pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker stop nginx<span class="token punctuation">-</span>test<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<h4 id="1、新容器映射"><a href="#1、新容器映射" class="headerlink" title="1、新容器映射"></a>1、新容器映射</h4><p>创建新nginx容器nginx-web,并将<strong>www,logs,conf</strong>目录映射到本地</p>
+<pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker run <span class="token punctuation">-</span>d <span class="token punctuation">-</span>p 80<span class="token punctuation">:</span>80 <span class="token punctuation">-</span><span class="token punctuation">-</span>name nginx<span class="token punctuation">-</span>web <span class="token punctuation">-</span>v /root/nginx/www<span class="token punctuation">:</span>/usr/share/nginx/html <span class="token punctuation">-</span>v /root/nginx/conf/nginx.conf<span class="token punctuation">:</span>/etc/nginx/nginx.conf <span class="token punctuation">-</span>v /root/nginx/logs<span class="token punctuation">:</span>/var/log/nginx nginx<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<h4 id="2、启动-1"><a href="#2、启动-1" class="headerlink" title="2、启动"></a>2、启动</h4><pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker start nginx<span class="token punctuation">-</span>web<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<h3 id="4、配置负载均衡"><a href="#4、配置负载均衡" class="headerlink" title="4、配置负载均衡"></a>4、配置负载均衡</h3><h4 id="1、进入-配置"><a href="#1、进入-配置" class="headerlink" title="1、进入 配置"></a>1、进入 配置</h4><p>在 root 底下</p>
+<p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220312210733.png"></p>
+<h4 id="2、配置源码"><a href="#2、配置源码" class="headerlink" title="2、配置源码"></a>2、配置源码</h4><pre class="line-numbers language-nginx.conf" data-language="nginx.conf"><code class="language-nginx.conf">user  nginx;
+worker_processes  auto;
+
+error_log  /var/log/nginx/error.log notice;
+pid        /var/run/nginx.pid;
+
+
+events {
+    worker_connections  1024;
+}
+
+
+http {
+    #gzip  on;
+	upstream nacos-cluster { 
+		server 101.34.180.133:8848;
+		server 106.52.23.202:8848;
+		server 119.45.122.161:8848;
+	}
+	server {
+		listen 80;
+		location /{
+			proxy_pass http://nacos-cluster;
+		}
+	}
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p>主要的是这块</p>
+<p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220312210843.png"></p>
+<p>说明下：</p>
+<p>新手可能不太会nginx，listen 为 80 是因为你容器启动时候是 80，当访问 80的时候转到 以上三个 ip 负载轮训，还可以设置权重可以去看文档</p>
+<h4 id="3、重启"><a href="#3、重启" class="headerlink" title="3、重启"></a>3、重启</h4><pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker restart nginx<span class="token punctuation">-</span>web<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+
+
+<h2 id="五、Spring-boot连接"><a href="#五、Spring-boot连接" class="headerlink" title="五、Spring-boot连接"></a>五、Spring-boot连接</h2><h4 id="1、yml配置"><a href="#1、yml配置" class="headerlink" title="1、yml配置"></a>1、yml配置</h4><p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220312211044.png"></p>
+<h4 id="2、查看客户端"><a href="#2、查看客户端" class="headerlink" title="2、查看客户端"></a>2、查看客户端</h4><p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220312211146.png"></p>
+<h2 id="六、参考文档-↓"><a href="#六、参考文档-↓" class="headerlink" title="六、参考文档 ↓"></a>六、参考文档 ↓</h2><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/hellxz/p/nacos-cluster-docker.html">https://www.cnblogs.com/hellxz/p/nacos-cluster-docker.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://docs.docker.com/compose/install/">https://docs.docker.com/compose/install/</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/bigband/p/13515219.html">https://www.cnblogs.com/bigband/p/13515219.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://my.oschina.net/u/3773384/blog/1810111">https://my.oschina.net/u/3773384/blog/1810111</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/658911a8cff3">https://www.jianshu.com/p/658911a8cff3</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.yht7.com/news/92162">https://www.yht7.com/news/92162</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_40461281/article/details/92586378">https://blog.csdn.net/weixin_40461281/article/details/92586378</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/ilinuxer/p/6916969.html">https://www.cnblogs.com/ilinuxer/p/6916969.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_40461281/article/details/92586378">https://blog.csdn.net/weixin_40461281/article/details/92586378</a></p>
+
                 
             </div>
             <hr/>
@@ -1618,7 +1849,7 @@ new Valine({
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">48.9k</span>&nbsp;字
+                class="white-color">50.4k</span>&nbsp;字
             
             
             

@@ -838,16 +838,16 @@ spring:
 
 
 
-<h3 id="6、启动8004注册进zookeeper"><a href="#6、启动8004注册进zookeeper" class="headerlink" title="6、启动8004注册进zookeeper"></a>6、启动8004注册进zookeeper</h3><h4 id="1、liunx启动-zookeeper"><a href="#1、liunx启动-zookeeper" class="headerlink" title="1、liunx启动 zookeeper"></a>1、liunx启动 zookeeper</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">#查看执行路径
-[root@VM-0-13-centos bin]# pwd
+<h3 id="6、启动8004注册进zookeeper"><a href="#6、启动8004注册进zookeeper" class="headerlink" title="6、启动8004注册进zookeeper"></a>6、启动8004注册进zookeeper</h3><h4 id="1、liunx启动-zookeeper"><a href="#1、liunx启动-zookeeper" class="headerlink" title="1、liunx启动 zookeeper"></a>1、liunx启动 zookeeper</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment">#查看执行路径</span>
+<span class="token punctuation">[</span>root@VM-0-13-centos bin<span class="token punctuation">]</span><span class="token comment"># pwd</span>
 /root/zookeeper-3.4.9/bin
 
-#启动
-[root@VM-0-13-centos bin]# ./zkServer.sh start
-#停止
-[root@VM-0-13-centos bin]# ./zkServer.sh stop
-#重启
-[root@VM-0-13-centos bin]# ./zkServer.sh restart
+<span class="token comment">#启动</span>
+<span class="token punctuation">[</span>root@VM-0-13-centos bin<span class="token punctuation">]</span><span class="token comment"># ./zkServer.sh start</span>
+<span class="token comment">#停止</span>
+<span class="token punctuation">[</span>root@VM-0-13-centos bin<span class="token punctuation">]</span><span class="token comment"># ./zkServer.sh stop</span>
+<span class="token comment">#重启</span>
+<span class="token punctuation">[</span>root@VM-0-13-centos bin<span class="token punctuation">]</span><span class="token comment"># ./zkServer.sh restart</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
@@ -855,20 +855,20 @@ spring:
 
 
 <h3 id="7、测试"><a href="#7、测试" class="headerlink" title="7、测试"></a>7、测试</h3><h3 id="1、访问服务"><a href="#1、访问服务" class="headerlink" title="1、访问服务"></a>1、访问服务</h3><p><code>http://localhost:8004/payment/zk</code></p>
-<h3 id="2、查看服务端被是否被注册"><a href="#2、查看服务端被是否被注册" class="headerlink" title="2、查看服务端被是否被注册"></a>2、查看服务端被是否被注册</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">#进入 zookeeper客户端
-[root@VM-0-13-centos bin]# ./zkCli.sh
+<h3 id="2、查看服务端被是否被注册"><a href="#2、查看服务端被是否被注册" class="headerlink" title="2、查看服务端被是否被注册"></a>2、查看服务端被是否被注册</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment">#进入 zookeeper客户端</span>
+<span class="token punctuation">[</span>root@VM-0-13-centos bin<span class="token punctuation">]</span><span class="token comment"># ./zkCli.sh</span>
 WatchedEvent state:SyncConnected type:None path:null
 
-#查看序列
-[zk: localhost:2181(CONNECTED) 0] ls /services/cloud-provider-payment
-[a6293666-45c1-490e-adb8-bee63f121983]
+<span class="token comment">#查看序列</span>
+<span class="token punctuation">[</span>zk: localhost:2181<span class="token punctuation">(</span>CONNECTED<span class="token punctuation">)</span> <span class="token number">0</span><span class="token punctuation">]</span> <span class="token function">ls</span> /services/cloud-provider-payment
+<span class="token punctuation">[</span>a6293666-45c1-490e-adb8-bee63f121983<span class="token punctuation">]</span>
 
-#查看详细信息
-[zk: localhost:2181(CONNECTED) 1] ls /services/cloud-provider-payment/a6293666-45c1-490e-adb8-bee63f121983
-[]
+<span class="token comment">#查看详细信息</span>
+<span class="token punctuation">[</span>zk: localhost:2181<span class="token punctuation">(</span>CONNECTED<span class="token punctuation">)</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token function">ls</span> /services/cloud-provider-payment/a6293666-45c1-490e-adb8-bee63f121983
+<span class="token punctuation">[</span><span class="token punctuation">]</span>
 
-[zk: localhost:2181(CONNECTED) 2] get  /services/cloud-provider-payment/a6293666-45c1-490e-adb8-bee63f121983
-{"name":"cloud-provider-payment","id":"a6293666-45c1-490e-adb8-bee63f121983","address":"FYYX-2020GVNPLA","port":8004,"sslPort":null,"payload":{"@class":"org.springframework.cloud.zookeeper.discovery.ZookeeperInstance","id":"application-1","name":"cloud-provider-payment","metadata":{}},"registrationTimeUTC":1642423897607,"serviceType":"DYNAMIC","uriSpec":{"parts":[{"value":"scheme","variable":true},{"value":"://","variable":false},{"value":"address","variable":true},{"value":":","variable":false},{"value":"port","variable":true}]}}
+<span class="token punctuation">[</span>zk: localhost:2181<span class="token punctuation">(</span>CONNECTED<span class="token punctuation">)</span> <span class="token number">2</span><span class="token punctuation">]</span> get  /services/cloud-provider-payment/a6293666-45c1-490e-adb8-bee63f121983
+<span class="token punctuation">{</span><span class="token string">"name"</span><span class="token builtin class-name">:</span><span class="token string">"cloud-provider-payment"</span>,<span class="token string">"id"</span><span class="token builtin class-name">:</span><span class="token string">"a6293666-45c1-490e-adb8-bee63f121983"</span>,<span class="token string">"address"</span><span class="token builtin class-name">:</span><span class="token string">"FYYX-2020GVNPLA"</span>,<span class="token string">"port"</span>:8004,<span class="token string">"sslPort"</span>:null,<span class="token string">"payload"</span>:<span class="token punctuation">{</span><span class="token string">"@class"</span><span class="token builtin class-name">:</span><span class="token string">"org.springframework.cloud.zookeeper.discovery.ZookeeperInstance"</span>,<span class="token string">"id"</span><span class="token builtin class-name">:</span><span class="token string">"application-1"</span>,<span class="token string">"name"</span><span class="token builtin class-name">:</span><span class="token string">"cloud-provider-payment"</span>,<span class="token string">"metadata"</span>:<span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">}</span>,<span class="token string">"registrationTimeUTC"</span>:1642423897607,<span class="token string">"serviceType"</span><span class="token builtin class-name">:</span><span class="token string">"DYNAMIC"</span>,<span class="token string">"uriSpec"</span>:<span class="token punctuation">{</span><span class="token string">"parts"</span>:<span class="token punctuation">[</span><span class="token punctuation">{</span><span class="token string">"value"</span><span class="token builtin class-name">:</span><span class="token string">"scheme"</span>,<span class="token string">"variable"</span>:true<span class="token punctuation">}</span>,<span class="token punctuation">{</span><span class="token string">"value"</span><span class="token builtin class-name">:</span><span class="token string">"://"</span>,<span class="token string">"variable"</span>:false<span class="token punctuation">}</span>,<span class="token punctuation">{</span><span class="token string">"value"</span><span class="token builtin class-name">:</span><span class="token string">"address"</span>,<span class="token string">"variable"</span>:true<span class="token punctuation">}</span>,<span class="token punctuation">{</span><span class="token string">"value"</span><span class="token builtin class-name">:</span><span class="token string">":"</span>,<span class="token string">"variable"</span>:false<span class="token punctuation">}</span>,<span class="token punctuation">{</span><span class="token string">"value"</span><span class="token builtin class-name">:</span><span class="token string">"port"</span>,<span class="token string">"variable"</span>:true<span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">}</span><span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220117211751.png"></p>
@@ -1010,8 +1010,8 @@ spring:
 
 
 
-<h3 id="6、测试"><a href="#6、测试" class="headerlink" title="6、测试"></a>6、测试</h3><h4 id="1、zookeeper"><a href="#1、zookeeper" class="headerlink" title="1、zookeeper"></a>1、zookeeper</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">[zk: localhost:2181(CONNECTED) 21] ls /services
-[cloud-provider-payment, cloud-consumer-order]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h3 id="6、测试"><a href="#6、测试" class="headerlink" title="6、测试"></a>6、测试</h3><h4 id="1、zookeeper"><a href="#1、zookeeper" class="headerlink" title="1、zookeeper"></a>1、zookeeper</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">[</span>zk: localhost:2181<span class="token punctuation">(</span>CONNECTED<span class="token punctuation">)</span> <span class="token number">21</span><span class="token punctuation">]</span> <span class="token function">ls</span> /services
+<span class="token punctuation">[</span>cloud-provider-payment, cloud-consumer-order<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 
 
@@ -1906,7 +1906,7 @@ new Valine({
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">48.9k</span>&nbsp;字
+                class="white-color">50.4k</span>&nbsp;字
             
             
             
