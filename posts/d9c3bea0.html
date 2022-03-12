@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="SpringCloud-Alibaba-Seata 处理分布式事务, jack 计算机 写作 ">
+    <meta name="keywords" content="Nacos 高可用集群（docker-compose）, jack 计算机 写作 ">
     <meta name="description" content="专科 | 计算机与网络 | 简书作者">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -18,7 +18,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>SpringCloud-Alibaba-Seata 处理分布式事务 | jack</title>
+    <title>Nacos 高可用集群（docker-compose） | jack</title>
 
     <link rel="icon" type="image/jpeg" href="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/my1SN{XEPO)])9$A7K_JK(BNOV.jpg">
 
@@ -511,12 +511,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/mykkto/image@main/galleries/动漫风景/07.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/mykkto/image@main/galleries/动漫风景/02.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">SpringCloud-Alibaba-Seata 处理分布式事务</h1>
+                    <h1 class="description center-align post-title">Nacos 高可用集群（docker-compose）</h1>
                 </div>
             </div>
         </div>
@@ -641,12 +641,16 @@
                                 <span class="chip bg-color">springcloud-alibaba</span>
                             </a>
                         
-                            <a href="/tags/seata/">
-                                <span class="chip bg-color">seata</span>
+                            <a href="/tags/nacos/">
+                                <span class="chip bg-color">nacos</span>
                             </a>
                         
-                            <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/">
-                                <span class="chip bg-color">分布式事务</span>
+                            <a href="/tags/%E9%9B%86%E7%BE%A4/">
+                                <span class="chip bg-color">集群</span>
+                            </a>
+                        
+                            <a href="/tags/docker-compose/">
+                                <span class="chip bg-color">docker-compose</span>
                             </a>
                         
                     </div>
@@ -670,21 +674,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-03-06
+                    2022-03-12
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-02-28
+                    2022-03-12
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    20
+                    62
                 </div>
                 
 
@@ -714,7 +718,8 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><h3 id="1、"><a href="#1、" class="headerlink" title="1、"></a>1、</h3><h3 id="2、"><a href="#2、" class="headerlink" title="2、"></a>2、</h3><h3 id="3、"><a href="#3、" class="headerlink" title="3、"></a>3、</h3><h3 id="4、"><a href="#4、" class="headerlink" title="4、"></a>4、</h3><h3 id="5、"><a href="#5、" class="headerlink" title="5、"></a>5、</h3><h2 id="二、"><a href="#二、" class="headerlink" title="二、"></a>二、</h2><h3 id="1、-1"><a href="#1、-1" class="headerlink" title="1、"></a>1、</h3><h3 id="2、-1"><a href="#2、-1" class="headerlink" title="2、"></a>2、</h3><h3 id="3、-1"><a href="#3、-1" class="headerlink" title="3、"></a>3、</h3><h3 id="4、-1"><a href="#4、-1" class="headerlink" title="4、"></a>4、</h3><h3 id="5、-1"><a href="#5、-1" class="headerlink" title="5、"></a>5、</h3><h2 id="三、"><a href="#三、" class="headerlink" title="三、"></a>三、</h2><h3 id="1、-2"><a href="#1、-2" class="headerlink" title="1、"></a>1、</h3><h3 id="2、-2"><a href="#2、-2" class="headerlink" title="2、"></a>2、</h3><h3 id="3、-2"><a href="#3、-2" class="headerlink" title="3、"></a>3、</h3><h3 id="4、-2"><a href="#4、-2" class="headerlink" title="4、"></a>4、</h3><h3 id="5、-2"><a href="#5、-2" class="headerlink" title="5、"></a>5、</h3>
+                <h2 id="一、架构"><a href="#一、架构" class="headerlink" title="一、架构"></a>一、架构</h2><h3 id="1、前言"><a href="#1、前言" class="headerlink" title="1、前言"></a>1、前言</h3><p>本来这部分是要在  <a href="/posts/af0a257d">Spring-nacos 手册</a>中 ，但是后面搭建遇到很多坑找了很多资料，就单独整理后写出这篇。</p>
+<h3 id="2、"><a href="#2、" class="headerlink" title="2、"></a>2、</h3><h3 id="3、"><a href="#3、" class="headerlink" title="3、"></a>3、</h3><h3 id="4、"><a href="#4、" class="headerlink" title="4、"></a>4、</h3><h3 id="5、"><a href="#5、" class="headerlink" title="5、"></a>5、</h3><h2 id="二、"><a href="#二、" class="headerlink" title="二、"></a>二、</h2><h3 id="1、"><a href="#1、" class="headerlink" title="1、"></a>1、</h3><h3 id="2、-1"><a href="#2、-1" class="headerlink" title="2、"></a>2、</h3><h3 id="3、-1"><a href="#3、-1" class="headerlink" title="3、"></a>3、</h3><h3 id="4、-1"><a href="#4、-1" class="headerlink" title="4、"></a>4、</h3><h3 id="5、-1"><a href="#5、-1" class="headerlink" title="5、"></a>5、</h3><h2 id="三、"><a href="#三、" class="headerlink" title="三、"></a>三、</h2><h3 id="1、-1"><a href="#1、-1" class="headerlink" title="1、"></a>1、</h3><h3 id="2、-2"><a href="#2、-2" class="headerlink" title="2、"></a>2、</h3><h3 id="3、-2"><a href="#3、-2" class="headerlink" title="3、"></a>3、</h3><h3 id="4、-2"><a href="#4、-2" class="headerlink" title="4、"></a>4、</h3><h3 id="5、-2"><a href="#5、-2" class="headerlink" title="5、"></a>5、</h3>
                 
             </div>
             <hr/>
@@ -740,7 +745,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://mykkto.github.io/posts/e1138fa5.html">https://mykkto.github.io/posts/e1138fa5.html</a>
+                    <a href="https://mykkto.github.io/posts/d9c3bea0.html">https://mykkto.github.io/posts/d9c3bea0.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -782,12 +787,16 @@
                                     <span class="chip bg-color">springcloud-alibaba</span>
                                 </a>
                             
-                                <a href="/tags/seata/">
-                                    <span class="chip bg-color">seata</span>
+                                <a href="/tags/nacos/">
+                                    <span class="chip bg-color">nacos</span>
                                 </a>
                             
-                                <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/">
-                                    <span class="chip bg-color">分布式事务</span>
+                                <a href="/tags/%E9%9B%86%E7%BE%A4/">
+                                    <span class="chip bg-color">集群</span>
+                                </a>
+                            
+                                <a href="/tags/docker-compose/">
+                                    <span class="chip bg-color">docker-compose</span>
                                 </a>
                             
                         </div>
@@ -1259,9 +1268,72 @@ new Valine({
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/posts/d9c3bea0.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/mykkto/image@main/galleries/动漫风景/02.jpg" class="responsive-img" alt="Nacos 高可用集群（docker-compose）">
+                        
+                        <span class="card-title">Nacos 高可用集群（docker-compose）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            这篇文章本来是要写进 nacos学习手册，但是后面搭建遇到很多坑找了很多资料，就单独整理后写出这篇。
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-12 11:17:13
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E6%8A%80%E6%9C%AF%E6%A0%88/" class="post-category">
+                                    分布式技术栈
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/springcloud-alibaba/">
+                        <span class="chip bg-color">springcloud-alibaba</span>
+                    </a>
+                    
+                    <a href="/tags/nacos/">
+                        <span class="chip bg-color">nacos</span>
+                    </a>
+                    
+                    <a href="/tags/%E9%9B%86%E7%BE%A4/">
+                        <span class="chip bg-color">集群</span>
+                    </a>
+                    
+                    <a href="/tags/docker-compose/">
+                        <span class="chip bg-color">docker-compose</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/posts/3fb37166.html">
                     <div class="card-image">
@@ -1279,9 +1351,9 @@ new Valine({
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-03-09 21:32:10
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-09 21:32:10
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1307,67 +1379,6 @@ new Valine({
                     
                     <a href="/tags/JUC/">
                         <span class="chip bg-color">JUC</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/posts/32724da3.html">
-                    <div class="card-image">
-                        
-                        
-                        <img src="https://cdn.jsdelivr.net/gh/mykkto/image@main/galleries/动漫风景/09.jpg" class="responsive-img" alt="SpringCloud-Alibaba-Sentinel 实现熔断与限流">
-                        
-                        <span class="card-title">SpringCloud-Alibaba-Sentinel 实现熔断与限流</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            阿里开源的轻量级流量限制和熔断器
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-02 19:17:13
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E6%8A%80%E6%9C%AF%E6%A0%88/" class="post-category">
-                                    分布式技术栈
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/springcloud-alibaba/">
-                        <span class="chip bg-color">springcloud-alibaba</span>
-                    </a>
-                    
-                    <a href="/tags/%E7%86%94%E6%96%AD%E5%99%A8/">
-                        <span class="chip bg-color">熔断器</span>
-                    </a>
-                    
-                    <a href="/tags/sentinel/">
-                        <span class="chip bg-color">sentinel</span>
-                    </a>
-                    
-                    <a href="/tags/%E9%99%90%E6%B5%81/">
-                        <span class="chip bg-color">限流</span>
                     </a>
                     
                 </div>

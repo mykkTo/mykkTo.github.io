@@ -645,6 +645,10 @@
                                 <span class="chip bg-color">linux</span>
                             </a>
                         
+                            <a href="/tags/mysql/">
+                                <span class="chip bg-color">mysql</span>
+                            </a>
+                        
                     </div>
                     
                 </div>
@@ -653,8 +657,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/mysql/" class="post-category">
-                                mysql
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="post-category">
+                                数据库
                             </a>
                         
                     </div>
@@ -673,7 +677,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-01-31
+                    2022-03-12
                 </div>
                 
 
@@ -710,31 +714,31 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="1、前言"><a href="#1、前言" class="headerlink" title="1、前言"></a>1、前言</h2><p>最近快过年了，过去肯定是要敲代码，写博文的，近期在写SpringCloud全家桶，数据库一直是在本地，想着还有几台云机在云上运行着，于是连接了下，出现了如下问题：</p>
+                <h2 id="1、前言"><a href="#1、前言" class="headerlink" title="1、前言"></a>1、前言</h2><p>最近快过年了，回去肯定是要敲代码，写博文的，近期在写SpringCloud全家桶，数据库一直是在本地，想着还有几台云机在云上运行着，于是连接了下，出现了如下问题：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/sjfhgjhfg84.jpg"></p>
 <p>之前还是好的，可能挺久没用的权限自己关闭了，安装是docker 可以参考之前博主的简书文章 ：</p>
 <p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/f554c85b25c1">https://www.jianshu.com/p/f554c85b25c1</a></p>
 <h3 id="版本顺便说下"><a href="#版本顺便说下" class="headerlink" title="版本顺便说下"></a>版本顺便说下</h3><p>5.7.35 MySQL Community Server (GPL)</p>
-<h2 id="2、开启远程连接"><a href="#2、开启远程连接" class="headerlink" title="2、开启远程连接"></a>2、开启远程连接</h2><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">#开启远程连接
-GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'a1b2c3' WITH GRANT OPTION;
-#root 用户名
-#a1b2c3 密码<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="2、开启远程连接"><a href="#2、开启远程连接" class="headerlink" title="2、开启远程连接"></a>2、开启远程连接</h2><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment">#开启远程连接</span>
+GRANT ALL PRIVILEGES ON *.* TO <span class="token string">'root'</span>@<span class="token string">'%'</span> IDENTIFIED BY <span class="token string">'a1b2c3'</span> WITH GRANT OPTION<span class="token punctuation">;</span>
+<span class="token comment">#root 用户名</span>
+<span class="token comment">#a1b2c3 密码</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">#刷新权限，立即生效
-flush privileges;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment">#刷新权限，立即生效</span>
+flush privileges<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 
 
-<h2 id="3、修改密码"><a href="#3、修改密码" class="headerlink" title="3、修改密码"></a>3、修改密码</h2><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">#修改密码(5.7.35)
-set password = password ('a1b2c3');
+<h2 id="3、修改密码"><a href="#3、修改密码" class="headerlink" title="3、修改密码"></a>3、修改密码</h2><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment">#修改密码(5.7.35)</span>
+<span class="token builtin class-name">set</span> password <span class="token operator">=</span> password <span class="token punctuation">(</span><span class="token string">'a1b2c3'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-#修改密码（高版本 8.0+）
-update mysql.user set authentication_string=password('a1b2c3') where user='a1b2c3';
+<span class="token comment">#修改密码（高版本 8.0+）</span>
+update mysql.user <span class="token builtin class-name">set</span> <span class="token assign-left variable">authentication_string</span><span class="token operator">=</span>password<span class="token punctuation">(</span><span class="token string">'a1b2c3'</span><span class="token punctuation">)</span> where <span class="token assign-left variable">user</span><span class="token operator">=</span><span class="token string">'a1b2c3'</span><span class="token punctuation">;</span>
 
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">#刷新权限，立即生效
-flush privileges;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment">#刷新权限，立即生效</span>
+flush privileges<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 
                 
@@ -806,6 +810,10 @@ flush privileges;<span aria-hidden="true" class="line-numbers-rows"><span></span
                             
                                 <a href="/tags/linux/">
                                     <span class="chip bg-color">linux</span>
+                                </a>
+                            
+                                <a href="/tags/mysql/">
+                                    <span class="chip bg-color">mysql</span>
                                 </a>
                             
                         </div>
@@ -1285,15 +1293,15 @@ new Valine({
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/mykkto/image@main/galleries/动漫插画/14.jpg" class="responsive-img" alt="SpringCloud-Zuul路由网关">
+                        <img src="https://cdn.jsdelivr.net/gh/mykkto/image@main/galleries/动漫风景/10.jpg" class="responsive-img" alt="SpringCloud-Gaywayl路由网关">
                         
-                        <span class="card-title">SpringCloud-Zuul路由网关</span>
+                        <span class="card-title">SpringCloud-Gaywayl路由网关</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            阿里开源的新一代网关，比起 netflix 的 zuul性能优越很多！
+                            阿里开源的新一代网关 Gayway ，比起 netflix 的 zuul性能优越很多！
                         
                     </div>
                     <div class="publish-info">
@@ -1629,7 +1637,7 @@ new Valine({
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">48.8k</span>&nbsp;字
+                class="white-color">48.9k</span>&nbsp;字
             
             
             
