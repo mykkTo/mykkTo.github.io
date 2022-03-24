@@ -670,21 +670,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-03-06
+                    2022-03-25
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-02-28
+                    2022-03-24
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    20
+                    193
                 </div>
                 
 
@@ -714,7 +714,14 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><h3 id="1、"><a href="#1、" class="headerlink" title="1、"></a>1、</h3><h3 id="2、"><a href="#2、" class="headerlink" title="2、"></a>2、</h3><h3 id="3、"><a href="#3、" class="headerlink" title="3、"></a>3、</h3><h3 id="4、"><a href="#4、" class="headerlink" title="4、"></a>4、</h3><h3 id="5、"><a href="#5、" class="headerlink" title="5、"></a>5、</h3><h2 id="二、"><a href="#二、" class="headerlink" title="二、"></a>二、</h2><h3 id="1、-1"><a href="#1、-1" class="headerlink" title="1、"></a>1、</h3><h3 id="2、-1"><a href="#2、-1" class="headerlink" title="2、"></a>2、</h3><h3 id="3、-1"><a href="#3、-1" class="headerlink" title="3、"></a>3、</h3><h3 id="4、-1"><a href="#4、-1" class="headerlink" title="4、"></a>4、</h3><h3 id="5、-1"><a href="#5、-1" class="headerlink" title="5、"></a>5、</h3><h2 id="三、"><a href="#三、" class="headerlink" title="三、"></a>三、</h2><h3 id="1、-2"><a href="#1、-2" class="headerlink" title="1、"></a>1、</h3><h3 id="2、-2"><a href="#2、-2" class="headerlink" title="2、"></a>2、</h3><h3 id="3、-2"><a href="#3、-2" class="headerlink" title="3、"></a>3、</h3><h3 id="4、-2"><a href="#4、-2" class="headerlink" title="4、"></a>4、</h3><h3 id="5、-2"><a href="#5、-2" class="headerlink" title="5、"></a>5、</h3>
+                <h2 id="一、分布式事务问题"><a href="#一、分布式事务问题" class="headerlink" title="一、分布式事务问题"></a>一、分布式事务问题</h2><h3 id="1、分布式前"><a href="#1、分布式前" class="headerlink" title="1、分布式前"></a>1、分布式前</h3><ul>
+<li>单机单库没这个问题</li>
+<li>从1：1  -&gt;  1：N  -&gt;  N：N</li>
+</ul>
+<h3 id="2、分布式之后"><a href="#2、分布式之后" class="headerlink" title="2、分布式之后"></a>2、分布式之后</h3><p>单体应用被拆分成微服务应用，原来的<code>三个模块</code>被拆分成<code>三个独立的应用</code>，分别使用三<code>个独立的数据源</code>，<br>业务操作需要调用三个服务来完成。此时<strong>每个服务内部的数据一致性由<code>本地</code>**事务来保证，但是<code>全局</code>**的数据一致性问题没法保证</strong>。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220324225229.png"></p>
+<h3 id="3、一句话"><a href="#3、一句话" class="headerlink" title="3、一句话"></a>3、一句话</h3><p>一次业务操作需要跨多个数据源或需要跨多个系统进行远程调用，就会产生分布式事务问题</p>
+<h2 id="二、Seata简介"><a href="#二、Seata简介" class="headerlink" title="二、Seata简介"></a>二、Seata简介</h2><h3 id="1、"><a href="#1、" class="headerlink" title="1、"></a>1、</h3><h3 id="2、"><a href="#2、" class="headerlink" title="2、"></a>2、</h3><h3 id="3、"><a href="#3、" class="headerlink" title="3、"></a>3、</h3><h3 id="4、"><a href="#4、" class="headerlink" title="4、"></a>4、</h3><h3 id="5、"><a href="#5、" class="headerlink" title="5、"></a>5、</h3><h2 id="三、Seata-Server安装"><a href="#三、Seata-Server安装" class="headerlink" title="三、Seata-Server安装"></a>三、Seata-Server安装</h2><h3 id="1、-1"><a href="#1、-1" class="headerlink" title="1、"></a>1、</h3><h3 id="2、-1"><a href="#2、-1" class="headerlink" title="2、"></a>2、</h3><h3 id="3、-1"><a href="#3、-1" class="headerlink" title="3、"></a>3、</h3><h3 id="4、-1"><a href="#4、-1" class="headerlink" title="4、"></a>4、</h3><h3 id="5、-1"><a href="#5、-1" class="headerlink" title="5、"></a>5、</h3>
                 
             </div>
             <hr/>
@@ -1259,54 +1266,56 @@ new Valine({
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/posts/3fb37166.html">
+                <a href="/posts/e1138fa5.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/mykkto/image@main/galleries/动漫插画/07.jpg" class="responsive-img" alt="高阶面试题：JUC-AQS">
+                        <img src="https://cdn.jsdelivr.net/gh/mykkto/image@main/galleries/动漫风景/07.jpg" class="responsive-img" alt="SpringCloud-Alibaba-Seata 处理分布式事务">
                         
-                        <span class="card-title">高阶面试题：JUC-AQS</span>
+                        <span class="card-title">SpringCloud-Alibaba-Seata 处理分布式事务</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            AQS是JUC多线程中重要的基石，也是java高频面试题，作为程序员你必须会！
+                            Seata是一款开源的分布式事务解决方案，致力于在微服务架构下提供高性能和简单易用的分布式事务服务。
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-03-09 21:32:10
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-25 20:11:33
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/" class="post-category">
-                                    面试题
+                            <a href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E6%8A%80%E6%9C%AF%E6%A0%88/" class="post-category">
+                                    分布式技术栈
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/AQS/">
-                        <span class="chip bg-color">AQS</span>
+                    <a href="/tags/springcloud-alibaba/">
+                        <span class="chip bg-color">springcloud-alibaba</span>
                     </a>
                     
-                    <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">
-                        <span class="chip bg-color">多线程</span>
+                    <a href="/tags/seata/">
+                        <span class="chip bg-color">seata</span>
                     </a>
                     
-                    <a href="/tags/JUC/">
-                        <span class="chip bg-color">JUC</span>
+                    <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/">
+                        <span class="chip bg-color">分布式事务</span>
                     </a>
                     
                 </div>
@@ -1320,31 +1329,31 @@ new Valine({
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/42dbeac3.html">
+                <a href="/posts/829b453d.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/mykkto/image@main/galleries/动漫插画/13.jpg" class="responsive-img" alt="Oracle11g(docker版)">
+                        <img src="https://cdn.jsdelivr.net/gh/mykkto/image@main/galleries/动漫风景/15.jpg" class="responsive-img" alt="云主机部署并同步更新二级域名">
                         
-                        <span class="card-title">Oracle11g(docker版)</span>
+                        <span class="card-title">云主机部署并同步更新二级域名</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            众所周知，云原生时代，安装用docker特别快
+                            建站初期是托管在github二级域名底下，现在独立域名，采用的是nginx反向代理+hexo+shell
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-28 12:49:31
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-20 16:17:13
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="post-category">
-                                    数据库
+                            <a href="/categories/%E5%8D%9A%E5%AE%A2/" class="post-category">
+                                    博客
                                 </a>
                             
                             
@@ -1354,16 +1363,16 @@ new Valine({
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/oracle/">
-                        <span class="chip bg-color">oracle</span>
+                    <a href="/tags/blog/">
+                        <span class="chip bg-color">blog</span>
                     </a>
                     
-                    <a href="/tags/docker/">
-                        <span class="chip bg-color">docker</span>
+                    <a href="/tags/%E9%83%A8%E7%BD%B2/">
+                        <span class="chip bg-color">部署</span>
                     </a>
                     
-                    <a href="/tags/%E5%AE%89%E8%A3%85/">
-                        <span class="chip bg-color">安装</span>
+                    <a href="/tags/%E5%B0%8F%E5%A7%BF%E5%8A%BF/">
+                        <span class="chip bg-color">小姿势</span>
                     </a>
                     
                 </div>
@@ -1603,7 +1612,7 @@ new Valine({
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">57.3k</span>&nbsp;字
+                class="white-color">57.5k</span>&nbsp;字
             
             
             
