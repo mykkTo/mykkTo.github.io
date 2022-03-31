@@ -677,21 +677,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-03-09
+                    2022-03-30
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1k
+                    1.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    5 分
                 </div>
                 
 
@@ -786,9 +786,44 @@
 <p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220224162531.png"></p>
 <h3 id="3、AQS同步队列的基本结构"><a href="#3、AQS同步队列的基本结构" class="headerlink" title="3、AQS同步队列的基本结构"></a>3、AQS同步队列的基本结构</h3><p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220301135124.png"></p>
 <p>CLH：Craig、Landin and Hagersten 队列，是个单向链表，AQS中的队列是CLH变体的虚拟双向队列（FIFO）</p>
-<h2 id="五、从ReentrantLock开始解读AQS"><a href="#五、从ReentrantLock开始解读AQS" class="headerlink" title="五、从ReentrantLock开始解读AQS"></a>五、从ReentrantLock开始解读AQS</h2><h2 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h2><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/tong-yuan/p/11768904.html">https://www.cnblogs.com/tong-yuan/p/11768904.html</a></p>
+<p>FIFO：队列中用到了哨兵节点（傀儡节点）既，头节点（好处就是不用去判空，因为有头节点）</p>
+<h2 id="五、从ReentrantLock开始解读AQS"><a href="#五、从ReentrantLock开始解读AQS" class="headerlink" title="五、从ReentrantLock开始解读AQS"></a>五、从ReentrantLock开始解读AQS</h2><h3 id="1、说明"><a href="#1、说明" class="headerlink" title="1、说明"></a>1、说明</h3><p><strong>Lock接口的实现类，基本都是通过【聚合】了一个【队列同步器】的子类完成线程访问控制的</strong></p>
+<p>1、可以看出内部子类 Sync，继承了 AQS </p>
+<p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220329210645.png"></p>
+<p>2、看下类 UML图，Sync 底下又有两个子类（分别为公平和非公平）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220329211351.png"></p>
+<h3 id="2、公平锁和非公平锁"><a href="#2、公平锁和非公平锁" class="headerlink" title="2、公平锁和非公平锁"></a>2、公平锁和非公平锁</h3><h4 id="1、先从创建入手"><a href="#1、先从创建入手" class="headerlink" title="1、先从创建入手"></a>1、先从创建入手</h4><p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220329211608.png"></p>
+<h4 id="2、追溯"><a href="#2、追溯" class="headerlink" title="2、追溯"></a>2、追溯</h4><p>1、默认构造方法，默认不传参构造</p>
+<p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220329213723.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220329213641.png"></p>
+<p>2、带参传入，此时判断是非公平还是公平</p>
+<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1648561077377.png" alt="1648561077377"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220329213816.png"></p>
+<p>3、很明显这是两个类，分别继承与Sync，上面有提到</p>
+<p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220329213915.png"></p>
+<h4 id="3、看源码"><a href="#3、看源码" class="headerlink" title="3、看源码"></a>3、看源码</h4><h5 id="1、看差异"><a href="#1、看差异" class="headerlink" title="1、看差异"></a>1、看差异</h5><p>1、可以明显看出公平锁与非公平锁的lock()方法唯一的区别就在于公平锁在获取同步状态时多了一个限制条件 <code>hasQueuedPredecessors()</code></p>
+<p><strong>hasQueuedPredecessors是公平锁加锁时判断等待队列中是否存在有效节点的方法</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220329214203.png"></p>
+<h5 id="2、对比"><a href="#2、对比" class="headerlink" title="2、对比"></a>2、对比</h5><p>公平锁：公平锁讲究先来先到，线程在获取锁时，如果这个锁的等待队列中已经有线程在等待，那么当前线程就会进入等待队列中；</p>
+<p>非公平锁：不管是否有等待队列，如果可以获取锁，则立刻占有锁对象。也就是说队列的第一个排队线程在unpark()，之后还是需要竞争锁（存在线程竞争的情况下）</p>
+<h5 id="3、必调-lock"><a href="#3、必调-lock" class="headerlink" title="3、必调 lock()"></a>3、必调 lock()</h5><p>在创建完公平/非公平锁，调用<code>lock</code>方法进行加锁，最终都会调用 <code>acquire</code> 方法</p>
+<p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220329221223.png"></p>
+<h3 id="3、源码Api解读"><a href="#3、源码Api解读" class="headerlink" title="3、源码Api解读"></a>3、源码Api解读</h3><h4 id="1、lock"><a href="#1、lock" class="headerlink" title="1、lock()"></a>1、lock()</h4><p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220329221703.png"></p>
+<h4 id="2、acquire"><a href="#2、acquire" class="headerlink" title="2、acquire()"></a>2、acquire()</h4><p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220329223153.png"></p>
+<p><strong>三个走向</strong></p>
+<p>1、tryAcquire() -&gt; tryAcquire () 由于子类 <code>FairSync</code> 实现</p>
+<p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220329223909.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220329223835.png"></p>
+<p>2、调用 addWaiter() -&gt; enq() 入队操作</p>
+<p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220329224108.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220329224256.png"></p>
+<p>3、acquireQueued() -&gt; cancelAcquire()</p>
+<p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220329225026.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220329225124.png"></p>
+<h2 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h2><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/tong-yuan/p/11768904.html">https://www.cnblogs.com/tong-yuan/p/11768904.html</a></p>
 <p><a target="_blank" rel="noopener" href="https://baijiahao.baidu.com/s?id=1718317852417206951&amp;wfr=spider&amp;for=pc">https://baijiahao.baidu.com/s?id=1718317852417206951&amp;wfr=spider&amp;for=pc</a></p>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/hengyunabc/article/details/28126139">https://blog.csdn.net/hengyunabc/article/details/28126139</a></p>
+<p>哨兵节点解读：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/litexy/p/9749544.html">https://www.cnblogs.com/litexy/p/9749544.html</a></p>
 
                 
             </div>
@@ -1682,7 +1717,7 @@ new Valine({
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">65k</span>&nbsp;字
+                class="white-color">66k</span>&nbsp;字
             
             
             

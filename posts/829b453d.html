@@ -677,21 +677,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-03-21
+                    2022-03-31
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    538
+                    1.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    5 分
                 </div>
                 
 
@@ -757,19 +757,19 @@
 
 
 
-<h3 id=""><a href="#" class="headerlink" title=""></a></h3><h2 id="二、下载git"><a href="#二、下载git" class="headerlink" title="二、下载git"></a>二、下载git</h2><h4 id="1、下载"><a href="#1、下载" class="headerlink" title="1、下载"></a>1、下载</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">yum <span class="token function">install</span> <span class="token function">git</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id=""><a href="#" class="headerlink" title=""></a></h3><h2 id="二、下载git"><a href="#二、下载git" class="headerlink" title="二、下载git"></a>二、下载git</h2><h3 id="1、下载"><a href="#1、下载" class="headerlink" title="1、下载"></a>1、下载</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">yum <span class="token function">install</span> <span class="token function">git</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 
 
-<h4 id="2、配置github-代理"><a href="#2、配置github-代理" class="headerlink" title="2、配置github 代理"></a>2、配置github 代理</h4><pre class="line-numbers language-git" data-language="git"><code class="language-git">git config --global url.<span class="token string">"https://ghproxy.com/https://github.com"</span>.insteadOf <span class="token string">"https://github.com"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="2、配置github-代理"><a href="#2、配置github-代理" class="headerlink" title="2、配置github 代理"></a>2、配置github 代理</h3><pre class="line-numbers language-git" data-language="git"><code class="language-git">git config --global url.<span class="token string">"https://ghproxy.com/https://github.com"</span>.insteadOf <span class="token string">"https://github.com"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 
 
-<h4 id="3、拉取"><a href="#3、拉取" class="headerlink" title="3、拉取"></a>3、拉取</h4><pre class="line-numbers language-git" data-language="git"><code class="language-git">git clone  https://github.com/mykkTo/mykkTo.github.io.git<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="3、拉取"><a href="#3、拉取" class="headerlink" title="3、拉取"></a>3、拉取</h3><pre class="line-numbers language-git" data-language="git"><code class="language-git">git clone  https://github.com/mykkTo/mykkTo.github.io.git<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 
 
-<h4 id="4、剪切文件"><a href="#4、剪切文件" class="headerlink" title="4、剪切文件"></a>4、剪切文件</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">mv</span> /root/nginx/www/mykkTo.github.io/* /root/nginx/www<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="4、剪切文件"><a href="#4、剪切文件" class="headerlink" title="4、剪切文件"></a>4、剪切文件</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">mv</span> /root/nginx/www/mykkTo.github.io/* /root/nginx/www<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 
 
@@ -777,7 +777,7 @@
 
 
 
-<h2 id="三、定时任务"><a href="#三、定时任务" class="headerlink" title="三、定时任务"></a>三、定时任务</h2><h4 id="1、编写shell脚本"><a href="#1、编写shell脚本" class="headerlink" title="1、编写shell脚本"></a>1、编写shell脚本</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token shebang important">#!/bin/bash</span>
+<h2 id="三、定时任务"><a href="#三、定时任务" class="headerlink" title="三、定时任务"></a>三、定时任务</h2><h3 id="1、编写shell脚本"><a href="#1、编写shell脚本" class="headerlink" title="1、编写shell脚本"></a>1、编写shell脚本</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token shebang important">#!/bin/bash</span>
 <span class="token comment">#删除原始静态页面数据以及拉取的文件夹</span>
 <span class="token function">rm</span> -rf /root/nginx/www/*
 <span class="token function">rm</span> -rf /root/nginx/mykkTo.github.iopwd
@@ -795,18 +795,120 @@
 
 
 
-<h4 id="2、创建定时任务"><a href="#2、创建定时任务" class="headerlink" title="2、创建定时任务"></a>2、创建定时任务</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">crontab</span> -e<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="2、创建定时任务"><a href="#2、创建定时任务" class="headerlink" title="2、创建定时任务"></a>2、创建定时任务</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">crontab</span> -e<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220321202335.png"></p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">service</span> crond start<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 
 
+<h2 id="四、SSL证书"><a href="#四、SSL证书" class="headerlink" title="四、SSL证书"></a>四、SSL证书</h2><h3 id="1、是什么"><a href="#1、是什么" class="headerlink" title="1、是什么"></a>1、是什么</h3><p>数据加密：开启 HTTPS 绿色加密通道，网站数据的加密传输，防止网站核心数据被窃取或篡改。</p>
+<p>简单来说，就是把 http 访问的变成 https，并且浏览器显示安全，不在是不安全了</p>
+<h3 id="2、获取证书"><a href="#2、获取证书" class="headerlink" title="2、获取证书"></a>2、获取证书</h3><h4 id="1、下载-1"><a href="#1、下载-1" class="headerlink" title="1、下载"></a>1、下载</h4><p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220331205350.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220331205411.png"></p>
+<h4 id="2、上传到服务器并解压"><a href="#2、上传到服务器并解压" class="headerlink" title="2、上传到服务器并解压"></a>2、上传到服务器并解压</h4><p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220331205527.png"></p>
+<h3 id="3、重挂载"><a href="#3、重挂载" class="headerlink" title="3、重挂载"></a>3、重挂载</h3><h4 id="1、删掉之前的容器"><a href="#1、删掉之前的容器" class="headerlink" title="1、删掉之前的容器"></a>1、删掉之前的容器</h4><pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker rm <span class="token punctuation">-</span>f nginx<span class="token punctuation">-</span>web<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 
-<h2 id="参考-↓"><a href="#参考-↓" class="headerlink" title="参考 ↓"></a>参考 ↓</h2><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/zltech/p/13517231.html">https://www.cnblogs.com/zltech/p/13517231.html</a></p>
+
+<h4 id="2、重新挂载"><a href="#2、重新挂载" class="headerlink" title="2、重新挂载"></a>2、重新挂载</h4><p>1、新增了 443端口映射，目录挂载</p>
+<p>2、容器外，在nginx底下，创建新目录</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">mkdir</span>   lls<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220331204305.png"></p>
+<p>3、创建容器</p>
+<p>多加了两个配置</p>
+<pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker run <span class="token punctuation">-</span>d <span class="token punctuation">-</span>p 443<span class="token punctuation">:</span>443 <span class="token punctuation">-</span>p 80<span class="token punctuation">:</span>80 <span class="token punctuation">-</span><span class="token punctuation">-</span>name nginx<span class="token punctuation">-</span>web <span class="token punctuation">-</span>v /root/nginx/www<span class="token punctuation">:</span>/usr/share/nginx/html <span class="token punctuation">-</span>v /root/nginx/conf/nginx.conf<span class="token punctuation">:</span>/etc/nginx/nginx.conf <span class="token punctuation">-</span>v /root/nginx/logs<span class="token punctuation">:</span>/var/log/nginx <span class="token punctuation">-</span>v /root/nginx/lls/<span class="token punctuation">:</span>/etc/nginx/ssl nginx<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<h3 id="4、修改配置"><a href="#4、修改配置" class="headerlink" title="4、修改配置"></a>4、修改配置</h3><p>nginx.conf</p>
+<pre class="line-numbers language-nginx" data-language="nginx"><code class="language-nginx">
+<span class="token keyword">user</span>  nginx<span class="token punctuation">;</span>
+<span class="token keyword">worker_processes</span>  auto<span class="token punctuation">;</span>
+
+<span class="token keyword">error_log</span>  <span class="token operator">/</span>var<span class="token operator">/</span>log<span class="token operator">/</span>nginx<span class="token operator">/</span>error<span class="token punctuation">.</span>log notice<span class="token punctuation">;</span>
+<span class="token keyword">pid</span>        <span class="token operator">/</span>var<span class="token operator">/</span>run<span class="token operator">/</span>nginx<span class="token punctuation">.</span><span class="token keyword">pid</span><span class="token punctuation">;</span>
+
+
+<span class="token keyword">events</span> <span class="token punctuation">{</span>
+    <span class="token keyword">worker_connections</span>  <span class="token number">1024</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+
+<span class="token keyword">http</span> <span class="token punctuation">{</span>
+<span class="token keyword">limit_req_zone</span> <span class="token variable">$binary_remote_addr</span> zone<span class="token operator">=</span>mylimit<span class="token punctuation">:</span><span class="token number">10</span>m rate<span class="token operator">=</span><span class="token number">2</span>r<span class="token operator">/</span>s<span class="token punctuation">;</span>
+<span class="token keyword">include</span>       <span class="token operator">/</span>etc<span class="token operator">/</span>nginx<span class="token operator">/</span>mime<span class="token punctuation">.</span><span class="token keyword">types</span><span class="token punctuation">;</span>
+    <span class="token keyword">default_type</span>  application<span class="token operator">/</span>octet<span class="token operator">-</span>stream<span class="token punctuation">;</span>
+
+    <span class="token keyword">log_format</span>  main  <span class="token string">'$remote_addr - $remote_user [$time_local] "$request" '</span>
+                      <span class="token string">'$status $body_bytes_sent "$http_referer" '</span>
+                      <span class="token string">'"$http_user_agent" "$http_x_forwarded_for"'</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">access_log</span>  <span class="token operator">/</span>var<span class="token operator">/</span>log<span class="token operator">/</span>nginx<span class="token operator">/</span>access<span class="token punctuation">.</span>log  main<span class="token punctuation">;</span>
+
+    <span class="token keyword">sendfile</span>        on<span class="token punctuation">;</span>
+    <span class="token comment">#tcp_nopush     on;</span>
+
+    <span class="token keyword">keepalive_timeout</span>  <span class="token number">65</span><span class="token punctuation">;</span>
+
+    <span class="token comment">#gzip  on;</span>
+
+   <span class="token keyword">include</span> <span class="token operator">/</span>etc<span class="token operator">/</span>nginx<span class="token operator">/</span>conf<span class="token punctuation">.</span>d<span class="token operator">/</span><span class="token operator">*</span><span class="token punctuation">.</span>conf<span class="token punctuation">;</span>
+
+  <span class="token keyword">server</span><span class="token punctuation">{</span>
+        <span class="token keyword">listen</span> <span class="token number">443</span> <span class="token keyword">ssl</span><span class="token punctuation">;</span>
+        <span class="token comment">#对应的域名，把mykkto.cn改成你们自己的域名就可以了</span>
+        <span class="token keyword">server_name</span> mykkto<span class="token punctuation">.</span>cn<span class="token punctuation">;</span>
+        <span class="token comment">#证书的两个配置文件</span>
+        <span class="token keyword">ssl_certificate</span> <span class="token operator">/</span>etc<span class="token operator">/</span>nginx<span class="token operator">/</span><span class="token keyword">ssl</span><span class="token operator">/</span><span class="token number">7526194</span>_www<span class="token punctuation">.</span>mykkto<span class="token punctuation">.</span>cn<span class="token punctuation">.</span>pem<span class="token punctuation">;</span>
+        <span class="token keyword">ssl_certificate_key</span> <span class="token operator">/</span>etc<span class="token operator">/</span>nginx<span class="token operator">/</span><span class="token keyword">ssl</span><span class="token operator">/</span><span class="token number">7526194</span>_www<span class="token punctuation">.</span>mykkto<span class="token punctuation">.</span>cn<span class="token punctuation">.</span>key<span class="token punctuation">;</span>
+		<span class="token comment">#以下都是一些加密规则</span>
+        <span class="token keyword">ssl_session_timeout</span> <span class="token number">5</span>m<span class="token punctuation">;</span>
+        <span class="token keyword">ssl_protocols</span> TLSv1 TLSv1<span class="token punctuation">.</span><span class="token number">1</span> TLSv1<span class="token punctuation">.</span><span class="token number">2</span><span class="token punctuation">;</span>
+        <span class="token keyword">ssl_ciphers</span> ECDHE<span class="token operator">-</span>RSA<span class="token operator">-</span>AES128<span class="token operator">-</span>GCM<span class="token operator">-</span>SHA256<span class="token punctuation">:</span>HIGH<span class="token punctuation">:</span><span class="token operator">!</span>aNULL<span class="token punctuation">:</span><span class="token operator">!</span>MD5<span class="token punctuation">:</span><span class="token operator">!</span>RC4<span class="token punctuation">:</span><span class="token operator">!</span>DHE<span class="token punctuation">;</span>
+        <span class="token keyword">ssl_prefer_server_ciphers</span> on<span class="token punctuation">;</span>
+        <span class="token comment">#这是我的主页访问地址，因为使用的是静态的html网页，所以直接使用location就可以完成了。</span>
+        <span class="token keyword">location</span> <span class="token operator">/</span> <span class="token punctuation">{</span>
+                <span class="token comment">#文件夹（这个其实挂载的就是外部的www目录下的静态资源）</span>
+                <span class="token keyword">root</span> <span class="token operator">/</span><span class="token operator">/</span>usr<span class="token operator">/</span>share<span class="token operator">/</span>nginx<span class="token operator">/</span>html<span class="token punctuation">;</span>
+                <span class="token comment">#主页文件</span>
+                <span class="token keyword">index</span> <span class="token keyword">index</span><span class="token punctuation">.</span>html<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+<span class="token keyword">server</span> <span class="token punctuation">{</span>
+   <span class="token keyword">listen</span> <span class="token number">80</span><span class="token punctuation">;</span>
+        <span class="token comment">#这边空格隔开，配置了两个，因为加了www也要配置</span>
+       <span class="token keyword">server_name</span> mykkto<span class="token punctuation">.</span>cn www<span class="token punctuation">.</span>mykkto<span class="token punctuation">.</span>cn<span class="token punctuation">;</span>
+       <span class="token keyword">rewrite</span> <span class="token operator">^</span><span class="token operator">/</span><span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token operator">*</span><span class="token punctuation">)</span>$ <span class="token keyword">https</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>mykkto<span class="token punctuation">.</span>cn<span class="token punctuation">:</span><span class="token number">443</span><span class="token operator">/</span>$<span class="token number">1</span> permanent<span class="token punctuation">;</span>
+  <span class="token comment"># location / {</span>
+  <span class="token comment">#     limit_req zone=mylimit;</span>
+  <span class="token comment">#}</span>
+<span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+<h3 id="5、重启并测试"><a href="#5、重启并测试" class="headerlink" title="5、重启并测试"></a>5、重启并测试</h3><h4 id="1、重启"><a href="#1、重启" class="headerlink" title="1、重启"></a>1、重启</h4><pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker restart nginx<span class="token punctuation">-</span>web<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<h4 id="2、测试"><a href="#2、测试" class="headerlink" title="2、测试"></a>2、测试</h4><p>1、访问，<a target="_blank" rel="noopener" href="http://www.mykkto.cnm,自动跳转/">www.mykkto.cnm，自动跳转</a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220331204859.png"></p>
+<p>2、访问，mykkto.cn，自动跳转</p>
+<p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220331204919.png"></p>
+<h2 id="参考-↓"><a href="#参考-↓" class="headerlink" title="参考 ↓"></a>参考 ↓</h2><p>—— 【一到三】参考———–</p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/zltech/p/13517231.html">https://www.cnblogs.com/zltech/p/13517231.html</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/thepoy/p/14848080.html">https://www.cnblogs.com/thepoy/p/14848080.html</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/jianqingwang/p/6726589.html">https://www.cnblogs.com/jianqingwang/p/6726589.html</a></p>
+<p>—— 【一到三】参考———–</p>
+<p>SSL证书参考&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;</p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/zeussbook/p/11231820.html">https://www.cnblogs.com/zeussbook/p/11231820.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/yuyeblog/p/13582127.html">https://www.cnblogs.com/yuyeblog/p/13582127.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/makalochen/p/14241052.html#%E5%A4%9A%E7%9B%AE%E5%BD%95%E6%8C%82%E8%BD%BD">https://www.cnblogs.com/makalochen/p/14241052.html#%E5%A4%9A%E7%9B%AE%E5%BD%95%E6%8C%82%E8%BD%BD</a></p>
 
                 
             </div>
@@ -1700,7 +1802,7 @@ new Valine({
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">65k</span>&nbsp;字
+                class="white-color">66k</span>&nbsp;字
             
             
             
