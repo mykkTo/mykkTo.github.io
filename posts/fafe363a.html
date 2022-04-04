@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="KK语录（日记）, jack 计算机 写作 ">
+    <meta name="keywords" content="Lua脚本语言基础, jack 计算机 写作 ">
     <meta name="description" content="专科 | 计算机与网络 | 简书作者">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -18,7 +18,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>KK语录（日记） | jack</title>
+    <title>Lua脚本语言基础 | jack</title>
 
     <link rel="icon" type="image/jpeg" href="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/my1SN{XEPO)])9$A7K_JK(BNOV.jpg">
 
@@ -511,12 +511,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/mykkto/image@main/galleries/动漫风景/07.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/mykkto/image@main/galleries/动漫插画/11.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">KK语录（日记）</h1>
+                    <h1 class="description center-align post-title">Lua脚本语言基础</h1>
                 </div>
             </div>
         </div>
@@ -637,16 +637,20 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E8%AF%AD%E5%BD%95/">
-                                <span class="chip bg-color">语录</span>
+                            <a href="/tags/springcloud-alibaba/">
+                                <span class="chip bg-color">springcloud-alibaba</span>
                             </a>
                         
-                            <a href="/tags/%E6%97%A5%E8%AE%B0/">
-                                <span class="chip bg-color">日记</span>
+                            <a href="/tags/%E7%86%94%E6%96%AD%E5%99%A8/">
+                                <span class="chip bg-color">熔断器</span>
                             </a>
                         
-                            <a href="/tags/%E8%AF%9D%E7%97%A8/">
-                                <span class="chip bg-color">话痨</span>
+                            <a href="/tags/sentinel/">
+                                <span class="chip bg-color">sentinel</span>
+                            </a>
+                        
+                            <a href="/tags/%E9%99%90%E6%B5%81/">
+                                <span class="chip bg-color">限流</span>
                             </a>
                         
                     </div>
@@ -657,8 +661,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E7%94%9F%E6%B4%BB%E7%A2%8E%E7%89%87%E5%8C%96/" class="post-category">
-                                生活碎片化
+                            <a href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E6%8A%80%E6%9C%AF%E6%A0%88/" class="post-category">
+                                分布式技术栈
                             </a>
                         
                     </div>
@@ -670,28 +674,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-01-10
+                    2022-04-03
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-01-11
+                    2022-04-04
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    3.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    14 分
                 </div>
                 
 
@@ -714,7 +718,470 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h3 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h3><h3 id="1、概念"><a href="#1、概念" class="headerlink" title="1、概念"></a>1、概念</h3><p>Lua是一种轻量、小巧的脚本语言，用标准C语言编写并以源代码形式开发。设计的目的是为了嵌入到其他应用程序中，从而为应用程序提供灵活的扩展和定制功能。</p>
+<h3 id="2、特性"><a href="#2、特性" class="headerlink" title="2、特性"></a>2、特性</h3><p>跟其他语言进行比较，Lua有其自身的特点：</p>
+<p>（1）轻量级</p>
+<pre class="line-numbers language-none"><code class="language-none">Lua用标准C语言编写并以源代码形式开发，编译后仅仅一百余千字节，可以很方便的嵌入到其他程序中。<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>（2）可扩展</p>
+<pre class="line-numbers language-none"><code class="language-none">Lua提供非常丰富易于使用的扩展接口和机制，由宿主语言(通常是C或C++)提供功能，Lua可以使用它们，就像内置的功能一样。<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>（3）支持面向过程编程和函数式编程</p>
+<h3 id="3、应用场景"><a href="#3、应用场景" class="headerlink" title="3、应用场景"></a>3、应用场景</h3><p>Lua在不同的系统中得到大量应用，场景的应用场景如下:</p>
+<p>游戏开发、独立应用脚本、web应用脚本、扩展和数据库插件、系统安全上。</p>
+<h2 id="二、安装"><a href="#二、安装" class="headerlink" title="二、安装"></a>二、安装</h2><h3 id="1、官网"><a href="#1、官网" class="headerlink" title="1、官网"></a>1、官网</h3><p>在linux上安装Lua非常简单，只需要下载源码包并在终端解压、编译即可使用。</p>
+<p>Lua的官网地址为:<code>https://www.lua.org</code></p>
+<h3 id="2、下载并且解压"><a href="#2、下载并且解压" class="headerlink" title="2、下载并且解压"></a>2、下载并且解压</h3><h4 id="1、下载"><a href="#1、下载" class="headerlink" title="1、下载"></a>1、下载</h4><pre class="line-numbers language-none"><code class="language-none">wget https://www.lua.org/ftp/lua-5.4.1.tar.gz<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<h4 id="2、安装依赖"><a href="#2、安装依赖" class="headerlink" title="2、安装依赖"></a>2、安装依赖</h4><p>libreadline-dev依赖包，需要通过命令来进行安装</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">yum <span class="token function">install</span> -y readline-devel<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<h4 id="3、解压"><a href="#3、解压" class="headerlink" title="3、解压"></a>3、解压</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">tar</span> zxvf lua-5.4.1.tar.gz<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<h4 id="4、编译安装"><a href="#4、编译安装" class="headerlink" title="4、编译安装"></a>4、编译安装</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">cd</span> lua-5.4.1
+
+<span class="token function">make</span> linux
+
+<span class="token function">make</span> <span class="token function">install</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="5、验证"><a href="#5、验证" class="headerlink" title="5、验证"></a>5、验证</h4><pre class="line-numbers language-lua" data-language="lua"><code class="language-lua">lua <span class="token operator">-</span>v<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+
+
+<h2 id="三、Lua的语法"><a href="#三、Lua的语法" class="headerlink" title="三、Lua的语法"></a>三、Lua的语法</h2><h3 id="1、第一个程序"><a href="#1、第一个程序" class="headerlink" title="1、第一个程序"></a>1、第一个程序</h3><h4 id="1、进入控制台操作"><a href="#1、进入控制台操作" class="headerlink" title="1、进入控制台操作"></a>1、进入控制台操作</h4><p>1、用 <code>lua</code>进入</p>
+<p>2、编写输出语句，print(“xxxx”)</p>
+<p>3、ctrl+D 退出控制台</p>
+<p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220404120524.png"></p>
+<h4 id="2、lua-文件运行"><a href="#2、lua-文件运行" class="headerlink" title="2、lua 文件运行"></a>2、lua 文件运行</h4><p>1、创建 test.lua</p>
+<p>2、编写语句，保存</p>
+<p>3、运行</p>
+<p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220404121521.png"></p>
+<p>3、lua直接运行</p>
+<p>1、创建 test2.lua</p>
+<p>2、编写语句的时候前缀加上声明，可以直接运行</p>
+<p><code>#!/usr/local/bin/lua</code></p>
+<p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220404121846.png"></p>
+<p>3、文件赋权限，运行</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">chmod</span> <span class="token number">755</span> test2.lua
+
+./test2.lua<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220404122053.png"></p>
+<h3 id="2、注释"><a href="#2、注释" class="headerlink" title="2、注释"></a>2、注释</h3><h4 id="1、单行注释的语法为："><a href="#1、单行注释的语法为：" class="headerlink" title="1、单行注释的语法为："></a>1、单行注释的语法为：</h4><pre class="line-numbers language-lua" data-language="lua"><code class="language-lua"><span class="token comment">--注释内容</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<h4 id="2、多行注释的语法为"><a href="#2、多行注释的语法为" class="headerlink" title="2、多行注释的语法为:"></a>2、多行注释的语法为:</h4><pre class="line-numbers language-lua" data-language="lua"><code class="language-lua"><span class="token comment">--[[
+	注释内容
+	注释内容
+--]]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="3、取消多行"><a href="#3、取消多行" class="headerlink" title="3、取消多行"></a>3、取消多行</h4><p>如果想取消多行注释，只需要在第一个–之前在加一个-即可，如：</p>
+<pre class="line-numbers language-lua" data-language="lua"><code class="language-lua"><span class="token comment">---[[</span>
+	注释内容
+	注释内容
+<span class="token comment">--]]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h3 id="3、标识符"><a href="#3、标识符" class="headerlink" title="3、标识符"></a>3、标识符</h3><p>换句话说标识符就是我们的<strong>变量名</strong>，Lua定义变量名以一个字母 A 到 Z 或 a 到 z 或下划线 _ 开头后加上0个或多个字母，下划线，数字（0到9）。这块建议大家最好不要使用下划线加大写字母的标识符，因为Lua的保留字也是这样定义的，容易发生冲突。注意Lua是区分大小写字母的。</p>
+<p>简单来说参考java规范就好</p>
+<h3 id="4、关键字"><a href="#4、关键字" class="headerlink" title="4、关键字"></a>4、关键字</h3><p>下列是Lua的关键字，大家在定义常量、变量或其他用户自定义标识符都要避免使用以下这些关键字：</p>
+<table>
+<thead>
+<tr>
+<th>and</th>
+<th>break</th>
+<th>do</th>
+<th>else</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>elseif</td>
+<td>end</td>
+<td>false</td>
+<td>for</td>
+</tr>
+<tr>
+<td>function</td>
+<td>if</td>
+<td>in</td>
+<td>local</td>
+</tr>
+<tr>
+<td>nil</td>
+<td>not</td>
+<td>or</td>
+<td>repeat</td>
+</tr>
+<tr>
+<td>return</td>
+<td>then</td>
+<td>true</td>
+<td>until</td>
+</tr>
+<tr>
+<td>while</td>
+<td>goto</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>一般约定，以下划线开头连接一串大写字母的名字（比如 _VERSION）被保留用于 Lua 内部全局变量。这个也是上面我们不建议这么定义标识符的原因。</p>
+<h3 id="5、运算符"><a href="#5、运算符" class="headerlink" title="5、运算符"></a>5、运算符</h3><p>Lua中支持的运算符有算术运算符、关系运算符、逻辑运算符、其他运算符。</p>
+<p>算术运算符:</p>
+<pre class="line-numbers language-none"><code class="language-none">+   加法
+-	减法
+*	乘法
+/	除法
+%	取余
+^	乘幂
+-	负号<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>例如:</p>
+<pre class="line-numbers language-none"><code class="language-none">10+20	--&gt;30
+20-10	--&gt;10
+10*20	--&gt;200
+20/10	--&gt;2
+3%2		--&gt;1
+10^2	--&gt;100
+-10		--&gt;-10<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>关系运算符</p>
+<pre class="line-numbers language-none"><code class="language-none">==	等于
+~=	不等于
+&gt;	大于
+&lt;	小于
+&gt;=	大于等于
+&lt;=	小于等于<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>例如:</p>
+<pre class="line-numbers language-none"><code class="language-none">10==10		--&gt;true
+10~=10		--&gt;false
+20&gt;10		--&gt;true
+20&lt;10		--&gt;false
+20&gt;=10		--&gt;true
+20&lt;=10		--&gt;false<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>逻辑运算符</p>
+<pre class="line-numbers language-none"><code class="language-none">and	逻辑与	 A and B     &amp;&amp;   
+or	逻辑或	 A or B     ||
+not	逻辑非  取反，如果为true,则返回false  !<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>逻辑运算符可以作为if的判断条件，返回的结果如下:</p>
+<pre class="line-numbers language-none"><code class="language-none">A = true
+B = true
+
+A and B	--&gt;true
+A or  B --&gt;true
+not A 	--&gt;false
+------------------------------------------------------------------------------------------------
+A = true
+B = false
+
+A and B	--&gt;false
+A or  B --&gt;true
+not A 	--&gt;false
+------------------------------------------------------------------------------------------------
+A = false
+B = true
+
+A and B	--&gt;false
+A or  B --&gt;true
+not A 	--&gt;true
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>其他运算符</p>
+<pre class="line-numbers language-none"><code class="language-none">..	连接两个字符串
+#	一元预算法，返回字符串或表的长度<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>例如:</p>
+<pre class="line-numbers language-none"><code class="language-none">&gt; "HELLO ".."WORLD"		--&gt;HELLO WORLD
+&gt; #"HELLO"			--&gt;5<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h4 id=""><a href="#" class="headerlink" title=""></a></h4><h3 id="6、全局变量-amp-局部变量"><a href="#6、全局变量-amp-局部变量" class="headerlink" title="6、全局变量&amp;局部变量"></a>6、全局变量&amp;局部变量</h3><p>在Lua语言中，全局变量无须声明即可使用。在默认情况下，变量总是认为是全局的，如果未提前赋值，默认为nil:</p>
+<p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220404123008.png"></p>
+<p>要想声明一个局部变量，需要使用local来声明</p>
+<p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220404123115.png"></p>
+<h3 id="7、Lua数据类型"><a href="#7、Lua数据类型" class="headerlink" title="7、Lua数据类型"></a>7、Lua数据类型</h3><p>Lua有8个数据类型</p>
+<pre class="line-numbers language-none"><code class="language-none">nil(空，无效值)
+boolean(布尔，true/false)
+number(数值)
+string(字符串)
+function(函数)
+table（表）
+thread(线程)
+userdata（用户数据）<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>可以使用type函数测试给定变量或者的类型：</p>
+<pre class="line-numbers language-none"><code class="language-none">print(type(nil))				--&gt;nil
+print(type(true))               --&gt; boolean
+print(type(1.1*1.1))             --&gt; number
+print(type("Hello world"))      --&gt; string
+print(type(type(X)))            --&gt; string  ，type函数返回的也是字符串类型
+print(type(print))              --&gt; function
+print(type(type))               --&gt;function
+print(type{})					--&gt;table
+print(type(io.stdin))			--&gt;userdata<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h5 id="nil"><a href="#nil" class="headerlink" title="nil"></a>nil</h5><p>nil是一种只有一个nil值的类型，它的作用可以用来与其他所有值进行区分，也可以当想要移除一个变量时，只需要将该变量名赋值为nil,垃圾回收就会会释放该变量所占用的内存。</p>
+<h5 id="boolean"><a href="#boolean" class="headerlink" title="boolean"></a>boolean</h5><p>boolean类型具有两个值，true和false。boolean类型一般被用来做条件判断的真与假。在Lua语言中，只会将false和nil视为假，其他的都视为真，特别是在条件检测中0和空字符串都会认为是真，这个和我们熟悉的大多数语言不太一样。</p>
+<h5 id="number"><a href="#number" class="headerlink" title="number"></a>number</h5><p>在Lua5.3版本开始，Lua语言为数值格式提供了两种选择:integer(整型)和float(双精度浮点型)[和其他语言不太一样，float不代表单精度类型]。</p>
+<p>数值常量的表示方式:</p>
+<pre class="line-numbers language-none"><code class="language-none">&gt;4			--&gt;4
+&gt;0.4		--&gt;0.4
+&gt;4.75e-3	--&gt;0.00475
+&gt;4.75e3		--&gt;4750<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>不管是整型还是双精度浮点型，使用type()函数来取其类型，都会返回的是number</p>
+<pre class="line-numbers language-none"><code class="language-none">&gt;type(3)	--&gt;number
+&gt;type(3.3)	--&gt;number<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>所以它们之间是可以相互转换的，同时，具有相同算术值的整型值和浮点型值在Lua语言中是相等的</p>
+<h5 id="string"><a href="#string" class="headerlink" title="string"></a>string</h5><p>Lua语言中的字符串即可以表示单个字符，也可以表示一整本书籍。在Lua语言中，操作100K或者1M个字母组成的字符串的程序很常见。</p>
+<p>可以使用单引号或双引号来声明字符串</p>
+<pre class="line-numbers language-none"><code class="language-none">&gt;a = "hello"
+&gt;b = 'world'
+&gt;print(a)	--&gt;hello
+&gt;print(b) 	--&gt;world<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>如果声明的字符串比较长或者有多行，则可以使用如下方式进行声明</p>
+<pre class="line-numbers language-none"><code class="language-none">html = [[
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Lua-string&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;a href="http://www.lua.org"&gt;Lua&lt;/a&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+]]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h5 id="table"><a href="#table" class="headerlink" title="table"></a>table</h5><p>​    table是Lua语言中最主要和强大的数据结构。使用表， Lua 语言可以以一种简单、统一且高效的方式表示数组、集合、记录和其他很多数据结构。 Lua语言中的表本质上是一种辅助数组。这种数组比Java中的数组更加灵活，可以使用数值做索引，也可以使用字符串或其他任意类型的值作索引(除nil外)。</p>
+<p>创建表的最简单方式:</p>
+<pre class="line-numbers language-none"><code class="language-none">&gt; a = {}<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>创建数组:</p>
+<p>​    我们都知道数组就是相同数据类型的元素按照一定顺序排列的集合，那么使用table如何创建一个数组呢?</p>
+<pre class="line-numbers language-none"><code class="language-none">&gt;arr = {"TOM","JERRY","ROSE"}<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>​    要想获取数组中的值，我们可以通过如下内容来获取:</p>
+<pre class="line-numbers language-none"><code class="language-none">print(arr[0])		nil
+print(arr[1])		TOM
+print(arr[2])		JERRY
+print(arr[3])		ROSE<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>​    从上面的结果可以看出来，数组的下标默认是从1开始的。所以上述创建数组，也可以通过如下方式来创建</p>
+<pre class="line-numbers language-none"><code class="language-none">&gt;arr = {}
+&gt;arr[1] = "TOM"
+&gt;arr[2] = "JERRY"
+&gt;arr[3] = "ROSE"<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>上面我们说过了，表的索引即可以是数字，也可以是字符串等其他的内容，所以我们也可以将索引更改为字符串来创建</p>
+<pre class="line-numbers language-none"><code class="language-none">&gt;arr = {}
+&gt;arr["X"] = 10
+&gt;arr["Y"] = 20
+&gt;arr["Z"] = 30<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>当然，如果想要获取这些数组中的值，可以使用下面的方式</p>
+<pre class="line-numbers language-none"><code class="language-none">方式一
+&gt;print(arr["X"])
+&gt;print(arr["Y"])
+&gt;print(arr["Z"])
+方式二
+&gt;print(arr.X)
+&gt;print(arr.Y)
+&gt;print(arr.Z)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>当前table的灵活不进于此，还有更灵活的声明方式</p>
+<pre class="line-numbers language-none"><code class="language-none">&gt;arr = {"TOM",X=10,"JERRY",Y=20,"ROSE",Z=30}<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>如何获取上面的值?</p>
+<pre class="line-numbers language-none"><code class="language-none">TOM :  arr[1]
+10  :  arr["X"] | arr.X
+JERRY: arr[2]
+20  :  arr["Y"] | arr.Y
+ROESE?<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h5 id="function"><a href="#function" class="headerlink" title="function"></a>function</h5><p>在 Lua语言中，函数（ Function ）是对语句和表达式进行抽象的主要方式。</p>
+<p>定义函数的语法为:</p>
+<pre class="line-numbers language-none"><code class="language-none">function functionName(params)
+
+end<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>函数被调用的时候，传入的参数个数与定义函数时使用的参数个数不一致的时候，Lua 语言会通过 抛弃多余参数和将不足的参数设为 nil 的方式来调整参数的个数。</p>
+<pre class="line-numbers language-none"><code class="language-none">function  f(a,b)
+print(a,b)
+end
+
+f()		--&gt; nil  nil
+f(2)	--&gt; 2 nil
+f(2,6)	--&gt; 2 6
+f(2.6.8)	--&gt; 2 6 (8被丢弃)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>可变长参数函数</p>
+<pre class="line-numbers language-none"><code class="language-none">function add(...)
+a,b,c=...
+print(a)
+print(b)
+print(c)
+end
+
+add(1,2,3)  --&gt; 1 2 3<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>函数返回值可以有多个，这点和Java不太一样</p>
+<pre class="line-numbers language-none"><code class="language-none">function f(a,b)
+return a,b
+end
+
+x,y=f(11,22)	--&gt; x=11,y=22	<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h5 id="thread"><a href="#thread" class="headerlink" title="thread"></a>thread</h5><p>thread翻译过来是线程的意思，在Lua中，thread用来表示执行的独立线路，用来执行协同程序。</p>
+<h5 id="userdata"><a href="#userdata" class="headerlink" title="userdata"></a>userdata</h5><p>userdata是一种用户自定义数据，用于表示一种由应用程序或C/C++语言库所创建的类型。</p>
+<h3 id="8、Lua控制结构"><a href="#8、Lua控制结构" class="headerlink" title="8、Lua控制结构"></a>8、Lua控制结构</h3><p>Lua 语言提供了一组精简且常用的控制结构，包括用于条件执行的证 以及用于循环的 while、 repeat 和 for。 所有的控制结构语法上都有一个显式的终结符： end 用于终结 if、 for 及 while 结构， until 用于终结 repeat 结构。</p>
+<h5 id="if-then-elseif-else"><a href="#if-then-elseif-else" class="headerlink" title="if then elseif else"></a>if then elseif else</h5><p>if语句先测试其条件，并根据条件是否满足执行相应的 then 部分或 else 部分。 else 部分 是可选的。</p>
+<pre class="line-numbers language-none"><code class="language-none">function testif(a)
+ if a&gt;0 then
+ 	print("a是正数")
+ end
+end
+
+function testif(a)
+ if a&gt;0 then
+ 	print("a是正数")
+ else
+ 	print("a是负数")
+ end
+end<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>如果要编写嵌套的 if 语句，可以使用 elseif。 它类似于在 else 后面紧跟一个if。根据传入的年龄返回不同的结果，如</p>
+<pre class="line-numbers language-none"><code class="language-none">age&lt;=18 青少年，
+age&gt;18 , age &lt;=45 青年
+age&gt;45 , age&lt;=60 中年人
+age&gt;60 老年人
+
+function show(age)
+if age&lt;=18 then
+ return "青少年"
+elseif age&gt;18 and age&lt;=45 then
+ return "青年"
+elseif age&gt;45 and age&lt;=60 then
+ return "中年人"
+elseif age&gt;60 then
+ return "老年人"
+end
+end<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h5 id="while循环"><a href="#while循环" class="headerlink" title="while循环"></a>while循环</h5><p>顾名思义，当条件为真时 while 循环会重复执行其循环体。 Lua 语言先测试 while 语句 的条件，若条件为假则循环结束；否则， Lua 会执行循环体并不断地重复这个过程。</p>
+<p>语法：</p>
+<pre class="line-numbers language-none"><code class="language-none">while 条件 do
+  循环体
+end<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>例子:实现数组的循环</p>
+<pre class="line-numbers language-none"><code class="language-none">function testWhile()
+ local i = 1
+ while i&lt;=10 do
+  print(i)
+  i=i+1
+ end
+end<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h5 id="repeat循环"><a href="#repeat循环" class="headerlink" title="repeat循环"></a>repeat循环</h5><p>顾名思义， repeat-until语句会重复执行其循环体直到条件为真时结束。 由于条件测试在循环体之后执行，所以循环体至少会执行一次。</p>
+<p>语法</p>
+<pre class="line-numbers language-none"><code class="language-none">repeat
+ 循环体
+ until 条件<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+
+
+<pre class="line-numbers language-none"><code class="language-none">function testRepeat()
+ local i = 10
+ repeat
+  print(i)
+  i=i-1
+ until i &lt; 1
+end<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h5 id="for循环"><a href="#for循环" class="headerlink" title="for循环"></a>for循环</h5><p>数值型for循环</p>
+<p>语法</p>
+<pre class="line-numbers language-none"><code class="language-none">for param=exp1,exp2,exp3 do
+ 循环体
+end<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>param的值从exp1变化到exp2之前的每次循环会执行 循环体，并在每次循环结束后将步长(step)exp3增加到param上。exp3可选，如果不设置默认为1</p>
+<p>人话：从输出1开始，每次 +10，小于100（1，11，21，…,91）</p>
+<pre class="line-numbers language-none"><code class="language-none">for i = 1,100,10 do
+print(i)
+end<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>泛型for循环</p>
+<p>泛型for循环通过一个迭代器函数来遍历所有值，类似于java中的foreach语句。</p>
+<p>语法</p>
+<pre class="line-numbers language-none"><code class="language-none">for i,v in ipairs(x) do
+	循环体
+end<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>i是数组索引值，v是对应索引的数组元素值，ipairs是Lua提供的一个迭代器函数，用来迭代数组，x是要遍历的数组。</p>
+<p>例如:</p>
+<pre class="line-numbers language-none"><code class="language-none">arr = {"TOME","JERRY","ROWS","LUCY"}
+for i,v in ipairs(arr) do
+ print(i,v)
+end<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>上述实例输出的结果为</p>
+<pre class="line-numbers language-none"><code class="language-none">1	TOM
+2	JERRY
+3	ROWS
+4	LUCY<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>但是如果将arr的值进行修改为</p>
+<pre class="line-numbers language-none"><code class="language-none">arr = {"TOME","JERRY","ROWS",x="JACK","LUCY"}<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>同样的代码在执行的时候，就只能看到和之前一样的结果，而其中的x为JACK就无法遍历出来，缺失了数据，如果解决呢?</p>
+<p>我们可以将迭代器函数变成pairs,如</p>
+<pre class="line-numbers language-none"><code class="language-none">for i,v in pairs(arr) do
+ print(i,v)
+end<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>上述实例就输出的结果为</p>
+<pre class="line-numbers language-none"><code class="language-none">1	TOM
+2	JERRY
+3	ROWS
+4	LUCY
+x	JACK<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><h2 id="四、OpenResty"><a href="#四、OpenResty" class="headerlink" title="四、OpenResty"></a>四、OpenResty</h2><h4 id="1、是什么"><a href="#1、是什么" class="headerlink" title="1、是什么"></a>1、是什么</h4><p>OpenResty是一个基于Nginx与 Lua 的高性能 Web 平台，其内部集成了大量精良的 Lua 库、第三方模块以及大多数的依赖项。用于方便地搭建能够处理超高并发、扩展性极高的动态 Web 应用、Web 服务和动态网关。所以本身OpenResty内部就已经集成了Nginx和Lua，所以我们使用起来会更加方便。</p>
+<h4 id="2、安装"><a href="#2、安装" class="headerlink" title="2、安装"></a>2、安装</h4><p><strong><a href="/posts/829b453d">详情可见【OpenResty】</a></strong></p>
+<h5 id="1、拉取"><a href="#1、拉取" class="headerlink" title="1、拉取"></a>1、拉取</h5><pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker pull openresty/openresty<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<h5 id="2、挂载并启动"><a href="#2、挂载并启动" class="headerlink" title="2、挂载并启动"></a>2、挂载并启动</h5><p><strong>说明下：</strong></p>
+<ul>
+<li>完全基于上面的nginx配置的三个部分，唯一修改的是 <code>nginx.conf</code>配置文件，这边挂载改成了 <code>nginx2.conf</code>，用于保留之前的（自己懒而已）</li>
+<li>新增了，lua文件挂载</li>
+<li>修改了容器内的挂载位置，因为 openresty容器位置不一样了(外部还是不变，容器内的位置变了)</li>
+</ul>
+<pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker run <span class="token punctuation">-</span>d <span class="token punctuation">-</span>p 443<span class="token punctuation">:</span>443 <span class="token punctuation">-</span>p 80<span class="token punctuation">:</span>80 <span class="token punctuation">-</span><span class="token punctuation">-</span>name openresty <span class="token punctuation">-</span>v /root/nginx/www<span class="token punctuation">:</span>/usr/local/openresty/nginx/html <span class="token punctuation">-</span>v /root/nginx/conf/nginx2.conf<span class="token punctuation">:</span>/usr/local/openresty/nginx/conf/nginx.conf <span class="token punctuation">-</span>v /root/nginx/logs<span class="token punctuation">:</span>/usr/local/openresty/nginx/logs <span class="token punctuation">-</span>v  /root/nginx/lls/<span class="token punctuation">:</span>/usr/local/openresty/nginx/ssl <span class="token punctuation">-</span>v  /root/nginx/lua/<span class="token punctuation">:</span>/usr/local/openresty/nginx/lua  openresty/openresty<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+
+
+<h3 id="-2"><a href="#-2" class="headerlink" title=""></a></h3>
                 
             </div>
             <hr/>
@@ -740,7 +1207,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://mykkto.github.io/posts/bd37926a.html">https://mykkto.github.io/posts/bd37926a.html</a>
+                    <a href="https://mykkto.github.io/posts/fafe363a.html">https://mykkto.github.io/posts/fafe363a.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -778,16 +1245,20 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E8%AF%AD%E5%BD%95/">
-                                    <span class="chip bg-color">语录</span>
+                                <a href="/tags/springcloud-alibaba/">
+                                    <span class="chip bg-color">springcloud-alibaba</span>
                                 </a>
                             
-                                <a href="/tags/%E6%97%A5%E8%AE%B0/">
-                                    <span class="chip bg-color">日记</span>
+                                <a href="/tags/%E7%86%94%E6%96%AD%E5%99%A8/">
+                                    <span class="chip bg-color">熔断器</span>
                                 </a>
                             
-                                <a href="/tags/%E8%AF%9D%E7%97%A8/">
-                                    <span class="chip bg-color">话痨</span>
+                                <a href="/tags/sentinel/">
+                                    <span class="chip bg-color">sentinel</span>
+                                </a>
+                            
+                                <a href="/tags/%E9%99%90%E6%B5%81/">
+                                    <span class="chip bg-color">限流</span>
                                 </a>
                             
                         </div>
@@ -1259,29 +1730,92 @@ new Valine({
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/posts/58914314.html">
+                <a href="/posts/fafe363a.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/mykkto/image@main/galleries/动漫插画/05.jpg" class="responsive-img" alt="SpringCloud and Alibaba合集">
+                        <img src="https://cdn.jsdelivr.net/gh/mykkto/image@main/galleries/动漫插画/11.jpg" class="responsive-img" alt="Lua脚本语言基础">
                         
-                        <span class="card-title">SpringCloud and Alibaba合集</span>
+                        <span class="card-title">Lua脚本语言基础</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            SpringCloud
+                            
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-01-11 00:42:15
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-03 23:17:13
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E6%8A%80%E6%9C%AF%E6%A0%88/" class="post-category">
+                                    分布式技术栈
+                                </a>
+                            
+                            
                         </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/springcloud-alibaba/">
+                        <span class="chip bg-color">springcloud-alibaba</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%86%94%E6%96%AD%E5%99%A8/">
+                        <span class="chip bg-color">熔断器</span>
+                    </a>
+                    
+                    <a href="/tags/sentinel/">
+                        <span class="chip bg-color">sentinel</span>
+                    </a>
+                    
+                    <a href="/tags/%E9%99%90%E6%B5%81/">
+                        <span class="chip bg-color">限流</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/e1138fa5.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/mykkto/image@main/galleries/动漫风景/07.jpg" class="responsive-img" alt="SpringCloud-Alibaba-Seata 处理分布式事务">
+                        
+                        <span class="card-title">SpringCloud-Alibaba-Seata 处理分布式事务</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Seata是一款开源的分布式事务解决方案，致力于在微服务架构下提供高性能和简单易用的分布式事务服务。
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-25 20:11:33
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1297,65 +1831,16 @@ new Valine({
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/springcloud/">
-                        <span class="chip bg-color">springcloud</span>
-                    </a>
-                    
                     <a href="/tags/springcloud-alibaba/">
                         <span class="chip bg-color">springcloud-alibaba</span>
                     </a>
                     
-                    <a href="/tags/%E5%90%88%E9%9B%86/">
-                        <span class="chip bg-color">合集</span>
+                    <a href="/tags/seata/">
+                        <span class="chip bg-color">seata</span>
                     </a>
                     
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/posts/c3e91221.html">
-                    <div class="card-image">
-                        
-                        
-                        <img src="https://cdn.jsdelivr.net/gh/mykkto/image@main/galleries/动漫风景/08.jpg" class="responsive-img" alt="美文">
-                        
-                        <span class="card-title">美文</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            在这里摘抄一些优美的语句。
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-10 22:33:12
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E7%94%9F%E6%B4%BB%E7%A2%8E%E7%89%87%E5%8C%96/" class="post-category">
-                                    生活碎片化
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E7%BE%8E%E6%96%87/">
-                        <span class="chip bg-color">美文</span>
+                    <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/">
+                        <span class="chip bg-color">分布式事务</span>
                     </a>
                     
                 </div>

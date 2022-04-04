@@ -677,21 +677,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-03-31
+                    2022-04-03
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.1k
+                    2.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    12 分
                 </div>
                 
 
@@ -900,6 +900,250 @@
 <p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220331204859.png"></p>
 <p>2、访问，mykkto.cn，自动跳转</p>
 <p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220331204919.png"></p>
+<h2 id="五、IP黑名单限制"><a href="#五、IP黑名单限制" class="headerlink" title="五、IP黑名单限制"></a>五、IP黑名单限制</h2><h3 id="1、前言"><a href="#1、前言" class="headerlink" title="1、前言"></a>1、前言</h3><h4 id="1、用到什么技术栈"><a href="#1、用到什么技术栈" class="headerlink" title="1、用到什么技术栈"></a>1、用到什么技术栈</h4><p>首先，基本架构是  docker+nginx+lua+mysql这是最初的想法，但是作者用了docker搭建的nginx，lua模块集成不是很方便，所以替换成了，OpenResty。</p>
+<h4 id="2、什么是-OpenResty"><a href="#2、什么是-OpenResty" class="headerlink" title="2、什么是 OpenResty"></a>2、什么是 OpenResty</h4><p>简单来说就是 lua + nginx，当然还有更多功能，自己百度吧</p>
+<h4 id="3、遇到的问题"><a href="#3、遇到的问题" class="headerlink" title="3、遇到的问题"></a>3、遇到的问题</h4><p>简单描述下，上面用到的 <code>nginx.conf</code>写法，前缀 <code>user  nginx;</code> 会导致无法运行，因为openresty没有这个用户，可以自己新建，我采用的是改写配置。</p>
+<h3 id="2、搭建-OpenResty"><a href="#2、搭建-OpenResty" class="headerlink" title="2、搭建 OpenResty"></a>2、搭建 OpenResty</h3><h4 id="1、拉取-1"><a href="#1、拉取-1" class="headerlink" title="1、拉取"></a>1、拉取</h4><pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker pull openresty/openresty<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<h4 id="2、挂载并启动"><a href="#2、挂载并启动" class="headerlink" title="2、挂载并启动"></a>2、挂载并启动</h4><p><strong>说明下：</strong></p>
+<ul>
+<li>完全基于上面的nginx配置的三个部分，唯一修改的是 <code>nginx.conf</code>配置文件，这边挂载改成了 <code>nginx2.conf</code>，用于保留之前的（自己懒而已）</li>
+<li>新增了，lua文件挂载</li>
+<li>修改了容器内的挂载位置，因为 openresty容器位置不一样了(外部还是不变，容器内的位置变了)</li>
+</ul>
+<pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker run <span class="token punctuation">-</span>d <span class="token punctuation">-</span>p 443<span class="token punctuation">:</span>443 <span class="token punctuation">-</span>p 80<span class="token punctuation">:</span>80 <span class="token punctuation">-</span><span class="token punctuation">-</span>name openresty <span class="token punctuation">-</span>v /root/nginx/www<span class="token punctuation">:</span>/usr/local/openresty/nginx/html <span class="token punctuation">-</span>v /root/nginx/conf/nginx2.conf<span class="token punctuation">:</span>/usr/local/openresty/nginx/conf/nginx.conf <span class="token punctuation">-</span>v /root/nginx/logs<span class="token punctuation">:</span>/usr/local/openresty/nginx/logs <span class="token punctuation">-</span>v  /root/nginx/lls/<span class="token punctuation">:</span>/usr/local/openresty/nginx/ssl <span class="token punctuation">-</span>v  /root/nginx/lua/<span class="token punctuation">:</span>/usr/local/openresty/nginx/lua  openresty/openresty<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<h3 id="3、配置文件修改"><a href="#3、配置文件修改" class="headerlink" title="3、配置文件修改"></a>3、配置文件修改</h3><h4 id="1、初始化"><a href="#1、初始化" class="headerlink" title="1、初始化"></a>1、初始化</h4><p>这是自带的，可以自己  DIY</p>
+<pre class="line-numbers language-nginx.conf" data-language="nginx.conf"><code class="language-nginx.conf"># nginx.conf  --  docker-openresty
+#
+# This file is installed to:
+#   `/usr/local/openresty/nginx/conf/nginx.conf`
+# and is the file loaded by nginx at startup,
+# unless the user specifies otherwise.
+#
+# It tracks the upstream OpenResty's `nginx.conf`, but removes the `server`
+# section and adds this directive:
+#     `include /etc/nginx/conf.d/*.conf;`
+#
+# The `docker-openresty` file `nginx.vh.default.conf` is copied to
+# `/etc/nginx/conf.d/default.conf`.  It contains the `server section
+# of the upstream `nginx.conf`.
+#
+# See https://github.com/openresty/docker-openresty/blob/master/README.md#nginx-config-files
+#
+
+#user  nobody;
+#worker_processes 1;
+
+# Enables the use of JIT for regular expressions to speed-up their processing.
+pcre_jit on;
+
+
+
+#error_log  logs/error.log;
+#error_log  logs/error.log  notice;
+#error_log  logs/error.log  info;
+
+#pid        logs/nginx.pid;
+
+
+events {
+    worker_connections  1024;
+}
+
+
+http {
+    include       mime.types;
+    default_type  application/octet-stream;
+
+    # Enables or disables the use of underscores in client request header fields.
+    # When the use of underscores is disabled, request header fields whose names contain underscores are marked as invalid and become subject to the ignore_invalid_headers directive.
+    # underscores_in_headers off;
+
+    #log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+    #                  '$status $body_bytes_sent "$http_referer" '
+    #                  '"$http_user_agent" "$http_x_forwarded_for"';
+
+    #access_log  logs/access.log  main;
+
+        # Log in JSON Format
+        # log_format nginxlog_json escape=json '{ "timestamp": "$time_iso8601", '
+        # '"remote_addr": "$remote_addr", '
+        #  '"body_bytes_sent": $body_bytes_sent, '
+        #  '"request_time": $request_time, '
+        #  '"response_status": $status, '
+        #  '"request": "$request", '
+        #  '"request_method": "$request_method", '
+        #  '"host": "$host",'
+        #  '"upstream_addr": "$upstream_addr",'
+        #  '"http_x_forwarded_for": "$http_x_forwarded_for",'
+        #  '"http_referrer": "$http_referer", '
+        #  '"http_user_agent": "$http_user_agent", '
+        #  '"http_version": "$server_protocol", '
+        #  '"nginx_access": true }';
+        # access_log /dev/stdout nginxlog_json;
+
+    # See Move default writable paths to a dedicated directory (#119)
+    # https://github.com/openresty/docker-openresty/issues/119
+    client_body_temp_path /var/run/openresty/nginx-client-body;
+    proxy_temp_path       /var/run/openresty/nginx-proxy;
+    fastcgi_temp_path     /var/run/openresty/nginx-fastcgi;
+    uwsgi_temp_path       /var/run/openresty/nginx-uwsgi;
+    scgi_temp_path        /var/run/openresty/nginx-scgi;
+
+    sendfile        on;
+    #tcp_nopush     on;
+
+    #keepalive_timeout  0;
+    keepalive_timeout  65;
+
+    #gzip  on;
+
+    include /etc/nginx/conf.d/*.conf;
+
+    # Don't reveal OpenResty version to clients.
+    # server_tokens off;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="2、引入之前的配置"><a href="#2、引入之前的配置" class="headerlink" title="2、引入之前的配置"></a>2、引入之前的配置</h4><p>在初始的基础上加上，两个之前写好的 server 块，以及lua脚本用于测试</p>
+<pre class="line-numbers language-nginx.conf" data-language="nginx.conf"><code class="language-nginx.conf"># nginx.conf  --  docker-openresty
+#
+# This file is installed to:
+#   `/usr/local/openresty/nginx/conf/nginx.conf`
+# and is the file loaded by nginx at startup,
+# unless the user specifies otherwise.
+#
+# It tracks the upstream OpenResty's `nginx.conf`, but removes the `server`
+# section and adds this directive:
+#     `include /etc/nginx/conf.d/*.conf;`
+#
+# The `docker-openresty` file `nginx.vh.default.conf` is copied to
+# `/etc/nginx/conf.d/default.conf`.  It contains the `server section
+# of the upstream `nginx.conf`.
+#
+# See https://github.com/openresty/docker-openresty/blob/master/README.md#nginx-config-files
+#
+
+#user  nobody;
+#worker_processes 1;
+
+# Enables the use of JIT for regular expressions to speed-up their processing.
+pcre_jit on;
+
+
+
+#error_log  logs/error.log;
+#error_log  logs/error.log  notice;
+#error_log  logs/error.log  info;
+
+#pid        logs/nginx.pid;
+
+
+events {
+    worker_connections  1024;
+}
+
+
+http {
+    include       mime.types;
+    default_type  application/octet-stream;
+
+    # Enables or disables the use of underscores in client request header fields.
+    # When the use of underscores is disabled, request header fields whose names contain underscores are marked as invalid and become subject to the ignore_invalid_headers directive.
+    # underscores_in_headers off;
+
+    #log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+    #                  '$status $body_bytes_sent "$http_referer" '
+    #                  '"$http_user_agent" "$http_x_forwarded_for"';
+
+    #access_log  logs/access.log  main;
+
+        # Log in JSON Format
+        # log_format nginxlog_json escape=json '{ "timestamp": "$time_iso8601", '
+        # '"remote_addr": "$remote_addr", '
+        #  '"body_bytes_sent": $body_bytes_sent, '
+        #  '"request_time": $request_time, '
+        #  '"response_status": $status, '
+        #  '"request": "$request", '
+        #  '"request_method": "$request_method", '
+        #  '"host": "$host",'
+        #  '"upstream_addr": "$upstream_addr",'
+        #  '"http_x_forwarded_for": "$http_x_forwarded_for",'
+        #  '"http_referrer": "$http_referer", '
+        #  '"http_user_agent": "$http_user_agent", '
+        #  '"http_version": "$server_protocol", '
+        #  '"nginx_access": true }';
+        # access_log /dev/stdout nginxlog_json;
+
+    # See Move default writable paths to a dedicated directory (#119)
+    # https://github.com/openresty/docker-openresty/issues/119
+    client_body_temp_path /var/run/openresty/nginx-client-body;
+    proxy_temp_path       /var/run/openresty/nginx-proxy;
+    fastcgi_temp_path     /var/run/openresty/nginx-fastcgi;
+    uwsgi_temp_path       /var/run/openresty/nginx-uwsgi;
+    scgi_temp_path        /var/run/openresty/nginx-scgi;
+
+    sendfile        on;
+    #tcp_nopush     on;
+
+    #keepalive_timeout  0;
+    keepalive_timeout  65;
+
+    #gzip  on;
+
+    include /etc/nginx/conf.d/*.conf;
+	
+  server{
+        listen 443 ssl;
+        #对应的域名，把mykkto.cn改成你们自己的域名就可以了
+        server_name mykkto.cn;
+        #证书的两个配置文件
+        ssl_certificate /usr/local/openresty/nginx/ssl/7526194_www.mykkto.cn.pem;
+        ssl_certificate_key /usr/local/openresty/nginx/ssl/7526194_www.mykkto.cn.key;
+		#以下都是一些加密规则
+        ssl_session_timeout 5m;
+        ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+        ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE;
+        ssl_prefer_server_ciphers on;
+        #这是我的主页访问地址，因为使用的是静态的html网页，所以直接使用location就可以完成了。
+        location / {
+                #文件夹（这个其实挂载的就是外部的www目录下的静态资源）
+                root /usr/local/openresty/nginx/html;
+                #主页文件
+                index index.html;
+        }
+		
+				#lua脚本用于测试
+		location /lua {
+   default_type 'text/html';
+   content_by_lua 'ngx.say("&lt;h1&gt; hello,openrestry&lt;/h1&gt;")';
+   }	
+ }
+
+server {
+   listen 80;
+        #这边空格隔开，配置了两个，因为加了www也要配置
+       server_name mykkto.cn www.mykkto.cn;
+       rewrite ^/(.*)$ https://mykkto.cn:443/$1 permanent;
+  # location / {
+  #     limit_req zone=mylimit;
+  #}
+}
+
+    # Don't reveal OpenResty version to clients.
+    # server_tokens off;
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="3、测试lua脚本"><a href="#3、测试lua脚本" class="headerlink" title="3、测试lua脚本"></a>3、测试lua脚本</h4><p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220403120349.png"></p>
 <h2 id="参考-↓"><a href="#参考-↓" class="headerlink" title="参考 ↓"></a>参考 ↓</h2><p>—— 【一到三】参考———–</p>
 <p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/zltech/p/13517231.html">https://www.cnblogs.com/zltech/p/13517231.html</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/thepoy/p/14848080.html">https://www.cnblogs.com/thepoy/p/14848080.html</a></p>
@@ -909,6 +1153,9 @@
 <p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/zeussbook/p/11231820.html">https://www.cnblogs.com/zeussbook/p/11231820.html</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/yuyeblog/p/13582127.html">https://www.cnblogs.com/yuyeblog/p/13582127.html</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/makalochen/p/14241052.html#%E5%A4%9A%E7%9B%AE%E5%BD%95%E6%8C%82%E8%BD%BD">https://www.cnblogs.com/makalochen/p/14241052.html#%E5%A4%9A%E7%9B%AE%E5%BD%95%E6%8C%82%E8%BD%BD</a></p>
+<p>IP黑名单参考&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;</p>
+<p><a target="_blank" rel="noopener" href="https://www.jb51.net/article/168907.htm">https://www.jb51.net/article/168907.htm</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_33971205/article/details/89861486">https://blog.csdn.net/weixin_33971205/article/details/89861486</a></p>
 
                 
             </div>
@@ -1802,7 +2049,7 @@ new Valine({
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">66k</span>&nbsp;字
+                class="white-color">70.9k</span>&nbsp;字
             
             
             
