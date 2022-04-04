@@ -681,21 +681,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-04-04
+                    2022-04-05
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.6k
+                    5.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    14 分
+                    24 分
                 </div>
                 
 
@@ -1163,7 +1163,9 @@ end<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span>
 4	LUCY
 x	JACK<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><h2 id="四、OpenResty"><a href="#四、OpenResty" class="headerlink" title="四、OpenResty"></a>四、OpenResty</h2><h4 id="1、是什么"><a href="#1、是什么" class="headerlink" title="1、是什么"></a>1、是什么</h4><p>OpenResty是一个基于Nginx与 Lua 的高性能 Web 平台，其内部集成了大量精良的 Lua 库、第三方模块以及大多数的依赖项。用于方便地搭建能够处理超高并发、扩展性极高的动态 Web 应用、Web 服务和动态网关。所以本身OpenResty内部就已经集成了Nginx和Lua，所以我们使用起来会更加方便。</p>
+
+
+<h2 id="四、OpenResty"><a href="#四、OpenResty" class="headerlink" title="四、OpenResty"></a>四、OpenResty</h2><h3 id="1、基本操作"><a href="#1、基本操作" class="headerlink" title="1、基本操作"></a>1、基本操作</h3><h4 id="1、是什么"><a href="#1、是什么" class="headerlink" title="1、是什么"></a>1、是什么</h4><p>OpenResty是一个基于Nginx与 Lua 的高性能 Web 平台，其内部集成了大量精良的 Lua 库、第三方模块以及大多数的依赖项。用于方便地搭建能够处理超高并发、扩展性极高的动态 Web 应用、Web 服务和动态网关。所以本身OpenResty内部就已经集成了Nginx和Lua，所以我们使用起来会更加方便。</p>
 <h4 id="2、安装"><a href="#2、安装" class="headerlink" title="2、安装"></a>2、安装</h4><p><strong><a href="/posts/829b453d">详情可见【OpenResty】</a></strong></p>
 <h5 id="1、拉取"><a href="#1、拉取" class="headerlink" title="1、拉取"></a>1、拉取</h5><pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker pull openresty/openresty<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
@@ -1179,9 +1181,303 @@ x	JACK<span aria-hidden="true" class="line-numbers-rows"><span></span><span></sp
 
 
 
+<h3 id="2、ngx-lua的使用"><a href="#2、ngx-lua的使用" class="headerlink" title="2、ngx_lua的使用"></a>2、ngx_lua的使用</h3><p>使用Lua编写Nginx脚本的基本构建块是指令。指令用于指定何时运行用户Lua代码以及如何使用结果。下图显示了执行指令的顺序。 </p>
+<p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220404144653.png"></p>
+<p>先来解释下*的作用</p>
+<pre class="line-numbers language-none"><code class="language-none">*：无 ， 即 xxx_by_lua ,指令后面跟的是 lua指令
+*:_file，即 xxx_by_lua_file 指令后面跟的是 lua文件
+*:_block,即 xxx_by_lua_block 在0.9.17版后替换init_by_lua_file<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="init-by-lua"><a href="#init-by-lua" class="headerlink" title="init_by_lua*"></a>init_by_lua*</h4><pre class="line-numbers language-none"><code class="language-none">该指令在每次Nginx重新加载配置时执行，可以用来完成一些耗时模块的加载，或者初始化一些全局配置。<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h4 id="init-worker-by-lua"><a href="#init-worker-by-lua" class="headerlink" title="init_worker_by_lua*"></a>init_worker_by_lua*</h4><pre class="line-numbers language-none"><code class="language-none">该指令用于启动一些定时任务，如心跳检查、定时拉取服务器配置等。<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h4 id="set-by-lua"><a href="#set-by-lua" class="headerlink" title="set_by_lua*"></a>set_by_lua*</h4><pre class="line-numbers language-none"><code class="language-none">该指令只要用来做变量赋值，这个指令一次只能返回一个值，并将结果赋值给Nginx中指定的变量。<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h4 id="rewrite-by-lua"><a href="#rewrite-by-lua" class="headerlink" title="rewrite_by_lua*"></a>rewrite_by_lua*</h4><pre class="line-numbers language-none"><code class="language-none">该指令用于执行内部URL重写或者外部重定向，典型的如伪静态化URL重写，本阶段在rewrite处理阶段的最后默认执行。<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h4 id="access-by-lua"><a href="#access-by-lua" class="headerlink" title="access_by_lua*"></a>access_by_lua*</h4><pre class="line-numbers language-none"><code class="language-none">该指令用于访问控制。例如，如果只允许内网IP访问。<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h4 id="content-by-lua"><a href="#content-by-lua" class="headerlink" title="content_by_lua*"></a>content_by_lua*</h4><pre class="line-numbers language-none"><code class="language-none">该指令是应用最多的指令，大部分任务是在这个阶段完成的，其他的过程往往为这个阶段准备数据，正式处理基本都在本阶段。<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h4 id="header-filter-by-lua"><a href="#header-filter-by-lua" class="headerlink" title="header_filter_by_lua*"></a>header_filter_by_lua*</h4><pre class="line-numbers language-none"><code class="language-none">该指令用于设置应答消息的头部信息。<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h4 id="body-filter-by-lua"><a href="#body-filter-by-lua" class="headerlink" title="body_filter_by_lua*"></a>body_filter_by_lua*</h4><pre class="line-numbers language-none"><code class="language-none">该指令是对响应数据进行过滤，如截断、替换。<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h4 id="log-by-lua"><a href="#log-by-lua" class="headerlink" title="log_by_lua*"></a>log_by_lua*</h4><pre class="line-numbers language-none"><code class="language-none">该指令用于在log请求处理阶段，用Lua代码处理日志，但并不替换原有log处理。<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h4 id="balancer-by-lua"><a href="#balancer-by-lua" class="headerlink" title="balancer_by_lua*"></a>balancer_by_lua*</h4><pre class="line-numbers language-none"><code class="language-none">该指令主要的作用是用来实现上游服务器的负载均衡器算法<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h4 id="ssl-certificate-by"><a href="#ssl-certificate-by" class="headerlink" title="ssl_certificate_by_*"></a>ssl_certificate_by_*</h4><pre class="line-numbers language-none"><code class="language-none">该指令作用在Nginx和下游服务开始一个SSL握手操作时将允许本配置项的Lua代码。<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h4 id="需求"><a href="#需求" class="headerlink" title="需求:"></a>需求:</h4><pre class="line-numbers language-none"><code class="language-none">http://192.168.200.133?name=张三&amp;gender=1
+Nginx接收到请求后，根据gender传入的值，如果gender传入的是1，则在页面上展示
+张三先生,如果gender传入的是0，则在页面上展示张三女士,如果未传或者传入的不是1和2则在页面上展示张三。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>实现代码</p>
+<p><strong>注意</strong>：加入配置文件的时候 #内容要去掉</p>
+<pre class="line-numbers language-none"><code class="language-none">location /getByGender {
+	default_type 'text/html';
+	set_by_lua $name "
+		#获取请求url上的值 name，gender
+		local uri_args = ngx.req.get_uri_args()
+		gender = uri_args['gender']
+		name = uri_args['name']
+		if gender=='1' then
+			return name..'先生'
+		elseif gender=='0' then
+			return name..'女士'
+		else
+			return name
+		end
+	";
+	#解决乱码问题
+	charset utf-8;
+	
+	return 200 $name;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
-<h3 id="-2"><a href="#-2" class="headerlink" title=""></a></h3>
+
+<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1649073290089.png" alt="1649073290089"></p>
+<h3 id="3、ngx-lua操作Redis"><a href="#3、ngx-lua操作Redis" class="headerlink" title="3、ngx_lua操作Redis"></a>3、ngx_lua操作Redis</h3><h4 id="1、Api及其语句说明"><a href="#1、Api及其语句说明" class="headerlink" title="1、Api及其语句说明"></a>1、Api及其语句说明</h4><pre class="line-numbers language-lua" data-language="lua"><code class="language-lua">lua<span class="token operator">-</span>resty<span class="token operator">-</span>redis提供了访问Redis的详细API，包括创建对接、连接、操作、数据处理等。这些API基本上与Redis的操作一一对应。
+（<span class="token number">1</span>）redis <span class="token operator">=</span> require <span class="token string">"resty.redis"</span>
+（<span class="token number">2</span>）new
+	语法<span class="token punctuation">:</span> redis<span class="token punctuation">,</span>err <span class="token operator">=</span> redis<span class="token punctuation">:</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>创建一个Redis对象。
+（<span class="token number">3</span>）connect
+	语法<span class="token punctuation">:</span>ok<span class="token punctuation">,</span>err<span class="token operator">=</span>redis<span class="token punctuation">:</span><span class="token function">connect</span><span class="token punctuation">(</span>host<span class="token punctuation">,</span>port<span class="token punctuation">[</span><span class="token punctuation">,</span>options_table<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span>设置连接Redis的连接信息。
+	ok<span class="token punctuation">:</span>连接成功返回 <span class="token number">1</span>，连接失败返回<span class="token keyword">nil</span>
+	err<span class="token punctuation">:</span>返回对应的错误信息
+（<span class="token number">4</span>）set_timeout
+	语法<span class="token punctuation">:</span> redis<span class="token punctuation">:</span><span class="token function">set_timeout</span><span class="token punctuation">(</span>time<span class="token punctuation">)</span> ，设置请求操作Redis的超时时间。
+（<span class="token number">5</span>）close
+	语法<span class="token punctuation">:</span> ok<span class="token punctuation">,</span>err <span class="token operator">=</span> redis<span class="token punctuation">:</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>关闭当前连接，成功返回<span class="token number">1</span>，失败返回<span class="token keyword">nil</span>和错误信息
+（<span class="token number">6</span>）redis命令对应的方法
+	在lua<span class="token operator">-</span>resty<span class="token operator">-</span>redis中，所有的Redis命令都有自己的方法，方法名字和命令名字相同，只是全部为小写。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="2、实现"><a href="#2、实现" class="headerlink" title="2、实现"></a>2、实现</h4><pre class="line-numbers language-lua" data-language="lua"><code class="language-lua">location <span class="token operator">/</span><span class="token function">testRedis</span> <span class="token punctuation">{</span>
+    default_type <span class="token string">"text/html"</span><span class="token punctuation">;</span>
+    <span class="token function">content_by_lua_block</span><span class="token punctuation">{</span>
+        <span class="token keyword">local</span> redis <span class="token operator">=</span> require <span class="token string">"resty.redis"</span> <span class="token comment">-- 引入Redis</span>
+        <span class="token keyword">local</span> redisObj <span class="token operator">=</span> redis<span class="token punctuation">:</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment">--创建Redis对象</span>
+        redisObj<span class="token punctuation">:</span><span class="token function">set_timeout</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span> <span class="token comment">--设置超时数据为1s</span>
+        <span class="token keyword">local</span> ok<span class="token punctuation">,</span>err <span class="token operator">=</span> redisObj<span class="token punctuation">:</span><span class="token function">connect</span><span class="token punctuation">(</span><span class="token string">"10.0.4.7"</span><span class="token punctuation">,</span><span class="token number">6379</span><span class="token punctuation">)</span> <span class="token comment">--设置redis连接信息，这边不要用127.0.0.1</span>
+        <span class="token keyword">if</span> <span class="token keyword">not</span> ok <span class="token keyword">then</span> <span class="token comment">--判断是否连接成功</span>
+         ngx<span class="token punctuation">.</span><span class="token function">say</span><span class="token punctuation">(</span><span class="token string">"failed to connection redis"</span><span class="token punctuation">,</span>err<span class="token punctuation">)</span>
+         <span class="token keyword">return</span>
+        <span class="token keyword">end</span>
+        ok<span class="token punctuation">,</span>err <span class="token operator">=</span> redisObj<span class="token punctuation">:</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token string">"username"</span><span class="token punctuation">,</span><span class="token string">"TOM"</span><span class="token punctuation">)</span><span class="token comment">--存入数据</span>
+        <span class="token keyword">if</span> <span class="token keyword">not</span> ok <span class="token keyword">then</span> <span class="token comment">--判断是否存入成功</span>
+         ngx<span class="token punctuation">.</span><span class="token function">say</span><span class="token punctuation">(</span><span class="token string">"failed to set username"</span><span class="token punctuation">,</span>err<span class="token punctuation">)</span>
+         <span class="token keyword">return</span>
+        <span class="token keyword">end</span>
+        <span class="token keyword">local</span> res<span class="token punctuation">,</span>err <span class="token operator">=</span> redisObj<span class="token punctuation">:</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"username"</span><span class="token punctuation">)</span> <span class="token comment">--从redis中获取数据</span>
+        ngx<span class="token punctuation">.</span><span class="token function">say</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span>	<span class="token comment">--将数据写会消息体中</span>
+        redisObj<span class="token punctuation">:</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220404220444.png"></p>
+<h3 id="4、ngx-lua操作Mysql"><a href="#4、ngx-lua操作Mysql" class="headerlink" title="4、ngx_lua操作Mysql"></a>4、ngx_lua操作Mysql</h3><h4 id="1、查询"><a href="#1、查询" class="headerlink" title="1、查询"></a>1、查询</h4><h5 id="1、准备"><a href="#1、准备" class="headerlink" title="1、准备"></a>1、准备</h5><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token assign-left variable">driverClass</span><span class="token operator">=</span>com.mysql.jdbc.Driver
+<span class="token assign-left variable">url</span><span class="token operator">=</span>jdbc:mysql://10.0.4.7:3306/nginx_db
+<span class="token assign-left variable">username</span><span class="token operator">=</span>root
+<span class="token assign-left variable">password</span><span class="token operator">=</span>root<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h5 id="2、建库"><a href="#2、建库" class="headerlink" title="2、建库"></a>2、建库</h5><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">
+
+<span class="token keyword">create</span> <span class="token keyword">table</span> users<span class="token punctuation">(</span>
+   id <span class="token keyword">int</span> <span class="token keyword">primary</span> <span class="token keyword">key</span> <span class="token keyword">auto_increment</span><span class="token punctuation">,</span>
+   username <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+   birthday <span class="token keyword">date</span><span class="token punctuation">,</span>
+   salary <span class="token keyword">double</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">insert</span> <span class="token keyword">into</span> users<span class="token punctuation">(</span>id<span class="token punctuation">,</span>username<span class="token punctuation">,</span>birthday<span class="token punctuation">,</span>salary<span class="token punctuation">)</span> <span class="token keyword">values</span><span class="token punctuation">(</span><span class="token boolean">null</span><span class="token punctuation">,</span><span class="token string">"TOM"</span><span class="token punctuation">,</span><span class="token string">"1988-11-11"</span><span class="token punctuation">,</span><span class="token number">10000.0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">insert</span> <span class="token keyword">into</span> users<span class="token punctuation">(</span>id<span class="token punctuation">,</span>username<span class="token punctuation">,</span>birthday<span class="token punctuation">,</span>salary<span class="token punctuation">)</span> <span class="token keyword">values</span><span class="token punctuation">(</span><span class="token boolean">null</span><span class="token punctuation">,</span><span class="token string">"JERRY"</span><span class="token punctuation">,</span><span class="token string">"1989-11-11"</span><span class="token punctuation">,</span><span class="token number">20000.0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">insert</span> <span class="token keyword">into</span> users<span class="token punctuation">(</span>id<span class="token punctuation">,</span>username<span class="token punctuation">,</span>birthday<span class="token punctuation">,</span>salary<span class="token punctuation">)</span> <span class="token keyword">values</span><span class="token punctuation">(</span><span class="token boolean">null</span><span class="token punctuation">,</span><span class="token string">"ROWS"</span><span class="token punctuation">,</span><span class="token string">"1990-11-11"</span><span class="token punctuation">,</span><span class="token number">30000.0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">insert</span> <span class="token keyword">into</span> users<span class="token punctuation">(</span>id<span class="token punctuation">,</span>username<span class="token punctuation">,</span>birthday<span class="token punctuation">,</span>salary<span class="token punctuation">)</span> <span class="token keyword">values</span><span class="token punctuation">(</span><span class="token boolean">null</span><span class="token punctuation">,</span><span class="token string">"LUCY"</span><span class="token punctuation">,</span><span class="token string">"1991-11-11"</span><span class="token punctuation">,</span><span class="token number">40000.0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">insert</span> <span class="token keyword">into</span> users<span class="token punctuation">(</span>id<span class="token punctuation">,</span>username<span class="token punctuation">,</span>birthday<span class="token punctuation">,</span>salary<span class="token punctuation">)</span> <span class="token keyword">values</span><span class="token punctuation">(</span><span class="token boolean">null</span><span class="token punctuation">,</span><span class="token string">"JACK"</span><span class="token punctuation">,</span><span class="token string">"1992-11-11"</span><span class="token punctuation">,</span><span class="token number">50000.0</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h5 id="3、Api详解"><a href="#3、Api详解" class="headerlink" title="3、Api详解"></a>3、Api详解</h5><pre class="line-numbers language-lua" data-language="lua"><code class="language-lua">（<span class="token number">1</span>）引入<span class="token string">"resty.mysql"</span>模块
+	<span class="token keyword">local</span> mysql <span class="token operator">=</span> require <span class="token string">"resty.mysql"</span>
+（<span class="token number">2</span>）new
+	创建一个MySQL连接对象，遇到错误时，db为<span class="token keyword">nil</span>，err为错误描述信息
+	语法<span class="token punctuation">:</span> db<span class="token punctuation">,</span>err <span class="token operator">=</span> mysql<span class="token punctuation">:</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+（<span class="token number">3</span>）connect
+	尝试连接到一个MySQL服务器
+	语法<span class="token punctuation">:</span>ok<span class="token punctuation">,</span>err<span class="token operator">=</span>db<span class="token punctuation">:</span><span class="token function">connect</span><span class="token punctuation">(</span>options<span class="token punctuation">)</span><span class="token punctuation">,</span>options是一个参数的Lua表结构，里面包含数据库连接的相关信息
+    host<span class="token punctuation">:</span>服务器主机名或IP地址
+    port<span class="token punctuation">:</span>服务器监听端口，默认为<span class="token number">3306</span>
+    user<span class="token punctuation">:</span>登录的用户名
+    password<span class="token punctuation">:</span>登录密码
+    database<span class="token punctuation">:</span>使用的数据库名
+（<span class="token number">4</span>）set_timeout
+	设置子请求的超时时间<span class="token punctuation">(</span>ms<span class="token punctuation">)</span>，包括connect方法
+	语法<span class="token punctuation">:</span>db<span class="token punctuation">:</span><span class="token function">set_timeout</span><span class="token punctuation">(</span>time<span class="token punctuation">)</span>
+（<span class="token number">5</span>）close
+	关闭当前MySQL连接并返回状态。如果成功，则返回<span class="token number">1</span>；如果出现任何错误，则将返回<span class="token keyword">nil</span>和错误描述。
+	语法<span class="token punctuation">:</span>db<span class="token punctuation">:</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+（<span class="token number">6</span>）send_query
+	异步向远程MySQL发送一个查询。如果成功则返回成功发送的字节数；如果错误，则返回<span class="token keyword">nil</span>和错误描述
+	语法<span class="token punctuation">:</span>bytes<span class="token punctuation">,</span>err<span class="token operator">=</span>db<span class="token punctuation">:</span><span class="token function">send_query</span><span class="token punctuation">(</span>sql<span class="token punctuation">)</span>
+（<span class="token number">7</span>）read_result
+	从MySQL服务器返回结果中读取一行数据。res返回一个描述OK包或结果集包的Lua表<span class="token punctuation">,</span>语法<span class="token punctuation">:</span>
+	res<span class="token punctuation">,</span> err<span class="token punctuation">,</span> errcode<span class="token punctuation">,</span> sqlstate <span class="token operator">=</span> db<span class="token punctuation">:</span><span class="token function">read_result</span><span class="token punctuation">(</span><span class="token punctuation">)</span> 
+	res<span class="token punctuation">,</span> err<span class="token punctuation">,</span> errcode<span class="token punctuation">,</span> sqlstate <span class="token operator">=</span> db<span class="token punctuation">:</span><span class="token function">read_result</span><span class="token punctuation">(</span>rows<span class="token punctuation">)</span> <span class="token punctuation">:</span>rows指定返回结果集的最大值，默认为<span class="token number">4</span>
+	如果是查询，则返回一个容纳多行的数组。每行是一个数据列的key<span class="token operator">-</span>value对，如
+
+    <span class="token punctuation">{</span>
+      <span class="token punctuation">{</span>id<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span>username<span class="token operator">=</span><span class="token string">"TOM"</span><span class="token punctuation">,</span>birthday<span class="token operator">=</span><span class="token string">"1988-11-11"</span><span class="token punctuation">,</span>salary<span class="token operator">=</span><span class="token number">10000.0</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span>id<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span>username<span class="token operator">=</span><span class="token string">"JERRY"</span><span class="token punctuation">,</span>birthday<span class="token operator">=</span><span class="token string">"1989-11-11"</span><span class="token punctuation">,</span>salary<span class="token operator">=</span><span class="token number">20000.0</span><span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+	如果是增删改，则返回类上如下数据
+    <span class="token punctuation">{</span>
+    	insert_id <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    	server_status<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span>
+    	warning_count<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span>
+    	affected_rows<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span>
+    	message<span class="token operator">=</span><span class="token keyword">nil</span>
+    <span class="token punctuation">}</span>
+	返回值<span class="token punctuation">:</span>
+		res<span class="token punctuation">:</span>操作的结果集
+		err<span class="token punctuation">:</span>错误信息
+		errcode<span class="token punctuation">:</span>MySQL的错误码，比如<span class="token number">1064</span>
+		sqlstate<span class="token punctuation">:</span>返回由<span class="token number">5</span>个字符组成的标准SQL错误码，比如<span class="token number">42000</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h5 id="4、实现"><a href="#4、实现" class="headerlink" title="4、实现"></a>4、实现</h5><pre class="line-numbers language-lua" data-language="lua"><code class="language-lua">location <span class="token operator">/</span><span class="token function">mysqlSearch</span><span class="token punctuation">{</span>
+    default_type <span class="token string">'text/html'</span><span class="token punctuation">;</span>
+    <span class="token function">content_by_lua_block</span><span class="token punctuation">{</span>
+        <span class="token keyword">local</span> mysql <span class="token operator">=</span> require <span class="token string">"resty.mysql"</span>
+        <span class="token keyword">local</span> db <span class="token operator">=</span> mysql<span class="token punctuation">:</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">local</span> ok<span class="token punctuation">,</span>err <span class="token operator">=</span> db<span class="token punctuation">:</span><span class="token function">connect</span><span class="token punctuation">{</span>
+            host<span class="token operator">=</span><span class="token string">"10.0.4.7"</span><span class="token punctuation">,</span> <span class="token operator">#</span>不要用<span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span>
+            port<span class="token operator">=</span><span class="token number">3306</span><span class="token punctuation">,</span>
+            user<span class="token operator">=</span><span class="token string">"root"</span><span class="token punctuation">,</span>
+            password<span class="token operator">=</span><span class="token string">"root"</span><span class="token punctuation">,</span>
+            database<span class="token operator">=</span><span class="token string">"lua_db"</span>
+        <span class="token punctuation">}</span>
+        db<span class="token punctuation">:</span><span class="token function">set_timeout</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span>
+
+        db<span class="token punctuation">:</span><span class="token function">send_query</span><span class="token punctuation">(</span><span class="token string">"select * from users where id =1"</span><span class="token punctuation">)</span>
+        <span class="token keyword">local</span> res<span class="token punctuation">,</span>err<span class="token punctuation">,</span>errcode<span class="token punctuation">,</span>sqlstate <span class="token operator">=</span> db<span class="token punctuation">:</span><span class="token function">read_result</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        ngx<span class="token punctuation">.</span><span class="token function">say</span><span class="token punctuation">(</span>res<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>id<span class="token operator">..</span><span class="token string">","</span><span class="token operator">..</span>res<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>username<span class="token operator">..</span><span class="token string">","</span><span class="token operator">..</span>res<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>birthday<span class="token operator">..</span><span class="token string">","</span><span class="token operator">..</span>res<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>salary<span class="token punctuation">)</span>
+    	db<span class="token punctuation">:</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+<h5 id="5、-baby-chick-优化"><a href="#5、-baby-chick-优化" class="headerlink" title="5、:baby_chick:优化:"></a>5、<span class="github-emoji"><span>🐤</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f424.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span>优化:</h5><pre class="line-numbers language-lua" data-language="lua"><code class="language-lua">location <span class="token operator">/</span><span class="token function">mysqlSearch</span> <span class="token punctuation">{</span>
+    default_type <span class="token string">'text/html'</span><span class="token punctuation">;</span>
+    <span class="token function">content_by_lua_block</span><span class="token punctuation">{</span>
+        <span class="token keyword">local</span> mysql <span class="token operator">=</span> require <span class="token string">"resty.mysql"</span>
+        <span class="token keyword">local</span> db <span class="token operator">=</span> mysql<span class="token punctuation">:</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">local</span> ok<span class="token punctuation">,</span>err <span class="token operator">=</span> db<span class="token punctuation">:</span><span class="token function">connect</span><span class="token punctuation">{</span>
+            host<span class="token operator">=</span><span class="token string">"10.0.4.7"</span><span class="token punctuation">,</span>
+            port<span class="token operator">=</span><span class="token number">3306</span><span class="token punctuation">,</span>
+            user<span class="token operator">=</span><span class="token string">"root"</span><span class="token punctuation">,</span>
+            password<span class="token operator">=</span><span class="token string">"root"</span><span class="token punctuation">,</span>
+            database<span class="token operator">=</span><span class="token string">"lua_db"</span>
+        <span class="token punctuation">}</span>
+        db<span class="token punctuation">:</span><span class="token function">set_timeout</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span>
+        <span class="token keyword">local</span> uri_args <span class="token operator">=</span> ngx<span class="token punctuation">.</span>req<span class="token punctuation">.</span><span class="token function">get_uri_args</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">local</span> reqId <span class="token operator">=</span> uri_args<span class="token punctuation">[</span><span class="token string">'id'</span><span class="token punctuation">]</span>
+        db<span class="token punctuation">:</span><span class="token function">send_query</span><span class="token punctuation">(</span><span class="token string">"select * from users where id ="</span><span class="token operator">..</span>reqId<span class="token punctuation">)</span>
+        <span class="token keyword">local</span> res<span class="token punctuation">,</span>err<span class="token punctuation">,</span>errcode<span class="token punctuation">,</span>sqlstate <span class="token operator">=</span> db<span class="token punctuation">:</span><span class="token function">read_result</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        ngx<span class="token punctuation">.</span><span class="token function">say</span><span class="token punctuation">(</span>res<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>id<span class="token operator">..</span><span class="token string">","</span><span class="token operator">..</span>res<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>username<span class="token operator">..</span><span class="token string">","</span><span class="token operator">..</span>res<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>birthday<span class="token operator">..</span><span class="token string">","</span><span class="token operator">..</span>res<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>salary<span class="token punctuation">)</span>
+        db<span class="token punctuation">:</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220404233016.png"></p>
+<h5 id="6、-artificial-satellite-lua-cjson"><a href="#6、-artificial-satellite-lua-cjson" class="headerlink" title="6、:artificial_satellite:lua-cjson"></a>6、<span class="github-emoji"><span>🛰</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f6f0.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span>lua-cjson</h5><p>read_result()得到的结果res都是table类型，要想在页面上展示，就必须知道table的具体数据结构才能进行遍历获取。处理起来比较麻烦，接下来我们介绍一种简单方式cjson，使用它就可以将table类型的数据转换成json字符串，把json字符串展示在页面上即可。</p>
+<p>步骤一：引入cjson</p>
+<pre class="line-numbers language-none"><code class="language-none">local cjson = require "cjson"<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>步骤二：调用cjson的encode方法进行类型转换</p>
+<pre class="line-numbers language-none"><code class="language-none">cjson.encode(res) <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<p>优化代码：</p>
+<pre class="line-numbers language-lua" data-language="lua"><code class="language-lua">location <span class="token operator">/</span><span class="token function">mysqlSearch</span> <span class="token punctuation">{</span>
+    default_type <span class="token string">'text/html'</span><span class="token punctuation">;</span>
+    <span class="token function">content_by_lua_block</span><span class="token punctuation">{</span>
+        <span class="token keyword">local</span> mysql <span class="token operator">=</span> require <span class="token string">"resty.mysql"</span>
+        <span class="token keyword">local</span> db <span class="token operator">=</span> mysql<span class="token punctuation">:</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">local</span> cjson <span class="token operator">=</span> require <span class="token string">"cjson"</span>
+        <span class="token keyword">local</span> ok<span class="token punctuation">,</span>err <span class="token operator">=</span> db<span class="token punctuation">:</span><span class="token function">connect</span><span class="token punctuation">{</span>
+            host<span class="token operator">=</span><span class="token string">"10.0.4.7"</span><span class="token punctuation">,</span>
+            port<span class="token operator">=</span><span class="token number">3306</span><span class="token punctuation">,</span>
+            user<span class="token operator">=</span><span class="token string">"root"</span><span class="token punctuation">,</span>
+            password<span class="token operator">=</span><span class="token string">"root"</span><span class="token punctuation">,</span>
+            database<span class="token operator">=</span><span class="token string">"lua_db"</span>
+        <span class="token punctuation">}</span>
+        db<span class="token punctuation">:</span><span class="token function">set_timeout</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span>
+        <span class="token keyword">local</span> uri_args <span class="token operator">=</span> ngx<span class="token punctuation">.</span>req<span class="token punctuation">.</span><span class="token function">get_uri_args</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">local</span> reqId <span class="token operator">=</span> uri_args<span class="token punctuation">[</span><span class="token string">'id'</span><span class="token punctuation">]</span>
+        db<span class="token punctuation">:</span><span class="token function">send_query</span><span class="token punctuation">(</span><span class="token string">"select * from users where id ="</span><span class="token operator">..</span>reqId<span class="token punctuation">)</span>
+        <span class="token keyword">local</span> res<span class="token punctuation">,</span>err<span class="token punctuation">,</span>errcode<span class="token punctuation">,</span>sqlstate <span class="token operator">=</span> db<span class="token punctuation">:</span><span class="token function">read_result</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        ngx<span class="token punctuation">.</span><span class="token function">say</span><span class="token punctuation">(</span>cjson<span class="token punctuation">.</span><span class="token function">encode</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span><span class="token punctuation">)</span>
+         <span class="token keyword">for</span> i<span class="token punctuation">,</span>v <span class="token keyword">in</span> <span class="token function">ipairs</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span> <span class="token keyword">do</span>
+       ngx<span class="token punctuation">.</span><span class="token function">say</span><span class="token punctuation">(</span>v<span class="token punctuation">.</span>id<span class="token operator">..</span><span class="token string">","</span><span class="token operator">..</span>v<span class="token punctuation">.</span>username<span class="token operator">..</span><span class="token string">","</span><span class="token operator">..</span>v<span class="token punctuation">.</span>birthday<span class="token operator">..</span><span class="token string">","</span><span class="token operator">..</span>v<span class="token punctuation">.</span>salary<span class="token punctuation">)</span>
+        <span class="token keyword">end</span>
+        db<span class="token punctuation">:</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220404234615.png"></p>
+<h4 id="2、增删改"><a href="#2、增删改" class="headerlink" title="2、增删改"></a>2、增删改</h4><pre class="line-numbers language-lua" data-language="lua"><code class="language-lua">location <span class="token operator">/</span><span class="token function">mysql</span> <span class="token punctuation">{</span>
+    default_type <span class="token string">'text/html'</span><span class="token punctuation">;</span>
+    <span class="token function">content_by_lua_block</span><span class="token punctuation">{</span>
+        <span class="token keyword">local</span> mysql <span class="token operator">=</span> require <span class="token string">"resty.mysql"</span>
+        <span class="token keyword">local</span> db <span class="token operator">=</span> mysql<span class="token punctuation">:</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">local</span> cjson <span class="token operator">=</span> require <span class="token string">"cjson"</span>
+        <span class="token keyword">local</span> ok<span class="token punctuation">,</span>err <span class="token operator">=</span> db<span class="token punctuation">:</span><span class="token function">connect</span><span class="token punctuation">{</span>
+            host<span class="token operator">=</span><span class="token string">"10.0.4.7"</span><span class="token punctuation">,</span>
+            port<span class="token operator">=</span><span class="token number">3306</span><span class="token punctuation">,</span>
+            user<span class="token operator">=</span><span class="token string">"root"</span><span class="token punctuation">,</span>
+            password<span class="token operator">=</span><span class="token string">"root"</span><span class="token punctuation">,</span>
+            database<span class="token operator">=</span><span class="token string">"lua_db"</span>
+        <span class="token punctuation">}</span>
+        db<span class="token punctuation">:</span><span class="token function">set_timeout</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span>
+        <span class="token keyword">local</span> uri_args <span class="token operator">=</span> ngx<span class="token punctuation">.</span>req<span class="token punctuation">.</span><span class="token function">get_uri_args</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">local</span> reqId <span class="token operator">=</span> uri_args<span class="token punctuation">[</span><span class="token string">'id'</span><span class="token punctuation">]</span>
+        <span class="token keyword">local</span> reqType <span class="token operator">=</span> uri_args<span class="token punctuation">[</span><span class="token string">'reqType'</span><span class="token punctuation">]</span>
+        db<span class="token punctuation">:</span><span class="token function">send_query</span><span class="token punctuation">(</span><span class="token string">"select * from users where id ="</span><span class="token operator">..</span>reqId<span class="token punctuation">)</span>
+        <span class="token keyword">if</span> reqType <span class="token operator">==</span> <span class="token string">'search'</span> <span class="token keyword">then</span> 
+        	<span class="token keyword">local</span> res<span class="token punctuation">,</span>err<span class="token punctuation">,</span>errcode<span class="token punctuation">,</span>sqlstate <span class="token operator">=</span> db<span class="token punctuation">:</span><span class="token function">read_result</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+       	    ngx<span class="token punctuation">.</span><span class="token function">say</span><span class="token punctuation">(</span>cjson<span class="token punctuation">.</span><span class="token function">encode</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token keyword">for</span> i<span class="token punctuation">,</span>v <span class="token keyword">in</span> <span class="token function">ipairs</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span> <span class="token keyword">do</span>
+    	    ngx<span class="token punctuation">.</span><span class="token function">say</span><span class="token punctuation">(</span>v<span class="token punctuation">.</span>id<span class="token operator">..</span><span class="token string">","</span><span class="token operator">..</span>v<span class="token punctuation">.</span>username<span class="token operator">..</span><span class="token string">","</span><span class="token operator">..</span>v<span class="token punctuation">.</span>birthday<span class="token operator">..</span><span class="token string">","</span><span class="token operator">..</span>v<span class="token punctuation">.</span>salary<span class="token punctuation">)</span>
+     	    <span class="token keyword">end</span>
+        <span class="token keyword">elseif</span> reqType <span class="token operator">==</span> <span class="token string">'add'</span>  <span class="token keyword">then</span>
+            <span class="token keyword">local</span> res<span class="token punctuation">,</span>err<span class="token punctuation">,</span>errcode<span class="token punctuation">,</span>sqlstate <span class="token operator">=</span> db<span class="token punctuation">:</span><span class="token function">query</span><span class="token punctuation">(</span><span class="token string">"insert into users(id,username,birthday,salary) values(6,'zhangsan','2023-11-11',32222.0)"</span><span class="token punctuation">)</span>
+        <span class="token keyword">elseif</span> reqType <span class="token operator">==</span> <span class="token string">'update'</span> <span class="token keyword">then</span> 
+            <span class="token keyword">local</span> res<span class="token punctuation">,</span>err<span class="token punctuation">,</span>errcode<span class="token punctuation">,</span>sqlstate <span class="token operator">=</span> db<span class="token punctuation">:</span><span class="token function">query</span><span class="token punctuation">(</span><span class="token string">"update users set username='lisi' where id = 6"</span><span class="token punctuation">)</span>
+        <span class="token keyword">elseif</span> reqType <span class="token operator">==</span> <span class="token string">'delete'</span>  <span class="token keyword">then</span>
+            <span class="token keyword">local</span> res<span class="token punctuation">,</span>err<span class="token punctuation">,</span>errcode<span class="token punctuation">,</span>sqlstate <span class="token operator">=</span> db<span class="token punctuation">:</span><span class="token function">query</span><span class="token punctuation">(</span><span class="token string">"delete from users where id = 6"</span><span class="token punctuation">)</span>
+        <span class="token keyword">end</span>    
+        db<span class="token punctuation">:</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h2 id="发现"><a href="#发现" class="headerlink" title="发现"></a>发现</h2><p><code>:</code>  + 英文字母有小图标</p>
+<p><code>:c</code> —&gt;  <span class="github-emoji"><span>⏰</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/23f0.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span><span class="github-emoji"><span>🐤</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f424.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span></p>
+<p>关于撤回，vim</p>
+<p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220404233431.png"></p>
+
                 
             </div>
             <hr/>
@@ -2080,7 +2376,7 @@ new Valine({
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">70.9k</span>&nbsp;字
+                class="white-color">73k</span>&nbsp;字
             
             
             
