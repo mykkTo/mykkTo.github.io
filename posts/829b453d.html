@@ -677,14 +677,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-04-05
+                    2022-04-07
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.4k
+                    2.5k
                 </div>
                 
 
@@ -798,6 +798,17 @@
 <h3 id="2、创建定时任务"><a href="#2、创建定时任务" class="headerlink" title="2、创建定时任务"></a>2、创建定时任务</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">crontab</span> -e<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220321202335.png"></p>
+<p><strong>补充：</strong></p>
+<p>linux 黑洞，防止资源占用</p>
+<p><code>/dev/null 2&gt;&amp;1</code></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">
+<span class="token comment">#后缀加上</span>
+/root/nginx/synblog.sh /dev/null <span class="token operator"><span class="token file-descriptor important">2</span>&gt;</span><span class="token file-descriptor important">&amp;1</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p><strong>启动：</strong></p>
+<p>这边设置没一个小时更新一次（需要注意centos7.6写法启动）</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">service</span> crond start<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 
@@ -1156,6 +1167,7 @@ pcre_jit on<span class="token punctuation">;</span>
 <p>IP黑名单参考&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;</p>
 <p><a target="_blank" rel="noopener" href="https://www.jb51.net/article/168907.htm">https://www.jb51.net/article/168907.htm</a></p>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_33971205/article/details/89861486">https://blog.csdn.net/weixin_33971205/article/details/89861486</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.csdn.net/tags/MtTaIgzsNDYzNDUtYmxvZwO0O0OO0O0O.html">https://www.csdn.net/tags/MtTaIgzsNDYzNDUtYmxvZwO0O0OO0O0O.html</a></p>
 
                 
             </div>
