@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="云原生_KubeSphere, jack 计算机 写作 ">
+    <meta name="keywords" content="分类: 缓存中间件, jack 计算机 写作 ">
     <meta name="description" content="专科 | 计算机与网络 | 简书作者">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -18,7 +18,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>云原生_KubeSphere | jack</title>
+    <title>分类: 缓存中间件 | jack</title>
 
     <link rel="icon" type="image/jpeg" href="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/my1SN{XEPO)])9$A7K_JK(BNOV.jpg">
 
@@ -494,1031 +494,448 @@
 
 </header>
 
-    
-<script src="/libs/cryptojs/crypto-js.min.js"></script>
-<script>
-    (function() {
-        let pwd = '';
-        if (pwd && pwd.length > 0) {
-            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
-                alert('密码错误，将返回主页！');
-                location.href = '/';
-            }
-        }
-    })();
-</script>
+    <div class="bg-cover pd-header about-cover">
+    <div class="container">
+    <div class="row">
+    <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
+        <div class="brand">
+            <div class="title center-align">
+                
+                jackの博客
+                
+            </div>
 
-
-
-
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/mykkto/image@main/galleries/动漫风景/13.jpg')">
-    <div class="container" style="right: 0px;left: 0px;">
-        <div class="row">
-            <div class="col s12 m12 l12">
-                <div class="brand">
-                    <h1 class="description center-align post-title">云原生_KubeSphere</h1>
-                </div>
+            <div class="description center-align">
+                
+                <span id="subtitle"></span>
+                <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
+                <script>
+                    var typed = new Typed("#subtitle", {
+                        strings: ['既然选择了一条路，何必去打听要走多久','Always Online'],
+                        startDelay: 300,
+                        typeSpeed: 150,
+                        loop: true,
+                        backSpeed: 30,
+                        showCursor: true
+                    });
+                </script>
+                
             </div>
         </div>
     </div>
 </div>
 
 
+<script>
+    // 每天切换 banner 图.  Switch banner image every day.
+    //var bannerUrl = "/medias/banner/" + new Date().getDay() + '.jpg';
+    // 固定一张
+    var bannerUrl = "https://cdn.jsdelivr.net/gh/mykkto/image@main/galleries/二次元风/12.jpg";
+    //var bannerUrl = "https://cdn.jsdelivr.net/gh/mykkto/image@main/galleries/%E5%8A%A8%E6%BC%AB%E6%8F%92%E7%94%BB/03.jpg";
+    $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
+</script>
 
 
-<main class="post-container content">
+    </div>
+</div>
+
+<main class="content">
 
     
-    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
-<style>
-    #articleContent h1::before,
-    #articleContent h2::before,
-    #articleContent h3::before,
-    #articleContent h4::before,
-    #articleContent h5::before,
-    #articleContent h6::before {
-        display: block;
-        content: " ";
-        height: 100px;
-        margin-top: -100px;
-        visibility: hidden;
-    }
 
-    #articleContent :focus {
-        outline: none;
-    }
-
-    .toc-fixed {
-        position: fixed;
-        top: 64px;
-    }
-
-    .toc-widget {
-        background-color: white;
-        width: 345px;
-        padding-left: 20px;
-        border-radius: 10px;
-        box-shadow: 0 10px 35px 2px rgba(0, 0, 0, .15), 0 5px 15px rgba(0, 0, 0, .07), 0 2px 5px -5px rgba(0, 0, 0, .1) !important;
-    }
-
-    .toc-widget .toc-title {
-        padding: 35px 0 15px 17px;
-        font-size: 1.5rem;
-        font-weight: bold;
-        line-height: 1.5rem;
-    }
-
-    .toc-widget ol {
-        padding: 0;
-        list-style: none;
-    }
-    
-    #toc-content {
-        height: calc(100vh - 300px);
-        overflow: scroll;
-
-    }
-
-    #toc-content ol {
-        padding-left: 10px;
-    }
-
-    #toc-content ol li {
-        padding-left: 10px;
-    }
-
-    #toc-content .toc-link:hover {
-        color: #42b983;
-        font-weight: 700;
-        text-decoration: underline;
-    }
-
-    #toc-content .toc-link::before {
-        background-color: transparent;
-        max-height: 25px;
-
-        position: absolute;
-        right: 23.5vw;
-        display: block;
-    }
-
-    #toc-content .is-active-link {
-        color: #42b983;
-    }
-
-    #floating-toc-btn {
-        position: fixed;
-        right: 15px;
-        bottom: 76px;
-        padding-top: 15px;
-        margin-bottom: 0;
-        z-index: 998;
-    }
-
-    #floating-toc-btn .btn-floating {
-        width: 48px;
-        height: 48px;
-        bottom: 120px;
-    }
-
-    #floating-toc-btn .btn-floating i {
-        line-height: 48px;
-        font-size: 1.4rem;
-    }
-</style>
-<div class="row">
-    <div id="main-content" class="col s12 m12 l9">
-        <!-- 文章内容详情 -->
-<div id="artDetail">
+<div id="category-cloud" class="container chip-container">
     <div class="card">
-        <div class="card-content article-info">
-            <div class="row tag-cate">
-                <div class="col s7">
-                    
-                    <div class="article-tag">
-                        
-                            <a href="/tags/jvm/">
-                                <span class="chip bg-color">jvm</span>
-                            </a>
-                        
-                            <a href="/tags/%E5%AD%97%E8%8A%82%E7%A0%81/">
-                                <span class="chip bg-color">字节码</span>
-                            </a>
-                        
-                    </div>
-                    
-                </div>
-                <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E6%8A%80%E6%9C%AF%E6%A0%88/" class="post-category">
-                                分布式技术栈
-                            </a>
-                        
-                    </div>
-                    
-                </div>
+        <div class="card-content">
+            <div class="tag-title center-align">
+                <i class="fas fa-bookmark"></i>&nbsp;&nbsp;文章分类
             </div>
-
-            <div class="post-info">
+            <div class="tag-chips">
                 
-                <div class="post-date info-break-policy">
-                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-04-07
-                </div>
                 
-
                 
-                <div class="post-date info-break-policy">
-                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-04-07
-                </div>
+                <a href="/categories/%E5%8D%9A%E5%AE%A2/" title="博客: 2">
+                  <div class="moleskine-wrapper">
+                      <div class="moleskine-notebook">
+                          <div class="chip notebook-cover center-align waves-effect waves-light
+                           chip-default "
+                                  style="background-color: #0C7B33;">                                               
+                              <div class="notebook-skin
+                                   chip-default "
+                                  >博客                                  
+                              </div>
+                          </div>
+                          <div class="notebook-page dotted"></div>
+                      </div>
+                  </div>
+                </a>
                 
-
                 
-                <div class="info-break-policy">
-                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    20
-                </div>
+                <a href="/categories/%E6%96%87%E7%AB%A0%E8%8F%9C%E5%8D%95%E5%90%88%E9%9B%86/" title="文章菜单合集: 3">
+                  <div class="moleskine-wrapper">
+                      <div class="moleskine-notebook">
+                          <div class="chip notebook-cover center-align waves-effect waves-light
+                           chip-default "
+                                  style="background-color: #FB03AC;">                                               
+                              <div class="notebook-skin
+                                   chip-default "
+                                  >文章菜单合集                                  
+                              </div>
+                          </div>
+                          <div class="notebook-page dotted"></div>
+                      </div>
+                  </div>
+                </a>
                 
-
                 
-                <div class="info-break-policy">
-                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
-                </div>
+                <a href="/categories/%E7%94%9F%E6%B4%BB%E7%A2%8E%E7%89%87%E5%8C%96/" title="生活碎片化: 2">
+                  <div class="moleskine-wrapper">
+                      <div class="moleskine-notebook">
+                          <div class="chip notebook-cover center-align waves-effect waves-light
+                           chip-default "
+                                  style="background-color: #1FACF5;">                                               
+                              <div class="notebook-skin
+                                   chip-default "
+                                  >生活碎片化                                  
+                              </div>
+                          </div>
+                          <div class="notebook-page dotted"></div>
+                      </div>
+                  </div>
+                </a>
                 
-
+                
+                <a href="/categories/%E7%94%9F%E6%B4%BB%E7%A2%8E%E7%89%87%E5%8C%96-%E6%AE%B5%E5%AD%90/" title="生活碎片化-段子: 1">
+                  <div class="moleskine-wrapper">
+                      <div class="moleskine-notebook">
+                          <div class="chip notebook-cover center-align waves-effect waves-light
+                           chip-default "
+                                  style="background-color: #6C1D63;">                                               
+                              <div class="notebook-skin
+                                   chip-default "
+                                  >生活碎片化-段子                                  
+                              </div>
+                          </div>
+                          <div class="notebook-page dotted"></div>
+                      </div>
+                  </div>
+                </a>
+                
+                
+                <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" title="数据库: 2">
+                  <div class="moleskine-wrapper">
+                      <div class="moleskine-notebook">
+                          <div class="chip notebook-cover center-align waves-effect waves-light
+                           chip-default "
+                                  style="background-color: #20359A;">                                               
+                              <div class="notebook-skin
+                                   chip-default "
+                                  >数据库                                  
+                              </div>
+                          </div>
+                          <div class="notebook-page dotted"></div>
+                      </div>
+                  </div>
+                </a>
+                
+                
+                <a href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E6%8A%80%E6%9C%AF%E6%A0%88/" title="分布式技术栈: 18">
+                  <div class="moleskine-wrapper">
+                      <div class="moleskine-notebook">
+                          <div class="chip notebook-cover center-align waves-effect waves-light
+                           chip-default "
+                                  style="background-color: #9DBCBB;">                                               
+                              <div class="notebook-skin
+                                   chip-default "
+                                  >分布式技术栈                                  
+                              </div>
+                          </div>
+                          <div class="notebook-page dotted"></div>
+                      </div>
+                  </div>
+                </a>
+                
+                
+                <a href="/categories/%E7%BC%93%E5%AD%98%E4%B8%AD%E9%97%B4%E4%BB%B6/" title="缓存中间件: 2">
+                  <div class="moleskine-wrapper">
+                      <div class="moleskine-notebook">
+                          <div class="chip notebook-cover center-align waves-effect waves-light
+                           chip-active "
+                                  style="background-color: #DCD540;">                                               
+                              <div class="notebook-skin
+                                   chip-active "
+                                  >缓存中间件                                  
+                              </div>
+                          </div>
+                          <div class="notebook-page dotted"></div>
+                      </div>
+                  </div>
+                </a>
+                
+                
+                <a href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/" title="面试题: 1">
+                  <div class="moleskine-wrapper">
+                      <div class="moleskine-notebook">
+                          <div class="chip notebook-cover center-align waves-effect waves-light
+                           chip-default "
+                                  style="background-color: #6353D0;">                                               
+                              <div class="notebook-skin
+                                   chip-default "
+                                  >面试题                                  
+                              </div>
+                          </div>
+                          <div class="notebook-page dotted"></div>
+                      </div>
+                  </div>
+                </a>
+                
+                
+                <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%AF%AD%E8%A8%80/" title="计算机语言: 1">
+                  <div class="moleskine-wrapper">
+                      <div class="moleskine-notebook">
+                          <div class="chip notebook-cover center-align waves-effect waves-light
+                           chip-default "
+                                  style="background-color: #FB2256;">                                               
+                              <div class="notebook-skin
+                                   chip-default "
+                                  >计算机语言                                  
+                              </div>
+                          </div>
+                          <div class="notebook-page dotted"></div>
+                      </div>
+                  </div>
+                </a>
+                
                 
             </div>
         </div>
-        <hr class="clearfix">
-
-        
-        <!-- 是否加载使用自带的 prismjs. -->
-        <link rel="stylesheet" href="/libs/prism/prism.css">
-        
-
-        
-        <!-- 代码块折行 -->
-        <style type="text/css">
-            code[class*="language-"], pre[class*="language-"] { white-space: pre-wrap !important; }
-        </style>
-        
-
-        <div class="card-content article-card-content">
-            <div id="articleContent">
-                <h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><h3 id="1、"><a href="#1、" class="headerlink" title="1、"></a>1、</h3><h3 id="2、"><a href="#2、" class="headerlink" title="2、"></a>2、</h3><h3 id="3、"><a href="#3、" class="headerlink" title="3、"></a>3、</h3><h3 id="4、"><a href="#4、" class="headerlink" title="4、"></a>4、</h3><h3 id="5、"><a href="#5、" class="headerlink" title="5、"></a>5、</h3><h2 id="二、"><a href="#二、" class="headerlink" title="二、"></a>二、</h2><h3 id="1、-1"><a href="#1、-1" class="headerlink" title="1、"></a>1、</h3><h3 id="2、-1"><a href="#2、-1" class="headerlink" title="2、"></a>2、</h3><h3 id="3、-1"><a href="#3、-1" class="headerlink" title="3、"></a>3、</h3><h3 id="4、-1"><a href="#4、-1" class="headerlink" title="4、"></a>4、</h3><h3 id="5、-1"><a href="#5、-1" class="headerlink" title="5、"></a>5、</h3><h2 id="三、"><a href="#三、" class="headerlink" title="三、"></a>三、</h2><h3 id="1、-2"><a href="#1、-2" class="headerlink" title="1、"></a>1、</h3><h3 id="2、-2"><a href="#2、-2" class="headerlink" title="2、"></a>2、</h3><h3 id="3、-2"><a href="#3、-2" class="headerlink" title="3、"></a>3、</h3><h3 id="4、-2"><a href="#4、-2" class="headerlink" title="4、"></a>4、</h3><h3 id="5、-2"><a href="#5、-2" class="headerlink" title="5、"></a>5、</h3>
-                
-            </div>
-            <hr/>
-
-            
-
-    <div class="reprint" id="reprint-statement">
-        
-            <div class="reprint__author">
-                <span class="reprint-meta" style="font-weight: bold;">
-                    <i class="fas fa-user">
-                        文章作者:
-                    </i>
-                </span>
-                <span class="reprint-info">
-                    <a href="/about" rel="external nofollow noreferrer">mykk</a>
-                </span>
-            </div>
-            <div class="reprint__type">
-                <span class="reprint-meta" style="font-weight: bold;">
-                    <i class="fas fa-link">
-                        文章链接:
-                    </i>
-                </span>
-                <span class="reprint-info">
-                    <a href="https://mykkto.github.io/posts/9843ee7f.html">https://mykkto.github.io/posts/9843ee7f.html</a>
-                </span>
-            </div>
-            <div class="reprint__notice">
-                <span class="reprint-meta" style="font-weight: bold;">
-                    <i class="fas fa-copyright">
-                        版权声明:
-                    </i>
-                </span>
-                <span class="reprint-info">
-                    本博客所有文章除特別声明外，均采用
-                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
-                    许可协议。转载请注明来源
-                    <a href="/about" target="_blank">mykk</a>
-                    !
-                </span>
-            </div>
-        
     </div>
+</div>
+    <style>
+    /* 文章分类书本样式 */
+    .chip-container .tag-chips {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+    .chip-container .tag-chips a {
+        margin: 0 7px 10px;
+    }
+    .chip-container .chip {
+        max-width: calc(100% / 4);
+        min-width: 10em;
+        height: 200px;
+        position: relative;
+        transition: .5s linear;
+        padding: 19px 0;
+        line-height: 20px;
+        z-index: 990;
+        border-radius: 5px 15px 15px 5px;
+        transform-origin: left center 0;
+    }
+    .chip-container .notebook-cover::before {
+        content: "";
+        position: absolute;
+        width: 10px;
+        height: calc(100% + 2px);
+        top: -1px;
+        z-index: 100;
+        border-radius: 2px;
+        right: 25px;
+        transition: 2s ease;
+        /* background: linear-gradient(to right,#9c2e2b 0,#cc4b48 12%,#9c2e2b 25%,#cc4b48 37%,#9c2e2b 50%,#cc4b48 62%,#9c2e2b 75%,#cc4b48 87%,#9c2e2b 100%); */
+        background: linear-gradient(to right,#1e606e 0,#2e95aa 12%,#1e606e 25%,#2e95aa 37%,#1e606e 50%,#2e95aa 62%,#1e606e 75%,#2e95aa 87%,#1e606e 100%);
+    }
 
-    <script async defer>
-      document.addEventListener("copy", function (e) {
-        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
-        M.toast({html: toastHTML})
-      });
+    .chip .notebook-skin {
+        height: 50px;
+        width: 100%;
+        background: #e8e8e0;
+        margin-top: 42px;
+        padding: 10px 32px 64px 10px;
+        font-size: 19px;
+        position: relative;
+        z-index: 10;
+        color: #222;
+        text-align: left;
+        box-shadow: 0 1px 1px rgba(0,0,0,.2);
+    }
+    .chip .notebook-skin:before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 15px;
+        left: 0;
+        bottom: 0;
+        background: #cddc39;
+    }
+    .notebook-cover {
+        background: #cc4b48;
+        height: 200px;
+        width: 140px;
+        position: absolute;
+        border-radius: 5px 15px 15px 5px;
+        z-index: 10;
+        transition: .5s linear;
+        transform-style: preserve-3d;
+        transform-origin: left center 0;
+    }
 
-      function navToReprintStatement() {
-        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
-      }
-    </script>
+    .moleskine-wrapper {
+        max-width: calc(100% / 4);
+        min-width: 10em;
+    }
+    .moleskine-notebook:hover .notebook-cover {
+        transform: rotateY(-50deg);
+        z-index: 99;
+        box-shadow: 20px 10px 50px rgba(0,0,0,.2);
+    }
+    .moleskine-notebook {
+        height: 200px;
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        transition: .5s linear;
+        border-radius: 5px 15px 15px 5px;
+        transform-origin: left center 0;
+    }
+    .moleskine-notebook:hover {
+        transform: rotateZ(-10deg);
+    }
+    .notebook-page.dotted {
+        background: linear-gradient(to bottom,#fbfae8 9px,#e4e4e4 1px);
+        background-size: 100% 10px;
+    }
+    .chip-container .chip:hover {
+        background: none;
+    }
+    .notebook-page {
+        height: 100%;
+        width: 140px;
+        position: absolute;
+        top: 10px;
+        background-color: #fbfae8;
+        z-index: 0;
+        border-radius: 5px 16px 16px 5px;
+        overflow: hidden;
+    }
+    </style>
 
+    
 
-
-            <div class="tag_share" style="display: block;">
-                <div class="post-meta__tag-list" style="display: inline-block;">
-                    
-                        <div class="article-tag">
+    <article id="articles" class="container articles">
+        <div class="row tags-posts">
+            
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/posts/32917ce1.html">
+                        <div class="card-image tag-image">
                             
-                                <a href="/tags/jvm/">
-                                    <span class="chip bg-color">jvm</span>
-                                </a>
                             
-                                <a href="/tags/%E5%AD%97%E8%8A%82%E7%A0%81/">
-                                    <span class="chip bg-color">字节码</span>
-                                </a>
+                            <img src="https://cdn.jsdelivr.net/gh/mykkto/image@main/galleries/动漫风景/11.jpg" class="responsive-img" alt="Redis_三剑(击穿、穿透、雪崩)">
+                            
+                            <span class="card-title">Redis_三剑(击穿、穿透、雪崩)</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                本编是对Redis整篇的子篇，该篇主要记录学习解决击穿、穿透、雪崩问题
                             
                         </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-07 23:01:06
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E7%BC%93%E5%AD%98%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="post-category">
+                                    缓存中间件
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
                     
-                </div>
-                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
-                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
-<div id="article-share">
-
-    
-    <div class="social-share" data-sites="qq,qzone,wechat,weibo,twitter,facebook,google,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
-    <script src="/libs/share/js/social-share.min.js"></script>
-    
-
-    
-
-</div>
-
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/redis/">
+                            <span class="chip bg-color">redis</span>
+                        </a>
+                        
+                        <a href="/tags/%E5%87%BB%E7%A9%BF%E3%80%81%E5%87%BB%E7%A9%BF%E3%80%81%E7%A9%BF%E9%80%8F/">
+                            <span class="chip bg-color">击穿、击穿、穿透</span>
+                        </a>
+                        
+                        <a href="/tags/BloomFilter/">
+                            <span class="chip bg-color">BloomFilter</span>
+                        </a>
+                        
+                    </div>
+                    
                 </div>
             </div>
             
-                <style>
-    #reward {
-        margin: 40px 0;
-        text-align: center;
-    }
-
-    #reward .reward-link {
-        font-size: 1.4rem;
-        line-height: 38px;
-    }
-
-    #reward .btn-floating:hover {
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
-    }
-
-    #rewardModal {
-        width: 320px;
-        height: 350px;
-    }
-
-    #rewardModal .reward-title {
-        margin: 15px auto;
-        padding-bottom: 5px;
-    }
-
-    #rewardModal .modal-content {
-        padding: 10px;
-    }
-
-    #rewardModal .close {
-        position: absolute;
-        right: 15px;
-        top: 15px;
-        color: rgba(0, 0, 0, 0.5);
-        font-size: 1.3rem;
-        line-height: 20px;
-        cursor: pointer;
-    }
-
-    #rewardModal .close:hover {
-        color: #ef5350;
-        transform: scale(1.3);
-        -moz-transform:scale(1.3);
-        -webkit-transform:scale(1.3);
-        -o-transform:scale(1.3);
-    }
-
-    #rewardModal .reward-tabs {
-        margin: 0 auto;
-        width: 210px;
-    }
-
-    .reward-tabs .tabs {
-        height: 38px;
-        margin: 10px auto;
-        padding-left: 0;
-    }
-
-    .reward-content ul {
-        padding-left: 0 !important;
-    }
-
-    .reward-tabs .tabs .tab {
-        height: 38px;
-        line-height: 38px;
-    }
-
-    .reward-tabs .tab a {
-        color: #fff;
-        background-color: #ccc;
-    }
-
-    .reward-tabs .tab a:hover {
-        background-color: #ccc;
-        color: #fff;
-    }
-
-    .reward-tabs .wechat-tab .active {
-        color: #fff !important;
-        background-color: #22AB38 !important;
-    }
-
-    .reward-tabs .alipay-tab .active {
-        color: #fff !important;
-        background-color: #019FE8 !important;
-    }
-
-    .reward-tabs .reward-img {
-        width: 210px;
-        height: 210px;
-    }
-</style>
-
-<div id="reward">
-    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
-
-    <!-- Modal Structure -->
-    <div id="rewardModal" class="modal">
-        <div class="modal-content">
-            <a class="close modal-close"><i class="fas fa-times"></i></a>
-            <h4 class="reward-title">请 jack喝瓶水吧~</h4>
-            <div class="reward-content">
-                <div class="reward-tabs">
-                    <ul class="tabs row">
-                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
-                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
-                    </ul>
-                    <div id="alipay">
-                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/posts/aaae178b.html">
+                        <div class="card-image tag-image">
+                            
+                            
+                            <img src="https://cdn.jsdelivr.net/gh/mykkto/image@main/galleries/动漫风景/12.jpg" class="responsive-img" alt="Redis_实现分布式锁">
+                            
+                            <span class="card-title">Redis_实现分布式锁</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                本编是对Redis整篇的子篇，该篇主要记录学习实现redis分布式锁功能
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-07 22:01:06
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E7%BC%93%E5%AD%98%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="post-category">
+                                    缓存中间件
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
                     </div>
-                    <div id="wechat">
-                        <img src="/medias/reward/wechat.jpg" class="reward-img" alt="微信打赏二维码">
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/redis/">
+                            <span class="chip bg-color">redis</span>
+                        </a>
+                        
+                        <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/">
+                            <span class="chip bg-color">分布式锁</span>
+                        </a>
+                        
+                        <a href="/tags/redlock/">
+                            <span class="chip bg-color">redlock</span>
+                        </a>
+                        
                     </div>
+                    
                 </div>
             </div>
-        </div>
-    </div>
-</div>
-
-<script>
-    $(function () {
-        $('.tabs').tabs();
-    });
-</script>
-
             
         </div>
-    </div>
-
-    
-
-    
-
-    
-
-    
-
-    
-        <style>
-    .valine-card {
-        margin: 1.5rem auto;
-    }
-
-    .valine-card .card-content {
-        padding: 20px 20px 5px 20px;
-    }
-
-    #vcomments textarea {
-        box-sizing: border-box;
-        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
-    }
-
-    #vcomments p {
-        margin: 2px 2px 10px;
-        font-size: 1.05rem;
-        line-height: 1.78rem;
-    }
-
-    #vcomments blockquote p {
-        text-indent: 0.2rem;
-    }
-
-    #vcomments a {
-        padding: 0 2px;
-        color: #4cbf30;
-        font-weight: 500;
-        text-decoration: none;
-    }
-
-    #vcomments img {
-        max-width: 100%;
-        height: auto;
-        cursor: pointer;
-    }
-
-    #vcomments ol li {
-        list-style-type: decimal;
-    }
-
-    #vcomments ol,
-    ul {
-        display: block;
-        padding-left: 2em;
-        word-spacing: 0.05rem;
-    }
-
-    #vcomments ul li,
-    ol li {
-        display: list-item;
-        line-height: 1.8rem;
-        font-size: 1rem;
-    }
-
-    #vcomments ul li {
-        list-style-type: disc;
-    }
-
-    #vcomments ul ul li {
-        list-style-type: circle;
-    }
-
-    #vcomments table, th, td {
-        padding: 12px 13px;
-        border: 1px solid #dfe2e5;
-    }
-
-    #vcomments table, th, td {
-        border: 0;
-    }
-
-    table tr:nth-child(2n), thead {
-        background-color: #fafafa;
-    }
-
-    #vcomments table th {
-        background-color: #f2f2f2;
-        min-width: 80px;
-    }
-
-    #vcomments table td {
-        min-width: 80px;
-    }
-
-    #vcomments h1 {
-        font-size: 1.85rem;
-        font-weight: bold;
-        line-height: 2.2rem;
-    }
-
-    #vcomments h2 {
-        font-size: 1.65rem;
-        font-weight: bold;
-        line-height: 1.9rem;
-    }
-
-    #vcomments h3 {
-        font-size: 1.45rem;
-        font-weight: bold;
-        line-height: 1.7rem;
-    }
-
-    #vcomments h4 {
-        font-size: 1.25rem;
-        font-weight: bold;
-        line-height: 1.5rem;
-    }
-
-    #vcomments h5 {
-        font-size: 1.1rem;
-        font-weight: bold;
-        line-height: 1.4rem;
-    }
-
-    #vcomments h6 {
-        font-size: 1rem;
-        line-height: 1.3rem;
-    }
-
-    #vcomments p {
-        font-size: 1rem;
-        line-height: 1.5rem;
-    }
-
-    #vcomments hr {
-        margin: 12px 0;
-        border: 0;
-        border-top: 1px solid #ccc;
-    }
-
-    #vcomments blockquote {
-        margin: 15px 0;
-        border-left: 5px solid #42b983;
-        padding: 1rem 0.8rem 0.3rem 0.8rem;
-        color: #666;
-        background-color: rgba(66, 185, 131, .1);
-    }
-
-    #vcomments pre {
-        font-family: monospace, monospace;
-        padding: 1.2em;
-        margin: .5em 0;
-        background: #272822;
-        overflow: auto;
-        border-radius: 0.3em;
-        tab-size: 4;
-    }
-
-    #vcomments code {
-        font-family: monospace, monospace;
-        padding: 1px 3px;
-        font-size: 0.92rem;
-        color: #e96900;
-        background-color: #f8f8f8;
-        border-radius: 2px;
-    }
-
-    #vcomments pre code {
-        font-family: monospace, monospace;
-        padding: 0;
-        color: #e8eaf6;
-        background-color: #272822;
-    }
-
-    #vcomments pre[class*="language-"] {
-        padding: 1.2em;
-        margin: .5em 0;
-    }
-
-    #vcomments code[class*="language-"],
-    pre[class*="language-"] {
-        color: #e8eaf6;
-    }
-
-    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
-        position: inherit;
-        margin-left: -1.3rem;
-        margin-right: 0.4rem;
-        margin-top: -1px;
-        vertical-align: middle;
-        left: unset;
-        visibility: visible;
-    }
-
-    #vcomments b,
-    strong {
-        font-weight: bold;
-    }
-
-    #vcomments dfn {
-        font-style: italic;
-    }
-
-    #vcomments small {
-        font-size: 85%;
-    }
-
-    #vcomments cite {
-        font-style: normal;
-    }
-
-    #vcomments mark {
-        background-color: #fcf8e3;
-        padding: .2em;
-    }
-
-    #vcomments table, th, td {
-        padding: 12px 13px;
-        border: 1px solid #dfe2e5;
-    }
-
-    table tr:nth-child(2n), thead {
-        background-color: #fafafa;
-    }
-
-    #vcomments table th {
-        background-color: #f2f2f2;
-        min-width: 80px;
-    }
-
-    #vcomments table td {
-        min-width: 80px;
-    }
-
-    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
-        position: inherit;
-        margin-left: -1.3rem;
-        margin-right: 0.4rem;
-        margin-top: -1px;
-        vertical-align: middle;
-        left: unset;
-        visibility: visible;
-    }
-
-    .v[data-class="v"] .vwrap .vheader .vinput {
-      width: 32%;
-      border-bottom: 1px dashed #dedede;
-    }
-</style>
-
-<div class="card valine-card" data-aos="fade-up">
-    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
-        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
-        <span>评论</span>
-    </div>
-    <div id="vcomments" class="card-content" style="display: grid">
-    </div>
-</div>
-
-<script src="/libs/valine/av-min.js"></script>
-<script src="/libs/valine/Valine.min.js"></script>
-<script>
-let metaPlaceholder = {"nick":"昵称/QQ号(必填)","mail":"邮箱(必填)","link":"网址(https://)"} ;
-//这里要换行
-new Valine({
-        el: '#vcomments',
-        appId: 'qjrJlrw1qmt7F5B7chl9x2cg-gzGzoHsz',
-        appKey: 'Bt14wYdLiL8jYRqxFbpOjBkK',
-        notify: 'true' === 'true',
-        verify: 'true' === 'true',
-        visitor: 'true' === 'true',
-        avatar: 'monsterid',
-        pageSize: '10',
-        lang: 'zh-CN',
-        placeholder: '留下你的足迹..',
-        meta: ["nick", "mail", "link"],
-        recordIP: 'true' === 'true',
-        enableQQ: 'monsterid',
-        requiredFields: ["46606772953bed0812789d6dc955614e"],
-        master: ["46606772953bed0812789d6dc955614e"],
-        friends: ["cb3e577ff029d6073400d5557effd41f", ""],
-        tagMeta: ["博主", "小伙伴", "访客"],
-        metaPlaceholder: metaPlaceholder,
-
-    });
-
-    document.body.addEventListener('click', function(e) {
-        if (e.target.classList.contains('vsubmit')) {
-            const email = document.querySelector('input[type=email]');
-            const nick = document.querySelector('input[name=nick]');
-            const reg = /^[A-Za-z0-9_-\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
-            if (!email.value || !nick.value || !reg.test(email.value)) {
-                const str = `<div class="valert txt-center"><div class="vtext">请填写正确的昵称和邮箱！</div></div>`;
-                const vmark = document.querySelector('.vmark');
-                vmark.innerHTML = str;
-                vmark.style.display = 'block';
-
-                e.stopPropagation();
-
-                setTimeout(function() {
-                    vmark.style.display = 'none';
-                    vmark.innerHTML = '';
-                }, 2500);
-            }
-        }
-        }, true);
-</script>
-
-
-
-    
-
-    
-
-    
-
-    
-
-<article id="prenext-posts" class="prev-next articles">
-    <div class="row article-row">
-        
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
-            <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
-            <div class="card">
-                <a href="/posts/9843ee7f.html">
-                    <div class="card-image">
-                        
-                        
-                        <img src="https://cdn.jsdelivr.net/gh/mykkto/image@main/galleries/动漫风景/13.jpg" class="responsive-img" alt="云原生_KubeSphere">
-                        
-                        <span class="card-title">云原生_KubeSphere</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            本编是对云原生整篇的子篇，主要记录学习KubeSphere过程，基础学习和工作使用
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-07 21:01:06
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E6%8A%80%E6%9C%AF%E6%A0%88/" class="post-category">
-                                    分布式技术栈
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/jvm/">
-                        <span class="chip bg-color">jvm</span>
-                    </a>
-                    
-                    <a href="/tags/%E5%AD%97%E8%8A%82%E7%A0%81/">
-                        <span class="chip bg-color">字节码</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/posts/fafe363a.html">
-                    <div class="card-image">
-                        
-                        
-                        <img src="https://cdn.jsdelivr.net/gh/mykkto/image@main/galleries/动漫插画/11.jpg" class="responsive-img" alt="Lua脚本语言基础">
-                        
-                        <span class="card-title">Lua脚本语言基础</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-03 23:17:13
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%AF%AD%E8%A8%80/" class="post-category">
-                                    计算机语言
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/nginx/">
-                        <span class="chip bg-color">nginx</span>
-                    </a>
-                    
-                    <a href="/tags/lua/">
-                        <span class="chip bg-color">lua</span>
-                    </a>
-                    
-                    <a href="/tags/openresty/">
-                        <span class="chip bg-color">openresty</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-    </div>
-</article>
-
-</div>
-
-
-<script>
-    $('#articleContent').on('copy', function (e) {
-        // IE8 or earlier browser is 'undefined'
-        if (typeof window.getSelection === 'undefined') return;
-
-        var selection = window.getSelection();
-        // if the selection is short let's not annoy our users.
-        if (('' + selection).length < Number.parseInt('520')) {
-            return;
-        }
-
-        // create a div outside of the visible area and fill it with the selected text.
-        var bodyElement = document.getElementsByTagName('body')[0];
-        var newdiv = document.createElement('div');
-        newdiv.style.position = 'absolute';
-        newdiv.style.left = '-99999px';
-        bodyElement.appendChild(newdiv);
-        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
-
-        // we need a <pre> tag workaround.
-        // otherwise the text inside "pre" loses all the line breaks!
-        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
-            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
-        }
-
-        var url = document.location.href;
-        newdiv.innerHTML += '<br />'
-            + '来源: jack<br />'
-            + '文章作者: jack<br />'
-            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
-            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
-
-        selection.selectAllChildren(newdiv);
-        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
-    });
-</script>
-
-
-<!-- 代码块功能依赖 -->
-<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
-
-<!-- 代码语言 -->
-
-<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
-
-
-<!-- 代码块复制 -->
-
-<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
-
-
-<!-- 代码块收缩 -->
-
-<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
-
-
-    </div>
-    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
-        <div class="toc-widget card">
-            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
-            <div id="toc-content"></div>
-        </div>
-    </div>
-</div>
-
-<!-- TOC 悬浮按钮. -->
-
-<div id="floating-toc-btn" class="hide-on-med-and-down">
-    <a class="btn-floating btn-large bg-color">
-        <i class="fas fa-list-ul"></i>
-    </a>
-</div>
-
-
-<script src="/libs/tocbot/tocbot.min.js"></script>
-<script>
-    $(function () {
-        tocbot.init({
-            tocSelector: '#toc-content',
-            contentSelector: '#articleContent',
-            headingsOffset: -($(window).height() * 0.4 - 45),
-            collapseDepth: Number('0'),
-            headingSelector: 'h2, h3, h4'
-        });
-
-        // modify the toc link href to support Chinese.
-        let i = 0;
-        let tocHeading = 'toc-heading-';
-        $('#toc-content a').each(function () {
-            $(this).attr('href', '#' + tocHeading + (++i));
-        });
-
-        // modify the heading title id to support Chinese.
-        i = 0;
-        $('#articleContent').children('h2, h3, h4').each(function () {
-            $(this).attr('id', tocHeading + (++i));
-        });
-
-        // Set scroll toc fixed.
-        let tocHeight = parseInt($(window).height() * 0.4 - 64);
-        let $tocWidget = $('.toc-widget');
-        $(window).scroll(function () {
-            let scroll = $(window).scrollTop();
-            /* add post toc fixed. */
-            if (scroll > tocHeight) {
-                $tocWidget.addClass('toc-fixed');
-            } else {
-                $tocWidget.removeClass('toc-fixed');
-            }
-        });
-
-        
-        /* 修复文章卡片 div 的宽度. */
-        let fixPostCardWidth = function (srcId, targetId) {
-            let srcDiv = $('#' + srcId);
-            if (srcDiv.length === 0) {
-                return;
-            }
-
-            let w = srcDiv.width();
-            if (w >= 450) {
-                w = w + 21;
-            } else if (w >= 350 && w < 450) {
-                w = w + 18;
-            } else if (w >= 300 && w < 350) {
-                w = w + 16;
-            } else {
-                w = w + 14;
-            }
-            $('#' + targetId).width(w);
-        };
-
-        // 切换TOC目录展开收缩的相关操作.
-        const expandedClass = 'expanded';
-        let $tocAside = $('#toc-aside');
-        let $mainContent = $('#main-content');
-        $('#floating-toc-btn .btn-floating').click(function () {
-            if ($tocAside.hasClass(expandedClass)) {
-                $tocAside.removeClass(expandedClass).hide();
-                $mainContent.removeClass('l9');
-            } else {
-                $tocAside.addClass(expandedClass).show();
-                $mainContent.addClass('l9');
-            }
-            fixPostCardWidth('artDetail', 'prenext-posts');
-        });
-        
-    });
-</script>
-
-    
-
+    </article>
 </main>
 
 
@@ -1593,7 +1010,7 @@ new Valine({
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">73.3k</span>&nbsp;字
+                class="white-color">73.4k</span>&nbsp;字
             
             
             

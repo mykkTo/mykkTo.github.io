@@ -4,25 +4,56 @@
   
     
     <entry>
-      <title>云原生_KubeSphere</title>
-      <link href="posts/9843ee7f.html"/>
-      <url>posts/9843ee7f.html</url>
+      <title>Redis_三剑(击穿、穿透、雪崩)</title>
+      <link href="posts/32917ce1.html"/>
+      <url>posts/32917ce1.html</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><h3 id="1、"><a href="#1、" class="headerlink" title="1、"></a>1、</h3><h3 id="2、"><a href="#2、" class="headerlink" title="2、"></a>2、</h3><h3 id="3、"><a href="#3、" class="headerlink" title="3、"></a>3、</h3><h3 id="4、"><a href="#4、" class="headerlink" title="4、"></a>4、</h3><h3 id="5、"><a href="#5、" class="headerlink" title="5、"></a>5、</h3><h2 id="二、"><a href="#二、" class="headerlink" title="二、"></a>二、</h2><h3 id="1、-1"><a href="#1、-1" class="headerlink" title="1、"></a>1、</h3><h3 id="2、-1"><a href="#2、-1" class="headerlink" title="2、"></a>2、</h3><h3 id="3、-1"><a href="#3、-1" class="headerlink" title="3、"></a>3、</h3><h3 id="4、-1"><a href="#4、-1" class="headerlink" title="4、"></a>4、</h3><h3 id="5、-1"><a href="#5、-1" class="headerlink" title="5、"></a>5、</h3><h2 id="三、"><a href="#三、" class="headerlink" title="三、"></a>三、</h2><h3 id="1、-2"><a href="#1、-2" class="headerlink" title="1、"></a>1、</h3><h3 id="2、-2"><a href="#2、-2" class="headerlink" title="2、"></a>2、</h3><h3 id="3、-2"><a href="#3、-2" class="headerlink" title="3、"></a>3、</h3><h3 id="4、-2"><a href="#4、-2" class="headerlink" title="4、"></a>4、</h3><h3 id="5、-2"><a href="#5、-2" class="headerlink" title="5、"></a>5、</h3>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="一、布隆过滤器"><a href="#一、布隆过滤器" class="headerlink" title="一、布隆过滤器"></a>一、布隆过滤器</h2><h3 id="1、"><a href="#1、" class="headerlink" title="1、"></a>1、</h3><h3 id="2、"><a href="#2、" class="headerlink" title="2、"></a>2、</h3><h3 id="3、"><a href="#3、" class="headerlink" title="3、"></a>3、</h3><h3 id="4、"><a href="#4、" class="headerlink" title="4、"></a>4、</h3><h3 id="5、"><a href="#5、" class="headerlink" title="5、"></a>5、</h3><h2 id="二、击穿"><a href="#二、击穿" class="headerlink" title="二、击穿"></a>二、击穿</h2><h3 id="1、-1"><a href="#1、-1" class="headerlink" title="1、"></a>1、</h3><h3 id="2、-1"><a href="#2、-1" class="headerlink" title="2、"></a>2、</h3><h3 id="3、-1"><a href="#3、-1" class="headerlink" title="3、"></a>3、</h3><h3 id="4、-1"><a href="#4、-1" class="headerlink" title="4、"></a>4、</h3><h3 id="5、-1"><a href="#5、-1" class="headerlink" title="5、"></a>5、</h3><h2 id="三、穿透"><a href="#三、穿透" class="headerlink" title="三、穿透"></a>三、穿透</h2><h3 id="1、-2"><a href="#1、-2" class="headerlink" title="1、"></a>1、</h3><h3 id="2、-2"><a href="#2、-2" class="headerlink" title="2、"></a>2、</h3><h3 id="3、-2"><a href="#3、-2" class="headerlink" title="3、"></a>3、</h3><h3 id="4、-2"><a href="#4、-2" class="headerlink" title="4、"></a>4、</h3><h3 id="5、-2"><a href="#5、-2" class="headerlink" title="5、"></a>5、</h3><h2 id="四、雪崩"><a href="#四、雪崩" class="headerlink" title="四、雪崩"></a>四、雪崩</h2><h3 id="1、-3"><a href="#1、-3" class="headerlink" title="1、"></a>1、</h3><h3 id="2、-3"><a href="#2、-3" class="headerlink" title="2、"></a>2、</h3><h3 id="3、-3"><a href="#3、-3" class="headerlink" title="3、"></a>3、</h3><h3 id="4、-3"><a href="#4、-3" class="headerlink" title="4、"></a>4、</h3><h3 id="5、-3"><a href="#5、-3" class="headerlink" title="5、"></a>5、</h3>]]></content>
       
       
       <categories>
           
-          <category> 分布式技术栈 </category>
+          <category> 缓存中间件 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> jvm </tag>
+            <tag> redis </tag>
             
-            <tag> 字节码 </tag>
+            <tag> 击穿、击穿、穿透 </tag>
+            
+            <tag> BloomFilter </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Redis_实现分布式锁</title>
+      <link href="posts/aaae178b.html"/>
+      <url>posts/aaae178b.html</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><h3 id="1、"><a href="#1、" class="headerlink" title="1、"></a>1、</h3><h3 id="2、"><a href="#2、" class="headerlink" title="2、"></a>2、</h3><h3 id="3、"><a href="#3、" class="headerlink" title="3、"></a>3、</h3><h3 id="4、"><a href="#4、" class="headerlink" title="4、"></a>4、</h3><h3 id="5、"><a href="#5、" class="headerlink" title="5、"></a>5、</h3><h2 id="二、"><a href="#二、" class="headerlink" title="二、"></a>二、</h2><h3 id="1、-1"><a href="#1、-1" class="headerlink" title="1、"></a>1、</h3><h3 id="2、-1"><a href="#2、-1" class="headerlink" title="2、"></a>2、</h3><h3 id="3、-1"><a href="#3、-1" class="headerlink" title="3、"></a>3、</h3><h3 id="4、-1"><a href="#4、-1" class="headerlink" title="4、"></a>4、</h3><h3 id="5、-1"><a href="#5、-1" class="headerlink" title="5、"></a>5、</h3><h2 id="三、"><a href="#三、" class="headerlink" title="三、"></a>三、</h2><h3 id="1、-2"><a href="#1、-2" class="headerlink" title="1、"></a>1、</h3><h3 id="2、-2"><a href="#2、-2" class="headerlink" title="2、"></a>2、</h3><h3 id="3、-2"><a href="#3、-2" class="headerlink" title="3、"></a>3、</h3><h3 id="4、-2"><a href="#4、-2" class="headerlink" title="4、"></a>4、</h3><h3 id="5、-2"><a href="#5、-2" class="headerlink" title="5、"></a>5、</h3>]]></content>
+      
+      
+      <categories>
+          
+          <category> 缓存中间件 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> redis </tag>
+            
+            <tag> 分布式锁 </tag>
+            
+            <tag> redlock </tag>
             
         </tags>
       

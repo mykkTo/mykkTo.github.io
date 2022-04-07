@@ -6,7 +6,7 @@
   <link href="https://mykkto.github.io/atom.xml" rel="self"/>
   
   <link href="https://mykkto.github.io/"/>
-  <updated>2022-04-07T14:51:08.675Z</updated>
+  <updated>2022-04-07T15:09:34.827Z</updated>
   <id>https://mykkto.github.io/</id>
   
   <author>
@@ -17,11 +17,39 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>云原生_KubeSphere</title>
-    <link href="https://mykkto.github.io/posts/9843ee7f.html"/>
-    <id>https://mykkto.github.io/posts/9843ee7f.html</id>
-    <published>2022-04-07T13:01:06.000Z</published>
-    <updated>2022-04-07T14:51:08.675Z</updated>
+    <title>Redis_三剑(击穿、穿透、雪崩)</title>
+    <link href="https://mykkto.github.io/posts/32917ce1.html"/>
+    <id>https://mykkto.github.io/posts/32917ce1.html</id>
+    <published>2022-04-07T15:01:06.000Z</published>
+    <updated>2022-04-07T15:09:34.827Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="一、布隆过滤器"><a href="#一、布隆过滤器" class="headerlink" title="一、布隆过滤器"></a>一、布隆过滤器</h2><h3 id="1、"><a href="#1、" class="headerlink" title="1、"></a>1、</h3><h3 id="2、"><a href="#2、" class="headerlink" title="2、"></a>2、</h3><h3 id="3、"><a href="#3、" class="headerlink" title="3、"></a>3、</h3><h3 id="4、"><a href="#4、" class="headerlink" title="4、"></a>4、</h3><h3 id="5、"><a href="#5、" class="headerlink" title="5、"></a>5、</h3><h2 id="二、击穿"><a href="#二、击穿" class="headerlink" title="二、击穿"></a>二、击穿</h2><h3 id="1、-1"><a href="#1、-1" class="headerlink" title="1、"></a>1、</h3><h3 id="2、-1"><a href="#2、-1" class="headerlink" title="2、"></a>2、</h3><h3 id="3、-1"><a href="#3、-1" class="headerlink" title="3、"></a>3、</h3><h3 id="4、-1"><a href="#4、-1" class="headerlink" title="4、"></a>4、</h3><h3 id="5、-1"><a href="#5、-1" class="headerlink" title="5、"></a>5、</h3><h2 id="三、穿透"><a href="#三、穿透" class="headerlink" title="三、穿透"></a>三、穿透</h2><h3 id="1、-2"><a href="#1、-2" class="headerlink" title="1、"></a>1、</h3><h3 id="2、-2"><a href="#2、-2" class="headerlink" title="2、"></a>2、</h3><h3 id="3、-2"><a href="#3、-2" class="headerlink" title="3、"></a>3、</h3><h3 id="4、-2"><a href="#4、-2" class="headerlink" title="4、"></a>4、</h3><h3 id="5、-2"><a href="#5、-2" class="headerlink" title="5、"></a>5、</h3><h2 id="四、雪崩"><a href="#四、雪崩" class="headerlink" title="四、雪崩"></a>四、雪崩</h2><h3 id="1、-3"><a href="#1、-3" class="headerlink" title="1、"></a>1、</h3><h3 id="2、-3"><a href="#2、-3" class="headerlink" title="2、"></a>2、</h3><h3 id="3、-3"><a href="#3、-3" class="headerlink" title="3、"></a>3、</h3><h3 id="4、-3"><a href="#4、-3" class="headerlink" title="4、"></a>4、</h3><h3 id="5、-3"><a href="#5、-3" class="headerlink" title="5、"></a>5、</h3>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla</summary>
+      
+    
+    
+    
+    <category term="缓存中间件" scheme="https://mykkto.github.io/categories/%E7%BC%93%E5%AD%98%E4%B8%AD%E9%97%B4%E4%BB%B6/"/>
+    
+    
+    <category term="redis" scheme="https://mykkto.github.io/tags/redis/"/>
+    
+    <category term="击穿、击穿、穿透" scheme="https://mykkto.github.io/tags/%E5%87%BB%E7%A9%BF%E3%80%81%E5%87%BB%E7%A9%BF%E3%80%81%E7%A9%BF%E9%80%8F/"/>
+    
+    <category term="BloomFilter" scheme="https://mykkto.github.io/tags/BloomFilter/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Redis_实现分布式锁</title>
+    <link href="https://mykkto.github.io/posts/aaae178b.html"/>
+    <id>https://mykkto.github.io/posts/aaae178b.html</id>
+    <published>2022-04-07T14:01:06.000Z</published>
+    <updated>2022-04-07T15:09:30.874Z</updated>
     
     <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><h3 id="1、"><a href="#1、" class="headerlink" title="1、"></a>1、</h3><h3 id="2、"><a href="#2、" class="headerlink" title="2、"></a>2、</h3><h3 id="3、"><a href="#3、" class="headerlink" title="3、"></a>3、</h3><h3 id="4、"><a href="#4、" class="headerlink" title="4、"></a>4、</h3><h3 id="5、"><a href="#5、" class="headerlink" title="5、"></a>5、</h3><h2 id="二、"><a href="#二、" class="headerlink" title="二、"></a>二、</h2><h3 id="1、-1"><a href="#1、-1" class="headerlink" title="1、"></a>1、</h3><h3 id="2、-1"><a href="#2、-1" class="headerlink" title="2、"></a>2、</h3><h3 id="3、-1"><a href="#3、-1" class="headerlink" title="3、"></a>3、</h3><h3 id="4、-1"><a href="#4、-1" class="headerlink" title="4、"></a>4、</h3><h3 id="5、-1"><a href="#5、-1" class="headerlink" title="5、"></a>5、</h3><h2 id="三、"><a href="#三、" class="headerlink" title="三、"></a>三、</h2><h3 id="1、-2"><a href="#1、-2" class="headerlink" title="1、"></a>1、</h3><h3 id="2、-2"><a href="#2、-2" class="headerlink" title="2、"></a>2、</h3><h3 id="3、-2"><a href="#3、-2" class="headerlink" title="3、"></a>3、</h3><h3 id="4、-2"><a href="#4、-2" class="headerlink" title="4、"></a>4、</h3><h3 id="5、-2"><a href="#5、-2" class="headerlink" title="5、"></a>5、</h3>]]></content>
     
@@ -33,12 +61,14 @@
     
     
     
-    <category term="分布式技术栈" scheme="https://mykkto.github.io/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E6%8A%80%E6%9C%AF%E6%A0%88/"/>
+    <category term="缓存中间件" scheme="https://mykkto.github.io/categories/%E7%BC%93%E5%AD%98%E4%B8%AD%E9%97%B4%E4%BB%B6/"/>
     
     
-    <category term="jvm" scheme="https://mykkto.github.io/tags/jvm/"/>
+    <category term="redis" scheme="https://mykkto.github.io/tags/redis/"/>
     
-    <category term="字节码" scheme="https://mykkto.github.io/tags/%E5%AD%97%E8%8A%82%E7%A0%81/"/>
+    <category term="分布式锁" scheme="https://mykkto.github.io/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/"/>
+    
+    <category term="redlock" scheme="https://mykkto.github.io/tags/redlock/"/>
     
   </entry>
   
@@ -559,38 +589,6 @@
     <category term="负载均衡" scheme="https://mykkto.github.io/tags/%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/"/>
     
     <category term="ribbon" scheme="https://mykkto.github.io/tags/ribbon/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>hexo + github 在百度和谷歌 SEO站点收录</title>
-    <link href="https://mykkto.github.io/posts/f1d997d.html"/>
-    <id>https://mykkto.github.io/posts/f1d997d.html</id>
-    <published>2022-01-16T14:41:15.000Z</published>
-    <updated>2022-01-16T15:15:19.628Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="1、百度-seo"><a href="#1、百度-seo" class="headerlink" title="1、百度 seo"></a>1、百度 seo</h2><h3 id="1、登陆百度站长管理"><a href="#1、登陆百度站长管理" class="headerlink" title="1、登陆百度站长管理"></a>1、登陆百度站长管理</h3><p><a href="https://ziyuan.baidu.com/linksubmit/url?sitename=http://site:abc.github.io">https://ziyuan.baidu.com/linksubmit/url?sitename=http://site:abc.github.io</a></p><h3 id="2、填写自己的blog地址"><a href="#2、填写自己的blog地址" class="headerlink" title="2、填写自己的blog地址"></a>2、填写自己的blog地址</h3><p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220116214312.png"></p><h3 id="3、hexo设置校验"><a href="#3、hexo设置校验" class="headerlink" title="3、hexo设置校验"></a>3、hexo设置校验</h3><p><code>C:\Users\Administrator\Desktop\myblog\mykkTo.github.io\themes\matery\layout\_partial</code></p><p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220116215507.png"></p><h3 id="4、成功"><a href="#4、成功" class="headerlink" title="4、成功"></a>4、成功</h3><p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220116214527.png"></p><h3 id="5、站点收录"><a href="#5、站点收录" class="headerlink" title="5、站点收录"></a>5、站点收录</h3><p><code>https://mykkto.github.io/baidu_urls.txt</code></p><p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220116215941.png"></p><p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220116220224.png"></p><h2 id="2、谷歌-seo"><a href="#2、谷歌-seo" class="headerlink" title="2、谷歌 seo"></a>2、谷歌 seo</h2><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://www.jianshu.com/p/9be9b4786f97">https://www.jianshu.com/p/9be9b4786f97</a></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla</summary>
-      
-    
-    
-    
-    <category term="博客" scheme="https://mykkto.github.io/categories/%E5%8D%9A%E5%AE%A2/"/>
-    
-    
-    <category term="hexo" scheme="https://mykkto.github.io/tags/hexo/"/>
-    
-    <category term="github" scheme="https://mykkto.github.io/tags/github/"/>
-    
-    <category term="seo" scheme="https://mykkto.github.io/tags/seo/"/>
-    
-    <category term="百度" scheme="https://mykkto.github.io/tags/%E7%99%BE%E5%BA%A6/"/>
-    
-    <category term="谷歌" scheme="https://mykkto.github.io/tags/%E8%B0%B7%E6%AD%8C/"/>
     
   </entry>
   
