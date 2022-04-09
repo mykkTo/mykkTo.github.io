@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Redis_实现分布式锁, jack 计算机 写作 ">
+    <meta name="keywords" content="Redis_实现分布式锁【暂停】, jack 计算机 写作 ">
     <meta name="description" content="专科 | 计算机与网络 | 简书作者">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -18,7 +18,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Redis_实现分布式锁 | jack</title>
+    <title>Redis_实现分布式锁【暂停】 | jack</title>
 
     <link rel="icon" type="image/jpeg" href="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/my1SN{XEPO)])9$A7K_JK(BNOV.jpg">
 
@@ -511,12 +511,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/mykkto/image@main/galleries/动漫风景/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/mykkto/image@main/galleries/动漫风景/13.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Redis_实现分布式锁</h1>
+                    <h1 class="description center-align post-title">Redis_实现分布式锁【暂停】</h1>
                 </div>
             </div>
         </div>
@@ -677,14 +677,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-04-07
+                    2022-04-09
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    20
+                    169
                 </div>
                 
 
@@ -714,7 +714,17 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><h3 id="1、"><a href="#1、" class="headerlink" title="1、"></a>1、</h3><h3 id="2、"><a href="#2、" class="headerlink" title="2、"></a>2、</h3><h3 id="3、"><a href="#3、" class="headerlink" title="3、"></a>3、</h3><h3 id="4、"><a href="#4、" class="headerlink" title="4、"></a>4、</h3><h3 id="5、"><a href="#5、" class="headerlink" title="5、"></a>5、</h3><h2 id="二、"><a href="#二、" class="headerlink" title="二、"></a>二、</h2><h3 id="1、-1"><a href="#1、-1" class="headerlink" title="1、"></a>1、</h3><h3 id="2、-1"><a href="#2、-1" class="headerlink" title="2、"></a>2、</h3><h3 id="3、-1"><a href="#3、-1" class="headerlink" title="3、"></a>3、</h3><h3 id="4、-1"><a href="#4、-1" class="headerlink" title="4、"></a>4、</h3><h3 id="5、-1"><a href="#5、-1" class="headerlink" title="5、"></a>5、</h3><h2 id="三、"><a href="#三、" class="headerlink" title="三、"></a>三、</h2><h3 id="1、-2"><a href="#1、-2" class="headerlink" title="1、"></a>1、</h3><h3 id="2、-2"><a href="#2、-2" class="headerlink" title="2、"></a>2、</h3><h3 id="3、-2"><a href="#3、-2" class="headerlink" title="3、"></a>3、</h3><h3 id="4、-2"><a href="#4、-2" class="headerlink" title="4、"></a>4、</h3><h3 id="5、-2"><a href="#5、-2" class="headerlink" title="5、"></a>5、</h3>
+                <h2 id="一、面试题"><a href="#一、面试题" class="headerlink" title="一、面试题"></a>一、面试题</h2><ul>
+<li>Redis除了拿来做缓存，你还见过基于Redis的什么用法？</li>
+<li>Redis 做分布式锁的时候有需要注意的问题？</li>
+<li>如果是 Redis 是单点部署的，会带来什么问题？那你准备怎么解决单点问题呢？</li>
+<li>集群模式下，比如主从模式，有没有什么问题呢？</li>
+<li>你知道 Redis 是怎么解决集群模式也不靠谱的问题的吗？</li>
+<li>那你简单的介绍一下 Redlock 吧？你简历上写redisson，你谈谈</li>
+<li>你觉得 Redlock 有什么问题呢？</li>
+<li>Redis分布式锁如何续期？看门狗知道吗？</li>
+</ul>
+<h2 id="二、"><a href="#二、" class="headerlink" title="二、"></a>二、</h2><h3 id="1、"><a href="#1、" class="headerlink" title="1、"></a>1、</h3><h3 id="2、"><a href="#2、" class="headerlink" title="2、"></a>2、</h3><h3 id="3、"><a href="#3、" class="headerlink" title="3、"></a>3、</h3><h3 id="4、"><a href="#4、" class="headerlink" title="4、"></a>4、</h3><h3 id="5、"><a href="#5、" class="headerlink" title="5、"></a>5、</h3><h2 id="三、"><a href="#三、" class="headerlink" title="三、"></a>三、</h2><h3 id="1、-1"><a href="#1、-1" class="headerlink" title="1、"></a>1、</h3><h3 id="2、-1"><a href="#2、-1" class="headerlink" title="2、"></a>2、</h3><h3 id="3、-1"><a href="#3、-1" class="headerlink" title="3、"></a>3、</h3><h3 id="4、-1"><a href="#4、-1" class="headerlink" title="4、"></a>4、</h3><h3 id="5、-1"><a href="#5、-1" class="headerlink" title="5、"></a>5、</h3>
                 
             </div>
             <hr/>
@@ -1267,9 +1277,9 @@ new Valine({
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/mykkto/image@main/galleries/动漫风景/11.jpg" class="responsive-img" alt="Redis_三剑(击穿、穿透、雪崩)">
+                        <img src="https://cdn.jsdelivr.net/gh/mykkto/image@main/galleries/动漫风景/14.jpg" class="responsive-img" alt="Redis_三剑(击穿、穿透、雪崩)【暂停】">
                         
-                        <span class="card-title">Redis_三剑(击穿、穿透、雪崩)</span>
+                        <span class="card-title">Redis_三剑(击穿、穿透、雪崩)【暂停】</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1603,7 +1613,7 @@ new Valine({
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">73.4k</span>&nbsp;字
+                class="white-color">74.4k</span>&nbsp;字
             
             
             

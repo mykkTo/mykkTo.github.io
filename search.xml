@@ -4,7 +4,67 @@
   
     
     <entry>
-      <title>Redis_三剑(击穿、穿透、雪崩)</title>
+      <title>历来面基题【长期】</title>
+      <link href="posts/c1193e28.html"/>
+      <url>posts/c1193e28.html</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h2><h3 id="1、说明"><a href="#1、说明" class="headerlink" title="1、说明"></a>1、说明</h3><p>初稿没想好怎么定义，把最近遇到的面试题大概梳理下（可能比较潦草，暂时没花时间排版）</p><h2 id="二、题目"><a href="#二、题目" class="headerlink" title="二、题目"></a>二、题目</h2><p>一些题目会贴出问题方案，部分暂时没有归纳，不过在此站都能搜索得到，提下</p><p>本站采用<strong>全文搜索</strong>，可以方便的检索到问题以及方案。</p><ul><li>数据库三范式（收集需求和怎么设计数据库的）</li><li>Spring、SpringBoot、SpringCloud区别，展开<ul><li>Spring特性用法，事务，jdbc模板之类</li><li>SpringBoot零配置……可以的话自定义配置聊下</li><li>SpringCloud分两部分说（netfix,alibaba），每个组件用法说下，可以的话原理展开下</li></ul></li><li>Seata ID(1)+组件(3)扩展说明，用法及区别<ul><li>这边ID用到的雪花算法，懂的话可以展开，如果会写的话，手写出算法最佳</li><li>三个组件原理本站也有写</li></ul></li><li>数据库优化，索引失效哪些情况</li><li>数据库，物化视图<ul><li>物化视图与普通的视图相比的区别是物化视图是建立的副本，它类似于一张表，需要占用存储空间。而对一个物化视图查询的执行效率与查询一个表是一样的。</li><li>其实就是存在物理内存的副本表，但是性能和视图一样</li></ul></li><li>最近项目描述及其展开说明（这个不用多说了吧）</li><li>同步集合用过哪些，说明，以及分布式锁说明<ul><li>这边之前想展开AQS说明但是讲了很多了口干舌燥的，水也不够喝了</li><li>一方面对底层也是大概了解，FIFO内的Node深入API的话未必答的全面</li><li>分布锁可以分为三个实现展开（lua、redission、zookeeper），lua又分为单体和集群都可以展开说明</li><li>lua 集群实现分布式锁，可以聊下redlock，redission底层就是…..</li><li>redission 底层自旋的看门口狗(watchdog)机制可以说下</li></ul></li><li>es用过说下，倒排索引机制原理说下</li><li>多线程扩展聊了CAS<ul><li>基本介绍下CAS，优缺点，缺点方案解决</li><li>几种原子类说明，跟volatile可见性比较</li><li>可以的话原子类原理展开，LongAdder快的原因</li></ul></li><li>Synchronized用过吗<ul><li>可以的话说明下用法，然后展开下锁升级（无锁-偏锁-轻锁-重锁）</li><li>可以提下JUC中的读写锁（ReentrantReadWriteLock），大概说下读写四种情况以及锁降级</li><li>自述完读写锁，可以提下更高效的邮戳锁（StampedLock），优缺点说下，特点说下（名字就可以看出是不重入锁）</li></ul></li><li>redis击穿、穿透、雪崩<ul><li>说下是什么，解决方案</li><li>布隆过滤器实现原理</li></ul></li></ul><h2 id="参考文档-↓"><a href="#参考文档-↓" class="headerlink" title="参考文档 ↓"></a>参考文档 ↓</h2><p>物化视图：<a href="https://baijiahao.baidu.com/s?id=1709212821591222829&amp;wfr=spider&amp;for=pc">https://baijiahao.baidu.com/s?id=1709212821591222829&amp;wfr=spider&amp;for=pc</a></p><h3 id=""><a href="#" class="headerlink" title=""></a></h3><h3 id="-1"><a href="#-1" class="headerlink" title=""></a></h3>]]></content>
+      
+      
+      <categories>
+          
+          <category> 面试题 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 原理 </tag>
+            
+            <tag> java </tag>
+            
+            <tag> 分布式 </tag>
+            
+            <tag> 数据库 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>ShardingSphere分库分表</title>
+      <link href="posts/97bfaea3.html"/>
+      <url>posts/97bfaea3.html</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><h3 id="1、学英语"><a href="#1、学英语" class="headerlink" title="1、学英语"></a>1、学英语</h3><p>博主是个二流子，英语不会但又格外喜欢</p><p>ShardingSphere(塞腚-菲儿)【分片-球】、Proxy(普拉克谁)【代理】</p><h3 id="2、分库分表"><a href="#2、分库分表" class="headerlink" title="2、分库分表"></a>2、分库分表</h3><h4 id="1、什么是分库分表"><a href="#1、什么是分库分表" class="headerlink" title="1、什么是分库分表"></a>1、什么是分库分表</h4><p>小明是一家初创电商平台的开发人员，他负责卖家模块的功能开发，<br>其中涉及了店铺、商品的相关业务，设计如下<br>数据库：</p><h3 id="3、"><a href="#3、" class="headerlink" title="3、"></a>3、</h3><h3 id="4、"><a href="#4、" class="headerlink" title="4、"></a>4、</h3><h3 id="5、"><a href="#5、" class="headerlink" title="5、"></a>5、</h3><h2 id="二、Sharding-JDBC快速入门"><a href="#二、Sharding-JDBC快速入门" class="headerlink" title="二、Sharding-JDBC快速入门"></a>二、Sharding-JDBC快速入门</h2><h3 id="1、快速入门"><a href="#1、快速入门" class="headerlink" title="1、快速入门"></a>1、快速入门</h3><h3 id="2、"><a href="#2、" class="headerlink" title="2、"></a>2、</h3><h3 id="3、-1"><a href="#3、-1" class="headerlink" title="3、"></a>3、</h3><h3 id="4、-1"><a href="#4、-1" class="headerlink" title="4、"></a>4、</h3><h3 id="5、-1"><a href="#5、-1" class="headerlink" title="5、"></a>5、</h3><h2 id="三、Sharding-JDBC执行原理"><a href="#三、Sharding-JDBC执行原理" class="headerlink" title="三、Sharding-JDBC执行原理"></a>三、Sharding-JDBC执行原理</h2><h3 id="1、"><a href="#1、" class="headerlink" title="1、"></a>1、</h3><h3 id="2、-1"><a href="#2、-1" class="headerlink" title="2、"></a>2、</h3><h3 id="3、-2"><a href="#3、-2" class="headerlink" title="3、"></a>3、</h3><h3 id="4、-2"><a href="#4、-2" class="headerlink" title="4、"></a>4、</h3><h3 id="5、-2"><a href="#5、-2" class="headerlink" title="5、"></a>5、</h3><h2 id="参考文档-↓"><a href="#参考文档-↓" class="headerlink" title="参考文档 ↓"></a>参考文档 ↓</h2><p><a href="https://blog.csdn.net/unique_perfect/article/details/116134490">https://blog.csdn.net/unique_perfect/article/details/116134490</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 中间件 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> redlock </tag>
+            
+            <tag> ShardingSphere </tag>
+            
+            <tag> 分库分表 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Redis_三剑(击穿、穿透、雪崩)【暂停】</title>
       <link href="posts/32917ce1.html"/>
       <url>posts/32917ce1.html</url>
       
@@ -33,11 +93,11 @@
     
     
     <entry>
-      <title>Redis_实现分布式锁</title>
+      <title>Redis_实现分布式锁【暂停】</title>
       <link href="posts/aaae178b.html"/>
       <url>posts/aaae178b.html</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><h3 id="1、"><a href="#1、" class="headerlink" title="1、"></a>1、</h3><h3 id="2、"><a href="#2、" class="headerlink" title="2、"></a>2、</h3><h3 id="3、"><a href="#3、" class="headerlink" title="3、"></a>3、</h3><h3 id="4、"><a href="#4、" class="headerlink" title="4、"></a>4、</h3><h3 id="5、"><a href="#5、" class="headerlink" title="5、"></a>5、</h3><h2 id="二、"><a href="#二、" class="headerlink" title="二、"></a>二、</h2><h3 id="1、-1"><a href="#1、-1" class="headerlink" title="1、"></a>1、</h3><h3 id="2、-1"><a href="#2、-1" class="headerlink" title="2、"></a>2、</h3><h3 id="3、-1"><a href="#3、-1" class="headerlink" title="3、"></a>3、</h3><h3 id="4、-1"><a href="#4、-1" class="headerlink" title="4、"></a>4、</h3><h3 id="5、-1"><a href="#5、-1" class="headerlink" title="5、"></a>5、</h3><h2 id="三、"><a href="#三、" class="headerlink" title="三、"></a>三、</h2><h3 id="1、-2"><a href="#1、-2" class="headerlink" title="1、"></a>1、</h3><h3 id="2、-2"><a href="#2、-2" class="headerlink" title="2、"></a>2、</h3><h3 id="3、-2"><a href="#3、-2" class="headerlink" title="3、"></a>3、</h3><h3 id="4、-2"><a href="#4、-2" class="headerlink" title="4、"></a>4、</h3><h3 id="5、-2"><a href="#5、-2" class="headerlink" title="5、"></a>5、</h3>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="一、面试题"><a href="#一、面试题" class="headerlink" title="一、面试题"></a>一、面试题</h2><ul><li>Redis除了拿来做缓存，你还见过基于Redis的什么用法？</li><li>Redis 做分布式锁的时候有需要注意的问题？</li><li>如果是 Redis 是单点部署的，会带来什么问题？那你准备怎么解决单点问题呢？</li><li>集群模式下，比如主从模式，有没有什么问题呢？</li><li>你知道 Redis 是怎么解决集群模式也不靠谱的问题的吗？</li><li>那你简单的介绍一下 Redlock 吧？你简历上写redisson，你谈谈</li><li>你觉得 Redlock 有什么问题呢？</li><li>Redis分布式锁如何续期？看门狗知道吗？</li></ul><h2 id="二、"><a href="#二、" class="headerlink" title="二、"></a>二、</h2><h3 id="1、"><a href="#1、" class="headerlink" title="1、"></a>1、</h3><h3 id="2、"><a href="#2、" class="headerlink" title="2、"></a>2、</h3><h3 id="3、"><a href="#3、" class="headerlink" title="3、"></a>3、</h3><h3 id="4、"><a href="#4、" class="headerlink" title="4、"></a>4、</h3><h3 id="5、"><a href="#5、" class="headerlink" title="5、"></a>5、</h3><h2 id="三、"><a href="#三、" class="headerlink" title="三、"></a>三、</h2><h3 id="1、-1"><a href="#1、-1" class="headerlink" title="1、"></a>1、</h3><h3 id="2、-1"><a href="#2、-1" class="headerlink" title="2、"></a>2、</h3><h3 id="3、-1"><a href="#3、-1" class="headerlink" title="3、"></a>3、</h3><h3 id="4、-1"><a href="#4、-1" class="headerlink" title="4、"></a>4、</h3><h3 id="5、-1"><a href="#5、-1" class="headerlink" title="5、"></a>5、</h3>]]></content>
       
       
       <categories>
@@ -198,9 +258,9 @@
             
             <tag> springcloud-alibaba </tag>
             
-            <tag> nacos </tag>
-            
             <tag> 集群 </tag>
+            
+            <tag> nacos </tag>
             
             <tag> docker-compose </tag>
             
@@ -287,11 +347,11 @@
             
             <tag> springcloud-alibaba </tag>
             
+            <tag> nacos </tag>
+            
             <tag> 服务注册与发现 </tag>
             
             <tag> 配置中心 </tag>
-            
-            <tag> nacos </tag>
             
         </tags>
       
@@ -792,9 +852,9 @@
       
         <tags>
             
-            <tag> springcloud </tag>
-            
             <tag> springcloud-alibaba </tag>
+            
+            <tag> springcloud </tag>
             
             <tag> 合集 </tag>
             
