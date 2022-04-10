@@ -677,21 +677,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-04-07
+                    2022-04-11
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.5k
+                    3.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    12 分
+                    17 分
                 </div>
                 
 
@@ -1155,6 +1155,176 @@ pcre_jit on<span class="token punctuation">;</span>
 
 
 <h4 id="3、测试lua脚本"><a href="#3、测试lua脚本" class="headerlink" title="3、测试lua脚本"></a>3、测试lua脚本</h4><p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220403120349.png"></p>
+<h2 id="六、限流"><a href="#六、限流" class="headerlink" title="六、限流"></a>六、限流</h2><h3 id="1、配置"><a href="#1、配置" class="headerlink" title="1、配置"></a>1、配置</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">http <span class="token punctuation">{</span>
+    limit_req_zone <span class="token variable">$binary_remote_addr</span> <span class="token assign-left variable">zone</span><span class="token operator">=</span>one:10m <span class="token assign-left variable">rate</span><span class="token operator">=</span>5r/s<span class="token punctuation">;</span>
+    server <span class="token punctuation">{</span>
+        location /search/ <span class="token punctuation">{</span>
+            limit_req <span class="token assign-left variable">zone</span><span class="token operator">=</span>one <span class="token assign-left variable">burst</span><span class="token operator">=</span><span class="token number">5</span> nodelay<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>limit_req_zone $binary_remote_addr zone=one:10m rate=1r/s;</strong></p>
+<ul>
+<li>第一个参数：<code>$binary_remote_addr</code> 表示通过remote_addr这个标识来做限制，“binary_”的目的是缩写内存占用量，是限制同一客户端ip地址。</li>
+<li>第二个参数：<code>zone=one:10m</code>表示生成一个大小为10M，名字为one的内存区域，用来存储访问的频次信息。</li>
+<li>第三个参数：<code>rate=5r/s</code>表示允许相同标识的客户端的访问频次，这里限制的是每秒 5 次，还可以有比如30r/m的。</li>
+</ul>
+<p><strong>limit_req zone=one burst=5 nodelay;</strong></p>
+<ul>
+<li>第一个参数：<code>zone=one</code> 设置使用哪个配置区域来做限制，与上面limit_req_zone 里的name对应。</li>
+<li>第二个参数：<code>burst=5</code>，重点说明一下这个配置，burst爆发的意思，这个配置的意思是设置一个大小为5的缓冲区当有大量请求（爆发）过来时，超过了访问频次限制的请求可以先放到这个缓冲区内。</li>
+<li>第三个参数：<code>nodelay</code>，如果设置，超过访问频次而且缓冲区也满了的时候就会直接返回503，如果没有设置，则所有请求会等待排队。</li>
+</ul>
+<h3 id="2、网站配置源码"><a href="#2、网站配置源码" class="headerlink" title="2、网站配置源码"></a>2、网站配置源码</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#user  nobody;</span>
+<span class="token comment">#worker_processes 1;</span>
+
+<span class="token comment"># Enables the use of JIT for regular expressions to speed-up their processing.</span>
+pcre_jit on<span class="token punctuation">;</span>
+
+
+
+<span class="token comment">#error_log  logs/error.log;</span>
+<span class="token comment">#error_log  logs/error.log  notice;</span>
+<span class="token comment">#error_log  logs/error.log  info;</span>
+
+<span class="token comment">#pid        logs/nginx.pid;</span>
+
+
+events <span class="token punctuation">{</span>
+    worker_connections  <span class="token number">1024</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+
+http <span class="token punctuation">{</span>
+    include       mime.types<span class="token punctuation">;</span>
+    default_type  application/octet-stream<span class="token punctuation">;</span>
+        server_tokens off<span class="token punctuation">;</span>
+        <span class="token comment">#引入lib包</span>
+    lua_package_path <span class="token string">"/usr/local/openresty/lualib/?.lua;;"</span><span class="token punctuation">;</span>
+        <span class="token comment">#开辟一块内存区域</span>
+        lua_shared_dict ip_blacklist 4m<span class="token punctuation">;</span>
+
+    <span class="token comment"># Enables or disables the use of underscores in client request header fields.</span>
+    <span class="token comment"># When the use of underscores is disabled, request header fields whose names contain underscores are marked as invalid and become subject to the ignore_invalid_headers directive.</span>
+    <span class="token comment"># underscores_in_headers off;</span>
+
+    <span class="token comment">#log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '</span>
+    <span class="token comment">#                  '$status $body_bytes_sent "$http_referer" '</span>
+    <span class="token comment">#                  '"$http_user_agent" "$http_x_forwarded_for"';</span>
+
+    <span class="token comment">#access_log  logs/access.log  main;</span>
+
+        <span class="token comment"># Log in JSON Format</span>
+        <span class="token comment"># log_format nginxlog_json escape=json '{ "timestamp": "$time_iso8601", '</span>
+        <span class="token comment"># '"remote_addr": "$remote_addr", '</span>
+        <span class="token comment">#  '"body_bytes_sent": $body_bytes_sent, '</span>
+        <span class="token comment">#  '"request_time": $request_time, '</span>
+        <span class="token comment">#  '"response_status": $status, '</span>
+        <span class="token comment">#  '"request": "$request", '</span>
+        <span class="token comment">#  '"request_method": "$request_method", '</span>
+        <span class="token comment">#  '"host": "$host",'</span>
+        <span class="token comment">#  '"upstream_addr": "$upstream_addr",'</span>
+        <span class="token comment">#  '"http_x_forwarded_for": "$http_x_forwarded_for",'</span>
+        <span class="token comment">#  '"http_referrer": "$http_referer", '</span>
+        <span class="token comment">#  '"http_user_agent": "$http_user_agent", '</span>
+        <span class="token comment">#  '"http_version": "$server_protocol", '</span>
+        <span class="token comment">#  '"nginx_access": true }';</span>
+        <span class="token comment"># access_log /dev/stdout nginxlog_json;</span>
+
+    <span class="token comment"># See Move default writable paths to a dedicated directory (#119)</span>
+    <span class="token comment"># https://github.com/openresty/docker-openresty/issues/119</span>
+    client_body_temp_path /var/run/openresty/nginx-client-body<span class="token punctuation">;</span>
+    proxy_temp_path       /var/run/openresty/nginx-proxy<span class="token punctuation">;</span>
+    fastcgi_temp_path     /var/run/openresty/nginx-fastcgi<span class="token punctuation">;</span>
+    uwsgi_temp_path       /var/run/openresty/nginx-uwsgi<span class="token punctuation">;</span>
+    scgi_temp_path        /var/run/openresty/nginx-scgi<span class="token punctuation">;</span>
+
+    sendfile        on<span class="token punctuation">;</span>
+    <span class="token comment">#tcp_nopush     on;</span>
+
+    <span class="token comment">#keepalive_timeout  0;</span>
+    keepalive_timeout  <span class="token number">65</span><span class="token punctuation">;</span>
+
+    <span class="token comment">#gzip  on;</span>
+
+    include /etc/nginx/conf.d/*.conf<span class="token punctuation">;</span>
+
+<span class="token comment">#限流设置</span>
+limit_req_zone <span class="token variable">$binary_remote_addr</span> <span class="token assign-left variable">zone</span><span class="token operator">=</span>one:30m <span class="token assign-left variable">rate</span><span class="token operator">=</span>10r/s<span class="token punctuation">;</span>
+
+         server<span class="token punctuation">{</span>
+        listen <span class="token number">443</span> ssl<span class="token punctuation">;</span>
+        <span class="token comment">#对应的域名，把mykkto.cn改成你们自己的域名就可以了</span>
+        server_name mykkto.cn<span class="token punctuation">;</span>
+        <span class="token comment">#证书的两个配置文件</span>
+        ssl_certificate /usr/local/openresty/nginx/ssl/7526194_www.mykkto.cn.pem<span class="token punctuation">;</span>
+        ssl_certificate_key /usr/local/openresty/nginx/ssl/7526194_www.mykkto.cn.key<span class="token punctuation">;</span>
+                <span class="token comment">#以下都是一些加密规则</span>
+        ssl_session_timeout 5m<span class="token punctuation">;</span>
+        ssl_protocols TLSv1 TLSv1.1 TLSv1.2<span class="token punctuation">;</span>
+        ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:HIGH:<span class="token operator">!</span>aNULL:<span class="token operator">!</span>MD5:<span class="token operator">!</span>RC4:<span class="token operator">!</span>DHE<span class="token punctuation">;</span>
+        ssl_prefer_server_ciphers on<span class="token punctuation">;</span>
+        <span class="token comment">#这是我的主页访问地址，因为使用的是静态的html网页，所以直接使用location就可以完成了。</span>
+
+                <span class="token builtin class-name">set</span> <span class="token variable">$real_ip</span> <span class="token variable">$remote_addr</span><span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span> <span class="token variable">$http_x_forwarded_for</span> ~ <span class="token string">"^(\d+\.\d+\.\d+\.\d+)"</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token builtin class-name">set</span> <span class="token variable">$real_ip</span> <span class="token variable">$1</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+          <span class="token comment"># 管理信息，访问该URL可以查看nginx中的IP黑名单信息</span>
+  location /get-ipblacklist-info <span class="token punctuation">{</span>
+    access_by_lua_file /usr/local/openresty/nginx/lua/get_ipblacklist_info.lua<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+
+        <span class="token comment"># 同步URL，通过定时任务调用该URL,实现IP黑名单从mysql到nginx的定时刷新</span>
+  location /sync-ipblacklist <span class="token punctuation">{</span>
+   access_by_lua_file /usr/local/openresty/nginx/lua/sync_ipblacklist.lua<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+        location / <span class="token punctuation">{</span>
+<span class="token comment">#限流</span>
+limit_req <span class="token assign-left variable">zone</span><span class="token operator">=</span>one <span class="token assign-left variable">burst</span><span class="token operator">=</span><span class="token number">10</span> nodelay<span class="token punctuation">;</span>
+                                <span class="token comment"># 所有IP进来都要校验</span>
+                                access_by_lua_file /usr/local/openresty/nginx/lua/check_realip.lua<span class="token punctuation">;</span>
+<span class="token comment">#                               proxy_read_timeout  60s;</span>
+<span class="token comment">#                               proxy_set_header    Host $http_host;</span>
+<span class="token comment">#                               proxy_set_header    X-Real_IP $remote_addr;</span>
+<span class="token comment">#                               proxy_set_header    X-Forwarded-for $remote_addr;</span>
+<span class="token comment">#                               proxy_http_version  1.1;</span>
+                <span class="token comment">#文件夹（这个其实挂载的就是外部的www目录下的静态资源）</span>
+                root /usr/local/openresty/nginx/html<span class="token punctuation">;</span>
+                <span class="token comment">#主页文件</span>
+                index index.html<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+ <span class="token punctuation">}</span>
+ 
+ 
+ server <span class="token punctuation">{</span>
+   listen <span class="token number">80</span><span class="token punctuation">;</span>
+        <span class="token comment">#这边空格隔开，配置了两个，因为加了www也要配置</span>
+       server_name mykkto.cn www.mykkto.cn<span class="token punctuation">;</span>
+       rewrite ^/<span class="token punctuation">(</span>.*<span class="token punctuation">)</span>$ https://mykkto.cn:443/<span class="token variable">$1</span> permanent<span class="token punctuation">;</span>
+  <span class="token comment"># location / {</span>
+  <span class="token comment">#     limit_req zone=mylimit;</span>
+  <span class="token comment">#}</span>
+
+<span class="token punctuation">}</span>
+
+    <span class="token comment"># Don't reveal OpenResty version to clients.</span>
+    <span class="token comment"># server_tokens off;</span>
+<span class="token punctuation">}</span>
+ 
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h3 id="3、测试"><a href="#3、测试" class="headerlink" title="3、测试"></a>3、测试</h3><p>QPS：3000压测 5次</p>
+<p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220410235912.png"></p>
+<p>压测的IP为  A，通过，同网段的机器访问（手机模拟），503异常，结论被限流成功</p>
+<p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/testfsjhdgjdhfjk1.jpg"></p>
+<p>切换网段B ，非压测IP 不限流，测试成功</p>
+<p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/fkdgjgdhjf56jh7j6h.jpg"></p>
 <h2 id="参考-↓"><a href="#参考-↓" class="headerlink" title="参考 ↓"></a>参考 ↓</h2><p>—— 【一到三】参考———–</p>
 <p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/zltech/p/13517231.html">https://www.cnblogs.com/zltech/p/13517231.html</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/thepoy/p/14848080.html">https://www.cnblogs.com/thepoy/p/14848080.html</a></p>
@@ -1168,6 +1338,8 @@ pcre_jit on<span class="token punctuation">;</span>
 <p><a target="_blank" rel="noopener" href="https://www.jb51.net/article/168907.htm">https://www.jb51.net/article/168907.htm</a></p>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_33971205/article/details/89861486">https://blog.csdn.net/weixin_33971205/article/details/89861486</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.csdn.net/tags/MtTaIgzsNDYzNDUtYmxvZwO0O0OO0O0O.html">https://www.csdn.net/tags/MtTaIgzsNDYzNDUtYmxvZwO0O0OO0O0O.html</a></p>
+<p>限流&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;</p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/biglittleant/p/8979915.html">https://www.cnblogs.com/biglittleant/p/8979915.html</a></p>
 
                 
             </div>
@@ -2061,7 +2233,7 @@ new Valine({
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">74.4k</span>&nbsp;字
+                class="white-color">75.9k</span>&nbsp;字
             
             
             

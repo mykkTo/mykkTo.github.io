@@ -637,16 +637,16 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/redlock/">
-                                <span class="chip bg-color">redlock</span>
-                            </a>
-                        
                             <a href="/tags/ShardingSphere/">
                                 <span class="chip bg-color">ShardingSphere</span>
                             </a>
                         
                             <a href="/tags/%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8/">
                                 <span class="chip bg-color">分库分表</span>
+                            </a>
+                        
+                            <a href="/tags/jdbc/">
+                                <span class="chip bg-color">jdbc</span>
                             </a>
                         
                     </div>
@@ -677,21 +677,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-04-09
+                    2022-04-10
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    142
+                    626
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -716,8 +716,21 @@
             <div id="articleContent">
                 <h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><h3 id="1、学英语"><a href="#1、学英语" class="headerlink" title="1、学英语"></a>1、学英语</h3><p>博主是个二流子，英语不会但又格外喜欢</p>
 <p>ShardingSphere(塞腚-菲儿)【分片-球】、Proxy(普拉克谁)【代理】</p>
-<h3 id="2、分库分表"><a href="#2、分库分表" class="headerlink" title="2、分库分表"></a>2、分库分表</h3><h4 id="1、什么是分库分表"><a href="#1、什么是分库分表" class="headerlink" title="1、什么是分库分表"></a>1、什么是分库分表</h4><p>小明是一家初创电商平台的开发人员，他负责卖家模块的功能开发，<br>其中涉及了店铺、商品的相关业务，设计如下<br>数据库：</p>
-<h3 id="3、"><a href="#3、" class="headerlink" title="3、"></a>3、</h3><h3 id="4、"><a href="#4、" class="headerlink" title="4、"></a>4、</h3><h3 id="5、"><a href="#5、" class="headerlink" title="5、"></a>5、</h3><h2 id="二、Sharding-JDBC快速入门"><a href="#二、Sharding-JDBC快速入门" class="headerlink" title="二、Sharding-JDBC快速入门"></a>二、Sharding-JDBC快速入门</h2><h3 id="1、快速入门"><a href="#1、快速入门" class="headerlink" title="1、快速入门"></a>1、快速入门</h3><h3 id="2、"><a href="#2、" class="headerlink" title="2、"></a>2、</h3><h3 id="3、-1"><a href="#3、-1" class="headerlink" title="3、"></a>3、</h3><h3 id="4、-1"><a href="#4、-1" class="headerlink" title="4、"></a>4、</h3><h3 id="5、-1"><a href="#5、-1" class="headerlink" title="5、"></a>5、</h3><h2 id="三、Sharding-JDBC执行原理"><a href="#三、Sharding-JDBC执行原理" class="headerlink" title="三、Sharding-JDBC执行原理"></a>三、Sharding-JDBC执行原理</h2><h3 id="1、"><a href="#1、" class="headerlink" title="1、"></a>1、</h3><h3 id="2、-1"><a href="#2、-1" class="headerlink" title="2、"></a>2、</h3><h3 id="3、-2"><a href="#3、-2" class="headerlink" title="3、"></a>3、</h3><h3 id="4、-2"><a href="#4、-2" class="headerlink" title="4、"></a>4、</h3><h3 id="5、-2"><a href="#5、-2" class="headerlink" title="5、"></a>5、</h3><h2 id="参考文档-↓"><a href="#参考文档-↓" class="headerlink" title="参考文档 ↓"></a>参考文档 ↓</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/unique_perfect/article/details/116134490">https://blog.csdn.net/unique_perfect/article/details/116134490</a></p>
+<h3 id="2、分库分表"><a href="#2、分库分表" class="headerlink" title="2、分库分表"></a>2、分库分表</h3><h4 id="1、什么是分库分表"><a href="#1、什么是分库分表" class="headerlink" title="1、什么是分库分表"></a>1、什么是分库分表</h4><p><strong>分库分表就是为了解决由于数据量过大而导致数据库性能降低的问题，将原来独立的数据库拆分成若干数据库组成，将数据大表拆分成若干数据表组成，使得单一数据库、单一数据表的数据量变小，从而达到提升数据库性能的目的。</strong></p>
+<h4 id="2、分库分表方式"><a href="#2、分库分表方式" class="headerlink" title="2、分库分表方式"></a>2、分库分表方式</h4><p>分库分表包括<code>分库</code>和<code>分表</code>两个部分：</p>
+<p>在生产中通常包括：<strong>垂直分库、水平分库、垂直分表、水平分表</strong>四种方式。</p>
+<p><strong>水平拆分：</strong>同一个表的数据拆到不同的库或者不同的表中。可以根据<code>时间、地区、或某个业务键</code>维度，也可以通过hash进行拆分，最后通过路由访问到具体的数据。拆分后的每个表结构保持一致。</p>
+<p><strong>一句话：拆数据</strong></p>
+<p><strong>垂直拆分：</strong>把一个有很多字段的表给拆分成多个表，或者是多个库上去。每个库表的结构都不一样，每个库表都包含部分字段。一般来说，可以根据业务维度进行拆分，如订单表可以拆分为订单、订单支持、订单地址、订单商品、订单扩展等表；也可以，根据数据冷热程度拆分，20%的热点字段拆到一个表，80%的冷字段拆到另外一个表。</p>
+<p><strong>一句话：拆字段</strong></p>
+<h4 id="2-1-垂直分库"><a href="#2-1-垂直分库" class="headerlink" title="2.1 垂直分库"></a>2.1 垂直分库</h4><h4 id="2-2-垂直分表"><a href="#2-2-垂直分表" class="headerlink" title="2.2 垂直分表"></a>2.2 垂直分表</h4><h4 id="2-3-水平分表"><a href="#2-3-水平分表" class="headerlink" title="2.3 水平分表"></a>2.3 水平分表</h4><h4 id="2-4-水平分表"><a href="#2-4-水平分表" class="headerlink" title="2.4 水平分表"></a>2.4 水平分表</h4><h4 id="3、为什么要分库分表"><a href="#3、为什么要分库分表" class="headerlink" title="3、为什么要分库分表"></a>3、为什么要分库分表</h4><p>一般的机器（4核16G），单库的MySQL并发（QPS+TPS）超过了2k，系统基本就宕机了。最好是并发量控制在1k左右。</p>
+<ul>
+<li>QPS：每秒并发量</li>
+<li>TPS：每秒吞吐量</li>
+</ul>
+<p>分库分表目的：解决高并发，和数据量大的问题。</p>
+<h4 id="4、分库分表的场景"><a href="#4、分库分表的场景" class="headerlink" title="4、分库分表的场景"></a>4、分库分表的场景</h4><h4 id="5、分库分表带来的问题"><a href="#5、分库分表带来的问题" class="headerlink" title="5、分库分表带来的问题"></a>5、分库分表带来的问题</h4><h3 id="3、"><a href="#3、" class="headerlink" title="3、"></a>3、</h3><h3 id="4、"><a href="#4、" class="headerlink" title="4、"></a>4、</h3><h3 id="5、"><a href="#5、" class="headerlink" title="5、"></a>5、</h3><h2 id="二、Sharding-JDBC快速入门"><a href="#二、Sharding-JDBC快速入门" class="headerlink" title="二、Sharding-JDBC快速入门"></a>二、Sharding-JDBC快速入门</h2><h3 id="1、基本介绍"><a href="#1、基本介绍" class="headerlink" title="1、基本介绍"></a>1、基本介绍</h3><h3 id="2、需求说明"><a href="#2、需求说明" class="headerlink" title="2、需求说明"></a>2、需求说明</h3><h3 id="3、项目搭建"><a href="#3、项目搭建" class="headerlink" title="3、项目搭建"></a>3、项目搭建</h3><h3 id="4、程序编写"><a href="#4、程序编写" class="headerlink" title="4、程序编写"></a>4、程序编写</h3><h3 id="5、流程分析"><a href="#5、流程分析" class="headerlink" title="5、流程分析"></a>5、流程分析</h3><h2 id="三、Sharding-JDBC执行原理"><a href="#三、Sharding-JDBC执行原理" class="headerlink" title="三、Sharding-JDBC执行原理"></a>三、Sharding-JDBC执行原理</h2><h3 id="1、"><a href="#1、" class="headerlink" title="1、"></a>1、</h3><h3 id="2、"><a href="#2、" class="headerlink" title="2、"></a>2、</h3><h3 id="3、-1"><a href="#3、-1" class="headerlink" title="3、"></a>3、</h3><h3 id="4、-1"><a href="#4、-1" class="headerlink" title="4、"></a>4、</h3><h3 id="5、-1"><a href="#5、-1" class="headerlink" title="5、"></a>5、</h3><h2 id="四、分库分表分类"><a href="#四、分库分表分类" class="headerlink" title="四、分库分表分类"></a>四、分库分表分类</h2><h3 id="1、-1"><a href="#1、-1" class="headerlink" title="1、"></a>1、</h3><h3 id="2、-1"><a href="#2、-1" class="headerlink" title="2、"></a>2、</h3><h3 id="3、-2"><a href="#3、-2" class="headerlink" title="3、"></a>3、</h3><h3 id="4、-2"><a href="#4、-2" class="headerlink" title="4、"></a>4、</h3><h3 id="5、-2"><a href="#5、-2" class="headerlink" title="5、"></a>5、</h3><h2 id="五、Mysql主从搭建"><a href="#五、Mysql主从搭建" class="headerlink" title="五、Mysql主从搭建"></a>五、Mysql主从搭建</h2><h3 id="1、-2"><a href="#1、-2" class="headerlink" title="1、"></a>1、</h3><h3 id="2、-2"><a href="#2、-2" class="headerlink" title="2、"></a>2、</h3><h3 id="3、-3"><a href="#3、-3" class="headerlink" title="3、"></a>3、</h3><h3 id="4、-3"><a href="#4、-3" class="headerlink" title="4、"></a>4、</h3><h3 id="5、-3"><a href="#5、-3" class="headerlink" title="5、"></a>5、</h3><h2 id="参考文档-↓"><a href="#参考文档-↓" class="headerlink" title="参考文档 ↓"></a>参考文档 ↓</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/unique_perfect/article/details/116134490">https://blog.csdn.net/unique_perfect/article/details/116134490</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.kuangstudy.com/zl/sharding#1369532356595126274">https://www.kuangstudy.com/zl/sharding#1369532356595126274</a></p>
 
                 
             </div>
@@ -782,16 +795,16 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/redlock/">
-                                    <span class="chip bg-color">redlock</span>
-                                </a>
-                            
                                 <a href="/tags/ShardingSphere/">
                                     <span class="chip bg-color">ShardingSphere</span>
                                 </a>
                             
                                 <a href="/tags/%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8/">
                                     <span class="chip bg-color">分库分表</span>
+                                </a>
+                            
+                                <a href="/tags/jdbc/">
+                                    <span class="chip bg-color">jdbc</span>
                                 </a>
                             
                         </div>
@@ -1611,7 +1624,7 @@ new Valine({
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">74.4k</span>&nbsp;字
+                class="white-color">75.9k</span>&nbsp;字
             
             
             
