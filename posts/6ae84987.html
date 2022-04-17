@@ -680,14 +680,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    6.1k
+                    10.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    22 分
+                    39 分
                 </div>
                 
 
@@ -1062,8 +1062,420 @@ final int NUM = 10;<span aria-hidden="true" class="line-numbers-rows"><span></sp
 <p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/jvm/20220417171658.png"></p>
 </li>
 </ul>
-<h4 id="6、方法表集合"><a href="#6、方法表集合" class="headerlink" title="6、方法表集合"></a>6、方法表集合</h4><h4 id="7、属性表集合"><a href="#7、属性表集合" class="headerlink" title="7、属性表集合"></a>7、属性表集合</h4><h3 id="5、"><a href="#5、" class="headerlink" title="5、"></a>5、</h3><h2 id="四、javap"><a href="#四、javap" class="headerlink" title="四、javap"></a>四、javap</h2><p><strong>oracle官方的反解析工具：javap</strong></p>
-<h3 id="1、"><a href="#1、" class="headerlink" title="1、"></a>1、</h3><h3 id="2、"><a href="#2、" class="headerlink" title="2、"></a>2、</h3><h3 id="3、"><a href="#3、" class="headerlink" title="3、"></a>3、</h3><h3 id="4、"><a href="#4、" class="headerlink" title="4、"></a>4、</h3><h3 id="5、-1"><a href="#5、-1" class="headerlink" title="5、"></a>5、</h3><h2 id="五、字节码指令集与解析概述"><a href="#五、字节码指令集与解析概述" class="headerlink" title="五、字节码指令集与解析概述"></a>五、字节码指令集与解析概述</h2><h3 id="1、-1"><a href="#1、-1" class="headerlink" title="1、"></a>1、</h3><h3 id="2、-1"><a href="#2、-1" class="headerlink" title="2、"></a>2、</h3><h3 id="3、-1"><a href="#3、-1" class="headerlink" title="3、"></a>3、</h3><h3 id="4、-1"><a href="#4、-1" class="headerlink" title="4、"></a>4、</h3><h3 id="5、-2"><a href="#5、-2" class="headerlink" title="5、"></a>5、</h3><h2 id="六、★-字节码指令"><a href="#六、★-字节码指令" class="headerlink" title="六、★ 字节码指令"></a>六、★ 字节码指令</h2><h3 id="1、-2"><a href="#1、-2" class="headerlink" title="1、"></a>1、</h3><h3 id="2、-2"><a href="#2、-2" class="headerlink" title="2、"></a>2、</h3><h3 id="3、-2"><a href="#3、-2" class="headerlink" title="3、"></a>3、</h3><h3 id="4、-2"><a href="#4、-2" class="headerlink" title="4、"></a>4、</h3><h3 id="5、-3"><a href="#5、-3" class="headerlink" title="5、"></a>5、</h3>
+<h4 id="6、方法表集合"><a href="#6、方法表集合" class="headerlink" title="6、方法表集合"></a>6、方法表集合</h4><h5 id="1、方法计数器"><a href="#1、方法计数器" class="headerlink" title="1、方法计数器"></a>1、方法计数器</h5><ul>
+<li>methods_count的值表示当前class文件methods表的成员个数。使用两个字节来表示。</li>
+<li>methods 表中每个成员都是一个method_info结构。</li>
+</ul>
+<h5 id="2、方法表"><a href="#2、方法表" class="headerlink" title="2、方法表"></a>2、方法表</h5><ul>
+<li><p>methods表中的每个成员都必须是一个method_info结构，用于表示当前类或接口中某个方法的完整描述。如果某个method_info结构的access_flags项既没有设置 ACC_NATIVE 标志也没有设置ACC_ABSTRACT标志，那么该结构中也应包含实现这个方法所用的Java虚拟机指令。</p>
+</li>
+<li><p>method_info结构可以表示类和接口中定义的所有方法，包括实例方法、类方法、实例初始化方法和类或接口初始化方法</p>
+</li>
+<li><p>方法表的结构实际跟字段表是一样的，方法表结构如下：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/jvm/20220417211001.png"></p>
+</li>
+</ul>
+<h4 id="7、属性表集合"><a href="#7、属性表集合" class="headerlink" title="7、属性表集合"></a>7、属性表集合</h4><h5 id="1、属性计数器"><a href="#1、属性计数器" class="headerlink" title="1、属性计数器"></a>1、属性计数器</h5><p>attributes_count的值表示当前class文件属性表的成员个数。属性表中每一项都是一个attribute_info结构。</p>
+<h5 id="2、属性表"><a href="#2、属性表" class="headerlink" title="2、属性表"></a>2、属性表</h5><ul>
+<li><p>ConstantValue 属性</p>
+<ul>
+<li><p>ConstantValue 属性表示一个常量字段的值。位于 field_info结构的属性表中。</p>
+</li>
+<li><pre><code class="java">ConstantValue_attribute {
+    u2 attribute_name_index;
+    u4 attribute_length;
+    u2 constantvalue_index;//字段值在常量池中的索引，常量池在该索引处的项给出该属性表示的常量值。（例如，值是long型的，在常量池中便是CONSTANT_Long）
+}
+<pre class="line-numbers language-none"><code class="language-none">
+- Deprecated 属性
+
+  - Deprecated 属性是在 JDK 1.1 为了支持注释中的关键词@deprecated 而引入的。
+
+    ```java
+    Deprecated_attribute {
+        u2 attribute_name_index;
+         u4 attribute_length;
+    }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></code></pre>
+</li>
+</ul>
+</li>
+<li><p>Code 属性</p>
+<ul>
+<li><p>Code属性就是存放方法体里面的代码。但是，并非所有方法表都有Code属性。像接口或者抽象方法，他们没有具体的方法体，因此也就不会有Code属性了。<br>Code属性表的结构,如下图：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/jvm/20220417213251.png"></p>
+<p>可以看到：Code属性表的前两项跟属性表是一致的，即Code属性表遵循属性表的结构，后面那些则是他自定义的结构。</p>
+</li>
+</ul>
+</li>
+<li><p>InnerClasses 属性</p>
+<ul>
+<li>为了方便说明特别定义一个表示类或接口的 Class 格式为 C。如果 C 的常量池中包含某个CONSTANT_Class_info 成员，且这个成员所表示的类或接口不属于任何一个包，那么 C 的ClassFile 结构的属性表中就必须含有对应的 InnerClasses 属性。InnerClasses 属性是在 JDK 1.1 中为了支持内部类和内部接口而引入的,位于 ClassFile结构的属性表。</li>
+</ul>
+</li>
+<li><p>LineNumberTable 属性</p>
+<ul>
+<li><p>LineNumberTable 属性是可选变长属性，位于 Code结构的属性表。</p>
+</li>
+<li><p>LineNumberTable属性是用来描述Java源码行号与字节码行号之间的对应关系。这个属性可以用来在调试的时候定位代码执行的行数。</p>
+</li>
+<li><p>start_pc,即字节码行号;line_number，即Java源代码行号。</p>
+</li>
+<li><p>在 Code 属性的属性表中,LineNumberTable 属性可以按照任意顺序出现，此外，多个 LineNumberTable属性可以共同表示一个行号在源文件中表示的内容，即 LineNumberTable 属性不需要与源文件的行一一对应。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/jvm/20220417220235.png"></p>
+</li>
+</ul>
+</li>
+<li><p>LocalVariableTable 属性</p>
+<ul>
+<li><p> LocalVariableTable 是可选变长属性，位于 Code属性的属性表中。它被调试器用于确定方法在执行过程中局部变量的信息。在 Code 属性的属性表中，LocalVariableTable 属性可以按照任意顺序出现。 Code 属性中的每个局部变量最多只能有一个 LocalVariableTable 属性。</p>
+</li>
+<li><p>start pc + length表示这个变量在字节码中的生命周期起始和结束的偏移位置（this生命周期从头0到结尾）</p>
+</li>
+<li><p>index就是这个变量在局部变量表中的槽位（槽位可复用）</p>
+</li>
+<li><p>name就是变量名称</p>
+</li>
+<li><p>Descriptor表示局部变量类型描述</p>
+<p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/jvm/20220417220124.png"></p>
+</li>
+</ul>
+</li>
+<li><p>Signature 属性</p>
+<ul>
+<li>Signature 属性是可选的定长属性，位于 ClassFile， field_info<br>或 method_info结构的属性表中。在 Java 语言中，任何类、 接口、 初始化方法或成员的泛型签名如果包含了类型变量（ Type Variables） 或参数化类型（ Parameterized Types），则 Signature 属性会为它记录泛型签名信息。</li>
+</ul>
+</li>
+<li><p>SourceFile属性</p>
+<ul>
+<li><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/jvm/20220417213613.png"></li>
+</ul>
+</li>
+<li><p>其他属性</p>
+<ul>
+<li>Java虚拟机中预定义的属性有20多个，这里就不一一介绍了，通过上面几个属性的介绍，只要领会其精髓，其他属性的解读也是易如反掌。</li>
+</ul>
+</li>
+</ul>
+<h3 id="5、"><a href="#5、" class="headerlink" title="5、"></a>5、</h3><h2 id="四、javap"><a href="#四、javap" class="headerlink" title="四、javap"></a>四、javap</h2><p><strong>oracle官方的反解析工具：javap</strong></p>
+<h3 id="1、解析字节码的作用"><a href="#1、解析字节码的作用" class="headerlink" title="1、解析字节码的作用"></a>1、解析字节码的作用</h3><p>通过反编译生成的字节码文件，我们可以深入的了解java代码的工作机制。但是，自己分析类文件结构太麻烦了！除了使用第三方的jclasslib工具之外，oracle官方也提供了工具：javap。</p>
+<p>javap是jdk自带的反解析工具。它的作用就是根据class字节码文件，反解析出当前类对应的code区（字节码指令）、局部变量表、异常表和代码行偏移量映射表、常量池等信息。</p>
+<p>通过局部变量表，我们可以查看局部变量的作用域范围、所在槽位等信息，甚至可以看到槽位复用等信息。</p>
+<h3 id="2、javac-g操作"><a href="#2、javac-g操作" class="headerlink" title="2、javac -g操作"></a>2、javac -g操作</h3><p>解析字节码文件得到的信息中，有些信息（如局部变量表、指令和代码行偏移量映射表、常量池中方法的参数名称等等）需要在使用javac编译成class文件时，指定参数才能输出。</p>
+<p>比如，你直接javac xx.java，就不会在生成对应的局部变量表等信息，如果你使用<code>javac -g xx.java</code>就可以生成所有相关信息了。如果你使用的eclipse或IDEA，则默认情况下，eclipse、IDEA在编译时会帮你生成局部变量表、指令和代码行偏移量映射表等信息的。</p>
+<h3 id="3、javap的用法"><a href="#3、javap的用法" class="headerlink" title="3、javap的用法"></a>3、javap的用法</h3><p>javap的用法格式：<br><strong>javap <options> <classes></classes></options></strong></p>
+<p>其中，classes就是你要反编译的class文件。</p>
+<p>在命令行中直接输入javap或javap -help可以看到javap的options有如下选项：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/jvm/20220417224639.png"></p>
+<p> -help  –help  -?      输出此用法消息<br> -version               版本信息，其实是当前javap所在jdk的版本信息，不是class在哪个jdk下生成的。<br> -public                仅显示公共类和成员<br> -protected             显示受保护的/公共类和成员<br> -p  -private           显示所有类和成员<br> -package               显示程序包/受保护的/公共类 和成员 (默认)<br> -sysinfo               显示正在处理的类的系统信息 (路径, 大小, 日期, MD5 散列,源文件名)<br> -constants             显示静态最终常量</p>
+<p> -s                     输出内部类型签名<br> -l                     输出行号和本地变量表<br> -c                     对代码进行反汇编<br> -v  -verbose           输出附加信息（包括行号、本地变量表，反汇编等详细信息）</p>
+<p> -classpath <path>      指定查找用户类文件的位置<br> -cp <path>             指定查找用户类文件的位置<br> -bootclasspath <path>  覆盖引导类文件的位置</path></path></path></p>
+<p><strong>一般常用的是-v -l -c三个选项。</strong></p>
+<p>javap -l 会输出行号和本地变量表信息。<br>javap -c 会对当前class字节码进行反编译生成汇编代码。<br>javap -v classxx 除了包含-c内容外，还会输出行号、局部变量表信息、常量池等信息。</p>
+<h3 id="4、使用举例"><a href="#4、使用举例" class="headerlink" title="4、使用举例"></a>4、使用举例</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>kk<span class="token punctuation">.</span>test</span><span class="token punctuation">;</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">JavapTest</span> <span class="token punctuation">{</span>
+    <span class="token keyword">private</span> <span class="token keyword">int</span> num<span class="token punctuation">;</span>
+    <span class="token keyword">boolean</span> flag<span class="token punctuation">;</span>
+    <span class="token keyword">protected</span> <span class="token keyword">char</span> gender<span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token class-name">String</span> info<span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">int</span> COUNTS <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">static</span><span class="token punctuation">{</span>
+        <span class="token class-name">String</span> url <span class="token operator">=</span> <span class="token string">"www.mykkto.com"</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token punctuation">{</span>
+        info <span class="token operator">=</span> <span class="token string">"java"</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token class-name">JavapTest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+
+    <span class="token punctuation">}</span>
+    <span class="token keyword">private</span> <span class="token class-name">JavapTest</span><span class="token punctuation">(</span><span class="token keyword">boolean</span> flag<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>flag <span class="token operator">=</span> flag<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">methodPrivate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+
+    <span class="token punctuation">}</span>
+    <span class="token keyword">int</span> <span class="token function">getNum</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">return</span> num <span class="token operator">+</span> i<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">protected</span> <span class="token keyword">char</span> <span class="token function">showGender</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">return</span> gender<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">showInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>info <span class="token operator">+</span> i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p>希望输出的信息比较完整的话，使用如下操作：</p>
+<p><strong>javac JavapTest.java</strong></p>
+<p><strong>javap -v -p JavapTest.class</strong></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">J:<span class="token punctuation">\</span><span class="token number">0</span> 大厂素材<span class="token punctuation">\</span>jvm<span class="token punctuation">\</span>00Test<span class="token operator">&gt;</span>javac JavapTest.java
+
+J:<span class="token punctuation">\</span><span class="token number">0</span> 大厂素材<span class="token punctuation">\</span>jvm<span class="token punctuation">\</span>00Test<span class="token operator">&gt;</span>javap -v -p JavapTest.class
+Classfile /J:/0 大厂素材/jvm/00Test/JavapTest.class
+  Last modified <span class="token number">2022</span>-4-17<span class="token punctuation">;</span> size <span class="token number">1141</span> bytes
+  MD5 checksum 16833cad2e0187d03ccf1baecaa23808
+  Compiled from <span class="token string">"JavapTest.java"</span>
+public class com.kk.test.JavapTest
+  minor version: <span class="token number">0</span>
+  major version: <span class="token number">52</span>
+  flags: ACC_PUBLIC, ACC_SUPER
+Constant pool:
+   <span class="token comment">#1 = Methodref          #16.#42        // java/lang/Object."&lt;init&gt;":()V</span>
+   <span class="token comment">#2 = String             #43            // java</span>
+   <span class="token comment">#3 = Fieldref           #15.#44        // com/kk/test/JavapTest.info:Ljava/lang/String;</span>
+   <span class="token comment">#4 = Fieldref           #15.#45        // com/kk/test/JavapTest.flag:Z</span>
+   <span class="token comment">#5 = Fieldref           #15.#46        // com/kk/test/JavapTest.num:I</span>
+   <span class="token comment">#6 = Fieldref           #15.#47        // com/kk/test/JavapTest.gender:C</span>
+   <span class="token comment">#7 = Fieldref           #48.#49        // java/lang/System.out:Ljava/io/PrintStream;</span>
+   <span class="token comment">#8 = Class              #50            // java/lang/StringBuilder</span>
+   <span class="token comment">#9 = Methodref          #8.#42         // java/lang/StringBuilder."&lt;init&gt;":()V</span>
+  <span class="token comment">#10 = Methodref          #8.#51         // java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+  <span class="token comment">#11 = Methodref          #8.#52         // java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;</span>
+  <span class="token comment">#12 = Methodref          #8.#53         // java/lang/StringBuilder.toString:()Ljava/lang/String;</span>
+  <span class="token comment">#13 = Methodref          #54.#55        // java/io/PrintStream.println:(Ljava/lang/String;)V</span>
+  <span class="token comment">#14 = String             #56            // www.mykkto.com</span>
+  <span class="token comment">#15 = Class              #57            // com/kk/test/JavapTest</span>
+  <span class="token comment">#16 = Class              #58            // java/lang/Object</span>
+  <span class="token comment">#17 = Utf8               num</span>
+  <span class="token comment">#18 = Utf8               I</span>
+  <span class="token comment">#19 = Utf8               flag</span>
+  <span class="token comment">#20 = Utf8               Z</span>
+  <span class="token comment">#21 = Utf8               gender</span>
+  <span class="token comment">#22 = Utf8               C</span>
+  <span class="token comment">#23 = Utf8               info</span>
+  <span class="token comment">#24 = Utf8               Ljava/lang/String;</span>
+  <span class="token comment">#25 = Utf8               COUNTS</span>
+  <span class="token comment">#26 = Utf8               ConstantValue</span>
+  <span class="token comment">#27 = Integer            1</span>
+  <span class="token comment">#28 = Utf8               &lt;init&gt;</span>
+  <span class="token comment">#29 = Utf8               ()V</span>
+  <span class="token comment">#30 = Utf8               Code</span>
+  <span class="token comment">#31 = Utf8               LineNumberTable</span>
+  <span class="token comment">#32 = Utf8               (Z)V</span>
+  <span class="token comment">#33 = Utf8               methodPrivate</span>
+  <span class="token comment">#34 = Utf8               getNum</span>
+  <span class="token comment">#35 = Utf8               (I)I</span>
+  <span class="token comment">#36 = Utf8               showGender</span>
+  <span class="token comment">#37 = Utf8               ()C</span>
+  <span class="token comment">#38 = Utf8               showInfo</span>
+  <span class="token comment">#39 = Utf8               &lt;clinit&gt;</span>
+  <span class="token comment">#40 = Utf8               SourceFile</span>
+  <span class="token comment">#41 = Utf8               JavapTest.java</span>
+  <span class="token comment">#42 = NameAndType        #28:#29        // "&lt;init&gt;":()V</span>
+  <span class="token comment">#43 = Utf8               java</span>
+  <span class="token comment">#44 = NameAndType        #23:#24        // info:Ljava/lang/String;</span>
+  <span class="token comment">#45 = NameAndType        #19:#20        // flag:Z</span>
+  <span class="token comment">#46 = NameAndType        #17:#18        // num:I</span>
+  <span class="token comment">#47 = NameAndType        #21:#22        // gender:C</span>
+  <span class="token comment">#48 = Class              #59            // java/lang/System</span>
+  <span class="token comment">#49 = NameAndType        #60:#61        // out:Ljava/io/PrintStream;</span>
+  <span class="token comment">#50 = Utf8               java/lang/StringBuilder</span>
+  <span class="token comment">#51 = NameAndType        #62:#63        // append:(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+  <span class="token comment">#52 = NameAndType        #62:#64        // append:(I)Ljava/lang/StringBuilder;</span>
+  <span class="token comment">#53 = NameAndType        #65:#66        // toString:()Ljava/lang/String;</span>
+  <span class="token comment">#54 = Class              #67            // java/io/PrintStream</span>
+  <span class="token comment">#55 = NameAndType        #68:#69        // println:(Ljava/lang/String;)V</span>
+  <span class="token comment">#56 = Utf8               www.mykkto.com</span>
+  <span class="token comment">#57 = Utf8               com/kk/test/JavapTest</span>
+  <span class="token comment">#58 = Utf8               java/lang/Object</span>
+  <span class="token comment">#59 = Utf8               java/lang/System</span>
+  <span class="token comment">#60 = Utf8               out</span>
+  <span class="token comment">#61 = Utf8               Ljava/io/PrintStream;</span>
+  <span class="token comment">#62 = Utf8               append</span>
+  <span class="token comment">#63 = Utf8               (Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+  <span class="token comment">#64 = Utf8               (I)Ljava/lang/StringBuilder;</span>
+  <span class="token comment">#65 = Utf8               toString</span>
+  <span class="token comment">#66 = Utf8               ()Ljava/lang/String;</span>
+  <span class="token comment">#67 = Utf8               java/io/PrintStream</span>
+  <span class="token comment">#68 = Utf8               println</span>
+  <span class="token comment">#69 = Utf8               (Ljava/lang/String;)V</span>
+<span class="token punctuation">{</span>
+  private int num<span class="token punctuation">;</span>
+    descriptor: I
+    flags: ACC_PRIVATE
+
+  boolean flag<span class="token punctuation">;</span>
+    descriptor: Z
+    flags:
+
+  protected char gender<span class="token punctuation">;</span>
+    descriptor: C
+    flags: ACC_PROTECTED
+
+  public java.lang.String info<span class="token punctuation">;</span>
+    descriptor: Ljava/lang/String<span class="token punctuation">;</span>
+    flags: ACC_PUBLIC
+
+  public static final int COUNTS<span class="token punctuation">;</span>
+    descriptor: I
+    flags: ACC_PUBLIC, ACC_STATIC, ACC_FINAL
+    ConstantValue: int <span class="token number">1</span>
+
+  public com.kk.test.JavapTest<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    descriptor: <span class="token punctuation">(</span><span class="token punctuation">)</span>V
+    flags: ACC_PUBLIC
+    Code:
+      <span class="token assign-left variable">stack</span><span class="token operator">=</span><span class="token number">2</span>, <span class="token assign-left variable">locals</span><span class="token operator">=</span><span class="token number">1</span>, <span class="token assign-left variable">args_size</span><span class="token operator">=</span><span class="token number">1</span>
+         <span class="token number">0</span>: aload_0
+         <span class="token number">1</span>: invokespecial <span class="token comment">#1                  // Method java/lang/Object."&lt;init&gt;":()V</span>
+         <span class="token number">4</span>: aload_0
+         <span class="token number">5</span>: ldc           <span class="token comment">#2                  // String java</span>
+         <span class="token number">7</span>: putfield      <span class="token comment">#3                  // Field info:Ljava/lang/String;</span>
+        <span class="token number">10</span>: <span class="token builtin class-name">return</span>
+      LineNumberTable:
+        line <span class="token number">16</span>: <span class="token number">0</span>
+        line <span class="token number">14</span>: <span class="token number">4</span>
+        line <span class="token number">18</span>: <span class="token number">10</span>
+
+  private com.kk.test.JavapTest<span class="token punctuation">(</span>boolean<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    descriptor: <span class="token punctuation">(</span>Z<span class="token punctuation">)</span>V
+    flags: ACC_PRIVATE
+    Code:
+      <span class="token assign-left variable">stack</span><span class="token operator">=</span><span class="token number">2</span>, <span class="token assign-left variable">locals</span><span class="token operator">=</span><span class="token number">2</span>, <span class="token assign-left variable">args_size</span><span class="token operator">=</span><span class="token number">2</span>
+         <span class="token number">0</span>: aload_0
+         <span class="token number">1</span>: invokespecial <span class="token comment">#1                  // Method java/lang/Object."&lt;init&gt;":()V</span>
+         <span class="token number">4</span>: aload_0
+         <span class="token number">5</span>: ldc           <span class="token comment">#2                  // String java</span>
+         <span class="token number">7</span>: putfield      <span class="token comment">#3                  // Field info:Ljava/lang/String;</span>
+        <span class="token number">10</span>: aload_0
+        <span class="token number">11</span>: iload_1
+        <span class="token number">12</span>: putfield      <span class="token comment">#4                  // Field flag:Z</span>
+        <span class="token number">15</span>: <span class="token builtin class-name">return</span>
+      LineNumberTable:
+        line <span class="token number">19</span>: <span class="token number">0</span>
+        line <span class="token number">14</span>: <span class="token number">4</span>
+        line <span class="token number">20</span>: <span class="token number">10</span>
+        line <span class="token number">21</span>: <span class="token number">15</span>
+
+  private void methodPrivate<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    descriptor: <span class="token punctuation">(</span><span class="token punctuation">)</span>V
+    flags: ACC_PRIVATE
+    Code:
+      <span class="token assign-left variable">stack</span><span class="token operator">=</span><span class="token number">0</span>, <span class="token assign-left variable">locals</span><span class="token operator">=</span><span class="token number">1</span>, <span class="token assign-left variable">args_size</span><span class="token operator">=</span><span class="token number">1</span>
+         <span class="token number">0</span>: <span class="token builtin class-name">return</span>
+      LineNumberTable:
+        line <span class="token number">24</span>: <span class="token number">0</span>
+
+  int getNum<span class="token punctuation">(</span>int<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    descriptor: <span class="token punctuation">(</span>I<span class="token punctuation">)</span>I
+    flags:
+    Code:
+      <span class="token assign-left variable">stack</span><span class="token operator">=</span><span class="token number">2</span>, <span class="token assign-left variable">locals</span><span class="token operator">=</span><span class="token number">2</span>, <span class="token assign-left variable">args_size</span><span class="token operator">=</span><span class="token number">2</span>
+         <span class="token number">0</span>: aload_0
+         <span class="token number">1</span>: getfield      <span class="token comment">#5                  // Field num:I</span>
+         <span class="token number">4</span>: iload_1
+         <span class="token number">5</span>: iadd
+         <span class="token number">6</span>: ireturn
+      LineNumberTable:
+        line <span class="token number">26</span>: <span class="token number">0</span>
+
+  protected char showGender<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    descriptor: <span class="token punctuation">(</span><span class="token punctuation">)</span>C
+    flags: ACC_PROTECTED
+    Code:
+      <span class="token assign-left variable">stack</span><span class="token operator">=</span><span class="token number">1</span>, <span class="token assign-left variable">locals</span><span class="token operator">=</span><span class="token number">1</span>, <span class="token assign-left variable">args_size</span><span class="token operator">=</span><span class="token number">1</span>
+         <span class="token number">0</span>: aload_0
+         <span class="token number">1</span>: getfield      <span class="token comment">#6                  // Field gender:C</span>
+         <span class="token number">4</span>: ireturn
+      LineNumberTable:
+        line <span class="token number">29</span>: <span class="token number">0</span>
+
+  public void showInfo<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    descriptor: <span class="token punctuation">(</span><span class="token punctuation">)</span>V
+    flags: ACC_PUBLIC
+    Code:
+      <span class="token assign-left variable">stack</span><span class="token operator">=</span><span class="token number">3</span>, <span class="token assign-left variable">locals</span><span class="token operator">=</span><span class="token number">2</span>, <span class="token assign-left variable">args_size</span><span class="token operator">=</span><span class="token number">1</span>
+         <span class="token number">0</span>: bipush        <span class="token number">10</span>
+         <span class="token number">2</span>: istore_1
+         <span class="token number">3</span>: getstatic     <span class="token comment">#7                  // Field java/lang/System.out:Ljava/io/PrintStream;</span>
+         <span class="token number">6</span>: new           <span class="token comment">#8                  // class java/lang/StringBuilder</span>
+         <span class="token number">9</span>: dup
+        <span class="token number">10</span>: invokespecial <span class="token comment">#9                  // Method java/lang/StringBuilder."&lt;init&gt;":()V</span>
+        <span class="token number">13</span>: aload_0
+        <span class="token number">14</span>: getfield      <span class="token comment">#3                  // Field info:Ljava/lang/String;</span>
+        <span class="token number">17</span>: invokevirtual <span class="token comment">#10                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+        <span class="token number">20</span>: iload_1
+        <span class="token number">21</span>: invokevirtual <span class="token comment">#11                 // Method java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;</span>
+        <span class="token number">24</span>: invokevirtual <span class="token comment">#12                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;</span>
+        <span class="token number">27</span>: invokevirtual <span class="token comment">#13                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V</span>
+        <span class="token number">30</span>: <span class="token builtin class-name">return</span>
+      LineNumberTable:
+        line <span class="token number">32</span>: <span class="token number">0</span>
+        line <span class="token number">33</span>: <span class="token number">3</span>
+        line <span class="token number">34</span>: <span class="token number">30</span>
+
+  static <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+    descriptor: <span class="token punctuation">(</span><span class="token punctuation">)</span>V
+    flags: ACC_STATIC
+    Code:
+      <span class="token assign-left variable">stack</span><span class="token operator">=</span><span class="token number">1</span>, <span class="token assign-left variable">locals</span><span class="token operator">=</span><span class="token number">1</span>, <span class="token assign-left variable">args_size</span><span class="token operator">=</span><span class="token number">0</span>
+         <span class="token number">0</span>: ldc           <span class="token comment">#14                 // String www.mykkto.com</span>
+         <span class="token number">2</span>: astore_0
+         <span class="token number">3</span>: <span class="token builtin class-name">return</span>
+      LineNumberTable:
+        line <span class="token number">11</span>: <span class="token number">0</span>
+        line <span class="token number">12</span>: <span class="token number">3</span>
+<span class="token punctuation">}</span>
+SourceFile: <span class="token string">"JavapTest.java"</span>
+
+J:<span class="token punctuation">\</span><span class="token number">0</span> 大厂素材<span class="token punctuation">\</span>jvm<span class="token punctuation">\</span>00Test<span class="token operator">&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+<h3 id="5、总结"><a href="#5、总结" class="headerlink" title="5、总结"></a>5、总结</h3><p>1、通过javap命令可以查看一个java类反汇编得到的Class文件版本号、常量池、访问标识、变量表、指令代码行号表等等信息。不显示类索引、父类索引、接口索引集合、<clinit>()、<init>()等结构</init></clinit></p>
+<p>2、通过对前面例子代码反汇编文件的简单分析，可以发现，一个方法的执行通常会涉及下面几块内存的操作：<br>（1）java栈中：局部变量表、操作数栈。<br>（2）java堆。通过对象的地址引用去操作。<br>（3）常量池。<br>（4）其他如帧数据区、方法区的剩余部分等情况，测试中没有显示出来，这里说明一下。</p>
+<p>3、平常，我们比较关注的是java类中每个方法的反汇编中的指令操作过程，这些指令都是顺序执行的，可以参考官方文档查看每个指令的含义，很简单：<br><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/specs/jvms/se7/html/jvms-6.html">https://docs.oracle.com/javase/specs/jvms/se7/html/jvms-6.html</a></p>
+<h2 id="五、字节码指令集与解析概述"><a href="#五、字节码指令集与解析概述" class="headerlink" title="五、字节码指令集与解析概述"></a>五、字节码指令集与解析概述</h2><p>Java字节码对于虚拟机，就好像汇编语言对于计算机，属于基本执行指令。</p>
+<p>Java 虚拟机的指令由一个字节长度的、代表着某种特定操作含义的数字（称为操作码，Opcode）以及跟随其后的零至多个代表此操作所需参数（称为操作数，Operands）而构成。由于 Java 虚拟机采用面向操作数栈而不是寄存器的结构，所以大多数的指令都不包含操作数，只有一个操作码。</p>
+<p>由于限制了 Java 虚拟机操作码的长度为一个字节（即 0～255），这意味着指令集的操作码总数不可能超过 256 条。</p>
+<p>官方文档：<a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-6.html">https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-6.html</a></p>
+<p>熟悉虚拟机的指令对于动态字节码生成、反编译Class文件、Class文件修补都有着非常重要的价值。因此，阅读字节码作为了解 Java 虚拟机的基础技能，需要熟练掌握常见指令。</p>
+<h3 id="1、字节码与数据类型"><a href="#1、字节码与数据类型" class="headerlink" title="1、字节码与数据类型"></a>1、字节码与数据类型</h3><p>在Java虚拟机的指令集中，大多数的指令都包含了其操作所对应的数据类型信息。例如，iload指令用于从局部变量表中加载int型的数据到操作数栈中，而fload指令加载的则是float类型的数据。</p>
+<p>对于大部分与数据类型相关的字节码指令，它们的操作码助记符中都有特殊的字符来表明专门为哪种数据类型服务：</p>
+<ul>
+<li>i代表对int类型的数据操作</li>
+<li>l代表long类型的数据操作</li>
+<li>s代表short类型的数据操作</li>
+<li>b代表byte类型的数据操作</li>
+<li>c代表char类型的数据操作</li>
+<li>f代表float类型的数据操作</li>
+<li>d代表double类型的数据操作</li>
+</ul>
+<p>也有一些指令的助记符中没有明确地指明操作类型的字母，如arraylength指令，它没有代表数据类型的特殊字符，但操作数永远只能是一个数组类型的对象。</p>
+<p>还有另外一些指令，如无条件跳转指令goto则是与数据类型无关的。</p>
+<p>大部分的指令都没有支持整数类型byte、char和short，甚至没有任何指令支持boolean类型。编译器会在编译期或运行期将byte和short类型的数据带符号扩展（Sign-Extend）为相应的int类型数据，将boolean和char类型数据零位扩展（Zero-Extend）为相应的int类型数据。与之类似，在处理boolean、byte、short和char类型的数组时，也会转换为使用对应的int类型的字节码指令来处理。因此，大多数对于boolean、byte、short和char类型数据的操作，实际上都是使用相应的int类型作为运算类型。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">byte</span> b1 <span class="token operator">=</span> <span class="token number">12</span><span class="token punctuation">;</span>
+<span class="token keyword">short</span> s1 <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> i <span class="token operator">=</span> b1 <span class="token operator">+</span> s1<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+<h3 id="2、指令分类"><a href="#2、指令分类" class="headerlink" title="2、指令分类"></a>2、指令分类</h3><p>由于完全介绍和学习这些指令需要花费大量时间。为了让大家能够更快地熟悉和了解这些基本指令，这里将JVM中的字节码指令集按用途大致分成 9 类。</p>
+<ul>
+<li>加载与存储指令</li>
+<li>算术指令</li>
+<li>类型转换指令</li>
+<li>对象的创建与访问指令</li>
+<li>方法调用与返回指令</li>
+<li>操作数栈管理指令</li>
+<li>控制转移指令</li>
+<li>异常处理指令</li>
+<li>同步控制指令</li>
+</ul>
+<p>(说在前面)在做值相关操作时：</p>
+<ul>
+<li>一个指令，可以从局部变量表、常量池、堆中对象、方法调用、系统调用中等取得数据，这些数据（可能是值，可能是对象的引用）被压入操作数栈。</li>
+<li>一个指令，也可以从操作数栈中取出一到多个值（pop多次），完成赋值、加减乘除、方法传参、系统调用等等操作。</li>
+</ul>
+<h2 id="六、★-字节码指令"><a href="#六、★-字节码指令" class="headerlink" title="六、★ 字节码指令"></a>六、★ 字节码指令</h2><h3 id="1、加载与存储指令"><a href="#1、加载与存储指令" class="headerlink" title="1、加载与存储指令"></a>1、加载与存储指令</h3><h3 id="2、算术指令"><a href="#2、算术指令" class="headerlink" title="2、算术指令"></a>2、算术指令</h3><h3 id="3、类型转换指令"><a href="#3、类型转换指令" class="headerlink" title="3、类型转换指令"></a>3、类型转换指令</h3><h3 id="4、对象的创建与访问指令"><a href="#4、对象的创建与访问指令" class="headerlink" title="4、对象的创建与访问指令"></a>4、对象的创建与访问指令</h3><h3 id="5、方法调用与返回指令"><a href="#5、方法调用与返回指令" class="headerlink" title="5、方法调用与返回指令"></a>5、方法调用与返回指令</h3><h3 id="6、操作数栈管理指令"><a href="#6、操作数栈管理指令" class="headerlink" title="6、操作数栈管理指令"></a>6、操作数栈管理指令</h3><h3 id="7、控制转移指令"><a href="#7、控制转移指令" class="headerlink" title="7、控制转移指令"></a>7、控制转移指令</h3><h3 id="8、异常处理指令"><a href="#8、异常处理指令" class="headerlink" title="8、异常处理指令"></a>8、异常处理指令</h3><h3 id="9、同步控制指令"><a href="#9、同步控制指令" class="headerlink" title="9、同步控制指令"></a>9、同步控制指令</h3>
                 
             </div>
             <hr/>
@@ -1950,7 +2362,7 @@ new Valine({
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">84k</span>&nbsp;字
+                class="white-color">88k</span>&nbsp;字
             
             
             
