@@ -4,6 +4,66 @@
   
     
     <entry>
+      <title>项目-尚融宝-01-金融背景及其后端搭建</title>
+      <link href="posts/a6407b24.html"/>
+      <url>posts/a6407b24.html</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="零、主目录总纲"><a href="#零、主目录总纲" class="headerlink" title="零、主目录总纲"></a>零、<a href="/posts/">主目录总纲</a></h2><h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><h3 id="1、"><a href="#1、" class="headerlink" title="1、"></a>1、</h3><h3 id="2、"><a href="#2、" class="headerlink" title="2、"></a>2、</h3><h3 id="3、"><a href="#3、" class="headerlink" title="3、"></a>3、</h3><h3 id="4、"><a href="#4、" class="headerlink" title="4、"></a>4、</h3><h3 id="5、"><a href="#5、" class="headerlink" title="5、"></a>5、</h3><h2 id="二、"><a href="#二、" class="headerlink" title="二、"></a>二、</h2><h3 id="1、-1"><a href="#1、-1" class="headerlink" title="1、"></a>1、</h3><h3 id="2、-1"><a href="#2、-1" class="headerlink" title="2、"></a>2、</h3><h3 id="3、-1"><a href="#3、-1" class="headerlink" title="3、"></a>3、</h3><h3 id="4、-1"><a href="#4、-1" class="headerlink" title="4、"></a>4、</h3><h3 id="5、-1"><a href="#5、-1" class="headerlink" title="5、"></a>5、</h3><h2 id="三、"><a href="#三、" class="headerlink" title="三、"></a>三、</h2><h3 id="1、-2"><a href="#1、-2" class="headerlink" title="1、"></a>1、</h3><h3 id="2、-2"><a href="#2、-2" class="headerlink" title="2、"></a>2、</h3><h3 id="3、-2"><a href="#3、-2" class="headerlink" title="3、"></a>3、</h3><h3 id="4、-2"><a href="#4、-2" class="headerlink" title="4、"></a>4、</h3><h3 id="5、-2"><a href="#5、-2" class="headerlink" title="5、"></a>5、</h3><h2 id="参考地址-↓"><a href="#参考地址-↓" class="headerlink" title="参考地址 ↓"></a>参考地址 ↓</h2>]]></content>
+      
+      
+      <categories>
+          
+          <category> 尚融宝 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> springcloud-alibaba </tag>
+            
+            <tag> sentinel </tag>
+            
+            <tag> 限流 </tag>
+            
+            <tag> vue </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>项目-尚融宝-00-项目目录总纲</title>
+      <link href="posts/73b5f9d8.html"/>
+      <url>posts/73b5f9d8.html</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h2><h3 id="1、废话"><a href="#1、废话" class="headerlink" title="1、废话"></a>1、废话</h3><p>最近入职了外包，技术远古，寻思着，做个金融项目练练手，不至于被外包弱后的技术带偏，想着利用下班时间做点事情，一方面是不想技术被停留在节点上，一方面想着能有所提升和巩固。为什么选择金融相关项目，做了一些调研，银行和金融相对含金量搞点，虽然这个项目也比较普通，但是做练习入手还行，后面也会在此基础上做一些自己的扩展。</p><h3 id="2、食用说明"><a href="#2、食用说明" class="headerlink" title="2、食用说明"></a>2、食用说明</h3><p>把整个项目切分为多个篇章，避免一篇下来比较多也乱，参考以下目录，会把项目的源码放到 gitHub上 ，在 上面会做说明。</p><h3 id="3、"><a href="#3、" class="headerlink" title="3、"></a>3、</h3><h3 id="4、"><a href="#4、" class="headerlink" title="4、"></a>4、</h3><h3 id="5、"><a href="#5、" class="headerlink" title="5、"></a>5、</h3><h2 id="二、项目分片目录"><a href="#二、项目分片目录" class="headerlink" title="二、项目分片目录"></a>二、项目分片目录</h2><h3 id="0、GitHub仓库"><a href="#0、GitHub仓库" class="headerlink" title="0、GitHub仓库"></a>0、<a href="https://github.com/mykkTo/shangrongbao">GitHub仓库</a></h3><h3 id="1、金融背景及其后端搭建"><a href="#1、金融背景及其后端搭建" class="headerlink" title="1、金融背景及其后端搭建"></a>1、<a href="/posts/">金融背景及其后端搭建</a></h3><h3 id="2、"><a href="#2、" class="headerlink" title="2、"></a>2、</h3><h3 id="3、-1"><a href="#3、-1" class="headerlink" title="3、"></a>3、</h3><h3 id="4、-1"><a href="#4、-1" class="headerlink" title="4、"></a>4、</h3><h3 id="5、-1"><a href="#5、-1" class="headerlink" title="5、"></a>5、</h3><h2 id="三、注意事项和基本操作"><a href="#三、注意事项和基本操作" class="headerlink" title="三、注意事项和基本操作"></a>三、注意事项和基本操作</h2><h3 id=""><a href="#" class="headerlink" title=""></a></h3><h2 id="参考地址-↓"><a href="#参考地址-↓" class="headerlink" title="参考地址 ↓"></a>参考地址 ↓</h2><p>环环主讲项目：<a href="https://www.bilibili.com/video/BV1VV411n7nR?spm_id_from=333.337.search-card.all.click">https://www.bilibili.com/video/BV1VV411n7nR?spm_id_from=333.337.search-card.all.click</a></p><p>老齐解说外包：<a href="https://www.bilibili.com/video/BV1vP4y1x7T2?spm_id_from=333.880.my_history.page.click">https://www.bilibili.com/video/BV1vP4y1x7T2?spm_id_from=333.880.my_history.page.click</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 项目-尚融宝 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 合集 </tag>
+            
+            <tag> 金融 </tag>
+            
+            <tag> 项目 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>JVM-01-字节码</title>
       <link href="posts/6ae84987.html"/>
       <url>posts/6ae84987.html</url>
