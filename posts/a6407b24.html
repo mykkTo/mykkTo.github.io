@@ -688,14 +688,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3k
+                    3.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    13 分
+                    18 分
                 </div>
                 
 
@@ -718,7 +718,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="零、主目录总纲"><a href="#零、主目录总纲" class="headerlink" title="零、主目录总纲"></a>零、<a href="/posts/73b5f9d8">主目录总纲</a></h2><h1 id="一、项目概念"><a href="#一、项目概念" class="headerlink" title="一、项目概念"></a>一、项目概念</h1><h3 id="1、项目简介"><a href="#1、项目简介" class="headerlink" title="1、项目简介"></a>1、项目简介</h3><h4 id="1、项目说明"><a href="#1、项目说明" class="headerlink" title="1、项目说明"></a>1、项目说明</h4><p>尚融宝是一个网络借贷信息中介服务平台，为个人投资者、个人融资用户和小微企业提供专业的线上信贷及出借撮合服务。</p>
+                <h2 id="零、主目录总纲"><a href="#零、主目录总纲" class="headerlink" title="零、主目录总纲"></a>零、<a href="/posts/73b5f9d8">主目录总纲</a></h2><h2 id="一、项目概念"><a href="#一、项目概念" class="headerlink" title="一、项目概念"></a>一、项目概念</h2><h3 id="1、项目简介"><a href="#1、项目简介" class="headerlink" title="1、项目简介"></a>1、项目简介</h3><h4 id="1、项目说明"><a href="#1、项目说明" class="headerlink" title="1、项目说明"></a>1、项目说明</h4><p>尚融宝是一个网络借贷信息中介服务平台，为个人投资者、个人融资用户和小微企业提供专业的线上信贷及出借撮合服务。</p>
 <p>行业案例：人人贷 <a target="_blank" rel="noopener" href="https://www.renrendai.com/">https://www.renrendai.com/</a>、拍拍贷 <a target="_blank" rel="noopener" href="https://www.paipaidai.com/">https://www.paipaidai.com/</a></p>
 <h4 id="2、项目架构图"><a href="#2、项目架构图" class="headerlink" title="2、项目架构图"></a>2、项目架构图</h4><p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/project/shangrongbao/0d2630acf4428d33859d89e8f78be575.png"></p>
 <h4 id="3、业务流程图"><a href="#3、业务流程图" class="headerlink" title="3、业务流程图"></a>3、业务流程图</h4><p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/project/shangrongbao/27528777bac0634fd778ca60094057b4.png"></p>
@@ -819,7 +819,7 @@
 <li>第三方存管模式：“第三方存管”的全称是“客户交易结算资金第三方存管”。这里的第三方存管机构，目前是指具备第三方存管资格的商业银行。银行的流入资金成本低，风控体系较完善，资金池子足够大，而且是国家背书，不会跑路。</li>
 <li><font style="color: #FF0000;">说明：由于我们是教学使用，无法申请到正式的资金托管平台的支持，所以我们根据资金托管平台API接口文档，自行开发模拟一套API接口来满足业务需要，业务过程与实际开发基本一致。</font></li>
 </ul>
-<h1 id="二、后端架构搭建"><a href="#二、后端架构搭建" class="headerlink" title="二、后端架构搭建"></a>二、后端架构搭建</h1><h2 id="1、接口工程创建"><a href="#1、接口工程创建" class="headerlink" title="1、接口工程创建"></a>1、接口工程创建</h2><h4 id="1、创建父工程-BackEndCode"><a href="#1、创建父工程-BackEndCode" class="headerlink" title="1、创建父工程 BackEndCode"></a>1、创建父工程 BackEndCode</h4><p><font color="red">Group：com.kk</font></p>
+<h2 id="二、后端架构搭建"><a href="#二、后端架构搭建" class="headerlink" title="二、后端架构搭建"></a>二、后端架构搭建</h2><h3 id="1、接口工程创建"><a href="#1、接口工程创建" class="headerlink" title="1、接口工程创建"></a>1、接口工程创建</h3><h4 id="1、创建父工程-BackEndCode"><a href="#1、创建父工程-BackEndCode" class="headerlink" title="1、创建父工程 BackEndCode"></a>1、创建父工程 BackEndCode</h4><h5 id="1、创建-maven-项目"><a href="#1、创建-maven-项目" class="headerlink" title="1、创建 maven 项目"></a>1、创建 maven 项目</h5><p><font color="red">Group：com.kk</font></p>
 <p><font color="red">Artifact：BackEndCode</font></p>
 <h5 id="2、删除src目录"><a href="#2、删除src目录" class="headerlink" title="2、删除src目录"></a>2、删除src目录</h5><h5 id="3、配置SpringBoot版本"><a href="#3、配置SpringBoot版本" class="headerlink" title="3、配置SpringBoot版本"></a>3、配置SpringBoot版本</h5><pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>parent</span><span class="token punctuation">&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
@@ -1012,9 +1012,53 @@
 
 
 
-<h4 id="2、创建模块service-base"><a href="#2、创建模块service-base" class="headerlink" title="2、创建模块service-base"></a>2、创建模块service-base</h4><h5 id="1、创建Maven模块"><a href="#1、创建Maven模块" class="headerlink" title="1、创建Maven模块"></a>1、创建Maven模块</h5><p><font color="red">Group：com.kk</font></p>
+<h4 id="2、创建模块kk-common"><a href="#2、创建模块kk-common" class="headerlink" title="2、创建模块kk-common"></a>2、创建模块kk-common</h4><h5 id="1、创建Maven模块"><a href="#1、创建Maven模块" class="headerlink" title="1、创建Maven模块"></a>1、创建Maven模块</h5><p>在 <font color="red">父工程</font> 下创建普通maven模块</p>
+<p><font color="red">Group：com.kk</font></p>
+<p><font color="red">Artifact：kk-common</font></p>
+<h5 id="2、配置pom"><a href="#2、配置pom" class="headerlink" title="2、配置pom"></a>2、配置pom</h5><pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependencies</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>spring-boot-starter-web<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span>
+    <span class="token comment">&lt;!--lombok用来简化实体类：需要安装lombok插件--&gt;</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>org.projectlombok<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>lombok<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependencies</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+<h4 id="3、创建模块service-base"><a href="#3、创建模块service-base" class="headerlink" title="3、创建模块service-base"></a>3、创建模块service-base</h4><h5 id="1、创建Maven模块-1"><a href="#1、创建Maven模块-1" class="headerlink" title="1、创建Maven模块"></a>1、创建Maven模块</h5><p>在 <font color="red">父工程</font> 下创建普通maven模块</p>
+<p><font color="red">Group：com.kk</font></p>
 <p><font color="red">Artifact：service-base</font></p>
-<h5 id="2、配置pom"><a href="#2、配置pom" class="headerlink" title="2、配置pom"></a>2、配置pom</h5><p><font color="red">注意：</font>依赖kk-common</p>
+<h5 id="2、配置pom-1"><a href="#2、配置pom-1" class="headerlink" title="2、配置pom"></a>2、配置pom</h5><p><font color="red">注意：</font>依赖kk-common</p>
+<pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependencies</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>com.kk<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>service-base<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">&gt;</span></span>1.0-SNAPSHOT<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span>
+<span class="token comment">&lt;!--swagger--&gt;</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>io.springfox<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>springfox-swagger2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span>
+    <span class="token comment">&lt;!--swagger ui--&gt;</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>io.springfox<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>springfox-swagger-ui<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependencies</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="4、创建模块service-core"><a href="#4、创建模块service-core" class="headerlink" title="4、创建模块service-core"></a>4、创建模块service-core</h4><h5 id="1、创建Maven模块-2"><a href="#1、创建Maven模块-2" class="headerlink" title="1、创建Maven模块"></a>1、创建Maven模块</h5><p>在 <font color="red">父工程</font> 下创建普通maven模块</p>
+<p><font color="red">Group：com.kk</font></p>
+<p><font color="red">Artifact：service-core</font></p>
+<h5 id="2、配置pom-2"><a href="#2、配置pom-2" class="headerlink" title="2、配置pom"></a>2、配置pom</h5><p><font color="red">注意：</font>依赖kk-common</p>
 <pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependencies</span><span class="token punctuation">&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>
         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>com.kk<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
@@ -1046,7 +1090,146 @@
 
 
 
-<h4 id="3、创建模块service-core"><a href="#3、创建模块service-core" class="headerlink" title="3、创建模块service-core"></a>3、创建模块service-core</h4><h3 id=""><a href="#" class="headerlink" title=""></a></h3><h2 id="三、前端架构搭建"><a href="#三、前端架构搭建" class="headerlink" title="三、前端架构搭建"></a>三、前端架构搭建</h2><h3 id="1、"><a href="#1、" class="headerlink" title="1、"></a>1、</h3><h3 id="2、"><a href="#2、" class="headerlink" title="2、"></a>2、</h3><h3 id="3、"><a href="#3、" class="headerlink" title="3、"></a>3、</h3><h3 id="4、"><a href="#4、" class="headerlink" title="4、"></a>4、</h3><h3 id="5、"><a href="#5、" class="headerlink" title="5、"></a>5、</h3><h2 id="参考地址-↓"><a href="#参考地址-↓" class="headerlink" title="参考地址 ↓"></a>参考地址 ↓</h2><p>Springboot 启动注解扫描：<a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_50932526/article/details/122936434">https://blog.csdn.net/m0_50932526/article/details/122936434</a></p>
+<h4 id="5、代码生成器"><a href="#5、代码生成器" class="headerlink" title="5、代码生成器"></a>5、代码生成器</h4><h5 id="1、创建数据库"><a href="#1、创建数据库" class="headerlink" title="1、创建数据库"></a>1、创建数据库</h5><p><font color="red">创建数据库srb_core</font></p>
+<p><font color="red">并执行sql脚本初始化数据结构和数据</font></p>
+<p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/project/shangrongbao/20220427223135.png"></p>
+<h5 id="2、创建代码生成器"><a href="#2、创建代码生成器" class="headerlink" title="2、创建代码生成器"></a>2、创建代码生成器</h5><p>在test目录中创建测试用例，并执行</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>kk<span class="token punctuation">.</span>srb<span class="token punctuation">.</span>core</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token namespace">com<span class="token punctuation">.</span>baomidou<span class="token punctuation">.</span>mybatisplus<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">DbType</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">com<span class="token punctuation">.</span>baomidou<span class="token punctuation">.</span>mybatisplus<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">IdType</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">com<span class="token punctuation">.</span>baomidou<span class="token punctuation">.</span>mybatisplus<span class="token punctuation">.</span>generator<span class="token punctuation">.</span></span><span class="token class-name">AutoGenerator</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">com<span class="token punctuation">.</span>baomidou<span class="token punctuation">.</span>mybatisplus<span class="token punctuation">.</span>generator<span class="token punctuation">.</span>config<span class="token punctuation">.</span></span><span class="token class-name">DataSourceConfig</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">com<span class="token punctuation">.</span>baomidou<span class="token punctuation">.</span>mybatisplus<span class="token punctuation">.</span>generator<span class="token punctuation">.</span>config<span class="token punctuation">.</span></span><span class="token class-name">GlobalConfig</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">com<span class="token punctuation">.</span>baomidou<span class="token punctuation">.</span>mybatisplus<span class="token punctuation">.</span>generator<span class="token punctuation">.</span>config<span class="token punctuation">.</span></span><span class="token class-name">PackageConfig</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">com<span class="token punctuation">.</span>baomidou<span class="token punctuation">.</span>mybatisplus<span class="token punctuation">.</span>generator<span class="token punctuation">.</span>config<span class="token punctuation">.</span></span><span class="token class-name">StrategyConfig</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">com<span class="token punctuation">.</span>baomidou<span class="token punctuation">.</span>mybatisplus<span class="token punctuation">.</span>generator<span class="token punctuation">.</span>config<span class="token punctuation">.</span>rules<span class="token punctuation">.</span></span><span class="token class-name">NamingStrategy</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>junit<span class="token punctuation">.</span></span><span class="token class-name">Test</span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">CodeGenerator</span> <span class="token punctuation">{</span>
+    <span class="token annotation punctuation">@Test</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">genCode</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+        <span class="token comment">// 1、创建代码生成器</span>
+        <span class="token class-name">AutoGenerator</span> mpg <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">AutoGenerator</span> <span class="token punctuation">(</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// 2、全局配置</span>
+        <span class="token class-name">GlobalConfig</span> gc <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">GlobalConfig</span> <span class="token punctuation">(</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">String</span> projectPath <span class="token operator">=</span> <span class="token class-name">System</span><span class="token punctuation">.</span>getProperty <span class="token punctuation">(</span><span class="token string">"user.dir"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        gc<span class="token punctuation">.</span>setOutputDir <span class="token punctuation">(</span>projectPath <span class="token operator">+</span> <span class="token string">"/src/main/java"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        gc<span class="token punctuation">.</span>setAuthor <span class="token punctuation">(</span><span class="token string">"mykk"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        gc<span class="token punctuation">.</span>setOpen <span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//生成后是否打开资源管理器</span>
+        gc<span class="token punctuation">.</span>setServiceName <span class="token punctuation">(</span><span class="token string">"%sService"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment">//去掉Service接口的首字母I</span>
+        gc<span class="token punctuation">.</span>setIdType <span class="token punctuation">(</span><span class="token class-name">IdType</span><span class="token punctuation">.</span>AUTO<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//主键策略</span>
+        gc<span class="token punctuation">.</span>setSwagger2 <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//开启Swagger2模式</span>
+        mpg<span class="token punctuation">.</span>setGlobalConfig <span class="token punctuation">(</span>gc<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// 3、数据源配置</span>
+        <span class="token class-name">DataSourceConfig</span> dsc <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">DataSourceConfig</span> <span class="token punctuation">(</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+        dsc<span class="token punctuation">.</span>setUrl <span class="token punctuation">(</span><span class="token string">"jdbc:mysql://121.4.120.62:3306/srb_core?serverTimezone=GMT%2B8&amp;characterEncoding=utf-8"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        dsc<span class="token punctuation">.</span>setDriverName <span class="token punctuation">(</span><span class="token string">"com.mysql.cj.jdbc.Driver"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        dsc<span class="token punctuation">.</span>setUsername <span class="token punctuation">(</span><span class="token string">"root"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        dsc<span class="token punctuation">.</span>setPassword <span class="token punctuation">(</span><span class="token string">"root"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        dsc<span class="token punctuation">.</span>setDbType <span class="token punctuation">(</span><span class="token class-name">DbType</span><span class="token punctuation">.</span>MYSQL<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        mpg<span class="token punctuation">.</span>setDataSource <span class="token punctuation">(</span>dsc<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// 4、包配置</span>
+        <span class="token class-name">PackageConfig</span> pc <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">PackageConfig</span> <span class="token punctuation">(</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+        pc<span class="token punctuation">.</span>setParent <span class="token punctuation">(</span><span class="token string">"com.kk.srb.core"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        pc<span class="token punctuation">.</span>setEntity <span class="token punctuation">(</span><span class="token string">"pojo.entity"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//此对象与数据库表结构一一对应，通过 DAO 层向上传输数据源对象。</span>
+        mpg<span class="token punctuation">.</span>setPackageInfo <span class="token punctuation">(</span>pc<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// 5、策略配置</span>
+        <span class="token class-name">StrategyConfig</span> strategy <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">StrategyConfig</span> <span class="token punctuation">(</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+        strategy<span class="token punctuation">.</span>setNaming <span class="token punctuation">(</span><span class="token class-name">NamingStrategy</span><span class="token punctuation">.</span>underline_to_camel<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//数据库表映射到实体的命名策略</span>
+
+        strategy<span class="token punctuation">.</span>setColumnNaming <span class="token punctuation">(</span><span class="token class-name">NamingStrategy</span><span class="token punctuation">.</span>underline_to_camel<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//数据库表字段映射到实体的命名策略</span>
+        strategy<span class="token punctuation">.</span>setEntityLombokModel <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// lombok</span>
+        strategy<span class="token punctuation">.</span>setLogicDeleteFieldName <span class="token punctuation">(</span><span class="token string">"is_deleted"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//逻辑删除字段名</span>
+        strategy<span class="token punctuation">.</span>setEntityBooleanColumnRemoveIsPrefix <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//去掉布尔值的is_前缀（确保tinyint(1)）</span>
+        strategy<span class="token punctuation">.</span>setRestControllerStyle <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//restful api风格控制器</span>
+        mpg<span class="token punctuation">.</span>setStrategy <span class="token punctuation">(</span>strategy<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// 6、执行</span>
+        mpg<span class="token punctuation">.</span>execute <span class="token punctuation">(</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h5 id=""><a href="#" class="headerlink" title=""></a></h5><h4 id="6、启动应用程序"><a href="#6、启动应用程序" class="headerlink" title="6、启动应用程序"></a>6、启动应用程序</h4><h5 id="1、创建application-yml"><a href="#1、创建application-yml" class="headerlink" title="1、创建application.yml"></a>1、创建application.yml</h5><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token key atrule">server</span><span class="token punctuation">:</span>
+  <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">8110</span> <span class="token comment"># 服务端口</span>
+
+<span class="token key atrule">spring</span><span class="token punctuation">:</span>
+  <span class="token key atrule">profiles</span><span class="token punctuation">:</span>
+    <span class="token key atrule">active</span><span class="token punctuation">:</span> dev <span class="token comment"># 环境设置</span>
+  <span class="token key atrule">application</span><span class="token punctuation">:</span>
+    <span class="token key atrule">name</span><span class="token punctuation">:</span> service<span class="token punctuation">-</span>core <span class="token comment"># 服务名</span>
+  <span class="token key atrule">datasource</span><span class="token punctuation">:</span> <span class="token comment"># mysql数据库连接</span>
+    <span class="token key atrule">type</span><span class="token punctuation">:</span> com.zaxxer.hikari.HikariDataSource
+    <span class="token key atrule">driver-class-name</span><span class="token punctuation">:</span> com.mysql.cj.jdbc.Driver
+    <span class="token key atrule">url</span><span class="token punctuation">:</span> jdbc<span class="token punctuation">:</span>mysql<span class="token punctuation">:</span>//121.4.120.62<span class="token punctuation">:</span>3306/srb_core<span class="token punctuation">?</span>serverTimezone=GMT%2B8<span class="token important">&amp;characterEncoding=utf-</span><span class="token number">8</span>
+    <span class="token key atrule">username</span><span class="token punctuation">:</span> root
+    <span class="token key atrule">password</span><span class="token punctuation">:</span> root
+
+<span class="token key atrule">mybatis-plus</span><span class="token punctuation">:</span> <span class="token comment">#mybatis</span>
+  <span class="token key atrule">configuration</span><span class="token punctuation">:</span>
+    <span class="token key atrule">log-impl</span><span class="token punctuation">:</span> org.apache.ibatis.logging.stdout.StdOutImpl
+  <span class="token key atrule">mapper-locations</span><span class="token punctuation">:</span> classpath<span class="token punctuation">:</span>com/kk/srb/core/mapper/xml/<span class="token important">*.xml</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+<h5 id="2、创建SpringBoot配置文件"><a href="#2、创建SpringBoot配置文件" class="headerlink" title="2、创建SpringBoot配置文件"></a>2、创建SpringBoot配置文件</h5><p>在service-core中创建config包，创建MybatisPlusConfig类</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>kk<span class="token punctuation">.</span>srb<span class="token punctuation">.</span>core<span class="token punctuation">.</span>config</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token namespace">com<span class="token punctuation">.</span>baomidou<span class="token punctuation">.</span>mybatisplus<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">DbType</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">com<span class="token punctuation">.</span>baomidou<span class="token punctuation">.</span>mybatisplus<span class="token punctuation">.</span>extension<span class="token punctuation">.</span>plugins<span class="token punctuation">.</span></span><span class="token class-name">MybatisPlusInterceptor</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">com<span class="token punctuation">.</span>baomidou<span class="token punctuation">.</span>mybatisplus<span class="token punctuation">.</span>extension<span class="token punctuation">.</span>plugins<span class="token punctuation">.</span>inner<span class="token punctuation">.</span></span><span class="token class-name">PaginationInnerInterceptor</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>mybatis<span class="token punctuation">.</span>spring<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">MapperScan</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>context<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">Bean</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>context<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">Configuration</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>transaction<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">EnableTransactionManagement</span><span class="token punctuation">;</span>
+
+<span class="token annotation punctuation">@Configuration</span>
+<span class="token annotation punctuation">@MapperScan</span><span class="token punctuation">(</span><span class="token string">"com.kk.srb.core.mapper"</span><span class="token punctuation">)</span>
+<span class="token annotation punctuation">@EnableTransactionManagement</span> <span class="token comment">//事务处理</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MybatisPlusConfig</span> <span class="token punctuation">{</span>
+    <span class="token annotation punctuation">@Bean</span>
+    <span class="token keyword">public</span> <span class="token class-name">MybatisPlusInterceptor</span> <span class="token function">mybatisPlusInterceptor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">MybatisPlusInterceptor</span> interceptor <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MybatisPlusInterceptor</span> <span class="token punctuation">(</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+        interceptor<span class="token punctuation">.</span>addInnerInterceptor <span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">PaginationInnerInterceptor</span> <span class="token punctuation">(</span><span class="token class-name">DbType</span><span class="token punctuation">.</span>MYSQL<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//分页</span>
+        <span class="token keyword">return</span> interceptor<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h5 id="3、创建SpringBoot启动类"><a href="#3、创建SpringBoot启动类" class="headerlink" title="3、创建SpringBoot启动类"></a>3、创建SpringBoot启动类</h5><p><font color="red">注意：</font>扫描com.kk.srb</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>kk<span class="token punctuation">.</span>srb<span class="token punctuation">.</span>core</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>mybatis<span class="token punctuation">.</span>spring<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">MapperScan</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>boot<span class="token punctuation">.</span></span><span class="token class-name">SpringApplication</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>boot<span class="token punctuation">.</span>autoconfigure<span class="token punctuation">.</span></span><span class="token class-name">SpringBootApplication</span><span class="token punctuation">;</span>
+
+<span class="token annotation punctuation">@SpringBootApplication</span>
+<span class="token annotation punctuation">@MapperScan</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">"com.kk.srb"</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ServiceCoreApplication</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">SpringApplication</span><span class="token punctuation">.</span>run <span class="token punctuation">(</span><span class="token class-name">ServiceCoreApplication</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span> args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h5 id="4、运行启动类"><a href="#4、运行启动类" class="headerlink" title="4、运行启动类"></a>4、运行启动类</h5><p>查看控制台8110端口是否成功启动</p>
+<h4 id="7、整体代码结构图"><a href="#7、整体代码结构图" class="headerlink" title="7、整体代码结构图"></a>7、整体代码结构图</h4><p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/project/shangrongbao/20220427223747.png"></p>
+<h2 id="三、前端架构搭建"><a href="#三、前端架构搭建" class="headerlink" title="三、前端架构搭建"></a>三、前端架构搭建</h2><h3 id="1、"><a href="#1、" class="headerlink" title="1、"></a>1、</h3><h3 id="2、"><a href="#2、" class="headerlink" title="2、"></a>2、</h3><h3 id="3、"><a href="#3、" class="headerlink" title="3、"></a>3、</h3><h3 id="4、"><a href="#4、" class="headerlink" title="4、"></a>4、</h3><h3 id="5、"><a href="#5、" class="headerlink" title="5、"></a>5、</h3><h2 id="参考地址-↓"><a href="#参考地址-↓" class="headerlink" title="参考地址 ↓"></a>参考地址 ↓</h2><p>Springboot 启动注解扫描：<a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_50932526/article/details/122936434">https://blog.csdn.net/m0_50932526/article/details/122936434</a></p>
 
                 
             </div>
@@ -1946,7 +2129,7 @@ new Valine({
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">91.3k</span>&nbsp;字
+                class="white-color">92.2k</span>&nbsp;字
             
             
             
