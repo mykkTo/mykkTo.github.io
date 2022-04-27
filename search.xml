@@ -345,9 +345,9 @@
             
             <tag> springcloud-alibaba </tag>
             
-            <tag> 集群 </tag>
-            
             <tag> nacos </tag>
+            
+            <tag> 集群 </tag>
             
             <tag> docker-compose </tag>
             
@@ -434,11 +434,11 @@
             
             <tag> springcloud-alibaba </tag>
             
-            <tag> nacos </tag>
-            
             <tag> 服务注册与发现 </tag>
             
             <tag> 配置中心 </tag>
+            
+            <tag> nacos </tag>
             
         </tags>
       
@@ -581,9 +581,9 @@
             
             <tag> springcloud </tag>
             
-            <tag> 路由网关 </tag>
-            
             <tag> alibaba </tag>
+            
+            <tag> 路由网关 </tag>
             
             <tag> gateway </tag>
             
@@ -939,9 +939,9 @@
       
         <tags>
             
-            <tag> springcloud-alibaba </tag>
-            
             <tag> springcloud </tag>
+            
+            <tag> springcloud-alibaba </tag>
             
             <tag> 合集 </tag>
             

@@ -350,9 +350,9 @@
     
     <category term="springcloud-alibaba" scheme="https://mykkto.github.io/tags/springcloud-alibaba/"/>
     
-    <category term="集群" scheme="https://mykkto.github.io/tags/%E9%9B%86%E7%BE%A4/"/>
-    
     <category term="nacos" scheme="https://mykkto.github.io/tags/nacos/"/>
+    
+    <category term="集群" scheme="https://mykkto.github.io/tags/%E9%9B%86%E7%BE%A4/"/>
     
     <category term="docker-compose" scheme="https://mykkto.github.io/tags/docker-compose/"/>
     
@@ -436,11 +436,11 @@
     
     <category term="springcloud-alibaba" scheme="https://mykkto.github.io/tags/springcloud-alibaba/"/>
     
-    <category term="nacos" scheme="https://mykkto.github.io/tags/nacos/"/>
-    
     <category term="服务注册与发现" scheme="https://mykkto.github.io/tags/%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%E4%B8%8E%E5%8F%91%E7%8E%B0/"/>
     
     <category term="配置中心" scheme="https://mykkto.github.io/tags/%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/"/>
+    
+    <category term="nacos" scheme="https://mykkto.github.io/tags/nacos/"/>
     
   </entry>
   
@@ -578,9 +578,9 @@
     
     <category term="springcloud" scheme="https://mykkto.github.io/tags/springcloud/"/>
     
-    <category term="路由网关" scheme="https://mykkto.github.io/tags/%E8%B7%AF%E7%94%B1%E7%BD%91%E5%85%B3/"/>
-    
     <category term="alibaba" scheme="https://mykkto.github.io/tags/alibaba/"/>
+    
+    <category term="路由网关" scheme="https://mykkto.github.io/tags/%E8%B7%AF%E7%94%B1%E7%BD%91%E5%85%B3/"/>
     
     <category term="gateway" scheme="https://mykkto.github.io/tags/gateway/"/>
     
