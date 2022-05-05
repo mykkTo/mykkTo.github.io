@@ -681,21 +681,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-04-28
+                    2022-05-05
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    5.2k
+                    6.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    24 分
+                    31 分
                 </div>
                 
 
@@ -1532,7 +1532,289 @@
 
 
 
-<h3 id="四、统一异常处理"><a href="#四、统一异常处理" class="headerlink" title="四、统一异常处理"></a>四、统一异常处理</h3><h4 id="1、"><a href="#1、" class="headerlink" title="1、"></a>1、</h4><h5 id="1、-1"><a href="#1、-1" class="headerlink" title="1、"></a>1、</h5><h5 id="2、"><a href="#2、" class="headerlink" title="2、"></a>2、</h5><h5 id="3、"><a href="#3、" class="headerlink" title="3、"></a>3、</h5><h4 id="2、-1"><a href="#2、-1" class="headerlink" title="2、"></a>2、</h4><h5 id="1、-2"><a href="#1、-2" class="headerlink" title="1、"></a>1、</h5><h5 id="2、-2"><a href="#2、-2" class="headerlink" title="2、"></a>2、</h5><h5 id="3、-1"><a href="#3、-1" class="headerlink" title="3、"></a>3、</h5><h4 id="3、-2"><a href="#3、-2" class="headerlink" title="3、"></a>3、</h4><h5 id="1、-3"><a href="#1、-3" class="headerlink" title="1、"></a>1、</h5><h5 id="2、-3"><a href="#2、-3" class="headerlink" title="2、"></a>2、</h5><h5 id="3、-3"><a href="#3、-3" class="headerlink" title="3、"></a>3、</h5><h3 id="五、统一日志处理"><a href="#五、统一日志处理" class="headerlink" title="五、统一日志处理"></a>五、统一日志处理</h3><h4 id="1、-4"><a href="#1、-4" class="headerlink" title="1、"></a>1、</h4><h5 id="1、-5"><a href="#1、-5" class="headerlink" title="1、"></a>1、</h5><h5 id="2、-4"><a href="#2、-4" class="headerlink" title="2、"></a>2、</h5><h5 id="3、-4"><a href="#3、-4" class="headerlink" title="3、"></a>3、</h5><h4 id="2、-5"><a href="#2、-5" class="headerlink" title="2、"></a>2、</h4><h5 id="1、-6"><a href="#1、-6" class="headerlink" title="1、"></a>1、</h5><h5 id="2、-6"><a href="#2、-6" class="headerlink" title="2、"></a>2、</h5><h5 id="3、-5"><a href="#3、-5" class="headerlink" title="3、"></a>3、</h5><h4 id="3、-6"><a href="#3、-6" class="headerlink" title="3、"></a>3、</h4><h5 id="1、-7"><a href="#1、-7" class="headerlink" title="1、"></a>1、</h5><h5 id="2、-7"><a href="#2、-7" class="headerlink" title="2、"></a>2、</h5><h5 id="3、-7"><a href="#3、-7" class="headerlink" title="3、"></a>3、</h5><h2 id="Ⅲ、前端架构搭建"><a href="#Ⅲ、前端架构搭建" class="headerlink" title="Ⅲ、前端架构搭建"></a>Ⅲ、前端架构搭建</h2><h3 id="1、-8"><a href="#1、-8" class="headerlink" title="1、"></a>1、</h3><h3 id="2、-8"><a href="#2、-8" class="headerlink" title="2、"></a>2、</h3><h3 id="3、-8"><a href="#3、-8" class="headerlink" title="3、"></a>3、</h3><h3 id="4、"><a href="#4、" class="headerlink" title="4、"></a>4、</h3><h3 id="5、"><a href="#5、" class="headerlink" title="5、"></a>5、</h3><h2 id="参考地址-↓"><a href="#参考地址-↓" class="headerlink" title="参考地址 ↓"></a>参考地址 ↓</h2><p>1、Springboot 启动注解扫描：<a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_50932526/article/details/122936434">https://blog.csdn.net/m0_50932526/article/details/122936434</a></p>
+<h3 id="四、统一异常处理"><a href="#四、统一异常处理" class="headerlink" title="四、统一异常处理"></a>四、统一异常处理</h3><h4 id="1、项目中的异常"><a href="#1、项目中的异常" class="headerlink" title="1、项目中的异常"></a>1、<strong>项目中的异常</strong></h4><h5 id="1、制造异常"><a href="#1、制造异常" class="headerlink" title="1、制造异常"></a>1、制造异常</h5><p>屏蔽 IntegralGrade 中的 @TableField注解</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@ApiModelProperty</span><span class="token punctuation">(</span>value <span class="token operator">=</span> <span class="token string">"逻辑删除(1:已删除，0:未删除)"</span><span class="token punctuation">)</span>
+<span class="token comment">//@TableField("is_deleted")</span>
+<span class="token annotation punctuation">@TableLogic</span>
+<span class="token keyword">private</span> <span class="token class-name">Boolean</span> deleted<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h5 id="2、Swagger中测试"><a href="#2、Swagger中测试" class="headerlink" title="2、Swagger中测试"></a>2、Swagger中测试</h5><p>测试列表查询功能，查看结果，<font color="red">发生错误，显示响应失败</font></p>
+<p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/project/shangrongbao/202205042147886.png"></p>
+<h4 id="2、统一异常处理"><a href="#2、统一异常处理" class="headerlink" title="2、统一异常处理"></a>2、统一异常处理</h4><p><font color="red">目标：我们想让异常结果也显示为统一的返回结果对象，并且统一处理系统的异常信息，那么需要进行统一异常处理。</font></p>
+<h5 id="1、创建统一异常处理器"><a href="#1、创建统一异常处理器" class="headerlink" title="1、创建统一异常处理器"></a>1、创建统一异常处理器</h5><p>kk-common中创建exception包，创建统一异常处理器类UnifiedExceptionHandler</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>kk<span class="token punctuation">.</span>common<span class="token punctuation">.</span>exception</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token namespace">com<span class="token punctuation">.</span>kk<span class="token punctuation">.</span>common<span class="token punctuation">.</span>result<span class="token punctuation">.</span></span><span class="token class-name">R</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">lombok<span class="token punctuation">.</span>extern<span class="token punctuation">.</span>slf4j<span class="token punctuation">.</span></span><span class="token class-name">Slf4j</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>stereotype<span class="token punctuation">.</span></span><span class="token class-name">Component</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>bind<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">ExceptionHandler</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>bind<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">RestControllerAdvice</span><span class="token punctuation">;</span>
+
+<span class="token annotation punctuation">@Slf4j</span>
+<span class="token annotation punctuation">@Component</span> <span class="token comment">//Spring容易自动管理</span>
+<span class="token annotation punctuation">@RestControllerAdvice</span> <span class="token comment">//在controller层添加通知。如果使用@ControllerAdvice，则方法上需要添加@ResponseBody</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">UnifiedExceptionHandler</span> <span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * 未定义异常
+     */</span>
+    <span class="token annotation punctuation">@ExceptionHandler</span><span class="token punctuation">(</span>value <span class="token operator">=</span> <span class="token class-name">Exception</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span> <span class="token comment">//当controller中抛出Exception，则捕获</span>
+    <span class="token keyword">public</span> <span class="token class-name">R</span> <span class="token function">handleException</span><span class="token punctuation">(</span><span class="token class-name">Exception</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        log<span class="token punctuation">.</span>error <span class="token punctuation">(</span>e<span class="token punctuation">.</span>getMessage <span class="token punctuation">(</span> <span class="token punctuation">)</span><span class="token punctuation">,</span> e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token class-name">R</span><span class="token punctuation">.</span>error <span class="token punctuation">(</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h5 id="2、service-core添加扫描"><a href="#2、service-core添加扫描" class="headerlink" title="2、service-core添加扫描"></a>2、service-core添加扫描</h5><p>添加 “com.kk.common”</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@SpringBootApplication</span>
+<span class="token comment">//@MapperScan({"com.kk.srb"})// 需要指定指定路径</span>
+<span class="token annotation punctuation">@ComponentScan</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">"com.kk.srb"</span><span class="token punctuation">,</span><span class="token string">"com.kk.common"</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ServiceCoreApplication</span> <span class="token punctuation">{</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h5 id="3、测试"><a href="#3、测试" class="headerlink" title="3、测试"></a>3、测试</h5><p>返回统一错误结果</p>
+<p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/project/shangrongbao/202205042244964.png"></p>
+<h4 id="3、处理特定异常"><a href="#3、处理特定异常" class="headerlink" title="3、处理特定异常"></a>3、处理特定异常</h4><p><font color="red">如果我们不想显示统一的“服务器内部错误”，需要个性化的显示异常信息，那么需要针对特定的异常做处理</font></p>
+<h5 id="1、添加依赖"><a href="#1、添加依赖" class="headerlink" title="1、添加依赖"></a>1、<strong>添加依赖</strong></h5><p>在kk-common中添加jdbc依赖</p>
+<pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>org.springframework<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>spring-jdbc<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h5 id="2、添加异常处理方法"><a href="#2、添加异常处理方法" class="headerlink" title="2、添加异常处理方法"></a>2、添加异常处理方法</h5><p>在 UnifiedExceptionHandler 中添加</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/**
+ * 特定异常
+ */</span>
+<span class="token annotation punctuation">@ExceptionHandler</span><span class="token punctuation">(</span><span class="token class-name">BadSqlGrammarException</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token class-name">R</span> <span class="token function">handleBadSqlGrammarException</span><span class="token punctuation">(</span><span class="token class-name">BadSqlGrammarException</span> e<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    log<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span><span class="token function">getMessage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token class-name">R</span><span class="token punctuation">.</span><span class="token function">setResult</span><span class="token punctuation">(</span><span class="token class-name">ResponseEnum</span><span class="token punctuation">.</span>BAD_SQL_GRAMMAR_ERROR<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p>完整枚举</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>kk<span class="token punctuation">.</span>common<span class="token punctuation">.</span>result</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token namespace">lombok<span class="token punctuation">.</span></span><span class="token class-name">AllArgsConstructor</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">lombok<span class="token punctuation">.</span></span><span class="token class-name">Getter</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">lombok<span class="token punctuation">.</span></span><span class="token class-name">ToString</span><span class="token punctuation">;</span>
+
+<span class="token annotation punctuation">@Getter</span>
+<span class="token annotation punctuation">@AllArgsConstructor</span>
+<span class="token annotation punctuation">@ToString</span>
+<span class="token keyword">public</span> <span class="token keyword">enum</span> <span class="token class-name">ResponseEnum</span> <span class="token punctuation">{</span>
+    SUCCESS <span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token string">"成功"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    ERROR <span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">"服务器内部错误"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+
+    <span class="token comment">//-1xx 服务器错误</span>
+    BAD_SQL_GRAMMAR_ERROR <span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">101</span><span class="token punctuation">,</span> <span class="token string">"sql语法错误"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    SERVLET_ERROR <span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">102</span><span class="token punctuation">,</span> <span class="token string">"servlet请求异常"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token comment">//-2xx 参数校验</span>
+    UPLOAD_ERROR <span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">103</span><span class="token punctuation">,</span> <span class="token string">"文件上传错误"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    EXPORT_DATA_ERROR <span class="token punctuation">(</span><span class="token number">104</span><span class="token punctuation">,</span> <span class="token string">"数据导出失败"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+
+
+    <span class="token comment">//-2xx 参数校验</span>
+    BORROW_AMOUNT_NULL_ERROR <span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">201</span><span class="token punctuation">,</span> <span class="token string">"借款额度不能为空"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    MOBILE_NULL_ERROR <span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">202</span><span class="token punctuation">,</span> <span class="token string">"手机号码不能为空"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    MOBILE_ERROR <span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">203</span><span class="token punctuation">,</span> <span class="token string">"手机号码不正确"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    PASSWORD_NULL_ERROR <span class="token punctuation">(</span><span class="token number">204</span><span class="token punctuation">,</span> <span class="token string">"密码不能为空"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    CODE_NULL_ERROR <span class="token punctuation">(</span><span class="token number">205</span><span class="token punctuation">,</span> <span class="token string">"验证码不能为空"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    CODE_ERROR <span class="token punctuation">(</span><span class="token number">206</span><span class="token punctuation">,</span> <span class="token string">"验证码错误"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    MOBILE_EXIST_ERROR <span class="token punctuation">(</span><span class="token number">207</span><span class="token punctuation">,</span> <span class="token string">"手机号已被注册"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    LOGIN_MOBILE_ERROR <span class="token punctuation">(</span><span class="token number">208</span><span class="token punctuation">,</span> <span class="token string">"用户不存在"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    LOGIN_PASSWORD_ERROR <span class="token punctuation">(</span><span class="token number">209</span><span class="token punctuation">,</span> <span class="token string">"密码错误"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    LOGIN_LOKED_ERROR <span class="token punctuation">(</span><span class="token number">210</span><span class="token punctuation">,</span> <span class="token string">"用户被锁定"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    LOGIN_AUTH_ERROR <span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">211</span><span class="token punctuation">,</span> <span class="token string">"未登录"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+
+
+    USER_BIND_IDCARD_EXIST_ERROR <span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">301</span><span class="token punctuation">,</span> <span class="token string">"身份证号码已绑定"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    USER_NO_BIND_ERROR <span class="token punctuation">(</span><span class="token number">302</span><span class="token punctuation">,</span> <span class="token string">"用户未绑定"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    USER_NO_AMOUNT_ERROR <span class="token punctuation">(</span><span class="token number">303</span><span class="token punctuation">,</span> <span class="token string">"用户信息未审核"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    USER_AMOUNT_LESS_ERROR <span class="token punctuation">(</span><span class="token number">304</span><span class="token punctuation">,</span> <span class="token string">"您的借款额度不足"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    LEND_INVEST_ERROR <span class="token punctuation">(</span><span class="token number">305</span><span class="token punctuation">,</span> <span class="token string">"当前状态无法投标"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    LEND_FULL_SCALE_ERROR <span class="token punctuation">(</span><span class="token number">306</span><span class="token punctuation">,</span> <span class="token string">"已满标，无法投标"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    NOT_SUFFICIENT_FUNDS_ERROR <span class="token punctuation">(</span><span class="token number">307</span><span class="token punctuation">,</span> <span class="token string">"余额不足，请充值"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+
+    PAY_UNIFIEDORDER_ERROR <span class="token punctuation">(</span><span class="token number">401</span><span class="token punctuation">,</span> <span class="token string">"统一下单错误"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+
+    ALIYUN_SMS_LIMIT_CONTROL_ERROR <span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">502</span><span class="token punctuation">,</span> <span class="token string">"短信发送过于频繁"</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token comment">//业务限流</span>
+    ALIYUN_SMS_ERROR <span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">503</span><span class="token punctuation">,</span> <span class="token string">"短信发送失败"</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token comment">//其他失败</span>
+
+    WEIXIN_CALLBACK_PARAM_ERROR <span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">601</span><span class="token punctuation">,</span> <span class="token string">"回调参数不正确"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    WEIXIN_FETCH_ACCESSTOKEN_ERROR <span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">602</span><span class="token punctuation">,</span> <span class="token string">"获取access_token失败"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    WEIXIN_FETCH_USERINFO_ERROR <span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">603</span><span class="token punctuation">,</span> <span class="token string">"获取用户信息失败"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 响应状态码</span>
+    <span class="token keyword">private</span> <span class="token class-name">Integer</span> code<span class="token punctuation">;</span>
+    <span class="token comment">// 响应信息</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> message<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h5 id="3、恢复制造的异常"><a href="#3、恢复制造的异常" class="headerlink" title="3、恢复制造的异常"></a>3、恢复制造的异常</h5><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@TableField</span><span class="token punctuation">(</span>value <span class="token operator">=</span> <span class="token string">"is_deleted"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+
+
+<h4 id="4、自定义异常"><a href="#4、自定义异常" class="headerlink" title="4、自定义异常"></a>4、自定义异常</h4><p><font color="red">目标</font>：使用一个或较少的异常类，可以捕获和显示所有的异常信息。</p>
+<p><font color="red">方案</font>：因此，我们可以创建一个自定义异常类（必须是运行时异常），在程序中抛出这个自定义异常对象，并在统一异常处理器中捕获自定义异常对象</p>
+<h5 id="1、创建自定义异常类"><a href="#1、创建自定义异常类" class="headerlink" title="1、创建自定义异常类"></a>1、创建自定义异常类</h5><p>完整查看github源码</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>kk<span class="token punctuation">.</span>common<span class="token punctuation">.</span>exception</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token namespace">lombok<span class="token punctuation">.</span></span><span class="token class-name">Data</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">lombok<span class="token punctuation">.</span></span><span class="token class-name">NoArgsConstructor</span><span class="token punctuation">;</span>
+
+<span class="token annotation punctuation">@Data</span>
+<span class="token annotation punctuation">@NoArgsConstructor</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">BusinessException</span> <span class="token keyword">extends</span> <span class="token class-name">RuntimeException</span> <span class="token punctuation">{</span>
+    <span class="token comment">//状态码</span>
+    <span class="token keyword">private</span> <span class="token class-name">Integer</span> code<span class="token punctuation">;</span>
+
+    <span class="token comment">//错误消息</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> message<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h5 id="2、添加异常处理方法-1"><a href="#2、添加异常处理方法-1" class="headerlink" title="2、添加异常处理方法"></a>2、添加异常处理方法</h5><p>UnifiedExceptionHandler类中添加</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/**
+ * 自定义异常
+ */</span>
+<span class="token annotation punctuation">@ExceptionHandler</span><span class="token punctuation">(</span><span class="token class-name">BusinessException</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token class-name">R</span> <span class="token function">handleBusinessException</span><span class="token punctuation">(</span><span class="token class-name">BusinessException</span> e<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    log<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span><span class="token function">getMessage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token class-name">R</span><span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">message</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span><span class="token function">getMessage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">code</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span><span class="token function">getCode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h5 id="3、修改Controller"><a href="#3、修改Controller" class="headerlink" title="3、修改Controller"></a>3、修改Controller</h5><p>在AdminIntegralGradeController的方法中添加异常处理，业务中需要的位置抛出BusinessException自定义异常。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@ApiOperation</span><span class="token punctuation">(</span><span class="token string">"新增积分等级"</span><span class="token punctuation">)</span>
+<span class="token annotation punctuation">@PostMapping</span><span class="token punctuation">(</span><span class="token string">"/save"</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token class-name">R</span> <span class="token function">save</span><span class="token punctuation">(</span>
+    <span class="token annotation punctuation">@ApiParam</span><span class="token punctuation">(</span>value <span class="token operator">=</span> <span class="token string">"积分等级对象"</span><span class="token punctuation">,</span> required <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">)</span>
+    <span class="token annotation punctuation">@RequestBody</span> <span class="token class-name">IntegralGrade</span> integralGrade<span class="token punctuation">)</span><span class="token punctuation">{</span>
+
+    <span class="token comment">//如果借款额度为空就手动抛出一个自定义的异常！</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>integralGrade<span class="token punctuation">.</span><span class="token function">getBorrowAmount</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token comment">//BORROW_AMOUNT_NULL_ERROR(-201, "借款额度不能为空"),</span>
+        <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">BusinessException</span><span class="token punctuation">(</span><span class="token class-name">ResponseEnum</span><span class="token punctuation">.</span>BORROW_AMOUNT_NULL_ERROR<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">boolean</span> result <span class="token operator">=</span> integrationService<span class="token punctuation">.</span><span class="token function">save</span><span class="token punctuation">(</span>integralGrade<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>result<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token class-name">R</span><span class="token punctuation">.</span><span class="token function">ok</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">message</span><span class="token punctuation">(</span><span class="token string">"保存成功"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token class-name">R</span><span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">message</span><span class="token punctuation">(</span><span class="token string">"保存失败"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h5 id="4、测试"><a href="#4、测试" class="headerlink" title="4、测试"></a>4、测试</h5><p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/project/shangrongbao/202205052210065.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/project/shangrongbao/202205052210621.png"></p>
+<h4 id="5、异常处理优化"><a href="#5、异常处理优化" class="headerlink" title="5、异常处理优化"></a>5、异常处理优化</h4><p><font color="red">目标</font>：以优雅的 Assert(断言) 方式来校验业务的异常情况，消除 if else</p>
+<h5 id="1、什么是断言"><a href="#1、什么是断言" class="headerlink" title="1、什么是断言"></a>1、什么是断言</h5><p>用断言的方式封装异常的抛出</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>kk<span class="token punctuation">.</span>srb<span class="token punctuation">.</span>core</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>junit<span class="token punctuation">.</span></span><span class="token class-name">Test</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">Assert</span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">AssertTests</span> <span class="token punctuation">{</span>
+
+    <span class="token comment">//if else的用法</span>
+    <span class="token annotation punctuation">@Test</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">test1</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">Object</span> o <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>o <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">IllegalArgumentException</span> <span class="token punctuation">(</span><span class="token string">"用户不存在."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">//断言的用法：更为简洁</span>
+    <span class="token annotation punctuation">@Test</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">test2</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 另一种写法</span>
+        <span class="token class-name">Object</span> o <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        <span class="token class-name">Assert</span><span class="token punctuation">.</span>notNull <span class="token punctuation">(</span>o<span class="token punctuation">,</span> <span class="token string">"用户不存在."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h5 id="2、自定义断言"><a href="#2、自定义断言" class="headerlink" title="2、自定义断言"></a>2、自定义断言</h5><p>引入自定义断言，类路径：<code>com.kk.common.exception.Assert</code></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Slf4j</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Assert</span> <span class="token punctuation">{</span>
+
+    <span class="token comment">/**
+     * 断言对象不为空
+     * obj 为空则抛异常
+     *
+     * @param obj
+     * @param responseEnum
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">notNull</span><span class="token punctuation">(</span><span class="token class-name">Object</span> obj<span class="token punctuation">,</span> <span class="token class-name">ResponseEnum</span> responseEnum<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>obj <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            log<span class="token punctuation">.</span>info <span class="token punctuation">(</span><span class="token string">"obj is null....................."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">BusinessException</span> <span class="token punctuation">(</span>responseEnum<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><font color="red">完整的源代码</font>：Assert.java</p>
+<h5 id="3、修改controller"><a href="#3、修改controller" class="headerlink" title="3、修改controller"></a>3、修改controller</h5><p>在controller中用断言替换if else</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">Assert</span><span class="token punctuation">.</span><span class="token function">notNull</span><span class="token punctuation">(</span>integralGrade<span class="token punctuation">.</span><span class="token function">getBorrowAmount</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token class-name">ResponseEnum</span><span class="token punctuation">.</span>BORROW_AMOUNT_NULL_ERROR<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<h4 id="6、Controller上层异常"><a href="#6、Controller上层异常" class="headerlink" title="6、Controller上层异常"></a>6、Controller上层异常</h4><h5 id="1、异常分类"><a href="#1、异常分类" class="headerlink" title="1、异常分类"></a>1、异常分类</h5><p>对异常按阶段进行分类，大体可以分成：进入Controller前的异常 和 业务层异常，具体可以参考下图：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/project/shangrongbao/202205052240355.png"></p>
+<h5 id="2、处理Controller上层异常"><a href="#2、处理Controller上层异常" class="headerlink" title="2、处理Controller上层异常"></a>2、处理Controller上层异常</h5><p>UnifiedExceptionHandler中添加</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/**
+     * Controller上一层相关异常
+     */</span>
+<span class="token annotation punctuation">@ExceptionHandler</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token class-name">NoHandlerFoundException</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span>
+    <span class="token class-name">HttpRequestMethodNotSupportedException</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span>
+    <span class="token class-name">HttpMediaTypeNotSupportedException</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span>
+    <span class="token class-name">MissingPathVariableException</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span>
+    <span class="token class-name">MissingServletRequestParameterException</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span>
+    <span class="token class-name">TypeMismatchException</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span>
+    <span class="token class-name">HttpMessageNotReadableException</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span>
+    <span class="token class-name">HttpMessageNotWritableException</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span>
+    <span class="token class-name">MethodArgumentNotValidException</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span>
+    <span class="token class-name">HttpMediaTypeNotAcceptableException</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span>
+    <span class="token class-name">ServletRequestBindingException</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span>
+    <span class="token class-name">ConversionNotSupportedException</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span>
+    <span class="token class-name">MissingServletRequestPartException</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span>
+    <span class="token class-name">AsyncRequestTimeoutException</span><span class="token punctuation">.</span><span class="token keyword">class</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token class-name">R</span> <span class="token function">handleServletException</span><span class="token punctuation">(</span><span class="token class-name">Exception</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    log<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span><span class="token function">getMessage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">//SERVLET_ERROR(-102, "servlet请求异常"),</span>
+    <span class="token keyword">return</span> <span class="token class-name">R</span><span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">message</span><span class="token punctuation">(</span><span class="token class-name">ResponseEnum</span><span class="token punctuation">.</span>SERVLET_ERROR<span class="token punctuation">.</span><span class="token function">getMessage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">code</span><span class="token punctuation">(</span><span class="token class-name">ResponseEnum</span><span class="token punctuation">.</span>SERVLET_ERROR<span class="token punctuation">.</span><span class="token function">getCode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+<h5 id="3、测试-1"><a href="#3、测试-1" class="headerlink" title="3、测试"></a>3、测试</h5><p>在save测试用例中输入非法的json参数，则得到下面的结果。我们可以在控制台日志中查看具体的错误原因。前端只需要返回相对简单友好的提示即可。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/project/shangrongbao/202205052245586.png"></p>
+<h3 id="五、统一日志处理"><a href="#五、统一日志处理" class="headerlink" title="五、统一日志处理"></a>五、统一日志处理</h3><h4 id="1、Logback日志"><a href="#1、Logback日志" class="headerlink" title="1、Logback日志"></a>1、Logback日志</h4><h5 id="1-什么是日志"><a href="#1-什么是日志" class="headerlink" title="1.什么是日志"></a>1.什么是日志</h5><p>通过日志查看程序的运行过程，运行信息，异常信息等</p>
+<h5 id="2-日志级别"><a href="#2-日志级别" class="headerlink" title="2.日志级别"></a>2.日志级别</h5><h5 id="3-创建日志文件"><a href="#3-创建日志文件" class="headerlink" title="3.创建日志文件"></a>3.创建日志文件</h5><h4 id="2、基本配置说明"><a href="#2、基本配置说明" class="headerlink" title="2、基本配置说明"></a>2、基本配置说明</h4><h5 id="1"><a href="#1" class="headerlink" title="1."></a>1.</h5><h5 id="2"><a href="#2" class="headerlink" title="2."></a>2.</h5><h5 id="3"><a href="#3" class="headerlink" title="3."></a>3.</h5><h4 id="3、多环境配置"><a href="#3、多环境配置" class="headerlink" title="3、多环境配置"></a>3、多环境配置</h4><h5 id="1-1"><a href="#1-1" class="headerlink" title="1."></a>1.</h5><h5 id="2-1"><a href="#2-1" class="headerlink" title="2."></a>2.</h5><h5 id="3-1"><a href="#3-1" class="headerlink" title="3."></a>3.</h5><h4 id="4、滚动日志"><a href="#4、滚动日志" class="headerlink" title="4、滚动日志"></a>4、滚动日志</h4><h5 id="1-2"><a href="#1-2" class="headerlink" title="1."></a>1.</h5><h5 id="2-2"><a href="#2-2" class="headerlink" title="2."></a>2.</h5><h5 id="-1"><a href="#-1" class="headerlink" title=""></a></h5><h4 id="5、完整的日志配置文件"><a href="#5、完整的日志配置文件" class="headerlink" title="5、完整的日志配置文件"></a>5、完整的日志配置文件</h4><h2 id="Ⅲ、前端架构搭建"><a href="#Ⅲ、前端架构搭建" class="headerlink" title="Ⅲ、前端架构搭建"></a>Ⅲ、前端架构搭建</h2><h3 id="一、"><a href="#一、" class="headerlink" title="一、"></a>一、</h3><h4 id="1、"><a href="#1、" class="headerlink" title="1、"></a>1、</h4><h5 id="1、-1"><a href="#1、-1" class="headerlink" title="1、"></a>1、</h5><h5 id="2、"><a href="#2、" class="headerlink" title="2、"></a>2、</h5><h5 id="3、"><a href="#3、" class="headerlink" title="3、"></a>3、</h5><h4 id="2、-1"><a href="#2、-1" class="headerlink" title="2、"></a>2、</h4><h5 id="1、-2"><a href="#1、-2" class="headerlink" title="1、"></a>1、</h5><h5 id="2、-2"><a href="#2、-2" class="headerlink" title="2、"></a>2、</h5><h5 id="3、-1"><a href="#3、-1" class="headerlink" title="3、"></a>3、</h5><h4 id="3、-2"><a href="#3、-2" class="headerlink" title="3、"></a>3、</h4><h5 id="1、-3"><a href="#1、-3" class="headerlink" title="1、"></a>1、</h5><h5 id="2、-3"><a href="#2、-3" class="headerlink" title="2、"></a>2、</h5><h5 id="3、-3"><a href="#3、-3" class="headerlink" title="3、"></a>3、</h5><h3 id="二、"><a href="#二、" class="headerlink" title="二、"></a>二、</h3><h4 id="1、-4"><a href="#1、-4" class="headerlink" title="1、"></a>1、</h4><h5 id="1、-5"><a href="#1、-5" class="headerlink" title="1、"></a>1、</h5><h5 id="2、-4"><a href="#2、-4" class="headerlink" title="2、"></a>2、</h5><h5 id="3、-4"><a href="#3、-4" class="headerlink" title="3、"></a>3、</h5><h4 id="2、-5"><a href="#2、-5" class="headerlink" title="2、"></a>2、</h4><h5 id="1、-6"><a href="#1、-6" class="headerlink" title="1、"></a>1、</h5><h5 id="2、-6"><a href="#2、-6" class="headerlink" title="2、"></a>2、</h5><h5 id="3、-5"><a href="#3、-5" class="headerlink" title="3、"></a>3、</h5><h4 id="3、-6"><a href="#3、-6" class="headerlink" title="3、"></a>3、</h4><h5 id="1、-7"><a href="#1、-7" class="headerlink" title="1、"></a>1、</h5><h5 id="2、-7"><a href="#2、-7" class="headerlink" title="2、"></a>2、</h5><h5 id="3、-7"><a href="#3、-7" class="headerlink" title="3、"></a>3、</h5><h3 id="三、"><a href="#三、" class="headerlink" title="三、"></a>三、</h3><h4 id="1、-8"><a href="#1、-8" class="headerlink" title="1、"></a>1、</h4><h5 id="1、-9"><a href="#1、-9" class="headerlink" title="1、"></a>1、</h5><h5 id="2、-8"><a href="#2、-8" class="headerlink" title="2、"></a>2、</h5><h5 id="3、-8"><a href="#3、-8" class="headerlink" title="3、"></a>3、</h5><h4 id="2、-9"><a href="#2、-9" class="headerlink" title="2、"></a>2、</h4><h5 id="1、-10"><a href="#1、-10" class="headerlink" title="1、"></a>1、</h5><h5 id="2、-10"><a href="#2、-10" class="headerlink" title="2、"></a>2、</h5><h5 id="3、-9"><a href="#3、-9" class="headerlink" title="3、"></a>3、</h5><h4 id="3、-10"><a href="#3、-10" class="headerlink" title="3、"></a>3、</h4><h5 id="1、-11"><a href="#1、-11" class="headerlink" title="1、"></a>1、</h5><h5 id="2、-11"><a href="#2、-11" class="headerlink" title="2、"></a>2、</h5><h5 id="3、-11"><a href="#3、-11" class="headerlink" title="3、"></a>3、</h5><h3 id="四、"><a href="#四、" class="headerlink" title="四、"></a>四、</h3><h4 id="1、-12"><a href="#1、-12" class="headerlink" title="1、"></a>1、</h4><h5 id="1、-13"><a href="#1、-13" class="headerlink" title="1、"></a>1、</h5><h5 id="2、-12"><a href="#2、-12" class="headerlink" title="2、"></a>2、</h5><h5 id="3、-12"><a href="#3、-12" class="headerlink" title="3、"></a>3、</h5><h4 id="2、-13"><a href="#2、-13" class="headerlink" title="2、"></a>2、</h4><h5 id="1、-14"><a href="#1、-14" class="headerlink" title="1、"></a>1、</h5><h5 id="2、-14"><a href="#2、-14" class="headerlink" title="2、"></a>2、</h5><h5 id="3、-13"><a href="#3、-13" class="headerlink" title="3、"></a>3、</h5><h4 id="3、-14"><a href="#3、-14" class="headerlink" title="3、"></a>3、</h4><h5 id="1、-15"><a href="#1、-15" class="headerlink" title="1、"></a>1、</h5><h5 id="2、-15"><a href="#2、-15" class="headerlink" title="2、"></a>2、</h5><h5 id="3、-15"><a href="#3、-15" class="headerlink" title="3、"></a>3、</h5><h3 id="五、"><a href="#五、" class="headerlink" title="五、"></a>五、</h3><h4 id="1、-16"><a href="#1、-16" class="headerlink" title="1、"></a>1、</h4><h5 id="1、-17"><a href="#1、-17" class="headerlink" title="1、"></a>1、</h5><h5 id="2、-16"><a href="#2、-16" class="headerlink" title="2、"></a>2、</h5><h5 id="3、-16"><a href="#3、-16" class="headerlink" title="3、"></a>3、</h5><h4 id="2、-17"><a href="#2、-17" class="headerlink" title="2、"></a>2、</h4><h5 id="1、-18"><a href="#1、-18" class="headerlink" title="1、"></a>1、</h5><h5 id="2、-18"><a href="#2、-18" class="headerlink" title="2、"></a>2、</h5><h5 id="3、-17"><a href="#3、-17" class="headerlink" title="3、"></a>3、</h5><h4 id="3、-18"><a href="#3、-18" class="headerlink" title="3、"></a>3、</h4><h5 id="1、-19"><a href="#1、-19" class="headerlink" title="1、"></a>1、</h5><h5 id="2、-19"><a href="#2、-19" class="headerlink" title="2、"></a>2、</h5><h5 id="3、-19"><a href="#3、-19" class="headerlink" title="3、"></a>3、</h5><h2 id="参考地址-↓"><a href="#参考地址-↓" class="headerlink" title="参考地址 ↓"></a>参考地址 ↓</h2><p>1、Springboot 启动注解扫描：<a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_50932526/article/details/122936434">https://blog.csdn.net/m0_50932526/article/details/122936434</a></p>
 <p>2、异常：org.apache.ibatis.binding.BindingException: Invalid bound statement (not fou</p>
 <p>需要指定扫描包路径为具体路径，之前是 <strong>@MapperScan({“com.kk.srb”})</strong>,现在是**@MapperScan({“com.kk.srb.core.mapper”})**</p>
 <p><a target="_blank" rel="noopener" href="https://www.freesion.com/article/7476436940/">https://www.freesion.com/article/7476436940/</a></p>
@@ -2435,7 +2717,7 @@ new Valine({
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">93.5k</span>&nbsp;字
+                class="white-color">95k</span>&nbsp;字
             
             
             
