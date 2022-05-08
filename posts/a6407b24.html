@@ -681,21 +681,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-05-05
+                    2022-05-08
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    6.7k
+                    11.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    31 分
+                    52 分
                 </div>
                 
 
@@ -1814,11 +1814,740 @@
 <h5 id="3、测试-1"><a href="#3、测试-1" class="headerlink" title="3、测试"></a>3、测试</h5><p>在save测试用例中输入非法的json参数，则得到下面的结果。我们可以在控制台日志中查看具体的错误原因。前端只需要返回相对简单友好的提示即可。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/project/shangrongbao/202205052245586.png"></p>
 <h3 id="五、统一日志处理"><a href="#五、统一日志处理" class="headerlink" title="五、统一日志处理"></a>五、统一日志处理</h3><h4 id="1、Logback日志"><a href="#1、Logback日志" class="headerlink" title="1、Logback日志"></a>1、Logback日志</h4><h5 id="1-什么是日志"><a href="#1-什么是日志" class="headerlink" title="1.什么是日志"></a>1.什么是日志</h5><p>通过日志查看程序的运行过程，运行信息，异常信息等</p>
-<h5 id="2-日志级别"><a href="#2-日志级别" class="headerlink" title="2.日志级别"></a>2.日志级别</h5><h5 id="3-创建日志文件"><a href="#3-创建日志文件" class="headerlink" title="3.创建日志文件"></a>3.创建日志文件</h5><h4 id="2、基本配置说明"><a href="#2、基本配置说明" class="headerlink" title="2、基本配置说明"></a>2、基本配置说明</h4><h5 id="1"><a href="#1" class="headerlink" title="1."></a>1.</h5><h5 id="2"><a href="#2" class="headerlink" title="2."></a>2.</h5><h5 id="3"><a href="#3" class="headerlink" title="3."></a>3.</h5><h4 id="3、多环境配置"><a href="#3、多环境配置" class="headerlink" title="3、多环境配置"></a>3、多环境配置</h4><h5 id="1-1"><a href="#1-1" class="headerlink" title="1."></a>1.</h5><h5 id="2-1"><a href="#2-1" class="headerlink" title="2."></a>2.</h5><h5 id="3-1"><a href="#3-1" class="headerlink" title="3."></a>3.</h5><h4 id="4、滚动日志"><a href="#4、滚动日志" class="headerlink" title="4、滚动日志"></a>4、滚动日志</h4><h5 id="1-2"><a href="#1-2" class="headerlink" title="1."></a>1.</h5><h5 id="2-2"><a href="#2-2" class="headerlink" title="2."></a>2.</h5><h5 id="-1"><a href="#-1" class="headerlink" title=""></a></h5><h4 id="5、完整的日志配置文件"><a href="#5、完整的日志配置文件" class="headerlink" title="5、完整的日志配置文件"></a>5、完整的日志配置文件</h4><h2 id="Ⅲ、前端架构搭建"><a href="#Ⅲ、前端架构搭建" class="headerlink" title="Ⅲ、前端架构搭建"></a>Ⅲ、前端架构搭建</h2><h3 id="一、"><a href="#一、" class="headerlink" title="一、"></a>一、</h3><h4 id="1、"><a href="#1、" class="headerlink" title="1、"></a>1、</h4><h5 id="1、-1"><a href="#1、-1" class="headerlink" title="1、"></a>1、</h5><h5 id="2、"><a href="#2、" class="headerlink" title="2、"></a>2、</h5><h5 id="3、"><a href="#3、" class="headerlink" title="3、"></a>3、</h5><h4 id="2、-1"><a href="#2、-1" class="headerlink" title="2、"></a>2、</h4><h5 id="1、-2"><a href="#1、-2" class="headerlink" title="1、"></a>1、</h5><h5 id="2、-2"><a href="#2、-2" class="headerlink" title="2、"></a>2、</h5><h5 id="3、-1"><a href="#3、-1" class="headerlink" title="3、"></a>3、</h5><h4 id="3、-2"><a href="#3、-2" class="headerlink" title="3、"></a>3、</h4><h5 id="1、-3"><a href="#1、-3" class="headerlink" title="1、"></a>1、</h5><h5 id="2、-3"><a href="#2、-3" class="headerlink" title="2、"></a>2、</h5><h5 id="3、-3"><a href="#3、-3" class="headerlink" title="3、"></a>3、</h5><h3 id="二、"><a href="#二、" class="headerlink" title="二、"></a>二、</h3><h4 id="1、-4"><a href="#1、-4" class="headerlink" title="1、"></a>1、</h4><h5 id="1、-5"><a href="#1、-5" class="headerlink" title="1、"></a>1、</h5><h5 id="2、-4"><a href="#2、-4" class="headerlink" title="2、"></a>2、</h5><h5 id="3、-4"><a href="#3、-4" class="headerlink" title="3、"></a>3、</h5><h4 id="2、-5"><a href="#2、-5" class="headerlink" title="2、"></a>2、</h4><h5 id="1、-6"><a href="#1、-6" class="headerlink" title="1、"></a>1、</h5><h5 id="2、-6"><a href="#2、-6" class="headerlink" title="2、"></a>2、</h5><h5 id="3、-5"><a href="#3、-5" class="headerlink" title="3、"></a>3、</h5><h4 id="3、-6"><a href="#3、-6" class="headerlink" title="3、"></a>3、</h4><h5 id="1、-7"><a href="#1、-7" class="headerlink" title="1、"></a>1、</h5><h5 id="2、-7"><a href="#2、-7" class="headerlink" title="2、"></a>2、</h5><h5 id="3、-7"><a href="#3、-7" class="headerlink" title="3、"></a>3、</h5><h3 id="三、"><a href="#三、" class="headerlink" title="三、"></a>三、</h3><h4 id="1、-8"><a href="#1、-8" class="headerlink" title="1、"></a>1、</h4><h5 id="1、-9"><a href="#1、-9" class="headerlink" title="1、"></a>1、</h5><h5 id="2、-8"><a href="#2、-8" class="headerlink" title="2、"></a>2、</h5><h5 id="3、-8"><a href="#3、-8" class="headerlink" title="3、"></a>3、</h5><h4 id="2、-9"><a href="#2、-9" class="headerlink" title="2、"></a>2、</h4><h5 id="1、-10"><a href="#1、-10" class="headerlink" title="1、"></a>1、</h5><h5 id="2、-10"><a href="#2、-10" class="headerlink" title="2、"></a>2、</h5><h5 id="3、-9"><a href="#3、-9" class="headerlink" title="3、"></a>3、</h5><h4 id="3、-10"><a href="#3、-10" class="headerlink" title="3、"></a>3、</h4><h5 id="1、-11"><a href="#1、-11" class="headerlink" title="1、"></a>1、</h5><h5 id="2、-11"><a href="#2、-11" class="headerlink" title="2、"></a>2、</h5><h5 id="3、-11"><a href="#3、-11" class="headerlink" title="3、"></a>3、</h5><h3 id="四、"><a href="#四、" class="headerlink" title="四、"></a>四、</h3><h4 id="1、-12"><a href="#1、-12" class="headerlink" title="1、"></a>1、</h4><h5 id="1、-13"><a href="#1、-13" class="headerlink" title="1、"></a>1、</h5><h5 id="2、-12"><a href="#2、-12" class="headerlink" title="2、"></a>2、</h5><h5 id="3、-12"><a href="#3、-12" class="headerlink" title="3、"></a>3、</h5><h4 id="2、-13"><a href="#2、-13" class="headerlink" title="2、"></a>2、</h4><h5 id="1、-14"><a href="#1、-14" class="headerlink" title="1、"></a>1、</h5><h5 id="2、-14"><a href="#2、-14" class="headerlink" title="2、"></a>2、</h5><h5 id="3、-13"><a href="#3、-13" class="headerlink" title="3、"></a>3、</h5><h4 id="3、-14"><a href="#3、-14" class="headerlink" title="3、"></a>3、</h4><h5 id="1、-15"><a href="#1、-15" class="headerlink" title="1、"></a>1、</h5><h5 id="2、-15"><a href="#2、-15" class="headerlink" title="2、"></a>2、</h5><h5 id="3、-15"><a href="#3、-15" class="headerlink" title="3、"></a>3、</h5><h3 id="五、"><a href="#五、" class="headerlink" title="五、"></a>五、</h3><h4 id="1、-16"><a href="#1、-16" class="headerlink" title="1、"></a>1、</h4><h5 id="1、-17"><a href="#1、-17" class="headerlink" title="1、"></a>1、</h5><h5 id="2、-16"><a href="#2、-16" class="headerlink" title="2、"></a>2、</h5><h5 id="3、-16"><a href="#3、-16" class="headerlink" title="3、"></a>3、</h5><h4 id="2、-17"><a href="#2、-17" class="headerlink" title="2、"></a>2、</h4><h5 id="1、-18"><a href="#1、-18" class="headerlink" title="1、"></a>1、</h5><h5 id="2、-18"><a href="#2、-18" class="headerlink" title="2、"></a>2、</h5><h5 id="3、-17"><a href="#3、-17" class="headerlink" title="3、"></a>3、</h5><h4 id="3、-18"><a href="#3、-18" class="headerlink" title="3、"></a>3、</h4><h5 id="1、-19"><a href="#1、-19" class="headerlink" title="1、"></a>1、</h5><h5 id="2、-19"><a href="#2、-19" class="headerlink" title="2、"></a>2、</h5><h5 id="3、-19"><a href="#3、-19" class="headerlink" title="3、"></a>3、</h5><h2 id="参考地址-↓"><a href="#参考地址-↓" class="headerlink" title="参考地址 ↓"></a>参考地址 ↓</h2><p>1、Springboot 启动注解扫描：<a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_50932526/article/details/122936434">https://blog.csdn.net/m0_50932526/article/details/122936434</a></p>
+<h5 id="2-日志级别"><a href="#2-日志级别" class="headerlink" title="2.日志级别"></a>2.日志级别</h5><p>日志记录器（Logger）的行为是分等级的。如下表所示：</p>
+<p>分为：TRACE, DEBUG, INFO, WARN, ERROR, ALL 和 OFF</p>
+<p><font color="red">默认</font>情况下，spring boot从控制台打印出来的日志级别只有<font color="red">INFO及以上级别</font>，可以配置日志级别</p>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token comment"># 设置日志级别</span>
+<span class="token key atrule">logging</span><span class="token punctuation">:</span>
+  <span class="token key atrule">level</span><span class="token punctuation">:</span>
+    <span class="token key atrule">root</span><span class="token punctuation">:</span> ERROR<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>这种方式能将ERROR级别以及以上级别的日志输出到控制台上，其他级别将不会输出</p>
+<h5 id="3-创建日志文件"><a href="#3-创建日志文件" class="headerlink" title="3.创建日志文件"></a>3.创建日志文件</h5><p>spring boot内部使用Logback作为日志实现的框架。</p>
+<p><font color="red">先删除前面在application.yml中的日志级别配置</font></p>
+<p>resources 中创建 logback-spring.xml （默认日志文件的名字）</p>
+<pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>configuration</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>configuration</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/project/shangrongbao/202205062025917.png"></p>
+<h5 id="4、创建测试日志输出"><a href="#4、创建测试日志输出" class="headerlink" title="4、创建测试日志输出"></a>4、创建测试日志输出</h5><p>将以下日志输出到任意controller的方法中即可，例如list方法中</p>
+<p>前提：类上记得加 <code>@Slf4j</code>，注入 log.info </p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span><span class="token string">"/list"</span><span class="token punctuation">)</span>
+<span class="token annotation punctuation">@ApiOperation</span><span class="token punctuation">(</span><span class="token string">"积分等级列表"</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token class-name">R</span> <span class="token function">listAll</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+    log<span class="token punctuation">.</span>info <span class="token punctuation">(</span><span class="token string">"hi i'm helen"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    log<span class="token punctuation">.</span>warn <span class="token punctuation">(</span><span class="token string">"warning!!!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    log<span class="token punctuation">.</span>error <span class="token punctuation">(</span><span class="token string">"it's a error"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">IntegralGrade</span><span class="token punctuation">&gt;</span></span> list <span class="token operator">=</span> integralGradeService<span class="token punctuation">.</span>list <span class="token punctuation">(</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token class-name">R</span><span class="token punctuation">.</span>ok <span class="token punctuation">(</span> <span class="token punctuation">)</span><span class="token punctuation">.</span>data <span class="token punctuation">(</span><span class="token string">"list"</span><span class="token punctuation">,</span> list<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+<h4 id="2、基本配置说明"><a href="#2、基本配置说明" class="headerlink" title="2、基本配置说明"></a>2、基本配置说明</h4><h5 id="1-configuration"><a href="#1-configuration" class="headerlink" title="1.configuration"></a>1.configuration</h5><p>日志配置的根节点</p>
+<pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>configuration</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>configuration</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<h5 id="2-contextName"><a href="#2-contextName" class="headerlink" title="2.contextName"></a>2.contextName</h5><p><contextname>是    <configuration>的子节点。</configuration></contextname></p>
+<p>每个logger都关联到logger上下文，默认上下文名称为“default”。但可以使用<contextname>设置成其他名字，用于区分不同的应用程序。</contextname></p>
+<pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>contextName</span><span class="token punctuation">&gt;</span></span>kkSrb<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>contextName</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<h5 id="3-property"><a href="#3-property" class="headerlink" title="3.property"></a>3.property</h5><p><property>是    <configuration>的子节点，用来定义变量。</configuration></property></p>
+<p><property>     有两个属性，name和value：name的值是变量的名称，value是变量的值。</property></p>
+<p>通过<property>    定义的值会被插入到logger上下文中。定义变量后，可以使“${}”来使用变量。</property></p>
+<pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token comment">&lt;!-- 日志的输出目录 --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>log.path<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>D:/project/finance/srb_log/core<span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span>
+
+<span class="token comment">&lt;!--控制台日志格式：彩色日志--&gt;</span>
+<span class="token comment">&lt;!-- magenta:洋红 --&gt;</span>
+<span class="token comment">&lt;!-- boldMagenta:粗红--&gt;</span>
+<span class="token comment">&lt;!-- cyan:青色 --&gt;</span>
+<span class="token comment">&lt;!-- white:白色 --&gt;</span>
+<span class="token comment">&lt;!-- magenta:洋红 --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>CONSOLE_LOG_PATTERN<span class="token punctuation">"</span></span>
+          <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>%yellow(%date{yyyy-MM-dd HH:mm:ss}) %highlight([%-5level]) %green(%logger) %msg%n<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+
+<span class="token comment">&lt;!--文件日志格式--&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>FILE_LOG_PATTERN<span class="token punctuation">"</span></span>
+          <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>%date{yyyy-MM-dd HH:mm:ss} [%-5level] %thread %file:%line %logger %msg%n<span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span>
+
+<span class="token comment">&lt;!--编码--&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ENCODING<span class="token punctuation">"</span></span>
+          <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h5 id="4、appender"><a href="#4、appender" class="headerlink" title="4、appender"></a>4、appender</h5><p><appender>     是<configuration>的子节点，是负责写日志的组件</configuration></appender></p>
+<p><appender>    有两个必要属性name和class：name指定appender名称，class指定appender的全限定名</appender></p>
+<p><encoder>       对日志进行格式化</encoder></p>
+<p><pattern>        定义日志的具体输出格式</pattern></p>
+<p><charset>        编码方式</charset></p>
+<p><strong>4.1控制台日志配置</strong></p>
+<pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token comment">&lt;!-- 控制台日志 --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>appender</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>CONSOLE<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ch.qos.logback.core.ConsoleAppender<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>encoder</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>pattern</span><span class="token punctuation">&gt;</span></span>${CONSOLE_LOG_PATTERN}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>pattern</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>charset</span><span class="token punctuation">&gt;</span></span>${ENCODING}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>charset</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>encoder</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>appender</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+<p><strong>4.2文件日志配置</strong> </p>
+<p><file>表示日志文件的位置，如果上级目录不存在会自动创建，没有默认值。</file></p>
+<p><append>默认 true，日志被追加到文件结尾，如果是 false，服务重启后清空现存文件。</append></p>
+<pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token comment">&lt;!-- 文件日志 --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>appender</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>FILE<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ch.qos.logback.core.FileAppender<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>file</span><span class="token punctuation">&gt;</span></span>${log.path}/log.log<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>file</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>append</span><span class="token punctuation">&gt;</span></span>true<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>append</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>encoder</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>pattern</span><span class="token punctuation">&gt;</span></span>${FILE_LOG_PATTERN}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>pattern</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>charset</span><span class="token punctuation">&gt;</span></span>${ENCODING}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>charset</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>encoder</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>appender</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h5 id="5、logger"><a href="#5、logger" class="headerlink" title="5、logger"></a>5、logger</h5><p><logger>可以是    <configuration>的子节点，用来设置某一个包或具体某一个类的日志打印级别、指定<appender></appender></configuration></logger></p>
+<p>name：    用来指定受此logger约束的某一个包或者具体的某一个类</p>
+<p>level：    用来设置打印级别，大小写无关：TRACE, DEBUG, INFO, WARN, ERROR, ALL 和 OFF。默认继承上级的级别</p>
+<p><logger>    可以包含零个或多个<appender-ref>元素，标识这个appender将会添加到这个logger</appender-ref></logger></p>
+<pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token comment">&lt;!-- 日志记录器  --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>logger</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>com.kk<span class="token punctuation">"</span></span> <span class="token attr-name">level</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>INFO<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>appender-ref</span> <span class="token attr-name">ref</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>CONSOLE<span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>appender-ref</span> <span class="token attr-name">ref</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>FILE<span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>logger</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h5 id="6、测试"><a href="#6、测试" class="headerlink" title="6、测试"></a>6、测试</h5><p>测试日志记录的控制台输出、文件输出、以及日志级别</p>
+<p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/project/shangrongbao/202205062051381.png"></p>
+<h4 id="3、多环境配置"><a href="#3、多环境配置" class="headerlink" title="3、多环境配置"></a>3、多环境配置</h4><h5 id="springProfile"><a href="#springProfile" class="headerlink" title="springProfile"></a>springProfile</h5><p>在一个基于Spring boot开发的项目里，常常需要有多套环境的配置：开发，测试以及产品。</p>
+<p>使用springProfile 可以分别配置开发（dev），测试（test）以及生产（prod）等不同的环境</p>
+<pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token comment">&lt;!-- 开发环境和测试环境 --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>springProfile</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>dev,test<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>logger</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>com.kk<span class="token punctuation">"</span></span> <span class="token attr-name">level</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>INFO<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>appender-ref</span> <span class="token attr-name">ref</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>CONSOLE<span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>logger</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>springProfile</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token comment">&lt;!-- 生产环境 --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>springProfile</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>prod<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>logger</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>com.kk<span class="token punctuation">"</span></span> <span class="token attr-name">level</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ERROR<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>appender-ref</span> <span class="token attr-name">ref</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>CONSOLE<span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>appender-ref</span> <span class="token attr-name">ref</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>FILE<span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>logger</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>springProfile</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p><font color="red">注意</font>：需要注释原始配置</p>
+<pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token comment">&lt;!-- 日志记录器  --&gt;</span>
+<span class="token comment">&lt;!--&lt;logger name="com.kk" level="INFO"&gt;--&gt;</span>
+    <span class="token comment">&lt;!--&lt;appender-ref ref="CONSOLE"/&gt;--&gt;</span>
+    <span class="token comment">&lt;!--&lt;appender-ref ref="FILE"/&gt;--&gt;</span>
+<span class="token comment">&lt;!--&lt;/logger&gt;--&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+<h4 id="4、滚动日志-★"><a href="#4、滚动日志-★" class="headerlink" title="4、滚动日志 ★"></a>4、滚动日志 ★</h4><p><font color="red">问题</font>：生产环境下，如果系统长时间运行，那么日志文件会变得越来越大，系统读取和写入日志的时间会越来越慢，严重的情况会耗尽系统内存，导致系统宕机。</p>
+<p><font color="red">解决方案</font>：可以设置滚动日志。</p>
+<h5 id="1-设置时间滚动策略"><a href="#1-设置时间滚动策略" class="headerlink" title="1.设置时间滚动策略"></a>1.设置时间滚动策略</h5><p>RollingFileAppender是    Appender的另一个实现，表示滚动记录文件，先将日志记录到指定文件，当符合某个条件时，将旧日志备份到其他文件</p>
+<p><rollingpolicy>是    <appender>的子节点，用来定义滚动策略。</appender></rollingpolicy></p>
+<p>TimeBasedRollingPolicy：    最常用的滚动策略，根据时间来制定滚动策略。</p>
+<p><filenamepattern>：    包含文件名及转换符， “%d”可以包含指定的时间格式，如：%d{yyyy-MM-dd}。如果直接使用 %d，默认格式是 yyyy-MM-dd。</filenamepattern></p>
+<p><maxhistory>：    可选节点，控制保留的归档文件的最大数量，超出数量就删除旧文件。假设设置每个月滚动，且<maxhistory>是6，则只保存最近6个月的文件，删除之前的旧文件。注意，删除旧文件是，那些为了归档而创建的目录也会被删除。</maxhistory></maxhistory></p>
+<pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>appender</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ROLLING_FILE<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ch.qos.logback.core.rolling.RollingFileAppender<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+
+    <span class="token comment">&lt;!--  要区别于其他的appender中的文件名字  --&gt;</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>file</span><span class="token punctuation">&gt;</span></span>${log.path}/log-rolling.log<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>file</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>encoder</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>pattern</span><span class="token punctuation">&gt;</span></span>${FILE_LOG_PATTERN}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>pattern</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>charset</span><span class="token punctuation">&gt;</span></span>${ENCODING}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>charset</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>encoder</span><span class="token punctuation">&gt;</span></span>
+
+    <span class="token comment">&lt;!-- 设置滚动日志记录的滚动策略 --&gt;</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>rollingPolicy</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ch.qos.logback.core.rolling.TimeBasedRollingPolicy<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token comment">&lt;!-- 日志归档路径以及格式 --&gt;</span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>fileNamePattern</span><span class="token punctuation">&gt;</span></span>${log.path}/info/log-rolling-%d{yyyy-MM-dd}.log<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>fileNamePattern</span><span class="token punctuation">&gt;</span></span>
+        <span class="token comment">&lt;!--归档日志文件保留的最大数量--&gt;</span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>maxHistory</span><span class="token punctuation">&gt;</span></span>15<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>maxHistory</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>rollingPolicy</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>appender</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h5 id="2-设置触发滚动时机"><a href="#2-设置触发滚动时机" class="headerlink" title="2.设置触发滚动时机"></a>2.设置触发滚动时机</h5><p>放在<rollingpolicy>的子节点的位置里面，基于实践策略的触发滚动策略</rollingpolicy></p>
+<p><maxfilesize>设置触发滚动条件：单个文件大于100M时生成新的文件</maxfilesize></p>
+<p><font color="red"><strong>注意：修改日志文件名</strong>  </font>此时 <filenamepattern>${log.path}/info/log-rolling-%d{yyyy-MM-dd}<font color="red"><strong>.%i</strong></font>.log</filenamepattern></p>
+<pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>timeBasedFileNamingAndTriggeringPolicy</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>maxFileSize</span><span class="token punctuation">&gt;</span></span>1KB<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>maxFileSize</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>timeBasedFileNamingAndTriggeringPolicy</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+<h4 id="5、完整的日志配置文件"><a href="#5、完整的日志配置文件" class="headerlink" title="5、完整的日志配置文件"></a>5、完整的日志配置文件</h4><pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>configuration</span><span class="token punctuation">&gt;</span></span>
+
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>contextName</span><span class="token punctuation">&gt;</span></span>kkSrb<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>contextName</span><span class="token punctuation">&gt;</span></span>
+
+    <span class="token comment">&lt;!-- 日志的输出目录 --&gt;</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>log.path<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>D:/project/test/srb_log/core<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+
+    <span class="token comment">&lt;!--控制台日志格式：彩色日志--&gt;</span>
+    <span class="token comment">&lt;!-- magenta:洋红 --&gt;</span>
+    <span class="token comment">&lt;!-- boldMagenta:粗红--&gt;</span>
+    <span class="token comment">&lt;!-- cyan:青色 --&gt;</span>
+    <span class="token comment">&lt;!-- white:白色 --&gt;</span>
+    <span class="token comment">&lt;!-- magenta:洋红 --&gt;</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>CONSOLE_LOG_PATTERN<span class="token punctuation">"</span></span>
+              <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>%yellow(%date{yyyy-MM-dd HH:mm:ss}) %highlight([%-5level]) %green(%logger) %msg%n<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+
+    <span class="token comment">&lt;!--文件日志格式--&gt;</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>FILE_LOG_PATTERN<span class="token punctuation">"</span></span>
+              <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>%date{yyyy-MM-dd HH:mm:ss} [%-5level] %thread %file:%line %logger %msg%n<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+
+    <span class="token comment">&lt;!--编码--&gt;</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ENCODING<span class="token punctuation">"</span></span>
+              <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+
+    <span class="token comment">&lt;!-- 控制台日志 --&gt;</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>appender</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>CONSOLE<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ch.qos.logback.core.ConsoleAppender<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>encoder</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>pattern</span><span class="token punctuation">&gt;</span></span>${CONSOLE_LOG_PATTERN}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>pattern</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>charset</span><span class="token punctuation">&gt;</span></span>${ENCODING}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>charset</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>encoder</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>appender</span><span class="token punctuation">&gt;</span></span>
+
+    <span class="token comment">&lt;!-- 文件日志 --&gt;</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>appender</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>FILE<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ch.qos.logback.core.FileAppender<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>file</span><span class="token punctuation">&gt;</span></span>${log.path}/log.log<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>file</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>append</span><span class="token punctuation">&gt;</span></span>true<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>append</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>encoder</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>pattern</span><span class="token punctuation">&gt;</span></span>${FILE_LOG_PATTERN}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>pattern</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>charset</span><span class="token punctuation">&gt;</span></span>${ENCODING}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>charset</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>encoder</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>appender</span><span class="token punctuation">&gt;</span></span>
+
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>appender</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ROLLING_FILE<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ch.qos.logback.core.rolling.RollingFileAppender<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+
+        <span class="token comment">&lt;!--  要区别于其他的appender中的文件名字  --&gt;</span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>file</span><span class="token punctuation">&gt;</span></span>${log.path}/log-rolling.log<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>file</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>encoder</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>pattern</span><span class="token punctuation">&gt;</span></span>${FILE_LOG_PATTERN}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>pattern</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>charset</span><span class="token punctuation">&gt;</span></span>${ENCODING}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>charset</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>encoder</span><span class="token punctuation">&gt;</span></span>
+
+
+        <span class="token comment">&lt;!-- 设置滚动日志记录的滚动策略 --&gt;</span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>rollingPolicy</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ch.qos.logback.core.rolling.TimeBasedRollingPolicy<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+            <span class="token comment">&lt;!-- 日志归档路径以及格式 --&gt;</span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>fileNamePattern</span><span class="token punctuation">&gt;</span></span>${log.path}/info/log-rolling-%d{yyyy-MM-dd}.%i.log<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>fileNamePattern</span><span class="token punctuation">&gt;</span></span>
+            <span class="token comment">&lt;!--归档日志文件保留的最大数量--&gt;</span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>maxHistory</span><span class="token punctuation">&gt;</span></span>15<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>maxHistory</span><span class="token punctuation">&gt;</span></span>
+
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>timeBasedFileNamingAndTriggeringPolicy</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>maxFileSize</span><span class="token punctuation">&gt;</span></span>1KB<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>maxFileSize</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>timeBasedFileNamingAndTriggeringPolicy</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>rollingPolicy</span><span class="token punctuation">&gt;</span></span>
+
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>appender</span><span class="token punctuation">&gt;</span></span>
+
+
+    <span class="token comment">&lt;!--    &lt;logger name="com.kk" level="INFO"&gt;--&gt;</span>
+    <span class="token comment">&lt;!--        &lt;appender-ref ref="CONSOLE" /&gt;--&gt;</span>
+    <span class="token comment">&lt;!--        &lt;appender-ref ref="FILE" /&gt;--&gt;</span>
+    <span class="token comment">&lt;!--    &lt;/logger&gt;--&gt;</span>
+
+    <span class="token comment">&lt;!-- 开发环境和测试环境 --&gt;</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>springProfile</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>dev,test<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>logger</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>com.kk<span class="token punctuation">"</span></span> <span class="token attr-name">level</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>INFO<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>appender-ref</span> <span class="token attr-name">ref</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>CONSOLE<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>logger</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>springProfile</span><span class="token punctuation">&gt;</span></span>
+
+    <span class="token comment">&lt;!-- 生产环境 --&gt;</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>springProfile</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>prod<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>logger</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>com.kk<span class="token punctuation">"</span></span> <span class="token attr-name">level</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ERROR<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>appender-ref</span> <span class="token attr-name">ref</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>CONSOLE<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>appender-ref</span> <span class="token attr-name">ref</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ROLLING_FILE<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>logger</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>springProfile</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>configuration</span><span class="token punctuation">&gt;</span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+<h2 id="Ⅲ、前端架构搭建"><a href="#Ⅲ、前端架构搭建" class="headerlink" title="Ⅲ、前端架构搭建"></a>Ⅲ、前端架构搭建</h2><h3 id="一、搭建前端平台"><a href="#一、搭建前端平台" class="headerlink" title="一、搭建前端平台"></a>一、搭建前端平台</h3><h4 id="1、vue-element-admin"><a href="#1、vue-element-admin" class="headerlink" title="1、vue-element-admin"></a>1、<strong>vue-element-admin</strong></h4><p>vue-element-admin是基于element-ui 的一套后台管理<font color="red">系统集成方案</font>。</p>
+<p><strong>GitHub地址：</strong><a target="_blank" rel="noopener" href="https://github.com/PanJiaChen/vue-element-admin">https://github.com/PanJiaChen/vue-element-admin</a></p>
+<p><strong>项目在线预览：</strong><a target="_blank" rel="noopener" href="https://panjiachen.gitee.io/vue-element-admin/#/login?redirect=%2Fdashboard">https://panjiachen.gitee.io/vue-element-admin</a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/project/shangrongbao/202205062135460.png"></p>
+<h4 id="2、vue-admin-template"><a href="#2、vue-admin-template" class="headerlink" title="2、vue-admin-template"></a>2、<strong>vue-admin-template</strong></h4><h5 id="1、简介"><a href="#1、简介" class="headerlink" title="1、简介"></a>1、简介</h5><p>vueAdmin-template是基于vue-element-admin的一套后台管理系统基础模板<font color="red">（最少精简版）</font>，可作为模板进行二次开发。</p>
+<p><strong>GitHub地址：</strong><a target="_blank" rel="noopener" href="https://github.com/PanJiaChen/vue-admin-template">https://github.com/PanJiaChen/vue-admin-template</a></p>
+<p><strong>根据用户角色来动态生成侧边栏的分支：</strong><a target="_blank" rel="noopener" href="https://github.com/PanJiaChen/vue-admin-template/tree/permission-control">https://github.com/PanJiaChen/vue-admin-template/tree/permission-control</a></p>
+<h5 id="2、安装和运行"><a href="#2、安装和运行" class="headerlink" title="2、安装和运行"></a>2、安装和运行</h5><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># clone 项目</span>
+<span class="token function">git</span> clone https<span class="token punctuation">..</span><span class="token punctuation">..</span><span class="token punctuation">..</span>
+<span class="token comment"># 重命名,删掉自带的 .git文件夹</span>
+
+<span class="token comment"># 进入目录</span>
+<span class="token builtin class-name">cd</span> FrontEndCode
+
+<span class="token comment"># 安装依赖</span>
+<span class="token function">npm</span> <span class="token function">install</span>
+
+<span class="token comment"># 启动。执行后，浏览器自动弹出并访问http://localhost:9528/</span>
+<span class="token function">npm</span> run dev<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/project/shangrongbao/202205062156091.png"></p>
+<h4 id="3、前端配置"><a href="#3、前端配置" class="headerlink" title="3、前端配置"></a>3、前端配置</h4><h5 id="1、禁用ESLint语法检查"><a href="#1、禁用ESLint语法检查" class="headerlink" title="1、禁用ESLint语法检查"></a>1、禁用ESLint语法检查</h5><p>vue.config.js 第30行处禁用ESLint语法检查</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js">lintOnSave<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<h5 id="2、添加prettier格式化配置"><a href="#2、添加prettier格式化配置" class="headerlink" title="2、添加prettier格式化配置"></a>2、添加prettier格式化配置</h5><p>在vue项目根目录下新建一个文件.prettierrc</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token punctuation">{</span>
+  <span class="token string">"semi"</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+  <span class="token string">"singleQuote"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token string">"htmlWhitespaceSensitivity"</span><span class="token operator">:</span> <span class="token string">"ignore"</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h5 id="3、修改页面标题"><a href="#3、修改页面标题" class="headerlink" title="3、修改页面标题"></a>3、修改页面标题</h5><p>src/settings.js 第3行处修改页面标题</p>
+<p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/project/shangrongbao/202205062211618.png"></p>
+<h5 id="4、国际化设置"><a href="#4、国际化设置" class="headerlink" title="4、国际化设置"></a>4、国际化设置</h5><p>src/main.js 第7行处修改语言</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">import</span> locale <span class="token keyword">from</span> <span class="token string">'element-ui/lib/locale/lang/zh-CN'</span> <span class="token comment">// lang i18n</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<p>测试平台语言的修改</p>
+<p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/project/shangrongbao/202205062329256.png"></p>
+<h5 id="5、下拉菜单修改"><a href="#5、下拉菜单修改" class="headerlink" title="5、下拉菜单修改"></a>5、下拉菜单修改</h5><p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/project/shangrongbao/202205062331557.png"></p>
+<h5 id="6、登录页修改"><a href="#6、登录页修改" class="headerlink" title="6、登录页修改"></a>6、登录页修改</h5><p>src/views/login/index.vue</p>
+<p>修改页面标题、登录按钮等</p>
+<h3 id="二、系统路由配置"><a href="#二、系统路由配置" class="headerlink" title="二、系统路由配置"></a>二、系统路由配置</h3><h4 id="1、组件定义"><a href="#1、组件定义" class="headerlink" title="1、组件定义"></a>1、<strong>组件定义</strong></h4><h5 id="1、创建vue组件"><a href="#1、创建vue组件" class="headerlink" title="1、创建vue组件"></a>1、创建vue组件</h5><p>在src/views文件夹下创建以下文件夹和文件</p>
+<p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/project/shangrongbao/202205062339340.png"></p>
+<h5 id="2、list-vue"><a href="#2、list-vue" class="headerlink" title="2、list.vue"></a>2、list.vue</h5><p>core/integral-grade/list.vue</p>
+<p>注意，最底下保留一行，不然vscode报错</p>
+<pre class="line-numbers language-vue" data-language="vue"><code class="language-vue">&lt;template&gt;
+  &lt;div class="app-container"&gt;积分等级列表&lt;/div&gt;
+&lt;/template&gt;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h5 id="3、form-vue"><a href="#3、form-vue" class="headerlink" title="3、form.vue"></a>3、form.vue</h5><p>core/integral-grade/orm.vue</p>
+<pre class="line-numbers language-vue" data-language="vue"><code class="language-vue">&lt;template&gt;
+  &lt;div class="app-container"&gt;
+    积分等级表单
+  &lt;/div&gt;
+&lt;/template&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+<h4 id="2、路由定义"><a href="#2、路由定义" class="headerlink" title="2、路由定义"></a>2、路由定义</h4><p>修改 src/router/index.js 文件，重新定义constantRoutes，拷贝到 dashboard路由节点 下面</p>
+<p><font color="red"><strong>注意：</strong>每个路由的name不能相同</font></p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token punctuation">{</span>
+    path<span class="token operator">:</span> <span class="token string">'/core/integral-grade'</span><span class="token punctuation">,</span>
+    component<span class="token operator">:</span> Layout<span class="token punctuation">,</span>
+    redirect<span class="token operator">:</span> <span class="token string">'/core/integral-grade/list'</span><span class="token punctuation">,</span>
+    name<span class="token operator">:</span> <span class="token string">'coreIntegralGrade'</span><span class="token punctuation">,</span>
+    meta<span class="token operator">:</span> <span class="token punctuation">{</span> title<span class="token operator">:</span> <span class="token string">'积分等级管理'</span><span class="token punctuation">,</span> icon<span class="token operator">:</span> <span class="token string">'el-icon-s-marketing'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    alwaysShow<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    children<span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">{</span>
+        path<span class="token operator">:</span> <span class="token string">'list'</span><span class="token punctuation">,</span>
+        name<span class="token operator">:</span> <span class="token string">'coreIntegralGradeList'</span><span class="token punctuation">,</span>
+        <span class="token function-variable function">component</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">'@/views/core/integral-grade/list'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        meta<span class="token operator">:</span> <span class="token punctuation">{</span> title<span class="token operator">:</span> <span class="token string">'积分等级列表'</span> <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span>
+        path<span class="token operator">:</span> <span class="token string">'create'</span><span class="token punctuation">,</span>
+        name<span class="token operator">:</span> <span class="token string">'coreIntegralGradeCreate'</span><span class="token punctuation">,</span>
+        <span class="token function-variable function">component</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">'@/views/core/integral-grade/form'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        meta<span class="token operator">:</span> <span class="token punctuation">{</span> title<span class="token operator">:</span> <span class="token string">'新增积分等级'</span> <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span>
+        path<span class="token operator">:</span> <span class="token string">'edit/:id'</span><span class="token punctuation">,</span>
+        name<span class="token operator">:</span> <span class="token string">'coreIntegralGradeEdit'</span><span class="token punctuation">,</span>
+        <span class="token function-variable function">component</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">'@/views/core/integral-grade/form'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        meta<span class="token operator">:</span> <span class="token punctuation">{</span> title<span class="token operator">:</span> <span class="token string">'编辑积分等级'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        hidden<span class="token operator">:</span> <span class="token boolean">true</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+
+
+<h3 id="三、前端开发流程"><a href="#三、前端开发流程" class="headerlink" title="三、前端开发流程"></a>三、前端开发流程</h3><h4 id="1、全栈开发流程"><a href="#1、全栈开发流程" class="headerlink" title="1、全栈开发流程"></a>1、全栈开发流程</h4><h5 id="1、前端调用流程"><a href="#1、前端调用流程" class="headerlink" title="1、前端调用流程"></a>1、前端调用流程</h5><p>下图是开发过程中涉及到和几个核心的模块，我们已经完成了路由的配置和页面组件的创建，接下来我们需要进一步完善页面组件的模板<template>部分，以及脚本<script>等部分的开发，然后创建前后端对接需要的api模块，最后通过api模块向后端接口发起调用。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/project/shangrongbao/202205072259818.png"></p>
+<h5 id="-1"><a href="#-1" class="headerlink" title=""></a></h5><h5 id="2、nginx反向代理配置"><a href="#2、nginx反向代理配置" class="headerlink" title="2、nginx反向代理配置"></a>2、nginx反向代理配置</h5><p>目前，应用程序的前后端基本架构如下：srb-admin是前端程序，直接调用后端的srb-core微服务</p>
+<p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/project/shangrongbao/202205080942459.png"></p>
+<p>为了能够让前端程序能够同时对接多个后端服务，我们可以使用多种解决方案，例如nginx反向代理、微服务网关等。这里我们先使用nginx作为前后端中间的反向代理层，架构如下</p>
+<p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/project/shangrongbao/202205080956814.png"></p>
+<p>nginx的配置</p>
+<pre class="line-numbers language-nginx" data-language="nginx"><code class="language-nginx"><span class="token keyword">server</span> <span class="token punctuation">&#123;</span>
+	<span class="token keyword">listen</span>       <span class="token number">80</span><span class="token punctuation">;</span>
+	<span class="token keyword">server_name</span>  localhost<span class="token punctuation">;</span>
+
+	<span class="token keyword">location</span> <span class="token operator">~</span> <span class="token operator">/</span>core<span class="token operator">/</span> <span class="token punctuation">&#123;</span>           
+	    <span class="token keyword">proxy_pass</span> <span class="token keyword">http</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>localhost<span class="token punctuation">:</span><span class="token number">8110</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+	<span class="token keyword">location</span> <span class="token operator">~</span> <span class="token operator">/</span>sms<span class="token operator">/</span> <span class="token punctuation">&#123;</span>           
+	    <span class="token keyword">proxy_pass</span> <span class="token keyword">http</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>localhost<span class="token punctuation">:</span><span class="token number">8120</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+	<span class="token keyword">location</span> <span class="token operator">~</span> <span class="token operator">/</span>oss<span class="token operator">/</span> <span class="token punctuation">&#123;</span>           
+            <span class="token keyword">proxy_pass</span> <span class="token keyword">http</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>localhost<span class="token punctuation">:</span><span class="token number">8130</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p>nginx的命令</p>
+<pre class="line-numbers language-nginx" data-language="nginx"><code class="language-nginx">start nginx <span class="token comment">#启动</span>
+nginx <span class="token operator">-</span>s stop <span class="token comment">#停止</span>
+nginx <span class="token operator">-</span>s reload <span class="token comment">#重新加载配置</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+<p>前端的配置： .env.development</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"># base api：连接到nginx
+<span class="token constant">VUE_APP_BASE_API</span> <span class="token operator">=</span> <span class="token string">'http://localhost'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+
+
+<h5 id="3、mock-server"><a href="#3、mock-server" class="headerlink" title="3、mock-server"></a>3、mock-server</h5><p>VUE_APP_BASE_API 的 修改会影响到平台模拟登录功能的mock数据，因此需要修改mock-server的地址</p>
+<p>修改 mock/mock-server.js 文件 第37行</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js">url<span class="token operator">:</span> <span class="token keyword">new</span> <span class="token class-name">RegExp</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">/dev-api</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>url<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">,</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<p>修改 src/api/user.js中的接口调用，为每一个远程调用添加配置</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js">baseURL<span class="token operator">:</span> <span class="token string">'/dev-api'</span><span class="token punctuation">,</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/project/shangrongbao/202205081822995.png"></p>
+<h4 id="2、前端组件开发"><a href="#2、前端组件开发" class="headerlink" title="2、前端组件开发"></a>2、前端组件开发</h4><h5 id="1、定义api模块"><a href="#1、定义api模块" class="headerlink" title="1、定义api模块"></a>1、定义api模块</h5><p>创建文件 src/api/core/integral-grade.js</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// @ 符号在vue.config.js 中配置， 表示 'src' 路径的别名</span>
+<span class="token keyword">import</span> request <span class="token keyword">from</span> <span class="token string">'@/utils/request'</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">&#123;</span>
+  <span class="token function">list</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> <span class="token function">request</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+      url<span class="token operator">:</span> <span class="token string">'/admin/core/integralGrade/list'</span><span class="token punctuation">,</span>
+      method<span class="token operator">:</span> <span class="token string">'get'</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h5 id="2、定义页面组件脚本"><a href="#2、定义页面组件脚本" class="headerlink" title="2、定义页面组件脚本"></a>2、定义页面组件脚本</h5><p>src/views/core/integral-grade/list.vue</p>
+<pre class="line-numbers language-vue" data-language="vue"><code class="language-vue">&lt;script&gt;
+import integralGradeApi from &#39;@&#x2F;api&#x2F;core&#x2F;integral-grade&#39;
+export default &#123;
+  &#x2F;&#x2F; 定义数据模型
+  data() &#123;
+    return &#123;
+      list: [] &#x2F;&#x2F; 数据列表
+    &#125;
+  &#125;,
+
+  &#x2F;&#x2F; 页面渲染成功后获取数据
+  created() &#123;
+    this.fetchData()
+  &#125;,
+
+  &#x2F;&#x2F; 定义方法
+  methods: &#123;
+    fetchData() &#123;
+      &#x2F;&#x2F; 调用api
+      integralGradeApi.list().then(response &#x3D;&gt; &#123;
+        this.list &#x3D; response.data.list
+      &#125;)
+    &#125;
+  &#125;
+&#125;
+&lt;&#x2F;script&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h5 id="3、定义页面组件模板"><a href="#3、定义页面组件模板" class="headerlink" title="3、定义页面组件模板"></a>3、定义页面组件模板</h5><p>src/views/core/integral-grade/list.vue</p>
+<pre class="line-numbers language-vue" data-language="vue"><code class="language-vue">&lt;template&gt;
+  &lt;div class&#x3D;&quot;app-container&quot;&gt;
+    &lt;!-- 表格 --&gt;
+    &lt;el-table :data&#x3D;&quot;list&quot; border stripe&gt;
+      &lt;el-table-column type&#x3D;&quot;index&quot; width&#x3D;&quot;50&quot; &#x2F;&gt;
+      &lt;el-table-column prop&#x3D;&quot;borrowAmount&quot; label&#x3D;&quot;借款额度&quot; &#x2F;&gt;
+      &lt;el-table-column prop&#x3D;&quot;integralStart&quot; label&#x3D;&quot;积分区间开始&quot; &#x2F;&gt;
+      &lt;el-table-column prop&#x3D;&quot;integralEnd&quot; label&#x3D;&quot;积分区间结束&quot; &#x2F;&gt;
+    &lt;&#x2F;el-table&gt;
+  &lt;&#x2F;div&gt;
+&lt;&#x2F;template&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h5 id="4、axios响应拦截器修改"><a href="#4、axios响应拦截器修改" class="headerlink" title="4、axios响应拦截器修改"></a>4、axios响应拦截器修改</h5><p>src/utils/request.js 中 将第49行的 </p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">if</span> <span class="token punctuation">(</span>res<span class="token punctuation">.</span>code <span class="token operator">!==</span> <span class="token number">20000</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>修改成</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">if</span> <span class="token punctuation">(</span>res<span class="token punctuation">.</span>code <span class="token operator">!==</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> res<span class="token punctuation">.</span>code <span class="token operator">!==</span> <span class="token number">20000</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<p>因为我们的后端接口统一结果判断0为成功的响应结果，而mock数据判断20000位正确的结果</p>
+<h5 id="-2"><a href="#-2" class="headerlink" title=""></a></h5><h3 id="四、完善积分模块"><a href="#四、完善积分模块" class="headerlink" title="四、完善积分模块"></a>四、完善积分模块</h3><h4 id="1、删除数据"><a href="#1、删除数据" class="headerlink" title="1、删除数据"></a>1、<strong>删除数据</strong></h4><h5 id="1-定义api"><a href="#1-定义api" class="headerlink" title="1.定义api"></a>1.定义api</h5><p> src/api/core/integral-grade.js</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token function">removeById</span><span class="token punctuation">(</span><span class="token parameter">id</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> <span class="token function">request</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+        url<span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">/admin/core/integralGrade/remove/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>id<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span>
+        method<span class="token operator">:</span> <span class="token string">'delete'</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h5 id="2-页面组件模板"><a href="#2-页面组件模板" class="headerlink" title="2.页面组件模板"></a>2.页面组件模板</h5><p>src/views/core/integral-grade/list.vue，在table组件中添加<font color ='red'>删除列</font></p>
+<pre class="line-numbers language-vue" data-language="vue"><code class="language-vue">&lt;el-table-column label&#x3D;&quot;操作&quot; width&#x3D;&quot;200&quot; align&#x3D;&quot;center&quot;&gt;
+    &lt;template slot-scope&#x3D;&quot;scope&quot;&gt;
+        &lt;el-button
+                   type&#x3D;&quot;danger&quot;
+                   size&#x3D;&quot;mini&quot;
+                   icon&#x3D;&quot;el-icon-delete&quot;
+                   @click&#x3D;&quot;removeById(scope.row.id)&quot;
+                   &gt;
+            删除
+        &lt;&#x2F;el-button&gt;
+    &lt;&#x2F;template&gt;
+&lt;&#x2F;el-table-column&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h5 id="3-删除数据脚本"><a href="#3-删除数据脚本" class="headerlink" title="3.删除数据脚本"></a>3.删除数据脚本</h5><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// 根据id删除数据</span>
+    <span class="token function">removeById</span><span class="token punctuation">(</span><span class="token parameter">id</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token comment">// debugger</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'id'</span><span class="token punctuation">,</span> id<span class="token punctuation">)</span>
+
+      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">$confirm</span><span class="token punctuation">(</span><span class="token string">'此操作将永久删除该记录, 是否继续?'</span><span class="token punctuation">,</span> <span class="token string">'提示'</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span>
+        confirmButtonText<span class="token operator">:</span> <span class="token string">'确定'</span><span class="token punctuation">,</span>
+        cancelButtonText<span class="token operator">:</span> <span class="token string">'取消'</span><span class="token punctuation">,</span>
+        type<span class="token operator">:</span> <span class="token string">'warning'</span>
+      <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+        <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+          <span class="token keyword">return</span> integralGradeApi<span class="token punctuation">.</span><span class="token function">removeById</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span>
+        <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+        <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">response</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+          <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">$message</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+            message<span class="token operator">:</span> response<span class="token punctuation">.</span>message<span class="token punctuation">,</span>
+            type<span class="token operator">:</span> <span class="token string">'success'</span>
+          <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+          <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">fetchData</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+        <span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token parameter">error</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+          console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'catch的error'</span><span class="token punctuation">,</span> error<span class="token punctuation">)</span>
+          <span class="token keyword">if</span> <span class="token punctuation">(</span>error <span class="token operator">===</span> <span class="token string">'cancel'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">$message</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+              type<span class="token operator">:</span> <span class="token string">'info'</span><span class="token punctuation">,</span>
+              message<span class="token operator">:</span> <span class="token string">'已取消删除'</span>
+            <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+          <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="2、新增数据"><a href="#2、新增数据" class="headerlink" title="2、新增数据"></a>2、新增数据</h4><h5 id="1-定义api-1"><a href="#1-定义api-1" class="headerlink" title="1.定义api"></a>1.定义api</h5><p> src/api/core/integral-grade.js</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token function">save</span><span class="token punctuation">(</span><span class="token parameter">integralGrade</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> <span class="token function">request</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+        url<span class="token operator">:</span> <span class="token string">'/admin/core/integralGrade/save'</span><span class="token punctuation">,</span>
+        method<span class="token operator">:</span> <span class="token string">'post'</span><span class="token punctuation">,</span>
+        data<span class="token operator">:</span> integralGrade
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h5 id="2-定义页面data"><a href="#2-定义页面data" class="headerlink" title="2.定义页面data"></a>2.定义页面data</h5><p>src/views/core/integral-grade/form.vue，完善data定义</p>
+<pre class="line-numbers language-vue" data-language="vue"><code class="language-vue">&lt;script&gt;
+export default &#123;
+  data() &#123;
+    return &#123;
+      integralGrade: &#123;&#125;, &#x2F;&#x2F; 初始化数据
+      saveBtnDisabled: false &#x2F;&#x2F; 保存按钮是否禁用，防止表单重复提交
+    &#125;
+  &#125;
+&#125;
+&lt;&#x2F;script&gt;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h5 id="3-页面组件模板"><a href="#3-页面组件模板" class="headerlink" title="3.页面组件模板"></a>3.页面组件模板</h5><p>src/views/core/integral-grade/form.vue，完善template</p>
+<pre class="line-numbers language-vue" data-language="vue"><code class="language-vue">&lt;template&gt;
+  &lt;div class&#x3D;&quot;app-container&quot;&gt;
+    &lt;!-- 输入表单 --&gt;
+    &lt;el-form label-width&#x3D;&quot;120px&quot;&gt;
+      &lt;el-form-item label&#x3D;&quot;借款额度&quot;&gt;
+        &lt;el-input-number v-model&#x3D;&quot;integralGrade.borrowAmount&quot; :min&#x3D;&quot;0&quot; &#x2F;&gt;
+      &lt;&#x2F;el-form-item&gt;
+      &lt;el-form-item label&#x3D;&quot;积分区间开始&quot;&gt;
+        &lt;el-input-number v-model&#x3D;&quot;integralGrade.integralStart&quot; :min&#x3D;&quot;0&quot; &#x2F;&gt;
+      &lt;&#x2F;el-form-item&gt;
+      &lt;el-form-item label&#x3D;&quot;积分区间结束&quot;&gt;
+        &lt;el-input-number v-model&#x3D;&quot;integralGrade.integralEnd&quot; :min&#x3D;&quot;0&quot; &#x2F;&gt;
+      &lt;&#x2F;el-form-item&gt;
+      &lt;el-form-item&gt;
+        &lt;el-button :disabled&#x3D;&quot;saveBtnDisabled&quot; type&#x3D;&quot;primary&quot; @click&#x3D;&quot;saveOrUpdate()&quot;&gt;
+          保存
+        &lt;&#x2F;el-button&gt;
+      &lt;&#x2F;el-form-item&gt;
+    &lt;&#x2F;el-form&gt;
+  &lt;&#x2F;div&gt;
+&lt;&#x2F;template&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h5 id="4-新增数据脚本"><a href="#4-新增数据脚本" class="headerlink" title="4.新增数据脚本"></a>4.新增数据脚本</h5><p>src/views/core/integral-grade/form.vue，引入api</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">import</span> integralGradeApi <span class="token keyword">from</span> <span class="token string">'@/api/core/integral-grade'</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<p>定义保存方法</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js">methods<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    <span class="token function">saveOrUpdate</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token comment">// 禁用保存按钮</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>saveBtnDisabled <span class="token operator">=</span> <span class="token boolean">true</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">saveData</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+
+    <span class="token comment">// 新增数据</span>
+    <span class="token function">saveData</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token comment">// debugger</span>
+      integralGradeApi<span class="token punctuation">.</span><span class="token function">save</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>integralGrade<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">response</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">$message</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+          type<span class="token operator">:</span> <span class="token string">'success'</span><span class="token punctuation">,</span>
+          message<span class="token operator">:</span> response<span class="token punctuation">.</span>message
+        <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>$router<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token string">'/core/integral-grade/list'</span><span class="token punctuation">)</span>
+      <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+<h4 id="3、回显数据"><a href="#3、回显数据" class="headerlink" title="3、回显数据"></a>3、回显数据</h4><h5 id="1-列表页编辑按钮"><a href="#1-列表页编辑按钮" class="headerlink" title="1.列表页编辑按钮"></a>1.列表页编辑按钮</h5><p>src/views/core/integral-grade/list.vue，表格“操作”列中增加“修改”按钮</p>
+<pre class="line-numbers language-vue" data-language="vue"><code class="language-vue">&lt;router-link :to&#x3D;&quot;&#39;&#x2F;core&#x2F;integral-grade&#x2F;edit&#x2F;&#39; + scope.row.id&quot; style&#x3D;&quot;margin-right:5px;&quot; &gt;
+	&lt;el-button type&#x3D;&quot;primary&quot; size&#x3D;&quot;mini&quot; icon&#x3D;&quot;el-icon-edit&quot;&gt;
+		修改
+	&lt;&#x2F;el-button&gt;
+&lt;&#x2F;router-link&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h5 id="2-定义api"><a href="#2-定义api" class="headerlink" title="2.定义api"></a>2.定义api</h5><p>src/api/core/integral-grade.js</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token function">getById</span><span class="token punctuation">(</span><span class="token parameter">id</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> <span class="token function">request</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+        url<span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">/admin/core/integralGrade/get/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>id<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span>
+        method<span class="token operator">:</span> <span class="token string">'get'</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h5 id="3-获取数据脚本"><a href="#3-获取数据脚本" class="headerlink" title="3.获取数据脚本"></a>3.获取数据脚本</h5><p>src/views/core/integral-grade/form.vue，methods中定义回显方法</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// 根据id查询记录</span>
+<span class="token function">fetchDataById</span><span class="token punctuation">(</span><span class="token parameter">id</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    integralGradeApi<span class="token punctuation">.</span><span class="token function">getById</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">response</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>integralGrade <span class="token operator">=</span> response<span class="token punctuation">.</span>data<span class="token punctuation">.</span>record
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>页面渲染成功后获取数据</p>
+<p>因为已在路由中定义如下内容：<font color ='red'>path: ‘edit/:id’</font>/，因此可以使用 <font color ='red'>this.$route.params.id</font> 获取路由中的id</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//页面渲染成功</span>
+<span class="token function">created</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>$route<span class="token punctuation">.</span>params<span class="token punctuation">.</span>id<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">fetchDataById</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>$route<span class="token punctuation">.</span>params<span class="token punctuation">.</span>id<span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">,</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="4、更新数据"><a href="#4、更新数据" class="headerlink" title="4、更新数据"></a>4、更新数据</h4><h5 id="1-定义api-2"><a href="#1-定义api-2" class="headerlink" title="1.定义api"></a>1.定义api</h5><p>src/api/core/integral-grade.js</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token function">updateById</span><span class="token punctuation">(</span><span class="token parameter">integralGrade</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> <span class="token function">request</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+      url<span class="token operator">:</span> <span class="token string">'/admin/core/integralGrade/update'</span><span class="token punctuation">,</span>
+      method<span class="token operator">:</span> <span class="token string">'put'</span><span class="token punctuation">,</span>
+      data<span class="token operator">:</span> integralGrade
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h5 id="2-更新数据脚本"><a href="#2-更新数据脚本" class="headerlink" title="2.更新数据脚本"></a>2.更新数据脚本</h5><p>src/views/core/integral-grade/form.vue，methods中定义updateData</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// 根据id更新记录</span>
+<span class="token function">updateData</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// 数据的获取</span>
+    integralGradeApi<span class="token punctuation">.</span><span class="token function">updateById</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>integralGrade<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">response</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">$message</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+            type<span class="token operator">:</span> <span class="token string">'success'</span><span class="token punctuation">,</span>
+            message<span class="token operator">:</span> response<span class="token punctuation">.</span>message
+        <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>$router<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token string">'/core/integral-grade/list'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p>完善saveOrUpdate方法</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token function">saveOrUpdate</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// 禁用保存按钮</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>saveBtnDisabled <span class="token operator">=</span> <span class="token boolean">true</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token keyword">this</span><span class="token punctuation">.</span>integralGrade<span class="token punctuation">.</span>id<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">saveData</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">updateData</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">,</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h5 id="-3"><a href="#-3" class="headerlink" title=""></a></h5><h2 id="参考地址-↓"><a href="#参考地址-↓" class="headerlink" title="参考地址 ↓"></a>参考地址 ↓</h2><p>1、Springboot 启动注解扫描：<a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_50932526/article/details/122936434">https://blog.csdn.net/m0_50932526/article/details/122936434</a></p>
 <p>2、异常：org.apache.ibatis.binding.BindingException: Invalid bound statement (not fou</p>
 <p>需要指定扫描包路径为具体路径，之前是 <strong>@MapperScan({“com.kk.srb”})</strong>,现在是**@MapperScan({“com.kk.srb.core.mapper”})**</p>
 <p><a target="_blank" rel="noopener" href="https://www.freesion.com/article/7476436940/">https://www.freesion.com/article/7476436940/</a></p>
-
+<p>3、vue项目 出现 <code>Failed to compile.</code></p>
+<p>编译错误，可能是指定的路径和文件不匹配</p>
+<p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/project/shangrongbao/202205062355727.png"></p>
+</script></template></p>
                 
             </div>
             <hr/>
@@ -2717,7 +3446,7 @@ new Valine({
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">95k</span>&nbsp;字
+                class="white-color">99.4k</span>&nbsp;字
             
             
             
