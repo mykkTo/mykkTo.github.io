@@ -684,14 +684,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    11.1k
+                    10.8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    52 分
+                    50 分
                 </div>
                 
 
@@ -2199,27 +2199,27 @@
 
 
 
-<h3 id="三、前端开发流程"><a href="#三、前端开发流程" class="headerlink" title="三、前端开发流程"></a>三、前端开发流程</h3><h4 id="1、全栈开发流程"><a href="#1、全栈开发流程" class="headerlink" title="1、全栈开发流程"></a>1、全栈开发流程</h4><h5 id="1、前端调用流程"><a href="#1、前端调用流程" class="headerlink" title="1、前端调用流程"></a>1、前端调用流程</h5><p>下图是开发过程中涉及到和几个核心的模块，我们已经完成了路由的配置和页面组件的创建，接下来我们需要进一步完善页面组件的模<template>部分，以及脚本<script>等部分的开发，然后创建前后端对接需要的api模块，最后通过api模块向后端接口发起调用。</p>
+<h3 id="三、前端开发流程"><a href="#三、前端开发流程" class="headerlink" title="三、前端开发流程"></a>三、前端开发流程</h3><h4 id="1、全栈开发流程"><a href="#1、全栈开发流程" class="headerlink" title="1、全栈开发流程"></a>1、全栈开发流程</h4><h5 id="1、前端调用流程"><a href="#1、前端调用流程" class="headerlink" title="1、前端调用流程"></a>1、前端调用流程</h5><p>下图是开发过程中涉及到和几个核心的模块，我们已经完成了路由的配置和页面组件的创建，接下来我们需要进一步完善页面组件的模板</p>
 <p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/project/shangrongbao/202205072259818.png"></p>
 <h5 id="2、nginx反向代理配置"><a href="#2、nginx反向代理配置" class="headerlink" title="2、nginx反向代理配置"></a>2、nginx反向代理配置</h5><p>目前，应用程序的前后端基本架构如下：srb-admin是前端程序，直接调用后端的srb-core微服务</p>
 <p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/project/shangrongbao/202205080942459.png"></p>
 <p>为了能够让前端程序能够同时对接多个后端服务，我们可以使用多种解决方案，例如nginx反向代理、微服务网关等。这里我们先使用nginx作为前后端中间的反向代理层，架构如下</p>
 <p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/project/shangrongbao/202205080956814.png"></p>
 <p>nginx的配置</p>
-<pre class="line-numbers language-nginx" data-language="nginx"><code class="language-nginx"><span class="token keyword">server</span> <span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-nginx" data-language="nginx"><code class="language-nginx"><span class="token keyword">server</span> <span class="token punctuation">{</span>
 	<span class="token keyword">listen</span>       <span class="token number">80</span><span class="token punctuation">;</span>
 	<span class="token keyword">server_name</span>  localhost<span class="token punctuation">;</span>
 
-	<span class="token keyword">location</span> <span class="token operator">~</span> <span class="token operator">/</span>core<span class="token operator">/</span> <span class="token punctuation">&#123;</span>           
+	<span class="token keyword">location</span> <span class="token operator">~</span> <span class="token operator">/</span>core<span class="token operator">/</span> <span class="token punctuation">{</span>           
 	    <span class="token keyword">proxy_pass</span> <span class="token keyword">http</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>localhost<span class="token punctuation">:</span><span class="token number">8110</span><span class="token punctuation">;</span>
-	<span class="token punctuation">&#125;</span>
-	<span class="token keyword">location</span> <span class="token operator">~</span> <span class="token operator">/</span>sms<span class="token operator">/</span> <span class="token punctuation">&#123;</span>           
+	<span class="token punctuation">}</span>
+	<span class="token keyword">location</span> <span class="token operator">~</span> <span class="token operator">/</span>sms<span class="token operator">/</span> <span class="token punctuation">{</span>           
 	    <span class="token keyword">proxy_pass</span> <span class="token keyword">http</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>localhost<span class="token punctuation">:</span><span class="token number">8120</span><span class="token punctuation">;</span>
-	<span class="token punctuation">&#125;</span>
-	<span class="token keyword">location</span> <span class="token operator">~</span> <span class="token operator">/</span>oss<span class="token operator">/</span> <span class="token punctuation">&#123;</span>           
+	<span class="token punctuation">}</span>
+	<span class="token keyword">location</span> <span class="token operator">~</span> <span class="token operator">/</span>oss<span class="token operator">/</span> <span class="token punctuation">{</span>           
             <span class="token keyword">proxy_pass</span> <span class="token keyword">http</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>localhost<span class="token punctuation">:</span><span class="token number">8130</span><span class="token punctuation">;</span>
-	<span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
@@ -2240,7 +2240,7 @@ nginx <span class="token operator">-</span>s reload <span class="token comment">
 
 <h5 id="3、mock-server"><a href="#3、mock-server" class="headerlink" title="3、mock-server"></a>3、mock-server</h5><p>VUE_APP_BASE_API 的 修改会影响到平台模拟登录功能的mock数据，因此需要修改mock-server的地址</p>
 <p>修改 mock/mock-server.js 文件 第37行</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js">url<span class="token operator">:</span> <span class="token keyword">new</span> <span class="token class-name">RegExp</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">/dev-api</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>url<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">,</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js">url<span class="token operator">:</span> <span class="token keyword">new</span> <span class="token class-name">RegExp</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">/dev-api</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>url<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">,</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 
 
@@ -2251,180 +2251,180 @@ nginx <span class="token operator">-</span>s reload <span class="token comment">
 <h4 id="2、前端组件开发"><a href="#2、前端组件开发" class="headerlink" title="2、前端组件开发"></a>2、前端组件开发</h4><h5 id="1、定义api模块"><a href="#1、定义api模块" class="headerlink" title="1、定义api模块"></a>1、定义api模块</h5><p>创建文件 src/api/core/integral-grade.js</p>
 <pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// @ 符号在vue.config.js 中配置， 表示 'src' 路径的别名</span>
 <span class="token keyword">import</span> request <span class="token keyword">from</span> <span class="token string">'@/utils/request'</span>
-<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">&#123;</span>
-  <span class="token function">list</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">return</span> <span class="token function">request</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  <span class="token function">list</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token function">request</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
       url<span class="token operator">:</span> <span class="token string">'/admin/core/integralGrade/list'</span><span class="token punctuation">,</span>
       method<span class="token operator">:</span> <span class="token string">'get'</span>
-    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
-  <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
 <h5 id="2、定义页面组件脚本"><a href="#2、定义页面组件脚本" class="headerlink" title="2、定义页面组件脚本"></a>2、定义页面组件脚本</h5><p>src/views/core/integral-grade/list.vue</p>
 <pre class="line-numbers language-vue" data-language="vue"><code class="language-vue">&lt;script&gt;
-import integralGradeApi from &#39;@&#x2F;api&#x2F;core&#x2F;integral-grade&#39;
-export default &#123;
-  &#x2F;&#x2F; 定义数据模型
-  data() &#123;
-    return &#123;
-      list: [] &#x2F;&#x2F; 数据列表
-    &#125;
-  &#125;,
+import integralGradeApi from '@/api/core/integral-grade'
+export default {
+  // 定义数据模型
+  data() {
+    return {
+      list: [] // 数据列表
+    }
+  },
 
-  &#x2F;&#x2F; 页面渲染成功后获取数据
-  created() &#123;
+  // 页面渲染成功后获取数据
+  created() {
     this.fetchData()
-  &#125;,
+  },
 
-  &#x2F;&#x2F; 定义方法
-  methods: &#123;
-    fetchData() &#123;
-      &#x2F;&#x2F; 调用api
-      integralGradeApi.list().then(response &#x3D;&gt; &#123;
-        this.list &#x3D; response.data.list
-      &#125;)
-    &#125;
-  &#125;
-&#125;
-&lt;&#x2F;script&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+  // 定义方法
+  methods: {
+    fetchData() {
+      // 调用api
+      integralGradeApi.list().then(response =&gt; {
+        this.list = response.data.list
+      })
+    }
+  }
+}
+&lt;/script&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
 <h5 id="3、定义页面组件模板"><a href="#3、定义页面组件模板" class="headerlink" title="3、定义页面组件模板"></a>3、定义页面组件模板</h5><p>src/views/core/integral-grade/list.vue</p>
 <pre class="line-numbers language-vue" data-language="vue"><code class="language-vue">&lt;template&gt;
-  &lt;div class&#x3D;&quot;app-container&quot;&gt;
+  &lt;div class="app-container"&gt;
     &lt;!-- 表格 --&gt;
-    &lt;el-table :data&#x3D;&quot;list&quot; border stripe&gt;
-      &lt;el-table-column type&#x3D;&quot;index&quot; width&#x3D;&quot;50&quot; &#x2F;&gt;
-      &lt;el-table-column prop&#x3D;&quot;borrowAmount&quot; label&#x3D;&quot;借款额度&quot; &#x2F;&gt;
-      &lt;el-table-column prop&#x3D;&quot;integralStart&quot; label&#x3D;&quot;积分区间开始&quot; &#x2F;&gt;
-      &lt;el-table-column prop&#x3D;&quot;integralEnd&quot; label&#x3D;&quot;积分区间结束&quot; &#x2F;&gt;
-    &lt;&#x2F;el-table&gt;
-  &lt;&#x2F;div&gt;
-&lt;&#x2F;template&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    &lt;el-table :data="list" border stripe&gt;
+      &lt;el-table-column type="index" width="50" /&gt;
+      &lt;el-table-column prop="borrowAmount" label="借款额度" /&gt;
+      &lt;el-table-column prop="integralStart" label="积分区间开始" /&gt;
+      &lt;el-table-column prop="integralEnd" label="积分区间结束" /&gt;
+    &lt;/el-table&gt;
+  &lt;/div&gt;
+&lt;/template&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
 <h5 id="4、axios响应拦截器修改"><a href="#4、axios响应拦截器修改" class="headerlink" title="4、axios响应拦截器修改"></a>4、axios响应拦截器修改</h5><p>src/utils/request.js 中 将第49行的 </p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">if</span> <span class="token punctuation">(</span>res<span class="token punctuation">.</span>code <span class="token operator">!==</span> <span class="token number">20000</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">if</span> <span class="token punctuation">(</span>res<span class="token punctuation">.</span>code <span class="token operator">!==</span> <span class="token number">20000</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>修改成</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">if</span> <span class="token punctuation">(</span>res<span class="token punctuation">.</span>code <span class="token operator">!==</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> res<span class="token punctuation">.</span>code <span class="token operator">!==</span> <span class="token number">20000</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">if</span> <span class="token punctuation">(</span>res<span class="token punctuation">.</span>code <span class="token operator">!==</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> res<span class="token punctuation">.</span>code <span class="token operator">!==</span> <span class="token number">20000</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 
 
 <p>因为我们的后端接口统一结果判断0为成功的响应结果，而mock数据判断20000位正确的结果</p>
 <h5 id="-1"><a href="#-1" class="headerlink" title=""></a></h5><h3 id="四、完善积分模块"><a href="#四、完善积分模块" class="headerlink" title="四、完善积分模块"></a>四、完善积分模块</h3><h4 id="1、删除数据"><a href="#1、删除数据" class="headerlink" title="1、删除数据"></a>1、<strong>删除数据</strong></h4><h5 id="1-定义api"><a href="#1-定义api" class="headerlink" title="1.定义api"></a>1.定义api</h5><p> src/api/core/integral-grade.js</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token function">removeById</span><span class="token punctuation">(</span><span class="token parameter">id</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">return</span> <span class="token function">request</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
-        url<span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">/admin/core/integralGrade/remove/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>id<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token function">removeById</span><span class="token punctuation">(</span><span class="token parameter">id</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token function">request</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        url<span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">/admin/core/integralGrade/remove/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>id<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span>
         method<span class="token operator">:</span> <span class="token string">'delete'</span>
-    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
-<h5 id="2-页面组件模板"><a href="#2-页面组件模板" class="headerlink" title="2.页面组件模板"></a>2.页面组件模板</h5><p>src/views/core/integral-grade/list.vue，在table组件中添加<font color ='red'>删除列</font></p>
-<pre class="line-numbers language-vue" data-language="vue"><code class="language-vue">&lt;el-table-column label&#x3D;&quot;操作&quot; width&#x3D;&quot;200&quot; align&#x3D;&quot;center&quot;&gt;
-    &lt;template slot-scope&#x3D;&quot;scope&quot;&gt;
+<h5 id="2-页面组件模板"><a href="#2-页面组件模板" class="headerlink" title="2.页面组件模板"></a>2.页面组件模板</h5><p>src/views/core/integral-grade/list.vue，在table组件中添加<font color="red">删除列</font></p>
+<pre class="line-numbers language-vue" data-language="vue"><code class="language-vue">&lt;el-table-column label="操作" width="200" align="center"&gt;
+    &lt;template slot-scope="scope"&gt;
         &lt;el-button
-                   type&#x3D;&quot;danger&quot;
-                   size&#x3D;&quot;mini&quot;
-                   icon&#x3D;&quot;el-icon-delete&quot;
-                   @click&#x3D;&quot;removeById(scope.row.id)&quot;
+                   type="danger"
+                   size="mini"
+                   icon="el-icon-delete"
+                   @click="removeById(scope.row.id)"
                    &gt;
             删除
-        &lt;&#x2F;el-button&gt;
-    &lt;&#x2F;template&gt;
-&lt;&#x2F;el-table-column&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+        &lt;/el-button&gt;
+    &lt;/template&gt;
+&lt;/el-table-column&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
 <h5 id="3-删除数据脚本"><a href="#3-删除数据脚本" class="headerlink" title="3.删除数据脚本"></a>3.删除数据脚本</h5><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// 根据id删除数据</span>
-    <span class="token function">removeById</span><span class="token punctuation">(</span><span class="token parameter">id</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token function">removeById</span><span class="token punctuation">(</span><span class="token parameter">id</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
       <span class="token comment">// debugger</span>
       console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'id'</span><span class="token punctuation">,</span> id<span class="token punctuation">)</span>
 
-      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">$confirm</span><span class="token punctuation">(</span><span class="token string">'此操作将永久删除该记录, 是否继续?'</span><span class="token punctuation">,</span> <span class="token string">'提示'</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">$confirm</span><span class="token punctuation">(</span><span class="token string">'此操作将永久删除该记录, 是否继续?'</span><span class="token punctuation">,</span> <span class="token string">'提示'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
         confirmButtonText<span class="token operator">:</span> <span class="token string">'确定'</span><span class="token punctuation">,</span>
         cancelButtonText<span class="token operator">:</span> <span class="token string">'取消'</span><span class="token punctuation">,</span>
         type<span class="token operator">:</span> <span class="token string">'warning'</span>
-      <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
-        <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>
+        <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
           <span class="token keyword">return</span> integralGradeApi<span class="token punctuation">.</span><span class="token function">removeById</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span>
-        <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
-        <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">response</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
-          <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">$message</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span>
+        <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">response</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+          <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">$message</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
             message<span class="token operator">:</span> response<span class="token punctuation">.</span>message<span class="token punctuation">,</span>
             type<span class="token operator">:</span> <span class="token string">'success'</span>
-          <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+          <span class="token punctuation">}</span><span class="token punctuation">)</span>
           <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">fetchData</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
-        <span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token parameter">error</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span>
+        <span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token parameter">error</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
           console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'catch的error'</span><span class="token punctuation">,</span> error<span class="token punctuation">)</span>
-          <span class="token keyword">if</span> <span class="token punctuation">(</span>error <span class="token operator">===</span> <span class="token string">'cancel'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-            <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">$message</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+          <span class="token keyword">if</span> <span class="token punctuation">(</span>error <span class="token operator">===</span> <span class="token string">'cancel'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">$message</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
               type<span class="token operator">:</span> <span class="token string">'info'</span><span class="token punctuation">,</span>
               message<span class="token operator">:</span> <span class="token string">'已取消删除'</span>
-            <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
-          <span class="token punctuation">&#125;</span>
-        <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
-    <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+            <span class="token punctuation">}</span><span class="token punctuation">)</span>
+          <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
 <h4 id="2、新增数据"><a href="#2、新增数据" class="headerlink" title="2、新增数据"></a>2、新增数据</h4><h5 id="1-定义api-1"><a href="#1-定义api-1" class="headerlink" title="1.定义api"></a>1.定义api</h5><p> src/api/core/integral-grade.js</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token function">save</span><span class="token punctuation">(</span><span class="token parameter">integralGrade</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">return</span> <span class="token function">request</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token function">save</span><span class="token punctuation">(</span><span class="token parameter">integralGrade</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token function">request</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
         url<span class="token operator">:</span> <span class="token string">'/admin/core/integralGrade/save'</span><span class="token punctuation">,</span>
         method<span class="token operator">:</span> <span class="token string">'post'</span><span class="token punctuation">,</span>
         data<span class="token operator">:</span> integralGrade
-    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
-<span class="token punctuation">&#125;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
 <h5 id="2-定义页面data"><a href="#2-定义页面data" class="headerlink" title="2.定义页面data"></a>2.定义页面data</h5><p>src/views/core/integral-grade/form.vue，完善data定义</p>
 <pre class="line-numbers language-vue" data-language="vue"><code class="language-vue">&lt;script&gt;
-export default &#123;
-  data() &#123;
-    return &#123;
-      integralGrade: &#123;&#125;, &#x2F;&#x2F; 初始化数据
-      saveBtnDisabled: false &#x2F;&#x2F; 保存按钮是否禁用，防止表单重复提交
-    &#125;
-  &#125;
-&#125;
-&lt;&#x2F;script&gt;
+export default {
+  data() {
+    return {
+      integralGrade: {}, // 初始化数据
+      saveBtnDisabled: false // 保存按钮是否禁用，防止表单重复提交
+    }
+  }
+}
+&lt;/script&gt;
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
 <h5 id="3-页面组件模板"><a href="#3-页面组件模板" class="headerlink" title="3.页面组件模板"></a>3.页面组件模板</h5><p>src/views/core/integral-grade/form.vue，完善template</p>
 <pre class="line-numbers language-vue" data-language="vue"><code class="language-vue">&lt;template&gt;
-  &lt;div class&#x3D;&quot;app-container&quot;&gt;
+  &lt;div class="app-container"&gt;
     &lt;!-- 输入表单 --&gt;
-    &lt;el-form label-width&#x3D;&quot;120px&quot;&gt;
-      &lt;el-form-item label&#x3D;&quot;借款额度&quot;&gt;
-        &lt;el-input-number v-model&#x3D;&quot;integralGrade.borrowAmount&quot; :min&#x3D;&quot;0&quot; &#x2F;&gt;
-      &lt;&#x2F;el-form-item&gt;
-      &lt;el-form-item label&#x3D;&quot;积分区间开始&quot;&gt;
-        &lt;el-input-number v-model&#x3D;&quot;integralGrade.integralStart&quot; :min&#x3D;&quot;0&quot; &#x2F;&gt;
-      &lt;&#x2F;el-form-item&gt;
-      &lt;el-form-item label&#x3D;&quot;积分区间结束&quot;&gt;
-        &lt;el-input-number v-model&#x3D;&quot;integralGrade.integralEnd&quot; :min&#x3D;&quot;0&quot; &#x2F;&gt;
-      &lt;&#x2F;el-form-item&gt;
+    &lt;el-form label-width="120px"&gt;
+      &lt;el-form-item label="借款额度"&gt;
+        &lt;el-input-number v-model="integralGrade.borrowAmount" :min="0" /&gt;
+      &lt;/el-form-item&gt;
+      &lt;el-form-item label="积分区间开始"&gt;
+        &lt;el-input-number v-model="integralGrade.integralStart" :min="0" /&gt;
+      &lt;/el-form-item&gt;
+      &lt;el-form-item label="积分区间结束"&gt;
+        &lt;el-input-number v-model="integralGrade.integralEnd" :min="0" /&gt;
+      &lt;/el-form-item&gt;
       &lt;el-form-item&gt;
-        &lt;el-button :disabled&#x3D;&quot;saveBtnDisabled&quot; type&#x3D;&quot;primary&quot; @click&#x3D;&quot;saveOrUpdate()&quot;&gt;
+        &lt;el-button :disabled="saveBtnDisabled" type="primary" @click="saveOrUpdate()"&gt;
           保存
-        &lt;&#x2F;el-button&gt;
-      &lt;&#x2F;el-form-item&gt;
-    &lt;&#x2F;el-form&gt;
-  &lt;&#x2F;div&gt;
-&lt;&#x2F;template&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+        &lt;/el-button&gt;
+      &lt;/el-form-item&gt;
+    &lt;/el-form&gt;
+  &lt;/div&gt;
+&lt;/template&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
@@ -2434,25 +2434,25 @@ export default &#123;
 
 
 <p>定义保存方法</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js">methods<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
-    <span class="token function">saveOrUpdate</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js">methods<span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token function">saveOrUpdate</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
       <span class="token comment">// 禁用保存按钮</span>
       <span class="token keyword">this</span><span class="token punctuation">.</span>saveBtnDisabled <span class="token operator">=</span> <span class="token boolean">true</span>
       <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">saveData</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
 
     <span class="token comment">// 新增数据</span>
-    <span class="token function">saveData</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token function">saveData</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
       <span class="token comment">// debugger</span>
-      integralGradeApi<span class="token punctuation">.</span><span class="token function">save</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>integralGrade<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">response</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">$message</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+      integralGradeApi<span class="token punctuation">.</span><span class="token function">save</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>integralGrade<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">response</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">$message</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
           type<span class="token operator">:</span> <span class="token string">'success'</span><span class="token punctuation">,</span>
           message<span class="token operator">:</span> response<span class="token punctuation">.</span>message
-        <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span>
         <span class="token keyword">this</span><span class="token punctuation">.</span>$router<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token string">'/core/integral-grade/list'</span><span class="token punctuation">)</span>
-      <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
-    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
@@ -2460,79 +2460,79 @@ export default &#123;
 
 
 <h4 id="3、回显数据"><a href="#3、回显数据" class="headerlink" title="3、回显数据"></a>3、回显数据</h4><h5 id="1-列表页编辑按钮"><a href="#1-列表页编辑按钮" class="headerlink" title="1.列表页编辑按钮"></a>1.列表页编辑按钮</h5><p>src/views/core/integral-grade/list.vue，表格“操作”列中增加“修改”按钮</p>
-<pre class="line-numbers language-vue" data-language="vue"><code class="language-vue">&lt;router-link :to&#x3D;&quot;&#39;&#x2F;core&#x2F;integral-grade&#x2F;edit&#x2F;&#39; + scope.row.id&quot; style&#x3D;&quot;margin-right:5px;&quot; &gt;
-	&lt;el-button type&#x3D;&quot;primary&quot; size&#x3D;&quot;mini&quot; icon&#x3D;&quot;el-icon-edit&quot;&gt;
+<pre class="line-numbers language-vue" data-language="vue"><code class="language-vue">&lt;router-link :to="'/core/integral-grade/edit/' + scope.row.id" style="margin-right:5px;" &gt;
+	&lt;el-button type="primary" size="mini" icon="el-icon-edit"&gt;
 		修改
-	&lt;&#x2F;el-button&gt;
-&lt;&#x2F;router-link&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+	&lt;/el-button&gt;
+&lt;/router-link&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
 <h5 id="2-定义api"><a href="#2-定义api" class="headerlink" title="2.定义api"></a>2.定义api</h5><p>src/api/core/integral-grade.js</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token function">getById</span><span class="token punctuation">(</span><span class="token parameter">id</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">return</span> <span class="token function">request</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
-        url<span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">/admin/core/integralGrade/get/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>id<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token function">getById</span><span class="token punctuation">(</span><span class="token parameter">id</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token function">request</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        url<span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">/admin/core/integralGrade/get/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>id<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span>
         method<span class="token operator">:</span> <span class="token string">'get'</span>
-    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
 <h5 id="3-获取数据脚本"><a href="#3-获取数据脚本" class="headerlink" title="3.获取数据脚本"></a>3.获取数据脚本</h5><p>src/views/core/integral-grade/form.vue，methods中定义回显方法</p>
 <pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// 根据id查询记录</span>
-<span class="token function">fetchDataById</span><span class="token punctuation">(</span><span class="token parameter">id</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    integralGradeApi<span class="token punctuation">.</span><span class="token function">getById</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">response</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+<span class="token function">fetchDataById</span><span class="token punctuation">(</span><span class="token parameter">id</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    integralGradeApi<span class="token punctuation">.</span><span class="token function">getById</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">response</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
         <span class="token keyword">this</span><span class="token punctuation">.</span>integralGrade <span class="token operator">=</span> response<span class="token punctuation">.</span>data<span class="token punctuation">.</span>record
-    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>页面渲染成功后获取数据</p>
-<p>因为已在路由中定义如下内容：<font color ='red'>path: ‘edit/:id’</font>/，因此可以使用 <font color ='red'>this.$route.params.id</font> 获取路由中的id</p>
+<p>因为已在路由中定义如下内容：<font color="red">path: ‘edit/:id’</font>/，因此可以使用 <font color="red">this.$route.params.id</font> 获取路由中的id</p>
 <pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//页面渲染成功</span>
-<span class="token function">created</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>$route<span class="token punctuation">.</span>params<span class="token punctuation">.</span>id<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<span class="token function">created</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>$route<span class="token punctuation">.</span>params<span class="token punctuation">.</span>id<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">fetchDataById</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>$route<span class="token punctuation">.</span>params<span class="token punctuation">.</span>id<span class="token punctuation">)</span>
-    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">,</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
 <h4 id="4、更新数据"><a href="#4、更新数据" class="headerlink" title="4、更新数据"></a>4、更新数据</h4><h5 id="1-定义api-2"><a href="#1-定义api-2" class="headerlink" title="1.定义api"></a>1.定义api</h5><p>src/api/core/integral-grade.js</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token function">updateById</span><span class="token punctuation">(</span><span class="token parameter">integralGrade</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">return</span> <span class="token function">request</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token function">updateById</span><span class="token punctuation">(</span><span class="token parameter">integralGrade</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token function">request</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
       url<span class="token operator">:</span> <span class="token string">'/admin/core/integralGrade/update'</span><span class="token punctuation">,</span>
       method<span class="token operator">:</span> <span class="token string">'put'</span><span class="token punctuation">,</span>
       data<span class="token operator">:</span> integralGrade
-    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
 <h5 id="2-更新数据脚本"><a href="#2-更新数据脚本" class="headerlink" title="2.更新数据脚本"></a>2.更新数据脚本</h5><p>src/views/core/integral-grade/form.vue，methods中定义updateData</p>
 <pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// 根据id更新记录</span>
-<span class="token function">updateData</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<span class="token function">updateData</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token comment">// 数据的获取</span>
-    integralGradeApi<span class="token punctuation">.</span><span class="token function">updateById</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>integralGrade<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">response</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">$message</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+    integralGradeApi<span class="token punctuation">.</span><span class="token function">updateById</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>integralGrade<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">response</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">$message</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
             type<span class="token operator">:</span> <span class="token string">'success'</span><span class="token punctuation">,</span>
             message<span class="token operator">:</span> response<span class="token punctuation">.</span>message
-        <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span>
         <span class="token keyword">this</span><span class="token punctuation">.</span>$router<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token string">'/core/integral-grade/list'</span><span class="token punctuation">)</span>
-    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
 <p>完善saveOrUpdate方法</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token function">saveOrUpdate</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token function">saveOrUpdate</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token comment">// 禁用保存按钮</span>
     <span class="token keyword">this</span><span class="token punctuation">.</span>saveBtnDisabled <span class="token operator">=</span> <span class="token boolean">true</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token keyword">this</span><span class="token punctuation">.</span>integralGrade<span class="token punctuation">.</span>id<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token keyword">this</span><span class="token punctuation">.</span>integralGrade<span class="token punctuation">.</span>id<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">saveData</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
         <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">updateData</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">,</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
@@ -2543,7 +2543,7 @@ export default &#123;
 <p>3、vue项目 出现 <code>Failed to compile.</code></p>
 <p>编译错误，可能是指定的路径和文件不匹配</p>
 <p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/project/shangrongbao/202205062355727.png"></p>
-</script></template></p>
+
                 
             </div>
             <hr/>
@@ -3436,7 +3436,7 @@ new Valine({
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">100.2k</span>&nbsp;字
+                class="white-color">99.9k</span>&nbsp;字
             
             
             
