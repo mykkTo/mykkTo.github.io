@@ -997,37 +997,37 @@ password = "你自己密码"<span aria-hidden="true" class="line-numbers-rows"><
 
 
 
-<h4 id="3、yml"><a href="#3、yml" class="headerlink" title="3、yml"></a>3、yml</h4><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token key atrule">server</span><span class="token punctuation">:</span>
-  <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">2001</span>
+<h4 id="3、yml"><a href="#3、yml" class="headerlink" title="3、yml"></a>3、yml</h4><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">server:
+  port: 2001
 
-<span class="token key atrule">spring</span><span class="token punctuation">:</span>
-  <span class="token key atrule">application</span><span class="token punctuation">:</span>
-    <span class="token key atrule">name</span><span class="token punctuation">:</span> seata<span class="token punctuation">-</span>order<span class="token punctuation">-</span>service
-  <span class="token key atrule">cloud</span><span class="token punctuation">:</span>
-    <span class="token key atrule">alibaba</span><span class="token punctuation">:</span>
-      <span class="token key atrule">seata</span><span class="token punctuation">:</span>
-        <span class="token comment">#自定义事务组名称需要与seata-server中的对应</span>
-        <span class="token key atrule">tx-service-group</span><span class="token punctuation">:</span> fsp_tx_group
-    <span class="token key atrule">nacos</span><span class="token punctuation">:</span>
-      <span class="token key atrule">discovery</span><span class="token punctuation">:</span>
-        <span class="token key atrule">server-addr</span><span class="token punctuation">:</span> 106.52.23.202<span class="token punctuation">:</span><span class="token number">8848</span>
-  <span class="token key atrule">datasource</span><span class="token punctuation">:</span>
-    <span class="token key atrule">driver-class-name</span><span class="token punctuation">:</span> com.mysql.jdbc.Driver
-    <span class="token key atrule">url</span><span class="token punctuation">:</span> jdbc<span class="token punctuation">:</span>mysql<span class="token punctuation">:</span>//106.52.23.202<span class="token punctuation">:</span>3306/seata_order
-    <span class="token key atrule">username</span><span class="token punctuation">:</span> root
-    <span class="token key atrule">password</span><span class="token punctuation">:</span> root
+spring:
+  application:
+    name: seata-order-service
+  cloud:
+    alibaba:
+      seata:
+        #自定义事务组名称需要与seata-server中的对应
+        tx-service-group: fsp_tx_group
+    nacos:
+      discovery:
+        server-addr: 106.52.23.202:8848
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://106.52.23.202:3306/seata_order
+    username: root
+    password: root
 
-<span class="token key atrule">feign</span><span class="token punctuation">:</span>
-  <span class="token key atrule">hystrix</span><span class="token punctuation">:</span>
-    <span class="token key atrule">enabled</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>
+feign:
+  hystrix:
+    enabled: false
 
-<span class="token key atrule">logging</span><span class="token punctuation">:</span>
-  <span class="token key atrule">level</span><span class="token punctuation">:</span>
-    <span class="token key atrule">io</span><span class="token punctuation">:</span>
-      <span class="token key atrule">seata</span><span class="token punctuation">:</span> info
+logging:
+  level:
+    io:
+      seata: info
 
-<span class="token key atrule">mybatis</span><span class="token punctuation">:</span>
-  <span class="token key atrule">mapperLocations</span><span class="token punctuation">:</span> classpath<span class="token punctuation">:</span>mapper/<span class="token important">*.xml</span>
+mybatis:
+  mapperLocations: classpath:mapper/*.xml
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
@@ -1666,32 +1666,32 @@ config {
 
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>project</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h4 id="3、yml-1"><a href="#3、yml-1" class="headerlink" title="3、yml"></a>3、yml</h4><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token key atrule">server</span><span class="token punctuation">:</span>
-  <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">2002</span>
+<h4 id="3、yml-1"><a href="#3、yml-1" class="headerlink" title="3、yml"></a>3、yml</h4><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">server:
+  port: 2002
 
-<span class="token key atrule">spring</span><span class="token punctuation">:</span>
-  <span class="token key atrule">application</span><span class="token punctuation">:</span>
-    <span class="token key atrule">name</span><span class="token punctuation">:</span> seata<span class="token punctuation">-</span>storage<span class="token punctuation">-</span>service
-  <span class="token key atrule">cloud</span><span class="token punctuation">:</span>
-    <span class="token key atrule">alibaba</span><span class="token punctuation">:</span>
-      <span class="token key atrule">seata</span><span class="token punctuation">:</span>
-        <span class="token key atrule">tx-service-group</span><span class="token punctuation">:</span> fsp_tx_group
-    <span class="token key atrule">nacos</span><span class="token punctuation">:</span>
-      <span class="token key atrule">discovery</span><span class="token punctuation">:</span>
-        <span class="token key atrule">server-addr</span><span class="token punctuation">:</span> 106.52.23.202<span class="token punctuation">:</span><span class="token number">8848</span>
-  <span class="token key atrule">datasource</span><span class="token punctuation">:</span>
-    <span class="token key atrule">driver-class-name</span><span class="token punctuation">:</span> com.mysql.jdbc.Driver
-    <span class="token key atrule">url</span><span class="token punctuation">:</span> jdbc<span class="token punctuation">:</span>mysql<span class="token punctuation">:</span>//106.52.23.202<span class="token punctuation">:</span>3306/seata_storage
-    <span class="token key atrule">username</span><span class="token punctuation">:</span> root
-    <span class="token key atrule">password</span><span class="token punctuation">:</span> root
+spring:
+  application:
+    name: seata-storage-service
+  cloud:
+    alibaba:
+      seata:
+        tx-service-group: fsp_tx_group
+    nacos:
+      discovery:
+        server-addr: 106.52.23.202:8848
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://106.52.23.202:3306/seata_storage
+    username: root
+    password: root
 
-<span class="token key atrule">logging</span><span class="token punctuation">:</span>
-  <span class="token key atrule">level</span><span class="token punctuation">:</span>
-    <span class="token key atrule">io</span><span class="token punctuation">:</span>
-      <span class="token key atrule">seata</span><span class="token punctuation">:</span> info
+logging:
+  level:
+    io:
+      seata: info
 
-<span class="token key atrule">mybatis</span><span class="token punctuation">:</span>
-  <span class="token key atrule">mapperLocations</span><span class="token punctuation">:</span> classpath<span class="token punctuation">:</span>mapper/<span class="token important">*.xml</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+mybatis:
+  mapperLocations: classpath:mapper/*.xml<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h4 id="4、file-conf-1"><a href="#4、file-conf-1" class="headerlink" title="4、file.conf"></a>4、file.conf</h4><pre class="line-numbers language-改动" data-language="改动"><code class="language-改动">vgroup_mapping.fsp_tx_group = "default"<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
@@ -2117,36 +2117,36 @@ config {
 
 &lt;/project&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h4 id="3、yml-2"><a href="#3、yml-2" class="headerlink" title="3、yml"></a>3、yml</h4><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token key atrule">server</span><span class="token punctuation">:</span>
-  <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">2003</span>
+<h4 id="3、yml-2"><a href="#3、yml-2" class="headerlink" title="3、yml"></a>3、yml</h4><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">server:
+  port: 2003
 
-<span class="token key atrule">spring</span><span class="token punctuation">:</span>
-  <span class="token key atrule">application</span><span class="token punctuation">:</span>
-    <span class="token key atrule">name</span><span class="token punctuation">:</span> seata<span class="token punctuation">-</span>account<span class="token punctuation">-</span>service
-  <span class="token key atrule">cloud</span><span class="token punctuation">:</span>
-    <span class="token key atrule">alibaba</span><span class="token punctuation">:</span>
-      <span class="token key atrule">seata</span><span class="token punctuation">:</span>
-        <span class="token key atrule">tx-service-group</span><span class="token punctuation">:</span> fsp_tx_group
-    <span class="token key atrule">nacos</span><span class="token punctuation">:</span>
-      <span class="token key atrule">discovery</span><span class="token punctuation">:</span>
-        <span class="token key atrule">server-addr</span><span class="token punctuation">:</span> 106.52.23.202<span class="token punctuation">:</span><span class="token number">8848</span>
-  <span class="token key atrule">datasource</span><span class="token punctuation">:</span>
-    <span class="token key atrule">driver-class-name</span><span class="token punctuation">:</span> com.mysql.jdbc.Driver
-    <span class="token key atrule">url</span><span class="token punctuation">:</span> jdbc<span class="token punctuation">:</span>mysql<span class="token punctuation">:</span>//106.52.23.202<span class="token punctuation">:</span>3306/seata_account
-    <span class="token key atrule">username</span><span class="token punctuation">:</span> root
-    <span class="token key atrule">password</span><span class="token punctuation">:</span> root
+spring:
+  application:
+    name: seata-account-service
+  cloud:
+    alibaba:
+      seata:
+        tx-service-group: fsp_tx_group
+    nacos:
+      discovery:
+        server-addr: 106.52.23.202:8848
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://106.52.23.202:3306/seata_account
+    username: root
+    password: root
 
-<span class="token key atrule">feign</span><span class="token punctuation">:</span>
-  <span class="token key atrule">hystrix</span><span class="token punctuation">:</span>
-    <span class="token key atrule">enabled</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>
+feign:
+  hystrix:
+    enabled: false
 
-<span class="token key atrule">logging</span><span class="token punctuation">:</span>
-  <span class="token key atrule">level</span><span class="token punctuation">:</span>
-    <span class="token key atrule">io</span><span class="token punctuation">:</span>
-      <span class="token key atrule">seata</span><span class="token punctuation">:</span> info
+logging:
+  level:
+    io:
+      seata: info
 
-<span class="token key atrule">mybatis</span><span class="token punctuation">:</span>
-  <span class="token key atrule">mapperLocations</span><span class="token punctuation">:</span> classpath<span class="token punctuation">:</span>mapper/<span class="token important">*.xml</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+mybatis:
+  mapperLocations: classpath:mapper/*.xml<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h4 id="4、file-conf-2"><a href="#4、file-conf-2" class="headerlink" title="4、file.conf"></a>4、file.conf</h4><pre class="line-numbers language-file.conf" data-language="file.conf"><code class="language-file.conf">transport {
   # tcp udt unix-domain-socket
@@ -3534,7 +3534,7 @@ new Valine({
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">101.2k</span>&nbsp;字
+                class="white-color">105.5k</span>&nbsp;字
             
             
             
