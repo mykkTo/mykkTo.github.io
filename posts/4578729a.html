@@ -637,16 +637,16 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/sentinel/">
-                                <span class="chip bg-color">sentinel</span>
-                            </a>
-                        
                             <a href="/tags/redis/">
                                 <span class="chip bg-color">redis</span>
                             </a>
                         
                             <a href="/tags/gatway/">
                                 <span class="chip bg-color">gatway</span>
+                            </a>
+                        
+                            <a href="/tags/sentinel/">
+                                <span class="chip bg-color">sentinel</span>
                             </a>
                         
                             <a href="/tags/%E6%95%B0%E6%8D%AE%E5%AD%97%E5%85%B8/">
@@ -1249,19 +1249,19 @@ export default {
 
 
 <h5 id="2-添加Redis连接配置"><a href="#2-添加Redis连接配置" class="headerlink" title="2.添加Redis连接配置"></a>2.添加Redis连接配置</h5><p><font color="red"><strong>service-core</strong> </font>的 application.yml 中添加如下配置</p>
-<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token comment">#spring: </span>
-  <span class="token key atrule">redis</span><span class="token punctuation">:</span>
-    <span class="token key atrule">host</span><span class="token punctuation">:</span> 192.168.100.100
-    <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">6379</span>
-    <span class="token key atrule">database</span><span class="token punctuation">:</span> <span class="token number">0</span>
-    <span class="token key atrule">password</span><span class="token punctuation">:</span> <span class="token number">123456</span> <span class="token comment">#默认为空</span>
-    <span class="token key atrule">timeout</span><span class="token punctuation">:</span> 3000ms <span class="token comment">#最大等待时间，超时则抛出异常，否则请求一直等待</span>
-    <span class="token key atrule">lettuce</span><span class="token punctuation">:</span>
-      <span class="token key atrule">pool</span><span class="token punctuation">:</span>
-        <span class="token key atrule">max-active</span><span class="token punctuation">:</span> <span class="token number">20</span>  <span class="token comment">#最大连接数，负值表示没有限制，默认8</span>
-        <span class="token key atrule">max-wait</span><span class="token punctuation">:</span> <span class="token number">-1</span>    <span class="token comment">#最大阻塞等待时间，负值表示没限制，默认-1</span>
-        <span class="token key atrule">max-idle</span><span class="token punctuation">:</span> <span class="token number">8</span>     <span class="token comment">#最大空闲连接，默认8</span>
-        <span class="token key atrule">min-idle</span><span class="token punctuation">:</span> <span class="token number">0</span>     <span class="token comment">#最小空闲连接，默认0</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">#spring: 
+  redis:
+    host: 192.168.100.100
+    port: 6379
+    database: 0
+    password: 123456 #默认为空
+    timeout: 3000ms #最大等待时间，超时则抛出异常，否则请求一直等待
+    lettuce:
+      pool:
+        max-active: 20  #最大连接数，负值表示没有限制，默认8
+        max-wait: -1    #最大阻塞等待时间，负值表示没限制，默认-1
+        max-idle: 8     #最大空闲连接，默认8
+        min-idle: 0     #最小空闲连接，默认0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
@@ -1403,37 +1403,37 @@ export default {
 
 
 <h5 id="3-application-yml"><a href="#3-application-yml" class="headerlink" title="3.application.yml"></a>3.application.yml</h5><p>resources目录下创建文件</p>
-<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token key atrule">server</span><span class="token punctuation">:</span>
-  <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">8120</span> <span class="token comment"># 服务端口</span>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">server:
+  port: 8120 # 服务端口
 
-<span class="token key atrule">spring</span><span class="token punctuation">:</span>
-  <span class="token key atrule">profiles</span><span class="token punctuation">:</span>
-    <span class="token key atrule">active</span><span class="token punctuation">:</span> dev <span class="token comment"># 环境设置</span>
-  <span class="token key atrule">application</span><span class="token punctuation">:</span>
-    <span class="token key atrule">name</span><span class="token punctuation">:</span> service<span class="token punctuation">-</span>sms <span class="token comment"># 服务名</span>
+spring:
+  profiles:
+    active: dev # 环境设置
+  application:
+    name: service-sms # 服务名
 
-  <span class="token comment">#spring:</span>
-  <span class="token key atrule">redis</span><span class="token punctuation">:</span>
-    <span class="token key atrule">host</span><span class="token punctuation">:</span> 192.168.100.100
-    <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">6379</span>
-    <span class="token key atrule">database</span><span class="token punctuation">:</span> <span class="token number">0</span>
-    <span class="token key atrule">password</span><span class="token punctuation">:</span> <span class="token number">123456</span> <span class="token comment">#默认为空</span>
-    <span class="token key atrule">timeout</span><span class="token punctuation">:</span> 3000ms <span class="token comment">#最大等待时间，超时则抛出异常，否则请求一直等待</span>
-    <span class="token key atrule">lettuce</span><span class="token punctuation">:</span>
-      <span class="token key atrule">pool</span><span class="token punctuation">:</span>
-        <span class="token key atrule">max-active</span><span class="token punctuation">:</span> <span class="token number">20</span>  <span class="token comment">#最大连接数，负值表示没有限制，默认8</span>
-        <span class="token key atrule">max-wait</span><span class="token punctuation">:</span> <span class="token number">-1</span>    <span class="token comment">#最大阻塞等待时间，负值表示没限制，默认-1</span>
-        <span class="token key atrule">max-idle</span><span class="token punctuation">:</span> <span class="token number">8</span>     <span class="token comment">#最大空闲连接，默认8</span>
-        <span class="token key atrule">min-idle</span><span class="token punctuation">:</span> <span class="token number">0</span>     <span class="token comment">#最小空闲连接，默认0</span>
+  #spring:
+  redis:
+    host: 192.168.100.100
+    port: 6379
+    database: 0
+    password: 123456 #默认为空
+    timeout: 3000ms #最大等待时间，超时则抛出异常，否则请求一直等待
+    lettuce:
+      pool:
+        max-active: 20  #最大连接数，负值表示没有限制，默认8
+        max-wait: -1    #最大阻塞等待时间，负值表示没限制，默认-1
+        max-idle: 8     #最大空闲连接，默认8
+        min-idle: 0     #最小空闲连接，默认0
 
-<span class="token comment">#阿里云短信</span>
-<span class="token key atrule">aliyun</span><span class="token punctuation">:</span>
-  <span class="token key atrule">sms</span><span class="token punctuation">:</span>
-    <span class="token key atrule">region-id</span><span class="token punctuation">:</span> cn<span class="token punctuation">-</span>hangzhou
-    <span class="token key atrule">key-id</span><span class="token punctuation">:</span> 你的keyid
-    <span class="token key atrule">key-secret</span><span class="token punctuation">:</span> 你的keysecret
-    <span class="token key atrule">template-code</span><span class="token punctuation">:</span> 你的短信模板code
-    <span class="token key atrule">sign-name</span><span class="token punctuation">:</span> 你的短信模板签名<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+#阿里云短信
+aliyun:
+  sms:
+    region-id: cn-hangzhou
+    key-id: 你的keyid
+    key-secret: 你的keysecret
+    template-code: 你的短信模板code
+    sign-name: 你的短信模板签名<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
@@ -1805,21 +1805,21 @@ export default {
 
 
 
-<h5 id="3-配置application-yml"><a href="#3-配置application-yml" class="headerlink" title="3.配置application.yml"></a>3.配置application.yml</h5><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token key atrule">server</span><span class="token punctuation">:</span>
-  <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">8130</span> <span class="token comment"># 服务端口</span>
+<h5 id="3-配置application-yml"><a href="#3-配置application-yml" class="headerlink" title="3.配置application.yml"></a>3.配置application.yml</h5><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">server:
+  port: 8130 # 服务端口
 
-<span class="token key atrule">spring</span><span class="token punctuation">:</span>
-  <span class="token key atrule">profiles</span><span class="token punctuation">:</span>
-    <span class="token key atrule">active</span><span class="token punctuation">:</span> dev <span class="token comment"># 环境设置</span>
-  <span class="token key atrule">application</span><span class="token punctuation">:</span>
-    <span class="token key atrule">name</span><span class="token punctuation">:</span> service<span class="token punctuation">-</span>oss <span class="token comment"># 服务名</span>
+spring:
+  profiles:
+    active: dev # 环境设置
+  application:
+    name: service-oss # 服务名
 
-<span class="token key atrule">aliyun</span><span class="token punctuation">:</span>
-  <span class="token key atrule">oss</span><span class="token punctuation">:</span>
-    <span class="token key atrule">endpoint</span><span class="token punctuation">:</span> 你的endponit
-    <span class="token key atrule">keyId</span><span class="token punctuation">:</span> 你的阿里云keyid
-    <span class="token key atrule">keySecret</span><span class="token punctuation">:</span> 你的阿里云keysecret
-    <span class="token key atrule">bucketName</span><span class="token punctuation">:</span> srb<span class="token punctuation">-</span>file<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+aliyun:
+  oss:
+    endpoint: 你的endponit
+    keyId: 你的阿里云keyid
+    keySecret: 你的阿里云keysecret
+    bucketName: srb-file<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
@@ -2118,16 +2118,16 @@ export default {
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/sentinel/">
-                                    <span class="chip bg-color">sentinel</span>
-                                </a>
-                            
                                 <a href="/tags/redis/">
                                     <span class="chip bg-color">redis</span>
                                 </a>
                             
                                 <a href="/tags/gatway/">
                                     <span class="chip bg-color">gatway</span>
+                                </a>
+                            
+                                <a href="/tags/sentinel/">
+                                    <span class="chip bg-color">sentinel</span>
                                 </a>
                             
                                 <a href="/tags/%E6%95%B0%E6%8D%AE%E5%AD%97%E5%85%B8/">
@@ -2641,20 +2641,12 @@ new Valine({
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/sentinel/">
-                        <span class="chip bg-color">sentinel</span>
-                    </a>
-                    
-                    <a href="/tags/%E9%99%90%E6%B5%81/">
-                        <span class="chip bg-color">限流</span>
-                    </a>
-                    
                     <a href="/tags/Flink/">
                         <span class="chip bg-color">Flink</span>
                     </a>
                     
-                    <a href="/tags/%E6%B5%81%E5%BC%8F/">
-                        <span class="chip bg-color">流式</span>
+                    <a href="/tags/hadoop/">
+                        <span class="chip bg-color">hadoop</span>
                     </a>
                     
                 </div>
@@ -2951,7 +2943,7 @@ new Valine({
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">113.6k</span>&nbsp;字
+                class="white-color">114.2k</span>&nbsp;字
             
             
             

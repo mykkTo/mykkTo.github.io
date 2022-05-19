@@ -637,20 +637,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/sentinel/">
-                                <span class="chip bg-color">sentinel</span>
-                            </a>
-                        
-                            <a href="/tags/%E9%99%90%E6%B5%81/">
-                                <span class="chip bg-color">限流</span>
-                            </a>
-                        
                             <a href="/tags/Flink/">
                                 <span class="chip bg-color">Flink</span>
                             </a>
                         
-                            <a href="/tags/%E6%B5%81%E5%BC%8F/">
-                                <span class="chip bg-color">流式</span>
+                            <a href="/tags/hadoop/">
+                                <span class="chip bg-color">hadoop</span>
                             </a>
                         
                     </div>
@@ -681,21 +673,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-05-18
+                    2022-05-19
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    8k
+                    8.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    29 分
+                    32 分
                 </div>
                 
 
@@ -725,7 +717,7 @@
 <p>公司也都在招聘和储备掌握 Flink 技术的人才。 </p>
 <h4 id="2、源起和设计理念"><a href="#2、源起和设计理念" class="headerlink" title="2、源起和设计理念"></a>2、源起和设计理念</h4><p>Flink 起源于一个叫作 Stratosphere 的项目，它是由 3 所地处柏林的大学和欧洲其他一些大 学在 2010~2014 年共同进行的研究项目，由柏林理工大学的教授沃克尔·马尔科（Volker Markl） 领衔开发。2014 年 4 月，Stratosphere 的代码被复制并捐赠给了 Apache 软件基金会，Flink 就 是在此基础上被重新设计出来的。 在德语中，“flink”一词表示“快速、灵巧”。项目的 logo 是一只彩色的松鼠，当然了， 这不仅是因为 Apache 大数据项目对动物的喜好（是否联想到了 Hadoop、Hive？），更是因为 松鼠这种小动物完美地体现了“快速、灵巧”的特点。关于 logo 的颜色，还一个有趣的缘由： 柏林当地的松鼠非常漂亮，颜色是迷人的红棕色；而 Apache 软件基金会的 logo，刚好也是一 根以红棕色为主的渐变色羽毛。于是，Flink 的松鼠 Logo 就设计成了红棕色，而且拥有一个漂 亮的渐变色尾巴，尾巴的配色与 Apache 软件基金会的 logo 一致。这只松鼠色彩炫目，既呼应 了 Apache 的风格，似乎也预示着 Flink 未来将要大放异彩。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/bigdata/flink/202205182118661.png"></p>
-<h4 id=""><a href="#" class="headerlink" title=""></a></h4><h3 id="二、Flink-的应用"><a href="#二、Flink-的应用" class="headerlink" title="二、Flink 的应用"></a>二、Flink 的应用</h3><p>Flink 是一个大数据流处理引擎，它可以为不同的行业提供大数据实时处理的解决方案。 随着 Flink 的快速发展完善，如今在世界范围许多公司都可以见到 Flink 的身影。 目前在全球范围内，北美、欧洲和金砖国家均是 Flink 的应用热门区域。当然，这些地区 其实也就是 IT、互联网行业较发达的地区。 </p>
+<h3 id="二、Flink-的应用"><a href="#二、Flink-的应用" class="headerlink" title="二、Flink 的应用"></a>二、Flink 的应用</h3><p>Flink 是一个大数据流处理引擎，它可以为不同的行业提供大数据实时处理的解决方案。 随着 Flink 的快速发展完善，如今在世界范围许多公司都可以见到 Flink 的身影。 目前在全球范围内，北美、欧洲和金砖国家均是 Flink 的应用热门区域。当然，这些地区 其实也就是 IT、互联网行业较发达的地区。 </p>
 <p>Flink 在国内热度尤其高，一方面是因为阿里的贡献和带头效应，另一方面也跟中国的应 用场景密切相关。中国的人口规模与互联网使用普及程度，决定了对大数据处理的速度要求越 来越高，也迫使中国的互联网企业去追逐更高的数据处理效率。试想在中国，一个网站可能要 面对数亿的日活用户、每秒数亿次的计算峰值，这对很多国外的公司来说是无法想象的。而  Flink 恰好给我们高速准确的处理海量流式数据提供了可能。 </p>
 <h4 id="1、企业中的应用"><a href="#1、企业中的应用" class="headerlink" title="1、企业中的应用"></a>1、企业中的应用</h4><p>Flink 为全球许多公司和企业的关键业务应用提供了强大的支持。 对于数据处理而言，任何行业、任何公司的需求其实都是一样的：数据规模大、实时性要 求高、确保结果准确、方便扩展、故障后可恢复——而这些要求，作为新一代大数据流式处理 引擎的 Flink 统统可以满足！这也正是 Flink 在全世界范围得到广泛应用的原因。 </p>
 <h4 id="2、主要的应用场景"><a href="#2、主要的应用场景" class="headerlink" title="2、主要的应用场景"></a>2、主要的应用场景</h4><ol>
@@ -748,7 +740,7 @@
 </ol>
 <p>举例：实时结算和通知推送，实时检测异常行为 </p>
 <p>银行和金融业是另一个典型的应用行业。用户的交易行为是连续大量发生的，银行面对的 是海量的流式数据。由于要处理的交易数据量太大，以前的银行是按天结算的，汇款一般都要 隔天才能到账。所以有一个说法叫作“银行家工作时间”，说的就是银行家不仅不需要 996，甚 至下午早早就下班了：因为银行需要早点关门进行结算，这样才能保证第二天营业之前算出准 确的账。这显然不能满足我们快速交易的需求。在全球化经济中，能够提供 24 小时服务变得 越来越重要。现在交易和报表都会快速准确地生成，我们跨行转账也可以做到瞬间到账，还可以接到实时的推送通知。这就需要我们能够实时处理数据流。 另外，信用卡欺诈的检测也需要及时的监控和报警。一些金融交易市场，对异常交易行为 的及时检测可以更好地进行风险控制；还可以对异常登录进行检测，从而发现钓鱼式攻击，从 而避免巨大的损失。</p>
-<h5 id="-1"><a href="#-1" class="headerlink" title=""></a></h5><h3 id="三、流式计算演变"><a href="#三、流式计算演变" class="headerlink" title="三、流式计算演变"></a>三、流式计算演变</h3><p>我们已经了解，Flink 的主要应用场景，就是 <font color="red">处理大规模的数据流</font>。那为什么一定要用 Flink 呢？数据处理还有没有其他的方式？要解答这个疑惑，我们就需要先从流处理和批处理的概念 讲起。 </p>
+<h3 id="三、流式计算演变"><a href="#三、流式计算演变" class="headerlink" title="三、流式计算演变"></a>三、流式计算演变</h3><p>我们已经了解，Flink 的主要应用场景，就是 <font color="red">处理大规模的数据流</font>。那为什么一定要用 Flink 呢？数据处理还有没有其他的方式？要解答这个疑惑，我们就需要先从流处理和批处理的概念 讲起。 </p>
 <h4 id="1、流处理和批处理"><a href="#1、流处理和批处理" class="headerlink" title="1、流处理和批处理"></a>1、流处理和批处理</h4><p>数据处理有不同的方式。 </p>
 <p>对于具体应用来说，有些场景数据是一个一个来的，是一组有序的数据序列，我们把它叫作“数据流”；而有些场景的数据，本身就是一批同时到来，是一个有限的数据集，这就是批量数据（有时也直接叫数据集）。 </p>
 <p>容易想到，处理数据流，当然应该“来一个就处理一个”，这种数据处理模式就叫作流处理；因为这种处理是即时的，所以也叫实时处理。与之对应，处理批量数据自然就应该一批读入、一起计算，这种方式就叫作<font color="red">批处理，也叫作离线处理</font>。 </p>
@@ -766,7 +758,7 @@
 <p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/bigdata/flink/202205182141239.png"></p>
 <p>当应用收到一个新事件时，它可以从状态中读取数据，也可以更新状态。而当状态是从内存中读写的时候，这就和访问本地变量没什么区别了，实时性可以得到极大的提升。 另外，数据规模增大时，我们也不需要做重构，只需要构建分布式集群，各自在本地计算就可以了，可扩展性也变得更好。</p>
 <p>因为采用的是一个分布式系统，所以还需要保护本地状态，防止在故障时数据丢失。我们可以定期地将应用状态的一致性检查点（checkpoint）存盘，写入远程的持久化存储，遇到故障时再去读取进行恢复，这样就保证了更好的容错性。 </p>
-<h5 id="-2"><a href="#-2" class="headerlink" title=""></a></h5><h4 id="4、有状态流架构"><a href="#4、有状态流架构" class="headerlink" title="4、有状态流架构"></a>4、有状态流架构</h4><h5 id="1、事件驱动型（Event-Driven）应用"><a href="#1、事件驱动型（Event-Driven）应用" class="headerlink" title="1、事件驱动型（Event-Driven）应用"></a>1、事件驱动型（Event-Driven）应用</h5><p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/bigdata/flink/202205182143210.png"></p>
+<h5 id=""><a href="#" class="headerlink" title=""></a></h5><h4 id="4、有状态流架构"><a href="#4、有状态流架构" class="headerlink" title="4、有状态流架构"></a>4、有状态流架构</h4><h5 id="1、事件驱动型（Event-Driven）应用"><a href="#1、事件驱动型（Event-Driven）应用" class="headerlink" title="1、事件驱动型（Event-Driven）应用"></a>1、事件驱动型（Event-Driven）应用</h5><p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/bigdata/flink/202205182143210.png"></p>
 <ul>
 <li>事件驱动型应用是一类具有状态的应用，它从一个或多个事件流提取数据，并根据到来的 </li>
 </ul>
@@ -781,7 +773,7 @@
 <li>另外远程持久性存储的检查点保证了应用可以从故障中恢复。检查点可以异步和增量地完 </li>
 </ul>
 <p>成，因此对正常计算的影响非常小</p>
-<h5 id="-3"><a href="#-3" class="headerlink" title=""></a></h5><h5 id="2、数据分析（Data-Analysis）型应用"><a href="#2、数据分析（Data-Analysis）型应用" class="headerlink" title="2、数据分析（Data Analysis）型应用"></a>2、数据分析（Data Analysis）型应用</h5><p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/bigdata/flink/202205182152243.png"></p>
+<h5 id="-1"><a href="#-1" class="headerlink" title=""></a></h5><h5 id="2、数据分析（Data-Analysis）型应用"><a href="#2、数据分析（Data-Analysis）型应用" class="headerlink" title="2、数据分析（Data Analysis）型应用"></a>2、数据分析（Data Analysis）型应用</h5><p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/bigdata/flink/202205182152243.png"></p>
 <ul>
 <li>所谓的数据分析，就是从原始数据中提取信息和发掘规律。传统上，数据分析一般是先将 </li>
 </ul>
@@ -865,7 +857,7 @@
 </ul>
 <p>用的设置，以及与资源管理器（如 YARN 或 Kubernetes）的紧密集成等等。 </p>
 <h3 id="四、Flink-的特性总结"><a href="#四、Flink-的特性总结" class="headerlink" title="四、Flink 的特性总结"></a>四、Flink 的特性总结</h3><p><strong>Flink 是第三代分布式流处理器，它的功能丰富而强大。</strong></p>
-<h5 id="-4"><a href="#-4" class="headerlink" title=""></a></h5><h4 id="1、核心特性"><a href="#1、核心特性" class="headerlink" title="1、核心特性"></a>1、核心特性</h4><h5 id="-5"><a href="#-5" class="headerlink" title=""></a></h5><ul>
+<h5 id="-2"><a href="#-2" class="headerlink" title=""></a></h5><h4 id="1、核心特性"><a href="#1、核心特性" class="headerlink" title="1、核心特性"></a>1、核心特性</h4><h5 id="-3"><a href="#-3" class="headerlink" title=""></a></h5><ul>
 <li><p>高吞吐和低延迟。每秒处理数百万个事件，毫秒级延迟。</p>
 </li>
 <li><p>结果的准确性。Flink 提供了事件时间（event-time）和处理时间（processing-time） </p>
@@ -900,7 +892,7 @@
 <p><font color="red">流处理</font>主要针对的是数据流，特点是<font color="red">无界</font>、实时, 对系统传输的每个数据依次执行操作， 一般用于实时统计。 </p>
 <p>从根本上说，Spark 和 Flink 采用了完全不同的数据处理方式。可以说，两者的世界观是 截然相反的。 </p>
 <p>Spark 以批处理为根本，并尝试在批处理之上支持流计算；在 Spark 的世界观中，万物皆批次，离线数据是一个大批次，而实时数据则是由一个一个无限的小批次组成的。所以对于流处理框架 Spark Streaming 而言，其实并不是真正意义上的“流”处理，而是“微批次” （micro-batching）处理</p>
-<h5 id="-6"><a href="#-6" class="headerlink" title=""></a></h5><h5 id="1-无界数据流"><a href="#1-无界数据流" class="headerlink" title="1.无界数据流"></a>1.无界数据流</h5><p>所谓无界数据流，就是有头没尾，数据的生成和传递会开始但永远不会结束，我们无法等待所有数据都到达，因为输入是无界的，永无止境，数据没有“都到达”的 时候。所以对于无界数据流，必须连续处理，也就是说必须在获取数据后立即处理。在处理无界流时，为了保证结果的正确性，我们必须能够做到按照顺序处理数据。 </p>
+<h5 id="-4"><a href="#-4" class="headerlink" title=""></a></h5><h5 id="1-无界数据流"><a href="#1-无界数据流" class="headerlink" title="1.无界数据流"></a>1.无界数据流</h5><p>所谓无界数据流，就是有头没尾，数据的生成和传递会开始但永远不会结束，我们无法等待所有数据都到达，因为输入是无界的，永无止境，数据没有“都到达”的 时候。所以对于无界数据流，必须连续处理，也就是说必须在获取数据后立即处理。在处理无界流时，为了保证结果的正确性，我们必须能够做到按照顺序处理数据。 </p>
 <h5 id="2-无界数据流"><a href="#2-无界数据流" class="headerlink" title="2.无界数据流"></a>2.无界数据流</h5><p>有界数据流有明确定义的开始和结束，所以我们可以通过获取所有数据来处理有界流。处理有界流就不需要严格保证数据的顺序了，因为总可以对有界数据集进行排序。有界流的处理也就是批处理。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/bigdata/flink/202205182208414.png"></p>
 <p>正因为这种架构上的不同，Spark 和 Flink 在不同的应用领域上表现会有差别。一般来说，Spark 基于微批处理的方式做同步总有一个“攒批”的过程，所以会有额外开销，因此无法在流处理的低延迟上做到极致。在低延迟流处理场景，Flink 已经有明显的优势。而在海量数据的批处理领域，Spark 能够处理的吞吐量更大，加上其完善的生态和成熟易用的 API，目前同样优势比较明显。 </p>
@@ -932,7 +924,7 @@
 <li>Flink 提供事件时间语义，可以正确处理延迟数据。</li>
 <li>Flink 提供了更加灵活的对状态编程的 API。</li>
 </ul>
-<h4 id="-7"><a href="#-7" class="headerlink" title=""></a></h4><h2 id="Ⅱ、Flink-快速上手"><a href="#Ⅱ、Flink-快速上手" class="headerlink" title="Ⅱ、Flink 快速上手"></a>Ⅱ、Flink 快速上手</h2><h3 id="1、创建项目-1-8"><a href="#1、创建项目-1-8" class="headerlink" title="1、创建项目(1.8)"></a>1、创建项目(1.8)</h3><h4 id="1、maven"><a href="#1、maven" class="headerlink" title="1、maven"></a>1、maven</h4><p>在项目的 pom 文件中，增加<properties>标签设置属性，然后增加<denpendencies>标签引入需要的依赖。我们需要添加的依赖最重要的就是 Flink 的相关组件，包括 flink-java、 flink-streaming-java，以及 flink-clients（客户端，也可以省略）。另外，为了方便查看运行日志， 我们引入 slf4j 和 log4j 进行日志理。 </denpendencies></properties></p>
+<h4 id="-5"><a href="#-5" class="headerlink" title=""></a></h4><h2 id="Ⅱ、Flink-快速上手"><a href="#Ⅱ、Flink-快速上手" class="headerlink" title="Ⅱ、Flink 快速上手"></a>Ⅱ、Flink 快速上手</h2><h3 id="1、创建项目-1-8"><a href="#1、创建项目-1-8" class="headerlink" title="1、创建项目(1.8)"></a>1、创建项目(1.8)</h3><h4 id="1、maven"><a href="#1、maven" class="headerlink" title="1、maven"></a>1、maven</h4><p>在项目的 pom 文件中，增加<properties>标签设置属性，然后增加<denpendencies>标签引入需要的依赖。我们需要添加的依赖最重要的就是 Flink 的相关组件，包括 flink-java、 flink-streaming-java，以及 flink-clients（客户端，也可以省略）。另外，为了方便查看运行日志， 我们引入 slf4j 和 log4j 进行日志理。 </denpendencies></properties></p>
 <pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>properties</span><span class="token punctuation">&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>flink.version</span><span class="token punctuation">&gt;</span></span>1.13.0<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>flink.version</span><span class="token punctuation">&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>java.version</span><span class="token punctuation">&gt;</span></span>1.8<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>java.version</span><span class="token punctuation">&gt;</span></span>
@@ -1052,7 +1044,121 @@ hello java<span aria-hidden="true" class="line-numbers-rows"><span></span><span>
 
 
 
-<h4 id="2、流处理"><a href="#2、流处理" class="headerlink" title="2、流处理"></a>2、流处理</h4><h3 id="-8"><a href="#-8" class="headerlink" title=""></a></h3><h2 id="Ⅲ、"><a href="#Ⅲ、" class="headerlink" title="Ⅲ、"></a>Ⅲ、</h2><h3 id="1、"><a href="#1、" class="headerlink" title="1、"></a>1、</h3><h3 id="2、"><a href="#2、" class="headerlink" title="2、"></a>2、</h3><h3 id="3、"><a href="#3、" class="headerlink" title="3、"></a>3、</h3><h3 id="4、"><a href="#4、" class="headerlink" title="4、"></a>4、</h3><h3 id="5、"><a href="#5、" class="headerlink" title="5、"></a>5、</h3>
+<h4 id="2、流处理（有界）"><a href="#2、流处理（有界）" class="headerlink" title="2、流处理（有界）"></a>2、流处理（有界）</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>kk<span class="token punctuation">.</span>wc</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>flink<span class="token punctuation">.</span>api<span class="token punctuation">.</span>common<span class="token punctuation">.</span>typeinfo<span class="token punctuation">.</span></span><span class="token class-name">Types</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>flink<span class="token punctuation">.</span>api<span class="token punctuation">.</span>java<span class="token punctuation">.</span>tuple<span class="token punctuation">.</span></span><span class="token class-name">Tuple2</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>flink<span class="token punctuation">.</span>streaming<span class="token punctuation">.</span>api<span class="token punctuation">.</span>datastream<span class="token punctuation">.</span></span><span class="token class-name">DataStreamSource</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>flink<span class="token punctuation">.</span>streaming<span class="token punctuation">.</span>api<span class="token punctuation">.</span>datastream<span class="token punctuation">.</span></span><span class="token class-name">KeyedStream</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>flink<span class="token punctuation">.</span>streaming<span class="token punctuation">.</span>api<span class="token punctuation">.</span>datastream<span class="token punctuation">.</span></span><span class="token class-name">SingleOutputStreamOperator</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>flink<span class="token punctuation">.</span>streaming<span class="token punctuation">.</span>api<span class="token punctuation">.</span>environment<span class="token punctuation">.</span></span><span class="token class-name">StreamExecutionEnvironment</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>flink<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">Collector</span><span class="token punctuation">;</span>
+
+<span class="token comment">/*
+ * @Description:    流处理有界流
+ * @Author:         阿K
+ * @CreateDate:     2022/5/19 21:14
+ * @Param:
+ * @Return:
+**/</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">BoundedStreamWordCount</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span><span class="token punctuation">{</span>
+
+        <span class="token comment">// 1. 创建流式执行环境</span>
+        <span class="token class-name">StreamExecutionEnvironment</span> env <span class="token operator">=</span> <span class="token class-name">StreamExecutionEnvironment</span><span class="token punctuation">.</span>getExecutionEnvironment <span class="token punctuation">(</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// 2. 从文件读取数据 按行读取(存储的元素就是每行的文本)</span>
+        <span class="token class-name">DataStreamSource</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> listDateSource <span class="token operator">=</span> env<span class="token punctuation">.</span>readTextFile <span class="token punctuation">(</span><span class="token string">"input/words.txt"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// 3. 将每行数据进行分词，转换成二元组类型</span>
+        <span class="token class-name">SingleOutputStreamOperator</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Tuple2</span><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Long</span><span class="token punctuation">&gt;</span><span class="token punctuation">&gt;</span></span> wordAndOne <span class="token operator">=</span> listDateSource<span class="token punctuation">.</span>flatMap <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">String</span> line<span class="token punctuation">,</span> <span class="token class-name">Collector</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Tuple2</span><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span><span class="token class-name">Long</span><span class="token punctuation">&gt;</span><span class="token punctuation">&gt;</span></span> out<span class="token punctuation">)</span> <span class="token operator">-&gt;</span> <span class="token punctuation">{</span>
+            <span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> words <span class="token operator">=</span> line<span class="token punctuation">.</span>split <span class="token punctuation">(</span><span class="token string">" "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">String</span> word <span class="token operator">:</span> words<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                out<span class="token punctuation">.</span>collect <span class="token punctuation">(</span><span class="token class-name">Tuple2</span><span class="token punctuation">.</span>of <span class="token punctuation">(</span>word<span class="token punctuation">,</span><span class="token number">1L</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span>returns <span class="token punctuation">(</span><span class="token class-name">Types</span><span class="token punctuation">.</span>TUPLE <span class="token punctuation">(</span><span class="token class-name">Types</span><span class="token punctuation">.</span>STRING<span class="token punctuation">,</span> <span class="token class-name">Types</span><span class="token punctuation">.</span>LONG<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// 4. 分组(keyBy 按照 key 分组</span>
+        <span class="token class-name">KeyedStream</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Tuple2</span><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Long</span><span class="token punctuation">&gt;</span><span class="token punctuation">,</span> <span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> wordAndOneKS <span class="token operator">=</span> wordAndOne<span class="token punctuation">.</span>keyBy <span class="token punctuation">(</span>data <span class="token operator">-&gt;</span> data<span class="token punctuation">.</span>f0<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// 5. 求和</span>
+        <span class="token class-name">SingleOutputStreamOperator</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Tuple2</span><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Long</span><span class="token punctuation">&gt;</span><span class="token punctuation">&gt;</span></span> result <span class="token operator">=</span> wordAndOneKS<span class="token punctuation">.</span>sum <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// 6. 打印</span>
+        result<span class="token punctuation">.</span>print <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// 7. 执行</span>
+        env<span class="token punctuation">.</span>execute <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+<h4 id="3、流处理（无界）"><a href="#3、流处理（无界）" class="headerlink" title="3、流处理（无界）"></a>3、流处理（无界）</h4><p>利用 nc 模拟实时推送，可以参考底下 【5】</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>kk<span class="token punctuation">.</span>wc</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>flink<span class="token punctuation">.</span>api<span class="token punctuation">.</span>common<span class="token punctuation">.</span>typeinfo<span class="token punctuation">.</span></span><span class="token class-name">Types</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>flink<span class="token punctuation">.</span>api<span class="token punctuation">.</span>java<span class="token punctuation">.</span>tuple<span class="token punctuation">.</span></span><span class="token class-name">Tuple2</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>flink<span class="token punctuation">.</span>streaming<span class="token punctuation">.</span>api<span class="token punctuation">.</span>datastream<span class="token punctuation">.</span></span><span class="token class-name">DataStreamSource</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>flink<span class="token punctuation">.</span>streaming<span class="token punctuation">.</span>api<span class="token punctuation">.</span>datastream<span class="token punctuation">.</span></span><span class="token class-name">KeyedStream</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>flink<span class="token punctuation">.</span>streaming<span class="token punctuation">.</span>api<span class="token punctuation">.</span>datastream<span class="token punctuation">.</span></span><span class="token class-name">SingleOutputStreamOperator</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>flink<span class="token punctuation">.</span>streaming<span class="token punctuation">.</span>api<span class="token punctuation">.</span>environment<span class="token punctuation">.</span></span><span class="token class-name">StreamExecutionEnvironment</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>flink<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">Collector</span><span class="token punctuation">;</span>
+
+<span class="token comment">/*
+ * @Description:    流式计算（nc 测试无界流）
+ * @Author:         阿K
+ * @CreateDate:     2022/5/19 22:43
+ * @Param:
+ * @Return:
+**/</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">StreamWordCount</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span><span class="token punctuation">{</span>
+        <span class="token comment">// 1. 创建流式执行环境</span>
+        <span class="token class-name">StreamExecutionEnvironment</span> env <span class="token operator">=</span> <span class="token class-name">StreamExecutionEnvironment</span><span class="token punctuation">.</span>getExecutionEnvironment <span class="token punctuation">(</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// 2. 读取文本流(远程机)</span>
+        <span class="token class-name">DataStreamSource</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> lineDataStream <span class="token operator">=</span> env<span class="token punctuation">.</span>socketTextStream <span class="token punctuation">(</span><span class="token string">"101.34.180.133"</span><span class="token punctuation">,</span> <span class="token number">7777</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// 3. 将每行数据进行分词，转换成二元组类型</span>
+        <span class="token class-name">SingleOutputStreamOperator</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Tuple2</span><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Long</span><span class="token punctuation">&gt;</span><span class="token punctuation">&gt;</span></span> wordAndOne <span class="token operator">=</span> lineDataStream<span class="token punctuation">.</span>flatMap <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">String</span> line<span class="token punctuation">,</span> <span class="token class-name">Collector</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Tuple2</span><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span><span class="token class-name">Long</span><span class="token punctuation">&gt;</span><span class="token punctuation">&gt;</span></span> out<span class="token punctuation">)</span> <span class="token operator">-&gt;</span> <span class="token punctuation">{</span>
+            <span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> words <span class="token operator">=</span> line<span class="token punctuation">.</span>split <span class="token punctuation">(</span><span class="token string">" "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">String</span> word <span class="token operator">:</span> words<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                out<span class="token punctuation">.</span>collect <span class="token punctuation">(</span><span class="token class-name">Tuple2</span><span class="token punctuation">.</span>of <span class="token punctuation">(</span>word<span class="token punctuation">,</span><span class="token number">1L</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span>returns <span class="token punctuation">(</span><span class="token class-name">Types</span><span class="token punctuation">.</span>TUPLE <span class="token punctuation">(</span><span class="token class-name">Types</span><span class="token punctuation">.</span>STRING<span class="token punctuation">,</span> <span class="token class-name">Types</span><span class="token punctuation">.</span>LONG<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// 4. 分组(keyBy 按照 key 分组</span>
+        <span class="token class-name">KeyedStream</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Tuple2</span><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Long</span><span class="token punctuation">&gt;</span><span class="token punctuation">,</span> <span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> wordAndOneKS <span class="token operator">=</span> wordAndOne<span class="token punctuation">.</span>keyBy <span class="token punctuation">(</span>data <span class="token operator">-&gt;</span> data<span class="token punctuation">.</span>f0<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// 5. 求和</span>
+        <span class="token class-name">SingleOutputStreamOperator</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Tuple2</span><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Long</span><span class="token punctuation">&gt;</span><span class="token punctuation">&gt;</span></span> result <span class="token operator">=</span> wordAndOneKS<span class="token punctuation">.</span>sum <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// 6. 打印</span>
+        result<span class="token punctuation">.</span>print <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// 7. 执行</span>
+        env<span class="token punctuation">.</span>execute <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h2 id="Ⅲ、"><a href="#Ⅲ、" class="headerlink" title="Ⅲ、"></a>Ⅲ、</h2><h3 id="1、"><a href="#1、" class="headerlink" title="1、"></a>1、</h3><h3 id="2、"><a href="#2、" class="headerlink" title="2、"></a>2、</h3><h3 id="3、"><a href="#3、" class="headerlink" title="3、"></a>3、</h3><h3 id="4、"><a href="#4、" class="headerlink" title="4、"></a>4、</h3><h3 id="5、"><a href="#5、" class="headerlink" title="5、"></a>5、</h3><h2 id="参考地址-↓"><a href="#参考地址-↓" class="headerlink" title="参考地址 ↓"></a>参考地址 ↓</h2><h3 id="1、docker-加速（博主简书）"><a href="#1、docker-加速（博主简书）" class="headerlink" title="1、docker 加速（博主简书）"></a>1、docker 加速（博主简书）</h3><p>url：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/f554c85b25c1">https://www.jianshu.com/p/f554c85b25c1</a></p>
+<h3 id="2、Hadoop-单机安装"><a href="#2、Hadoop-单机安装" class="headerlink" title="2、Hadoop 单机安装"></a>2、Hadoop 单机安装</h3><p>url：<a target="_blank" rel="noopener" href="https://blog.51cto.com/u_15187242/4760802">https://blog.51cto.com/u_15187242/4760802</a></p>
+<pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker run <span class="token punctuation">-</span>i <span class="token punctuation">-</span>t <span class="token punctuation">-</span><span class="token punctuation">-</span>network host <span class="token punctuation">-</span>p 50070<span class="token punctuation">:</span>50070 <span class="token punctuation">-</span>p 9000<span class="token punctuation">:</span>9000 <span class="token punctuation">-</span>p 8088<span class="token punctuation">:</span>8088 <span class="token punctuation">-</span>p 8040<span class="token punctuation">:</span>8040 <span class="token punctuation">-</span>p 8042<span class="token punctuation">:</span>8042 <span class="token punctuation">-</span>p 49707<span class="token punctuation">:</span>49707 <span class="token punctuation">-</span>p 50010<span class="token punctuation">:</span>50010 <span class="token punctuation">-</span>p 50075<span class="token punctuation">:</span>50075 <span class="token punctuation">-</span>p 50090<span class="token punctuation">:</span>50090 sequenceiq/hadoop<span class="token punctuation">-</span>docker<span class="token punctuation">:</span>2.7.0 /etc/bootstrap.sh <span class="token punctuation">-</span>bash<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<h3 id="3、Hadoop集群"><a href="#3、Hadoop集群" class="headerlink" title="3、Hadoop集群"></a>3、Hadoop集群</h3><p>url：<a target="_blank" rel="noopener" href="https://dhcp.cn/k8s/docker/deploy_hadoop.html#reference">https://dhcp.cn/k8s/docker/deploy_hadoop.html#reference</a></p>
+<h3 id="4、Hadoop常用端口"><a href="#4、Hadoop常用端口" class="headerlink" title="4、Hadoop常用端口"></a>4、Hadoop常用端口</h3><p>url：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_36816848/article/details/113106441">https://blog.csdn.net/qq_36816848/article/details/113106441</a></p>
+<h3 id="5、nc-lk-模拟实时数据"><a href="#5、nc-lk-模拟实时数据" class="headerlink" title="5、nc -lk 模拟实时数据"></a>5、nc -lk 模拟实时数据</h3><p>url：<a target="_blank" rel="noopener" href="https://www.csdn.net/tags/MtzakgwsODA4NjktYmxvZwO0O0OO0O0O.html">https://www.csdn.net/tags/MtzakgwsODA4NjktYmxvZwO0O0OO0O0O.html</a></p>
+
                 
             </div>
             <hr/>
@@ -1116,20 +1222,12 @@ hello java<span aria-hidden="true" class="line-numbers-rows"><span></span><span>
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/sentinel/">
-                                    <span class="chip bg-color">sentinel</span>
-                                </a>
-                            
-                                <a href="/tags/%E9%99%90%E6%B5%81/">
-                                    <span class="chip bg-color">限流</span>
-                                </a>
-                            
                                 <a href="/tags/Flink/">
                                     <span class="chip bg-color">Flink</span>
                                 </a>
                             
-                                <a href="/tags/%E6%B5%81%E5%BC%8F/">
-                                    <span class="chip bg-color">流式</span>
+                                <a href="/tags/hadoop/">
+                                    <span class="chip bg-color">hadoop</span>
                                 </a>
                             
                         </div>
@@ -1641,20 +1739,12 @@ new Valine({
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/sentinel/">
-                        <span class="chip bg-color">sentinel</span>
-                    </a>
-                    
-                    <a href="/tags/%E9%99%90%E6%B5%81/">
-                        <span class="chip bg-color">限流</span>
-                    </a>
-                    
                     <a href="/tags/Flink/">
                         <span class="chip bg-color">Flink</span>
                     </a>
                     
-                    <a href="/tags/%E6%B5%81%E5%BC%8F/">
-                        <span class="chip bg-color">流式</span>
+                    <a href="/tags/hadoop/">
+                        <span class="chip bg-color">hadoop</span>
                     </a>
                     
                 </div>
@@ -1702,16 +1792,16 @@ new Valine({
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/sentinel/">
-                        <span class="chip bg-color">sentinel</span>
-                    </a>
-                    
                     <a href="/tags/redis/">
                         <span class="chip bg-color">redis</span>
                     </a>
                     
                     <a href="/tags/gatway/">
                         <span class="chip bg-color">gatway</span>
+                    </a>
+                    
+                    <a href="/tags/sentinel/">
+                        <span class="chip bg-color">sentinel</span>
                     </a>
                     
                     <a href="/tags/%E6%95%B0%E6%8D%AE%E5%AD%97%E5%85%B8/">
@@ -1955,7 +2045,7 @@ new Valine({
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">113.6k</span>&nbsp;字
+                class="white-color">114.2k</span>&nbsp;字
             
             
             
