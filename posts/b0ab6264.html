@@ -20,7 +20,7 @@
 
     <title>SpringCloud-Hystrix断路器 | jack</title>
 
-    <link rel="icon" type="image/jpeg" href="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/my1SN{XEPO)])9$A7K_JK(BNOV.jpg">
+    <link rel="icon" type="image/jpeg" href="https://fastly.jsdelivr.net/gh/mykkTo/image@main/blog/my1SN{XEPO)])9$A7K_JK(BNOV.jpg">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
     <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
@@ -56,7 +56,7 @@
             <div class="brand-logo">
                 <a href="/" class="waves-effect waves-light">
                     
-                    <img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/20211641568137986-ckt-抠图.png" class="logo-img" alt="LOGO">
+                    <img src="https://fastly.jsdelivr.net/gh/mykkTo/image@main/blog/20211641568137986-ckt-抠图.png" class="logo-img" alt="LOGO">
                     
                     <span class="logo-span">jack</span>
                 </a>
@@ -239,7 +239,7 @@
 
     <div class="mobile-head bg-color">
         
-        <img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/20211641568137986-ckt-抠图.png" class="logo-img circle responsive-img">
+        <img src="https://fastly.jsdelivr.net/gh/mykkTo/image@main/blog/20211641568137986-ckt-抠图.png" class="logo-img circle responsive-img">
         
         <div class="logo-name">jack</div>
         <div class="logo-desc">
@@ -511,7 +511,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/mykkto/image@main/galleries/动漫风景/15.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://fastly.jsdelivr.net/gh/mykkto/image@main/galleries/动漫风景/15.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -681,7 +681,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-02-09
+                    2022-05-22
                 </div>
                 
 
@@ -719,7 +719,7 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="1、概述"><a href="#1、概述" class="headerlink" title="1、概述"></a>1、概述</h2><h3 id="1、分布式系统面临的问题"><a href="#1、分布式系统面临的问题" class="headerlink" title="1、分布式系统面临的问题"></a>1、分布式系统面临的问题</h3><p>复杂分布式体系结构中的应用程序有数十个依赖关系，每个依赖关系在某些时候将不可避免地失败。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220123152242.png"></p>
+<p><img src="https://fastly.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220123152242.png"></p>
 <h3 id="服务雪崩"><a href="#服务雪崩" class="headerlink" title="服务雪崩"></a>服务雪崩</h3><ul>
 <li><p>多个微服务之间调用的时候，假设微服务A调用微服务B和微服务C，微服务B和微服务C又调用其它的微服务，这就是所谓的<code>“扇出”</code>。如果扇出的链路上某个微服务的调用响应时间过长或者不可用，对微服务A的调用就会占用越来越多的系统资源，进而引起系统崩溃，所谓的“雪崩效应”.</p>
 </li>
@@ -934,16 +934,16 @@ eureka:
 <p><a target="_blank" rel="noopener" href="http://localhost:8001/payment/hystrix/ok/1">http://localhost:8001/payment/hystrix/ok/1</a></p>
 </li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220125215718.png"></p>
+<p><img src="https://fastly.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220125215718.png"></p>
 <ul>
 <li><p>每次调用耗费3 秒钟</p>
 <p><a target="_blank" rel="noopener" href="http://localhost:8001/payment/hystrix/timeout/1">http://localhost:8001/payment/hystrix/timeout/1</a></p>
 </li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220125221023.png"></p>
+<p><img src="https://fastly.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220125221023.png"></p>
 <h3 id="2、高并发测试"><a href="#2、高并发测试" class="headerlink" title="2、高并发测试"></a>2、高并发测试</h3><p>上述在非高并发情形下，还能勉强满足   </p>
-<h4 id="1、Jmeter压测测试"><a href="#1、Jmeter压测测试" class="headerlink" title="1、Jmeter压测测试"></a>1、Jmeter压测测试</h4><h5 id="1、开启Jmeter，来20000个并发压死8001，20000个请求都去访问paymentInfo-TimeOut服务"><a href="#1、开启Jmeter，来20000个并发压死8001，20000个请求都去访问paymentInfo-TimeOut服务" class="headerlink" title="1、开启Jmeter，来20000个并发压死8001，20000个请求都去访问paymentInfo_TimeOut服务"></a>1、开启Jmeter，来20000个并发压死8001，20000个请求都去访问paymentInfo_TimeOut服务</h5><p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220125223829.png"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220125224424.png"></p>
+<h4 id="1、Jmeter压测测试"><a href="#1、Jmeter压测测试" class="headerlink" title="1、Jmeter压测测试"></a>1、Jmeter压测测试</h4><h5 id="1、开启Jmeter，来20000个并发压死8001，20000个请求都去访问paymentInfo-TimeOut服务"><a href="#1、开启Jmeter，来20000个并发压死8001，20000个请求都去访问paymentInfo-TimeOut服务" class="headerlink" title="1、开启Jmeter，来20000个并发压死8001，20000个请求都去访问paymentInfo_TimeOut服务"></a>1、开启Jmeter，来20000个并发压死8001，20000个请求都去访问paymentInfo_TimeOut服务</h5><p><img src="https://fastly.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220125223829.png"></p>
+<p><img src="https://fastly.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220125224424.png"></p>
 <h5 id="2、再来一个访问"><a href="#2、再来一个访问" class="headerlink" title="2、再来一个访问"></a>2、再来一个访问</h5><p>从3秒到不止3秒</p>
 <p><a target="_blank" rel="noopener" href="http://localhost:8001/payment/hystrix/timeout/1">http://localhost:8001/payment/hystrix/timeout/1</a></p>
 <p>从秒回到延迟一秒多</p>
@@ -1108,7 +1108,7 @@ eureka:
 <h5 id="5、测试"><a href="#5、测试" class="headerlink" title="5、测试"></a>5、测试</h5><ul>
 <li>需要启动的服务</li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220126224113.png"></p>
+<p><img src="https://fastly.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220126224113.png"></p>
 <ul>
 <li>url</li>
 </ul>
@@ -1122,7 +1122,7 @@ eureka:
 <ul>
 <li>要么转圈圈等待（2W个并发）</li>
 <li>要么消费端报超时错误（20W个并发，冲垮）<ul>
-<li><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220126232151.png"></li>
+<li><img src="https://fastly.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220126232151.png"></li>
 </ul>
 </li>
 </ul>
@@ -1205,11 +1205,11 @@ eureka:
 
 <h5 id="2、-HystrixCommand报异常后如何处理"><a href="#2、-HystrixCommand报异常后如何处理" class="headerlink" title="2、@HystrixCommand报异常后如何处理"></a>2、@HystrixCommand报异常后如何处理</h5><p>一旦调用服务方法失败并抛出了错误信息后，会自动调用<code>@HystrixCommand</code>标注好的 <code>fallbackMethod</code>调用类中的指定方法</p>
 <h4 id="2、主启动类激活"><a href="#2、主启动类激活" class="headerlink" title="2、主启动类激活"></a>2、主启动类激活</h4><p>添加新注解<code>@EnableCircuitBreaker</code></p>
-<h4 id="3、制造问题：测试降级效果"><a href="#3、制造问题：测试降级效果" class="headerlink" title="3、制造问题：测试降级效果"></a>3、制造问题：测试降级效果</h4><p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220208215802.png"></p>
+<h4 id="3、制造问题：测试降级效果"><a href="#3、制造问题：测试降级效果" class="headerlink" title="3、制造问题：测试降级效果"></a>3、制造问题：测试降级效果</h4><p><img src="https://fastly.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220208215802.png"></p>
 <p>上图故意制造两个异常：<br>   1  int age = 10/0; 计算异常<br>   2  我们能接受3秒钟，它运行5秒钟，超时异常。</p>
 <p>   当前服务不可用了，做服务降级，兜底的方案都是 paymentInfo_TimeOutHandler</p>
 <p>无论是延迟指定时间还是异常，都会到对应方法降级</p>
-<p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220208221405.png"></p>
+<p><img src="https://fastly.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220208221405.png"></p>
 <h3 id="4、80fallback"><a href="#4、80fallback" class="headerlink" title="4、80fallback"></a>4、<code>80</code>fallback</h3><h4 id="1、说明"><a href="#1、说明" class="headerlink" title="1、说明"></a>1、说明</h4><p>80订单微服务，也可以更好的保护自己，自己也依样画葫芦进行客户端降级保护</p>
 <h4 id="2、注意点"><a href="#2、注意点" class="headerlink" title="2、注意点"></a>2、注意点</h4><p>我们自己配置过的热部署方式对java代码的改动明显，<br>但对<code>@HystrixCommand内属性的修改建议重启微服务</code></p>
 <h4 id="3、yml-1"><a href="#3、yml-1" class="headerlink" title="3、yml"></a>3、yml</h4><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">feign:
@@ -1306,7 +1306,7 @@ feign:
 
 
 <h4 id="6、测试-1"><a href="#6、测试-1" class="headerlink" title="6、测试"></a>6、测试</h4><p>url：<code>http://localhost//consumer/payment/hystrix/ok/1</code></p>
-<p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220208221405.png"></p>
+<p><img src="https://fastly.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220208221405.png"></p>
 <h3 id="5、目前问题"><a href="#5、目前问题" class="headerlink" title="5、目前问题"></a>5、目前问题</h3><ul>
 <li>每个业务方法对应一个兜底的方法，代码膨胀</li>
 <li>统一和自定义的分开</li>
@@ -1315,7 +1315,7 @@ feign:
 <p>  每个方法配置一个服务降级方法，技术上可以，实际上傻X</p>
 <p>  除了个别重要核心业务有专属，其它普通的可以通过@DefaultProperties(defaultFallback = “”)  统一跳转到统一处理结果页面</p>
 <p>  通用的和独享的各自分开，避免了代码膨胀，合理减少了代码量，O(∩_∩)O哈哈~ </p>
-<p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220209194903.png"></p>
+<p><img src="https://fastly.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220209194903.png"></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span>
     <span class="token annotation punctuation">@DefaultProperties</span><span class="token punctuation">(</span>defaultFallback <span class="token operator">=</span> <span class="token string">"payment_Global_FallbackMethod"</span><span class="token punctuation">)</span>
 
@@ -1449,9 +1449,9 @@ feign:
 
 <p>测试：<code>http://localhost/consumer/payment/hystrix/ok/1</code></p>
 <p>正常访问：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220209205924.png"></p>
+<p><img src="https://fastly.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220209205924.png"></p>
 <p>故意关闭微服务8001后访问：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220209205728.png"></p>
+<p><img src="https://fastly.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220209205728.png"></p>
 <h2 id="3-2实战：服务熔断"><a href="#3-2实战：服务熔断" class="headerlink" title="3-2实战：服务熔断"></a>3-2实战：服务熔断</h2><h3 id="1、断路器"><a href="#1、断路器" class="headerlink" title="1、断路器"></a>1、断路器</h3><p>一句话就是家里的保险丝</p>
 <h3 id="2、熔断是什么"><a href="#2、熔断是什么" class="headerlink" title="2、熔断是什么"></a>2、熔断是什么</h3><h4 id="熔断机制概述："><a href="#熔断机制概述：" class="headerlink" title="熔断机制概述："></a>熔断机制概述：</h4><p>熔断机制是应对雪崩效应的一种微服务链路保护机制。当扇出链路的某个微服务出错不可用或者响应时间太长时，<br>会进行服务的降级，进而熔断该节点微服务的调用，快速返回错误的响应信息。<br><code>当检测到该节点微服务调用响应正常后，恢复调用链路。</code></p>
 <p>在Spring Cloud框架里，熔断机制通过Hystrix实现。Hystrix会监控微服务间调用的状况，<br>当失败的调用到一定阈值，缺省是5秒内20次调用失败，就会启动熔断机制。熔断机制的注解是@HystrixCommand。</p>
@@ -1488,9 +1488,9 @@ feign:
 
 
 <h3 id="4、测试"><a href="#4、测试" class="headerlink" title="4、测试"></a>4、测试</h3><p>正确：<code>http://localhost:8001/payment/circuit/1</code></p>
-<p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220209215316.png"></p>
+<p><img src="https://fastly.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220209215316.png"></p>
 <p>错误：<code>http://localhost:8001/payment/circuit/-1</code></p>
-<p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220209215254.png"></p>
+<p><img src="https://fastly.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220209215254.png"></p>
 <h3 id="5、原理-小总结"><a href="#5、原理-小总结" class="headerlink" title="5、原理(小总结)"></a>5、原理(小总结)</h3><h4 id="1、熔断类型"><a href="#1、熔断类型" class="headerlink" title="1、熔断类型"></a>1、熔断类型</h4><ul>
 <li>熔断打开<ul>
 <li>请求不再进行调用当前服务，内部设置时钟一般为MTTR（平均故障处理时间)，当打开时长达到所设时钟则进入半熔断状态</li>
@@ -1605,7 +1605,7 @@ feign:
 
 
 <h2 id="3-3实战：服务限流"><a href="#3-3实战：服务限流" class="headerlink" title="3-3实战：服务限流"></a>3-3实战：服务限流</h2><p>采用alibaba的Sentinel，后面扩展</p>
-<h2 id="4、hystrix工作流程"><a href="#4、hystrix工作流程" class="headerlink" title="4、hystrix工作流程"></a>4、hystrix工作流程</h2><p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220209220145.png"></p>
+<h2 id="4、hystrix工作流程"><a href="#4、hystrix工作流程" class="headerlink" title="4、hystrix工作流程"></a>4、hystrix工作流程</h2><p><img src="https://fastly.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220209220145.png"></p>
 <p>1    创建 HystrixCommand（用在依赖的服务返回单个操作结果的时候） 或 HystrixObserableCommand（用在依赖的服务返回多个操作结果的时候） 对象。<br>2    命令执行。其中 HystrixComand 实现了下面前两种执行方式；而 HystrixObservableCommand 实现了后两种执行方式：execute()：同步执行，从依赖的服务返回一个单一的结果对象， 或是在发生错误的时候抛出异常。queue()：异步执行， 直接返回 一个Future对象， 其中包含了服务执行结束时要返回的单一结果对象。observe()：返回 Observable 对象，它代表了操作的多个结果，它是一个 Hot Obserable（不论 “事件源” 是否有 “订阅者”，都会在创建后对事件进行发布，所以对于 Hot Observable 的每一个 “订阅者” 都有可能是从 “事件源” 的中途开始的，并可能只是看到了整个操作的局部过程）。toObservable()： 同样会返回 Observable 对象，也代表了操作的多个结果，但它返回的是一个Cold Observable（没有 “订阅者” 的时候并不会发布事件，而是进行等待，直到有 “订阅者” 之后才发布事件，所以对于 Cold Observable 的订阅者，它可以保证从一开始看到整个操作的全部过程）。<br>3    若当前命令的请求缓存功能是被启用的， 并且该命令缓存命中， 那么缓存的结果会立即以 Observable 对象的形式 返回。<br>4    检查断路器是否为打开状态。如果断路器是打开的，那么Hystrix不会执行命令，而是转接到 fallback 处理逻辑（第 8 步）；如果断路器是关闭的，检查是否有可用资源来执行命令（第 5 步）。<br>5    线程池/请求队列/信号量是否占满。如果命令依赖服务的专有线程池和请求队列，或者信号量（不使用线程池的时候）已经被占满， 那么 Hystrix 也不会执行命令， 而是转接到 fallback 处理逻辑（第8步）。<br>6    Hystrix 会根据我们编写的方法来决定采取什么样的方式去请求依赖服务。HystrixCommand.run() ：返回一个单一的结果，或者抛出异常。HystrixObservableCommand.construct()： 返回一个Observable 对象来发射多个结果，或通过 onError 发送错误通知。<br>7    Hystrix会将 “成功”、”失败”、”拒绝”、”超时” 等信息报告给断路器， 而断路器会维护一组计数器来统计这些数据。断路器会使用这些统计数据来决定是否要将断路器打开，来对某个依赖服务的请求进行 “熔断/短路”。<br>8    当命令执行失败的时候， Hystrix 会进入 fallback 尝试回退处理， 我们通常也称该操作为 “服务降级”。而能够引起服务降级处理的情况有下面几种：第4步： 当前命令处于”熔断/短路”状态，断路器是打开的时候。第5步： 当前命令的线程池、 请求队列或 者信号量被占满的时候。第6步：HystrixObservableCommand.construct() 或 HystrixCommand.run() 抛出异常的时候。<br>9    当Hystrix命令执行成功之后， 它会将处理结果直接返回或是以Observable 的形式返回。</p>
 <p>tips：如果我们没有为命令实现降级逻辑或者在降级处理逻辑中抛出了异常， Hystrix 依然会返回一个 Observable 对象， 但是它不会发射任何结果数据， 而是通过 onError 方法通知命令立即中断请求，并通过onError()方法将引起命令失败的异常发送给调用者。</p>
 <h2 id="5、服务监控HystrixDashboard"><a href="#5、服务监控HystrixDashboard" class="headerlink" title="5、服务监控HystrixDashboard"></a>5、服务监控HystrixDashboard</h2><h3 id="1、概述-1"><a href="#1、概述-1" class="headerlink" title="1、概述"></a>1、概述</h3><p>除了隔离依赖服务的调用以外，Hystrix还提供了<code>准实时的调用监控（Hystrix Dashboard）</code>，Hystrix会持续地记录所有通过Hystrix发起的请求的执行信息，并以统计报表和图形的形式展示给用户，包括每秒执行多少请求多少成功，多少失败等。Netflix通过hystrix-metrics-event-stream项目实现了对以上指标的监控。Spring Cloud也提供了Hystrix Dashboard的整合，对监控内容转化成可视化界面。</p>
@@ -1694,7 +1694,7 @@ feign:
 
 
 <h4 id="6、进入面板"><a href="#6、进入面板" class="headerlink" title="6、进入面板"></a>6、进入面板</h4><p><code>http://localhost:9001/hystrix</code></p>
-<p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220209221911.png"></p>
+<p><img src="https://fastly.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220209221911.png"></p>
 <h3 id="3、断路器演示-服务监控hystrixDashboard"><a href="#3、断路器演示-服务监控hystrixDashboard" class="headerlink" title="3、断路器演示(服务监控hystrixDashboard)"></a>3、断路器演示(服务监控hystrixDashboard)</h3><h4 id="1、修改cloud-provider-hystrix-payment8001"><a href="#1、修改cloud-provider-hystrix-payment8001" class="headerlink" title="1、修改cloud-provider-hystrix-payment8001"></a>1、修改cloud-provider-hystrix-payment8001</h4><h5 id="1、注意新版本"><a href="#1、注意新版本" class="headerlink" title="1、注意新版本"></a>1、注意新版本</h5><p>注意:新版本Hystrix需要在主启动类MainAppHystrix8001中指定监控路径</p>
 <p>报错信息：Unable to connect to Command Metric Stream.</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/**
@@ -1750,16 +1750,16 @@ feign:
 
 
 <h4 id="2、监控测试"><a href="#2、监控测试" class="headerlink" title="2、监控测试"></a>2、监控测试</h4><h5 id="1、9001监控8001"><a href="#1、9001监控8001" class="headerlink" title="1、9001监控8001"></a>1、9001监控8001</h5><p><code>http://localhost:8001/hystrix.stream</code></p>
-<p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220209222541.png"></p>
+<p><img src="https://fastly.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220209222541.png"></p>
 <p>1：Delay：该参数用来控制服务器上轮询监控信息的延迟时间，默认为2000毫秒，可以通过配置该属性来降低客户端的网络和CPU消耗。</p>
 <p>2：Title：该参数对应了头部标题Hystrix Stream之后的内容，默认会使用具体监控实例的URL，可以通过配置该信息来展示更合适的标题。</p>
 <h5 id="2、访问-1"><a href="#2、访问-1" class="headerlink" title="2、访问"></a>2、访问</h5><p>正确：<code>http://localhost:8001/payment/circuit/1</code></p>
-<p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220209222846.png"></p>
+<p><img src="https://fastly.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220209222846.png"></p>
 <p>错误：<code>http://localhost:8001/payment/circuit/-1</code></p>
-<p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220209222958.png"></p>
-<h4 id="3、★-如何看仪表盘"><a href="#3、★-如何看仪表盘" class="headerlink" title="3、★ 如何看仪表盘"></a>3、★ 如何看仪表盘</h4><p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220209223100.png"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220209223115.png"></p>
-<h4 id="4、搞懂一个才能看懂复杂的"><a href="#4、搞懂一个才能看懂复杂的" class="headerlink" title="4、搞懂一个才能看懂复杂的"></a>4、搞懂一个才能看懂复杂的</h4><p><img src="https://cdn.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220209223208.png"></p>
+<p><img src="https://fastly.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220209222958.png"></p>
+<h4 id="3、★-如何看仪表盘"><a href="#3、★-如何看仪表盘" class="headerlink" title="3、★ 如何看仪表盘"></a>3、★ 如何看仪表盘</h4><p><img src="https://fastly.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220209223100.png"></p>
+<p><img src="https://fastly.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220209223115.png"></p>
+<h4 id="4、搞懂一个才能看懂复杂的"><a href="#4、搞懂一个才能看懂复杂的" class="headerlink" title="4、搞懂一个才能看懂复杂的"></a>4、搞懂一个才能看懂复杂的</h4><p><img src="https://fastly.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220209223208.png"></p>
 
                 
             </div>
@@ -2317,7 +2317,7 @@ new Valine({
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/mykkto/image@main/galleries/动漫插画/14.jpg" class="responsive-img" alt="SpringCloud-Zuul路由网关">
+                        <img src="https://fastly.jsdelivr.net/gh/mykkto/image@main/galleries/动漫插画/14.jpg" class="responsive-img" alt="SpringCloud-Zuul路由网关">
                         
                         <span class="card-title">SpringCloud-Zuul路由网关</span>
                     </div>
@@ -2378,7 +2378,7 @@ new Valine({
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/mykkto/image@main/galleries/动漫插画/04.jpg" class="responsive-img" alt="SpringCloud-OpenFeign远程调用服务">
+                        <img src="https://fastly.jsdelivr.net/gh/mykkto/image@main/galleries/动漫插画/04.jpg" class="responsive-img" alt="SpringCloud-OpenFeign远程调用服务">
                         
                         <span class="card-title">SpringCloud-OpenFeign远程调用服务</span>
                     </div>
@@ -2645,7 +2645,7 @@ new Valine({
 </div>
 
 <script src="/libs/aplayer/APlayer.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+<script src="https://fastly.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
 
     
     <div class="container row center-align" style="margin-bottom: 15px !important;">
@@ -2661,7 +2661,7 @@ new Valine({
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">114.2k</span>&nbsp;字
+                class="white-color">115.4k</span>&nbsp;字
             
             
             
