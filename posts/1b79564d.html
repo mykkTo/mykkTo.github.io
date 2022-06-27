@@ -645,6 +645,10 @@
                                 <span class="chip bg-color">hadoop</span>
                             </a>
                         
+                            <a href="/tags/kafka/">
+                                <span class="chip bg-color">kafka</span>
+                            </a>
+                        
                     </div>
                     
                 </div>
@@ -673,21 +677,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-06-08
+                    2022-06-09
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    14k
+                    14.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    57 分
+                    58 分
                 </div>
                 
 
@@ -1870,13 +1874,54 @@ bin/stop-cluster.sh<span aria-hidden="true" class="line-numbers-rows"><span></sp
 <p>⚫ max()：在输入流上，对指定的字段求最大值。 </p>
 <p>⚫ minBy()：与 min()类似，在输入流上针对指定字段求最小值。不同的是，min()只计算指定字段的最小值，其他字段会保留最初第一个数据的值；而 minBy()则会返回包 含字段最小值的整条数据。 </p>
 <p>⚫ maxBy()：与 max()类似，在输入流上针对指定字段求最大值。两者区别与 min()/minBy()完全一致。 </p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>kk<span class="token punctuation">.</span>model2</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>flink<span class="token punctuation">.</span>api<span class="token punctuation">.</span>java<span class="token punctuation">.</span>tuple<span class="token punctuation">.</span></span><span class="token class-name">Tuple2</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>flink<span class="token punctuation">.</span>streaming<span class="token punctuation">.</span>api<span class="token punctuation">.</span>datastream<span class="token punctuation">.</span></span><span class="token class-name">DataStreamSource</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>flink<span class="token punctuation">.</span>streaming<span class="token punctuation">.</span>api<span class="token punctuation">.</span>environment<span class="token punctuation">.</span></span><span class="token class-name">StreamExecutionEnvironment</span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">TransTupleAggreationTest</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 创造执行环境</span>
+        <span class="token comment">// 并行为 1</span>
+        <span class="token class-name">StreamExecutionEnvironment</span> env <span class="token operator">=</span> <span class="token class-name">StreamExecutionEnvironment</span><span class="token punctuation">.</span>getExecutionEnvironment <span class="token punctuation">(</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+        env<span class="token punctuation">.</span>setParallelism <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// 构建数据</span>
+        <span class="token class-name">DataStreamSource</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Tuple2</span><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Integer</span><span class="token punctuation">&gt;</span><span class="token punctuation">&gt;</span></span> stream <span class="token operator">=</span> env<span class="token punctuation">.</span>fromElements <span class="token punctuation">(</span>
+                <span class="token class-name">Tuple2</span><span class="token punctuation">.</span>of <span class="token punctuation">(</span><span class="token string">"a"</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                <span class="token class-name">Tuple2</span><span class="token punctuation">.</span>of <span class="token punctuation">(</span><span class="token string">"a"</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                <span class="token class-name">Tuple2</span><span class="token punctuation">.</span>of <span class="token punctuation">(</span><span class="token string">"a"</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                <span class="token class-name">Tuple2</span><span class="token punctuation">.</span>of <span class="token punctuation">(</span><span class="token string">"b"</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                <span class="token class-name">Tuple2</span><span class="token punctuation">.</span>of <span class="token punctuation">(</span><span class="token string">"b"</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                <span class="token class-name">Tuple2</span><span class="token punctuation">.</span>of <span class="token punctuation">(</span><span class="token string">"b"</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span>
+        <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+   <span class="token comment">//     stream.keyBy(r -&gt; r.f0).sum(1).print("SUM:");</span>
+<span class="token comment">//        stream.keyBy(r -&gt; r.f0).sum("f1").print();</span>
+        stream<span class="token punctuation">.</span><span class="token function">keyBy</span><span class="token punctuation">(</span>r <span class="token operator">-&gt;</span> r<span class="token punctuation">.</span>f0<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"MAX"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//        stream.keyBy(r -&gt; r.f0).max("f1").print();</span>
+<span class="token comment">//        stream.keyBy(r -&gt; r.f0).min(1).print();</span>
+<span class="token comment">//        stream.keyBy(r -&gt; r.f0).min("f1").print();</span>
+<span class="token comment">//        stream.keyBy(r -&gt; r.f0).maxBy(1).print();</span>
+<span class="token comment">//        stream.keyBy(r -&gt; r.f0).maxBy("f1").print();</span>
+<span class="token comment">//        stream.keyBy(r -&gt; r.f0).minBy(1).print();</span>
+<span class="token comment">//        stream.keyBy(r -&gt; r.f0).minBy("f1").print();</span>
+
+        env<span class="token punctuation">.</span>execute <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p><img src="https://fastly.jsdelivr.net/gh/mykkTo/image@main/blog/2022/bigdata/flink/202206082139500.png"></p>
+<p>而如果数据流的类型是 POJO 类，那么就只能通过字段名称来指定，不能通过位置来指定了</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 
 
-
-
-<h3 id="五、输出算子"><a href="#五、输出算子" class="headerlink" title="五、输出算子"></a>五、输出算子</h3><h4 id="1、"><a href="#1、" class="headerlink" title="1、"></a>1、</h4><h4 id="2、"><a href="#2、" class="headerlink" title="2、"></a>2、</h4><h4 id="3、"><a href="#3、" class="headerlink" title="3、"></a>3、</h4><h4 id="4、"><a href="#4、" class="headerlink" title="4、"></a>4、</h4><h4 id="5、"><a href="#5、" class="headerlink" title="5、"></a>5、</h4><h2 id="参考地址-↓"><a href="#参考地址-↓" class="headerlink" title="参考地址 ↓"></a>参考地址 ↓</h2><h3 id="1、docker-加速（博主简书）"><a href="#1、docker-加速（博主简书）" class="headerlink" title="1、docker 加速（博主简书）"></a>1、docker 加速（博主简书）</h3><p>url：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/f554c85b25c1">https://www.jianshu.com/p/f554c85b25c1</a></p>
+<h5 id="3-归约聚合（reduce）"><a href="#3-归约聚合（reduce）" class="headerlink" title="3. 归约聚合（reduce）"></a>3. <strong>归约聚合（</strong>reduce<strong>）</strong></h5><h4 id="3、自定义函数"><a href="#3、自定义函数" class="headerlink" title="3、自定义函数"></a>3、自定义函数</h4><h4 id="4、物理分区"><a href="#4、物理分区" class="headerlink" title="4、物理分区"></a>4、物理分区</h4><h3 id="五、输出算子"><a href="#五、输出算子" class="headerlink" title="五、输出算子"></a>五、输出算子</h3><h4 id="1、"><a href="#1、" class="headerlink" title="1、"></a>1、</h4><h4 id="2、"><a href="#2、" class="headerlink" title="2、"></a>2、</h4><h4 id="3、"><a href="#3、" class="headerlink" title="3、"></a>3、</h4><h4 id="4、"><a href="#4、" class="headerlink" title="4、"></a>4、</h4><h4 id="5、"><a href="#5、" class="headerlink" title="5、"></a>5、</h4><h2 id="参考地址-↓"><a href="#参考地址-↓" class="headerlink" title="参考地址 ↓"></a>参考地址 ↓</h2><h3 id="1、docker-加速（博主简书）"><a href="#1、docker-加速（博主简书）" class="headerlink" title="1、docker 加速（博主简书）"></a>1、docker 加速（博主简书）</h3><p>url：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/f554c85b25c1">https://www.jianshu.com/p/f554c85b25c1</a></p>
 <h3 id="2、Hadoop-单机安装"><a href="#2、Hadoop-单机安装" class="headerlink" title="2、Hadoop 单机安装"></a>2、Hadoop 单机安装</h3><p>url：<a target="_blank" rel="noopener" href="https://blog.51cto.com/u_15187242/4760802">https://blog.51cto.com/u_15187242/4760802</a></p>
 <pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker run <span class="token punctuation">-</span>i <span class="token punctuation">-</span>t <span class="token punctuation">-</span><span class="token punctuation">-</span>network host <span class="token punctuation">-</span>p 50070<span class="token punctuation">:</span>50070 <span class="token punctuation">-</span>p 9000<span class="token punctuation">:</span>9000 <span class="token punctuation">-</span>p 8088<span class="token punctuation">:</span>8088 <span class="token punctuation">-</span>p 8040<span class="token punctuation">:</span>8040 <span class="token punctuation">-</span>p 8042<span class="token punctuation">:</span>8042 <span class="token punctuation">-</span>p 49707<span class="token punctuation">:</span>49707 <span class="token punctuation">-</span>p 50010<span class="token punctuation">:</span>50010 <span class="token punctuation">-</span>p 50075<span class="token punctuation">:</span>50075 <span class="token punctuation">-</span>p 50090<span class="token punctuation">:</span>50090 sequenceiq/hadoop<span class="token punctuation">-</span>docker<span class="token punctuation">:</span>2.7.0 /etc/bootstrap.sh <span class="token punctuation">-</span>bash<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
@@ -1960,6 +2005,10 @@ bin/stop-cluster.sh<span aria-hidden="true" class="line-numbers-rows"><span></sp
                             
                                 <a href="/tags/hadoop/">
                                     <span class="chip bg-color">hadoop</span>
+                                </a>
+                            
+                                <a href="/tags/kafka/">
+                                    <span class="chip bg-color">kafka</span>
                                 </a>
                             
                         </div>
@@ -2479,6 +2528,10 @@ new Valine({
                         <span class="chip bg-color">hadoop</span>
                     </a>
                     
+                    <a href="/tags/kafka/">
+                        <span class="chip bg-color">kafka</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -2524,12 +2577,12 @@ new Valine({
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/redis/">
-                        <span class="chip bg-color">redis</span>
-                    </a>
-                    
                     <a href="/tags/sentinel/">
                         <span class="chip bg-color">sentinel</span>
+                    </a>
+                    
+                    <a href="/tags/redis/">
+                        <span class="chip bg-color">redis</span>
                     </a>
                     
                     <a href="/tags/gatway/">
@@ -2777,7 +2830,7 @@ new Valine({
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">119.6k</span>&nbsp;字
+                class="white-color">120.7k</span>&nbsp;字
             
             
             
