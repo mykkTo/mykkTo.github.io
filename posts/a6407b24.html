@@ -637,16 +637,16 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/nginx/">
-                                <span class="chip bg-color">nginx</span>
-                            </a>
-                        
                             <a href="/tags/springboot/">
                                 <span class="chip bg-color">springboot</span>
                             </a>
                         
                             <a href="/tags/vue/">
                                 <span class="chip bg-color">vue</span>
+                            </a>
+                        
+                            <a href="/tags/nginx/">
+                                <span class="chip bg-color">nginx</span>
                             </a>
                         
                     </div>
@@ -1153,25 +1153,25 @@
 
 
 
-<h5 id=""><a href="#" class="headerlink" title=""></a></h5><h4 id="6、启动应用程序"><a href="#6、启动应用程序" class="headerlink" title="6、启动应用程序"></a>6、启动应用程序</h4><h5 id="1、创建application-yml"><a href="#1、创建application-yml" class="headerlink" title="1、创建application.yml"></a>1、创建application.yml</h5><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token key atrule">server</span><span class="token punctuation">:</span>
-  <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">8110</span> <span class="token comment"># 服务端口</span>
+<h5 id=""><a href="#" class="headerlink" title=""></a></h5><h4 id="6、启动应用程序"><a href="#6、启动应用程序" class="headerlink" title="6、启动应用程序"></a>6、启动应用程序</h4><h5 id="1、创建application-yml"><a href="#1、创建application-yml" class="headerlink" title="1、创建application.yml"></a>1、创建application.yml</h5><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">server:
+  port: 8110 # 服务端口
 
-<span class="token key atrule">spring</span><span class="token punctuation">:</span>
-  <span class="token key atrule">profiles</span><span class="token punctuation">:</span>
-    <span class="token key atrule">active</span><span class="token punctuation">:</span> dev <span class="token comment"># 环境设置</span>
-  <span class="token key atrule">application</span><span class="token punctuation">:</span>
-    <span class="token key atrule">name</span><span class="token punctuation">:</span> service<span class="token punctuation">-</span>core <span class="token comment"># 服务名</span>
-  <span class="token key atrule">datasource</span><span class="token punctuation">:</span> <span class="token comment"># mysql数据库连接</span>
-    <span class="token key atrule">type</span><span class="token punctuation">:</span> com.zaxxer.hikari.HikariDataSource
-    <span class="token key atrule">driver-class-name</span><span class="token punctuation">:</span> com.mysql.cj.jdbc.Driver
-    <span class="token key atrule">url</span><span class="token punctuation">:</span> jdbc<span class="token punctuation">:</span>mysql<span class="token punctuation">:</span>//121.4.120.62<span class="token punctuation">:</span>3306/srb_core<span class="token punctuation">?</span>serverTimezone=GMT%2B8<span class="token important">&amp;characterEncoding=utf-</span><span class="token number">8</span>
-    <span class="token key atrule">username</span><span class="token punctuation">:</span> root
-    <span class="token key atrule">password</span><span class="token punctuation">:</span> root
+spring:
+  profiles:
+    active: dev # 环境设置
+  application:
+    name: service-core # 服务名
+  datasource: # mysql数据库连接
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://121.4.120.62:3306/srb_core?serverTimezone=GMT%2B8&amp;characterEncoding=utf-8
+    username: root
+    password: root
 
-<span class="token key atrule">mybatis-plus</span><span class="token punctuation">:</span> <span class="token comment">#mybatis</span>
-  <span class="token key atrule">configuration</span><span class="token punctuation">:</span>
-    <span class="token key atrule">log-impl</span><span class="token punctuation">:</span> org.apache.ibatis.logging.stdout.StdOutImpl
-  <span class="token key atrule">mapper-locations</span><span class="token punctuation">:</span> classpath<span class="token punctuation">:</span>com/kk/srb/core/mapper/xml/<span class="token important">*.xml</span>
+mybatis-plus: #mybatis
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath:com/kk/srb/core/mapper/xml/*.xml
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
@@ -1813,10 +1813,10 @@
 <h5 id="2-日志级别"><a href="#2-日志级别" class="headerlink" title="2.日志级别"></a>2.日志级别</h5><p>日志记录器（Logger）的行为是分等级的。如下表所示：</p>
 <p>分为：TRACE, DEBUG, INFO, WARN, ERROR, ALL 和 OFF</p>
 <p><font color="red">默认</font>情况下，spring boot从控制台打印出来的日志级别只有<font color="red">INFO及以上级别</font>，可以配置日志级别</p>
-<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token comment"># 设置日志级别</span>
-<span class="token key atrule">logging</span><span class="token punctuation">:</span>
-  <span class="token key atrule">level</span><span class="token punctuation">:</span>
-    <span class="token key atrule">root</span><span class="token punctuation">:</span> ERROR<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"># 设置日志级别
+logging:
+  level:
+    root: ERROR<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>这种方式能将ERROR级别以及以上级别的日志输出到控制台上，其他级别将不会输出</p>
 <h5 id="3-创建日志文件"><a href="#3-创建日志文件" class="headerlink" title="3.创建日志文件"></a>3.创建日志文件</h5><p>spring boot内部使用Logback作为日志实现的框架。</p>
@@ -2614,16 +2614,16 @@ export default {
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/nginx/">
-                                    <span class="chip bg-color">nginx</span>
-                                </a>
-                            
                                 <a href="/tags/springboot/">
                                     <span class="chip bg-color">springboot</span>
                                 </a>
                             
                                 <a href="/tags/vue/">
                                     <span class="chip bg-color">vue</span>
+                                </a>
+                            
+                                <a href="/tags/nginx/">
+                                    <span class="chip bg-color">nginx</span>
                                 </a>
                             
                         </div>
@@ -3133,12 +3133,12 @@ new Valine({
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/sentinel/">
-                        <span class="chip bg-color">sentinel</span>
-                    </a>
-                    
                     <a href="/tags/redis/">
                         <span class="chip bg-color">redis</span>
+                    </a>
+                    
+                    <a href="/tags/sentinel/">
+                        <span class="chip bg-color">sentinel</span>
                     </a>
                     
                     <a href="/tags/gatway/">
@@ -3194,16 +3194,16 @@ new Valine({
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%90%88%E9%9B%86/">
-                        <span class="chip bg-color">合集</span>
-                    </a>
-                    
                     <a href="/tags/%E9%87%91%E8%9E%8D/">
                         <span class="chip bg-color">金融</span>
                     </a>
                     
                     <a href="/tags/%E9%A1%B9%E7%9B%AE/">
                         <span class="chip bg-color">项目</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%90%88%E9%9B%86/">
+                        <span class="chip bg-color">合集</span>
                     </a>
                     
                 </div>
@@ -3443,7 +3443,7 @@ new Valine({
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">126.9k</span>&nbsp;字
+                class="white-color">129.4k</span>&nbsp;字
             
             
             
