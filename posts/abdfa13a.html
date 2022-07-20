@@ -714,7 +714,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="—————————-Docker-部署篇-————————–"><a href="#—————————-Docker-部署篇-————————–" class="headerlink" title="—————————  Docker 部署篇  ————————–"></a><a href="/posts/">—————————  Docker 部署篇  ————————–</a></h2><h2 id=""><a href="#" class="headerlink" title=""></a></h2><h2 id="〇、本章源代码"><a href="#〇、本章源代码" class="headerlink" title="〇、本章源代码"></a>〇、本章源代码</h2><p><a target="_blank" rel="noopener" href="https://gitee.com/TK_LIMR/springcloud2021To2021.git">https://gitee.com/TK_LIMR/springcloud2021To2021.git</a></p>
+                <h2 id="—————————-Docker-部署篇-————————–"><a href="#—————————-Docker-部署篇-————————–" class="headerlink" title="—————————  Docker 部署篇  ————————–"></a><a href="/posts/caff0950">—————————  Docker 部署篇  ————————–</a></h2><h2 id="〇、本章源代码"><a href="#〇、本章源代码" class="headerlink" title="〇、本章源代码"></a>〇、本章源代码</h2><p><a target="_blank" rel="noopener" href="https://gitee.com/TK_LIMR/springcloud2021To2021.git">https://gitee.com/TK_LIMR/springcloud2021To2021.git</a></p>
 <p><img src="https://fastly.jsdelivr.net/gh/mykkTo/image@main/blog/2022/bigdata/flink/202207172321968.png"></p>
 <h2 id="Ⅰ、DockerFile"><a href="#Ⅰ、DockerFile" class="headerlink" title="Ⅰ、DockerFile"></a>Ⅰ、DockerFile</h2><h3 id="一、是什么"><a href="#一、是什么" class="headerlink" title="一、是什么"></a>一、是什么</h3><h4 id="1、官网"><a href="#1、官网" class="headerlink" title="1、官网"></a>1、官网</h4><p><a target="_blank" rel="noopener" href="https://docs.docker.com/engine/reference/builder">https://docs.docker.com/engine/reference/builder</a></p>
 <h4 id="2、概述"><a href="#2、概述" class="headerlink" title="2、概述"></a>2、概述</h4><p>Dockerfile是用来构建Docker镜像的文本文件，是由一条条构建镜像所需的指令和参数构成的脚本。</p>
@@ -976,7 +976,7 @@ docker run <span class="token punctuation">-</span>d <span class="token punctuat
 <ul>
 <li><font color="red">自定义网络本身就维护好了主机名和ip的对应关系（ip和域名都能通）</font></li>
 </ul>
-<h3 id="五、Docker架构图解"><a href="#五、Docker架构图解" class="headerlink" title="五、Docker架构图解"></a>五、Docker架构图解</h3><h4 id="-1"><a href="#-1" class="headerlink" title=""></a></h4><p>从其架构和运行流程来看，Docker 是一个 C/S 模式的架构，后端是一个松耦合架构，众多模块各司其职。 </p>
+<h3 id="五、Docker架构图解"><a href="#五、Docker架构图解" class="headerlink" title="五、Docker架构图解"></a>五、Docker架构图解</h3><h4 id=""><a href="#" class="headerlink" title=""></a></h4><p>从其架构和运行流程来看，Docker 是一个 C/S 模式的架构，后端是一个松耦合架构，众多模块各司其职。 </p>
 <p>Docker 运行的基本流程为：</p>
 <p>1 用户是使用 Docker Client 与 Docker Daemon 建立通信，并发送请求给后者。<br>2 Docker Daemon 作为 Docker 架构中的主体部分，首先提供 Docker Server 的功能使其可以接受 Docker Client 的请求。<br>3 Docker Engine 执行 Docker 内部的一系列工作，每一项工作都是以一个 Job 的形式的存在。<br>4 Job 的运行过程中，当需要容器镜像时，则从 Docker Registry 中下载镜像，并通过镜像管理驱动 Graph driver将下载镜像以Graph的形式存储。<br>5 当需要为 Docker 创建网络环境时，通过网络管理驱动 Network driver 创建并配置 Docker 容器网络环境。<br>6 当需要限制 Docker 容器运行资源或执行用户指令等操作时，则通过 Execdriver 来完成。<br>7 Libcontainer是一项独立的容器管理包，Network driver以及Exec driver都是通过Libcontainer来实现具体对容器进行的操作。</p>
 <p><img src="https://fastly.jsdelivr.net/gh/mykkTo/image@main/blog/2022/bigdata/flink/202207161729655.png"></p>
@@ -1052,8 +1052,8 @@ docker run <span class="token punctuation">-</span>d <span class="token punctuat
 
 
 
-<h4 id="3、写yml"><a href="#3、写yml" class="headerlink" title="3、写yml"></a>3、写yml</h4><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">server:
-  port: 6001<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h4 id="3、写yml"><a href="#3、写yml" class="headerlink" title="3、写yml"></a>3、写yml</h4><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token key atrule">server</span><span class="token punctuation">:</span>
+  <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">6001</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 
 
@@ -2175,7 +2175,7 @@ networks:
 <h3 id="五、命令-docker-compose"><a href="#五、命令-docker-compose" class="headerlink" title="五、命令(docker-compose)"></a>五、命令(docker-compose)</h3><blockquote>
 <p>Compose常用命令<br>docker-compose -h                           # 查看帮助<br><font color="red">docker-compose up     </font>                      # 启动所有docker-compose服务<br><font color="red">docker-compose up -d      </font>                  # 启动所有docker-compose服务并后台运行<br><font color="red">docker-compose down </font>                        # 停止并删除容器、网络、卷、镜像。<br>docker-compose exec  yml里面的服务id                 # 进入容器实例内部  docker-compose exec docker-compose.yml文件中写的服务id /bin/bash<br>docker-compose ps                      # 展示当前docker-compose编排过的运行的所有容器<br>docker-compose top                     # 展示当前docker-compose编排过的容器进程docker-compose logs  yml里面的服务id     # 查看容器输出日志<br><font color="red">dokcer-compose config </font>    # 检查配置<br><font color="red">dokcer-compose config -q </font> # 检查配置，有问题才有输出<br>docker-compose restart   # 重启服务<br>docker-compose start     # 启动服务<br><font color="red">docker-compose stop  </font>    # 停止服务</p>
 </blockquote>
-<h2 id="-2"><a href="#-2" class="headerlink" title=""></a></h2><h2 id="参考地址-↓"><a href="#参考地址-↓" class="headerlink" title="参考地址 ↓"></a>参考地址 ↓</h2><h3 id="1、docker-加速（博主简书）"><a href="#1、docker-加速（博主简书）" class="headerlink" title="1、docker 加速（博主简书）"></a>1、docker 加速（博主简书）</h3><p>url：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/f554c85b25c1">https://www.jianshu.com/p/f554c85b25c1</a></p>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><h2 id="参考地址-↓"><a href="#参考地址-↓" class="headerlink" title="参考地址 ↓"></a>参考地址 ↓</h2><h3 id="1、docker-加速（博主简书）"><a href="#1、docker-加速（博主简书）" class="headerlink" title="1、docker 加速（博主简书）"></a>1、docker 加速（博主简书）</h3><p>url：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/f554c85b25c1">https://www.jianshu.com/p/f554c85b25c1</a></p>
 <h4 id="2、DockerBuild报错：The-command-‘-bin-sh-c-yum-install-y-vim‘-returned-a-non-zero-code-1"><a href="#2、DockerBuild报错：The-command-‘-bin-sh-c-yum-install-y-vim‘-returned-a-non-zero-code-1" class="headerlink" title="2、DockerBuild报错：The command ‘/bin/sh -c yum install -y vim‘ returned a non-zero code: 1"></a>2、DockerBuild报错：The command ‘/bin/sh -c yum install -y vim‘ returned a non-zero code: 1</h4><p>url：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_53402685/article/details/125296621">https://blog.csdn.net/weixin_53402685/article/details/125296621</a></p>
 
                 
