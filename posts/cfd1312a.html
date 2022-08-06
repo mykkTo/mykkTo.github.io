@@ -710,10 +710,12 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="————简书原始地址————"><a href="#————简书原始地址————" class="headerlink" title="————简书原始地址————"></a><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/ed3159f299b4">————简书原始地址————</a></h2><h4 id="2021年7月15日"><a href="#2021年7月15日" class="headerlink" title="2021年7月15日"></a>2021年7月15日</h4><p>pl/sql客户端bug 切换的用户的时候，会串掉（意思是显示上切换了，其实并没有）<br>解决方案：必须重启客户端，切换用户<br><img src="https://upload-images.jianshu.io/upload_images/19532021-6437c5f9d76fce63.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+                <h3 id="————简书原始地址————"><a href="#————简书原始地址————" class="headerlink" title="————简书原始地址————"></a><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/ed3159f299b4">————简书原始地址————</a></h3><h4 id="2021年7月15日"><a href="#2021年7月15日" class="headerlink" title="2021年7月15日"></a>2021年7月15日</h4><p>pl/sql客户端bug 切换的用户的时候，会串掉（意思是显示上切换了，其实并没有）<br>解决方案：必须重启客户端，切换用户<br><img src="https://upload-images.jianshu.io/upload_images/19532021-6437c5f9d76fce63.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 <h4 id="2021年7月26日"><a href="#2021年7月26日" class="headerlink" title="2021年7月26日"></a>2021年7月26日</h4><p>idea git 小姿势，本地库拖回<br><img src="https://upload-images.jianshu.io/upload_images/19532021-645855f6537ed9f3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br><img src="https://upload-images.jianshu.io/upload_images/19532021-d95a586472670762.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 <h4 id="2021年7月28日"><a href="#2021年7月28日" class="headerlink" title="2021年7月28日"></a>2021年7月28日</h4><p>oracle 小知识：不小心删除了一张表数据，怎么办呢？</p>
 <pre class="line-numbers language-none"><code class="language-none">select * from 表名 as of timestamp  sysdate-1/12  //查询两个小时前的删除的某张表<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
 
 <h4 id="2021年8月22日"><a href="#2021年8月22日" class="headerlink" title="2021年8月22日"></a>2021年8月22日</h4><p>并行：多个任务在同一时间点发生，并由不同的cpu进行处理，不互相抢占资源<br>并发：多个任务在同一时间点内同时发生了，但由同一个cpu进行处理，互相抢占资源<br>文章推荐：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/iamqiyue/p/14184769.html">https://www.cnblogs.com/iamqiyue/p/14184769.html</a></p>
 <h4 id="2021年8月30日"><a href="#2021年8月30日" class="headerlink" title="2021年8月30日"></a>2021年8月30日</h4><p>jsp 用0做字段状态，列表会出问题，会有默认值</p>
@@ -730,6 +732,8 @@ listagg<span class="token punctuation">(</span> PUNCH_TIME <span class="token pu
 listagg<span class="token punctuation">(</span> PUNCH_STATUS <span class="token punctuation">,</span><span class="token string">','</span><span class="token punctuation">)</span> <span class="token keyword">within</span> <span class="token keyword">group</span><span class="token punctuation">(</span><span class="token keyword">order</span> <span class="token keyword">by</span> id<span class="token punctuation">)</span> <span class="token keyword">as</span> PUNCH_STATUS<span class="token punctuation">,</span>
 listagg<span class="token punctuation">(</span> <span class="token keyword">time</span> <span class="token punctuation">,</span><span class="token string">','</span><span class="token punctuation">)</span> <span class="token keyword">within</span> <span class="token keyword">group</span><span class="token punctuation">(</span><span class="token keyword">order</span> <span class="token keyword">by</span> id<span class="token punctuation">)</span> <span class="token keyword">as</span> <span class="token keyword">time</span> <span class="token keyword">from</span> KQ_PUNCH_DAILY <span class="token keyword">group</span> <span class="token keyword">by</span> user_id<span class="token punctuation">,</span>PUNCH_DATE<span class="token punctuation">)</span> d <span class="token keyword">inner</span> <span class="token keyword">join</span>  tbl_sys_user  u  <span class="token keyword">on</span> d<span class="token punctuation">.</span>User_Id<span class="token operator">=</span>u<span class="token punctuation">.</span>USER_ID <span class="token keyword">inner</span> <span class="token keyword">join</span> tbl_sys_department de  <span class="token keyword">on</span> de<span class="token punctuation">.</span>dept_id<span class="token operator">=</span>u<span class="token punctuation">.</span>dept_id
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
 
 <h4 id="2021年9月-23日"><a href="#2021年9月-23日" class="headerlink" title="2021年9月 23日"></a>2021年9月 23日</h4><p>一、oracle 11g 存储过程分割字符串案例：纯分割</p>
 <p>测试代码（先运行存储过程代码）</p>
@@ -864,6 +868,8 @@ in_temp :<span class="token operator">=</span> SUBSTR<span class="token punctuat
 <p><img src="https://upload-images.jianshu.io/upload_images/19532021-0128b15034cd5d45.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 <p><strong>ORACLE 存储过程INTO 多个变量</strong></p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> f1<span class="token punctuation">,</span>f2<span class="token punctuation">,</span>f3 <span class="token keyword">into</span> v1<span class="token punctuation">,</span>v2<span class="token punctuation">,</span>v3 <span class="token keyword">from</span> tab1<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
 <h4 id="2021年9月29日"><a href="#2021年9月29日" class="headerlink" title="2021年9月29日"></a>2021年9月29日</h4><p>有的时候Java catch 用 <code>e.getStackTrace ( );</code>不出异常栈信息，<br>可以使用<code>e.printStackTrace ( );</code>解决</p>
 <h4 id="2021年10月26日"><a href="#2021年10月26日" class="headerlink" title="2021年10月26日"></a>2021年10月26日</h4><p>（1）oracle 分页</p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> <span class="token punctuation">(</span>
@@ -874,6 +880,8 @@ in_temp :<span class="token operator">=</span> SUBSTR<span class="token punctuat
 <span class="token keyword">select</span> A<span class="token punctuation">.</span><span class="token operator">*</span><span class="token punctuation">,</span>ROWNUM RN <span class="token keyword">from</span> <span class="token punctuation">(</span>
 <span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">from</span> DEP_TASK_VIEW<span class="token punctuation">)</span> A  <span class="token keyword">where</span> <span class="token number">1</span><span class="token operator">=</span><span class="token number">1</span> <span class="token operator">and</span> ROWNUM <span class="token operator">&lt;=</span><span class="token number">10</span> <span class="token punctuation">)</span> <span class="token keyword">WHERE</span> RN <span class="token operator">&gt;=</span> <span class="token number">1</span>  
 <span class="token operator">and</span> RN <span class="token operator">in</span> <span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+
 
 <h4 id="2021年10月29日"><a href="#2021年10月29日" class="headerlink" title="2021年10月29日"></a>2021年10月29日</h4><p>日期期限计算节假日的存储过程，套用两个视图<br>（1）函数</p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">CREATE</span> <span class="token operator">OR</span> <span class="token keyword">REPLACE</span> 
@@ -977,10 +985,14 @@ in_result :<span class="token operator">=</span> in_result <span class="token op
 <span class="token keyword">WHERE</span>
 	CALENDAR_DATE_TYPE <span class="token operator">=</span> <span class="token string">'0'</span> <span class="token comment">-- 工作任务逾期计算节假日配合函数的视图(被计算的视图)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+
+
 <h4 id="2021年11月4日"><a href="#2021年11月4日" class="headerlink" title="2021年11月4日"></a>2021年11月4日</h4><p>oracle 11g 写存储过程报错：<code>ORA-00972 identifier is too long</code><br>原因存储过程的命名过长，改短即可。</p>
 <h4 id="2021年11月5日"><a href="#2021年11月5日" class="headerlink" title="2021年11月5日"></a>2021年11月5日</h4><p>oracle 11g 写存储过程 拼接单引号转义问题：</p>
 <pre class="line-numbers language-none"><code class="language-none">in_str := '1';   -- 输出  1
 in_str := '''1''';  -- 输出 '1'<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+
 
 <h4 id="2021年11月5日-1"><a href="#2021年11月5日-1" class="headerlink" title="2021年11月5日"></a>2021年11月5日</h4><p>oracle 11g 写存储过程 SQL字符串 运行后赋值：</p>
 <pre class="line-numbers language-none"><code class="language-none">v_idsaaa := SUBSTR(v_idsaaa,1,"LENGTH"(v_idsaaa)-1);
@@ -1000,6 +1012,8 @@ execute immediate in_timesiov into v_flag;
 -- in_timesiov  是拼接出来的SQL语句
 -- v_flag 接收语句返回的数据<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+
+
 <h4 id="2021年11月15日"><a href="#2021年11月15日" class="headerlink" title="2021年11月15日"></a>2021年11月15日</h4><p>记录一个 echarts 柱形图的坑<br>（1）渲染key的时候如果是整个数组过来，就会变成一坨</p>
 <pre class="line-numbers language-none"><code class="language-none">xAxis: {
     //data: ["一般","好","非常好"]
@@ -1010,6 +1024,8 @@ execute immediate in_timesiov into v_flag;
 <pre class="line-numbers language-none"><code class="language-none">xAxis: {
     data: ["一般","好","非常好"]
 },<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+
 
 <h4 id="2021年11月30日"><a href="#2021年11月30日" class="headerlink" title="2021年11月30日"></a>2021年11月30日</h4><p>SQL 自定义排序</p>
 <pre class="line-numbers language-none"><code class="language-none">select * from tbl_duty_user decode(u.postType,'1',4,'2',3,'3',2,'4',1) asc<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -1025,12 +1041,16 @@ execute immediate in_timesiov into v_flag;
 <pre class="line-numbers language-none"><code class="language-none">String hql1 = "from KqLeaveForm where  beginTime BETWEEN '" + DailyUtil.sameMonth ( ) + "' and   '" + DailyUtil.lastMonth ( ) + "'  and status ='1'  and deptId = '"+deptId+"' ";
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
+
+
 <h4 id="2021年12月17日"><a href="#2021年12月17日" class="headerlink" title="2021年12月17日"></a>2021年12月17日</h4><p>pl/SQL客户端乱码<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/gm371200587/article/details/81381825">https://blog.csdn.net/gm371200587/article/details/81381825</a></p>
 <h4 id="2021年12月17日-1"><a href="#2021年12月17日-1" class="headerlink" title="2021年12月17日"></a>2021年12月17日</h4><p>oracle合并表函数</p>
 <pre class="line-numbers language-none"><code class="language-none">　　Union：对两个结果集进行并集操作，不包括重复行，同时进行默认规则的排序；
 　　Union All：对两个结果集进行并集操作，包括重复行，不进行排序；
 　　Intersect：对两个结果集进行交集操作，不包括重复行，同时进行默认规则的排序；
 　　Minus：对两个结果集进行差操作，不包括重复行，同时进行默认规则的排序。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+
 
 <h4 id="2021年12月20日"><a href="#2021年12月20日" class="headerlink" title="2021年12月20日"></a>2021年12月20日</h4><p>定制排序：表，学生根据性别排序，如果是男的根据年龄升序，如果是女的根据体重desc，男的排在女的前面</p>
 <pre class="line-numbers language-none"><code class="language-none">order by 性别，case when 性别=男 then 年龄 end,case when 性别=女 then 体重 end desc<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
