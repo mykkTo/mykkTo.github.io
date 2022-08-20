@@ -879,37 +879,37 @@
 
 <h4 id="5、写-application-properties"><a href="#5、写-application-properties" class="headerlink" title="5、写 application.properties"></a>5、写 application.properties</h4><h5 id="mysql-数据源-8-0的话"><a href="#mysql-数据源-8-0的话" class="headerlink" title="mysql 数据源 8.0的话"></a>mysql 数据源 8.0的话</h5><p>驱动包路径要加 <strong>cj</strong>，<code>com.mysql.cj.jdbc.Driver</code></p>
 <p>url要加**时区[?serverTimezone=GMT%2B8]**，<code>jdbc:mysql://localhost:3306/sharding_jdbc1?serverTimezone=GMT%2B8</code></p>
-<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"># sharding分片策略
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token comment"># sharding分片策略</span>
 
-# 配置数据源，给数据源起别名
+<span class="token comment"># 配置数据源，给数据源起别名</span>
 spring.shardingsphere.datasource.names=s1
 
-# 配置数据源具体内容，包含连接池，驱动，地址，用户名和密码
+<span class="token comment"># 配置数据源具体内容，包含连接池，驱动，地址，用户名和密码</span>
 spring.shardingsphere.datasource.s1.type=com.alibaba.druid.pool.DruidDataSource
-spring.shardingsphere.datasource.s1.driver-class-name=com.mysql.jdbc.Driver
-spring.shardingsphere.datasource.s1.url=jdbc:mysql://localhost:3306/sharding_jdbc1
+spring.shardingsphere.datasource.s1.driver<span class="token punctuation">-</span>class<span class="token punctuation">-</span>name=com.mysql.jdbc.Driver
+spring.shardingsphere.datasource.s1.url=jdbc<span class="token punctuation">:</span>mysql<span class="token punctuation">:</span>//localhost<span class="token punctuation">:</span>3306/sharding_jdbc1
 spring.shardingsphere.datasource.s1.username=root
 spring.shardingsphere.datasource.s1.password=a1b2c3
 
-# 指定 course 表分布情况，配置表在哪个数据库里面，表名称都是什么 s1.course_1 , s1.course_2
-#course 是表的前缀，  {1,2}是表的后缀，表示有course1 和 course2
-spring.shardingsphere.sharding.tables.course.actual-data-nodes=s1.course_$-&gt;{1..2}
+<span class="token comment"># 指定 course 表分布情况，配置表在哪个数据库里面，表名称都是什么 s1.course_1 , s1.course_2</span>
+<span class="token comment">#course 是表的前缀，  {1,2}是表的后缀，表示有course1 和 course2</span>
+spring.shardingsphere.sharding.tables.course.actual<span class="token punctuation">-</span>data<span class="token punctuation">-</span>nodes=s1.course_$<span class="token punctuation">-</span><span class="token punctuation">&gt;</span><span class="token punctuation">{</span>1..2<span class="token punctuation">}</span>
 
-# 指定 以course为前缀的表里面主键 cid 。生成策略 SNOWFLAKE（雪花算法）
-spring.shardingsphere.sharding.tables.course.key-generator.column=cid
-spring.shardingsphere.sharding.tables.course.key-generator.type=SNOWFLAKE
+<span class="token comment"># 指定 以course为前缀的表里面主键 cid 。生成策略 SNOWFLAKE（雪花算法）</span>
+spring.shardingsphere.sharding.tables.course.key<span class="token punctuation">-</span>generator.column=cid
+spring.shardingsphere.sharding.tables.course.key<span class="token punctuation">-</span>generator.type=SNOWFLAKE
 
-# 指定分片策略，约定 cid值为偶数添加到表 course_1, 奇数到 course_2
-#course 是表的前缀
-#第二行的取模后，+1 操作防止取模后为 0
-spring.shardingsphere.sharding.tables.course.table-strategy.inline.sharding-column=cid
-spring.shardingsphere.sharding.tables.course.table-strategy.inline.algorithm-expression=course_$-&gt;{cid % 2 + 1}
+<span class="token comment"># 指定分片策略，约定 cid值为偶数添加到表 course_1, 奇数到 course_2</span>
+<span class="token comment">#course 是表的前缀</span>
+<span class="token comment">#第二行的取模后，+1 操作防止取模后为 0</span>
+spring.shardingsphere.sharding.tables.course.table<span class="token punctuation">-</span>strategy.inline.sharding<span class="token punctuation">-</span>column=cid
+spring.shardingsphere.sharding.tables.course.table<span class="token punctuation">-</span>strategy.inline.algorithm<span class="token punctuation">-</span>expression=course_$<span class="token punctuation">-</span><span class="token punctuation">&gt;</span><span class="token punctuation">{</span>cid % 2 + 1<span class="token punctuation">}</span>
 
-# 打开sql 输出日志
+<span class="token comment"># 打开sql 输出日志</span>
 spring.shardingsphere.props.sql.show=true
 
-# 解决一个实体对应两个表问题
-spring.main.allow-bean-definition-overriding=true
+<span class="token comment"># 解决一个实体对应两个表问题</span>
+spring.main.allow<span class="token punctuation">-</span>bean<span class="token punctuation">-</span>definition<span class="token punctuation">-</span>overriding=true
 
 
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
@@ -1977,7 +1977,7 @@ new Valine({
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">131.9k</span>&nbsp;字
+                class="white-color">132.3k</span>&nbsp;字
             
             
             

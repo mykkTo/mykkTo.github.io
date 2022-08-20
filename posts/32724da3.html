@@ -838,34 +838,34 @@
 
 
 
-<h4 id="3、yml"><a href="#3、yml" class="headerlink" title="3、yml"></a>3、yml</h4><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token key atrule">server</span><span class="token punctuation">:</span>
-  <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">8401</span>
+<h4 id="3、yml"><a href="#3、yml" class="headerlink" title="3、yml"></a>3、yml</h4><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">server:
+  port: 8401
 
-<span class="token key atrule">spring</span><span class="token punctuation">:</span>
-  <span class="token key atrule">application</span><span class="token punctuation">:</span>
-    <span class="token key atrule">name</span><span class="token punctuation">:</span> cloudalibaba<span class="token punctuation">-</span>sentinel<span class="token punctuation">-</span>service
-  <span class="token key atrule">cloud</span><span class="token punctuation">:</span>
-    <span class="token key atrule">nacos</span><span class="token punctuation">:</span>
-      <span class="token key atrule">discovery</span><span class="token punctuation">:</span>
-        <span class="token comment">#Nacos服务注册中心地址</span>
-        <span class="token key atrule">server-addr</span><span class="token punctuation">:</span> 101.34.180.133<span class="token punctuation">:</span><span class="token number">8848</span>
-    <span class="token key atrule">sentinel</span><span class="token punctuation">:</span>
-      <span class="token key atrule">transport</span><span class="token punctuation">:</span>
-        <span class="token comment">#配置Sentinel dashboard地址</span>
-<span class="token comment">#        dashboard: 101.34.180.133:8858</span>
-<span class="token comment">#        dashboard: 106.52.23.202:8080</span>
-        <span class="token comment"># 项目和 sentinel 不在同一台机器无法查看实时监控</span>
-        <span class="token key atrule">dashboard</span><span class="token punctuation">:</span> localhost<span class="token punctuation">:</span><span class="token number">8080</span>
-        <span class="token comment">#默认8719端口，假如被占用会自动从8719开始依次+1扫描,直至找到未被占用的端口</span>
-        <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">8719</span>
-        <span class="token comment"># 本地机器ip(docker容器必须加上)</span>
-<span class="token comment">#        client-ip: 169.254.135.77</span>
+spring:
+  application:
+    name: cloudalibaba-sentinel-service
+  cloud:
+    nacos:
+      discovery:
+        #Nacos服务注册中心地址
+        server-addr: 101.34.180.133:8848
+    sentinel:
+      transport:
+        #配置Sentinel dashboard地址
+#        dashboard: 101.34.180.133:8858
+#        dashboard: 106.52.23.202:8080
+        # 项目和 sentinel 不在同一台机器无法查看实时监控
+        dashboard: localhost:8080
+        #默认8719端口，假如被占用会自动从8719开始依次+1扫描,直至找到未被占用的端口
+        port: 8719
+        # 本地机器ip(docker容器必须加上)
+#        client-ip: 169.254.135.77
 
-<span class="token key atrule">management</span><span class="token punctuation">:</span>
-  <span class="token key atrule">endpoints</span><span class="token punctuation">:</span>
-    <span class="token key atrule">web</span><span class="token punctuation">:</span>
-      <span class="token key atrule">exposure</span><span class="token punctuation">:</span>
-        <span class="token key atrule">include</span><span class="token punctuation">:</span> <span class="token string">'*'</span>
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
@@ -1234,22 +1234,22 @@
 
 
 
-<h5 id="3、yml-1"><a href="#3、yml-1" class="headerlink" title="3、yml"></a>3、yml</h5><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token key atrule">server</span><span class="token punctuation">:</span>
-  <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">9003</span>
+<h5 id="3、yml-1"><a href="#3、yml-1" class="headerlink" title="3、yml"></a>3、yml</h5><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">server:
+  port: 9003
 
-<span class="token key atrule">spring</span><span class="token punctuation">:</span>
-  <span class="token key atrule">application</span><span class="token punctuation">:</span>
-    <span class="token key atrule">name</span><span class="token punctuation">:</span> nacos<span class="token punctuation">-</span>payment<span class="token punctuation">-</span>provider
-  <span class="token key atrule">cloud</span><span class="token punctuation">:</span>
-    <span class="token key atrule">nacos</span><span class="token punctuation">:</span>
-      <span class="token key atrule">discovery</span><span class="token punctuation">:</span>
-        <span class="token key atrule">server-addr</span><span class="token punctuation">:</span> localhost<span class="token punctuation">:</span><span class="token number">8848</span> <span class="token comment">#配置Nacos地址</span>
+spring:
+  application:
+    name: nacos-payment-provider
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848 #配置Nacos地址
 
-<span class="token key atrule">management</span><span class="token punctuation">:</span>
-  <span class="token key atrule">endpoints</span><span class="token punctuation">:</span>
-    <span class="token key atrule">web</span><span class="token punctuation">:</span>
-      <span class="token key atrule">exposure</span><span class="token punctuation">:</span>
-        <span class="token key atrule">include</span><span class="token punctuation">:</span> <span class="token string">'*'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
@@ -1369,26 +1369,26 @@
 
 
 
-<h5 id="3、yml-2"><a href="#3、yml-2" class="headerlink" title="3、yml"></a>3、yml</h5><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token key atrule">server</span><span class="token punctuation">:</span>
-  <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">84</span>
+<h5 id="3、yml-2"><a href="#3、yml-2" class="headerlink" title="3、yml"></a>3、yml</h5><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">server:
+  port: 84
 
-<span class="token key atrule">spring</span><span class="token punctuation">:</span>
-  <span class="token key atrule">application</span><span class="token punctuation">:</span>
-    <span class="token key atrule">name</span><span class="token punctuation">:</span> nacos<span class="token punctuation">-</span>order<span class="token punctuation">-</span>consumer
-  <span class="token key atrule">cloud</span><span class="token punctuation">:</span>
-    <span class="token key atrule">nacos</span><span class="token punctuation">:</span>
-      <span class="token key atrule">discovery</span><span class="token punctuation">:</span>
-        <span class="token key atrule">server-addr</span><span class="token punctuation">:</span> localhost<span class="token punctuation">:</span><span class="token number">8848</span>
-    <span class="token key atrule">sentinel</span><span class="token punctuation">:</span>
-      <span class="token key atrule">transport</span><span class="token punctuation">:</span>
-        <span class="token comment">#配置Sentinel dashboard地址</span>
-        <span class="token key atrule">dashboard</span><span class="token punctuation">:</span> localhost<span class="token punctuation">:</span><span class="token number">8080</span>
-        <span class="token comment">#默认8719端口，假如被占用会自动从8719开始依次+1扫描,直至找到未被占用的端口</span>
-        <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">8719</span>
+spring:
+  application:
+    name: nacos-order-consumer
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+    sentinel:
+      transport:
+        #配置Sentinel dashboard地址
+        dashboard: localhost:8080
+        #默认8719端口，假如被占用会自动从8719开始依次+1扫描,直至找到未被占用的端口
+        port: 8719
 
-<span class="token comment">#消费者将要去访问的微服务名称(注册成功进nacos的微服务提供者)</span>
-<span class="token key atrule">service-url</span><span class="token punctuation">:</span>
-  <span class="token key atrule">nacos-user-service</span><span class="token punctuation">:</span> http<span class="token punctuation">:</span>//nacos<span class="token punctuation">-</span>payment<span class="token punctuation">-</span>provider
+#消费者将要去访问的微服务名称(注册成功进nacos的微服务提供者)
+service-url:
+  nacos-user-service: http://nacos-payment-provider
  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
@@ -1553,10 +1553,10 @@
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>spring-cloud-starter-openfeign<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><img src="https://fastly.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220324214128.png"></p>
-<h4 id="3、yml-3"><a href="#3、yml-3" class="headerlink" title="3、yml"></a>3、yml</h4><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token comment"># 激活Sentinel对Feign的支持</span>
-<span class="token key atrule">feign</span><span class="token punctuation">:</span>
-  <span class="token key atrule">sentinel</span><span class="token punctuation">:</span>
-    <span class="token key atrule">enabled</span><span class="token punctuation">:</span> <span class="token boolean important">true</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="3、yml-3"><a href="#3、yml-3" class="headerlink" title="3、yml"></a>3、yml</h4><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"># 激活Sentinel对Feign的支持
+feign:
+  sentinel:
+    enabled: true<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><img src="https://fastly.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220324214015.png"></p>
 <h4 id="4、主启动-3"><a href="#4、主启动-3" class="headerlink" title="4、主启动"></a>4、主启动</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>kk<span class="token punctuation">.</span>springcloud</span><span class="token punctuation">;</span>
@@ -1719,46 +1719,46 @@
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>project</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h4 id="3、yml-4"><a href="#3、yml-4" class="headerlink" title="3、yml"></a>3、yml</h4><p><img src="https://fastly.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220324223733.png"></p>
-<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token key atrule">server</span><span class="token punctuation">:</span>
-  <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">8401</span>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">server:
+  port: 8401
 
-<span class="token key atrule">spring</span><span class="token punctuation">:</span>
-  <span class="token key atrule">application</span><span class="token punctuation">:</span>
-    <span class="token key atrule">name</span><span class="token punctuation">:</span> cloudalibaba<span class="token punctuation">-</span>sentinel<span class="token punctuation">-</span>service
-  <span class="token key atrule">cloud</span><span class="token punctuation">:</span>
-    <span class="token key atrule">nacos</span><span class="token punctuation">:</span>
-      <span class="token key atrule">discovery</span><span class="token punctuation">:</span>
-        <span class="token comment">#Nacos服务注册中心地址</span>
-        <span class="token key atrule">server-addr</span><span class="token punctuation">:</span> 101.34.180.133<span class="token punctuation">:</span><span class="token number">8848</span>
-    <span class="token key atrule">sentinel</span><span class="token punctuation">:</span>
-      <span class="token key atrule">transport</span><span class="token punctuation">:</span>
-        <span class="token comment">#配置Sentinel dashboard地址</span>
-        <span class="token comment">#        dashboard: 101.34.180.133:8858</span>
-        <span class="token comment">#        dashboard: 106.52.23.202:8080</span>
-        <span class="token comment"># 项目和 sentinel 不在同一台机器无法查看实时监控</span>
-        <span class="token key atrule">dashboard</span><span class="token punctuation">:</span> localhost<span class="token punctuation">:</span><span class="token number">8080</span>
-        <span class="token comment">#默认8719端口，假如被占用会自动从8719开始依次+1扫描,直至找到未被占用的端口</span>
-        <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">8719</span>
-      <span class="token key atrule">datasource</span><span class="token punctuation">:</span>
-        <span class="token key atrule">ds1</span><span class="token punctuation">:</span>
-          <span class="token key atrule">nacos</span><span class="token punctuation">:</span>
-            <span class="token key atrule">server-addr</span><span class="token punctuation">:</span> 101.34.180.133<span class="token punctuation">:</span><span class="token number">8848</span>
-            <span class="token key atrule">dataId</span><span class="token punctuation">:</span> cloudalibaba<span class="token punctuation">-</span>sentinel<span class="token punctuation">-</span>service
-            <span class="token key atrule">groupId</span><span class="token punctuation">:</span> DEFAULT_GROUP
-            <span class="token key atrule">data-type</span><span class="token punctuation">:</span> json
-            <span class="token key atrule">rule-type</span><span class="token punctuation">:</span> flow
-        <span class="token comment"># 本地机器ip(docker容器必须加上)</span>
-<span class="token comment">#        client-ip: 169.254.135.77</span>
+spring:
+  application:
+    name: cloudalibaba-sentinel-service
+  cloud:
+    nacos:
+      discovery:
+        #Nacos服务注册中心地址
+        server-addr: 101.34.180.133:8848
+    sentinel:
+      transport:
+        #配置Sentinel dashboard地址
+        #        dashboard: 101.34.180.133:8858
+        #        dashboard: 106.52.23.202:8080
+        # 项目和 sentinel 不在同一台机器无法查看实时监控
+        dashboard: localhost:8080
+        #默认8719端口，假如被占用会自动从8719开始依次+1扫描,直至找到未被占用的端口
+        port: 8719
+      datasource:
+        ds1:
+          nacos:
+            server-addr: 101.34.180.133:8848
+            dataId: cloudalibaba-sentinel-service
+            groupId: DEFAULT_GROUP
+            data-type: json
+            rule-type: flow
+        # 本地机器ip(docker容器必须加上)
+#        client-ip: 169.254.135.77
 
-<span class="token key atrule">feign</span><span class="token punctuation">:</span>
-  <span class="token key atrule">sentinel</span><span class="token punctuation">:</span>
-    <span class="token key atrule">enabled</span><span class="token punctuation">:</span> <span class="token boolean important">true</span> <span class="token comment"># 激活Sentinel对Feign的支持</span>
+feign:
+  sentinel:
+    enabled: true # 激活Sentinel对Feign的支持
 
-<span class="token key atrule">management</span><span class="token punctuation">:</span>
-  <span class="token key atrule">endpoints</span><span class="token punctuation">:</span>
-    <span class="token key atrule">web</span><span class="token punctuation">:</span>
-      <span class="token key atrule">exposure</span><span class="token punctuation">:</span>
-        <span class="token key atrule">include</span><span class="token punctuation">:</span> <span class="token string">'*'</span>
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h4 id="4、添加Nacos业务规则配置"><a href="#4、添加Nacos业务规则配置" class="headerlink" title="4、添加Nacos业务规则配置"></a>4、添加Nacos业务规则配置</h4><pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">[</span>
@@ -2427,20 +2427,20 @@ new Valine({
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E9%9B%86%E7%BE%A4/">
-                        <span class="chip bg-color">集群</span>
-                    </a>
-                    
-                    <a href="/tags/docker-compose/">
-                        <span class="chip bg-color">docker-compose</span>
-                    </a>
-                    
                     <a href="/tags/springcloud-alibaba/">
                         <span class="chip bg-color">springcloud-alibaba</span>
                     </a>
                     
+                    <a href="/tags/%E9%9B%86%E7%BE%A4/">
+                        <span class="chip bg-color">集群</span>
+                    </a>
+                    
                     <a href="/tags/nacos/">
                         <span class="chip bg-color">nacos</span>
+                    </a>
+                    
+                    <a href="/tags/docker-compose/">
+                        <span class="chip bg-color">docker-compose</span>
                     </a>
                     
                 </div>
@@ -2680,7 +2680,7 @@ new Valine({
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">131.9k</span>&nbsp;字
+                class="white-color">132.3k</span>&nbsp;字
             
             
             
