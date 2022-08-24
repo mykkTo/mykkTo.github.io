@@ -684,14 +684,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    5.8k
+                    6.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    27 分
+                    28 分
                 </div>
                 
 
@@ -1756,7 +1756,51 @@ d:\data\projects\b<span aria-hidden="true" class="line-numbers-rows"><span></spa
 </ul>
 </li>
 </ul>
-<h3 id="2、Selector-1"><a href="#2、Selector-1" class="headerlink" title="2、Selector"></a>2、Selector</h3><h3 id="3、处理-accept-事件"><a href="#3、处理-accept-事件" class="headerlink" title="3、处理 accept 事件"></a>3、处理 accept 事件</h3><h3 id="4、处理-read-事件"><a href="#4、处理-read-事件" class="headerlink" title="4、处理 read 事件"></a>4、处理 read 事件</h3><h3 id="5、处理-write-事件"><a href="#5、处理-write-事件" class="headerlink" title="5、处理 write 事件"></a>5、处理 write 事件</h3><h3 id="6、更进一步"><a href="#6、更进一步" class="headerlink" title="6、更进一步"></a>6、更进一步</h3><h2 id="五、Nio-vs-Bio-vs-Aio"><a href="#五、Nio-vs-Bio-vs-Aio" class="headerlink" title="五、Nio vs Bio vs Aio"></a>五、Nio vs Bio vs Aio</h2><h3 id="1、"><a href="#1、" class="headerlink" title="1、"></a>1、</h3><h3 id="2、"><a href="#2、" class="headerlink" title="2、"></a>2、</h3><h3 id="3、"><a href="#3、" class="headerlink" title="3、"></a>3、</h3><h3 id="4、"><a href="#4、" class="headerlink" title="4、"></a>4、</h3><h3 id="5、"><a href="#5、" class="headerlink" title="5、"></a>5、</h3><h2 id="Ⅱ、Netty"><a href="#Ⅱ、Netty" class="headerlink" title="Ⅱ、Netty"></a>Ⅱ、Netty</h2><h2 id="一、"><a href="#一、" class="headerlink" title="一、"></a>一、</h2><h2 id="二、"><a href="#二、" class="headerlink" title="二、"></a>二、</h2><h2 id="三、"><a href="#三、" class="headerlink" title="三、"></a>三、</h2><h2 id="四、"><a href="#四、" class="headerlink" title="四、"></a>四、</h2><h2 id="五、"><a href="#五、" class="headerlink" title="五、"></a>五、</h2><h2 id="Ⅲ、常识（面试）"><a href="#Ⅲ、常识（面试）" class="headerlink" title="Ⅲ、常识（面试）"></a>Ⅲ、常识（面试）</h2><h5 id="1、多线程缺点"><a href="#1、多线程缺点" class="headerlink" title="1、多线程缺点"></a>1、多线程缺点</h5><ul>
+<h3 id="2、Selector-1"><a href="#2、Selector-1" class="headerlink" title="2、Selector"></a>2、Selector</h3><p><img src="https://fastly.jsdelivr.net/gh/mykkTo/image@main/blog/2022/netty/202208242246169.png"></p>
+<p>好处</p>
+<ul>
+<li>一个线程配合 selector 就可以监控多个 channel 的事件，事件发生线程采取处理。避免非阻塞模式下所做的无用功</li>
+<li>让这个线程能够被充分的利用</li>
+<li>节约了线程的数量</li>
+<li>减少了线程上下文切换</li>
+</ul>
+<h4 id="1、创建"><a href="#1、创建" class="headerlink" title="1、创建"></a>1、创建</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">Selector</span> selector <span class="token operator">=</span> <span class="token class-name">Selector</span><span class="token punctuation">.</span><span class="token keyword">open</span> <span class="token punctuation">(</span> <span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<h4 id="2、绑定-Channel-事件"><a href="#2、绑定-Channel-事件" class="headerlink" title="2、绑定 Channel 事件"></a>2、绑定 Channel 事件</h4><p>也称之为注册事件，绑定的事件 selector 才回关心</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">channel<span class="token punctuation">.</span>configureBlocking <span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// 根据常量值来选择绑定类型 SelectionKey.OP_ACCEPT</span>
+<span class="token class-name">SelectionKey</span> key <span class="token operator">=</span> channel<span class="token punctuation">.</span>register <span class="token punctuation">(</span>selector<span class="token punctuation">,</span> 绑定事件<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>channel 必须在非阻塞模式下工作</li>
+<li>FileChannel 没有非阻塞模式，所以不能配合 selector 使用</li>
+<li>绑定的事件类型<ul>
+<li>connect - 客户端连接成功时触发</li>
+<li>accept   - 服务端成功连接时触发</li>
+<li>read      - 数据可读入时触发</li>
+<li>write     -  数据可写入时触发</li>
+</ul>
+</li>
+</ul>
+<h4 id="3、监听-Channel-事件"><a href="#3、监听-Channel-事件" class="headerlink" title="3、监听 Channel 事件"></a>3、监听 Channel 事件</h4><p>可以通过下面三种方法来监听是否有事件发生，方法的返回值代表有多少 channel 发生了事件。</p>
+<p>方法一：阻塞直到绑定事件发生</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">int</span> count <span class="token operator">=</span> selector<span class="token punctuation">.</span><span class="token function">select</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<p>方法二：阻塞直到绑定事件发生，或是超时（时间单位为 ms）</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">int</span> count <span class="token operator">=</span> selector<span class="token punctuation">.</span><span class="token function">select</span><span class="token punctuation">(</span><span class="token keyword">long</span> timeout<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<p>方法三：不会阻塞，也就是不管有没有事件发生，就立即返回，自己根据返回值检查当前是否有事件发生。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">int</span> count <span class="token operator">=</span> selector<span class="token punctuation">.</span><span class="token function">selectNow</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<h3 id="3、处理-accept-事件"><a href="#3、处理-accept-事件" class="headerlink" title="3、处理 accept 事件"></a>3、处理 accept 事件</h3><h3 id="4、处理-read-事件"><a href="#4、处理-read-事件" class="headerlink" title="4、处理 read 事件"></a>4、处理 read 事件</h3><h3 id="5、处理-write-事件"><a href="#5、处理-write-事件" class="headerlink" title="5、处理 write 事件"></a>5、处理 write 事件</h3><h3 id="6、更进一步"><a href="#6、更进一步" class="headerlink" title="6、更进一步"></a>6、更进一步</h3><h2 id="五、Nio-vs-Bio-vs-Aio"><a href="#五、Nio-vs-Bio-vs-Aio" class="headerlink" title="五、Nio vs Bio vs Aio"></a>五、Nio vs Bio vs Aio</h2><h3 id="1、"><a href="#1、" class="headerlink" title="1、"></a>1、</h3><h3 id="2、"><a href="#2、" class="headerlink" title="2、"></a>2、</h3><h3 id="3、"><a href="#3、" class="headerlink" title="3、"></a>3、</h3><h3 id="4、"><a href="#4、" class="headerlink" title="4、"></a>4、</h3><h3 id="5、"><a href="#5、" class="headerlink" title="5、"></a>5、</h3><h2 id="Ⅱ、Netty"><a href="#Ⅱ、Netty" class="headerlink" title="Ⅱ、Netty"></a>Ⅱ、Netty</h2><h2 id="一、"><a href="#一、" class="headerlink" title="一、"></a>一、</h2><h2 id="二、"><a href="#二、" class="headerlink" title="二、"></a>二、</h2><h2 id="三、"><a href="#三、" class="headerlink" title="三、"></a>三、</h2><h2 id="四、"><a href="#四、" class="headerlink" title="四、"></a>四、</h2><h2 id="五、"><a href="#五、" class="headerlink" title="五、"></a>五、</h2><h2 id="Ⅲ、常识（面试）"><a href="#Ⅲ、常识（面试）" class="headerlink" title="Ⅲ、常识（面试）"></a>Ⅲ、常识（面试）</h2><h5 id="1、多线程缺点"><a href="#1、多线程缺点" class="headerlink" title="1、多线程缺点"></a>1、多线程缺点</h5><ul>
 <li>内存占用高</li>
 <li>线程上下文切换成本高</li>
 <li>只适合连接数少的场景</li>
@@ -2654,7 +2698,7 @@ new Valine({
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">137.9k</span>&nbsp;字
+                class="white-color">138.2k</span>&nbsp;字
             
             
             
