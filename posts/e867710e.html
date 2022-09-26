@@ -817,45 +817,45 @@
 
 
 
-<h3 id="3、yml"><a href="#3、yml" class="headerlink" title="3、yml"></a>3、yml</h3><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token key atrule">bindings</span><span class="token punctuation">:</span> <span class="token comment"># 服务的整合处理</span>
-  <span class="token key atrule">output</span><span class="token punctuation">:</span> <span class="token comment"># 这个名字是一个通道的名称</span>
-    <span class="token key atrule">destination</span><span class="token punctuation">:</span> studyExchange <span class="token comment"># 表示要使用的Exchange名称定义</span>
-    <span class="token key atrule">content-type</span><span class="token punctuation">:</span> application/json <span class="token comment"># 设置消息类型，本次为json，文本则设置“text/plain”</span>
-    <span class="token key atrule">binder</span><span class="token punctuation">:</span> defaultRabbit <span class="token comment"># 设置要绑定的消息服务的具体设置</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="3、yml"><a href="#3、yml" class="headerlink" title="3、yml"></a>3、yml</h3><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">bindings: # 服务的整合处理
+  output: # 这个名字是一个通道的名称
+    destination: studyExchange # 表示要使用的Exchange名称定义
+    content-type: application/json # 设置消息类型，本次为json，文本则设置“text/plain”
+    binder: defaultRabbit # 设置要绑定的消息服务的具体设置<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token key atrule">server</span><span class="token punctuation">:</span>
-  <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">8801</span>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">server:
+  port: 8801
 
-<span class="token key atrule">spring</span><span class="token punctuation">:</span>
-  <span class="token key atrule">application</span><span class="token punctuation">:</span>
-    <span class="token key atrule">name</span><span class="token punctuation">:</span> cloud<span class="token punctuation">-</span>stream<span class="token punctuation">-</span>provider
-  <span class="token key atrule">cloud</span><span class="token punctuation">:</span>
-    <span class="token key atrule">stream</span><span class="token punctuation">:</span>
-      <span class="token key atrule">binders</span><span class="token punctuation">:</span> <span class="token comment"># 在此处配置要绑定的rabbitmq的服务信息；</span>
-        <span class="token key atrule">defaultRabbit</span><span class="token punctuation">:</span> <span class="token comment"># 表示定义的名称，用于于binding整合</span>
-          <span class="token key atrule">type</span><span class="token punctuation">:</span> rabbit <span class="token comment"># 消息组件类型</span>
-          <span class="token key atrule">environment</span><span class="token punctuation">:</span> <span class="token comment"># 设置rabbitmq的相关的环境配置</span>
-            <span class="token key atrule">spring</span><span class="token punctuation">:</span>
-              <span class="token key atrule">rabbitmq</span><span class="token punctuation">:</span>
-                <span class="token key atrule">host</span><span class="token punctuation">:</span> 101.34.180.133
-                <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">5672</span>
-                <span class="token key atrule">username</span><span class="token punctuation">:</span> guest
-                <span class="token key atrule">password</span><span class="token punctuation">:</span> guest
-      <span class="token key atrule">bindings</span><span class="token punctuation">:</span> <span class="token comment"># 服务的整合处理</span>
-        <span class="token key atrule">output</span><span class="token punctuation">:</span> <span class="token comment"># 这个名字是一个通道的名称</span>
-          <span class="token key atrule">destination</span><span class="token punctuation">:</span> studyExchange <span class="token comment"># 表示要使用的Exchange名称定义</span>
-          <span class="token key atrule">content-type</span><span class="token punctuation">:</span> application/json <span class="token comment"># 设置消息类型，本次为json，文本则设置“text/plain”</span>
-          <span class="token key atrule">binder</span><span class="token punctuation">:</span> defaultRabbit <span class="token comment"># 设置要绑定的消息服务的具体设置</span>
+spring:
+  application:
+    name: cloud-stream-provider
+  cloud:
+    stream:
+      binders: # 在此处配置要绑定的rabbitmq的服务信息；
+        defaultRabbit: # 表示定义的名称，用于于binding整合
+          type: rabbit # 消息组件类型
+          environment: # 设置rabbitmq的相关的环境配置
+            spring:
+              rabbitmq:
+                host: 101.34.180.133
+                port: 5672
+                username: guest
+                password: guest
+      bindings: # 服务的整合处理
+        output: # 这个名字是一个通道的名称
+          destination: studyExchange # 表示要使用的Exchange名称定义
+          content-type: application/json # 设置消息类型，本次为json，文本则设置“text/plain”
+          binder: defaultRabbit # 设置要绑定的消息服务的具体设置
 
-<span class="token key atrule">eureka</span><span class="token punctuation">:</span>
-  <span class="token key atrule">client</span><span class="token punctuation">:</span> <span class="token comment"># 客户端进行Eureka注册的配置</span>
-    <span class="token key atrule">service-url</span><span class="token punctuation">:</span>
-      <span class="token key atrule">defaultZone</span><span class="token punctuation">:</span> http<span class="token punctuation">:</span>//localhost<span class="token punctuation">:</span>7001/eureka
-  <span class="token key atrule">instance</span><span class="token punctuation">:</span>
-    <span class="token key atrule">lease-renewal-interval-in-seconds</span><span class="token punctuation">:</span> <span class="token number">2</span> <span class="token comment"># 设置心跳的时间间隔（默认是30秒）</span>
-    <span class="token key atrule">lease-expiration-duration-in-seconds</span><span class="token punctuation">:</span> <span class="token number">5</span> <span class="token comment"># 如果现在超过了5秒的间隔（默认是90秒）</span>
-    <span class="token key atrule">instance-id</span><span class="token punctuation">:</span> send<span class="token punctuation">-</span>8801.com  <span class="token comment"># 在信息列表时显示主机名称</span>
-    <span class="token key atrule">prefer-ip-address</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>     <span class="token comment"># 访问的路径变为IP地址</span>
+eureka:
+  client: # 客户端进行Eureka注册的配置
+    service-url:
+      defaultZone: http://localhost:7001/eureka
+  instance:
+    lease-renewal-interval-in-seconds: 2 # 设置心跳的时间间隔（默认是30秒）
+    lease-expiration-duration-in-seconds: 5 # 如果现在超过了5秒的间隔（默认是90秒）
+    instance-id: send-8801.com  # 在信息列表时显示主机名称
+    prefer-ip-address: true     # 访问的路径变为IP地址
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
@@ -990,39 +990,39 @@
 
 
 
-<h3 id="3、yml-1"><a href="#3、yml-1" class="headerlink" title="3、yml"></a>3、yml</h3><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token key atrule">server</span><span class="token punctuation">:</span>
-  <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">8802</span>
+<h3 id="3、yml-1"><a href="#3、yml-1" class="headerlink" title="3、yml"></a>3、yml</h3><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">server:
+  port: 8802
 
-<span class="token key atrule">spring</span><span class="token punctuation">:</span>
-  <span class="token key atrule">application</span><span class="token punctuation">:</span>
-    <span class="token key atrule">name</span><span class="token punctuation">:</span> cloud<span class="token punctuation">-</span>stream<span class="token punctuation">-</span>consumer
-  <span class="token key atrule">cloud</span><span class="token punctuation">:</span>
-    <span class="token key atrule">stream</span><span class="token punctuation">:</span>
-      <span class="token key atrule">binders</span><span class="token punctuation">:</span> <span class="token comment"># 在此处配置要绑定的rabbitmq的服务信息；</span>
-        <span class="token key atrule">defaultRabbit</span><span class="token punctuation">:</span> <span class="token comment"># 表示定义的名称，用于于binding整合</span>
-          <span class="token key atrule">type</span><span class="token punctuation">:</span> rabbit <span class="token comment"># 消息组件类型</span>
-          <span class="token key atrule">environment</span><span class="token punctuation">:</span> <span class="token comment"># 设置rabbitmq的相关的环境配置</span>
-            <span class="token key atrule">spring</span><span class="token punctuation">:</span>
-              <span class="token key atrule">rabbitmq</span><span class="token punctuation">:</span>
-                <span class="token key atrule">host</span><span class="token punctuation">:</span> 101.34.180.133
-                <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">5672</span>
-                <span class="token key atrule">username</span><span class="token punctuation">:</span> guest
-                <span class="token key atrule">password</span><span class="token punctuation">:</span> guest
-      <span class="token key atrule">bindings</span><span class="token punctuation">:</span> <span class="token comment"># 服务的整合处理</span>
-        <span class="token key atrule">input</span><span class="token punctuation">:</span> <span class="token comment"># 这个名字是一个通道的名称</span>
-          <span class="token key atrule">destination</span><span class="token punctuation">:</span> studyExchange <span class="token comment"># 表示要使用的Exchange名称定义</span>
-          <span class="token key atrule">content-type</span><span class="token punctuation">:</span> application/json <span class="token comment"># 设置消息类型，本次为对象json，如果是文本则设置“text/plain”</span>
-          <span class="token key atrule">binder</span><span class="token punctuation">:</span> defaultRabbit <span class="token comment"># 设置要绑定的消息服务的具体设置</span>
+spring:
+  application:
+    name: cloud-stream-consumer
+  cloud:
+    stream:
+      binders: # 在此处配置要绑定的rabbitmq的服务信息；
+        defaultRabbit: # 表示定义的名称，用于于binding整合
+          type: rabbit # 消息组件类型
+          environment: # 设置rabbitmq的相关的环境配置
+            spring:
+              rabbitmq:
+                host: 101.34.180.133
+                port: 5672
+                username: guest
+                password: guest
+      bindings: # 服务的整合处理
+        input: # 这个名字是一个通道的名称
+          destination: studyExchange # 表示要使用的Exchange名称定义
+          content-type: application/json # 设置消息类型，本次为对象json，如果是文本则设置“text/plain”
+          binder: defaultRabbit # 设置要绑定的消息服务的具体设置
 
-<span class="token key atrule">eureka</span><span class="token punctuation">:</span>
-  <span class="token key atrule">client</span><span class="token punctuation">:</span> <span class="token comment"># 客户端进行Eureka注册的配置</span>
-    <span class="token key atrule">service-url</span><span class="token punctuation">:</span>
-      <span class="token key atrule">defaultZone</span><span class="token punctuation">:</span> http<span class="token punctuation">:</span>//localhost<span class="token punctuation">:</span>7001/eureka
-  <span class="token key atrule">instance</span><span class="token punctuation">:</span>
-    <span class="token key atrule">lease-renewal-interval-in-seconds</span><span class="token punctuation">:</span> <span class="token number">2</span> <span class="token comment"># 设置心跳的时间间隔（默认是30秒）</span>
-    <span class="token key atrule">lease-expiration-duration-in-seconds</span><span class="token punctuation">:</span> <span class="token number">5</span> <span class="token comment"># 如果现在超过了5秒的间隔（默认是90秒）</span>
-    <span class="token key atrule">instance-id</span><span class="token punctuation">:</span> receive<span class="token punctuation">-</span>8802.com  <span class="token comment"># 在信息列表时显示主机名称</span>
-    <span class="token key atrule">prefer-ip-address</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>     <span class="token comment"># 访问的路径变为IP地址</span>
+eureka:
+  client: # 客户端进行Eureka注册的配置
+    service-url:
+      defaultZone: http://localhost:7001/eureka
+  instance:
+    lease-renewal-interval-in-seconds: 2 # 设置心跳的时间间隔（默认是30秒）
+    lease-expiration-duration-in-seconds: 5 # 如果现在超过了5秒的间隔（默认是90秒）
+    instance-id: receive-8802.com  # 在信息列表时显示主机名称
+    prefer-ip-address: true     # 访问的路径变为IP地址
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
@@ -1114,13 +1114,13 @@ public class StreamMQMain8803 {
 <li>8802/8803都变成不同组，group两个不同组（kkA,kkB）</li>
 <li>8802修改YML</li>
 </ul>
-<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token key atrule">group</span><span class="token punctuation">:</span> kkA<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">group: kkA<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p><img src="https://fastly.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220221221056.png"></p>
 <ul>
 <li>8803修改YML</li>
 </ul>
-<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token key atrule">group</span><span class="token punctuation">:</span> kkB<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">group: kkB<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p><img src="https://fastly.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220221221835.png"></p>
 <p><img src="https://fastly.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220221223137.png"></p>
@@ -2026,7 +2026,7 @@ new Valine({
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">145.8k</span>&nbsp;字
+                class="white-color">147.5k</span>&nbsp;字
             
             
             

@@ -677,21 +677,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-09-24
+                    2022-09-26
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    13.6k
+                    15.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    60 分
+                    69 分
                 </div>
                 
 
@@ -2895,7 +2895,299 @@ channelFuture<span class="token punctuation">.</span><span class="token function
 <td>设置失败结果</td>
 </tr>
 </tbody></table>
-<h4 id="例1"><a href="#例1" class="headerlink" title="例1"></a>例1</h4><h2 id="二、进阶"><a href="#二、进阶" class="headerlink" title="二、进阶"></a>二、进阶</h2><h3 id="1、"><a href="#1、" class="headerlink" title="1、"></a>1、</h3><h3 id="2、"><a href="#2、" class="headerlink" title="2、"></a>2、</h3><h3 id="3、"><a href="#3、" class="headerlink" title="3、"></a>3、</h3><h2 id="三、源码"><a href="#三、源码" class="headerlink" title="三、源码"></a>三、源码</h2><h3 id="1、-1"><a href="#1、-1" class="headerlink" title="1、"></a>1、</h3><h3 id="2、-1"><a href="#2、-1" class="headerlink" title="2、"></a>2、</h3><h3 id="3、-1"><a href="#3、-1" class="headerlink" title="3、"></a>3、</h3><h2 id="Ⅲ、常识（面试）"><a href="#Ⅲ、常识（面试）" class="headerlink" title="Ⅲ、常识（面试）"></a>Ⅲ、常识（面试）</h2><h5 id="1、多线程缺点"><a href="#1、多线程缺点" class="headerlink" title="1、多线程缺点"></a>1、多线程缺点</h5><ul>
+<h4 id="3-1、JDK-future"><a href="#3-1、JDK-future" class="headerlink" title="3-1、JDK-future"></a>3-1、JDK-future</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">
+<span class="token comment">// jdk-future</span>
+<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">ExecutionException</span><span class="token punctuation">,</span> <span class="token class-name">InterruptedException</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 1.线程池</span>
+    <span class="token class-name">ExecutorService</span> executorService <span class="token operator">=</span> <span class="token class-name">Executors</span><span class="token punctuation">.</span>newFixedThreadPool <span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// 2.提交任务</span>
+    <span class="token class-name">Future</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">&gt;</span></span> future <span class="token operator">=</span> executorService<span class="token punctuation">.</span>submit <span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Callable</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">&gt;</span></span> <span class="token punctuation">(</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token annotation punctuation">@Override</span>
+        <span class="token keyword">public</span> <span class="token class-name">Integer</span> <span class="token function">call</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">InterruptedException</span> <span class="token punctuation">{</span>
+            log<span class="token punctuation">.</span>info <span class="token punctuation">(</span><span class="token string">"执行计算！"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token class-name">Thread</span><span class="token punctuation">.</span>sleep <span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> <span class="token number">50</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// 3、主线程通过 future获取结果</span>
+    log<span class="token punctuation">.</span>info <span class="token punctuation">(</span><span class="token string">"等待结果中......"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    log<span class="token punctuation">.</span>info <span class="token punctuation">(</span><span class="token string">"结果为：{}"</span><span class="token punctuation">,</span> future<span class="token punctuation">.</span>get <span class="token punctuation">(</span> <span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>输出</p>
+<blockquote>
+<p>10:08:46.201 [main] INFO com.kk.netty.basice.demo2.FutureAndPromise - 等待结果中……<br>10:08:46.201 [pool-1-thread-1] INFO com.kk.netty.basice.demo2.FutureAndPromise - 执行计算！<br>10:08:47.205 [main] INFO com.kk.netty.basice.demo2.FutureAndPromise - 结果为：50</p>
+</blockquote>
+<h4 id="3-2、netty-future"><a href="#3-2、netty-future" class="headerlink" title="3-2、netty-future"></a>3-2、netty-future</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">    <span class="token comment">// netty-future()</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">test11</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">ExecutionException</span><span class="token punctuation">,</span> <span class="token class-name">InterruptedException</span> <span class="token punctuation">{</span>
+        <span class="token class-name">NioEventLoopGroup</span> group <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">NioEventLoopGroup</span> <span class="token punctuation">(</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">EventLoop</span> eventLoop <span class="token operator">=</span> group<span class="token punctuation">.</span>next <span class="token punctuation">(</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">Future</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">&gt;</span></span> future <span class="token operator">=</span> eventLoop<span class="token punctuation">.</span>submit <span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Callable</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">&gt;</span></span> <span class="token punctuation">(</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token annotation punctuation">@Override</span>
+            <span class="token keyword">public</span> <span class="token class-name">Integer</span> <span class="token function">call</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">InterruptedException</span> <span class="token punctuation">{</span>
+                log<span class="token punctuation">.</span>info <span class="token punctuation">(</span><span class="token string">"执行计算！"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token class-name">Thread</span><span class="token punctuation">.</span>sleep <span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">return</span> <span class="token number">50</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        log<span class="token punctuation">.</span>info <span class="token punctuation">(</span><span class="token string">"等待结果中......"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">//&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;同步&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;</span>
+        <span class="token comment">// 控制台打印是main线程打印</span>
+<span class="token comment">//        log.info ("结果为：{}", future.get ( ));</span>
+        <span class="token comment">//&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;同步&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;</span>
+
+        <span class="token comment">//&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;异步&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;</span>
+        future<span class="token punctuation">.</span>addListener <span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">GenericFutureListener</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Future</span><span class="token punctuation">&lt;</span><span class="token operator">?</span> <span class="token keyword">super</span> <span class="token class-name">Integer</span><span class="token punctuation">&gt;</span><span class="token punctuation">&gt;</span></span> <span class="token punctuation">(</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token annotation punctuation">@Override</span>
+            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">operationComplete</span><span class="token punctuation">(</span><span class="token class-name">Future</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token operator">?</span> <span class="token keyword">super</span> <span class="token class-name">Integer</span><span class="token punctuation">&gt;</span></span> future<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span> <span class="token punctuation">{</span>
+                <span class="token comment">// 控制台打印是 nioEventLoopGroup 线程组打印</span>
+                log<span class="token punctuation">.</span>info <span class="token punctuation">(</span><span class="token string">"结果为：{}"</span><span class="token punctuation">,</span> future<span class="token punctuation">.</span>getNow <span class="token punctuation">(</span> <span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">//&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;异步&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;</span>
+
+    <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>10:40:10.185 [main] INFO com.kk.netty.basice.demo2.FutureAndPromise - 等待结果中……<br>10:40:10.189 [nioEventLoopGroup-2-1] INFO com.kk.netty.basice.demo2.FutureAndPromise - 执行计算！<br>10:40:11.190 [nioEventLoopGroup-2-1] INFO com.kk.netty.basice.demo2.FutureAndPromise - 结果为：50</p>
+</blockquote>
+<h4 id="3-1-2-小结"><a href="#3-1-2-小结" class="headerlink" title="3-(1-2)小结"></a>3-(1-2)小结</h4><p>无论是juc中的 future 还是 netty 中的 future 都是来自于 juc</p>
+<p><img src="https://fastly.jsdelivr.net/gh/mykkTo/image@main/blog/2022/netty/202209251043399.png"></p>
+<p>上面两种获取的 future 方式 都是被动返回得到的，若要主动，此时可以用 netty 中的 Promise</p>
+<h4 id="3-1、同步处理任务成功"><a href="#3-1、同步处理任务成功" class="headerlink" title="3.1、同步处理任务成功"></a>3.1、同步处理任务成功</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">    <span class="token class-name">DefaultEventLoop</span> eventExecutors <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">DefaultEventLoop</span> <span class="token punctuation">(</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">DefaultPromise</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">&gt;</span></span> promise <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">DefaultPromise</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span> <span class="token punctuation">(</span>eventExecutors<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    eventExecutors<span class="token punctuation">.</span>execute <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword">try</span> <span class="token punctuation">{</span>
+            <span class="token class-name">Thread</span><span class="token punctuation">.</span>sleep <span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">InterruptedException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            e<span class="token punctuation">.</span>printStackTrace <span class="token punctuation">(</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        log<span class="token punctuation">.</span>debug <span class="token punctuation">(</span><span class="token string">"set success, {}"</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        promise<span class="token punctuation">.</span>setSuccess <span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    log<span class="token punctuation">.</span>debug <span class="token punctuation">(</span><span class="token string">"start..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    log<span class="token punctuation">.</span>debug <span class="token punctuation">(</span><span class="token string">"getNow:{}"</span><span class="token punctuation">,</span> promise<span class="token punctuation">.</span>getNow <span class="token punctuation">(</span> <span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 还没有结果</span>
+    log<span class="token punctuation">.</span>debug <span class="token punctuation">(</span><span class="token string">"get:{}"</span><span class="token punctuation">,</span> promise<span class="token punctuation">.</span>get <span class="token punctuation">(</span> <span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>输出</p>
+<blockquote>
+<p>17:15:38.604 [main] DEBUG com.kk.netty.basice.demo2.FutureAndPromise - start…<br>17:15:38.604 [main] DEBUG com.kk.netty.basice.demo2.FutureAndPromise - getNow:null<br>17:15:39.605 [defaultEventLoop-1-1] DEBUG com.kk.netty.basice.demo2.FutureAndPromise - set success, 10<br>17:15:39.605 [main] DEBUG com.kk.netty.basice.demo2.FutureAndPromise - get:10</p>
+</blockquote>
+<h4 id="3-2、异步处理任务成功"><a href="#3-2、异步处理任务成功" class="headerlink" title="3.2、异步处理任务成功"></a>3.2、异步处理任务成功</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">DefaultEventLoop</span> eventExecutors <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">DefaultEventLoop</span> <span class="token punctuation">(</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">DefaultPromise</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">&gt;</span></span> promise <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">DefaultPromise</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span> <span class="token punctuation">(</span>eventExecutors<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 设置回调，异步接收结果</span>
+promise<span class="token punctuation">.</span>addListener <span class="token punctuation">(</span>future <span class="token operator">-&gt;</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 这里的 future 就是上面的 promise</span>
+    log<span class="token punctuation">.</span>debug <span class="token punctuation">(</span><span class="token string">"getNow:{}"</span><span class="token punctuation">,</span> future<span class="token punctuation">.</span>getNow <span class="token punctuation">(</span> <span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+eventExecutors<span class="token punctuation">.</span>execute <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">try</span> <span class="token punctuation">{</span>
+        <span class="token class-name">Thread</span><span class="token punctuation">.</span>sleep <span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">InterruptedException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        e<span class="token punctuation">.</span>printStackTrace <span class="token punctuation">(</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    log<span class="token punctuation">.</span>debug <span class="token punctuation">(</span><span class="token string">"set success, {}"</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    promise<span class="token punctuation">.</span>setSuccess <span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+log<span class="token punctuation">.</span>debug <span class="token punctuation">(</span><span class="token string">"start..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>输出</p>
+<blockquote>
+<p>11:49:30 [DEBUG] [main] c.i.o.DefaultPromiseTest2 - start…<br>11:49:31 [DEBUG] [defaultEventLoop-1-1] c.i.o.DefaultPromiseTest2 - set success, 10<br>11:49:31 [DEBUG] [defaultEventLoop-1-1] c.i.o.DefaultPromiseTest2 - 10</p>
+</blockquote>
+<h4 id="3-3、同步处理任务失败-sync-amp-get"><a href="#3-3、同步处理任务失败-sync-amp-get" class="headerlink" title="3.3、同步处理任务失败 - sync &amp; get"></a>3.3、同步处理任务失败 - sync &amp; get</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">DefaultEventLoop</span> eventExecutors <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">DefaultEventLoop</span> <span class="token punctuation">(</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">DefaultPromise</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">&gt;</span></span> promise <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">DefaultPromise</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span> <span class="token punctuation">(</span>eventExecutors<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+eventExecutors<span class="token punctuation">.</span>execute <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">try</span> <span class="token punctuation">{</span>
+        <span class="token class-name">Thread</span><span class="token punctuation">.</span>sleep <span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">InterruptedException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        e<span class="token punctuation">.</span>printStackTrace <span class="token punctuation">(</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token class-name">RuntimeException</span> e <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">RuntimeException</span> <span class="token punctuation">(</span><span class="token string">"error..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    log<span class="token punctuation">.</span>debug <span class="token punctuation">(</span><span class="token string">"set failure, {}"</span><span class="token punctuation">,</span> e<span class="token punctuation">.</span>toString <span class="token punctuation">(</span> <span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    promise<span class="token punctuation">.</span>setFailure <span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+log<span class="token punctuation">.</span>debug <span class="token punctuation">(</span><span class="token string">"start..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+log<span class="token punctuation">.</span>debug <span class="token punctuation">(</span><span class="token string">"getNow:{}"</span><span class="token punctuation">,</span> promise<span class="token punctuation">.</span>getNow <span class="token punctuation">(</span> <span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+promise<span class="token punctuation">.</span>get <span class="token punctuation">(</span> <span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// sync() 也会出现异常，只是 get 会再用 ExecutionException 包一层异常</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>输出</p>
+<blockquote>
+<p>12:11:07 [DEBUG] [main] c.i.o.DefaultPromiseTest2 - start…<br>12:11:07 [DEBUG] [main] c.i.o.DefaultPromiseTest2 - null<br>12:11:08 [DEBUG] [defaultEventLoop-1-1] c.i.o.DefaultPromiseTest2 - set failure, java.lang.RuntimeException: error…<br>Exception in thread “main” java.util.concurrent.ExecutionException: java.lang.RuntimeException: error…<br>   at io.netty.util.concurrent.AbstractFuture.get(AbstractFuture.java:41)<br>   at com.itcast.oio.DefaultPromiseTest2.main(DefaultPromiseTest2.java:34)<br>Caused by: java.lang.RuntimeException: error…<br>   at com.itcast.oio.DefaultPromiseTest2.lambda$main$0(DefaultPromiseTest2.java:27)<br>   at io.netty.channel.DefaultEventLoop.run(DefaultEventLoop.java:54)<br>   at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:918)<br>   at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)<br>   at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)<br>   at java.lang.Thread.run(Thread.java:745)</p>
+</blockquote>
+<h4 id="3-4、同步处理任务失败-await"><a href="#3-4、同步处理任务失败-await" class="headerlink" title="3.4、同步处理任务失败 - await"></a>3.4、同步处理任务失败 - await</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">DefaultEventLoop</span> eventExecutors <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">DefaultEventLoop</span> <span class="token punctuation">(</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">DefaultPromise</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">&gt;</span></span> promise <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">DefaultPromise</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span> <span class="token punctuation">(</span>eventExecutors<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+eventExecutors<span class="token punctuation">.</span>execute <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">try</span> <span class="token punctuation">{</span>
+        <span class="token class-name">Thread</span><span class="token punctuation">.</span>sleep <span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">InterruptedException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        e<span class="token punctuation">.</span>printStackTrace <span class="token punctuation">(</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token class-name">RuntimeException</span> e <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">RuntimeException</span> <span class="token punctuation">(</span><span class="token string">"error..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    log<span class="token punctuation">.</span>debug <span class="token punctuation">(</span><span class="token string">"set failure, {}"</span><span class="token punctuation">,</span> e<span class="token punctuation">.</span>toString <span class="token punctuation">(</span> <span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    promise<span class="token punctuation">.</span>setFailure <span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+log<span class="token punctuation">.</span>debug <span class="token punctuation">(</span><span class="token string">"start..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+log<span class="token punctuation">.</span>debug <span class="token punctuation">(</span><span class="token string">"getNow:{}"</span><span class="token punctuation">,</span> promise<span class="token punctuation">.</span>getNow <span class="token punctuation">(</span> <span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+promise<span class="token punctuation">.</span>await <span class="token punctuation">(</span> <span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 与 sync 和 get 区别在于，不会抛异常</span>
+log<span class="token punctuation">.</span>debug <span class="token punctuation">(</span><span class="token string">"result {}"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>promise<span class="token punctuation">.</span>isSuccess <span class="token punctuation">(</span> <span class="token punctuation">)</span> <span class="token operator">?</span> promise<span class="token punctuation">.</span>getNow <span class="token punctuation">(</span> <span class="token punctuation">)</span> <span class="token operator">:</span> promise<span class="token punctuation">.</span>cause <span class="token punctuation">(</span> <span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>toString <span class="token punctuation">(</span> <span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>输出</p>
+<blockquote>
+<p>12:18:53 [DEBUG] [main] c.i.o.DefaultPromiseTest2 - start…<br>12:18:53 [DEBUG] [main] c.i.o.DefaultPromiseTest2 - null<br>12:18:54 [DEBUG] [defaultEventLoop-1-1] c.i.o.DefaultPromiseTest2 - set failure, java.lang.RuntimeException: error…<br>12:18:54 [DEBUG] [main] c.i.o.DefaultPromiseTest2 - result java.lang.RuntimeException: error…</p>
+</blockquote>
+<h4 id="3-5、异步处理任务失败"><a href="#3-5、异步处理任务失败" class="headerlink" title="3.5、异步处理任务失败"></a>3.5、异步处理任务失败</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">DefaultEventLoop</span> eventExecutors <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">DefaultEventLoop</span> <span class="token punctuation">(</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token class-name">DefaultPromise</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">&gt;</span></span> promise <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">DefaultPromise</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span> <span class="token punctuation">(</span>eventExecutors<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+ promise<span class="token punctuation">.</span>addListener <span class="token punctuation">(</span>future <span class="token operator">-&gt;</span> <span class="token punctuation">{</span>
+     log<span class="token punctuation">.</span>debug <span class="token punctuation">(</span><span class="token string">"result {}"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>promise<span class="token punctuation">.</span>isSuccess <span class="token punctuation">(</span> <span class="token punctuation">)</span> <span class="token operator">?</span> promise<span class="token punctuation">.</span>getNow <span class="token punctuation">(</span> <span class="token punctuation">)</span> <span class="token operator">:</span> promise<span class="token punctuation">.</span>cause <span class="token punctuation">(</span> <span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>toString <span class="token punctuation">(</span> <span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+ eventExecutors<span class="token punctuation">.</span>execute <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-&gt;</span> <span class="token punctuation">{</span>
+     <span class="token keyword">try</span> <span class="token punctuation">{</span>
+         <span class="token class-name">Thread</span><span class="token punctuation">.</span>sleep <span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+     <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">InterruptedException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+         e<span class="token punctuation">.</span>printStackTrace <span class="token punctuation">(</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+     <span class="token punctuation">}</span>
+     <span class="token class-name">RuntimeException</span> e <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">RuntimeException</span> <span class="token punctuation">(</span><span class="token string">"error..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+     log<span class="token punctuation">.</span>debug <span class="token punctuation">(</span><span class="token string">"set failure, {}"</span><span class="token punctuation">,</span> e<span class="token punctuation">.</span>toString <span class="token punctuation">(</span> <span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+     promise<span class="token punctuation">.</span>setFailure <span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+ log<span class="token punctuation">.</span>debug <span class="token punctuation">(</span><span class="token string">"start..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>输出</p>
+<blockquote>
+<p>12:04:57 [DEBUG] [main] c.i.o.DefaultPromiseTest2 - start…<br>12:04:58 [DEBUG] [defaultEventLoop-1-1] c.i.o.DefaultPromiseTest2 - set failure, java.lang.RuntimeException: error…<br>12:04:58 [DEBUG] [defaultEventLoop-1-1] c.i.o.DefaultPromiseTest2 - result java.lang.RuntimeException: error…</p>
+</blockquote>
+<h4 id="3-6、await-死锁检查"><a href="#3-6、await-死锁检查" class="headerlink" title="3.6、await 死锁检查"></a>3.6、await 死锁检查</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">DefaultEventLoop</span> eventExecutors <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">DefaultEventLoop</span> <span class="token punctuation">(</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token class-name">DefaultPromise</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">&gt;</span></span> promise <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">DefaultPromise</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span> <span class="token punctuation">(</span>eventExecutors<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+ eventExecutors<span class="token punctuation">.</span>submit <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-&gt;</span> <span class="token punctuation">{</span>
+     <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span>println <span class="token punctuation">(</span><span class="token string">"1"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+     <span class="token keyword">try</span> <span class="token punctuation">{</span>
+         promise<span class="token punctuation">.</span>await <span class="token punctuation">(</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+         <span class="token comment">// 注意不能仅捕获 InterruptedException 异常</span>
+         <span class="token comment">// 否则 死锁检查抛出的 BlockingOperationException 会继续向上传播</span>
+         <span class="token comment">// 而提交的任务会被包装为 PromiseTask，它的 run 方法中会 catch 所有异常然后设置为 Promise 的失败结果而不会抛出</span>
+     <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Exception</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+         e<span class="token punctuation">.</span>printStackTrace <span class="token punctuation">(</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+     <span class="token punctuation">}</span>
+     <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span>println <span class="token punctuation">(</span><span class="token string">"2"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ eventExecutors<span class="token punctuation">.</span>submit <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-&gt;</span> <span class="token punctuation">{</span>
+     <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span>println <span class="token punctuation">(</span><span class="token string">"3"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+     <span class="token keyword">try</span> <span class="token punctuation">{</span>
+         promise<span class="token punctuation">.</span>await <span class="token punctuation">(</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+     <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Exception</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+         e<span class="token punctuation">.</span>printStackTrace <span class="token punctuation">(</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+     <span class="token punctuation">}</span>
+     <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span>println <span class="token punctuation">(</span><span class="token string">"4"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>输出</p>
+<blockquote>
+<p>1<br>2<br>3<br>4<br>io.netty.util.concurrent.BlockingOperationException: DefaultPromise@47499c2a(incomplete)<br>at io.netty.util.concurrent.DefaultPromise.checkDeadLock(DefaultPromise.java:384)</p>
+</blockquote>
+<h4 id="4、Handler-amp-Pipeline"><a href="#4、Handler-amp-Pipeline" class="headerlink" title="4、Handler &amp; Pipeline"></a>4、Handler &amp; Pipeline</h4><p>ChannelHandler 用来处理 Channel 上的各种事件，分为入栈、出栈两种。所有 ChannelHandler 被连成一串，就是 Pipeline</p>
+<ul>
+<li>入站处理器通常是 ChannelInboundHandlerAdapter 的子类，主要用来<font color="red">读</font>取客户端数据，写回结果</li>
+<li>出站处理器通常是 ChannelOutboundHandlerAdapter 的子类，主要对<font color="red">写</font>回结果进行加工</li>
+</ul>
+<p>打个比喻，每个 Channel 是一个产品的加工车间，Pipeline 是车间中的流水线，ChannelHandler 就是流水线上的各道工序，而后面要讲的 ByteBuf 是原材料，经过很多工序的加工：先经过一道道入站工序，再经过一道道出站工序最终变成产品</p>
+<p>先搞清楚顺序，服务端</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">new</span> <span class="token class-name">ServerBootstrap</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">group</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">NioEventLoopGroup</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">channel</span><span class="token punctuation">(</span><span class="token class-name">NioServerSocketChannel</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">childHandler</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">ChannelInitializer</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">NioSocketChannel</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">protected</span> <span class="token keyword">void</span> <span class="token function">initChannel</span><span class="token punctuation">(</span><span class="token class-name">NioSocketChannel</span> ch<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            ch<span class="token punctuation">.</span><span class="token function">pipeline</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">addLast</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">ChannelInboundHandlerAdapter</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token annotation punctuation">@Override</span>
+                <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">channelRead</span><span class="token punctuation">(</span><span class="token class-name">ChannelHandlerContext</span> ctx<span class="token punctuation">,</span> <span class="token class-name">Object</span> msg<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    ctx<span class="token punctuation">.</span><span class="token function">fireChannelRead</span><span class="token punctuation">(</span>msg<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 1</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            ch<span class="token punctuation">.</span><span class="token function">pipeline</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">addLast</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">ChannelInboundHandlerAdapter</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token annotation punctuation">@Override</span>
+                <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">channelRead</span><span class="token punctuation">(</span><span class="token class-name">ChannelHandlerContext</span> ctx<span class="token punctuation">,</span> <span class="token class-name">Object</span> msg<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    ctx<span class="token punctuation">.</span><span class="token function">fireChannelRead</span><span class="token punctuation">(</span>msg<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 2</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            ch<span class="token punctuation">.</span><span class="token function">pipeline</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">addLast</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">ChannelInboundHandlerAdapter</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token annotation punctuation">@Override</span>
+                <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">channelRead</span><span class="token punctuation">(</span><span class="token class-name">ChannelHandlerContext</span> ctx<span class="token punctuation">,</span> <span class="token class-name">Object</span> msg<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    ctx<span class="token punctuation">.</span><span class="token function">channel</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span>msg<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 3</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            ch<span class="token punctuation">.</span><span class="token function">pipeline</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">addLast</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">ChannelOutboundHandlerAdapter</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token annotation punctuation">@Override</span>
+                <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">write</span><span class="token punctuation">(</span><span class="token class-name">ChannelHandlerContext</span> ctx<span class="token punctuation">,</span> <span class="token class-name">Object</span> msg<span class="token punctuation">,</span> 
+                                  <span class="token class-name">ChannelPromise</span> promise<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    ctx<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span>msg<span class="token punctuation">,</span> promise<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 4</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            ch<span class="token punctuation">.</span><span class="token function">pipeline</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">addLast</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">ChannelOutboundHandlerAdapter</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token annotation punctuation">@Override</span>
+                <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">write</span><span class="token punctuation">(</span><span class="token class-name">ChannelHandlerContext</span> ctx<span class="token punctuation">,</span> <span class="token class-name">Object</span> msg<span class="token punctuation">,</span> 
+                                  <span class="token class-name">ChannelPromise</span> promise<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    ctx<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span>msg<span class="token punctuation">,</span> promise<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 5</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            ch<span class="token punctuation">.</span><span class="token function">pipeline</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">addLast</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">ChannelOutboundHandlerAdapter</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token annotation punctuation">@Override</span>
+                <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">write</span><span class="token punctuation">(</span><span class="token class-name">ChannelHandlerContext</span> ctx<span class="token punctuation">,</span> <span class="token class-name">Object</span> msg<span class="token punctuation">,</span> 
+                                  <span class="token class-name">ChannelPromise</span> promise<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    ctx<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span>msg<span class="token punctuation">,</span> promise<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 6</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span><span class="token number">8080</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>客户端</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">new</span> <span class="token class-name">Bootstrap</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">group</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">NioEventLoopGroup</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">channel</span><span class="token punctuation">(</span><span class="token class-name">NioSocketChannel</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">handler</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">ChannelInitializer</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Channel</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token annotation punctuation">@Override</span>
+        <span class="token keyword">protected</span> <span class="token keyword">void</span> <span class="token function">initChannel</span><span class="token punctuation">(</span><span class="token class-name">Channel</span> ch<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            ch<span class="token punctuation">.</span><span class="token function">pipeline</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">addLast</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">StringEncoder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">connect</span><span class="token punctuation">(</span><span class="token string">"127.0.0.1"</span><span class="token punctuation">,</span> <span class="token number">8080</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">addListener</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">ChannelFutureListener</span><span class="token punctuation">)</span> future <span class="token operator">-&gt;</span> <span class="token punctuation">{</span>
+        future<span class="token punctuation">.</span><span class="token function">channel</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">writeAndFlush</span><span class="token punctuation">(</span><span class="token string">"hello,world"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>服务器端打印：</p>
+<pre class="line-numbers language-none"><code class="language-none">1
+2
+3
+6
+5
+4<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+<h2 id="二、进阶"><a href="#二、进阶" class="headerlink" title="二、进阶"></a>二、进阶</h2><h3 id="1、"><a href="#1、" class="headerlink" title="1、"></a>1、</h3><h3 id="2、"><a href="#2、" class="headerlink" title="2、"></a>2、</h3><h3 id="3、"><a href="#3、" class="headerlink" title="3、"></a>3、</h3><h2 id="三、源码"><a href="#三、源码" class="headerlink" title="三、源码"></a>三、源码</h2><h3 id="1、-1"><a href="#1、-1" class="headerlink" title="1、"></a>1、</h3><h3 id="2、-1"><a href="#2、-1" class="headerlink" title="2、"></a>2、</h3><h3 id="3、-1"><a href="#3、-1" class="headerlink" title="3、"></a>3、</h3><h2 id="Ⅲ、常识（面试）"><a href="#Ⅲ、常识（面试）" class="headerlink" title="Ⅲ、常识（面试）"></a>Ⅲ、常识（面试）</h2><h5 id="1、多线程缺点"><a href="#1、多线程缺点" class="headerlink" title="1、多线程缺点"></a>1、多线程缺点</h5><ul>
 <li>内存占用高</li>
 <li>线程上下文切换成本高</li>
 <li>只适合连接数少的场景</li>
@@ -3793,7 +4085,7 @@ new Valine({
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">145.8k</span>&nbsp;字
+                class="white-color">147.5k</span>&nbsp;字
             
             
             

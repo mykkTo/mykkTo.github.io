@@ -776,21 +776,21 @@
 
 
 
-<h3 id="3、yml"><a href="#3、yml" class="headerlink" title="3、yml"></a>3、yml</h3><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token key atrule">server</span><span class="token punctuation">:</span>
-  <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">9527</span>
+<h3 id="3、yml"><a href="#3、yml" class="headerlink" title="3、yml"></a>3、yml</h3><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">server:
+  port: 9527
 
-<span class="token key atrule">spring</span><span class="token punctuation">:</span>
-  <span class="token key atrule">application</span><span class="token punctuation">:</span>
-    <span class="token key atrule">name</span><span class="token punctuation">:</span> cloud<span class="token punctuation">-</span>zuul<span class="token punctuation">-</span>gateway
+spring:
+  application:
+    name: cloud-zuul-gateway
 
-<span class="token key atrule">eureka</span><span class="token punctuation">:</span>
-  <span class="token key atrule">client</span><span class="token punctuation">:</span>
-    <span class="token key atrule">service-url</span><span class="token punctuation">:</span>
-      <span class="token comment">#defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka,http://eureka7003.com:7003/eureka</span>
-      <span class="token key atrule">defaultZone</span><span class="token punctuation">:</span> http<span class="token punctuation">:</span>//eureka7001.com<span class="token punctuation">:</span>7001/eureka
-  <span class="token key atrule">instance</span><span class="token punctuation">:</span>
-    <span class="token key atrule">instance-id</span><span class="token punctuation">:</span> gateway<span class="token punctuation">-</span>9527.com
-    <span class="token key atrule">prefer-ip-address</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+eureka:
+  client:
+    service-url:
+      #defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka,http://eureka7003.com:7003/eureka
+      defaultZone: http://eureka7001.com:7001/eureka
+  instance:
+    instance-id: gateway-9527.com
+    prefer-ip-address: true
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
@@ -834,40 +834,40 @@
 <p>（2）url：</p>
 <p><a target="_blank" rel="noopener" href="http://myzuul.com:9527/cloud-payment-service/payment/consul">http://myzuul.com:9527/cloud-payment-service/payment/consul</a></p>
 <p>![](C:\Users\my_kk\Documents\Tencent Files\763856958\FileRecv_posts\03javafenbushi\01springcloud\20220201141019.png)</p>
-<h2 id="3、路由访问映射规则"><a href="#3、路由访问映射规则" class="headerlink" title="3、路由访问映射规则"></a>3、路由访问映射规则</h2><h3 id="1、名称代理"><a href="#1、名称代理" class="headerlink" title="1、名称代理"></a>1、名称代理</h3><h4 id="1、yml详解"><a href="#1、yml详解" class="headerlink" title="1、yml详解"></a>1、yml详解</h4><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token key atrule">zuul</span><span class="token punctuation">:</span>
-  <span class="token key atrule">routes</span><span class="token punctuation">:</span> <span class="token comment"># 路由映射配置</span>
-    <span class="token key atrule">mypayment.path</span><span class="token punctuation">:</span> /mypayment/<span class="token important">**</span>                 <span class="token comment">#IE地址栏输入的路径</span>
-    <span class="token key atrule">mypayment.serviceId</span><span class="token punctuation">:</span> cloud<span class="token punctuation">-</span>payment<span class="token punctuation">-</span>service   <span class="token comment"># 指定服务端的名称</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="3、路由访问映射规则"><a href="#3、路由访问映射规则" class="headerlink" title="3、路由访问映射规则"></a>3、路由访问映射规则</h2><h3 id="1、名称代理"><a href="#1、名称代理" class="headerlink" title="1、名称代理"></a>1、名称代理</h3><h4 id="1、yml详解"><a href="#1、yml详解" class="headerlink" title="1、yml详解"></a>1、yml详解</h4><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">zuul:
+  routes: # 路由映射配置
+    mypayment.path: /mypayment/**                 #IE地址栏输入的路径
+    mypayment.serviceId: cloud-payment-service   # 指定服务端的名称<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
-<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token key atrule">server</span><span class="token punctuation">:</span>
-  <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">9527</span>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">server:
+  port: 9527
 
-<span class="token key atrule">spring</span><span class="token punctuation">:</span>
-  <span class="token key atrule">application</span><span class="token punctuation">:</span>
-    <span class="token key atrule">name</span><span class="token punctuation">:</span> cloud<span class="token punctuation">-</span>zuul<span class="token punctuation">-</span>gateway
+spring:
+  application:
+    name: cloud-zuul-gateway
     
-<span class="token key atrule">eureka</span><span class="token punctuation">:</span>
-  <span class="token key atrule">client</span><span class="token punctuation">:</span>
-    <span class="token key atrule">service-url</span><span class="token punctuation">:</span>
-      <span class="token comment">#defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka,http://eureka7003.com:7003/eureka</span>
-      <span class="token key atrule">defaultZone</span><span class="token punctuation">:</span> http<span class="token punctuation">:</span>//eureka7001.com<span class="token punctuation">:</span>7001/eureka
-  <span class="token key atrule">instance</span><span class="token punctuation">:</span>
-    <span class="token key atrule">instance-id</span><span class="token punctuation">:</span> gateway<span class="token punctuation">-</span>9527.com
-    <span class="token key atrule">prefer-ip-address</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+eureka:
+  client:
+    service-url:
+      #defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka,http://eureka7003.com:7003/eureka
+      defaultZone: http://eureka7001.com:7001/eureka
+  instance:
+    instance-id: gateway-9527.com
+    prefer-ip-address: true
 
-<span class="token key atrule">zuul</span><span class="token punctuation">:</span>
-  <span class="token key atrule">routes</span><span class="token punctuation">:</span> <span class="token comment"># 路由映射配置</span>
-    <span class="token key atrule">mypayment.path</span><span class="token punctuation">:</span> /mypayment/<span class="token important">**</span>                 <span class="token comment">#IE地址栏输入的路径</span>
-    <span class="token key atrule">mypayment.serviceId</span><span class="token punctuation">:</span> cloud<span class="token punctuation">-</span>payment<span class="token punctuation">-</span>service   <span class="token comment"># 指定服务端的名称</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+zuul:
+  routes: # 路由映射配置
+    mypayment.path: /mypayment/**                 #IE地址栏输入的路径
+    mypayment.serviceId: cloud-payment-service   # 指定服务端的名称<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
 <h4 id="2、测试"><a href="#2、测试" class="headerlink" title="2、测试"></a>2、测试</h4><h5 id="1、路由访问：OK"><a href="#1、路由访问：OK" class="headerlink" title="1、路由访问：OK"></a>1、路由访问：OK</h5><p><a target="_blank" rel="noopener" href="http://myzuul.com:9527/mypayment/payment/consul">http://myzuul.com:9527/mypayment/payment/consul</a></p>
 <h5 id="2、原路径访问：OK"><a href="#2、原路径访问：OK" class="headerlink" title="2、原路径访问：OK"></a>2、原路径访问：OK</h5><p><a target="_blank" rel="noopener" href="http://myzuul.com:9527/cloud-payment-service/payment/consul">http://myzuul.com:9527/cloud-payment-service/payment/consul</a></p>
-<h3 id="2、忽略原有真实服务名"><a href="#2、忽略原有真实服务名" class="headerlink" title="2、忽略原有真实服务名"></a>2、忽略原有真实<code>服务名</code></h3><h4 id="1、yml配置"><a href="#1、yml配置" class="headerlink" title="1、yml配置"></a>1、yml配置</h4><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token key atrule">zuul</span><span class="token punctuation">:</span>
-  <span class="token key atrule">ignored-services</span><span class="token punctuation">:</span> cloud<span class="token punctuation">-</span>payment<span class="token punctuation">-</span>service   <span class="token comment">#忽略服务名</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h3 id="2、忽略原有真实服务名"><a href="#2、忽略原有真实服务名" class="headerlink" title="2、忽略原有真实服务名"></a>2、忽略原有真实<code>服务名</code></h3><h4 id="1、yml配置"><a href="#1、yml配置" class="headerlink" title="1、yml配置"></a>1、yml配置</h4><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">zuul:
+  ignored-services: cloud-payment-service   #忽略服务名<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 
 
@@ -876,8 +876,8 @@
 <h4 id="2、测试-1"><a href="#2、测试-1" class="headerlink" title="2、测试"></a>2、测试</h4><p>1、使用服务名访问（失败）：<a target="_blank" rel="noopener" href="http://myzuul.com:9527/cloud-payment-service/payment/consul">http://myzuul.com:9527/cloud-payment-service/payment/consul</a></p>
 <p>![](C:\Users\my_kk\Documents\Tencent Files\763856958\FileRecv_posts\03javafenbushi\01springcloud\20220201165024.png)</p>
 <p>2、映射访问：依旧可以！</p>
-<h5 id="五角星：批量忽略"><a href="#五角星：批量忽略" class="headerlink" title="五角星：批量忽略"></a>五角星：批量忽略</h5><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token key atrule">zuul</span><span class="token punctuation">:</span> 
-  <span class="token key atrule">ignored-services</span><span class="token punctuation">:</span> <span class="token string">"*"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h5 id="五角星：批量忽略"><a href="#五角星：批量忽略" class="headerlink" title="五角星：批量忽略"></a>五角星：批量忽略</h5><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">zuul: 
+  ignored-services: "*"<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 
 
@@ -931,22 +931,22 @@
 
 
 
-<h5 id="3、yml-1"><a href="#3、yml-1" class="headerlink" title="3、yml"></a>3、yml</h5><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token key atrule">server</span><span class="token punctuation">:</span>
-  <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">8008</span>
+<h5 id="3、yml-1"><a href="#3、yml-1" class="headerlink" title="3、yml"></a>3、yml</h5><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">server:
+  port: 8008
 
-<span class="token comment">###服务名称(服务注册到eureka名称)</span>
-<span class="token key atrule">spring</span><span class="token punctuation">:</span>
-  <span class="token key atrule">application</span><span class="token punctuation">:</span>
-    <span class="token key atrule">name</span><span class="token punctuation">:</span> cloud<span class="token punctuation">-</span>provider<span class="token punctuation">-</span>sms
+###服务名称(服务注册到eureka名称)
+spring:
+  application:
+    name: cloud-provider-sms
 
-<span class="token key atrule">eureka</span><span class="token punctuation">:</span>
-  <span class="token key atrule">client</span><span class="token punctuation">:</span> <span class="token comment">#服务提供者provider注册进eureka服务列表内</span>
-    <span class="token key atrule">service-url</span><span class="token punctuation">:</span>
-      <span class="token key atrule">register-with-eureka</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
-      <span class="token key atrule">fetch-registry</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
-      <span class="token key atrule">defaultZone</span><span class="token punctuation">:</span> http<span class="token punctuation">:</span>//eureka7001.com<span class="token punctuation">:</span>7001/eureka<span class="token punctuation">,</span>http<span class="token punctuation">:</span>//eureka7002.com<span class="token punctuation">:</span>7002/eureka<span class="token punctuation">,</span>http<span class="token punctuation">:</span>//eureka7003.com<span class="token punctuation">:</span>7003/eureka
-      <span class="token comment">#defaultZone: http://127.0.0.1:7001/eureka,http://127.0.0.1:7002/eureka</span>
-      <span class="token comment">#defaultZone: http://eureka7001.com:7001/eureka   # eureka集群加@老本版</span>
+eureka:
+  client: #服务提供者provider注册进eureka服务列表内
+    service-url:
+      register-with-eureka: true
+      fetch-registry: true
+      defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka,http://eureka7003.com:7003/eureka
+      #defaultZone: http://127.0.0.1:7001/eureka,http://127.0.0.1:7002/eureka
+      #defaultZone: http://eureka7001.com:7001/eureka   # eureka集群加@老本版
  
  
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
@@ -994,37 +994,37 @@
 
 
 <h5 id="6、启动服务"><a href="#6、启动服务" class="headerlink" title="6、启动服务"></a>6、启动服务</h5><p><img src="https://fastly.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220201174945.png"></p>
-<h4 id="2、网关：zuul（9527）"><a href="#2、网关：zuul（9527）" class="headerlink" title="2、网关：zuul（9527）"></a>2、网关：zuul（9527）</h4><h5 id="1、yml"><a href="#1、yml" class="headerlink" title="1、yml"></a>1、yml</h5><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token key atrule">zuul</span><span class="token punctuation">:</span>
-  <span class="token comment">#  ignored-services: cloud-payment-service   #忽略服务名</span>
-  <span class="token key atrule">routes</span><span class="token punctuation">:</span> <span class="token comment"># 路由映射配置</span>
-    <span class="token key atrule">mysms.path</span><span class="token punctuation">:</span> /mysms/<span class="token important">**</span>                        <span class="token comment"># IE地址栏输入的路径</span>
-    <span class="token key atrule">mysms.serviceId</span><span class="token punctuation">:</span> cloud<span class="token punctuation">-</span>provider<span class="token punctuation">-</span>sms       <span class="token comment"># 指定服务端的名称</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="2、网关：zuul（9527）"><a href="#2、网关：zuul（9527）" class="headerlink" title="2、网关：zuul（9527）"></a>2、网关：zuul（9527）</h4><h5 id="1、yml"><a href="#1、yml" class="headerlink" title="1、yml"></a>1、yml</h5><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">zuul:
+  #  ignored-services: cloud-payment-service   #忽略服务名
+  routes: # 路由映射配置
+    mysms.path: /mysms/**                        # IE地址栏输入的路径
+    mysms.serviceId: cloud-provider-sms       # 指定服务端的名称<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
-<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token key atrule">server</span><span class="token punctuation">:</span>
-  <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">9527</span>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">server:
+  port: 9527
 
-<span class="token key atrule">spring</span><span class="token punctuation">:</span>
-  <span class="token key atrule">application</span><span class="token punctuation">:</span>
-    <span class="token key atrule">name</span><span class="token punctuation">:</span> cloud<span class="token punctuation">-</span>zuul<span class="token punctuation">-</span>gateway
+spring:
+  application:
+    name: cloud-zuul-gateway
 
-<span class="token key atrule">eureka</span><span class="token punctuation">:</span>
-  <span class="token key atrule">client</span><span class="token punctuation">:</span>
-    <span class="token key atrule">service-url</span><span class="token punctuation">:</span>
-      <span class="token comment">#defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka,http://eureka7003.com:7003/eureka</span>
-      <span class="token key atrule">defaultZone</span><span class="token punctuation">:</span> http<span class="token punctuation">:</span>//eureka7001.com<span class="token punctuation">:</span>7001/eureka
-  <span class="token key atrule">instance</span><span class="token punctuation">:</span>
-    <span class="token key atrule">instance-id</span><span class="token punctuation">:</span> gateway<span class="token punctuation">-</span>9527.com
-    <span class="token key atrule">prefer-ip-address</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+eureka:
+  client:
+    service-url:
+      #defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka,http://eureka7003.com:7003/eureka
+      defaultZone: http://eureka7001.com:7001/eureka
+  instance:
+    instance-id: gateway-9527.com
+    prefer-ip-address: true
 
-<span class="token key atrule">zuul</span><span class="token punctuation">:</span>
-  <span class="token comment">#  ignored-services: cloud-payment-service   #忽略服务名</span>
-  <span class="token key atrule">routes</span><span class="token punctuation">:</span> <span class="token comment"># 路由映射配置</span>
-    <span class="token key atrule">mysms.path</span><span class="token punctuation">:</span> /mysms/<span class="token important">**</span>                        <span class="token comment"># IE地址栏输入的路径</span>
-    <span class="token key atrule">mysms.serviceId</span><span class="token punctuation">:</span> cloud<span class="token punctuation">-</span>provider<span class="token punctuation">-</span>sms       <span class="token comment"># 指定服务端的名称</span>
-    <span class="token key atrule">mypayment.path</span><span class="token punctuation">:</span> /mypayment/<span class="token important">**</span>                <span class="token comment"># IE地址栏输入的路径</span>
-    <span class="token key atrule">mypayment.serviceId</span><span class="token punctuation">:</span> cloud<span class="token punctuation">-</span>payment<span class="token punctuation">-</span>service   <span class="token comment"># 指定服务端的名称</span>
+zuul:
+  #  ignored-services: cloud-payment-service   #忽略服务名
+  routes: # 路由映射配置
+    mysms.path: /mysms/**                        # IE地址栏输入的路径
+    mysms.serviceId: cloud-provider-sms       # 指定服务端的名称
+    mypayment.path: /mypayment/**                # IE地址栏输入的路径
+    mypayment.serviceId: cloud-payment-service   # 指定服务端的名称
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
@@ -1033,33 +1033,33 @@
 <h5 id="3、测试负载效果"><a href="#3、测试负载效果" class="headerlink" title="3、测试负载效果"></a>3、测试负载效果</h5><p>url：</p>
 <p><img src="https://fastly.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220201221800.png"></p>
 <p><img src="https://fastly.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220201221821.png"></p>
-<h3 id="4、设置统一公共前缀"><a href="#4、设置统一公共前缀" class="headerlink" title="4、设置统一公共前缀"></a>4、设置统一公共前缀</h3><h4 id="yml配置"><a href="#yml配置" class="headerlink" title="yml配置"></a>yml配置</h4><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token key atrule">zuul</span><span class="token punctuation">:</span> 
-  <span class="token key atrule">prefix</span><span class="token punctuation">:</span> /mykk<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h3 id="4、设置统一公共前缀"><a href="#4、设置统一公共前缀" class="headerlink" title="4、设置统一公共前缀"></a>4、设置统一公共前缀</h3><h4 id="yml配置"><a href="#yml配置" class="headerlink" title="yml配置"></a>yml配置</h4><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">zuul: 
+  prefix: /mykk<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token key atrule">server</span><span class="token punctuation">:</span>
-  <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">9527</span>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">server:
+  port: 9527
 
-<span class="token key atrule">spring</span><span class="token punctuation">:</span>
-  <span class="token key atrule">application</span><span class="token punctuation">:</span>
-    <span class="token key atrule">name</span><span class="token punctuation">:</span> cloud<span class="token punctuation">-</span>zuul<span class="token punctuation">-</span>gateway
+spring:
+  application:
+    name: cloud-zuul-gateway
 
-<span class="token key atrule">eureka</span><span class="token punctuation">:</span>
-  <span class="token key atrule">client</span><span class="token punctuation">:</span>
-    <span class="token key atrule">service-url</span><span class="token punctuation">:</span>
-      <span class="token comment">#defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka,http://eureka7003.com:7003/eureka</span>
-      <span class="token key atrule">defaultZone</span><span class="token punctuation">:</span> http<span class="token punctuation">:</span>//eureka7001.com<span class="token punctuation">:</span>7001/eureka
-  <span class="token key atrule">instance</span><span class="token punctuation">:</span>
-    <span class="token key atrule">instance-id</span><span class="token punctuation">:</span> gateway<span class="token punctuation">-</span>9527.com
-    <span class="token key atrule">prefer-ip-address</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+eureka:
+  client:
+    service-url:
+      #defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka,http://eureka7003.com:7003/eureka
+      defaultZone: http://eureka7001.com:7001/eureka
+  instance:
+    instance-id: gateway-9527.com
+    prefer-ip-address: true
 
-<span class="token key atrule">zuul</span><span class="token punctuation">:</span>
-  <span class="token key atrule">prefix</span><span class="token punctuation">:</span> /mykk
-  <span class="token comment">#  ignored-services: cloud-payment-service   #忽略服务名</span>
-  <span class="token key atrule">routes</span><span class="token punctuation">:</span> <span class="token comment"># 路由映射配置</span>
-    <span class="token key atrule">mysms.path</span><span class="token punctuation">:</span> /mysms/<span class="token important">**</span>                        <span class="token comment"># IE地址栏输入的路径</span>
-    <span class="token key atrule">mysms.serviceId</span><span class="token punctuation">:</span> cloud<span class="token punctuation">-</span>provider<span class="token punctuation">-</span>sms       <span class="token comment"># 指定服务端的名称</span>
-    <span class="token key atrule">mypayment.path</span><span class="token punctuation">:</span> /mypayment/<span class="token important">**</span>                <span class="token comment"># IE地址栏输入的路径</span>
-    <span class="token key atrule">mypayment.serviceId</span><span class="token punctuation">:</span> cloud<span class="token punctuation">-</span>payment<span class="token punctuation">-</span>service   <span class="token comment"># 指定服务端的名称</span>
+zuul:
+  prefix: /mykk
+  #  ignored-services: cloud-payment-service   #忽略服务名
+  routes: # 路由映射配置
+    mysms.path: /mysms/**                        # IE地址栏输入的路径
+    mysms.serviceId: cloud-provider-sms       # 指定服务端的名称
+    mypayment.path: /mypayment/**                # IE地址栏输入的路径
+    mypayment.serviceId: cloud-payment-service   # 指定服务端的名称
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
@@ -1073,12 +1073,12 @@
 
 
 
-<h3 id="2、yml"><a href="#2、yml" class="headerlink" title="2、yml"></a>2、yml</h3><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token comment"># 开启查看路由的端点</span>
-<span class="token key atrule">management</span><span class="token punctuation">:</span>
-  <span class="token key atrule">endpoints</span><span class="token punctuation">:</span>
-    <span class="token key atrule">web</span><span class="token punctuation">:</span>
-      <span class="token key atrule">exposure</span><span class="token punctuation">:</span>
-        <span class="token key atrule">include</span><span class="token punctuation">:</span> <span class="token string">'routes'</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="2、yml"><a href="#2、yml" class="headerlink" title="2、yml"></a>2、yml</h3><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"># 开启查看路由的端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: 'routes' <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
@@ -1173,19 +1173,19 @@
 
 <h4 id="3、测试"><a href="#3、测试" class="headerlink" title="3、测试"></a>3、测试</h4><p>(1)url：<a target="_blank" rel="noopener" href="http://myzuul.com:9527/mykk/mysms/sms">http://myzuul.com:9527/mykk/mysms/sms</a></p>
 <p>(2)在调用8008之前会打印日志</p>
-<h4 id="4、yml-配置开关"><a href="#4、yml-配置开关" class="headerlink" title="4、yml 配置开关"></a>4、yml 配置开关</h4><h5 id="★这里需要特别注意：开启这里之后，per配置失效，不清楚为什么，博主搞了很久尝试才发现是这个问题，建议使用硬编码，在java上配置开关"><a href="#★这里需要特别注意：开启这里之后，per配置失效，不清楚为什么，博主搞了很久尝试才发现是这个问题，建议使用硬编码，在java上配置开关" class="headerlink" title="★这里需要特别注意：开启这里之后，per配置失效，不清楚为什么，博主搞了很久尝试才发现是这个问题，建议使用硬编码，在java上配置开关"></a>★这里需要特别注意：开启这里之后，per配置失效，不清楚为什么，博主搞了很久尝试才发现是这个问题，建议使用硬编码，在java上配置开关</h5><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token key atrule">zuul</span><span class="token punctuation">:</span>
-  <span class="token key atrule">prefix</span><span class="token punctuation">:</span> /mykk
-  <span class="token comment">#  ignored-services: cloud-payment-service   #忽略服务名</span>
-  <span class="token key atrule">routes</span><span class="token punctuation">:</span> <span class="token comment"># 路由映射配置</span>
-    <span class="token key atrule">mysms.path</span><span class="token punctuation">:</span> /mysms/<span class="token important">**</span>                        <span class="token comment"># IE地址栏输入的路径</span>
-    <span class="token key atrule">mysms.serviceId</span><span class="token punctuation">:</span> cloud<span class="token punctuation">-</span>provider<span class="token punctuation">-</span>sms       <span class="token comment"># 指定服务端的名称</span>
-    <span class="token key atrule">mypayment.path</span><span class="token punctuation">:</span> /mypayment/<span class="token important">**</span>                <span class="token comment"># IE地址栏输入的路径</span>
-    <span class="token key atrule">mypayment.serviceId</span><span class="token punctuation">:</span> cloud<span class="token punctuation">-</span>payment<span class="token punctuation">-</span>service   <span class="token comment"># 指定服务端的名称</span>
+<h4 id="4、yml-配置开关"><a href="#4、yml-配置开关" class="headerlink" title="4、yml 配置开关"></a>4、yml 配置开关</h4><h5 id="★这里需要特别注意：开启这里之后，per配置失效，不清楚为什么，博主搞了很久尝试才发现是这个问题，建议使用硬编码，在java上配置开关"><a href="#★这里需要特别注意：开启这里之后，per配置失效，不清楚为什么，博主搞了很久尝试才发现是这个问题，建议使用硬编码，在java上配置开关" class="headerlink" title="★这里需要特别注意：开启这里之后，per配置失效，不清楚为什么，博主搞了很久尝试才发现是这个问题，建议使用硬编码，在java上配置开关"></a>★这里需要特别注意：开启这里之后，per配置失效，不清楚为什么，博主搞了很久尝试才发现是这个问题，建议使用硬编码，在java上配置开关</h5><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">zuul:
+  prefix: /mykk
+  #  ignored-services: cloud-payment-service   #忽略服务名
+  routes: # 路由映射配置
+    mysms.path: /mysms/**                        # IE地址栏输入的路径
+    mysms.serviceId: cloud-provider-sms       # 指定服务端的名称
+    mypayment.path: /mypayment/**                # IE地址栏输入的路径
+    mypayment.serviceId: cloud-payment-service   # 指定服务端的名称
     
-    <span class="token comment">#yml配置开关</span>
-<span class="token comment">#  PreLogFilter:</span>
-<span class="token comment">#    pre:</span>
-<span class="token comment">#      disable: true</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    #yml配置开关
+#  PreLogFilter:
+#    pre:
+#      disable: true<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
@@ -2089,7 +2089,7 @@ new Valine({
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">145.8k</span>&nbsp;字
+                class="white-color">147.5k</span>&nbsp;字
             
             
             
