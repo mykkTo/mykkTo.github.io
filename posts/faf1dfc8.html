@@ -673,21 +673,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-10-09
+                    2022-10-16
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.4k
+                    3.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    12 分
                 </div>
                 
 
@@ -728,7 +728,7 @@
 <li>消息可靠性投递（生产者 -&gt; MQ）</li>
 <li>Consumer ACK (MQ -&gt; 消费者)</li>
 <li>消费端限流</li>
-<li>TTL</li>
+<li>TTL 过期时间</li>
 <li>死信队列</li>
 <li>延迟队列</li>
 <li>日志与监控</li>
@@ -737,8 +737,14 @@
 </ul>
 </li>
 <li>应用问题<ul>
-<li>消息可靠性保障</li>
-<li>消息幂等性处理</li>
+<li>消息可靠性保障<ul>
+<li>消息补偿机制</li>
+</ul>
+</li>
+<li>消息幂等性处理<ul>
+<li>乐观锁解决方案</li>
+</ul>
+</li>
 </ul>
 </li>
 <li>高可用集群搭建</li>
@@ -818,7 +824,118 @@
 <li>AMQP 是协议，类比HTTP</li>
 <li>JMS 是 API 规范接口，类比 JDBC</li>
 </ul>
-<h2 id="二、快速入门"><a href="#二、快速入门" class="headerlink" title="二、快速入门"></a>二、快速入门</h2><h3 id="1、"><a href="#1、" class="headerlink" title="1、"></a>1、</h3><h3 id="2、"><a href="#2、" class="headerlink" title="2、"></a>2、</h3><h2 id="参考文献-↓"><a href="#参考文献-↓" class="headerlink" title="参考文献 ↓"></a>参考文献 ↓</h2><p>windown安装 rabbitmq ：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_25919879/article/details/113055350">https://blog.csdn.net/qq_25919879/article/details/113055350</a></p>
+<h2 id="二、快速入门"><a href="#二、快速入门" class="headerlink" title="二、快速入门"></a>二、快速入门</h2><h3 id="1、步骤"><a href="#1、步骤" class="headerlink" title="1、步骤"></a>1、步骤</h3><p>使用简单模式完成消息传递：</p>
+<p>① 创建工程（生成者、消费者） </p>
+<p>② 分别添加依赖 </p>
+<p>③ 编写生产者发送消息 </p>
+<p>④ 编写消费者接收消息</p>
+<p><img src="https://fastly.jsdelivr.net/gh/mykkTo/image@main/blog/2022/mq/rabbitmq/202210092257321.png"></p>
+<h3 id="2、小结"><a href="#2、小结" class="headerlink" title="2、小结"></a>2、小结</h3><p><img src="https://fastly.jsdelivr.net/gh/mykkTo/image@main/blog/2022/mq/rabbitmq/202210092258177.png"></p>
+<p>在上图的模型中，有以下概念：</p>
+<ul>
+<li>P：生产者，也就是要发送消息的程序 </li>
+<li>C：消费者：消息的接收者，会一直等待消息到来（线程一直在监听）</li>
+<li>queue：消息队列，图中红色部分。类似一个邮箱，可以缓存消息；生产者向其中投递消息，消费者从其中取出消息</li>
+</ul>
+<h2 id="三、工作模式"><a href="#三、工作模式" class="headerlink" title="三、工作模式"></a>三、工作模式</h2><h3 id="1、Work-queues-工作队列模式"><a href="#1、Work-queues-工作队列模式" class="headerlink" title="1、Work queues 工作队列模式"></a>1、<strong>Work queues 工作队列模式</strong></h3><p><img src="https://fastly.jsdelivr.net/gh/mykkTo/image@main/blog/2022/mq/rabbitmq/202210102229031.png"></p>
+<h4 id="1、说明"><a href="#1、说明" class="headerlink" title="1、说明"></a>1、说明</h4><ul>
+<li><strong>Work Queues：</strong>与入门程序的简单模式相比，多了一个或一些消费端，多个消费端共同消费同一个队列中的消息</li>
+<li><strong>应用场景</strong>：对于任务过重或任务较多情况使用工作队列可以提高任务处理的速度。</li>
+</ul>
+<h4 id="2、代码"><a href="#2、代码" class="headerlink" title="2、代码"></a>2、代码</h4><p><img src="https://fastly.jsdelivr.net/gh/mykkTo/image@main/blog/2022/mq/rabbitmq/202210102236513.png"></p>
+<h4 id="3、小结"><a href="#3、小结" class="headerlink" title="3、小结"></a>3、小结</h4><ul>
+<li>在一个队列中如果有多个消费者，那么消费者之间对于同一个消息的关系是<strong>竞争</strong>的关系。 </li>
+<li>Work Queues  对于任务过重或任务较多情况使用工作队列可以提高任务处理的速度。例如：短信服务部署多个，只需要有一个节点成功发送即可。</li>
+</ul>
+<h3 id="2、Pub-Sub-订阅模式"><a href="#2、Pub-Sub-订阅模式" class="headerlink" title="2、Pub/Sub 订阅模式"></a>2、<strong>Pub/Sub 订阅模式</strong></h3><p><img src="https://fastly.jsdelivr.net/gh/mykkTo/image@main/blog/2022/mq/rabbitmq/202210102249529.png"></p>
+<p>在订阅模型中，多了一个 Exchange 角色，而且过程略有变化：</p>
+<ul>
+<li>P：生产者，也就是要发送消息的程序，但是不再发送到队列中，而是发给X（交换机）</li>
+<li>C：消费者，消息的接收者，会一直等待消息到来</li>
+<li>Queue：消息队列，接收消息、缓存消息</li>
+<li>X：Exchange：交换机，一方面，接收生产者发送的消息。另一方面，知道如何处理消息，例如递交给某个特别队列、递交给所有队列、或是将消息丢弃。到底如何操作，取决于Exchange的类型。Exchange有常见以下3种类型：<ul>
+<li>Fanout：广播，将消息交给所有绑定到交换机的队列</li>
+<li>Direct：定向，把消息交给符合指定routing key 的队列</li>
+<li>Topic：通配符，把消息交给符合routing pattern（路由模式）的队列</li>
+</ul>
+</li>
+</ul>
+<p><strong>Exchange</strong>（交换机）只负责转发消息，不具备存储消息的能力，因此如果没有任何队列与 Exchange 绑定，或者没有符合路由规则的队列，那么消息会丢失</p>
+<p><img src="https://fastly.jsdelivr.net/gh/mykkTo/image@main/blog/2022/mq/rabbitmq/202210102309609.png"></p>
+<p>小结：</p>
+<ul>
+<li>交换机需要与队列进行绑定，绑定之后；一个消息可以被多个消费者都收到</li>
+<li>发布订阅模式与工作队列模式的区别：<ul>
+<li>工作队列模式不用定义交换机，而发布/订阅模式需要定义交换机</li>
+<li>发布/订阅模式的生产方是面向交换机发送消息，工作队列模式的生产方是面向队列发送消息(底层使用默认交换机) </li>
+<li>发布/订阅模式需要设置队列和交换机的绑定，工作队列模式不需要设置，实际上工作队列模式会将队列绑定到默认的交换机</li>
+</ul>
+</li>
+</ul>
+<h3 id="3、Routing-路由模式"><a href="#3、Routing-路由模式" class="headerlink" title="3、Routing 路由模式"></a>3、<strong>Routing 路由模式</strong></h3><h4 id="1、模式说明"><a href="#1、模式说明" class="headerlink" title="1、模式说明"></a>1、模式说明</h4><ul>
+<li>队列与交换机的绑定，不能是任意绑定了，而是要指定一个 RoutingKey（路由key） </li>
+<li>消息的发送方在向 Exchange 发送消息给 Consumer 时，也必须指定消息的 RoutingKey</li>
+<li>Exchange 不再把消息交给每一个绑定的队列，而是根据消息的 Routing Key 进行判断，只有队列的 Routingkey 与消息的 Routing key 完全一致，才会接收到消息</li>
+</ul>
+<h4 id="2、图解"><a href="#2、图解" class="headerlink" title="2、图解"></a>2、图解</h4><p><img src="https://fastly.jsdelivr.net/gh/mykkTo/image@main/blog/2022/mq/rabbitmq/202210102333166.png"></p>
+<ul>
+<li>P：生产者，向 Exchange 发送消息，发送消息时，会指定一个routing key</li>
+<li>X：Exchange（交换机），接收生产者的消息，然后把消息递交给与 routing key 完全匹配的队列</li>
+<li>C1：消费者，其所在队列指定了需要 routing key 为 error 的消息</li>
+<li>C2：消费者，其所在队列指定了需要 routing key 为 info、error、warning 的消息</li>
+</ul>
+<h4 id="3、代码"><a href="#3、代码" class="headerlink" title="3、代码"></a>3、代码</h4><p><img src="https://fastly.jsdelivr.net/gh/mykkTo/image@main/blog/2022/mq/rabbitmq/202210111953871.png"></p>
+<h4 id="4、小结"><a href="#4、小结" class="headerlink" title="4、小结"></a>4、小结</h4><p><strong>Routing</strong> 模式要求队列在绑定交换机时要指定 <strong>routing key</strong>，消息会转发到符合 routing key 的队列。</p>
+<h3 id="4、Topics-通配符模式"><a href="#4、Topics-通配符模式" class="headerlink" title="4、Topics 通配符模式"></a>4、<strong>Topics 通配符模式</strong></h3><h4 id="1、说明-1"><a href="#1、说明-1" class="headerlink" title="1、说明"></a>1、说明</h4><p><img src="https://fastly.jsdelivr.net/gh/mykkTo/image@main/blog/2022/mq/rabbitmq/202210111955491.png"></p>
+<p>Q1 Queue：绑定的是 usa.# ，因此凡是以 usa. 开头的 routing key 都会被匹配到</p>
+<p>Q2 Queue：绑定的是 #.news ，因此凡是以 .news 结尾的 routing key 都会被匹配</p>
+<h4 id="2、代码-1"><a href="#2、代码-1" class="headerlink" title="2、代码"></a>2、代码</h4><p><img src="https://fastly.jsdelivr.net/gh/mykkTo/image@main/blog/2022/mq/rabbitmq/202210112101689.png"></p>
+<h4 id="3、小结-1"><a href="#3、小结-1" class="headerlink" title="3、小结"></a>3、小结</h4><p>Topic 主题模式可以实现 Pub/Sub 发布与订阅模式和 Routing 路由模式的功能，只是 Topic 在配置routing key 的时候可以使用通配符，显得更加灵活。</p>
+<h3 id="5、工作模式总结"><a href="#5、工作模式总结" class="headerlink" title="5、工作模式总结"></a>5、工作模式总结</h3><ol>
+<li><p>简单模式 HelloWorld ：一个生产者、一个消费者，不需要设置交换机（使用默认的交换机）。 </p>
+</li>
+<li><p>工作队列模式 Work Queue ：一个生产者、多个消费者（竞争关系），不需要设置交换机（使用默认的交换机）。 </p>
+</li>
+<li><p>发布订阅模式 Publish/subscribe ：需要设置类型为 fanout 的交换机，并且交换机和队列进行绑定，当发送消息到交换机后，交换机会将消息发送到绑定的队列。 </p>
+</li>
+<li><p>路由模式 Routing ：需要设置类型为 direct 的交换机，交换机和队列进行绑定，并且指定 routing key，当发送消息到交换机后，交换机会根据 routing key 将消息发送到对应的队列。 </p>
+</li>
+<li><p>通配符模式 Topic ：需要设置类型为 topic 的交换机，交换机和队列进行绑定，并且指定通配符方式的 routing key，当发送消息到交换机后，交换机会根据 routing key 将消息发送到对应的队列。</p>
+</li>
+</ol>
+<h2 id="四、Spring-整合-RabbitMQ"><a href="#四、Spring-整合-RabbitMQ" class="headerlink" title="四、Spring 整合 RabbitMQ"></a>四、Spring 整合 RabbitMQ</h2><h3 id="1、代码"><a href="#1、代码" class="headerlink" title="1、代码"></a>1、代码</h3><h4 id="1-1、生产者"><a href="#1-1、生产者" class="headerlink" title="1-1、生产者"></a>1-1、生产者</h4><p>① 创建生产者工程 </p>
+<p>② 添加依赖 </p>
+<p>③ 配置整合 </p>
+<p>④ 编写代码发送消息 </p>
+<h4 id="1-2、消费者"><a href="#1-2、消费者" class="headerlink" title="1-2、消费者"></a>1-2、消费者</h4><p>① 创建生产者工程 </p>
+<p>② 添加依赖 </p>
+<p>③ 配置整合 </p>
+<p>④ 编写消息监听器</p>
+<p><img src="https://fastly.jsdelivr.net/gh/mykkTo/image@main/blog/2022/mq/rabbitmq/202210112244387.png"></p>
+<h3 id="2、小结-1"><a href="#2、小结-1" class="headerlink" title="2、小结"></a>2、小结</h3><ul>
+<li>使用 Spring 整合 RabbitMQ 将组件全部使用配置方式实现，简化编码 </li>
+<li>Spring 提供 RabbitTemplate 简化发送消息 API </li>
+<li>使用监听机制简化消费者编码</li>
+</ul>
+<h2 id="五、SpringBoot-整合-RabbitMQ"><a href="#五、SpringBoot-整合-RabbitMQ" class="headerlink" title="五、SpringBoot 整合 RabbitMQ"></a>五、SpringBoot 整合 RabbitMQ</h2><h3 id="1、代码-1"><a href="#1、代码-1" class="headerlink" title="1、代码"></a>1、代码</h3><p><img src="https://fastly.jsdelivr.net/gh/mykkTo/image@main/blog/2022/mq/rabbitmq/202210112252668.png"></p>
+<h2 id="Ⅱ、实战篇"><a href="#Ⅱ、实战篇" class="headerlink" title="Ⅱ、实战篇"></a>Ⅱ、实战篇</h2><h2 id="一、高级特性"><a href="#一、高级特性" class="headerlink" title="一、高级特性"></a>一、高级特性</h2><h3 id="1、消息可靠性投递（生产者-gt-MQ）"><a href="#1、消息可靠性投递（生产者-gt-MQ）" class="headerlink" title="1、消息可靠性投递（生产者  ->  MQ）"></a>1、消息可靠性投递（生产者  -&gt;  MQ）</h3><hr>
+<h4 id="1、概述"><a href="#1、概述" class="headerlink" title="1、概述"></a>1、概述</h4><p>在使用 RabbitMQ 的时候，作为消息发送方希望杜绝任何消息丢失或者投递失败场景。RabbitMQ 为我们提供了两种方式用来控制消息的投递可靠性模式。 </p>
+<ul>
+<li>确认模式</li>
+<li>回退模式</li>
+</ul>
+<p><strong>rabbitmq 整个消息投递的路径为：</strong></p>
+<p>producer  —&gt; rabbitmq broker —&gt; exchange —&gt; queue —&gt; consumer</p>
+<ul>
+<li>消息从 producer 到 exchange 则会返回一个 confirmCallback 的回调</li>
+<li>消息从 exchange 到 queue 投递失败则返回一个 returnCallback 回调</li>
+</ul>
+<p>我们可以利用这两个 callback 回调 控制消息的可靠性投递</p>
+<h4 id="2、代码-2"><a href="#2、代码-2" class="headerlink" title="2、代码"></a>2、代码</h4><h4 id="3、小结-2"><a href="#3、小结-2" class="headerlink" title="3、小结"></a>3、小结</h4><h3 id="2、Consumer-Ack"><a href="#2、Consumer-Ack" class="headerlink" title="2、Consumer Ack"></a>2、<strong>Consumer Ack</strong></h3><p><strong>MQ -&gt; 消费者</strong></p>
+<h3 id="3、消息可靠性总结"><a href="#3、消息可靠性总结" class="headerlink" title="3、消息可靠性总结"></a>3、消息可靠性总结</h3><h3 id="4、消费端限流"><a href="#4、消费端限流" class="headerlink" title="4、消费端限流"></a>4、消费端限流</h3><h3 id="5、TTL-过期时间"><a href="#5、TTL-过期时间" class="headerlink" title="5、TTL 过期时间"></a>5、TTL 过期时间</h3><h3 id="6、死信队列"><a href="#6、死信队列" class="headerlink" title="6、死信队列"></a>6、死信队列</h3><h3 id="7、延迟队列"><a href="#7、延迟队列" class="headerlink" title="7、延迟队列"></a>7、延迟队列</h3><h3 id="8、日志与监控"><a href="#8、日志与监控" class="headerlink" title="8、日志与监控"></a>8、日志与监控</h3><h3 id="9、消息追踪"><a href="#9、消息追踪" class="headerlink" title="9、消息追踪"></a>9、消息追踪</h3><h2 id="二、应用问题"><a href="#二、应用问题" class="headerlink" title="二、应用问题"></a>二、应用问题</h2><h3 id="1、"><a href="#1、" class="headerlink" title="1、"></a>1、</h3><h2 id="参考文献-↓"><a href="#参考文献-↓" class="headerlink" title="参考文献 ↓"></a>参考文献 ↓</h2><p>windown安装 rabbitmq ：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_25919879/article/details/113055350">https://blog.csdn.net/qq_25919879/article/details/113055350</a></p>
+<p>docker 安装 rabbitmq：<a target="_blank" rel="noopener" href="https://www.jb51.net/article/233585.htm">https://www.jb51.net/article/233585.htm</a> </p>
+<p>springboot-rabbitmq 确认模式弃用配置：<a target="_blank" rel="noopener" href="https://blog.csdn.net/z69183787/article/details/109371628">https://blog.csdn.net/z69183787/article/details/109371628</a></p>
+<p>单元测试，发布确认回调 ack 总是 false：<a target="_blank" rel="noopener" href="https://blog.csdn.net/dh554112075/article/details/90137869">https://blog.csdn.net/dh554112075/article/details/90137869</a></p>
 
                 
             </div>
@@ -1702,7 +1819,7 @@ new Valine({
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">149k</span>&nbsp;字
+                class="white-color">150.8k</span>&nbsp;字
             
             
             
