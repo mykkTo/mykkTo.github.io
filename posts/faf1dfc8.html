@@ -673,21 +673,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-10-16
+                    2022-10-20
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.3k
+                    4.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    12 分
+                    16 分
                 </div>
                 
 
@@ -730,10 +730,10 @@
 <li>消费端限流</li>
 <li>TTL 过期时间</li>
 <li>死信队列</li>
-<li>延迟队列</li>
-<li>日志与监控</li>
-<li>消息可靠性分析与追踪</li>
-<li>管理</li>
+<li>★ 延迟队列 </li>
+<li>X 日志与监控（了解）</li>
+<li>X 消息可靠性分析与追踪（慎用）</li>
+<li>X 管理</li>
 </ul>
 </li>
 <li>应用问题<ul>
@@ -931,11 +931,129 @@
 <li>消息从 exchange 到 queue 投递失败则返回一个 returnCallback 回调</li>
 </ul>
 <p>我们可以利用这两个 callback 回调 控制消息的可靠性投递</p>
-<h4 id="2、代码-2"><a href="#2、代码-2" class="headerlink" title="2、代码"></a>2、代码</h4><h4 id="3、小结-2"><a href="#3、小结-2" class="headerlink" title="3、小结"></a>3、小结</h4><h3 id="2、Consumer-Ack"><a href="#2、Consumer-Ack" class="headerlink" title="2、Consumer Ack"></a>2、<strong>Consumer Ack</strong></h3><p><strong>MQ -&gt; 消费者</strong></p>
-<h3 id="3、消息可靠性总结"><a href="#3、消息可靠性总结" class="headerlink" title="3、消息可靠性总结"></a>3、消息可靠性总结</h3><h3 id="4、消费端限流"><a href="#4、消费端限流" class="headerlink" title="4、消费端限流"></a>4、消费端限流</h3><h3 id="5、TTL-过期时间"><a href="#5、TTL-过期时间" class="headerlink" title="5、TTL 过期时间"></a>5、TTL 过期时间</h3><h3 id="6、死信队列"><a href="#6、死信队列" class="headerlink" title="6、死信队列"></a>6、死信队列</h3><h3 id="7、延迟队列"><a href="#7、延迟队列" class="headerlink" title="7、延迟队列"></a>7、延迟队列</h3><h3 id="8、日志与监控"><a href="#8、日志与监控" class="headerlink" title="8、日志与监控"></a>8、日志与监控</h3><h3 id="9、消息追踪"><a href="#9、消息追踪" class="headerlink" title="9、消息追踪"></a>9、消息追踪</h3><h2 id="二、应用问题"><a href="#二、应用问题" class="headerlink" title="二、应用问题"></a>二、应用问题</h2><h3 id="1、"><a href="#1、" class="headerlink" title="1、"></a>1、</h3><h2 id="参考文献-↓"><a href="#参考文献-↓" class="headerlink" title="参考文献 ↓"></a>参考文献 ↓</h2><p>windown安装 rabbitmq ：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_25919879/article/details/113055350">https://blog.csdn.net/qq_25919879/article/details/113055350</a></p>
+<h4 id="2、代码-2"><a href="#2、代码-2" class="headerlink" title="2、代码"></a>2、代码</h4><p><img src="https://fastly.jsdelivr.net/gh/mykkTo/image@main/blog/2022/mq/rabbitmq/202210162224718.png"></p>
+<h4 id="3、小结-2"><a href="#3、小结-2" class="headerlink" title="3、小结"></a>3、小结</h4><ul>
+<li><p>设置ConnectionFactory的publisher-confirms=”true” 开启 确认模式</p>
+</li>
+<li><p>使用rabbitTemplate.setConfirmCallback设置回调函数。当消息发送到exchange后回 </p>
+<p>调confirm方法。在方法中判断ack，如果为true，则发送成功，如果为false，则发 </p>
+<p>送失败，需要处理</p>
+</li>
+<li><p>设置ConnectionFactory的publisher-returns=”true” 开启 退回模式</p>
+</li>
+<li><p>使用rabbitTemplate.setReturnCallback设置退回函数，当消息从exchange路由到 </p>
+<p>queue失败后，如果设置了rabbitTemplate.setMandatory(true)参数，则会将消息退 </p>
+<p>回给producer。并执行回调函数returnedMessage</p>
+</li>
+<li><p>在RabbitMQ中也提供了事务机制，但是性能较差，此处不做讲解。 </p>
+<p>使用channel下列方法，完成事务控制： </p>
+<p>txSelect(), 用于将当前channel设置成transaction模式 </p>
+<p>txCommit()，用于提交事务 </p>
+<p>txRollback(),用于回滚事务</p>
+</li>
+</ul>
+<h3 id="2、Consumer-Ack"><a href="#2、Consumer-Ack" class="headerlink" title="2、Consumer Ack"></a>2、<strong>Consumer Ack</strong></h3><p><strong>MQ -&gt; 消费者</strong></p>
+<h4 id="1、概述-1"><a href="#1、概述-1" class="headerlink" title="1、概述"></a>1、概述</h4><p>ack指Acknowledge，确认。 表示消费端收到消息后的确认方式。 </p>
+<p>有三种确认方式： </p>
+<p>• 自动确认：acknowledge=”none” </p>
+<p>• 手动确认：acknowledge=”manual” </p>
+<p>• 根据异常情况确认：acknowledge=”auto”，（这种方式使用麻烦，不作讲解）</p>
+<p>其中自动确认是指，当消息一旦被Consumer接收到，则自动确认收到，并将相应 message RabbitMQ 的消息缓存中移除。但是在实际业务处理中，很可能消息接收到，业务处理出现异常，那么该消息就会丢失。如果设置了手动确认方式，则需要在业务处理成功后，调用channel.basicAck()，手动签收，如果出现异常，则调用channel.basicNack()方法，让其自动重新发送消息。</p>
+<h4 id="2、代码-3"><a href="#2、代码-3" class="headerlink" title="2、代码"></a>2、代码</h4><p><img src="https://fastly.jsdelivr.net/gh/mykkTo/image@main/blog/2022/mq/rabbitmq/202210201914384.png"></p>
+<h4 id="3、小结-3"><a href="#3、小结-3" class="headerlink" title="3、小结"></a>3、小结</h4><ul>
+<li>在rabbit:listener-container标签中设置acknowledge属性，设置ack方式 <ul>
+<li>none：自动确认，</li>
+<li>manual：手动确认 </li>
+</ul>
+</li>
+<li>如果在消费端没有出现异常，则调用channel.basicAck(deliveryTag,false);方法确认签收消息 </li>
+<li>如果出现异常，则在catch中调用 basicNack或 basicReject，拒绝消息，让MQ重新发送消息。</li>
+</ul>
+<h3 id="3、消息可靠性总结"><a href="#3、消息可靠性总结" class="headerlink" title="3、消息可靠性总结"></a>3、消息可靠性总结</h3><ul>
+<li><p>持久化 </p>
+<ul>
+<li>exchange要持久化 </li>
+<li>queue要持久化 </li>
+<li>message要持久化 </li>
+</ul>
+</li>
+<li><p>生产方确认Confirm </p>
+</li>
+<li><p>消费方确认Ack</p>
+</li>
+<li><p>Broker高可用</p>
+</li>
+</ul>
+<h3 id="4、消费端限流"><a href="#4、消费端限流" class="headerlink" title="4、消费端限流"></a>4、消费端限流</h3><h4 id="1、概念"><a href="#1、概念" class="headerlink" title="1、概念"></a>1、概念</h4><p><img src="https://fastly.jsdelivr.net/gh/mykkTo/image@main/blog/2022/mq/rabbitmq/202210202118692.png"></p>
+<h4 id="2、代码-4"><a href="#2、代码-4" class="headerlink" title="2、代码"></a>2、代码</h4><p><img src="https://fastly.jsdelivr.net/gh/mykkTo/image@main/blog/2022/mq/rabbitmq/202210162342353.png"></p>
+<h4 id="3、小结-4"><a href="#3、小结-4" class="headerlink" title="3、小结"></a>3、小结</h4><ul>
+<li>在<a href="rabbit:listener-container">rabbit:listener-container</a> 中配置 prefetch属性设置消费端一次拉取多少消息 </li>
+<li>消费端的确认模式一定为手动确认。acknowledge=”manual”</li>
+</ul>
+<h3 id="5、TTL-过期时间"><a href="#5、TTL-过期时间" class="headerlink" title="5、TTL 过期时间"></a>5、TTL 过期时间</h3><h4 id="1、概述-2"><a href="#1、概述-2" class="headerlink" title="1、概述"></a>1、概述</h4><ul>
+<li>TTL 全称 Time To Live（存活时间/过期时间）</li>
+<li>当消息到达存活时间后，还没有被消费，会被自动清除</li>
+<li>RabbitMQ可以对消息设置过期时间，也可以对整个队列（Queue）设置过期时间</li>
+</ul>
+<p><img src="https://fastly.jsdelivr.net/gh/mykkTo/image@main/blog/2022/mq/rabbitmq/202210202120659.png"></p>
+<h4 id="2、代码-5"><a href="#2、代码-5" class="headerlink" title="2、代码"></a>2、代码</h4><p><img src="https://fastly.jsdelivr.net/gh/mykkTo/image@main/blog/2022/mq/rabbitmq/202210202131038.png"></p>
+<h4 id="3、小结-5"><a href="#3、小结-5" class="headerlink" title="3、小结"></a>3、小结</h4><ul>
+<li>设置队列过期时间使用参数：x-message-ttl，单位：ms(毫秒)，会对整个队列消息统一过期</li>
+<li>设置消息过期时间使用参数：expiration。单位：ms(毫秒)，当该消息在队列头部时（消费时），会单独判断这一消息是否过期</li>
+<li>如果两者都进行了设置，以时间短的为准</li>
+</ul>
+<h3 id="6、死信队列"><a href="#6、死信队列" class="headerlink" title="6、死信队列"></a>6、死信队<strong>列</strong></h3><h4 id="1、概述-3"><a href="#1、概述-3" class="headerlink" title="1、概述"></a>1、概述</h4><p><strong>死信队列其实说的就是私信交换机</strong></p>
+<p>死信队列，英文缩写：DLX 。Dead Letter Exchange（死信交换机），当消息成为Dead message后，可以被重新发送到另一个交换机，这个交换机就是DLX</p>
+<p><img src="https://fastly.jsdelivr.net/gh/mykkTo/image@main/blog/2022/mq/rabbitmq/202210202139176.png"></p>
+<p><strong>消息成为死信的三种情况：</strong> </p>
+<ol>
+<li><p>队列消息长度到达限制； （能放10条，放了11条，1条超过被成为死信），可以设置队列存放的数量</p>
+</li>
+<li><p>消费者拒接消费消息，basicNack/basicReject；并且不把消息重新放入原目标队列,requeue=false； </p>
+</li>
+<li><p>原队列存在消息过期设置，消息到达超时时间未被消费；</p>
+</li>
+</ol>
+<p><strong>队列绑定死信交换机</strong></p>
+<p>给队列设置参数： x-dead-letter-exchange 和 x-dead-letter-routing-key</p>
+<p><img src="https://fastly.jsdelivr.net/gh/mykkTo/image@main/blog/2022/mq/rabbitmq/202210202143643.png"></p>
+<h4 id="2、代码-6"><a href="#2、代码-6" class="headerlink" title="2、代码"></a>2、代码</h4><p><img src="https://fastly.jsdelivr.net/gh/mykkTo/image@main/blog/2022/mq/rabbitmq/202210202224114.png"></p>
+<h4 id="3、小结-6"><a href="#3、小结-6" class="headerlink" title="3、小结"></a>3、小结</h4><ul>
+<li>死信交换机和死信队列和普通的没有区别</li>
+<li>当消息成为死信后，如果该队列绑定了死信交换机，则消息会被死信交换机重新路由到死信队列</li>
+<li>消息成为死信的三种情况<ul>
+<li>队列消息长度到达限制</li>
+<li>消费者拒接消费消息，并且不重回队列</li>
+<li>原队列存在消息过期设置，消息到达超时时间未被消费</li>
+</ul>
+</li>
+</ul>
+<h3 id="7、延迟队列"><a href="#7、延迟队列" class="headerlink" title="7、延迟队列"></a>7、延迟队列</h3><h4 id="1、概念-1"><a href="#1、概念-1" class="headerlink" title="1、概念"></a>1、概念</h4><p>延迟队列，即消息进入队列后不会立即被消费，只有到达指定时间后，才会被消费</p>
+<p><strong>需求：</strong></p>
+<ul>
+<li>下单后，30分钟未支付，取消订单，回滚库存</li>
+<li>新用户注册成功7天后，发送短信问候</li>
+</ul>
+<p><strong>实现方式：</strong></p>
+<ul>
+<li>定时器</li>
+<li>延迟队列</li>
+</ul>
+<p><img src="https://fastly.jsdelivr.net/gh/mykkTo/image@main/blog/2022/mq/rabbitmq/202210202243511.png"></p>
+<p>很可惜，在RabbitMQ中并未提供延迟队列功能。 </p>
+<p>但是可以使用：TTL+死信队列 组合实现延迟队列的效果</p>
+<p><img src="https://fastly.jsdelivr.net/gh/mykkTo/image@main/blog/2022/mq/rabbitmq/202210202245709.png"></p>
+<h4 id="2、代码-7"><a href="#2、代码-7" class="headerlink" title="2、代码"></a>2、代码</h4><p><img src="https://fastly.jsdelivr.net/gh/mykkTo/image@main/blog/2022/mq/rabbitmq/202210202245024.png"></p>
+<h4 id="3、小结-7"><a href="#3、小结-7" class="headerlink" title="3、小结"></a>3、小结</h4><ul>
+<li>延迟队列 指消息进入队列后，可以被延迟一定时间，再进行消费</li>
+<li>RabbitMQ没有提供延迟队列功能，但是可以使用 ： TTL + DLX 来实现延迟队列效果</li>
+</ul>
+<h3 id=""><a href="#" class="headerlink" title=""></a></h3><h2 id="二、应用问题"><a href="#二、应用问题" class="headerlink" title="二、应用问题"></a>二、应用问题</h2><h3 id="1、"><a href="#1、" class="headerlink" title="1、"></a>1、</h3><h2 id="参考文献-↓"><a href="#参考文献-↓" class="headerlink" title="参考文献 ↓"></a>参考文献 ↓</h2><p>windown安装 rabbitmq ：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_25919879/article/details/113055350">https://blog.csdn.net/qq_25919879/article/details/113055350</a></p>
 <p>docker 安装 rabbitmq：<a target="_blank" rel="noopener" href="https://www.jb51.net/article/233585.htm">https://www.jb51.net/article/233585.htm</a> </p>
+<p>docker 安装后 界面端功能缺失问题：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_45369827/article/details/115921401">https://blog.csdn.net/qq_45369827/article/details/115921401</a></p>
 <p>springboot-rabbitmq 确认模式弃用配置：<a target="_blank" rel="noopener" href="https://blog.csdn.net/z69183787/article/details/109371628">https://blog.csdn.net/z69183787/article/details/109371628</a></p>
 <p>单元测试，发布确认回调 ack 总是 false：<a target="_blank" rel="noopener" href="https://blog.csdn.net/dh554112075/article/details/90137869">https://blog.csdn.net/dh554112075/article/details/90137869</a></p>
+<p>spring-boot 死信队列：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_52062043/article/details/127077941">https://blog.csdn.net/weixin_52062043/article/details/127077941</a></p>
 
                 
             </div>
@@ -1819,7 +1937,7 @@ new Valine({
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">150.8k</span>&nbsp;字
+                class="white-color">152k</span>&nbsp;字
             
             
             
