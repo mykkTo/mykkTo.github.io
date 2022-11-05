@@ -220,7 +220,7 @@
             "desc": "个人博客",
             "icon": {
                 "type": "img",
-                "content": "https://fastly.jsdelivr.net/gh/mykkTo/image@main/blog/my1SN{XEPO)])9$A7K_JK(BNOV.jpg",
+                "content": "http://static.mykkto.cn/image/blog/my1SN{XEPO)])9$A7K_JK(BNOV.jpg",
                 "bg": "#6b96cf"
             },
             "openMode": "normal",
