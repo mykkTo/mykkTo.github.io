@@ -20,7 +20,7 @@
 
     <title>SpringCloud- Ribbon负载均衡服务 | jack</title>
 
-    <link rel="icon" type="image/jpeg" href="http://static.mykkto.cn/image/blog/my1SN{XEPO)])9$A7K_JK(BNOV.jpg">
+    <link rel="icon" type="image/jpeg" href="http://_v1.mykkto.cn/image/blog/my1SN{XEPO)])9$A7K_JK(BNOV.jpg">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
     <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
@@ -56,7 +56,7 @@
             <div class="brand-logo">
                 <a href="/" class="waves-effect waves-light">
                     
-                    <img src="http://static.mykkto.cn/image/blog/20211641568137986-ckt-抠图.png" class="logo-img" alt="LOGO">
+                    <img src="http://_v1.mykkto.cn/image/blog/20211641568137986-ckt-抠图.png" class="logo-img" alt="LOGO">
                     
                     <span class="logo-span">jack</span>
                 </a>
@@ -239,7 +239,7 @@
 
     <div class="mobile-head bg-color">
         
-        <img src="http://static.mykkto.cn/image/blog/20211641568137986-ckt-抠图.png" class="logo-img circle responsive-img">
+        <img src="http://_v1.mykkto.cn/image/blog/20211641568137986-ckt-抠图.png" class="logo-img circle responsive-img">
         
         <div class="logo-name">jack</div>
         <div class="logo-desc">
@@ -511,7 +511,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('http://static.mykkto.cn/image/galleries/动漫插画/05.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('http://_v1.mykkto.cn/image/galleries/动漫插画/05.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -681,7 +681,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-11-05
+                    2022-11-12
                 </div>
                 
 
@@ -723,9 +723,9 @@
 <li>简单的说，Ribbon是Netflix发布的开源项目，主要功能是提供客户端的软件负载均衡算法和服务调用。Ribbon客户端组件提供一系列完善的配置项如连接超时，重试等。简单的说，就是在配置文件中列出Load Balancer（简称LB）后面所有的机器，Ribbon会自动的帮助你基于某种规则（如简单轮询，随机连接等）去连接这些机器。我们很容易使用Ribbon实现自定义的负载均衡算法。</li>
 </ul>
 <h3 id="2、官网资料"><a href="#2、官网资料" class="headerlink" title="2、官网资料"></a>2、官网资料</h3><h4 id="1、文档"><a href="#1、文档" class="headerlink" title="1、文档"></a>1、文档</h4><p><a target="_blank" rel="noopener" href="https://github.com/Netflix/ribbon/wiki/Getting-Started">https://github.com/Netflix/ribbon/wiki/Getting-Started</a></p>
-<h4 id="2、Ribbon目前也进入维护模式"><a href="#2、Ribbon目前也进入维护模式" class="headerlink" title="2、Ribbon目前也进入维护模式"></a>2、Ribbon目前也进入维护模式</h4><p><img src="http://static.mykkto.cn/image/blog/2022/springcloud/20220118205050.png"></p>
+<h4 id="2、Ribbon目前也进入维护模式"><a href="#2、Ribbon目前也进入维护模式" class="headerlink" title="2、Ribbon目前也进入维护模式"></a>2、Ribbon目前也进入维护模式</h4><p><img src="http://_v1.mykkto.cn/image/blog/2022/springcloud/20220118205050.png"></p>
 <p>未来替换方案：</p>
-<p><img src="http://static.mykkto.cn/image/blog/2022/springcloud/20220118205311.png"></p>
+<p><img src="http://_v1.mykkto.cn/image/blog/2022/springcloud/20220118205311.png"></p>
 <h3 id="3、能干吗"><a href="#3、能干吗" class="headerlink" title="3、能干吗"></a>3、能干吗</h3><h4 id="1、LB（负载均衡）"><a href="#1、LB（负载均衡）" class="headerlink" title="1、LB（负载均衡）"></a>1、LB（负载均衡）</h4><p>简单的说就是将用户的请求平摊的分配到多个服务上，从而达到系统的HA（高可用）。<br>常见的负载均衡有软件Nginx，LVS，硬件 F5等。</p>
 <p>总结：Ribbon = 负载均衡+RestTemplate调用</p>
 <h4 id="2、区别（ribbon-VS-nginx）"><a href="#2、区别（ribbon-VS-nginx）" class="headerlink" title="2、区别（ribbon VS nginx）"></a>2、区别（ribbon VS nginx）</h4><p> Ribbon本地负载均衡，在调用微服务接口时候，会在注册中心上获取注册信息服务列表之后缓存到JVM本地，从而在本地实现RPC远程服务调用技术。</p>
@@ -738,7 +738,7 @@
 <li><p>Ribbon就属于进程内LB，它只是一个类库，集成于消费方进程，消费方通过它来获取到服务提供方的地址。</p>
 </li>
 </ul>
-<h2 id="2、Ribbon案例"><a href="#2、Ribbon案例" class="headerlink" title="2、Ribbon案例"></a>2、Ribbon案例</h2><h3 id="1、架构说明"><a href="#1、架构说明" class="headerlink" title="1、架构说明"></a>1、架构说明</h3><p><img src="http://static.mykkto.cn/image/blog/2022/springcloud/20220118205346.png"></p>
+<h2 id="2、Ribbon案例"><a href="#2、Ribbon案例" class="headerlink" title="2、Ribbon案例"></a>2、Ribbon案例</h2><h3 id="1、架构说明"><a href="#1、架构说明" class="headerlink" title="1、架构说明"></a>1、架构说明</h3><p><img src="http://_v1.mykkto.cn/image/blog/2022/springcloud/20220118205346.png"></p>
 <p>Ribbon在工作时分成两步</p>
 <ul>
 <li>第一步先选择 EurekaServer ,它优先选择在同一个区域内负载较少的server.</li>
@@ -753,16 +753,16 @@
 
 
 <h4 id="2、eureka-client-自带-ribbon"><a href="#2、eureka-client-自带-ribbon" class="headerlink" title="2、eureka-client 自带 ribbon"></a>2、eureka-client 自带 ribbon</h4><p>证明如下： 可以看到spring-cloud-starter-netflix-eureka-client 确实引入了Ribbon</p>
-<p><img src="http://static.mykkto.cn/image/blog/2022/springcloud/20220118205633.png"></p>
+<p><img src="http://_v1.mykkto.cn/image/blog/2022/springcloud/20220118205633.png"></p>
 <h3 id="3、二说RestTemplate的使用"><a href="#3、二说RestTemplate的使用" class="headerlink" title="3、二说RestTemplate的使用"></a>3、二说RestTemplate的使用</h3><h4 id="1、官网"><a href="#1、官网" class="headerlink" title="1、官网"></a>1、官网</h4><p><a target="_blank" rel="noopener" href="https://docs.spring.io/spring-framework/docs/5.2.2.RELEASE/javadoc-api/org/springframework/web/client/RestTemplate.html">https://docs.spring.io/spring-framework/docs/5.2.2.RELEASE/javadoc-api/org/springframework/web/client/RestTemplate.html</a></p>
-<p><img src="http://static.mykkto.cn/image/blog/2022/springcloud/20220118205714.png"></p>
+<p><img src="http://_v1.mykkto.cn/image/blog/2022/springcloud/20220118205714.png"></p>
 <h4 id="2、getForObject方法-getForEntity（读）"><a href="#2、getForObject方法-getForEntity（读）" class="headerlink" title="2、getForObject方法/getForEntity（读）"></a>2、getForObject方法/getForEntity（读）</h4><ul>
 <li>返回对象为响应体中数据转化成的对象，基本上可以理解为Json</li>
 </ul>
-<p><img src="http://static.mykkto.cn/image/blog/2022/springcloud/20220118205923.png"></p>
+<p><img src="http://_v1.mykkto.cn/image/blog/2022/springcloud/20220118205923.png"></p>
 <ul>
 <li><p>返回对象为ResponseEntity对象，包含了响应中的一些重要信息，比如响应头、响应状态码、响应体等</p>
-<p><img src="http://static.mykkto.cn/image/blog/2022/springcloud/20220118205956.png"></p>
+<p><img src="http://_v1.mykkto.cn/image/blog/2022/springcloud/20220118205956.png"></p>
 </li>
 </ul>
 <h4 id="3、postForObject-postForEntity-写"><a href="#3、postForObject-postForEntity-写" class="headerlink" title="3、postForObject/postForEntity(写)"></a>3、postForObject/postForEntity(写)</h4><p>写一个单元测试用例，测试用例的内容是向指定的URL提交一个Post(帖子).</p>
@@ -862,9 +862,9 @@
 <li><code>ZoneAvoidanceRule</code> 默认规则,复合判断server所在区域的性能和server的可用性选择服务器</li>
 </ul>
 <h3 id="2、案例"><a href="#2、案例" class="headerlink" title="2、案例"></a>2、案例</h3><h4 id="修改cloud-consumer-order80"><a href="#修改cloud-consumer-order80" class="headerlink" title="修改cloud-consumer-order80"></a>修改cloud-consumer-order80</h4><h4 id="1、细节说明"><a href="#1、细节说明" class="headerlink" title="1、细节说明"></a>1、细节说明</h4><p>官方文档明确给出了警告：<br>这个自定义配置类不能放在@ComponentScan所扫描的当前包下以及子包下，<br>否则我们自定义的这个配置类就会被所有的Ribbon客户端所共享，达不到特殊化定制的目的了。</p>
-<p><img src="http://static.mykkto.cn/image/blog/2022/springcloud/20220119201448.png"></p>
+<p><img src="http://_v1.mykkto.cn/image/blog/2022/springcloud/20220119201448.png"></p>
 <h4 id="2、新建package"><a href="#2、新建package" class="headerlink" title="2、新建package"></a>2、新建package</h4><p>com.kk.myrule</p>
-<p><img src="http://static.mykkto.cn/image/blog/2022/springcloud/20220119201717.png"></p>
+<p><img src="http://_v1.mykkto.cn/image/blog/2022/springcloud/20220119201717.png"></p>
 <h4 id="3、新建MySelfRule规则类"><a href="#3、新建MySelfRule规则类" class="headerlink" title="3、新建MySelfRule规则类"></a>3、新建MySelfRule规则类</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>kk<span class="token punctuation">.</span>myrule</span><span class="token punctuation">;</span>
 
 <span class="token keyword">import</span> <span class="token namespace">com<span class="token punctuation">.</span>netflix<span class="token punctuation">.</span>loadbalancer<span class="token punctuation">.</span></span><span class="token class-name">IRule</span><span class="token punctuation">;</span>
@@ -886,10 +886,10 @@
 
 <h4 id="4、主启动类添加-RibbonClient"><a href="#4、主启动类添加-RibbonClient" class="headerlink" title="4、主启动类添加@RibbonClient"></a>4、主启动类添加@RibbonClient</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@RibbonClient</span><span class="token punctuation">(</span>name <span class="token operator">=</span> <span class="token string">"CLOUD-PAYMENT-SERVICE"</span><span class="token punctuation">,</span>configuration<span class="token operator">=</span><span class="token class-name">MySelfRule</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p><img src="http://static.mykkto.cn/image/blog/2022/springcloud/20220119202018.png"></p>
+<p><img src="http://_v1.mykkto.cn/image/blog/2022/springcloud/20220119202018.png"></p>
 <h4 id="5、测试"><a href="#5、测试" class="headerlink" title="5、测试"></a>5、测试</h4><p>启动：（1）eureka（单个或者集群都行），（2）生产者8001（单个或者集群都行），（3）消费者80</p>
 <p><code>http://localhost/consumer/payment/get/1</code></p>
-<p><img src="http://static.mykkto.cn/image/blog/2022/springcloud/20220119202717.png"></p>
+<p><img src="http://_v1.mykkto.cn/image/blog/2022/springcloud/20220119202717.png"></p>
 <h2 id="4、Ribbon负载均衡算法"><a href="#4、Ribbon负载均衡算法" class="headerlink" title="4、Ribbon负载均衡算法"></a>4、Ribbon负载均衡算法</h2><h3 id="1、原理"><a href="#1、原理" class="headerlink" title="1、原理"></a>1、原理</h3><p>负载均衡算法：rest接口第几次请求数 % 服务器集群总数量 = 实际调用服务器位置下标  ，每次服务重启动后rest接口计数从1开始。</p>
 <blockquote>
 <p>List<serviceinstance> instances = discoveryClient.getInstances(“CLOUD-PAYMENT-SERVICE”);</serviceinstance></p>
@@ -905,10 +905,10 @@
 </blockquote>
 <h3 id="2、RoundRobinRule源码"><a href="#2、RoundRobinRule源码" class="headerlink" title="2、RoundRobinRule源码"></a>2、RoundRobinRule源码</h3><ul>
 <li><p>这里不是死循环，而是自旋锁，compareAndSet（CAS操作，JUC中乐观锁的底层实现）</p>
-<p><img src="http://static.mykkto.cn/image/blog/2022/springcloud/20220119203035.png"></p>
+<p><img src="http://_v1.mykkto.cn/image/blog/2022/springcloud/20220119203035.png"></p>
 </li>
 </ul>
-<h3 id="3、手写"><a href="#3、手写" class="headerlink" title="3、手写"></a>3、手写</h3><h4 id="1、8001和8002分别加入"><a href="#1、8001和8002分别加入" class="headerlink" title="1、8001和8002分别加入"></a>1、8001和8002分别加入</h4><p><img src="http://static.mykkto.cn/image/blog/2022/springcloud/20220119233626.png"></p>
+<h3 id="3、手写"><a href="#3、手写" class="headerlink" title="3、手写"></a>3、手写</h3><h4 id="1、8001和8002分别加入"><a href="#1、8001和8002分别加入" class="headerlink" title="1、8001和8002分别加入"></a>1、8001和8002分别加入</h4><p><img src="http://_v1.mykkto.cn/image/blog/2022/springcloud/20220119233626.png"></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Value</span><span class="token punctuation">(</span><span class="token string">"${server.port}"</span><span class="token punctuation">)</span>
 <span class="token keyword">private</span> <span class="token class-name">String</span> serverPort<span class="token punctuation">;</span>
 
@@ -921,7 +921,7 @@
 
 
 
-<h4 id="2、去掉注解-LoadBalanced"><a href="#2、去掉注解-LoadBalanced" class="headerlink" title="2、去掉注解@LoadBalanced"></a>2、去掉注解@LoadBalanced</h4><p><img src="http://static.mykkto.cn/image/blog/2022/springcloud/20220119203829.png"></p>
+<h4 id="2、去掉注解-LoadBalanced"><a href="#2、去掉注解-LoadBalanced" class="headerlink" title="2、去掉注解@LoadBalanced"></a>2、去掉注解@LoadBalanced</h4><p><img src="http://_v1.mykkto.cn/image/blog/2022/springcloud/20220119203829.png"></p>
 <h4 id="3、新建LoadBalancer接口"><a href="#3、新建LoadBalancer接口" class="headerlink" title="3、新建LoadBalancer接口"></a>3、新建LoadBalancer接口</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>kk<span class="token punctuation">.</span>springcloud<span class="token punctuation">.</span>lb</span><span class="token punctuation">;</span>
 
 <span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>cloud<span class="token punctuation">.</span>client<span class="token punctuation">.</span></span><span class="token class-name">ServiceInstance</span><span class="token punctuation">;</span>
@@ -1045,9 +1045,9 @@
 
 
 <h4 id="6、测试"><a href="#6、测试" class="headerlink" title="6、测试"></a>6、测试</h4><p><code>http://localhost/consumer/payment/lb</code></p>
-<p><img src="http://static.mykkto.cn/image/blog/2022/springcloud/20220119234324.png"></p>
+<p><img src="http://_v1.mykkto.cn/image/blog/2022/springcloud/20220119234324.png"></p>
 <h4 id="注意：8001和8002别名配置都要配好"><a href="#注意：8001和8002别名配置都要配好" class="headerlink" title="注意：8001和8002别名配置都要配好"></a>注意：8001和8002别名配置都要配好</h4><p>否则自定义算法 获取的url会报错</p>
-<p><img src="http://static.mykkto.cn/image/blog/2022/springcloud/20220119234130.png"></p>
+<p><img src="http://_v1.mykkto.cn/image/blog/2022/springcloud/20220119234130.png"></p>
 
                 
             </div>
@@ -1605,7 +1605,7 @@ new Valine({
                     <div class="card-image">
                         
                         
-                        <img src="http://static.mykkto.cn/image/galleries/动漫插画/04.jpg" class="responsive-img" alt="SpringCloud-OpenFeign远程调用服务">
+                        <img src="http://_v1.mykkto.cn/image/galleries/动漫插画/04.jpg" class="responsive-img" alt="SpringCloud-OpenFeign远程调用服务">
                         
                         <span class="card-title">SpringCloud-OpenFeign远程调用服务</span>
                     </div>
@@ -1666,7 +1666,7 @@ new Valine({
                     <div class="card-image">
                         
                         
-                        <img src="http://static.mykkto.cn/image/galleries/动漫风景/16.jpg" class="responsive-img" alt="hexo + github 在百度和谷歌 SEO站点收录">
+                        <img src="http://_v1.mykkto.cn/image/galleries/动漫风景/16.jpg" class="responsive-img" alt="hexo + github 在百度和谷歌 SEO站点收录">
                         
                         <span class="card-title">hexo + github 在百度和谷歌 SEO站点收录</span>
                     </div>
