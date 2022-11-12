@@ -20,7 +20,7 @@
 
     <title>SpringCloud-Eureka | jack</title>
 
-    <link rel="icon" type="image/jpeg" href="https://v1.mykkto.cn/image/blog/my1SN{XEPO)])9$A7K_JK(BNOV.jpg">
+    <link rel="icon" type="image/jpeg" href="/root/nginx/www/image/blog/my1SN%7BXEPO)%5D)9$A7K_JK(BNOV.jpg">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
     <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
@@ -56,7 +56,7 @@
             <div class="brand-logo">
                 <a href="/" class="waves-effect waves-light">
                     
-                    <img src="https://v1.mykkto.cn/image/blog/20211641568137986-ckt-抠图.png" class="logo-img" alt="LOGO">
+                    <img src="/root/nginx/www/image/blog/20211641568137986-ckt-%E6%8A%A0%E5%9B%BE.png" class="logo-img" alt="LOGO">
                     
                     <span class="logo-span">jack</span>
                 </a>
@@ -239,7 +239,7 @@
 
     <div class="mobile-head bg-color">
         
-        <img src="https://v1.mykkto.cn/image/blog/20211641568137986-ckt-抠图.png" class="logo-img circle responsive-img">
+        <img src="/root/nginx/www/image/blog/20211641568137986-ckt-%E6%8A%A0%E5%9B%BE.png" class="logo-img circle responsive-img">
         
         <div class="logo-name">jack</div>
         <div class="logo-desc">
@@ -511,7 +511,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://v1.mykkto.cn/image/galleries/动漫风景/11.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/root/nginx/www/image/galleries/%E5%8A%A8%E6%BC%AB%E9%A3%8E%E6%99%AF/11.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -722,7 +722,7 @@
 <li>Eureka采用了CS的设计架构，Eureka Server 作为服务注册功能的服务器，它是服务注册中心。而系统中的其他微服务，使用 Eureka的客户端连接到 Eureka Server并维持心跳连接。这样系统的维护人员就可以通过 Eureka Server 来监控系统中各个微服务是否正常运行。</li>
 <li>在服务注册与发现中，有一个注册中心。当服务器启动的时候，会把当前自己服务器的信息 比如 服务地址通讯地址等以别名方式注册到注册中心上。另一方（消费者|服务提供者），以该别名的方式去注册中心上获取到实际的服务通讯地址，然后再实现本地RPC调用RPC远程调用框架核心设计思想：在于注册中心，因为使用注册中心管理每个服务与服务之间的一个依赖关系(服务治理概念)。在任何rpc远程框架中，都会有一个注册中心(存放服务地址相关信息(接口地址))</li>
 </ul>
-<h4 id="2、图解"><a href="#2、图解" class="headerlink" title="2、图解"></a>2、图解</h4><p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220114212118.png"></p>
+<h4 id="2、图解"><a href="#2、图解" class="headerlink" title="2、图解"></a>2、图解</h4><p><img src="/root/nginx/www/image/blog/2022/springcloud/20220114212118.png"></p>
 <h3 id="3、Eureka两组件"><a href="#3、Eureka两组件" class="headerlink" title="3、Eureka两组件"></a>3、Eureka两组件</h3><h4 id="1、EurekaServer提供服务注册服务"><a href="#1、EurekaServer提供服务注册服务" class="headerlink" title="1、EurekaServer提供服务注册服务"></a>1、<code>EurekaServer</code>提供服务注册服务</h4><p>各个微服务节点通过配置启动后，会在EurekaServer中进行注册，这样EurekaServer中的服务注册表中将会存储所有可用服务节点的信息，服务节点的信息可以在界面中直观看到。</p>
 <h4 id="2、EurekaClient通过注册中心进行访问"><a href="#2、EurekaClient通过注册中心进行访问" class="headerlink" title="2、EurekaClient通过注册中心进行访问"></a>2、<code>EurekaClient</code>通过注册中心进行访问</h4><p>是一个Java客户端，用于简化Eureka Server的交互，客户端同时也具备一个内置的、使用轮询(round-robin)负载算法的负载均衡器。在应用启动后，将会向Eureka Server发送心跳(默认周期为30秒)。如果Eureka Server在多个心跳周期内没有接收到某个节点的心跳，EurekaServer将会从服务注册表中把这个服务节点移除（默认90秒）</p>
 <h2 id="2、单机Eureka构建步骤"><a href="#2、单机Eureka构建步骤" class="headerlink" title="2、单机Eureka构建步骤"></a>2、单机Eureka构建步骤</h2><h3 id="1、eurekaServer端服务注册中心"><a href="#1、eurekaServer端服务注册中心" class="headerlink" title="1、eurekaServer端服务注册中心"></a>1、eurekaServer端服务注册中心</h3><h4 id="1、建model"><a href="#1、建model" class="headerlink" title="1、建model"></a>1、建model</h4><p>cloud-eureka-server7001</p>
@@ -846,7 +846,7 @@ eureka:
 
 
 
-<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220114231354.png"></p>
+<p><img src="/root/nginx/www/image/blog/2022/springcloud/20220114231354.png"></p>
 <h4 id="4、主启动-添加"><a href="#4、主启动-添加" class="headerlink" title="4、主启动(添加)"></a>4、主启动(添加)</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@EnableEurekaClient</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 
@@ -855,8 +855,8 @@ eureka:
 
 <h4 id="5、测试-1"><a href="#5、测试-1" class="headerlink" title="5、测试"></a>5、测试</h4><p>（1）先要启动EurekaServer，再启动8001</p>
 <p>（2）访问：<code>http://localhost:7001/</code></p>
-<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220114232422.png"></p>
-<h4 id="6、自我保护机制"><a href="#6、自我保护机制" class="headerlink" title="6、自我保护机制"></a>6、自我保护机制</h4><p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220114232802.png"></p>
+<p><img src="/root/nginx/www/image/blog/2022/springcloud/20220114232422.png"></p>
+<h4 id="6、自我保护机制"><a href="#6、自我保护机制" class="headerlink" title="6、自我保护机制"></a>6、自我保护机制</h4><p><img src="/root/nginx/www/image/blog/2022/springcloud/20220114232802.png"></p>
 <h3 id="3、EurekaClient端consumer-80"><a href="#3、EurekaClient端consumer-80" class="headerlink" title="3、EurekaClient端consumer-80"></a>3、EurekaClient端consumer-80</h3><h4 id="1、建model（不变）"><a href="#1、建model（不变）" class="headerlink" title="1、建model（不变）"></a>1、建model（不变）</h4><h4 id="2、写pom（同上）"><a href="#2、写pom（同上）" class="headerlink" title="2、写pom（同上）"></a>2、写pom（同上）</h4><pre class="line-numbers language-xml" data-language="xml"><code class="language-xml">    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>org.springframework.cloud<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>spring-cloud-starter-netflix-eureka-client<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
@@ -893,8 +893,8 @@ eureka:
 
 <h4 id="5、测试-2"><a href="#5、测试-2" class="headerlink" title="5、测试"></a>5、测试</h4><p>（1）先要启动EurekaServer，再启动80</p>
 <p>（2）访问：<code>http://localhost/consumer/payment/get/1</code></p>
-<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220116095006.png"></p>
-<h2 id="3、集群Eureka构建步骤"><a href="#3、集群Eureka构建步骤" class="headerlink" title="3、集群Eureka构建步骤"></a>3、集群Eureka构建步骤</h2><h3 id="1、Eureka集群原理说明"><a href="#1、Eureka集群原理说明" class="headerlink" title="1、Eureka集群原理说明"></a>1、Eureka集群原理说明</h3><h4 id="1、图解"><a href="#1、图解" class="headerlink" title="1、图解"></a>1、图解</h4><p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220116095142.png"></p>
+<p><img src="/root/nginx/www/image/blog/2022/springcloud/20220116095006.png"></p>
+<h2 id="3、集群Eureka构建步骤"><a href="#3、集群Eureka构建步骤" class="headerlink" title="3、集群Eureka构建步骤"></a>3、集群Eureka构建步骤</h2><h3 id="1、Eureka集群原理说明"><a href="#1、Eureka集群原理说明" class="headerlink" title="1、Eureka集群原理说明"></a>1、Eureka集群原理说明</h3><h4 id="1、图解"><a href="#1、图解" class="headerlink" title="1、图解"></a>1、图解</h4><p><img src="/root/nginx/www/image/blog/2022/springcloud/20220116095142.png"></p>
 <h4 id="2、问题：微服务RPC远程服务调用最核心的是什么"><a href="#2、问题：微服务RPC远程服务调用最核心的是什么" class="headerlink" title="2、问题：微服务RPC远程服务调用最核心的是什么"></a>2、问题：微服务RPC远程服务调用最核心的是什么</h4><h4 id="3、解决方案："><a href="#3、解决方案：" class="headerlink" title="3、解决方案："></a>3、解决方案：</h4><p>高可用，试想你的注册中心只有一个only one，会导致整个为服务环境不可用，所以</p>
 <p>解决办法：搭建Eureka注册中心集群 ，实现负载均衡+故障容错</p>
 <h3 id="2、EurekaServer集群环境构建步骤"><a href="#2、EurekaServer集群环境构建步骤" class="headerlink" title="2、EurekaServer集群环境构建步骤"></a>2、EurekaServer集群环境构建步骤</h3><h4 id="1、建model-1"><a href="#1、建model-1" class="headerlink" title="1、建model"></a>1、建model</h4><p>新建cloud-eureka-server7002，参考7001</p>
@@ -955,11 +955,11 @@ eureka:
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>project</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h4 id=""><a href="#" class="headerlink" title=""></a></h4><h4 id="3、修配置"><a href="#3、修配置" class="headerlink" title="3、修配置"></a>3、修配置</h4><p>由于本地主机只有一台，为了模拟两台（多台)，则将 多个ip（域名eureka7001.com,eureka7002.com) 指向本地(127.0.0.1)</p>
-<h5 id="1、找到对应的配置目录C-Windows-System32-drivers-etc"><a href="#1、找到对应的配置目录C-Windows-System32-drivers-etc" class="headerlink" title="1、找到对应的配置目录C:\Windows\System32\drivers\etc"></a>1、找到对应的配置目录<code>C:\Windows\System32\drivers\etc</code></h5><p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220116111940.png"></p>
+<h5 id="1、找到对应的配置目录C-Windows-System32-drivers-etc"><a href="#1、找到对应的配置目录C-Windows-System32-drivers-etc" class="headerlink" title="1、找到对应的配置目录C:\Windows\System32\drivers\etc"></a>1、找到对应的配置目录<code>C:\Windows\System32\drivers\etc</code></h5><p><img src="/root/nginx/www/image/blog/2022/springcloud/20220116111940.png"></p>
 <h5 id="2、写入配置文件"><a href="#2、写入配置文件" class="headerlink" title="2、写入配置文件"></a>2、写入配置文件</h5><blockquote>
 <p>127.0.0.1  eureka7001.com<br>127.0.0.1  eureka7002.com</p>
 </blockquote>
-<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220116112237.png"></p>
+<p><img src="/root/nginx/www/image/blog/2022/springcloud/20220116112237.png"></p>
 <h4 id="4、改yml"><a href="#4、改yml" class="headerlink" title="4、改yml"></a>4、改yml</h4><h5 id="1、7001"><a href="#1、7001" class="headerlink" title="1、7001"></a>1、7001</h5><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">server:
   port: 7001
   
@@ -1059,25 +1059,25 @@ eureka:
 <h4 id="2、启动生产者"><a href="#2、启动生产者" class="headerlink" title="2、启动生产者"></a>2、启动生产者</h4><p>再要启动服务提供者provider，8001</p>
 <h4 id="3、启动消费者"><a href="#3、启动消费者" class="headerlink" title="3、启动消费者"></a>3、启动消费者</h4><p>再要启动消费者，80</p>
 <h4 id="4、测试"><a href="#4、测试" class="headerlink" title="4、测试"></a>4、测试</h4><p><code>http://localhost/consumer/payment/get/1</code></p>
-<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220116121049.png"></p>
+<p><img src="/root/nginx/www/image/blog/2022/springcloud/20220116121049.png"></p>
 <h3 id="6、支付8001集群构建【8002】"><a href="#6、支付8001集群构建【8002】" class="headerlink" title="6、支付8001集群构建【8002】"></a>6、支付8001集群构建【8002】</h3><h4 id="1、方式一："><a href="#1、方式一：" class="headerlink" title="1、方式一："></a>1、方式一：</h4><p>直接把整份8001 copy出一个新的，需改yml ，port即可【推荐】</p>
 <pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">server:
   port: 8002<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220116131217.png"></p>
+<p><img src="/root/nginx/www/image/blog/2022/springcloud/20220116131217.png"></p>
 <h4 id="2、方式二："><a href="#2、方式二：" class="headerlink" title="2、方式二："></a>2、方式二：</h4><p>（1）打开idea配置，取消勾选单一服务按钮</p>
-<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220116122129.png"></p>
+<p><img src="/root/nginx/www/image/blog/2022/springcloud/20220116122129.png"></p>
 <p>（2）修改yml</p>
 <pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">server:
   port: 8002<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p>（3）启动</p>
-<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220116122301.png"></p>
+<p><img src="/root/nginx/www/image/blog/2022/springcloud/20220116122301.png"></p>
 <h3 id="7、负载均衡"><a href="#7、负载均衡" class="headerlink" title="7、负载均衡"></a>7、负载均衡</h3><h5 id="1、订单80调用调整"><a href="#1、订单80调用调整" class="headerlink" title="1、订单80调用调整"></a>1、订单80调用调整</h5><p>在调用的时候不能写死成ip+端口，需要使用服务名：<code>cloud-payment-service</code></p>
-<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220116134417.png"></p>
+<p><img src="/root/nginx/www/image/blog/2022/springcloud/20220116134417.png"></p>
 <h5 id="2、-LoadBalanced注解"><a href="#2、-LoadBalanced注解" class="headerlink" title="2、@LoadBalanced注解"></a>2、@LoadBalanced注解</h5><p>使用@LoadBalanced注解赋予RestTemplate负载均衡的能力</p>
 <p>修改配置信息添加注解【80端口】</p>
-<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220116133032.png"></p>
+<p><img src="/root/nginx/www/image/blog/2022/springcloud/20220116133032.png"></p>
 <h3 id="8、测试负载均衡"><a href="#8、测试负载均衡" class="headerlink" title="8、测试负载均衡"></a>8、测试负载均衡</h3><h4 id="1、启动顺序说明"><a href="#1、启动顺序说明" class="headerlink" title="1、启动顺序说明"></a>1、启动顺序说明</h4><p>（1）先要启动EurekaServer，7001/7002服务</p>
 <p>（2）再要启动服务提供者provider，8001/8002服务</p>
 <h4 id="2、访问"><a href="#2、访问" class="headerlink" title="2、访问"></a>2、访问</h4><p><code>http://localhost/consumer/payment/get/1</code></p>
@@ -1085,7 +1085,7 @@ eureka:
 <p>（2）8001/8002端口交替出现</p>
 <h4 id="4、小结"><a href="#4、小结" class="headerlink" title="4、小结"></a>4、小结</h4><p>Ribbon和Eureka整合后Consumer可以直接调用服务而不用再关心地址和端口号，且该服务还有负载功能了</p>
 <h2 id="4、actuator微服务信息完善"><a href="#4、actuator微服务信息完善" class="headerlink" title="4、actuator微服务信息完善"></a>4、actuator微服务信息完善</h2><h3 id="1、主机名称-服务名称修改"><a href="#1、主机名称-服务名称修改" class="headerlink" title="1、主机名称:服务名称修改"></a>1、主机名称:服务名称修改</h3><h4 id="1、当前问题"><a href="#1、当前问题" class="headerlink" title="1、当前问题"></a>1、当前问题</h4><p>含有主机名名称</p>
-<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220116135403.png"></p>
+<p><img src="/root/nginx/www/image/blog/2022/springcloud/20220116135403.png"></p>
 <h4 id="2、修改8001"><a href="#2、修改8001" class="headerlink" title="2、修改8001"></a>2、修改8001</h4><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">instance:
   instance-id: payment8001<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
@@ -1122,12 +1122,12 @@ mybatis:
   type-aliases-package: com.kk.springclond.entities<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h4 id="3、效果"><a href="#3、效果" class="headerlink" title="3、效果"></a>3、效果</h4><p>其实就是取别名</p>
-<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220116140426.png"></p>
+<p><img src="/root/nginx/www/image/blog/2022/springcloud/20220116140426.png"></p>
 <h3 id="2、访问信息有IP信息提示"><a href="#2、访问信息有IP信息提示" class="headerlink" title="2、访问信息有IP信息提示"></a>2、访问信息有IP信息提示</h3><h4 id="1、问题："><a href="#1、问题：" class="headerlink" title="1、问题："></a>1、问题：</h4><p>没有IP提示</p>
 <h4 id="2、修改8001-1"><a href="#2、修改8001-1" class="headerlink" title="2、修改8001"></a>2、修改8001</h4><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">prefer-ip-address: true     #访问路径可以显示IP地址<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220116140654.png"></p>
-<h4 id="3、效果-1"><a href="#3、效果-1" class="headerlink" title="3、效果"></a>3、效果</h4><p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220116140925.png"></p>
+<p><img src="/root/nginx/www/image/blog/2022/springcloud/20220116140654.png"></p>
+<h4 id="3、效果-1"><a href="#3、效果-1" class="headerlink" title="3、效果"></a>3、效果</h4><p><img src="/root/nginx/www/image/blog/2022/springcloud/20220116140925.png"></p>
 <h2 id="5、服务发现Discovery"><a href="#5、服务发现Discovery" class="headerlink" title="5、服务发现Discovery"></a>5、服务发现Discovery</h2><h3 id="1、概述"><a href="#1、概述" class="headerlink" title="1、概述"></a>1、概述</h3><p>对于注册进eureka里面的微服务，可以通过服务发现来获得该服务的信息</p>
 <h3 id="2、修改8001的Controller"><a href="#2、修改8001的Controller" class="headerlink" title="2、修改8001的Controller"></a>2、修改8001的Controller</h3><h4 id="1、增加"><a href="#1、增加" class="headerlink" title="1、增加"></a>1、增加</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Resource</span>
 <span class="token keyword">private</span> <span class="token class-name">DiscoveryClient</span> discoveryClient<span class="token punctuation">;</span>
@@ -1264,18 +1264,18 @@ mybatis:
 <h4 id="2、访问-1"><a href="#2、访问-1" class="headerlink" title="2、访问"></a>2、访问</h4><p><code>http://localhost:8001/payment/discovery</code></p>
 <h2 id="6、Eureka自我保护"><a href="#6、Eureka自我保护" class="headerlink" title="6、Eureka自我保护"></a>6、Eureka自我保护</h2><h3 id="1、故障现象"><a href="#1、故障现象" class="headerlink" title="1、故障现象"></a>1、故障现象</h3><p>保护模式主要用于一组客户端和Eureka Server之间存在网络分区场景下的保护。一旦进入保护模式，<br>Eureka Server将会尝试保护其服务注册表中的信息，不再删除服务注册表中的数据，也就是不会注销任何微服务。</p>
 <p>如果在Eureka Server的首页看到以下这段提示，则说明Eureka进入了保护模式：<br>EMERGENCY! EUREKA MAY BE INCORRECTLY CLAIMING INSTANCES ARE UP WHEN THEY’RE NOT.<br>RENEWALS ARE LESSER THAN THRESHOLD AND HENCE THE INSTANCES ARE NOT BEING EXPIRED JUST TO BE SAFE </p>
-<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220116182547.png"></p>
+<p><img src="/root/nginx/www/image/blog/2022/springcloud/20220116182547.png"></p>
 <h3 id="2、导致原因"><a href="#2、导致原因" class="headerlink" title="2、导致原因"></a>2、导致原因</h3><p>此举属于CAP里面的AP分支</p>
 <p>一句话：某时刻某一个微服务不可用了，Eureka不会立刻清理，依旧会对该微服务的信息进行保存</p>
 <h4 id="1、问题一："><a href="#1、问题一：" class="headerlink" title="1、问题一："></a>1、问题一：</h4><p><strong>为什么会产生Eureka自我保护机制？</strong></p>
 <p>为了防止EurekaClient可以正常运行，但是 与 EurekaServer网络不通情况下，EurekaServer不会立刻将EurekaClient服务剔除</p>
 <h4 id="2、问题二："><a href="#2、问题二：" class="headerlink" title="2、问题二："></a>2、问题二：</h4><p><strong>什么是自我保护模式？</strong></p>
 <p>默认情况下，如果EurekaServer在一定时间内没有接收到某个微服务实例的心跳，EurekaServer将会注销该实例（默认90秒）。但是当网络分区故障发生(延时、卡顿、拥挤)时，微服务与EurekaServer之间无法正常通信，以上行为可能变得非常危险了——因为微服务本身其实是健康的，此时本不应该注销这个微服务。Eureka通过“自我保护模式”来解决这个问题——当EurekaServer节点在短时间内丢失过多客户端时（可能发生了网络分区故障），那么这个节点就会进入自我保护模式。</p>
-<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220116182942.png"></p>
+<p><img src="/root/nginx/www/image/blog/2022/springcloud/20220116182942.png"></p>
 <h3 id="3、怎么禁止自我保护"><a href="#3、怎么禁止自我保护" class="headerlink" title="3、怎么禁止自我保护"></a>3、怎么禁止自我保护</h3><h4 id="1、注册中心7001"><a href="#1、注册中心7001" class="headerlink" title="1、注册中心7001"></a>1、注册中心7001</h4><p>（1）出厂默认，自我保护机制是开启的</p>
 <p><code>eureka.server.enable-self-preservation=true</code></p>
 <p>（2）使用eureka.server.enable-self-preservation = false 可以禁用自我保护模式</p>
-<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220116183216.png"></p>
+<p><img src="/root/nginx/www/image/blog/2022/springcloud/20220116183216.png"></p>
 <pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">server:
   port: 7001
 
@@ -1294,12 +1294,12 @@ eureka:
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>（3）效果</p>
-<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220116183418.png"></p>
+<p><img src="/root/nginx/www/image/blog/2022/springcloud/20220116183418.png"></p>
 <h4 id="2、生产者8001"><a href="#2、生产者8001" class="headerlink" title="2、生产者8001"></a>2、生产者8001</h4><h5 id="1、默认"><a href="#1、默认" class="headerlink" title="1、默认"></a>1、默认</h5><p>（1）单位为秒(默认是30秒)</p>
 <p><code>eureka.instance.lease-renewal-interval-in-seconds=30</code></p>
 <p>（2）单位为秒(默认是90秒)</p>
 <p><code>eureka.instance.lease-expiration-duration-in-seconds=90</code></p>
-<h5 id="2、配置"><a href="#2、配置" class="headerlink" title="2、配置"></a>2、配置</h5><p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220116204552.png"></p>
+<h5 id="2、配置"><a href="#2、配置" class="headerlink" title="2、配置"></a>2、配置</h5><p><img src="/root/nginx/www/image/blog/2022/springcloud/20220116204552.png"></p>
 <pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">server:
   port: 8001
 
@@ -1339,11 +1339,11 @@ mybatis:
 
 
 <h5 id="3、测试"><a href="#3、测试" class="headerlink" title="3、测试"></a>3、测试</h5><p>（1）先启动7001，在启动8001</p>
-<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220116205055.png"></p>
+<p><img src="/root/nginx/www/image/blog/2022/springcloud/20220116205055.png"></p>
 <p>（2）再关闭8001，发现服务已经被删除了</p>
-<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220116205204.png"></p>
+<p><img src="/root/nginx/www/image/blog/2022/springcloud/20220116205204.png"></p>
 <h2 id="7、Eureka停更"><a href="#7、Eureka停更" class="headerlink" title="7、Eureka停更"></a>7、Eureka停更</h2><p>``<a target="_blank" rel="noopener" href="https://github.com/Netflix/eureka/wiki%60">https://github.com/Netflix/eureka/wiki`</a></p>
-<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220116205552.png"></p>
+<p><img src="/root/nginx/www/image/blog/2022/springcloud/20220116205552.png"></p>
 <p>技术选型可以考虑 zookeeper、nacos(alibaba)</p>
 
                 
@@ -1898,7 +1898,7 @@ new Valine({
                     <div class="card-image">
                         
                         
-                        <img src="https://v1.mykkto.cn/image/galleries/动漫风景/06.jpg" class="responsive-img" alt="Springcloud-Zookeeper(快速入门)">
+                        <img src="/root/nginx/www/image/galleries/%E5%8A%A8%E6%BC%AB%E9%A3%8E%E6%99%AF/06.jpg" class="responsive-img" alt="Springcloud-Zookeeper(快速入门)">
                         
                         <span class="card-title">Springcloud-Zookeeper(快速入门)</span>
                     </div>
@@ -1955,7 +1955,7 @@ new Valine({
                     <div class="card-image">
                         
                         
-                        <img src="https://v1.mykkto.cn/image/galleries/动漫风景/06.jpg" class="responsive-img" alt="SpringCloud 项目构建 and 技术选型">
+                        <img src="/root/nginx/www/image/galleries/%E5%8A%A8%E6%BC%AB%E9%A3%8E%E6%99%AF/06.jpg" class="responsive-img" alt="SpringCloud 项目构建 and 技术选型">
                         
                         <span class="card-title">SpringCloud 项目构建 and 技术选型</span>
                     </div>

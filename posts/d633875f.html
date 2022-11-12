@@ -20,7 +20,7 @@
 
     <title>SpringCloud-Zuul路由网关 | jack</title>
 
-    <link rel="icon" type="image/jpeg" href="https://v1.mykkto.cn/image/blog/my1SN{XEPO)])9$A7K_JK(BNOV.jpg">
+    <link rel="icon" type="image/jpeg" href="/root/nginx/www/image/blog/my1SN%7BXEPO)%5D)9$A7K_JK(BNOV.jpg">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
     <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
@@ -56,7 +56,7 @@
             <div class="brand-logo">
                 <a href="/" class="waves-effect waves-light">
                     
-                    <img src="https://v1.mykkto.cn/image/blog/20211641568137986-ckt-抠图.png" class="logo-img" alt="LOGO">
+                    <img src="/root/nginx/www/image/blog/20211641568137986-ckt-%E6%8A%A0%E5%9B%BE.png" class="logo-img" alt="LOGO">
                     
                     <span class="logo-span">jack</span>
                 </a>
@@ -239,7 +239,7 @@
 
     <div class="mobile-head bg-color">
         
-        <img src="https://v1.mykkto.cn/image/blog/20211641568137986-ckt-抠图.png" class="logo-img circle responsive-img">
+        <img src="/root/nginx/www/image/blog/20211641568137986-ckt-%E6%8A%A0%E5%9B%BE.png" class="logo-img circle responsive-img">
         
         <div class="logo-name">jack</div>
         <div class="logo-desc">
@@ -511,7 +511,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://v1.mykkto.cn/image/galleries/动漫插画/14.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/root/nginx/www/image/galleries/%E5%8A%A8%E6%BC%AB%E6%8F%92%E7%94%BB/14.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -993,7 +993,7 @@ eureka:
 
 
 
-<h5 id="6、启动服务"><a href="#6、启动服务" class="headerlink" title="6、启动服务"></a>6、启动服务</h5><p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220201174945.png"></p>
+<h5 id="6、启动服务"><a href="#6、启动服务" class="headerlink" title="6、启动服务"></a>6、启动服务</h5><p><img src="/root/nginx/www/image/blog/2022/springcloud/20220201174945.png"></p>
 <h4 id="2、网关：zuul（9527）"><a href="#2、网关：zuul（9527）" class="headerlink" title="2、网关：zuul（9527）"></a>2、网关：zuul（9527）</h4><h5 id="1、yml"><a href="#1、yml" class="headerlink" title="1、yml"></a>1、yml</h5><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">zuul:
   #  ignored-services: cloud-payment-service   #忽略服务名
   routes: # 路由映射配置
@@ -1031,8 +1031,8 @@ zuul:
 
 <h5 id="2、说明"><a href="#2、说明" class="headerlink" title="2、说明"></a>2、说明</h5><p>由于Zuul自动集成了Ribbon和Hystrix，所以Zuul天生就有负载均衡和服务容错能力</p>
 <h5 id="3、测试负载效果"><a href="#3、测试负载效果" class="headerlink" title="3、测试负载效果"></a>3、测试负载效果</h5><p>url：</p>
-<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220201221800.png"></p>
-<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220201221821.png"></p>
+<p><img src="/root/nginx/www/image/blog/2022/springcloud/20220201221800.png"></p>
+<p><img src="/root/nginx/www/image/blog/2022/springcloud/20220201221821.png"></p>
 <h3 id="4、设置统一公共前缀"><a href="#4、设置统一公共前缀" class="headerlink" title="4、设置统一公共前缀"></a>4、设置统一公共前缀</h3><h4 id="yml配置"><a href="#yml配置" class="headerlink" title="yml配置"></a>yml配置</h4><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">zuul: 
   prefix: /mykk<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
@@ -1083,9 +1083,9 @@ management:
 
 
 <h3 id="3、查看路由详细信息"><a href="#3、查看路由详细信息" class="headerlink" title="3、查看路由详细信息"></a>3、查看路由详细信息</h3><p>url：<a target="_blank" rel="noopener" href="http://localhost:9527/actuator/routes">http://localhost:9527/actuator/routes</a></p>
-<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/202202012239269.png"></p>
+<p><img src="/root/nginx/www/image/blog/2022/springcloud/202202012239269.png"></p>
 <h2 id="5、过滤器"><a href="#5、过滤器" class="headerlink" title="5、过滤器"></a>5、过滤器</h2><h3 id="1、功能"><a href="#1、功能" class="headerlink" title="1、功能"></a>1、功能</h3><p>过滤功能负责对请求过程进行额外的处理，是请求校验过滤及服务聚合的基础。</p>
-<h3 id="2、过滤器的生命周期"><a href="#2、过滤器的生命周期" class="headerlink" title="2、过滤器的生命周期"></a>2、过滤器的生命周期</h3><p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/202202012253101.png"></p>
+<h3 id="2、过滤器的生命周期"><a href="#2、过滤器的生命周期" class="headerlink" title="2、过滤器的生命周期"></a>2、过滤器的生命周期</h3><p><img src="/root/nginx/www/image/blog/2022/springcloud/202202012253101.png"></p>
 <h3 id="3、ZuulFilter"><a href="#3、ZuulFilter" class="headerlink" title="3、ZuulFilter"></a>3、ZuulFilter</h3><h4 id="1、过滤类型"><a href="#1、过滤类型" class="headerlink" title="1、过滤类型"></a>1、过滤类型</h4><ul>
 <li>pre：在请求被路由到目标服务前执行，比如权限校验、打印日志等功能；</li>
 <li>routing：在请求被路由到目标服务时执行</li>
@@ -1749,7 +1749,7 @@ new Valine({
                     <div class="card-image">
                         
                         
-                        <img src="https://v1.mykkto.cn/image/galleries/动漫风景/08.jpg" class="responsive-img" alt="mysql开启远程连接">
+                        <img src="/root/nginx/www/image/galleries/%E5%8A%A8%E6%BC%AB%E9%A3%8E%E6%99%AF/08.jpg" class="responsive-img" alt="mysql开启远程连接">
                         
                         <span class="card-title">mysql开启远程连接</span>
                     </div>
@@ -1806,7 +1806,7 @@ new Valine({
                     <div class="card-image">
                         
                         
-                        <img src="https://v1.mykkto.cn/image/galleries/动漫风景/15.jpg" class="responsive-img" alt="SpringCloud-Hystrix断路器">
+                        <img src="/root/nginx/www/image/galleries/%E5%8A%A8%E6%BC%AB%E9%A3%8E%E6%99%AF/15.jpg" class="responsive-img" alt="SpringCloud-Hystrix断路器">
                         
                         <span class="card-title">SpringCloud-Hystrix断路器</span>
                     </div>

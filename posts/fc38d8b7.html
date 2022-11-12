@@ -20,7 +20,7 @@
 
     <title>SpringCloud-Config分布式配置 | jack</title>
 
-    <link rel="icon" type="image/jpeg" href="https://v1.mykkto.cn/image/blog/my1SN{XEPO)])9$A7K_JK(BNOV.jpg">
+    <link rel="icon" type="image/jpeg" href="/root/nginx/www/image/blog/my1SN%7BXEPO)%5D)9$A7K_JK(BNOV.jpg">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
     <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
@@ -56,7 +56,7 @@
             <div class="brand-logo">
                 <a href="/" class="waves-effect waves-light">
                     
-                    <img src="https://v1.mykkto.cn/image/blog/20211641568137986-ckt-抠图.png" class="logo-img" alt="LOGO">
+                    <img src="/root/nginx/www/image/blog/20211641568137986-ckt-%E6%8A%A0%E5%9B%BE.png" class="logo-img" alt="LOGO">
                     
                     <span class="logo-span">jack</span>
                 </a>
@@ -239,7 +239,7 @@
 
     <div class="mobile-head bg-color">
         
-        <img src="https://v1.mykkto.cn/image/blog/20211641568137986-ckt-抠图.png" class="logo-img circle responsive-img">
+        <img src="/root/nginx/www/image/blog/20211641568137986-ckt-%E6%8A%A0%E5%9B%BE.png" class="logo-img circle responsive-img">
         
         <div class="logo-name">jack</div>
         <div class="logo-desc">
@@ -511,7 +511,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://v1.mykkto.cn/image/galleries/动漫风景/13.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/root/nginx/www/image/galleries/%E5%8A%A8%E6%BC%AB%E9%A3%8E%E6%99%AF/13.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -717,7 +717,7 @@
                 <h2 id="1、概述"><a href="#1、概述" class="headerlink" title="1、概述"></a>1、概述</h2><h3 id="1、官网"><a href="#1、官网" class="headerlink" title="1、官网"></a>1、官网</h3><p><a target="_blank" rel="noopener" href="https://docs.spring.io/spring-cloud-config/docs/2.2.8.RELEASE/reference/html/">https://docs.spring.io/spring-cloud-config/docs/2.2.8.RELEASE/reference/html/</a></p>
 <h3 id="2、分布式系统面临的—配置问题"><a href="#2、分布式系统面临的—配置问题" class="headerlink" title="2、分布式系统面临的—配置问题"></a>2、分布式系统面临的—配置问题</h3><p>   微服务意味着要将单体应用中的业务拆分成一个个子服务，每个服务的粒度相对较小，因此系统中会出现大量的服务。由于每个服务都需要必要的配置信息才能运行，所以一套集中式的、动态的配置管理设施是必不可少的。</p>
 <p>​    SpringCloud提供了ConfigServer来解决这个问题，我们每一个微服务自己带着一个application.yml，上百个配置文件的管理。</p>
-<h3 id="3、是什么"><a href="#3、是什么" class="headerlink" title="3、是什么"></a>3、是什么</h3><p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/202202041444024.png"></p>
+<h3 id="3、是什么"><a href="#3、是什么" class="headerlink" title="3、是什么"></a>3、是什么</h3><p><img src="/root/nginx/www/image/blog/2022/springcloud/202202041444024.png"></p>
 <p>SpringCloud Config为微服务架构中的微服务提供集中化的外部配置支持，配置服务器为<code>各个不同微服务</code>应用的所有环境提供了一个<code>中心化的外部配置</code>。</p>
 <h3 id="4、怎么玩"><a href="#4、怎么玩" class="headerlink" title="4、怎么玩"></a>4、怎么玩</h3><p>SpringCloud Config分为<code>服务端</code>和<code>客户端</code>两部分。</p>
 <p>服务端也称为<code>分布式配置中心，它是一个独立的微服务应用</code>，用来连接配置服务器并为客户端提供获取配置信息，加密/解密信息等访问接口</p>
@@ -757,7 +757,7 @@ spring:
 <h4 id="5、上传到gitee上"><a href="#5、上传到gitee上" class="headerlink" title="5、上传到gitee上"></a>5、上传到gitee上</h4><p>（1）<code>git add .</code></p>
 <p>（2）<code>git commit -m "init yml"</code></p>
 <p>（3）<code>git push origin master</code></p>
-<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/202202051328243.png"></p>
+<p><img src="/root/nginx/www/image/blog/2022/springcloud/202202051328243.png"></p>
 <h3 id="2、项目搭建"><a href="#2、项目搭建" class="headerlink" title="2、项目搭建"></a>2、项目搭建</h3><h4 id="1、建model"><a href="#1、建model" class="headerlink" title="1、建model"></a>1、建model</h4><p>新建Module模块cloud-config-center-3344</p>
 <h4 id="2、pom"><a href="#2、pom" class="headerlink" title="2、pom"></a>2、pom</h4><pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>
           <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>org.springframework.cloud<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
@@ -867,8 +867,8 @@ eureka:
 <h4 id="6、启动测试"><a href="#6、启动测试" class="headerlink" title="6、启动测试"></a>6、启动测试</h4><p>生产：<code>http://config-3344.com:3344/master/config-prod.yml</code></p>
 <p>开发：<code>http://config-3344.com:3344/master/config-dev.yml</code></p>
 <p>测试：<code>http://config-3344.com:3344/master/config-test.yml</code></p>
-<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/202202052133730.png"></p>
-<h3 id="3、配置读取规则"><a href="#3、配置读取规则" class="headerlink" title="3、配置读取规则"></a>3、配置读取规则</h3><h4 id="1、官网-1"><a href="#1、官网-1" class="headerlink" title="1、官网"></a>1、官网</h4><p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/202202052136337.png"></p>
+<p><img src="/root/nginx/www/image/blog/2022/springcloud/202202052133730.png"></p>
+<h3 id="3、配置读取规则"><a href="#3、配置读取规则" class="headerlink" title="3、配置读取规则"></a>3、配置读取规则</h3><h4 id="1、官网-1"><a href="#1、官网-1" class="headerlink" title="1、官网"></a>1、官网</h4><p><img src="/root/nginx/www/image/blog/2022/springcloud/202202052136337.png"></p>
 <h4 id="2、-label-application-profile-yml"><a href="#2、-label-application-profile-yml" class="headerlink" title="2、/{label}/{application}-{profile}.yml"></a>2、/{label}/{application}-{profile}.yml</h4><p>参数说明：<code>/分支/服务名/环境</code></p>
 <h5 id="1、master分支"><a href="#1、master分支" class="headerlink" title="1、master分支"></a>1、master分支</h5><p><code>http://config-3344.com:3344/master/config-dev.yml</code></p>
 <p><code>http://config-3344.com:3344/master/config-test.yml</code></p>
@@ -1009,7 +1009,7 @@ eureka:
 <p><code>http://config-3344.com:3344/master/config-dev.yml</code></p>
 <p>2、启动3355作为Client准备访问</p>
 <p><code>http://localhost:3355/configInfo</code></p>
-<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220211204233.png"></p>
+<p><img src="/root/nginx/www/image/blog/2022/springcloud/20220211204233.png"></p>
 <h3 id="2、动态刷新问题"><a href="#2、动态刷新问题" class="headerlink" title="2、动态刷新问题"></a>2、动态刷新问题</h3><ul>
 <li>Linux运维修改GitHub上的配置文件内容做调整</li>
 <li>刷新3344，发现ConfigServer配置中心立刻响应</li>
@@ -1057,7 +1057,7 @@ management:
 
 
 <h4 id="4、此时修改github—-gt-3344-—-gt-3355"><a href="#4、此时修改github—-gt-3344-—-gt-3355" class="headerlink" title="4、此时修改github—> 3344 —->3355"></a>4、此时修改github—&gt; 3344 —-&gt;3355</h4><p>1、添加一个版本号为1</p>
-<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/202202052320639.png"></p>
+<p><img src="/root/nginx/www/image/blog/2022/springcloud/202202052320639.png"></p>
 <p>2、此时看下3344（config服务端），没有重启的状态下</p>
 <p>没有更新！</p>
 <p>3、此时看下3355（config客户端），没有重启的状态下</p>
@@ -1633,7 +1633,7 @@ new Valine({
                     <div class="card-image">
                         
                         
-                        <img src="https://v1.mykkto.cn/image/galleries/动漫插画/14.jpg" class="responsive-img" alt="SpringCloud-Bus分布式节点链接">
+                        <img src="/root/nginx/www/image/galleries/%E5%8A%A8%E6%BC%AB%E6%8F%92%E7%94%BB/14.jpg" class="responsive-img" alt="SpringCloud-Bus分布式节点链接">
                         
                         <span class="card-title">SpringCloud-Bus分布式节点链接</span>
                     </div>
@@ -1690,7 +1690,7 @@ new Valine({
                     <div class="card-image">
                         
                         
-                        <img src="https://v1.mykkto.cn/image/galleries/动漫风景/10.jpg" class="responsive-img" alt="SpringCloud-Gaywayl路由网关">
+                        <img src="/root/nginx/www/image/galleries/%E5%8A%A8%E6%BC%AB%E9%A3%8E%E6%99%AF/10.jpg" class="responsive-img" alt="SpringCloud-Gaywayl路由网关">
                         
                         <span class="card-title">SpringCloud-Gaywayl路由网关</span>
                     </div>

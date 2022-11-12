@@ -20,7 +20,7 @@
 
     <title>SpringCloud-Alibaba-Seata 处理分布式事务 | jack</title>
 
-    <link rel="icon" type="image/jpeg" href="https://v1.mykkto.cn/image/blog/my1SN{XEPO)])9$A7K_JK(BNOV.jpg">
+    <link rel="icon" type="image/jpeg" href="/root/nginx/www/image/blog/my1SN%7BXEPO)%5D)9$A7K_JK(BNOV.jpg">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
     <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
@@ -56,7 +56,7 @@
             <div class="brand-logo">
                 <a href="/" class="waves-effect waves-light">
                     
-                    <img src="https://v1.mykkto.cn/image/blog/20211641568137986-ckt-抠图.png" class="logo-img" alt="LOGO">
+                    <img src="/root/nginx/www/image/blog/20211641568137986-ckt-%E6%8A%A0%E5%9B%BE.png" class="logo-img" alt="LOGO">
                     
                     <span class="logo-span">jack</span>
                 </a>
@@ -239,7 +239,7 @@
 
     <div class="mobile-head bg-color">
         
-        <img src="https://v1.mykkto.cn/image/blog/20211641568137986-ckt-抠图.png" class="logo-img circle responsive-img">
+        <img src="/root/nginx/www/image/blog/20211641568137986-ckt-%E6%8A%A0%E5%9B%BE.png" class="logo-img circle responsive-img">
         
         <div class="logo-name">jack</div>
         <div class="logo-desc">
@@ -511,7 +511,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://v1.mykkto.cn/image/galleries/动漫风景/07.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/root/nginx/www/image/galleries/%E5%8A%A8%E6%BC%AB%E9%A3%8E%E6%99%AF/07.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -719,7 +719,7 @@
 <li>从1：1  -&gt;  1：N  -&gt;  N：N</li>
 </ul>
 <h3 id="2、分布式之后"><a href="#2、分布式之后" class="headerlink" title="2、分布式之后"></a>2、分布式之后</h3><p>单体应用被拆分成微服务应用，原来的<code>三个模块</code>被拆分成<code>三个独立的应用</code>，分别使用三<code>个独立的数据源</code>，<br>业务操作需要调用三个服务来完成。此时<strong>每个服务内部的数据一致性由<code>本地</code>**事务来保证，但是<code>全局</code>**的数据一致性问题没法保证</strong>。</p>
-<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220324225229.png"></p>
+<p><img src="/root/nginx/www/image/blog/2022/springcloud/20220324225229.png"></p>
 <h3 id="3、一句话"><a href="#3、一句话" class="headerlink" title="3、一句话"></a>3、一句话</h3><p>一次业务操作需要跨多个数据源或需要跨多个系统进行远程调用，就会产生分布式事务问题</p>
 <h2 id="二、Seata简介"><a href="#二、Seata简介" class="headerlink" title="二、Seata简介"></a>二、Seata简介</h2><h3 id="1、是什么"><a href="#1、是什么" class="headerlink" title="1、是什么"></a>1、是什么</h3><p>Seata是一款开源的分布式事务解决方案，致力于在微服务架构下提供高性能和简单易用的分布式事务服务。</p>
 <h3 id="2、能干嘛（★）"><a href="#2、能干嘛（★）" class="headerlink" title="2、能干嘛（★）"></a>2、能干嘛（★）</h3><h4 id="1、ID-1-组件-3"><a href="#1、ID-1-组件-3" class="headerlink" title="1、ID(1)+组件(3)"></a>1、ID(1)+组件(3)</h4><h5 id="1、ID"><a href="#1、ID" class="headerlink" title="1、ID"></a>1、ID</h5><p>全局唯一的事务ID：Transaction ID XID</p>
@@ -734,20 +734,20 @@
 <p>3、RM 向 TC 注册分支事务，将其纳入 XID 对应全局事务的管辖；</p>
 <p>4、TM 向 TC 发起针对 XID 的全局提交或回滚决议；</p>
 <p>5、TC 调度 XID 下管辖的全部分支事务完成提交或回滚请求。</p>
-<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220325203440.png"></p>
+<p><img src="/root/nginx/www/image/blog/2022/springcloud/20220325203440.png"></p>
 <h3 id="3、怎么用"><a href="#3、怎么用" class="headerlink" title="3、怎么用"></a>3、怎么用</h3><h4 id="1、本地"><a href="#1、本地" class="headerlink" title="1、本地"></a>1、本地</h4><p>单体架构上，本地使用spring：<code>@Transactional</code></p>
 <h4 id="2、全局"><a href="#2、全局" class="headerlink" title="2、全局"></a>2、全局</h4><p>分布式上，全局使用Seata：<code>@GlobalTransactional</code></p>
-<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220325203650.png"></p>
+<p><img src="/root/nginx/www/image/blog/2022/springcloud/20220325203650.png"></p>
 <h2 id="三、Seata-Server安装"><a href="#三、Seata-Server安装" class="headerlink" title="三、Seata-Server安装"></a>三、Seata-Server安装</h2><h3 id="1、官网"><a href="#1、官网" class="headerlink" title="1、官网"></a>1、官网</h3><h4 id="1、地址"><a href="#1、地址" class="headerlink" title="1、地址"></a>1、地址</h4><p><a target="_blank" rel="noopener" href="http://seata.io/zh-cn/">http://seata.io/zh-cn/</a></p>
 <h4 id="2、下载地址"><a href="#2、下载地址" class="headerlink" title="2、下载地址"></a>2、下载地址</h4><p><a target="_blank" rel="noopener" href="https://github.com/seata/seata/releases">https://github.com/seata/seata/releases</a></p>
 <p>选择 1.0.0 GA 稳定版</p>
-<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220325210759.png"></p>
+<p><img src="/root/nginx/www/image/blog/2022/springcloud/20220325210759.png"></p>
 <h3 id="2、配置"><a href="#2、配置" class="headerlink" title="2、配置"></a>2、配置</h3><p>seata-server-1.0.0.zip 解压到指定目录并修改conf目录下的file.conf配置文件</p>
 <h4 id="1、file-conf（service模块）"><a href="#1、file-conf（service模块）" class="headerlink" title="1、file.conf（service模块）"></a>1、file.conf（service模块）</h4><pre class="line-numbers language-file.conf" data-language="file.conf"><code class="language-file.conf">vgroup_mapping.my_test_tx_group = "fsp_tx_group"<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 
 
-<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220325222219.png"></p>
+<p><img src="/root/nginx/www/image/blog/2022/springcloud/20220325222219.png"></p>
 <h4 id="2、file-conf（store模块）"><a href="#2、file-conf（store模块）" class="headerlink" title="2、file.conf（store模块）"></a>2、file.conf（store模块）</h4><pre class="line-numbers language-file.conf" data-language="file.conf"><code class="language-file.conf">mode = "db"
 
 url = "jdbc:mysql://127.0.0.1:3306/seata"
@@ -756,7 +756,7 @@ password = "你自己密码"<span aria-hidden="true" class="line-numbers-rows"><
 
 
 
-<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220325222634.png"></p>
+<p><img src="/root/nginx/www/image/blog/2022/springcloud/20220325222634.png"></p>
 <h3 id="3、导入建表sql"><a href="#3、导入建表sql" class="headerlink" title="3、导入建表sql"></a>3、导入建表sql</h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">-- -------------------------------- The script used when storeMode is 'db' --------------------------------</span>
 <span class="token comment">-- the table to store GlobalSession data</span>
 <span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> <span class="token keyword">IF</span> <span class="token operator">NOT</span> <span class="token keyword">EXISTS</span> <span class="token punctuation">`</span>global_table<span class="token punctuation">`</span>
@@ -815,9 +815,9 @@ password = "你自己密码"<span aria-hidden="true" class="line-numbers-rows"><
   <span class="token keyword">DEFAULT</span> <span class="token keyword">CHARSET</span> <span class="token operator">=</span> utf8<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="4、启动"><a href="#4、启动" class="headerlink" title="4、启动"></a>4、启动</h3><p>1、启动cacos，seate </p>
-<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220326194029.png"></p>
+<p><img src="/root/nginx/www/image/blog/2022/springcloud/20220326194029.png"></p>
 <p>2、查看 nacos 控制台</p>
-<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220326194117.png"></p>
+<p><img src="/root/nginx/www/image/blog/2022/springcloud/20220326194117.png"></p>
 <h2 id="四、订单-库存-账户业务数据库准备"><a href="#四、订单-库存-账户业务数据库准备" class="headerlink" title="四、订单/库存/账户业务数据库准备"></a>四、订单/库存/账户业务数据库准备</h2><h3 id="1、实战业务说明"><a href="#1、实战业务说明" class="headerlink" title="1、实战业务说明"></a>1、实战业务说明</h3><h4 id="1、详细"><a href="#1、详细" class="headerlink" title="1、详细"></a>1、详细</h4><p><strong>这里我们会创建三个服务，一个订单服务，一个库存服务，一个账户服务。</strong></p>
 <p>当用户下单时，会在订单服务中创建一个订单，然后通过远程调用库存服务来扣减下单商品的库存，<br>再通过远程调用账户服务来扣减用户账户里面的余额，<br>最后在订单服务中修改订单状态为已完成。</p>
 <p>该操作跨越三个数据库，有两次远程调用，很明显会有分布式事务问题。</p>
@@ -912,7 +912,7 @@ password = "你自己密码"<span aria-hidden="true" class="line-numbers-rows"><
 
 
 
-<h4 id="5、效果"><a href="#5、效果" class="headerlink" title="5、效果"></a>5、效果</h4><p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220326200400.png"></p>
+<h4 id="5、效果"><a href="#5、效果" class="headerlink" title="5、效果"></a>5、效果</h4><p><img src="/root/nginx/www/image/blog/2022/springcloud/20220326200400.png"></p>
 <h2 id="五、订单-库存-账户业务微服务准备"><a href="#五、订单-库存-账户业务微服务准备" class="headerlink" title="五、订单/库存/账户业务微服务准备"></a>五、订单/库存/账户业务微服务准备</h2><h3 id="1、业务需求"><a href="#1、业务需求" class="headerlink" title="1、业务需求"></a>1、业务需求</h3><p><strong>下订单-&gt;减库存-&gt;扣余额-&gt;改(订单)状态</strong></p>
 <h3 id="2、新建订单Order-Module"><a href="#2、新建订单Order-Module" class="headerlink" title="2、新建订单Order-Module"></a>2、新建订单Order-Module</h3><h4 id="1、model"><a href="#1、model" class="headerlink" title="1、model"></a>1、model</h4><p>seata-order-service2001</p>
 <h4 id="2、pom"><a href="#2、pom" class="headerlink" title="2、pom"></a>2、pom</h4><pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
@@ -2599,13 +2599,13 @@ config {
 
 
 
-<h2 id="六、Test"><a href="#六、Test" class="headerlink" title="六、Test"></a>六、Test</h2><h3 id="1、初始情况"><a href="#1、初始情况" class="headerlink" title="1、初始情况"></a>1、初始情况</h3><p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220327221856.png"></p>
+<h2 id="六、Test"><a href="#六、Test" class="headerlink" title="六、Test"></a>六、Test</h2><h3 id="1、初始情况"><a href="#1、初始情况" class="headerlink" title="1、初始情况"></a>1、初始情况</h3><p><img src="/root/nginx/www/image/blog/2022/springcloud/20220327221856.png"></p>
 <h3 id="2、正常下单"><a href="#2、正常下单" class="headerlink" title="2、正常下单"></a>2、正常下单</h3><h4 id="1、请求"><a href="#1、请求" class="headerlink" title="1、请求"></a>1、请求</h4><p><a target="_blank" rel="noopener" href="http://localhost:2001/order/create?userId=1&amp;productId=1&amp;count=10&amp;money=100">http://localhost:2001/order/create?userId=1&amp;productId=1&amp;count=10&amp;money=100</a></p>
-<h4 id="2、数据库情况"><a href="#2、数据库情况" class="headerlink" title="2、数据库情况"></a>2、数据库情况</h4><p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220327235131.png"></p>
+<h4 id="2、数据库情况"><a href="#2、数据库情况" class="headerlink" title="2、数据库情况"></a>2、数据库情况</h4><p><img src="/root/nginx/www/image/blog/2022/springcloud/20220327235131.png"></p>
 <h3 id="3、无注解"><a href="#3、无注解" class="headerlink" title="3、无注解"></a>3、无注解</h3><p><strong>超时异常，没加@GlobalTransactional</strong></p>
 <p>1、AccountServiceImpl添加超时</p>
 <p>2、数据库情况</p>
-<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220327235239.png"></p>
+<p><img src="/root/nginx/www/image/blog/2022/springcloud/20220327235239.png"></p>
 <p>3、故障情况</p>
 <ul>
 <li>当库存和账户金额扣减后，订单状态并没有设置为已经完成，没有从零改为1</li>
@@ -2633,15 +2633,15 @@ config {
 <p>3、TM 结束分布式事务，事务一阶段结束（TM 通知 TC 提交/回滚分布式事务）；</p>
 <p>4、TC 汇总事务信息，决定分布式事务是提交还是回滚；</p>
 <p>5、TC 通知所有 RM 提交/回滚 资源，事务二阶段结束。</p>
-<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220328000204.png"></p>
-<h3 id="2、AT模式如何做到对业务的无侵入"><a href="#2、AT模式如何做到对业务的无侵入" class="headerlink" title="2、AT模式如何做到对业务的无侵入"></a>2、AT模式如何做到对业务的无侵入</h3><h4 id="1、是什么-1"><a href="#1、是什么-1" class="headerlink" title="1、是什么"></a>1、是什么</h4><p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220328000223.png"></p>
+<p><img src="/root/nginx/www/image/blog/2022/springcloud/20220328000204.png"></p>
+<h3 id="2、AT模式如何做到对业务的无侵入"><a href="#2、AT模式如何做到对业务的无侵入" class="headerlink" title="2、AT模式如何做到对业务的无侵入"></a>2、AT模式如何做到对业务的无侵入</h3><h4 id="1、是什么-1"><a href="#1、是什么-1" class="headerlink" title="1、是什么"></a>1、是什么</h4><p><img src="/root/nginx/www/image/blog/2022/springcloud/20220328000223.png"></p>
 <h4 id="2、一阶段加载"><a href="#2、一阶段加载" class="headerlink" title="2、一阶段加载"></a>2、一阶段加载</h4><p>在一阶段，Seata 会拦截“业务 SQL”，<br>1  解析 SQL 语义，找到“业务 SQL”要更新的业务数据，在业务数据被更新前，将其保存成“before image”，<br>2  执行“业务 SQL”更新业务数据，在业务数据更新之后，<br>3  其保存成“after image”，最后生成行锁。<br>以上操作全部在一个数据库事务内完成，这样保证了一阶段操作的原子性。</p>
-<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220328000410.png"></p>
+<p><img src="/root/nginx/www/image/blog/2022/springcloud/20220328000410.png"></p>
 <h4 id="3、二阶段提交"><a href="#3、二阶段提交" class="headerlink" title="3、二阶段提交"></a>3、二阶段提交</h4><p>二阶段如是顺利提交的话，<br>因为“业务 SQL”在一阶段已经提交至数据库，所以Seata框架只需将<code>一阶段保存的快照数据和行锁删掉，完成数据清理即可</code>。</p>
-<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220328000347.png"></p>
+<p><img src="/root/nginx/www/image/blog/2022/springcloud/20220328000347.png"></p>
 <h4 id="3、二阶段回滚"><a href="#3、二阶段回滚" class="headerlink" title="3、二阶段回滚"></a>3、二阶段回滚</h4><p>二阶段回滚：<br>二阶段如果是回滚的话，Seata 就需要回滚一阶段已经执行的“业务 SQL”，还原业务数据。<br>回滚方式便是用“before image”还原业务数据；但在还原前要首先要校验脏写，对比“数据库当前业务数据”和 “after image”，<br>如果两份数据完全一致就说明没有脏写，可以还原业务数据，如果不一致就说明有脏写，出现脏写就需要转人工处理。</p>
-<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220328000322.png"></p>
-<h3 id="3、补充"><a href="#3、补充" class="headerlink" title="3、补充"></a>3、补充</h3><p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220328000437.png"></p>
+<p><img src="/root/nginx/www/image/blog/2022/springcloud/20220328000322.png"></p>
+<h3 id="3、补充"><a href="#3、补充" class="headerlink" title="3、补充"></a>3、补充</h3><p><img src="/root/nginx/www/image/blog/2022/springcloud/20220328000437.png"></p>
 <h3 id=""><a href="#" class="headerlink" title=""></a></h3><h2 id="参考文档-↓"><a href="#参考文档-↓" class="headerlink" title="参考文档 ↓"></a>参考文档 ↓</h2><p>docker 安装问题：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/youngyajun/p/14002547.html">https://www.cnblogs.com/youngyajun/p/14002547.html</a></p>
 <p>docker 网络问题：<a target="_blank" rel="noopener" href="https://blog.csdn.net/tilyp/article/details/103371360">https://blog.csdn.net/tilyp/article/details/103371360</a></p>
 <p>docker 运行问题：<a target="_blank" rel="noopener" href="https://www.manongdao.com/article-2421258.html">https://www.manongdao.com/article-2421258.html</a></p>
@@ -3198,7 +3198,7 @@ new Valine({
                     <div class="card-image">
                         
                         
-                        <img src="https://v1.mykkto.cn/image/galleries/动漫插画/11.jpg" class="responsive-img" alt="Lua脚本语言基础">
+                        <img src="/root/nginx/www/image/galleries/%E5%8A%A8%E6%BC%AB%E6%8F%92%E7%94%BB/11.jpg" class="responsive-img" alt="Lua脚本语言基础">
                         
                         <span class="card-title">Lua脚本语言基础</span>
                     </div>
@@ -3255,7 +3255,7 @@ new Valine({
                     <div class="card-image">
                         
                         
-                        <img src="https://v1.mykkto.cn/image/galleries/动漫风景/15.jpg" class="responsive-img" alt="云主机部署并同步更新二级域名">
+                        <img src="/root/nginx/www/image/galleries/%E5%8A%A8%E6%BC%AB%E9%A3%8E%E6%99%AF/15.jpg" class="responsive-img" alt="云主机部署并同步更新二级域名">
                         
                         <span class="card-title">云主机部署并同步更新二级域名</span>
                     </div>
