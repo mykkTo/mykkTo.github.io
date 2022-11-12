@@ -20,7 +20,7 @@
 
     <title>大厂面试题 | jack</title>
 
-    <link rel="icon" type="image/jpeg" href="https://_v1.mykkto.cn/image/blog/my1SN{XEPO)])9$A7K_JK(BNOV.jpg">
+    <link rel="icon" type="image/jpeg" href="https://v1.mykkto.cn/image/blog/my1SN{XEPO)])9$A7K_JK(BNOV.jpg">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
     <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
@@ -56,7 +56,7 @@
             <div class="brand-logo">
                 <a href="/" class="waves-effect waves-light">
                     
-                    <img src="https://_v1.mykkto.cn/image/blog/20211641568137986-ckt-抠图.png" class="logo-img" alt="LOGO">
+                    <img src="https://v1.mykkto.cn/image/blog/20211641568137986-ckt-抠图.png" class="logo-img" alt="LOGO">
                     
                     <span class="logo-span">jack</span>
                 </a>
@@ -239,7 +239,7 @@
 
     <div class="mobile-head bg-color">
         
-        <img src="https://_v1.mykkto.cn/image/blog/20211641568137986-ckt-抠图.png" class="logo-img circle responsive-img">
+        <img src="https://v1.mykkto.cn/image/blog/20211641568137986-ckt-抠图.png" class="logo-img circle responsive-img">
         
         <div class="logo-name">jack</div>
         <div class="logo-desc">
@@ -511,7 +511,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://_v1.mykkto.cn/image/galleries/动漫风景/11.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://v1.mykkto.cn/image/galleries/动漫风景/11.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -729,71 +729,71 @@
 <li></li>
 </ul>
 <h2 id="源码："><a href="#源码：" class="headerlink" title="源码："></a>源码：</h2><p><a target="_blank" rel="noopener" href="https://gitee.com/TK_LIMR/springcloud2021To2021">https://gitee.com/TK_LIMR/springcloud2021To2021</a></p>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/Interview/202210231430708.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202210231430708.png"></p>
 <h2 id=""><a href="#" class="headerlink" title=""></a></h2><h3 id="一、Spring-tx-事务失效场景"><a href="#一、Spring-tx-事务失效场景" class="headerlink" title="一、Spring-tx 事务失效场景"></a>一、Spring-tx 事务失效场景</h3><h3 id="1、检查异常"><a href="#1、检查异常" class="headerlink" title="1、检查异常"></a>1、检查异常</h3><h4 id="1、失效场景"><a href="#1、失效场景" class="headerlink" title="1、失效场景"></a>1、失效场景</h4><h4 id="-1"><a href="#-1" class="headerlink" title=""></a></h4><p>这边构造一个不存在的文件流，造成异常模拟</p>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/Interview/202210231431260.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202210231431260.png"></p>
 <p>数据库情况</p>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/Interview/202210231432351.png"></p>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/Interview/202210231432321.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202210231432351.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202210231432321.png"></p>
 <p>很明显事务失效了</p>
 <h4 id="2、解决方案"><a href="#2、解决方案" class="headerlink" title="2、解决方案"></a>2、解决方案</h4><p>加上注解，实现有感知回滚</p>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/Interview/202210231450351.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202210231450351.png"></p>
 <h3 id="2、错误的-try-catch"><a href="#2、错误的-try-catch" class="headerlink" title="2、错误的 try-catch"></a>2、错误的 try-catch</h3><h4 id="1、失效场景-1"><a href="#1、失效场景-1" class="headerlink" title="1、失效场景"></a>1、失效场景</h4><p>自己try 后，外部调用的方法，无感知，则提交了没有回滚</p>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/Interview/202210231457909.png"></p>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/Interview/202210231457334.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202210231457909.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202210231457334.png"></p>
 <h4 id="2、解决方案-1"><a href="#2、解决方案-1" class="headerlink" title="2、解决方案"></a>2、解决方案</h4><p><strong>方法一：</strong></p>
 <p>当用 try-catch 出现异常的时候，显示的往上抛，让上层调用者感知</p>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/Interview/202210231459121.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202210231459121.png"></p>
 <p><strong>方法二：</strong></p>
 <p>调用事务方法，回滚功能，可以显示的提交或者回滚，回滚效果和向上抛异常时一样的</p>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/Interview/202210231503903.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202210231503903.png"></p>
 <h3 id="3、切面顺序"><a href="#3、切面顺序" class="headerlink" title="3、切面顺序"></a>3、切面顺序</h3><h4 id="1、失效场景-2"><a href="#1、失效场景-2" class="headerlink" title="1、失效场景"></a>1、失效场景</h4><p>基于检查异常+try-catch的处理后，使用了后置通知发现依然回滚失败</p>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/Interview/202210231534763.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202210231534763.png"></p>
 <p><strong>原因</strong></p>
 <p>主要因为先进入事务，然后进入后置(有异常)，在进入目标方法，此时后置并没有往事务上抛，所以无感知</p>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/Interview/202210231637927.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202210231637927.png"></p>
 <h4 id="2、解决方案（不推荐）"><a href="#2、解决方案（不推荐）" class="headerlink" title="2、解决方案（不推荐）"></a>2、解决方案（不推荐）</h4><p>设置后置的优先级高于事务，这样事务在后面运行，既可以感知到异常</p>
 <p><strong>方法一</strong></p>
 <p>在切面 catch 时候采用 检查异常 或者 try-catch 上面两种方法在 切面方法改动</p>
 <p><strong>方法二</strong></p>
 <p>设置优先级高于事务</p>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/Interview/202210231650943.png"></p>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/Interview/202210231654793.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202210231650943.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202210231654793.png"></p>
 <h3 id="4、非public场景"><a href="#4、非public场景" class="headerlink" title="4、非public场景"></a>4、非public场景</h3><h4 id="1、失效场景-3"><a href="#1、失效场景-3" class="headerlink" title="1、失效场景"></a>1、失效场景</h4><p>方法设置为默认 非public ，事务失效</p>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/Interview/202210231701980.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202210231701980.png"></p>
 <h4 id="2、解决方案（不推荐）-1"><a href="#2、解决方案（不推荐）-1" class="headerlink" title="2、解决方案（不推荐）"></a>2、解决方案（不推荐）</h4><p>修改默认配置，默认true 只对 public 方法生效</p>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/Interview/202210231703269.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202210231703269.png"></p>
 <h3 id="5、父子容器"><a href="#5、父子容器" class="headerlink" title="5、父子容器"></a>5、父子容器</h3><h4 id="1、失效场景-4"><a href="#1、失效场景-4" class="headerlink" title="1、失效场景"></a>1、失效场景</h4><p>简单来说就是放在 controller 上调用 service，也是开发中常见的场景</p>
 <p>原因：子容器扫描范围过大，把未加事务配置的 service 扫描进来</p>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/Interview/202210231942105.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202210231942105.png"></p>
 <h4 id="2、解决方案-2"><a href="#2、解决方案-2" class="headerlink" title="2、解决方案"></a>2、解决方案</h4><p>在springboot遇不到，因为只有一个容器。通常出现在传统项目（spring+MVC整合的时候），会遇到扫描父子容器。Spring扫spring,MVC扫mvc自己的包，就不会出现这个问题，而不是直接扫整个上层包</p>
 <h3 id="6、本类方法调用"><a href="#6、本类方法调用" class="headerlink" title="6、本类方法调用"></a>6、本类方法调用</h3><h4 id="1、失效场景-5"><a href="#1、失效场景-5" class="headerlink" title="1、失效场景"></a>1、失效场景</h4><p>本类两个方法相互调用</p>
 <p><strong>原因</strong></p>
 <p>本类调用，不经过代理，因此无法增强，导致两个事务公用一个</p>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/Interview/202210232034376.png"></p>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/Interview/202210232038217.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202210232034376.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202210232038217.png"></p>
 <h4 id="2、解决方案-3"><a href="#2、解决方案-3" class="headerlink" title="2、解决方案"></a>2、解决方案</h4><p><strong>方法一</strong></p>
 <p>自己注入自己</p>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/Interview/202210232037056.png"></p>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/Interview/202210232037020.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202210232037056.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202210232037020.png"></p>
 <p><strong>方法二</strong></p>
 <p>从 Aop中代理调用</p>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/Interview/202210232044254.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202210232044254.png"></p>
 <h3 id="7、原子性（锁失效）"><a href="#7、原子性（锁失效）" class="headerlink" title="7、原子性（锁失效）"></a>7、原子性（锁失效）</h3><h4 id="1、失效场景-6"><a href="#1、失效场景-6" class="headerlink" title="1、失效场景"></a>1、失效场景</h4><p>Jmeter 模拟100个线程每秒</p>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/Interview/202210232143042.png"></p>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/Interview/202210232142003.png"></p>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/Interview/202210232141576.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202210232143042.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202210232142003.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202210232141576.png"></p>
 <h4 id="2、解决方案-4"><a href="#2、解决方案-4" class="headerlink" title="2、解决方案"></a>2、解决方案</h4><p>用 synchronize 能解决？？</p>
 <p>答案：不能</p>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/Interview/202210232147419.png"></p>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/Interview/202210232147341.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202210232147419.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202210232147341.png"></p>
 <p><strong>@Transactional 没有保证原子的原因</strong>：</p>
 <p>事务的原子性仅覆盖 inset,update,delete ；select 语句不覆盖，select 方法不阻塞</p>
 <p><strong>@Transactional 导致 synchronize 失效的原因</strong>：</p>
 <p>synchronize 仅保证目标方法的原子性，环绕方法的还有 commit (事务提交)等操作，他们并未处于 sync 同步块中</p>
 <p><strong>方案1：（不推荐）</strong></p>
 <p>修改 synchronize 位置范围扩大至代理方法调用(上层并发接口位置)</p>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/Interview/202210232230437.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202210232230437.png"></p>
 <p><strong>方案2：（推荐）</strong></p>
 <p>修改 SQL 语句 把 select 替换成 select …for update</p>
 <h3 id="二、数据库索引失效场景"><a href="#二、数据库索引失效场景" class="headerlink" title="二、数据库索引失效场景"></a>二、数据库索引失效场景</h3><p><strong>1、like 以%开头，索引无效；当like前缀没有%，后缀有%时，索引有效</strong></p>
@@ -1363,7 +1363,7 @@ new Valine({
                     <div class="card-image">
                         
                         
-                        <img src="https://_v1.mykkto.cn/image/galleries/动漫风景/11.jpg" class="responsive-img" alt="大厂面试题">
+                        <img src="https://v1.mykkto.cn/image/galleries/动漫风景/11.jpg" class="responsive-img" alt="大厂面试题">
                         
                         <span class="card-title">大厂面试题</span>
                     </div>
@@ -1421,7 +1421,7 @@ new Valine({
                     <div class="card-image">
                         
                         
-                        <img src="https://_v1.mykkto.cn/image/galleries/动漫风景/03.jpg" class="responsive-img" alt="RabbitMQ-入门+实战篇">
+                        <img src="https://v1.mykkto.cn/image/galleries/动漫风景/03.jpg" class="responsive-img" alt="RabbitMQ-入门+实战篇">
                         
                         <span class="card-title">RabbitMQ-入门+实战篇</span>
                     </div>

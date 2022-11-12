@@ -20,7 +20,7 @@
 
     <title>高阶面试题：JUC-AQS | jack</title>
 
-    <link rel="icon" type="image/jpeg" href="https://_v1.mykkto.cn/image/blog/my1SN{XEPO)])9$A7K_JK(BNOV.jpg">
+    <link rel="icon" type="image/jpeg" href="https://v1.mykkto.cn/image/blog/my1SN{XEPO)])9$A7K_JK(BNOV.jpg">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
     <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
@@ -56,7 +56,7 @@
             <div class="brand-logo">
                 <a href="/" class="waves-effect waves-light">
                     
-                    <img src="https://_v1.mykkto.cn/image/blog/20211641568137986-ckt-抠图.png" class="logo-img" alt="LOGO">
+                    <img src="https://v1.mykkto.cn/image/blog/20211641568137986-ckt-抠图.png" class="logo-img" alt="LOGO">
                     
                     <span class="logo-span">jack</span>
                 </a>
@@ -239,7 +239,7 @@
 
     <div class="mobile-head bg-color">
         
-        <img src="https://_v1.mykkto.cn/image/blog/20211641568137986-ckt-抠图.png" class="logo-img circle responsive-img">
+        <img src="https://v1.mykkto.cn/image/blog/20211641568137986-ckt-抠图.png" class="logo-img circle responsive-img">
         
         <div class="logo-name">jack</div>
         <div class="logo-desc">
@@ -511,7 +511,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://_v1.mykkto.cn/image/galleries/动漫插画/07.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://v1.mykkto.cn/image/galleries/动漫插画/07.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -716,18 +716,18 @@
             <div id="articleContent">
                 <h2 id="一、是什么"><a href="#一、是什么" class="headerlink" title="一、是什么"></a>一、是什么</h2><h3 id="1、字面意思"><a href="#1、字面意思" class="headerlink" title="1、字面意思"></a>1、字面意思</h3><p>抽象的队列同步器</p>
 <p>结构关系图：</p>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/springcloud/20220221163441.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220221163441.png"></p>
 <h3 id="2、技术解释"><a href="#2、技术解释" class="headerlink" title="2、技术解释"></a>2、技术解释</h3><ul>
 <li>用来构建锁或者其它同步器组件的<code>重量级基础框架及整个JUC体系的基石</code>。</li>
 <li>通过内置的FIFO1<code>队列</code>来完成资源获取线程的排队工作，并通过一个<code>int类变量</code><br>表示持有锁的状态</li>
 </ul>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/springcloud/20220221163706.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220221163706.png"></p>
 <p>CLH：Craig、Landin and Hagersten 队列，是一个单向链表，AQS中的队列是CLH变体的虚拟双向队列FIFO</p>
 <h2 id="二、AQS-JUC（基石）"><a href="#二、AQS-JUC（基石）" class="headerlink" title="二、AQS=JUC（基石）"></a>二、AQS=JUC（基石）</h2><p>AQS为什么是JUC内容中最重要的基石</p>
 <h3 id="1、AQS有关的锁"><a href="#1、AQS有关的锁" class="headerlink" title="1、AQS有关的锁"></a>1、AQS有关的锁</h3><ul>
 <li>ReentrantLock</li>
 </ul>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/springcloud/20220221144606.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220221144606.png"></p>
 <ul>
 <li>CountDownLatch</li>
 <li>ReentrantReadWriteLock</li>
@@ -749,24 +749,24 @@
 <p>既然说到了<code>排队等候机制</code>，那么就一定会有某种队列形成，这样的队列是什么数据结构呢？</p>
 <p>如果共享资源被占用，<code>就需要一定的阻塞等待唤醒机制来保证锁分配</code>。这个机制主要用的是CLH队列的变体实现的，将暂时获取不到锁的线程加入到队列中，这个队列就是AQS的抽象表现。它将请求共享资源的线程封装成队列的结点（<code>Node</code>），通过<code>CAS、自旋以及LockSupport.park()</code>的方式，维护state变量的状态，使并发达到同步的效果。</p>
 <p>LockSupport.park()：阻塞当前线程的执行，且<strong>都不会释放当前线程占有的锁资源</strong>；</p>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/springcloud/20220222105221.png"></p>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/springcloud/20220222125213.png"></p>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/springcloud/20220222131031.png"></p>
-<h2 id="四、AQS-解读"><a href="#四、AQS-解读" class="headerlink" title="四、AQS 解读"></a>四、AQS 解读</h2><h3 id="1、AQS概述"><a href="#1、AQS概述" class="headerlink" title="1、AQS概述"></a>1、AQS概述</h3><h4 id="1、官网解释"><a href="#1、官网解释" class="headerlink" title="1、官网解释"></a>1、官网解释</h4><p><img src="https://_v1.mykkto.cn/image/blog/2022/springcloud/20220224111756.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220222105221.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220222125213.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220222131031.png"></p>
+<h2 id="四、AQS-解读"><a href="#四、AQS-解读" class="headerlink" title="四、AQS 解读"></a>四、AQS 解读</h2><h3 id="1、AQS概述"><a href="#1、AQS概述" class="headerlink" title="1、AQS概述"></a>1、AQS概述</h3><h4 id="1、官网解释"><a href="#1、官网解释" class="headerlink" title="1、官网解释"></a>1、官网解释</h4><p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220224111756.png"></p>
 <h4 id="2、阻塞-gt-队列"><a href="#2、阻塞-gt-队列" class="headerlink" title="2、阻塞->队列"></a>2、阻塞-&gt;队列</h4><p>有阻塞就需要排队，实现排队必然需要队列</p>
 <p>AQS使用一个volatile的int类型的成员变量来表示同步状态，通过内置的<br>FIFO队列来完成资源获取的排队工作将每条要去抢占资源的线程封装成<br>一个Node节点来实现锁的分配，通过CAS完成对State值的修改。</p>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/springcloud/20220224112845.png"></p>
-<h3 id="2、AQS内部体系架构"><a href="#2、AQS内部体系架构" class="headerlink" title="2、AQS内部体系架构"></a>2、AQS内部体系架构</h3><p><img src="https://_v1.mykkto.cn/image/blog/2022/springcloud/20220224114013.png"></p>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/springcloud/20220224113957.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220224112845.png"></p>
+<h3 id="2、AQS内部体系架构"><a href="#2、AQS内部体系架构" class="headerlink" title="2、AQS内部体系架构"></a>2、AQS内部体系架构</h3><p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220224114013.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220224113957.png"></p>
 <h4 id="1、AQS自身"><a href="#1、AQS自身" class="headerlink" title="1、AQS自身"></a>1、AQS自身</h4><h5 id="1、AQS的int变量-★"><a href="#1、AQS的int变量-★" class="headerlink" title="1、AQS的int变量 ★"></a>1、AQS的int变量 ★</h5><p>1、AQS的同步状态State成员变量</p>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/springcloud/20220224155656.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220224155656.png"></p>
 <p>2、银行办理业务的受理窗口状态（通俗理解）</p>
 <ul>
 <li>零就是没人（自由状态），可以办理</li>
 <li>大于等于1，有人占用窗口，等着去</li>
 </ul>
 <h5 id="2、AQS的CLH队列"><a href="#2、AQS的CLH队列" class="headerlink" title="2、AQS的CLH队列"></a>2、AQS的CLH队列</h5><p>1、CLH队列(三个大牛的名字组成)，为一个双向队列</p>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/springcloud/20220224161127.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220224161127.png"></p>
 <p>2、银行候客区的等待顾客（通俗理解）</p>
 <h5 id="3、小总结"><a href="#3、小总结" class="headerlink" title="3、小总结"></a>3、小总结</h5><ul>
 <li>有阻塞就需要排队，实现排队必然需要队列</li>
@@ -774,52 +774,52 @@
 </ul>
 <h4 id="2、内部类Node"><a href="#2、内部类Node" class="headerlink" title="2、内部类Node"></a>2、内部类Node</h4><p>内部类Node(Node类在AQS类内部)</p>
 <h5 id="1、Node的int变量-★"><a href="#1、Node的int变量-★" class="headerlink" title="1、Node的int变量 ★"></a>1、Node的int变量 ★</h5><p>1、Node的等待状态waitState成员变量</p>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/springcloud/20220224161754.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220224161754.png"></p>
 <p>2、说明</p>
 <ul>
 <li>等候区其它顾客(其它线程)的等待状态</li>
 <li>队列中每个排队的个体就是一个  Node</li>
 </ul>
 <h5 id="2、Node此类详解"><a href="#2、Node此类详解" class="headerlink" title="2、Node此类详解"></a>2、Node此类详解</h5><p>1、内部结构</p>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/springcloud/20220224162501.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220224162501.png"></p>
 <p>2、属性说明</p>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/springcloud/20220224162531.png"></p>
-<h3 id="3、AQS同步队列的基本结构"><a href="#3、AQS同步队列的基本结构" class="headerlink" title="3、AQS同步队列的基本结构"></a>3、AQS同步队列的基本结构</h3><p><img src="https://_v1.mykkto.cn/image/blog/2022/springcloud/20220301135124.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220224162531.png"></p>
+<h3 id="3、AQS同步队列的基本结构"><a href="#3、AQS同步队列的基本结构" class="headerlink" title="3、AQS同步队列的基本结构"></a>3、AQS同步队列的基本结构</h3><p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220301135124.png"></p>
 <p>CLH：Craig、Landin and Hagersten 队列，是个单向链表，AQS中的队列是CLH变体的虚拟双向队列（FIFO）</p>
 <p>FIFO：队列中用到了哨兵节点（傀儡节点）既，头节点（好处就是不用去判空，因为有头节点）</p>
 <h2 id="五、从ReentrantLock开始解读AQS"><a href="#五、从ReentrantLock开始解读AQS" class="headerlink" title="五、从ReentrantLock开始解读AQS"></a>五、从ReentrantLock开始解读AQS</h2><h3 id="1、说明"><a href="#1、说明" class="headerlink" title="1、说明"></a>1、说明</h3><p><strong>Lock接口的实现类，基本都是通过【聚合】了一个【队列同步器】的子类完成线程访问控制的</strong></p>
 <p>1、可以看出内部子类 Sync，继承了 AQS </p>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/springcloud/20220329210645.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220329210645.png"></p>
 <p>2、看下类 UML图，Sync 底下又有两个子类（分别为公平和非公平）</p>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/springcloud/20220329211351.png"></p>
-<h3 id="2、公平锁和非公平锁"><a href="#2、公平锁和非公平锁" class="headerlink" title="2、公平锁和非公平锁"></a>2、公平锁和非公平锁</h3><h4 id="1、先从创建入手"><a href="#1、先从创建入手" class="headerlink" title="1、先从创建入手"></a>1、先从创建入手</h4><p><img src="https://_v1.mykkto.cn/image/blog/2022/springcloud/20220329211608.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220329211351.png"></p>
+<h3 id="2、公平锁和非公平锁"><a href="#2、公平锁和非公平锁" class="headerlink" title="2、公平锁和非公平锁"></a>2、公平锁和非公平锁</h3><h4 id="1、先从创建入手"><a href="#1、先从创建入手" class="headerlink" title="1、先从创建入手"></a>1、先从创建入手</h4><p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220329211608.png"></p>
 <h4 id="2、追溯"><a href="#2、追溯" class="headerlink" title="2、追溯"></a>2、追溯</h4><p>1、默认构造方法，默认不传参构造</p>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/springcloud/20220329213723.png"></p>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/springcloud/20220329213641.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220329213723.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220329213641.png"></p>
 <p>2、带参传入，此时判断是非公平还是公平</p>
 <p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1648561077377.png" alt="1648561077377"></p>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/springcloud/20220329213816.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220329213816.png"></p>
 <p>3、很明显这是两个类，分别继承与Sync，上面有提到</p>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/springcloud/20220329213915.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220329213915.png"></p>
 <h4 id="3、看源码"><a href="#3、看源码" class="headerlink" title="3、看源码"></a>3、看源码</h4><h5 id="1、看差异"><a href="#1、看差异" class="headerlink" title="1、看差异"></a>1、看差异</h5><p>1、可以明显看出公平锁与非公平锁的lock()方法唯一的区别就在于公平锁在获取同步状态时多了一个限制条件 <code>hasQueuedPredecessors()</code></p>
 <p><strong>hasQueuedPredecessors是公平锁加锁时判断等待队列中是否存在有效节点的方法</strong></p>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/springcloud/20220329214203.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220329214203.png"></p>
 <h5 id="2、对比"><a href="#2、对比" class="headerlink" title="2、对比"></a>2、对比</h5><p>公平锁：公平锁讲究先来先到，线程在获取锁时，如果这个锁的等待队列中已经有线程在等待，那么当前线程就会进入等待队列中；</p>
 <p>非公平锁：不管是否有等待队列，如果可以获取锁，则立刻占有锁对象。也就是说队列的第一个排队线程在unpark()，之后还是需要竞争锁（存在线程竞争的情况下）</p>
 <h5 id="3、必调-lock"><a href="#3、必调-lock" class="headerlink" title="3、必调 lock()"></a>3、必调 lock()</h5><p>在创建完公平/非公平锁，调用<code>lock</code>方法进行加锁，最终都会调用 <code>acquire</code> 方法</p>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/springcloud/20220329221223.png"></p>
-<h3 id="3、源码Api解读"><a href="#3、源码Api解读" class="headerlink" title="3、源码Api解读"></a>3、源码Api解读</h3><h4 id="1、lock"><a href="#1、lock" class="headerlink" title="1、lock()"></a>1、lock()</h4><p><img src="https://_v1.mykkto.cn/image/blog/2022/springcloud/20220329221703.png"></p>
-<h4 id="2、acquire"><a href="#2、acquire" class="headerlink" title="2、acquire()"></a>2、acquire()</h4><p><img src="https://_v1.mykkto.cn/image/blog/2022/springcloud/20220329223153.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220329221223.png"></p>
+<h3 id="3、源码Api解读"><a href="#3、源码Api解读" class="headerlink" title="3、源码Api解读"></a>3、源码Api解读</h3><h4 id="1、lock"><a href="#1、lock" class="headerlink" title="1、lock()"></a>1、lock()</h4><p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220329221703.png"></p>
+<h4 id="2、acquire"><a href="#2、acquire" class="headerlink" title="2、acquire()"></a>2、acquire()</h4><p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220329223153.png"></p>
 <p><strong>三个走向</strong></p>
 <p>1、tryAcquire() -&gt; tryAcquire () 由于子类 <code>FairSync</code> 实现</p>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/springcloud/20220329223909.png"></p>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/springcloud/20220329223835.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220329223909.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220329223835.png"></p>
 <p>2、调用 addWaiter() -&gt; enq() 入队操作</p>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/springcloud/20220329224108.png"></p>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/springcloud/20220329224256.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220329224108.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220329224256.png"></p>
 <p>3、acquireQueued() -&gt; cancelAcquire()</p>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/springcloud/20220329225026.png"></p>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/springcloud/20220329225124.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220329225026.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220329225124.png"></p>
 <h2 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h2><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/tong-yuan/p/11768904.html">https://www.cnblogs.com/tong-yuan/p/11768904.html</a></p>
 <p><a target="_blank" rel="noopener" href="https://baijiahao.baidu.com/s?id=1718317852417206951&amp;wfr=spider&amp;for=pc">https://baijiahao.baidu.com/s?id=1718317852417206951&amp;wfr=spider&amp;for=pc</a></p>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/hengyunabc/article/details/28126139">https://blog.csdn.net/hengyunabc/article/details/28126139</a></p>
@@ -1377,7 +1377,7 @@ new Valine({
                     <div class="card-image">
                         
                         
-                        <img src="https://_v1.mykkto.cn/image/galleries/动漫风景/02.jpg" class="responsive-img" alt="Nacos 高可用集群（docker-compose）">
+                        <img src="https://v1.mykkto.cn/image/galleries/动漫风景/02.jpg" class="responsive-img" alt="Nacos 高可用集群（docker-compose）">
                         
                         <span class="card-title">Nacos 高可用集群（docker-compose）</span>
                     </div>
@@ -1438,7 +1438,7 @@ new Valine({
                     <div class="card-image">
                         
                         
-                        <img src="https://_v1.mykkto.cn/image/galleries/动漫插画/13.jpg" class="responsive-img" alt="Oracle11g(docker版)">
+                        <img src="https://v1.mykkto.cn/image/galleries/动漫插画/13.jpg" class="responsive-img" alt="Oracle11g(docker版)">
                         
                         <span class="card-title">Oracle11g(docker版)</span>
                     </div>

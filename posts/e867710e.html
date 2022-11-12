@@ -20,7 +20,7 @@
 
     <title>SpringCloud-Stream消息驱动 | jack</title>
 
-    <link rel="icon" type="image/jpeg" href="https://_v1.mykkto.cn/image/blog/my1SN{XEPO)])9$A7K_JK(BNOV.jpg">
+    <link rel="icon" type="image/jpeg" href="https://v1.mykkto.cn/image/blog/my1SN{XEPO)])9$A7K_JK(BNOV.jpg">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
     <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
@@ -56,7 +56,7 @@
             <div class="brand-logo">
                 <a href="/" class="waves-effect waves-light">
                     
-                    <img src="https://_v1.mykkto.cn/image/blog/20211641568137986-ckt-抠图.png" class="logo-img" alt="LOGO">
+                    <img src="https://v1.mykkto.cn/image/blog/20211641568137986-ckt-抠图.png" class="logo-img" alt="LOGO">
                     
                     <span class="logo-span">jack</span>
                 </a>
@@ -239,7 +239,7 @@
 
     <div class="mobile-head bg-color">
         
-        <img src="https://_v1.mykkto.cn/image/blog/20211641568137986-ckt-抠图.png" class="logo-img circle responsive-img">
+        <img src="https://v1.mykkto.cn/image/blog/20211641568137986-ckt-抠图.png" class="logo-img circle responsive-img">
         
         <div class="logo-name">jack</div>
         <div class="logo-desc">
@@ -511,7 +511,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://_v1.mykkto.cn/image/galleries/动漫风景/06.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://v1.mykkto.cn/image/galleries/动漫风景/06.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -727,7 +727,7 @@
 </ul>
 <h4 id="2、为什么用Cloud-Stream"><a href="#2、为什么用Cloud-Stream" class="headerlink" title="2、为什么用Cloud Stream"></a>2、为什么用Cloud Stream</h4><h5 id="1、概念"><a href="#1、概念" class="headerlink" title="1、概念"></a>1、概念</h5><p>比方说我们用到了RabbitMQ和Kafka，由于这两个消息中间件的架构上的不同，<br>像RabbitMQ有exchange，kafka有Topic和Partitions分区，</p>
 <p>这些中间件的差异性导致我们实际项目开发给我们造成了一定的困扰，我们如果用了两个消息队列的其中一种，后面的业务需求，我想往另外一种消息队列进行迁移，这时候无疑就是一个灾难性的，<code>一大堆东西都要重新推倒重新做</code>，因为它跟我们的系统耦合了，这时候springcloud Stream给我们提供了一种解耦合的方式。</p>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/springcloud/20220219223621.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220219223621.png"></p>
 <h5 id="2、Stream中的消息通信方式遵循了发布-订阅模式"><a href="#2、Stream中的消息通信方式遵循了发布-订阅模式" class="headerlink" title="2、Stream中的消息通信方式遵循了发布-订阅模式"></a>2、Stream中的消息通信方式遵循了发布-订阅模式</h5><p>Topic主题进行广播：</p>
 <ul>
 <li>在RabbitMQ就是Exchange</li>
@@ -747,9 +747,9 @@
 </ul>
 </li>
 </ul>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/springcloud/20220219225529.png"></p>
-<h4 id="4、编码API和常用注解"><a href="#4、编码API和常用注解" class="headerlink" title="4、编码API和常用注解"></a>4、编码API和常用注解</h4><p><img src="https://_v1.mykkto.cn/image/blog/2022/springcloud/20220219225657.png"></p>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/springcloud/20220219225704.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220219225529.png"></p>
+<h4 id="4、编码API和常用注解"><a href="#4、编码API和常用注解" class="headerlink" title="4、编码API和常用注解"></a>4、编码API和常用注解</h4><p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220219225657.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220219225704.png"></p>
 <h2 id="2、案例说明"><a href="#2、案例说明" class="headerlink" title="2、案例说明"></a>2、案例说明</h2><p>工程中新建三个子模块</p>
 <ul>
 <li>cloud-stream-rabbitmq-provider8801， 作为生产者进行发消息模块</li>
@@ -936,7 +936,7 @@ eureka:
 <li>启动eureka，以及rabbitMq，以及8801</li>
 <li>访问：<code>http://localhost:8801/sendMessage</code></li>
 </ul>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/springcloud/20220220195046.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220220195046.png"></p>
 <h2 id="4、消息驱动之消费者"><a href="#4、消息驱动之消费者" class="headerlink" title="4、消息驱动之消费者"></a>4、消息驱动之消费者</h2><h3 id="1、新建Module-1"><a href="#1、新建Module-1" class="headerlink" title="1、新建Module"></a>1、新建Module</h3><p>cloud-stream-rabbitmq-consumer8802</p>
 <h3 id="2、pom-1"><a href="#2、pom-1" class="headerlink" title="2、pom"></a>2、pom</h3><pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>project</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://maven.apache.org/POM/4.0.0<span class="token punctuation">"</span></span>
@@ -1067,7 +1067,7 @@ eureka:
 
 
 <h3 id="6、测试-1"><a href="#6、测试-1" class="headerlink" title="6、测试"></a>6、测试</h3><p>url：<code>http://localhost:8801/sendMessage</code></p>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/springcloud/20220220225413.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220220225413.png"></p>
 <h2 id="5、分组消费与持久化"><a href="#5、分组消费与持久化" class="headerlink" title="5、分组消费与持久化"></a>5、分组消费与持久化</h2><h3 id="1、依照8802，clone出来一份运行8803"><a href="#1、依照8802，clone出来一份运行8803" class="headerlink" title="1、依照8802，clone出来一份运行8803"></a>1、依照8802，clone出来一份运行8803</h3><ul>
 <li><p>cloud-stream-rabbitmq-consumer8803</p>
 </li>
@@ -1099,15 +1099,15 @@ public class StreamMQMain8803 {
 </code></pre>
 </li>
 </ul>
-<h3 id="2、启动"><a href="#2、启动" class="headerlink" title="2、启动"></a>2、启动</h3><p><img src="https://_v1.mykkto.cn/image/blog/2022/springcloud/20220220231746.png"></p>
+<h3 id="2、启动"><a href="#2、启动" class="headerlink" title="2、启动"></a>2、启动</h3><p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220220231746.png"></p>
 <h3 id="3、运行后有两个问题"><a href="#3、运行后有两个问题" class="headerlink" title="3、运行后有两个问题"></a>3、运行后有两个问题</h3><ul>
 <li>有重复消费问题</li>
 <li>消息持久化问题</li>
 </ul>
 <h3 id="4、重复消费问题"><a href="#4、重复消费问题" class="headerlink" title="4、重复消费问题"></a>4、重复消费问题</h3><p>目前是8802/8803同时都收到了，存在重复消费问题</p>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/springcloud/20220220231944.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220220231944.png"></p>
 <h5 id="如何解决：分组和持久化属性group"><a href="#如何解决：分组和持久化属性group" class="headerlink" title="如何解决：分组和持久化属性group"></a>如何解决：<code>分组和持久化属性group</code></h5><p>比如在如下场景中，订单系统我们做集群部署，都会从RabbitMQ中获取订单信息，<br>那<code>如果一个订单同时被两个服务获取到</code>，那么就会造成数据错误，我们得避免这种情况。<br><code>这时我们就可以使用Stream中的消息分组来解决</code></p>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/springcloud/20220220232152.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220220232152.png"></p>
 <p>注意在Stream中处于同一个group中的多个消费者是竞争关系，就能够保证消息只会被其中一个应用消费一次。<br><code>不同组是可以全面消费的(重复消费)， 同一组内会发生竞争关系，只有其中一个可以消费。</code></p>
 <h3 id="5、分组"><a href="#5、分组" class="headerlink" title="5、分组"></a>5、分组</h3><h4 id="1、原理"><a href="#1、原理" class="headerlink" title="1、原理"></a>1、原理</h4><p>微服务应用放置于同一个group中，就能够保证消息只会被其中一个应用消费一次。<br><code>不同的组是可以消费的，同一个组内会发生竞争关系，只有其中一个可以消费</code>。</p>
 <h4 id="2、划分组-不同组"><a href="#2、划分组-不同组" class="headerlink" title="2、划分组(不同组)"></a>2、划分组(不同组)</h4><ul>
@@ -1116,27 +1116,27 @@ public class StreamMQMain8803 {
 </ul>
 <pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">group: kkA<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/springcloud/20220221221056.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220221221056.png"></p>
 <ul>
 <li>8803修改YML</li>
 </ul>
 <pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">group: kkB<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/springcloud/20220221221835.png"></p>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/springcloud/20220221223137.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220221221835.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220221223137.png"></p>
 <h4 id="3、结论-不同组"><a href="#3、结论-不同组" class="headerlink" title="3、结论(不同组)"></a>3、结论(不同组)</h4><p>不同组的还是重复消费</p>
 <h4 id="4、划分组-不同组"><a href="#4、划分组-不同组" class="headerlink" title="4、划分组(不同组)"></a>4、划分组(不同组)</h4><p>两边都配置为：kkA</p>
 <h4 id="5、结论-不同组"><a href="#5、结论-不同组" class="headerlink" title="5、结论(不同组)"></a>5、结论(不同组)</h4><p>同一个组的多个微服务实例，每次只会有一个拿到。（解决重复消费问题）</p>
 <h3 id="6、持久化"><a href="#6、持久化" class="headerlink" title="6、持久化"></a>6、持久化</h3><p>目前两个消费者8802/8803都是归类于 kkA分组</p>
 <p>1、下面要做的是将 8802分组配置注释</p>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/springcloud/20220221230211.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220221230211.png"></p>
 <p>2、关闭8002/8003服务</p>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/springcloud/20220221232008.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220221232008.png"></p>
 <p>3、8801先发送4条消息到rabbitmq</p>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/springcloud/20220221232637.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220221232637.png"></p>
 <p>4、启动8802（无分组），没有任何打印</p>
 <p>5、启动8803（有分组），接收离线数据</p>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/springcloud/20220221233738.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220221233738.png"></p>
 
                 
             </div>
@@ -1690,7 +1690,7 @@ new Valine({
                     <div class="card-image">
                         
                         
-                        <img src="https://_v1.mykkto.cn/image/galleries/动漫插画/07.jpg" class="responsive-img" alt="SpringCloud-Sleuth分布式请求链路跟踪">
+                        <img src="https://v1.mykkto.cn/image/galleries/动漫插画/07.jpg" class="responsive-img" alt="SpringCloud-Sleuth分布式请求链路跟踪">
                         
                         <span class="card-title">SpringCloud-Sleuth分布式请求链路跟踪</span>
                     </div>
@@ -1747,7 +1747,7 @@ new Valine({
                     <div class="card-image">
                         
                         
-                        <img src="https://_v1.mykkto.cn/image/galleries/动漫插画/14.jpg" class="responsive-img" alt="SpringCloud-Bus分布式节点链接">
+                        <img src="https://v1.mykkto.cn/image/galleries/动漫插画/14.jpg" class="responsive-img" alt="SpringCloud-Bus分布式节点链接">
                         
                         <span class="card-title">SpringCloud-Bus分布式节点链接</span>
                     </div>

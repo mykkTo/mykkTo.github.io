@@ -20,7 +20,7 @@
 
     <title>SpringCloud-Alibaba-Nacos 服务注册+配置中心 | jack</title>
 
-    <link rel="icon" type="image/jpeg" href="https://_v1.mykkto.cn/image/blog/my1SN{XEPO)])9$A7K_JK(BNOV.jpg">
+    <link rel="icon" type="image/jpeg" href="https://v1.mykkto.cn/image/blog/my1SN{XEPO)])9$A7K_JK(BNOV.jpg">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
     <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
@@ -56,7 +56,7 @@
             <div class="brand-logo">
                 <a href="/" class="waves-effect waves-light">
                     
-                    <img src="https://_v1.mykkto.cn/image/blog/20211641568137986-ckt-抠图.png" class="logo-img" alt="LOGO">
+                    <img src="https://v1.mykkto.cn/image/blog/20211641568137986-ckt-抠图.png" class="logo-img" alt="LOGO">
                     
                     <span class="logo-span">jack</span>
                 </a>
@@ -239,7 +239,7 @@
 
     <div class="mobile-head bg-color">
         
-        <img src="https://_v1.mykkto.cn/image/blog/20211641568137986-ckt-抠图.png" class="logo-img circle responsive-img">
+        <img src="https://v1.mykkto.cn/image/blog/20211641568137986-ckt-抠图.png" class="logo-img circle responsive-img">
         
         <div class="logo-name">jack</div>
         <div class="logo-desc">
@@ -511,7 +511,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://_v1.mykkto.cn/image/galleries/动漫风景/03.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://v1.mykkto.cn/image/galleries/动漫风景/03.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -728,7 +728,7 @@
 <li>替代Eureka做服务注册中心</li>
 <li>替代Config做服务配置中心</li>
 </ul>
-<h3 id="3、注册中心比较"><a href="#3、注册中心比较" class="headerlink" title="3、注册中心比较"></a>3、注册中心比较</h3><p><img src="https://_v1.mykkto.cn/image/blog/2022/springcloud/20220222205601.png"></p>
+<h3 id="3、注册中心比较"><a href="#3、注册中心比较" class="headerlink" title="3、注册中心比较"></a>3、注册中心比较</h3><p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220222205601.png"></p>
 <h2 id="二、安装（docker）"><a href="#二、安装（docker）" class="headerlink" title="二、安装（docker）"></a>二、安装（docker）</h2><h3 id="1、pull镜像"><a href="#1、pull镜像" class="headerlink" title="1、pull镜像"></a>1、pull镜像</h3><p>推荐稳定版版本(官方推荐1.3.1),如果不指定版本的话则就是latest版本(对应nacos的1.4版本)</p>
 <p><code>docker  pull nacos/nacos-server:1.3.1  </code></p>
 <h3 id="2、运行并创建容器"><a href="#2、运行并创建容器" class="headerlink" title="2、运行并创建容器"></a>2、运行并创建容器</h3><p><code>docker run  --name nacosName  -e MODE=standalone -d -v  /mnt/logs/nacos:/home/logs/nacos  -p 8848:8848  nacos/nacos-server:1.1.4</code></p>
@@ -755,13 +755,13 @@ docker  ps
 #查看指定容器的输出日志
 docker logs <span class="token operator">--</span>since  <span class="token number">10</span>m   nacos的容器id      #查看指定容器的输出日志<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/springcloud/20220222231829.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220222231829.png"></p>
 <h3 id="4、访问"><a href="#4、访问" class="headerlink" title="4、访问"></a>4、访问</h3><pre class="line-numbers language-undefined" data-language="undefined"><code class="language-undefined">http://lhttp://localhost:8848/nacos
 
 登录账号 登录密码
 nacos     nacos<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/springcloud/20220222232020.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220222232020.png"></p>
 <h3 id=""><a href="#" class="headerlink" title=""></a></h3><h2 id="三、Nacos（注册中心）"><a href="#三、Nacos（注册中心）" class="headerlink" title="三、Nacos（注册中心）"></a>三、Nacos（注册中心）</h2><h3 id="1、基于Nacos生产者"><a href="#1、基于Nacos生产者" class="headerlink" title="1、基于Nacos生产者"></a>1、基于Nacos生产者</h3><h4 id="1、建model"><a href="#1、建model" class="headerlink" title="1、建model"></a>1、建model</h4><p>cloudalibaba-provider-payment9001</p>
 <h4 id="2、pom"><a href="#2、pom" class="headerlink" title="2、pom"></a>2、pom</h4><p>1、父pom</p>
 <pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>
@@ -772,7 +772,7 @@ nacos     nacos<span aria-hidden="true" class="line-numbers-rows"><span></span><
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>scope</span><span class="token punctuation">&gt;</span></span>import<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>scope</span><span class="token punctuation">&gt;</span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/springcloud/20220223213749.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220223213749.png"></p>
 <p>2、本模块pom</p>
 <pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>project</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://maven.apache.org/POM/4.0.0<span class="token punctuation">"</span></span>
@@ -886,20 +886,20 @@ management:
 
 
 <h4 id="6、测试"><a href="#6、测试" class="headerlink" title="6、测试"></a>6、测试</h4><p>1、访问：<code>http://localhost:9001/payment/nacos/1</code></p>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/springcloud/20220223222628.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220223222628.png"></p>
 <p>2、nacos客户端</p>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/springcloud/20220223222646.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220223222646.png"></p>
 <h4 id="7、映射出一模一样的9002，测试负载"><a href="#7、映射出一模一样的9002，测试负载" class="headerlink" title="7、映射出一模一样的9002，测试负载"></a>7、映射出一模一样的9002，测试负载</h4><p>1、复制配置</p>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/springcloud/20220223222838.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220223222838.png"></p>
 <p>2、编写配置</p>
 <p>-DServer.port=9002</p>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/springcloud/20220223223054.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220223223054.png"></p>
 <p>3、查看是否成功启动</p>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/springcloud/20220223223239.png"></p>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/springcloud/20220223223313.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220223223239.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220223223313.png"></p>
 <h3 id="2、基于Nacos消费者"><a href="#2、基于Nacos消费者" class="headerlink" title="2、基于Nacos消费者"></a>2、基于Nacos消费者</h3><h4 id="1、建model-1"><a href="#1、建model-1" class="headerlink" title="1、建model"></a>1、建model</h4><p>cloudalibaba-consumer-nacos-order83</p>
 <h4 id="2、pom-1"><a href="#2、pom-1" class="headerlink" title="2、pom"></a>2、pom</h4><p>为什么nacos支持负载均衡</p>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/springcloud/20220223224157.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220223224157.png"></p>
 <pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>project</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://maven.apache.org/POM/4.0.0<span class="token punctuation">"</span></span>
          <span class="token attr-name"><span class="token namespace">xmlns:</span>xsi</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://www.w3.org/2001/XMLSchema-instance<span class="token punctuation">"</span></span>
@@ -1048,14 +1048,14 @@ service-url:
 
 
 <h4 id="6、测试-1"><a href="#6、测试-1" class="headerlink" title="6、测试"></a>6、测试</h4><p>1、客户端注册</p>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/springcloud/20220223225123.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220223225123.png"></p>
 <p>2、访问：<code>http://localhost:83/consumer/payment/nacos/13</code></p>
 <p>1,2,1,2,1,2 切换效果存在</p>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/springcloud/20220223225213.png"></p>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/springcloud/20220223225236.png"></p>
-<h3 id="3、服务注册中心对比"><a href="#3、服务注册中心对比" class="headerlink" title="3、服务注册中心对比"></a>3、服务注册中心对比</h3><h4 id="1、nacos全景图"><a href="#1、nacos全景图" class="headerlink" title="1、nacos全景图"></a>1、nacos全景图</h4><p><img src="https://_v1.mykkto.cn/image/blog/2022/springcloud/20220223225259.png"></p>
-<h4 id="2、Nacos和CAP"><a href="#2、Nacos和CAP" class="headerlink" title="2、Nacos和CAP"></a>2、Nacos和CAP</h4><p><img src="https://_v1.mykkto.cn/image/blog/2022/springcloud/20220223225739.png"></p>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/springcloud/20220223225758.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220223225213.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220223225236.png"></p>
+<h3 id="3、服务注册中心对比"><a href="#3、服务注册中心对比" class="headerlink" title="3、服务注册中心对比"></a>3、服务注册中心对比</h3><h4 id="1、nacos全景图"><a href="#1、nacos全景图" class="headerlink" title="1、nacos全景图"></a>1、nacos全景图</h4><p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220223225259.png"></p>
+<h4 id="2、Nacos和CAP"><a href="#2、Nacos和CAP" class="headerlink" title="2、Nacos和CAP"></a>2、Nacos和CAP</h4><p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220223225739.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220223225758.png"></p>
 <h4 id="3、Nacos-支持AP和CP模式的切换"><a href="#3、Nacos-支持AP和CP模式的切换" class="headerlink" title="3、Nacos 支持AP和CP模式的切换"></a>3、Nacos 支持AP和CP模式的切换</h4><p><code>C是所有节点在同一时间看到的数据是一致的；而A的定义是所有的请求都会收到响应。</code></p>
 <p>何时选择使用何种模式？<br>一般来说，<br>如果不需要存储服务级别的信息且服务实例是通过nacos-client注册，并能够保持心跳上报，那么就可以选择AP模式。当前主流的服务如 Spring cloud 和 Dubbo 服务，都适用于AP模式，AP模式为了服务的可能性而减弱了一致性，因此AP模式下只支持注册临时实例。</p>
 <p>如果需要在服务级别编辑或者存储配置信息，那么 CP 是必须，K8S服务和DNS服务则适用于CP模式。<br>CP模式下则支持注册持久化实例，此时则是以 Raft 协议为集群运行模式，该模式下注册实例之前必须先注册服务，如果服务不存在，则会返回错误。</p>
@@ -1194,8 +1194,8 @@ spring:
 
 
 <h3 id="2、配置中心基础"><a href="#2、配置中心基础" class="headerlink" title="2、配置中心基础"></a>2、配置中心基础</h3><h4 id="1、规则"><a href="#1、规则" class="headerlink" title="1、规则"></a>1、规则</h4><p>${spring.application.name}-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}</p>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/springcloud/20220225235713.png"></p>
-<h4 id="2、新增配置文件"><a href="#2、新增配置文件" class="headerlink" title="2、新增配置文件"></a>2、新增配置文件</h4><p><img src="https://_v1.mykkto.cn/image/blog/2022/springcloud/20220227230440.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220225235713.png"></p>
+<h4 id="2、新增配置文件"><a href="#2、新增配置文件" class="headerlink" title="2、新增配置文件"></a>2、新增配置文件</h4><p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220227230440.png"></p>
 <p><code>nacos-config-client-dev.yaml</code></p>
 <pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">config</span><span class="token punctuation">:</span> 
     <span class="token key atrule">info</span><span class="token punctuation">:</span>  nacos to info<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
@@ -1209,56 +1209,56 @@ spring:
 <li>spring.profile.active 即为当前环境对应的 profile，可以通过配置项 spring.profile.active 来配置。</li>
 <li>file-exetension 为配置内容的数据格式，可以通过配置项 spring.cloud.nacos.config.file-extension 来配置</li>
 </ul>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/springcloud/20220227194612.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220227194612.png"></p>
 <h4 id="4、历史配置（回滚）"><a href="#4、历史配置（回滚）" class="headerlink" title="4、历史配置（回滚）"></a>4、历史配置（回滚）</h4><p>Nacos会记录配置文件的历史版本默认保留30天，此外还有一键回滚功能，回滚操作将会触发配置更新</p>
 <p>nacos-config-client-dev.yaml</p>
 <p>DEFAULT_GROUP</p>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/springcloud/20220227200717.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220227200717.png"></p>
 <h3 id="3、测试"><a href="#3、测试" class="headerlink" title="3、测试"></a>3、测试</h3><ul>
 <li>启动 3377 </li>
 <li>访问：<a target="_blank" rel="noopener" href="http://localhost:3377/config/info">http://localhost:3377/config/info</a></li>
 <li>测试自带刷新功能<ul>
 <li>修改下Nacos中的yaml配置文件，再次调用查看配置的接口，就会发现配置已经刷新</li>
-<li><img src="https://_v1.mykkto.cn/image/blog/2022/springcloud/20220227230902.png"></li>
-<li><img src="https://_v1.mykkto.cn/image/blog/2022/springcloud/20220227230927.png"></li>
+<li><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220227230902.png"></li>
+<li><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220227230927.png"></li>
 </ul>
 </li>
 </ul>
 <h3 id="4、配置中心分类"><a href="#4、配置中心分类" class="headerlink" title="4、配置中心分类"></a>4、配置中心分类</h3><h4 id="1、Nacos的图形化管理界面"><a href="#1、Nacos的图形化管理界面" class="headerlink" title="1、Nacos的图形化管理界面"></a>1、Nacos的图形化管理界面</h4><p>1、配置管理</p>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/springcloud/20220227231427.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220227231427.png"></p>
 <p>2、名称空间</p>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/springcloud/20220227234647.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220227234647.png"></p>
 <h4 id="3、三种方案加载配置"><a href="#3、三种方案加载配置" class="headerlink" title="3、三种方案加载配置"></a>3、三种方案加载配置</h4><h5 id="1、DataID方案"><a href="#1、DataID方案" class="headerlink" title="1、DataID方案"></a>1、DataID方案</h5><p>（1）说明</p>
 <p>指定spring.profile.active和配置文件的DataID来使不同环境下读取不同的配置</p>
 <p>（2）新建两个配置</p>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/springcloud/20220228211808.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220228211808.png"></p>
 <p>（3）配置是什么就加载什么</p>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/springcloud/20220228211941.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220228211941.png"></p>
 <h5 id="2、Group方案"><a href="#2、Group方案" class="headerlink" title="2、Group方案"></a>2、Group方案</h5><p>（1）说明</p>
 <p>通过Group实现环境区分</p>
 <p>（2）新建组</p>
 <p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1646054747679.png" alt="1646054747679"></p>
 <p>（3）控制台上的效果</p>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/springcloud/20220228212608.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220228212608.png"></p>
 <p>（4）Springboot上的配置</p>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/springcloud/20220228212916.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220228212916.png"></p>
 <p>在config下增加一条group的配置即可。可配置为DEV_GROUP或TEST_GROUP</p>
 <h5 id="3、Namespace方案"><a href="#3、Namespace方案" class="headerlink" title="3、Namespace方案"></a>3、Namespace方案</h5><p>（1）新建dev/test的Namespace</p>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/springcloud/20220228214104.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220228214104.png"></p>
 <p>（2）回到服务管理-服务列表查看</p>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/springcloud/20220228214344.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220228214344.png"></p>
 <p>（3）按照域名配置填写</p>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/springcloud/20220228214437.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220228214437.png"></p>
 <p>（4）yml配置文件</p>
 <p>application.yml</p>
 <p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1646056075067.png" alt="1646056075067"></p>
 <p>bootstrap.yml</p>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/springcloud/20220228214832.png"></p>
-<h2 id="五、★-Nacos（集群和持久化）"><a href="#五、★-Nacos（集群和持久化）" class="headerlink" title="五、★ Nacos（集群和持久化）"></a>五、★ Nacos（集群和持久化）</h2><h3 id="1、基本说明"><a href="#1、基本说明" class="headerlink" title="1、基本说明"></a>1、基本说明</h3><h4 id="1、架构图"><a href="#1、架构图" class="headerlink" title="1、架构图"></a>1、架构图</h4><p><img src="https://_v1.mykkto.cn/image/blog/2022/springcloud/20220228215456.png"></p>
-<h4 id="2、官方信息"><a href="#2、官方信息" class="headerlink" title="2、官方信息"></a>2、官方信息</h4><p><img src="https://_v1.mykkto.cn/image/blog/2022/springcloud/20220228220344.png"></p>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/springcloud/20220228220404.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220228214832.png"></p>
+<h2 id="五、★-Nacos（集群和持久化）"><a href="#五、★-Nacos（集群和持久化）" class="headerlink" title="五、★ Nacos（集群和持久化）"></a>五、★ Nacos（集群和持久化）</h2><h3 id="1、基本说明"><a href="#1、基本说明" class="headerlink" title="1、基本说明"></a>1、基本说明</h3><h4 id="1、架构图"><a href="#1、架构图" class="headerlink" title="1、架构图"></a>1、架构图</h4><p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220228215456.png"></p>
+<h4 id="2、官方信息"><a href="#2、官方信息" class="headerlink" title="2、官方信息"></a>2、官方信息</h4><p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220228220344.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220228220404.png"></p>
 <h3 id="2、Nacos持久化配置解释"><a href="#2、Nacos持久化配置解释" class="headerlink" title="2、Nacos持久化配置解释"></a>2、Nacos持久化配置解释</h3><h4 id="1、Nacos默认自带的是嵌入式数据库derby"><a href="#1、Nacos默认自带的是嵌入式数据库derby" class="headerlink" title="1、Nacos默认自带的是嵌入式数据库derby"></a>1、Nacos默认自带的是嵌入式数据库derby</h4><h4 id="2、derby切换到mysql-步骤"><a href="#2、derby切换到mysql-步骤" class="headerlink" title="2、derby切换到mysql 步骤"></a>2、derby切换到mysql 步骤</h4><p>（1）进入容器，找到对应的配置文件</p>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/springcloud/20220308230058.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220308230058.png"></p>
 <p>（2）在数据库执行以上 sql </p>
 <p>schema.sql</p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"> 
@@ -1470,14 +1470,14 @@ spring:
 
 
 <p>（3）在 application.properties修改配置</p>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/springcloud/20220308235804.png"></p>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/springcloud/20220308232218.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220308235804.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220308232218.png"></p>
 <p>以上 五个配置均要修改</p>
 <p>（4）改完之后重启</p>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/springcloud/20220308234826.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220308234826.png"></p>
 <p>（5）重新登录客户端，发现以前的数据没有了，说明切换成功</p>
-<p><img src="https://_v1.mykkto.cn/image/blog/2022/springcloud/20220308234903.png"></p>
-<h3 id="3、高可用集群搭建"><a href="#3、高可用集群搭建" class="headerlink" title="3、高可用集群搭建"></a>3、高可用集群搭建</h3><h4 id="1、架构图-1"><a href="#1、架构图-1" class="headerlink" title="1、架构图"></a>1、架构图</h4><p><img src="https://_v1.mykkto.cn/image/blog/2022/springcloud/20220309231606.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220308234903.png"></p>
+<h3 id="3、高可用集群搭建"><a href="#3、高可用集群搭建" class="headerlink" title="3、高可用集群搭建"></a>3、高可用集群搭建</h3><h4 id="1、架构图-1"><a href="#1、架构图-1" class="headerlink" title="1、架构图"></a>1、架构图</h4><p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220309231606.png"></p>
 <h2 id="最终落地：Nacos-高可用集群（docker-compose）"><a href="#最终落地：Nacos-高可用集群（docker-compose）" class="headerlink" title="最终落地：Nacos 高可用集群（docker-compose）"></a>最终落地：<a href="/posts/d9c3bea0">Nacos 高可用集群（docker-compose）</a></h2><h4 id="-1"><a href="#-1" class="headerlink" title=""></a></h4><h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/d2c81d647323">https://www.jianshu.com/p/d2c81d647323</a></p>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/wwwwwww31311/article/details/113066637">https://blog.csdn.net/wwwwwww31311/article/details/113066637</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/hellxz/p/nacos-cluster-docker.html">https://www.cnblogs.com/hellxz/p/nacos-cluster-docker.html</a></p>
@@ -2038,7 +2038,7 @@ new Valine({
                     <div class="card-image">
                         
                         
-                        <img src="https://_v1.mykkto.cn/image/galleries/动漫插画/01.jpg" class="responsive-img" alt="项目-尚融宝-03-金融项目核心业务实现">
+                        <img src="https://v1.mykkto.cn/image/galleries/动漫插画/01.jpg" class="responsive-img" alt="项目-尚融宝-03-金融项目核心业务实现">
                         
                         <span class="card-title">项目-尚融宝-03-金融项目核心业务实现</span>
                     </div>
@@ -2099,7 +2099,7 @@ new Valine({
                     <div class="card-image">
                         
                         
-                        <img src="https://_v1.mykkto.cn/image/galleries/动漫插画/07.jpg" class="responsive-img" alt="SpringCloud-Sleuth分布式请求链路跟踪">
+                        <img src="https://v1.mykkto.cn/image/galleries/动漫插画/07.jpg" class="responsive-img" alt="SpringCloud-Sleuth分布式请求链路跟踪">
                         
                         <span class="card-title">SpringCloud-Sleuth分布式请求链路跟踪</span>
                     </div>
