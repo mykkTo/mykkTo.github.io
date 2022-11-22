@@ -677,21 +677,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-11-12
+                    2022-11-22
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.7k
+                    4.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    18 分
+                    20 分
                 </div>
                 
 
@@ -1326,17 +1326,96 @@ limit_req <span class="token assign-left variable">zone</span><span class="token
 <p>切换网段B ，非压测IP 不限流，测试成功</p>
 <p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/fkdgjgdhjf56jh7j6h.jpg"></p>
 <h2 id="七、DNS解析-Github-Pages（无服务器化）"><a href="#七、DNS解析-Github-Pages（无服务器化）" class="headerlink" title="七、DNS解析+Github Pages（无服务器化）"></a>七、DNS解析+Github Pages（无服务器化）</h2><p>前提：先买个DNS解析，博主目前域名和DNS解析都是买阿里云的</p>
-<h3 id="1、DNS解析域名"><a href="#1、DNS解析域名" class="headerlink" title="1、DNS解析域名"></a>1、DNS解析域名</h3><p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202211051308830.png"></p>
-<h3 id="2、Github-Pages"><a href="#2、Github-Pages" class="headerlink" title="2、Github Pages"></a>2、Github Pages</h3><p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202211051309517.png"></p>
+<h3 id="1、DNS解析域名"><a href="#1、DNS解析域名" class="headerlink" title="1、DNS解析域名"></a>1、DNS解析域名</h3><p>这个是初版1.0，错误的，因为 主机记录解析  * 可能覆盖后面床图指向的 v1 配置</p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202211051308830.png"></p>
+<p>正确配置：最新版！！！</p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202211222248798.png"></p>
+<h3 id="2、Github-Pages"><a href="#2、Github-Pages" class="headerlink" title="2、Github Pages"></a>2、Github Pages</h3><p>进入自己二级静态网站仓库，配置（如果有配SSL证书的打勾，没有不需要打勾 HTTPS）</p>
+<p>关于证书：后面搭建床图也需要指向，不然无法加载图片（小坑）</p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202211051309517.png"></p>
 <h2 id="八、Nginx搭建床图"><a href="#八、Nginx搭建床图" class="headerlink" title="八、Nginx搭建床图"></a>八、Nginx搭建床图</h2><p>基于dns解析  +  Github pages 映射适配</p>
 <p>传统搭建方式（http）,会导致在  img 上渲染图片的时候无法显示（谷歌浏览器，IE浏览器会，360极速不会–具体不清楚），</p>
 <p>因为 pages 开启了 https 所以，自己搭建的床图也要是  https （我是这么想的，然后实现，确实可以了）</p>
 <p>分析：一开始看到 console 控制台， 一堆图片报错 ，于是拿连接去请求，发现不可以访问（带http，无 s）</p>
-<h3 id="1、配置域名解析"><a href="#1、配置域名解析" class="headerlink" title="1、配置域名解析"></a>1、配置域名解析</h3><p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202211121142179.png"></p>
-<h3 id="2、搭建具体参考-一、四"><a href="#2、搭建具体参考-一、四" class="headerlink" title="2、搭建具体参考 一、四"></a>2、搭建具体参考 一、四</h3><h3 id="3、nginx-配置"><a href="#3、nginx-配置" class="headerlink" title="3、nginx 配置"></a>3、nginx 配置</h3><pre class="line-numbers language-conf" data-language="conf"><code class="language-conf"><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="1、配置域名解析"><a href="#1、配置域名解析" class="headerlink" title="1、配置域名解析"></a>1、配置域名解析</h3><p>初版1.0，废弃，最好不要用  _  为前缀，因为后面要是有配置SSL证书，就无法通过</p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202211121142179.png"></p>
+<p>最新2.0配置，完美解决了所有问题</p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202211222248798.png"></p>
+<h3 id="2、配置SSL证书"><a href="#2、配置SSL证书" class="headerlink" title="2、配置SSL证书"></a>2、配置SSL证书</h3><p>购买证书，这边作者用的是免费的</p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202211222259557.png"></p>
+<p>然后下载部署，具体配置信息 4  nginx.conf</p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202211222301426.png"></p>
+<h3 id="3、搭建具体参考-一、四"><a href="#3、搭建具体参考-一、四" class="headerlink" title="3、搭建具体参考 一、四"></a>3、搭建具体参考 一、四</h3><p>用了docker</p>
+<h3 id="4、补充"><a href="#4、补充" class="headerlink" title="4、补充"></a>4、补充</h3><h4 id="1、nginx-配置"><a href="#1、nginx-配置" class="headerlink" title="1、nginx 配置"></a>1、nginx 配置</h4><pre class="line-numbers language-conf" data-language="conf"><code class="language-conf">user  nginx;
+worker_processes  auto;
+
+error_log  /var/log/nginx/error.log notice;
+pid        /var/run/nginx.pid;
+
+
+events {
+    worker_connections  1024;
+}
+
+
+http {
+limit_req_zone $binary_remote_addr zone=mylimit:10m rate=2r/s;
+include       /etc/nginx/mime.types;
+    default_type  application/octet-stream;
+
+    log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+                      '$status $body_bytes_sent "$http_referer" '
+                      '"$http_user_agent" "$http_x_forwarded_for"';
+
+    access_log  /var/log/nginx/access.log  main;
+
+    sendfile        on;
+    #tcp_nopush     on;
+
+    keepalive_timeout  65;
+
+    #gzip  on;
+
+   include /etc/nginx/conf.d/*.conf;
+
+  server{
+        listen 443 ssl;
+        #对应的域名，把mykkto.cn改成你们自己的域名就可以了
+        server_name mykkto.cn;
+        #证书的两个配置文件
+        ssl_certificate /etc/nginx/ssl/8799443_v1.mykkto.cn.pem;
+        ssl_certificate_key /etc/nginx/ssl/8799443_v1.mykkto.cn.key;
+		#以下都是一些加密规则
+        ssl_session_timeout 5m;
+        ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+        ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE;
+        ssl_prefer_server_ciphers on;
+        #这是我的主页访问地址，因为使用的是静态的html网页，所以直接使用location就可以完成了。
+        location / {
+                #文件夹（这个其实挂载的就是外部的www目录下的静态资源）
+                root //usr/share/nginx/html;
+                #主页文件
+                index index.html;
+        }
+    }
+
+server {
+   listen 80;
+        #这边空格隔开，配置了两个，因为加了www也要配置
+       server_name mykkto.cn;
+       rewrite ^/(.*)$ https://mykkto.cn:443/$1 permanent;
+  # location / {
+  #     limit_req zone=mylimit;
+  #}
+}
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
+<h4 id="2、更新床图脚本"><a href="#2、更新床图脚本" class="headerlink" title="2、更新床图脚本"></a>2、更新床图脚本</h4><p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202211222303115.png"></p>
+<h4 id="3、PICGO-配置"><a href="#3、PICGO-配置" class="headerlink" title="3、PICGO 配置"></a>3、PICGO 配置</h4><p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202211222304590.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202211222303839.png"></p>
 <h2 id="参考-↓"><a href="#参考-↓" class="headerlink" title="参考 ↓"></a>参考 ↓</h2><p>—— 【一到三】参考———–</p>
 <p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/zltech/p/13517231.html">https://www.cnblogs.com/zltech/p/13517231.html</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/thepoy/p/14848080.html">https://www.cnblogs.com/thepoy/p/14848080.html</a></p>
@@ -2247,7 +2326,7 @@ new Valine({
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">153.5k</span>&nbsp;字
+                class="white-color">154k</span>&nbsp;字
             
             
             
