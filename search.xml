@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>灰度发布方案</title>
+      <link href="posts/f83c265d.html"/>
+      <url>posts/f83c265d.html</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="目录："><a href="#目录：" class="headerlink" title="目录："></a>目录：</h2><h2 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h2><h2 id="目录：-1"><a href="#目录：-1" class="headerlink" title="目录："></a>目录：</h2><p>一、gateway</p><ul><li>前置知识</li><li>什么是灰度发布</li><li>灰度发布落地方案</li><li>原理图</li><li>案例： <ul><li>服务注册</li><li>构建网关</li><li>编写灰度用户</li><li></li></ul></li></ul><p>二、openresty</p><ul><li></li></ul><h2 id="Ⅰ、gateway-灰度"><a href="#Ⅰ、gateway-灰度" class="headerlink" title="Ⅰ、gateway 灰度"></a>Ⅰ、gateway 灰度</h2><h3 id="一、前置知识"><a href="#一、前置知识" class="headerlink" title="一、前置知识"></a>一、前置知识</h3><h3 id="二、什么是灰度发布"><a href="#二、什么是灰度发布" class="headerlink" title="二、什么是灰度发布"></a>二、什么是灰度发布</h3><h3 id="三、灰度发布落地方案"><a href="#三、灰度发布落地方案" class="headerlink" title="三、灰度发布落地方案"></a>三、灰度发布落地方案</h3><h3 id="四、原理图"><a href="#四、原理图" class="headerlink" title="四、原理图"></a>四、原理图</h3><h3 id="五、案例"><a href="#五、案例" class="headerlink" title="五、案例"></a>五、案例</h3><h2 id="Ⅱ、nginx-灰度"><a href="#Ⅱ、nginx-灰度" class="headerlink" title="Ⅱ、nginx 灰度"></a>Ⅱ、nginx 灰度</h2><h3 id="一、"><a href="#一、" class="headerlink" title="一、"></a>一、</h3><h3 id="二、"><a href="#二、" class="headerlink" title="二、"></a>二、</h3><h3 id="三、"><a href="#三、" class="headerlink" title="三、"></a>三、</h3><h3 id="四、"><a href="#四、" class="headerlink" title="四、"></a>四、</h3><h3 id="五、"><a href="#五、" class="headerlink" title="五、"></a>五、</h3><h2 id="参考文章-↓"><a href="#参考文章-↓" class="headerlink" title="参考文章 ↓"></a>参考文章 ↓</h2><p>docker-nacos单体（快速）</p><p><a href="https://www.jb51.net/article/248585.htm">https://www.jb51.net/article/248585.htm</a></p><p>gatway:</p><p><a href="https://blog.csdn.net/u014001523/article/details/125400266">https://blog.csdn.net/u014001523/article/details/125400266</a></p><p><a href="https://blog.csdn.net/qq_43692950/article/details/125226460?spm=1001.2101.3001.6650.1&amp;utm_medium=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-1-125226460-blog-125400266.pc_relevant_3mothn_strategy_recovery&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-1-125226460-blog-125400266.pc_relevant_3mothn_strategy_recovery&amp;utm_relevant_index=2">https://blog.csdn.net/qq_43692950/article/details/125226460?spm=1001.2101.3001.6650.1&amp;utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-1-125226460-blog-125400266.pc_relevant_3mothn_strategy_recovery&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-1-125226460-blog-125400266.pc_relevant_3mothn_strategy_recovery&amp;utm_relevant_index=2</a></p><p>openresty:<a href="https://blog.csdn.net/u014001523/article/details/125400318">https://blog.csdn.net/u014001523/article/details/125400318</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 分布式技术栈 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> gateway </tag>
+            
+            <tag> 灰度发布 </tag>
+            
+            <tag> nginx </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>大厂面试题</title>
       <link href="posts/726c3129.html"/>
       <url>posts/726c3129.html</url>
@@ -52,6 +81,35 @@
             <tag> amqp </tag>
             
             <tag> rabbitmq </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Netty-封神篇</title>
+      <link href="posts/a29e7aa.html"/>
+      <url>posts/a29e7aa.html</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="目录："><a href="#目录：" class="headerlink" title="目录："></a>目录：</h2><ul><li>网络编程<ul><li>三次握手</li><li>基础后面会在其他文章更新</li></ul></li><li>nio</li><li><h2 id="netty"><a href="#netty" class="headerlink" title="netty"></a>netty</h2></li></ul><h2 id="Ⅰ、NIO"><a href="#Ⅰ、NIO" class="headerlink" title="Ⅰ、NIO"></a>Ⅰ、NIO</h2><h3 id="一、"><a href="#一、" class="headerlink" title="一、"></a>一、</h3><h4 id="1、"><a href="#1、" class="headerlink" title="1、"></a>1、</h4><h4 id="2、"><a href="#2、" class="headerlink" title="2、"></a>2、</h4><h4 id="3、"><a href="#3、" class="headerlink" title="3、"></a>3、</h4><h4 id="4、"><a href="#4、" class="headerlink" title="4、"></a>4、</h4><h4 id="5、"><a href="#5、" class="headerlink" title="5、"></a>5、</h4><h3 id="二、"><a href="#二、" class="headerlink" title="二、"></a>二、</h3><h4 id="1、-1"><a href="#1、-1" class="headerlink" title="1、"></a>1、</h4><h4 id="2、-1"><a href="#2、-1" class="headerlink" title="2、"></a>2、</h4><h4 id="3、-1"><a href="#3、-1" class="headerlink" title="3、"></a>3、</h4><h4 id="4、-1"><a href="#4、-1" class="headerlink" title="4、"></a>4、</h4><h4 id="5、-1"><a href="#5、-1" class="headerlink" title="5、"></a>5、</h4><h3 id="三、"><a href="#三、" class="headerlink" title="三、"></a>三、</h3><h3 id="四、"><a href="#四、" class="headerlink" title="四、"></a>四、</h3><h3 id="五、"><a href="#五、" class="headerlink" title="五、"></a>五、</h3><h2 id="Ⅱ、Netty"><a href="#Ⅱ、Netty" class="headerlink" title="Ⅱ、Netty"></a>Ⅱ、Netty</h2><h3 id="一、-1"><a href="#一、-1" class="headerlink" title="一、"></a>一、</h3><h3 id="二、-1"><a href="#二、-1" class="headerlink" title="二、"></a>二、</h3><h3 id="三、-1"><a href="#三、-1" class="headerlink" title="三、"></a>三、</h3><h3 id="四、-1"><a href="#四、-1" class="headerlink" title="四、"></a>四、</h3><h3 id="五、-1"><a href="#五、-1" class="headerlink" title="五、"></a>五、</h3><h3 id=""><a href="#" class="headerlink" title=""></a></h3>]]></content>
+      
+      
+      <categories>
+          
+          <category> 内力篇 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> netty </tag>
+            
+            <tag> nio </tag>
+            
+            <tag> 网络编程 </tag>
             
         </tags>
       
@@ -1310,11 +1368,11 @@
       
         <tags>
             
-            <tag> 语录 </tag>
-            
             <tag> 生活 </tag>
             
             <tag> 随记 </tag>
+            
+            <tag> 语录 </tag>
             
         </tags>
       
