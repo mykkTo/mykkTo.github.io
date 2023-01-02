@@ -41,9 +41,9 @@
       s.parentNode.insertBefore(hm, s);
     })();
     </script>
-<meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="jack" type="application/atom+xml">
-
+<meta name="generator" content="Hexo 5.2.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="jack" type="application/atom+xml">
 </head>
 
 
@@ -677,21 +677,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-12-01
+                    2022-12-12
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    173
+                    617
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -714,7 +714,9 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="目录："><a href="#目录：" class="headerlink" title="目录："></a>目录：</h2><h2 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h2><h2 id="目录：-1"><a href="#目录：-1" class="headerlink" title="目录："></a>目录：</h2><p>一、gateway</p>
+                <h2 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h2><p><a target="_blank" rel="noopener" href="https://gitee.com/TK_LIMR/springcloud2021To2021.git">https://gitee.com/TK_LIMR/springcloud2021To2021.git</a></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202212042121559.png"></p>
+<h2 id="目录："><a href="#目录：" class="headerlink" title="目录："></a>目录：</h2><p>一、gateway</p>
 <ul>
 <li>前置知识</li>
 <li>什么是灰度发布</li>
@@ -724,7 +726,6 @@
 <li>服务注册</li>
 <li>构建网关</li>
 <li>编写灰度用户</li>
-<li></li>
 </ul>
 </li>
 </ul>
@@ -732,12 +733,24 @@
 <ul>
 <li></li>
 </ul>
-<h2 id="Ⅰ、gateway-灰度"><a href="#Ⅰ、gateway-灰度" class="headerlink" title="Ⅰ、gateway 灰度"></a>Ⅰ、gateway 灰度</h2><h3 id="一、前置知识"><a href="#一、前置知识" class="headerlink" title="一、前置知识"></a>一、前置知识</h3><h3 id="二、什么是灰度发布"><a href="#二、什么是灰度发布" class="headerlink" title="二、什么是灰度发布"></a>二、什么是灰度发布</h3><h3 id="三、灰度发布落地方案"><a href="#三、灰度发布落地方案" class="headerlink" title="三、灰度发布落地方案"></a>三、灰度发布落地方案</h3><h3 id="四、原理图"><a href="#四、原理图" class="headerlink" title="四、原理图"></a>四、原理图</h3><h3 id="五、案例"><a href="#五、案例" class="headerlink" title="五、案例"></a>五、案例</h3><h2 id="Ⅱ、nginx-灰度"><a href="#Ⅱ、nginx-灰度" class="headerlink" title="Ⅱ、nginx 灰度"></a>Ⅱ、nginx 灰度</h2><h3 id="一、"><a href="#一、" class="headerlink" title="一、"></a>一、</h3><h3 id="二、"><a href="#二、" class="headerlink" title="二、"></a>二、</h3><h3 id="三、"><a href="#三、" class="headerlink" title="三、"></a>三、</h3><h3 id="四、"><a href="#四、" class="headerlink" title="四、"></a>四、</h3><h3 id="五、"><a href="#五、" class="headerlink" title="五、"></a>五、</h3><h2 id="参考文章-↓"><a href="#参考文章-↓" class="headerlink" title="参考文章 ↓"></a>参考文章 ↓</h2><p>docker-nacos单体（快速）</p>
+<h2 id="Ⅰ、gateway-灰度"><a href="#Ⅰ、gateway-灰度" class="headerlink" title="Ⅰ、gateway 灰度"></a>Ⅰ、gateway 灰度</h2><h3 id="一、前置知识"><a href="#一、前置知识" class="headerlink" title="一、前置知识"></a>一、前置知识</h3><p>1.nacos 服务注册与发现</p>
+<p>2.本地负载均衡器算法</p>
+<p>3.gateway 网关</p>
+<p>4.ThreadLocal</p>
+<p>1.什么是灰度发布？<br>2.什么是灰度策略?<br>3.灰度发布落地方案有哪些<br>4.灰度发布架构设计原理 nginx+lua？<br>5.如何基于GateWay+Nacos构建灰度环境<br>6.GateWay负载均衡路由算法原理——改写<br>7.如何重写本地负载均衡器，走灰度环境<br>8.为何不基于nginx+lua实现？而使用GateWay<br>9.代码落地实战：构建微服务灰度发布环境</p>
+<h3 id="二、什么是灰度发布"><a href="#二、什么是灰度发布" class="headerlink" title="二、什么是灰度发布"></a>二、什么是灰度发布</h3><p>灰度发布（又名金丝雀发布）是指在黑与白之间，能够平滑过渡的一种发布方式。在其上可以进行A/B testing，即让一部分用户继续用产品特性A，一部分用户开始用产品特性B，如果用户对B没有什么反对意见，那么逐步扩大范围，把所有用户都迁移到B上面来。灰度发布可以保证整体系统的稳定，在初始灰度的时候就可以发现、调整问题，以保证其影响度。</p>
+<p>灰度期：灰度发布开始到结束期间的这一段时间，称为灰度期。</p>
+<p>灰度发布能及早获得用户的意见反馈，完善产品功能，提升产品质量，让用户参与产品测试，加强与用户互动，降低产品升级所影响的用户范围。</p>
+<p>整合服务注册中心</p>
+<h3 id="三、灰度发布落地方案"><a href="#三、灰度发布落地方案" class="headerlink" title="三、灰度发布落地方案"></a>三、灰度发布落地方案</h3><p>1.nginx+lua+nacos 实现（需要懂lua脚本），通过nginx实现效率高【本bolg 有 lua 教程】</p>
+<p>2.gateway+nacos+重写本地负载均衡器 （java实现）—java程序员推荐 性能没有直接</p>
+<h3 id="四、原理图"><a href="#四、原理图" class="headerlink" title="四、原理图"></a>四、原理图</h3><h3 id="五、案例"><a href="#五、案例" class="headerlink" title="五、案例"></a>五、案例</h3><h2 id="Ⅱ、nginx-灰度"><a href="#Ⅱ、nginx-灰度" class="headerlink" title="Ⅱ、nginx 灰度"></a>Ⅱ、nginx 灰度</h2><h3 id="一、"><a href="#一、" class="headerlink" title="一、"></a>一、</h3><h3 id="二、"><a href="#二、" class="headerlink" title="二、"></a>二、</h3><h3 id="三、"><a href="#三、" class="headerlink" title="三、"></a>三、</h3><h3 id="四、"><a href="#四、" class="headerlink" title="四、"></a>四、</h3><h3 id="五、"><a href="#五、" class="headerlink" title="五、"></a>五、</h3><h2 id="参考文章-↓"><a href="#参考文章-↓" class="headerlink" title="参考文章 ↓"></a>参考文章 ↓</h2><p>docker-nacos单体（快速）</p>
 <p><a target="_blank" rel="noopener" href="https://www.jb51.net/article/248585.htm">https://www.jb51.net/article/248585.htm</a></p>
 <p>gatway:</p>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/u014001523/article/details/125400266">https://blog.csdn.net/u014001523/article/details/125400266</a></p>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_43692950/article/details/125226460?spm=1001.2101.3001.6650.1&amp;utm_medium=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-1-125226460-blog-125400266.pc_relevant_3mothn_strategy_recovery&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-1-125226460-blog-125400266.pc_relevant_3mothn_strategy_recovery&amp;utm_relevant_index=2">https://blog.csdn.net/qq_43692950/article/details/125226460?spm=1001.2101.3001.6650.1&amp;utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-1-125226460-blog-125400266.pc_relevant_3mothn_strategy_recovery&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-1-125226460-blog-125400266.pc_relevant_3mothn_strategy_recovery&amp;utm_relevant_index=2</a></p>
 <p>openresty:<a target="_blank" rel="noopener" href="https://blog.csdn.net/u014001523/article/details/125400318">https://blog.csdn.net/u014001523/article/details/125400318</a></p>
+<p>openfeign重写：<a target="_blank" rel="noopener" href="https://www.itmuch.com/spring-cloud-sum/hystrix-threadlocal/">https://www.itmuch.com/spring-cloud-sum/hystrix-threadlocal/</a></p>
 
                 
             </div>
@@ -1620,7 +1633,7 @@ new Valine({
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2022</span>
+                <span id="year">2022-2023</span>
             
             <span id="year">2022</span>
             <a href="/about" target="_blank">jack</a>
@@ -1629,7 +1642,7 @@ new Valine({
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">154.2k</span>&nbsp;字
+                class="white-color">154.9k</span>&nbsp;字
             
             
             
