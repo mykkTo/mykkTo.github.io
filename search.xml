@@ -145,64 +145,6 @@
     
     
     <entry>
-      <title>k8s【暂更】</title>
-      <link href="posts/655061ae.html"/>
-      <url>posts/655061ae.html</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="Ⅰ、复杂安装（主从搭建）"><a href="#Ⅰ、复杂安装（主从搭建）" class="headerlink" title="Ⅰ、复杂安装（主从搭建）"></a>Ⅰ、复杂安装（主从搭建）</h2><h3 id="一、Mysql主从"><a href="#一、Mysql主从" class="headerlink" title="一、Mysql主从"></a>一、Mysql主从</h3><h3 id="二、Redis集群"><a href="#二、Redis集群" class="headerlink" title="二、Redis集群"></a>二、Redis集群</h3><h2 id="Ⅱ、轻量可视化-Portainer"><a href="#Ⅱ、轻量可视化-Portainer" class="headerlink" title="Ⅱ、轻量可视化 Portainer"></a>Ⅱ、轻量可视化 Portainer</h2><h2 id="Ⅲ、Docker容器监控（CAdvisor-InfluxDB-Granfana）"><a href="#Ⅲ、Docker容器监控（CAdvisor-InfluxDB-Granfana）" class="headerlink" title="Ⅲ、Docker容器监控（CAdvisor+InfluxDB+Granfana）"></a>Ⅲ、Docker容器监控（CAdvisor+InfluxDB+Granfana）</h2><h2 id="参考地址-↓"><a href="#参考地址-↓" class="headerlink" title="参考地址 ↓"></a>参考地址 ↓</h2><h3 id="1、docker-加速（博主简书）"><a href="#1、docker-加速（博主简书）" class="headerlink" title="1、docker 加速（博主简书）"></a>1、docker 加速（博主简书）</h3><p>url：<a href="https://www.jianshu.com/p/f554c85b25c1">https://www.jianshu.com/p/f554c85b25c1</a></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> docker </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 集群 </tag>
-            
-            <tag> 主从 </tag>
-            
-            <tag> 可视化 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>docker 部署篇【暂更】</title>
-      <link href="posts/caff0950.html"/>
-      <url>posts/caff0950.html</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="—————————-Docker-实操篇-————————–"><a href="#—————————-Docker-实操篇-————————–" class="headerlink" title="—————————  Docker 实操篇  ————————–"></a><a href="/posts/abdfa13a">—————————  Docker 实操篇  ————————–</a></h2><h2 id=""><a href="#" class="headerlink" title=""></a></h2><h2 id="Ⅰ、复杂安装（主从搭建）"><a href="#Ⅰ、复杂安装（主从搭建）" class="headerlink" title="Ⅰ、复杂安装（主从搭建）"></a>Ⅰ、复杂安装（主从搭建）</h2><h3 id="一、Mysql主从"><a href="#一、Mysql主从" class="headerlink" title="一、Mysql主从"></a>一、Mysql主从</h3><h3 id="二、Redis集群"><a href="#二、Redis集群" class="headerlink" title="二、Redis集群"></a>二、Redis集群</h3><h2 id="Ⅱ、轻量可视化-Portainer"><a href="#Ⅱ、轻量可视化-Portainer" class="headerlink" title="Ⅱ、轻量可视化 Portainer"></a>Ⅱ、轻量可视化 Portainer</h2><h2 id="Ⅲ、Docker容器监控（CAdvisor-InfluxDB-Granfana）"><a href="#Ⅲ、Docker容器监控（CAdvisor-InfluxDB-Granfana）" class="headerlink" title="Ⅲ、Docker容器监控（CAdvisor+InfluxDB+Granfana）"></a>Ⅲ、Docker容器监控（CAdvisor+InfluxDB+Granfana）</h2><h2 id="参考地址-↓"><a href="#参考地址-↓" class="headerlink" title="参考地址 ↓"></a>参考地址 ↓</h2><h3 id="1、docker-加速（博主简书）"><a href="#1、docker-加速（博主简书）" class="headerlink" title="1、docker 加速（博主简书）"></a>1、docker 加速（博主简书）</h3><p>url：<a href="https://www.jianshu.com/p/f554c85b25c1">https://www.jianshu.com/p/f554c85b25c1</a></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> docker </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 集群 </tag>
-            
-            <tag> 主从 </tag>
-            
-            <tag> 可视化 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>docker 操作篇</title>
       <link href="posts/abdfa13a.html"/>
       <url>posts/abdfa13a.html</url>
@@ -321,35 +263,6 @@
     
     
     <entry>
-      <title>项目-尚融宝-00-项目目录总纲</title>
-      <link href="posts/73b5f9d8.html"/>
-      <url>posts/73b5f9d8.html</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h2><h3 id="1、废话"><a href="#1、废话" class="headerlink" title="1、废话"></a>1、废话</h3><p>最近入职了外包，技术远古，寻思着，做个金融项目练练手，不至于被外包弱后的技术带偏，想着利用下班时间做点事情，一方面是不想技术被停留在节点上，一方面想着能有所提升和巩固。为什么选择金融相关项目，做了一些调研，银行和金融相对含金量搞点，虽然这个项目也比较普通，但是做练习入手还行，后面也会在此基础上做一些自己的扩展。</p><h3 id="2、食用说明"><a href="#2、食用说明" class="headerlink" title="2、食用说明"></a>2、食用说明</h3><p>把整个项目切分为多个篇章，避免一篇下来比较多也乱，参考以下目录，会把项目的源码放到 gitHub上 ，在 上面会做说明。</p><h3 id="3、"><a href="#3、" class="headerlink" title="3、"></a>3、</h3><h3 id="4、"><a href="#4、" class="headerlink" title="4、"></a>4、</h3><h3 id="5、"><a href="#5、" class="headerlink" title="5、"></a>5、</h3><h2 id="二、项目分片目录"><a href="#二、项目分片目录" class="headerlink" title="二、项目分片目录"></a>二、项目分片目录</h2><h3 id="0、GitHub仓库"><a href="#0、GitHub仓库" class="headerlink" title="0、GitHub仓库"></a>0、<a href="https://github.com/mykkTo/shangrongbao">GitHub仓库</a></h3><h3 id="1、金融背景及其后端搭建"><a href="#1、金融背景及其后端搭建" class="headerlink" title="1、金融背景及其后端搭建"></a>1、<a href="/posts/a6407b24">金融背景及其后端搭建</a></h3><h3 id="2、"><a href="#2、" class="headerlink" title="2、"></a>2、</h3><h3 id="3、-1"><a href="#3、-1" class="headerlink" title="3、"></a>3、</h3><h3 id="4、-1"><a href="#4、-1" class="headerlink" title="4、"></a>4、</h3><h3 id="5、-1"><a href="#5、-1" class="headerlink" title="5、"></a>5、</h3><h2 id="三、注意事项和基本操作"><a href="#三、注意事项和基本操作" class="headerlink" title="三、注意事项和基本操作"></a>三、注意事项和基本操作</h2><h3 id=""><a href="#" class="headerlink" title=""></a></h3><h2 id="参考地址-↓"><a href="#参考地址-↓" class="headerlink" title="参考地址 ↓"></a>参考地址 ↓</h2><p>环环主讲项目：<a href="https://www.bilibili.com/video/BV1VV411n7nR?spm_id_from=333.337.search-card.all.click">https://www.bilibili.com/video/BV1VV411n7nR?spm_id_from=333.337.search-card.all.click</a></p><p>老齐解说外包：<a href="https://www.bilibili.com/video/BV1vP4y1x7T2?spm_id_from=333.880.my_history.page.click">https://www.bilibili.com/video/BV1vP4y1x7T2?spm_id_from=333.880.my_history.page.click</a></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 项目-尚融宝 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 合集 </tag>
-            
-            <tag> 金融 </tag>
-            
-            <tag> 项目 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>JVM-01-字节码</title>
       <link href="posts/6ae84987.html"/>
       <url>posts/6ae84987.html</url>
@@ -429,64 +342,6 @@
             <tag> 分库分表 </tag>
             
             <tag> jdbc </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Redis_三剑(击穿、穿透、雪崩)【暂更】</title>
-      <link href="posts/32917ce1.html"/>
-      <url>posts/32917ce1.html</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="一、布隆过滤器"><a href="#一、布隆过滤器" class="headerlink" title="一、布隆过滤器"></a>一、布隆过滤器</h2><h3 id="1、"><a href="#1、" class="headerlink" title="1、"></a>1、</h3><h3 id="2、"><a href="#2、" class="headerlink" title="2、"></a>2、</h3><h3 id="3、"><a href="#3、" class="headerlink" title="3、"></a>3、</h3><h3 id="4、"><a href="#4、" class="headerlink" title="4、"></a>4、</h3><h3 id="5、"><a href="#5、" class="headerlink" title="5、"></a>5、</h3><h2 id="二、击穿"><a href="#二、击穿" class="headerlink" title="二、击穿"></a>二、击穿</h2><h3 id="1、-1"><a href="#1、-1" class="headerlink" title="1、"></a>1、</h3><h3 id="2、-1"><a href="#2、-1" class="headerlink" title="2、"></a>2、</h3><h3 id="3、-1"><a href="#3、-1" class="headerlink" title="3、"></a>3、</h3><h3 id="4、-1"><a href="#4、-1" class="headerlink" title="4、"></a>4、</h3><h3 id="5、-1"><a href="#5、-1" class="headerlink" title="5、"></a>5、</h3><h2 id="三、穿透"><a href="#三、穿透" class="headerlink" title="三、穿透"></a>三、穿透</h2><h3 id="1、-2"><a href="#1、-2" class="headerlink" title="1、"></a>1、</h3><h3 id="2、-2"><a href="#2、-2" class="headerlink" title="2、"></a>2、</h3><h3 id="3、-2"><a href="#3、-2" class="headerlink" title="3、"></a>3、</h3><h3 id="4、-2"><a href="#4、-2" class="headerlink" title="4、"></a>4、</h3><h3 id="5、-2"><a href="#5、-2" class="headerlink" title="5、"></a>5、</h3><h2 id="四、雪崩"><a href="#四、雪崩" class="headerlink" title="四、雪崩"></a>四、雪崩</h2><h3 id="1、-3"><a href="#1、-3" class="headerlink" title="1、"></a>1、</h3><h3 id="2、-3"><a href="#2、-3" class="headerlink" title="2、"></a>2、</h3><h3 id="3、-3"><a href="#3、-3" class="headerlink" title="3、"></a>3、</h3><h3 id="4、-3"><a href="#4、-3" class="headerlink" title="4、"></a>4、</h3><h3 id="5、-3"><a href="#5、-3" class="headerlink" title="5、"></a>5、</h3>]]></content>
-      
-      
-      <categories>
-          
-          <category> 缓存中间件 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> redis </tag>
-            
-            <tag> 击穿、击穿、穿透 </tag>
-            
-            <tag> BloomFilter </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Redis_实现分布式锁【暂更】</title>
-      <link href="posts/aaae178b.html"/>
-      <url>posts/aaae178b.html</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="一、面试题"><a href="#一、面试题" class="headerlink" title="一、面试题"></a>一、面试题</h2><ul><li>Redis除了拿来做缓存，你还见过基于Redis的什么用法？</li><li>Redis 做分布式锁的时候有需要注意的问题？</li><li>如果是 Redis 是单点部署的，会带来什么问题？那你准备怎么解决单点问题呢？</li><li>集群模式下，比如主从模式，有没有什么问题呢？</li><li>你知道 Redis 是怎么解决集群模式也不靠谱的问题的吗？</li><li>那你简单的介绍一下 Redlock 吧？你简历上写redisson，你谈谈</li><li>你觉得 Redlock 有什么问题呢？</li><li>Redis分布式锁如何续期？看门狗知道吗？</li></ul><h2 id="二、"><a href="#二、" class="headerlink" title="二、"></a>二、</h2><h3 id="1、"><a href="#1、" class="headerlink" title="1、"></a>1、</h3><h3 id="2、"><a href="#2、" class="headerlink" title="2、"></a>2、</h3><h3 id="3、"><a href="#3、" class="headerlink" title="3、"></a>3、</h3><h3 id="4、"><a href="#4、" class="headerlink" title="4、"></a>4、</h3><h3 id="5、"><a href="#5、" class="headerlink" title="5、"></a>5、</h3><h2 id="三、"><a href="#三、" class="headerlink" title="三、"></a>三、</h2><h3 id="1、-1"><a href="#1、-1" class="headerlink" title="1、"></a>1、</h3><h3 id="2、-1"><a href="#2、-1" class="headerlink" title="2、"></a>2、</h3><h3 id="3、-1"><a href="#3、-1" class="headerlink" title="3、"></a>3、</h3><h3 id="4、-1"><a href="#4、-1" class="headerlink" title="4、"></a>4、</h3><h3 id="5、-1"><a href="#5、-1" class="headerlink" title="5、"></a>5、</h3>]]></content>
-      
-      
-      <categories>
-          
-          <category> 缓存中间件 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> redis </tag>
-            
-            <tag> 分布式锁 </tag>
-            
-            <tag> redlock </tag>
             
         </tags>
       
@@ -694,37 +549,6 @@
             <tag> docker </tag>
             
             <tag> 安装 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>项目-尚融宝-03-金融项目核心业务实现</title>
-      <link href="posts/f6bd040d.html"/>
-      <url>posts/f6bd040d.html</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="〇、主目录总纲"><a href="#〇、主目录总纲" class="headerlink" title="〇、主目录总纲"></a>〇、<a href="/posts/73b5f9d8">主目录总纲</a></h2><h2 id="Ⅰ、"><a href="#Ⅰ、" class="headerlink" title="Ⅰ、"></a>Ⅰ、</h2><h3 id="一、"><a href="#一、" class="headerlink" title="一、"></a>一、</h3><h4 id="1、"><a href="#1、" class="headerlink" title="1、"></a>1、</h4><h5 id="1"><a href="#1" class="headerlink" title="1."></a>1.</h5><h5 id="2"><a href="#2" class="headerlink" title="2."></a>2.</h5><h5 id="3"><a href="#3" class="headerlink" title="3."></a>3.</h5><h5 id="4"><a href="#4" class="headerlink" title="4."></a>4.</h5><h5 id="5"><a href="#5" class="headerlink" title="5."></a>5.</h5><h4 id="2、"><a href="#2、" class="headerlink" title="2、"></a>2、</h4><h5 id="1-1"><a href="#1-1" class="headerlink" title="1."></a>1.</h5><h5 id="2-1"><a href="#2-1" class="headerlink" title="2."></a>2.</h5><h5 id="3-1"><a href="#3-1" class="headerlink" title="3."></a>3.</h5><h5 id="4-1"><a href="#4-1" class="headerlink" title="4."></a>4.</h5><h5 id="5-1"><a href="#5-1" class="headerlink" title="5."></a>5.</h5><h4 id="3、"><a href="#3、" class="headerlink" title="3、"></a>3、</h4><h5 id="1-2"><a href="#1-2" class="headerlink" title="1."></a>1.</h5><h5 id="2-2"><a href="#2-2" class="headerlink" title="2."></a>2.</h5><h5 id="3-2"><a href="#3-2" class="headerlink" title="3."></a>3.</h5><h5 id="4-2"><a href="#4-2" class="headerlink" title="4."></a>4.</h5><h5 id="5-2"><a href="#5-2" class="headerlink" title="5."></a>5.</h5><h4 id="4、"><a href="#4、" class="headerlink" title="4、"></a>4、</h4><h5 id="1-3"><a href="#1-3" class="headerlink" title="1."></a>1.</h5><h5 id="2-3"><a href="#2-3" class="headerlink" title="2."></a>2.</h5><h5 id="3-3"><a href="#3-3" class="headerlink" title="3."></a>3.</h5><h5 id="4-3"><a href="#4-3" class="headerlink" title="4."></a>4.</h5><h5 id="5-3"><a href="#5-3" class="headerlink" title="5."></a>5.</h5><h4 id="5、"><a href="#5、" class="headerlink" title="5、"></a>5、</h4><h5 id="1-4"><a href="#1-4" class="headerlink" title="1."></a>1.</h5><h5 id="2-4"><a href="#2-4" class="headerlink" title="2."></a>2.</h5><h5 id="3-4"><a href="#3-4" class="headerlink" title="3."></a>3.</h5><h5 id="4-4"><a href="#4-4" class="headerlink" title="4."></a>4.</h5><h5 id="5-4"><a href="#5-4" class="headerlink" title="5."></a>5.</h5><h3 id="二、"><a href="#二、" class="headerlink" title="二、"></a>二、</h3><h3 id="三、"><a href="#三、" class="headerlink" title="三、"></a>三、</h3><h3 id="四、"><a href="#四、" class="headerlink" title="四、"></a>四、</h3><h3 id="五、"><a href="#五、" class="headerlink" title="五、"></a>五、</h3><h2 id="Ⅱ、"><a href="#Ⅱ、" class="headerlink" title="Ⅱ、"></a>Ⅱ、</h2><h3 id="1、-1"><a href="#1、-1" class="headerlink" title="1、"></a>1、</h3><h3 id="2、-1"><a href="#2、-1" class="headerlink" title="2、"></a>2、</h3><h3 id="3、-1"><a href="#3、-1" class="headerlink" title="3、"></a>3、</h3><h3 id="4、-1"><a href="#4、-1" class="headerlink" title="4、"></a>4、</h3><h3 id="5、-1"><a href="#5、-1" class="headerlink" title="5、"></a>5、</h3><h2 id="Ⅲ、"><a href="#Ⅲ、" class="headerlink" title="Ⅲ、"></a>Ⅲ、</h2><h3 id="1、-2"><a href="#1、-2" class="headerlink" title="1、"></a>1、</h3><h3 id="2、-2"><a href="#2、-2" class="headerlink" title="2、"></a>2、</h3><h3 id="3、-2"><a href="#3、-2" class="headerlink" title="3、"></a>3、</h3><h3 id="4、-2"><a href="#4、-2" class="headerlink" title="4、"></a>4、</h3><h3 id="5、-2"><a href="#5、-2" class="headerlink" title="5、"></a>5、</h3>]]></content>
-      
-      
-      <categories>
-          
-          <category> 项目-尚融宝 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> springcloud-alibaba </tag>
-            
-            <tag> 熔断器 </tag>
-            
-            <tag> sentinel </tag>
-            
-            <tag> 限流 </tag>
             
         </tags>
       
