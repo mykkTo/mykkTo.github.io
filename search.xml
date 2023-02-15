@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>面试题-03(关于Cloud)</title>
+      <link href="posts/45f5cab5.html"/>
+      <url>posts/45f5cab5.html</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="目录："><a href="#目录：" class="headerlink" title="目录："></a>目录：</h2><ul><li><p>你有过SpringCloud ？</p></li><li><p>注册中心</p><ul><li>那几款？对比？</li><li>服务发现流程，原理？</li></ul></li><li><p>熔断器</p><ul><li>那几款？对比？</li></ul></li></ul><h3 id="1、你有过SpringCloud-？"><a href="#1、你有过SpringCloud-？" class="headerlink" title="1、你有过SpringCloud ？"></a>1、你有过SpringCloud ？</h3><p>当然，如果按照厂商分为两种：Netflix 和 alibaba ；如果按照技术栈则分为，注册中心、配置中心、网关、熔断器、服务调用、分布式事务、链路追踪等</p><h4 id=""><a href="#" class="headerlink" title=""></a></h4><h2 id="参考-↓"><a href="#参考-↓" class="headerlink" title="参考 ↓"></a>参考 ↓</h2><p>springboot 配置 jdbctemplate :<a href="https://blog.csdn.net/u014553029/article/details/101130291">https://blog.csdn.net/u014553029/article/details/101130291</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 面试题 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> springcloud </tag>
+            
+            <tag> 面试 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>JUC-深度面试题</title>
       <link href="posts/ee9ed7cb.html"/>
       <url>posts/ee9ed7cb.html</url>
@@ -23,35 +50,6 @@
             <tag> juc </tag>
             
             <tag> 面试题 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>面试题-02</title>
-      <link href="posts/3ae8ebd6.html"/>
-      <url>posts/3ae8ebd6.html</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="目录："><a href="#目录：" class="headerlink" title="目录："></a>目录：</h2><ul><li>volatile<ul><li>JMM</li><li>3 特性</li></ul></li><li>CAS</li><li>原子类</li></ul><h2 id="源码："><a href="#源码：" class="headerlink" title="源码："></a>源码：</h2><p><a href="https://gitee.com/TK_LIMR/springcloud2021To2021">https://gitee.com/TK_LIMR/springcloud2021To2021</a></p><p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202210231430708.png"></p><h2 id=""><a href="#" class="headerlink" title=""></a></h2><h3 id="一、Spring-tx-事务失效场景"><a href="#一、Spring-tx-事务失效场景" class="headerlink" title="一、Spring-tx 事务失效场景"></a>一、Spring-tx 事务失效场景</h3><h3 id="1、检查异常"><a href="#1、检查异常" class="headerlink" title="1、检查异常"></a>1、检查异常</h3><h4 id="1、失效场景"><a href="#1、失效场景" class="headerlink" title="1、失效场景"></a>1、失效场景</h4><h4 id="-1"><a href="#-1" class="headerlink" title=""></a></h4><p>这边构造一个不存在的文件流，造成异常模拟</p><p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202210231431260.png"></p><p>数据库情况</p><p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202210231432351.png"></p><p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202210231432321.png"></p><p>很明显事务失效了</p><h4 id="2、解决方案"><a href="#2、解决方案" class="headerlink" title="2、解决方案"></a>2、解决方案</h4><p>加上注解，实现有感知回滚</p><p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202210231450351.png"></p><h3 id="2、错误的-try-catch"><a href="#2、错误的-try-catch" class="headerlink" title="2、错误的 try-catch"></a>2、错误的 try-catch</h3><h4 id="1、失效场景-1"><a href="#1、失效场景-1" class="headerlink" title="1、失效场景"></a>1、失效场景</h4><p>自己try 后，外部调用的方法，无感知，则提交了没有回滚</p><p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202210231457909.png"></p><p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202210231457334.png"></p><h4 id="2、解决方案-1"><a href="#2、解决方案-1" class="headerlink" title="2、解决方案"></a>2、解决方案</h4><p><strong>方法一：</strong></p><p>当用 try-catch 出现异常的时候，显示的往上抛，让上层调用者感知</p><p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202210231459121.png"></p><p><strong>方法二：</strong></p><p>调用事务方法，回滚功能，可以显示的提交或者回滚，回滚效果和向上抛异常时一样的</p><p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202210231503903.png"></p><h3 id="3、切面顺序"><a href="#3、切面顺序" class="headerlink" title="3、切面顺序"></a>3、切面顺序</h3><h4 id="1、失效场景-2"><a href="#1、失效场景-2" class="headerlink" title="1、失效场景"></a>1、失效场景</h4><p>基于检查异常+try-catch的处理后，使用了后置通知发现依然回滚失败</p><p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202210231534763.png"></p><p><strong>原因</strong></p><p>主要因为先进入事务，然后进入后置(有异常)，在进入目标方法，此时后置并没有往事务上抛，所以无感知</p><p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202210231637927.png"></p><h4 id="2、解决方案（不推荐）"><a href="#2、解决方案（不推荐）" class="headerlink" title="2、解决方案（不推荐）"></a>2、解决方案（不推荐）</h4><p>设置后置的优先级高于事务，这样事务在后面运行，既可以感知到异常</p><p><strong>方法一</strong></p><p>在切面 catch 时候采用 检查异常 或者 try-catch 上面两种方法在 切面方法改动</p><p><strong>方法二</strong></p><p>设置优先级高于事务</p><p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202210231650943.png"></p><p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202210231654793.png"></p><h3 id="4、非public场景"><a href="#4、非public场景" class="headerlink" title="4、非public场景"></a>4、非public场景</h3><h4 id="1、失效场景-3"><a href="#1、失效场景-3" class="headerlink" title="1、失效场景"></a>1、失效场景</h4><p>方法设置为默认 非public ，事务失效</p><p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202210231701980.png"></p><h4 id="2、解决方案（不推荐）-1"><a href="#2、解决方案（不推荐）-1" class="headerlink" title="2、解决方案（不推荐）"></a>2、解决方案（不推荐）</h4><p>修改默认配置，默认true 只对 public 方法生效</p><p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202210231703269.png"></p><h3 id="5、父子容器"><a href="#5、父子容器" class="headerlink" title="5、父子容器"></a>5、父子容器</h3><h4 id="1、失效场景-4"><a href="#1、失效场景-4" class="headerlink" title="1、失效场景"></a>1、失效场景</h4><p>简单来说就是放在 controller 上调用 service，也是开发中常见的场景</p><p>原因：子容器扫描范围过大，把未加事务配置的 service 扫描进来</p><p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202210231942105.png"></p><h4 id="2、解决方案-2"><a href="#2、解决方案-2" class="headerlink" title="2、解决方案"></a>2、解决方案</h4><p>在springboot遇不到，因为只有一个容器。通常出现在传统项目（spring+MVC整合的时候），会遇到扫描父子容器。Spring扫spring,MVC扫mvc自己的包，就不会出现这个问题，而不是直接扫整个上层包</p><h3 id="6、本类方法调用"><a href="#6、本类方法调用" class="headerlink" title="6、本类方法调用"></a>6、本类方法调用</h3><h4 id="1、失效场景-5"><a href="#1、失效场景-5" class="headerlink" title="1、失效场景"></a>1、失效场景</h4><p>本类两个方法相互调用</p><p><strong>原因</strong></p><p>本类调用，不经过代理，因此无法增强，导致两个事务公用一个</p><p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202210232034376.png"></p><p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202210232038217.png"></p><h4 id="2、解决方案-3"><a href="#2、解决方案-3" class="headerlink" title="2、解决方案"></a>2、解决方案</h4><p><strong>方法一</strong></p><p>自己注入自己</p><p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202210232037056.png"></p><p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202210232037020.png"></p><p><strong>方法二</strong></p><p>从 Aop中代理调用</p><p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202210232044254.png"></p><h3 id="7、原子性（锁失效）"><a href="#7、原子性（锁失效）" class="headerlink" title="7、原子性（锁失效）"></a>7、原子性（锁失效）</h3><h4 id="1、失效场景-6"><a href="#1、失效场景-6" class="headerlink" title="1、失效场景"></a>1、失效场景</h4><p>Jmeter 模拟100个线程每秒</p><p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202210232143042.png"></p><p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202210232142003.png"></p><p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202210232141576.png"></p><h4 id="2、解决方案-4"><a href="#2、解决方案-4" class="headerlink" title="2、解决方案"></a>2、解决方案</h4><p>用 synchronize 能解决？？</p><p>答案：不能</p><p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202210232147419.png"></p><p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202210232147341.png"></p><p><strong>@Transactional 没有保证原子的原因</strong>：</p><p>事务的原子性仅覆盖 inset,update,delete ；select 语句不覆盖，select 方法不阻塞</p><p><strong>@Transactional 导致 synchronize 失效的原因</strong>：</p><p>synchronize 仅保证目标方法的原子性，环绕方法的还有 commit (事务提交)等操作，他们并未处于 sync 同步块中</p><p><strong>方案1：（不推荐）</strong></p><p>修改 synchronize 位置范围扩大至代理方法调用(上层并发接口位置)</p><p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202210232230437.png"></p><p><strong>方案2：（推荐）</strong></p><p>修改 SQL 语句 把 select 替换成 select …for update</p><h3 id="二、数据库索引失效场景"><a href="#二、数据库索引失效场景" class="headerlink" title="二、数据库索引失效场景"></a>二、数据库索引失效场景</h3><p><strong>1、like 以%开头，索引无效；当like前缀没有%，后缀有%时，索引有效</strong></p><p><strong>2、or语句前后没有同时使用索引</strong></p><p>当or左右查询字段只有一个是索引，该索引失效，只有当or左右查询字段均为索引时，才会生效</p><p><strong>3、组合索引，不是使用第一列索引，索引失效</strong></p><p><strong>4、如果列类型是字符串，那一定要在条件中将数据使用引号引用起来，否则不使用索引</strong></p><p>数据类型出现隐式转化。如varchar不加单引号的话可能会自动转换为int型，使索引无效，产生全表扫描。</p><p><strong>5、在索引字段上使用not，&lt;&gt;，!=</strong></p><p>不等于操作符是永远不会用到索引的，因此对它的处理只会产生全表扫描。 优化方法： key&lt;&gt;0 改为 key&gt;0 or key&lt;0。</p><p><strong>6、对索引字段进行计算操作 或者 字段上使用函数。</strong></p><p><strong>7、当全表扫描速度比索引速度快时，mysql会使用全表扫描，此时索引失效</strong></p><h3 id="三、"><a href="#三、" class="headerlink" title="三、"></a>三、</h3><h4 id="1、"><a href="#1、" class="headerlink" title="1、"></a>1、</h4><h4 id="2、"><a href="#2、" class="headerlink" title="2、"></a>2、</h4><h4 id="3、"><a href="#3、" class="headerlink" title="3、"></a>3、</h4><h4 id="4、"><a href="#4、" class="headerlink" title="4、"></a>4、</h4><h4 id="5、"><a href="#5、" class="headerlink" title="5、"></a>5、</h4><h2 id="参考-↓"><a href="#参考-↓" class="headerlink" title="参考 ↓"></a>参考 ↓</h2><p>springboot 配置 jdbctemplate :<a href="https://blog.csdn.net/u014553029/article/details/101130291">https://blog.csdn.net/u014553029/article/details/101130291</a></p><p>事务失效完整场景：<a href="https://www.csdn.net/tags/MtTagg3sMjU0NTEtYmxvZwO0O0OO0O0O.html">https://www.csdn.net/tags/MtTagg3sMjU0NTEtYmxvZwO0O0OO0O0O.html</a></p><p>索引失效：<a href="https://m.php.cn/article/487049.html">https://m.php.cn/article/487049.html</a></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 面试题 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> JUC </tag>
-            
-            <tag> 面试 </tag>
-            
-            <tag> 锁 </tag>
             
         </tags>
       
@@ -760,7 +758,7 @@
     
     
     <entry>
-      <title>SpringCloud-Gaywayl路由网关</title>
+      <title>SpringCloud-Gateway路由网关</title>
       <link href="posts/faa2de28.html"/>
       <url>posts/faa2de28.html</url>
       
@@ -782,7 +780,7 @@
             
             <tag> alibaba </tag>
             
-            <tag> gateway </tag>
+            <tag> Gateway </tag>
             
         </tags>
       
@@ -1236,7 +1234,7 @@
       <link href="posts/f747eac7.html"/>
       <url>posts/f747eac7.html</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="一、技术（较为系统编排）"><a href="#一、技术（较为系统编排）" class="headerlink" title="一、技术（较为系统编排）"></a>一、技术（较为系统编排）</h3><h4 id="1、java数据结构与算法-★"><a href="#1、java数据结构与算法-★" class="headerlink" title="1、java数据结构与算法 ★"></a>1、java数据结构与算法 ★</h4><p><a href="/posts/f747eac7.html">11</a></p><p><a href="https://www.jianshu.com/p/929ca9e209e8">https://www.jianshu.com/p/929ca9e209e8</a></p><p>2、java设计模式<br><a href="https://www.jianshu.com/p/63df8cd03619">https://www.jianshu.com/p/63df8cd03619</a></p><p>8、java单体架构技术栈<br><a href="https://www.jianshu.com/p/0a4a1ced23c7">https://www.jianshu.com/p/0a4a1ced23c7</a></p><p>9、java分布式架构技术栈<br><a href="https://www.jianshu.com/p/00aa796bb5b8">https://www.jianshu.com/p/00aa796bb5b8</a></p><p>10、框架之外技术栈汇总<br><a href="https://www.jianshu.com/p/d0167f082cbf">https://www.jianshu.com/p/d0167f082cbf</a></p><p>N1、内力篇汇总<br><a href="https://www.jianshu.com/p/0c8538c1d014">0-java内力——总纲 - 简书 (jianshu.com)</a></p><p>11、Liunx<br><a href="https://www.jianshu.com/p/409970d8d0f1">https://www.jianshu.com/p/409970d8d0f1</a></p><p>12、前端大杂烩<br><a href="https://www.jianshu.com/p/82fa0c99e019">https://www.jianshu.com/p/82fa0c99e019</a></p><p>13、各项目整合分解大杂烩<br><a href="https://www.jianshu.com/p/d30b07569dc3">https://www.jianshu.com/p/d30b07569dc3</a></p><p>14、面试题汇总：技术=面试题+项目总结 ★<br><a href="https://www.jianshu.com/p/5e3b81aef034">https://www.jianshu.com/p/5e3b81aef034</a></p><p>15、一些不错的网站：<br><a href="https://www.jianshu.com/p/53bf0d4a930d">https://www.jianshu.com/p/53bf0d4a930d</a></p><p>16、随性记录一小点<br><a href="https://www.jianshu.com/p/ed3159f299b4">随性记录一小点 2021-07-15至未来 </a></p><p>7、工具代码备份<br><a href="https://www.jianshu.com/p/e322e82721f4">UT-工具代码 </a></p><p>JDK各版本演变</p><p>4、netty</p><p>5、JVM【重量级】</p><p>n、大数据<br>n、前端<br>n、golang<br>n、以太坊<br>n、区块链<br>n、scala</p><h3 id="2、工作，博客，公众号等所学技术汇总"><a href="#2、工作，博客，公众号等所学技术汇总" class="headerlink" title="2、工作，博客，公众号等所学技术汇总"></a>2、工作，博客，公众号等所学技术汇总</h3><h3 id="3、心得（工作）"><a href="#3、心得（工作）" class="headerlink" title="3、心得（工作）"></a>3、心得（工作）</h3><h3 id="4、语录（感悟）"><a href="#4、语录（感悟）" class="headerlink" title="4、语录（感悟）"></a>4、语录（感悟）</h3>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="一、SpringCloud全家桶-not-only"><a href="#一、SpringCloud全家桶-not-only" class="headerlink" title="一、SpringCloud全家桶(not only)"></a>一、SpringCloud全家桶(not only)</h3><h4 id="1、注册中心篇"><a href="#1、注册中心篇" class="headerlink" title="- 1、注册中心篇"></a>- 1、注册中心篇</h4><p>（1）SpringCloud-Eureka</p><p><a href="/posts/402d692e.html">==================================SpringCloud-Eureka================================</a></p><p>（2）Springcloud-Zookeeper</p><p><a href="/posts/c0125b8a.html">==================================Springcloud-Zookeeper=============================</a></p><p>（3）SpringCloud-Consul</p><p><a href="/posts/51c7125f.html">==================================SpringCloud-Consul===============================</a></p><p>（4）SpringCloud-Alibaba-Nacos（注册中心+配置中心）</p><p><a href="/posts/af0a257d.html">==================================SpringCloud-Alibaba-Nacos==========================</a></p><h4 id="2、服务调用篇"><a href="#2、服务调用篇" class="headerlink" title="- 2、服务调用篇"></a>- 2、服务调用篇</h4><p>（1）SpringCloud-OpenFeign</p><p><a href="/posts/a723ac51.html">==================================SpringCloud-OpenFeign============================</a></p><h4 id="3、负载均衡篇"><a href="#3、负载均衡篇" class="headerlink" title="- 3、负载均衡篇"></a>- 3、负载均衡篇</h4><p>（1）SpringCloud-Ribbon</p><p><a href="/posts/9091e07b.html">==================================SpringCloud-Ribbon===============================</a></p><h4 id="4、熔断限流篇"><a href="#4、熔断限流篇" class="headerlink" title="- 4、熔断限流篇"></a>- 4、熔断限流篇</h4><p>（1）SpringCloud-Hystrix</p><p><a href="/posts/b0ab6264.html">==================================SpringCloud-Hystrix===============================</a></p><p>（2）SpringCloud-Alibaba-Sentinel</p><p><a href="/posts/32724da3.html">==================================SpringCloud-Alibaba-Sentinel=========================</a></p><h4 id="5、路由网关篇"><a href="#5、路由网关篇" class="headerlink" title="- 5、路由网关篇"></a>- 5、路由网关篇</h4><p>（1）SpringCloud-Zuul</p><p><a href="/posts/d633875f.html">==================================SpringCloud-Zuul================================</a></p><p>（2）SpringCloud-Gateway</p><p><a href="/posts/faa2de28.html">==================================SpringCloud-Gateway=============================</a></p><h4 id="6、分布式事务"><a href="#6、分布式事务" class="headerlink" title="- 6、分布式事务"></a>- 6、分布式事务</h4><p>（1）SpringCloud-Alibaba-Seata</p><p><a href="/posts/e1138fa5.html">==================================SpringCloud-Alibaba-Seata===========================</a></p><h4 id="7、配置中心篇"><a href="#7、配置中心篇" class="headerlink" title="- 7、配置中心篇"></a>- 7、配置中心篇</h4><p>（1）SpringCloud-Config</p><p><a href="/posts/fc38d8b7.html">==================================SpringCloud-Config================================</a></p><h4 id="8、搜索引擎篇"><a href="#8、搜索引擎篇" class="headerlink" title="- 8、搜索引擎篇"></a>- 8、搜索引擎篇</h4><p>（1）ES</p><p><a href="/posts/fc38d8b7.html">==================================SpringCloud-Config================================</a></p><h4 id="N、老技术-待淘汰"><a href="#N、老技术-待淘汰" class="headerlink" title="- N、老技术(待淘汰)"></a>- N、老技术(待淘汰)</h4><p>（1）SpringCloud-Bus分布式节点链接</p><p><a href="/posts/699f8954.html">==================================SpringCloud-Bus==================================</a></p><p>（2）SpringCloud-Stream消息驱动</p><p><a href="/posts/e867710e.html">==================================SpringCloud-Stream================================</a></p><p>（3）SpringCloud-Sleuth分布式请求链路跟踪</p><p><a href="/posts/e867710e.html">==================================SpringCloud-Sleuth================================</a></p>]]></content>
       
       
       <categories>
@@ -1248,9 +1246,9 @@
       
         <tags>
             
-            <tag> 简书 </tag>
-            
             <tag> 技术总纲 </tag>
+            
+            <tag> spring全家桶 </tag>
             
         </tags>
       
