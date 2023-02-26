@@ -673,21 +673,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-02-25
+                    2023-02-26
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.8k
+                    3.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    10 分
+                    13 分
                 </div>
                 
 
@@ -733,9 +733,9 @@
 </ul>
 </li>
 </ul>
-<h2 id="1、你有过SpringCloud-？"><a href="#1、你有过SpringCloud-？" class="headerlink" title="1、你有过SpringCloud ？"></a>1、你有过SpringCloud ？</h2><p>当然，如果按照厂商分为两种：Netflix 和 alibaba ；如果按照技术栈则分为，注册中心、配置中心、网关、熔断器、服务调用、分布式事务、链路追踪等</p>
+<h2 id="一、你有过SpringCloud-？"><a href="#一、你有过SpringCloud-？" class="headerlink" title="一、你有过SpringCloud ？"></a>一、你有过SpringCloud ？</h2><p>当然，如果按照厂商分为两种：Netflix 和 alibaba ；如果按照技术栈则分为，注册中心、配置中心、网关、熔断器、服务调用、分布式事务、链路追踪等</p>
 <h3 id="1、注册中心"><a href="#1、注册中心" class="headerlink" title="1、注册中心"></a>1、注册中心</h3><h4 id="1、注册中心比较"><a href="#1、注册中心比较" class="headerlink" title="1、注册中心比较"></a>1、注册中心比较</h4><p><a target="_blank" rel="noopener" href="https://v1.mykkto.cn/image/blog/2022/springcloud/20220222205601.png">https://v1.mykkto.cn/image/blog/2022/springcloud/20220222205601.png</a></p>
-<h4 id="2、注册服务于发现流程"><a href="#2、注册服务于发现流程" class="headerlink" title="2、注册服务于发现流程"></a>2、注册服务于发现流程</h4><h3 id="2、熔断器"><a href="#2、熔断器" class="headerlink" title="2、熔断器"></a>2、熔断器</h3><h4 id="1、对比图"><a href="#1、对比图" class="headerlink" title="1、对比图"></a>1、对比图</h4><h2 id="2、Mysql高级面基"><a href="#2、Mysql高级面基" class="headerlink" title="2、Mysql高级面基"></a>2、Mysql高级面基</h2><p>高级特性本周整理大纲：<br>1、执行流程（5.7 and 8.0 暂不整理），逻辑架构（三层）；图、概述，白话总结<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/qwer123451234123/article/details/124344299">https://blog.csdn.net/qwer123451234123/article/details/124344299</a><br>2、存储引擎（InnoDB MyISAM （核心对比图）…边缘5种简述-了解）；装逼：阿里自定义引擎：Xtradb<br>3、索引迭代设计（是非聚簇索引，二级、联合索引），索引使用常见（11 yes 7 not）；边缘所以你接口对比（HASH、AVL、B、B+）、Explain调优阿里、三范式 ER模型<br>N、事务（显式、隐式），锁（表锁：S锁、X锁、意向锁、自增锁、元数据锁；行锁：记录锁、间隙锁、临键锁、插入意向锁；乐观悲观锁…..） 扩展待定？</p>
+<h4 id="2、注册服务于发现流程"><a href="#2、注册服务于发现流程" class="headerlink" title="2、注册服务于发现流程"></a>2、注册服务于发现流程</h4><h3 id="2、熔断器"><a href="#2、熔断器" class="headerlink" title="2、熔断器"></a>2、熔断器</h3><h4 id="1、对比图"><a href="#1、对比图" class="headerlink" title="1、对比图"></a>1、对比图</h4><h2 id="二、Mysql高级面基"><a href="#二、Mysql高级面基" class="headerlink" title="二、Mysql高级面基"></a>二、Mysql高级面基</h2><p>高级特性本周整理大纲：<br>1、执行流程（5.7 and 8.0 暂不整理），逻辑架构（三层）；图、概述，白话总结<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/qwer123451234123/article/details/124344299">https://blog.csdn.net/qwer123451234123/article/details/124344299</a><br>2、存储引擎（InnoDB MyISAM （核心对比图）…边缘5种简述-了解）；装逼：阿里自定义引擎：Xtradb<br>3、索引迭代设计（是非聚簇索引，二级、联合索引），索引使用常见（11 yes 7 not）；边缘所以你接口对比（HASH、AVL、B、B+）、Explain调优阿里、三范式 ER模型<br>N、事务（显式、隐式），锁（表锁：S锁、X锁、意向锁、自增锁、元数据锁；行锁：记录锁、间隙锁、临键锁、插入意向锁；乐观悲观锁…..） 扩展待定？</p>
 <h4 id="1、执行流程"><a href="#1、执行流程" class="headerlink" title="1、执行流程"></a>1、执行流程</h4><p><strong>SQL流程</strong> </p>
 <p>sql语句 -&gt; 查询缓存 -&gt; 解析器 -&gt; 优化器 -&gt; 执行器</p>
 <p><strong>完整流程</strong></p>
@@ -855,15 +855,56 @@ mysql –<span class="token operator">-</span><span class="token keyword">local<
 </ul>
 <p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202302252150380.png"></p>
 <p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202302252150422.png"></p>
+<p>3、覆盖索引：</p>
+<p>尽量使用覆盖索引，减少select *。那么什么是覆盖索引呢？覆盖索引是指查询使用了索引，且需要返回的列，在该索引中已经全部能够找到</p>
 <p>4-1、 <strong>group by ** **优化</strong> </p>
 <ul>
 <li>在分组操作时，可以通过索引来提高效率</li>
 <li>分组操作时，索引的使用也是满足最左前缀法则的</li>
 </ul>
 <p>5-1、<strong>limit ** **优化</strong></p>
-<h2 id="3、RabbitMQ"><a href="#3、RabbitMQ" class="headerlink" title="3、RabbitMQ"></a>3、RabbitMQ</h2><p>执行流程 、消息可靠性投递（现有企业封装了。。。）-小总结、</p>
-<h2 id="4、Redis"><a href="#4、Redis" class="headerlink" title="4、Redis"></a>4、Redis</h2><p>缓存一致性问题、十大数据结构</p>
-<h2 id="参考-↓"><a href="#参考-↓" class="headerlink" title="参考 ↓"></a>参考 ↓</h2><p>MySQL 执行流程 :<a target="_blank" rel="noopener" href="https://blog.csdn.net/qwer123451234123/article/details/124344299">https://blog.csdn.net/qwer123451234123/article/details/124344299</a></p>
+<p>一般分页查询时，通过创建 覆盖索引 能够比较好地提高性能，可以通过覆盖索引加子查询形式进行优化</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">explain</span> <span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> tb_sku t <span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">select</span> id <span class="token keyword">from</span> tb_sku <span class="token keyword">order</span> <span class="token keyword">by</span> id
+<span class="token keyword">limit</span> <span class="token number">2000000</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">)</span> a <span class="token keyword">where</span> t<span class="token punctuation">.</span>id <span class="token operator">=</span> a<span class="token punctuation">.</span>id<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+
+
+<p>6-1、<strong>count</strong> <strong>优化</strong></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202302262102677.png"></p>
+<p>按照效率排序的话，count(字段) &lt; count(主键 id) &lt; count(1) ≈ count(*)，所以尽量使用 count(*)。</p>
+<p><strong>7-1、update</strong> <strong>优化</strong></p>
+<p>我们主要需要注意一下update语句执行时的注意事项。(加索引的字段)</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">update</span> course <span class="token keyword">set</span> name <span class="token operator">=</span> <span class="token string">'javaEE'</span> <span class="token keyword">where</span> id <span class="token operator">=</span> <span class="token number">1</span> <span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>当我们在执行删除的SQL语句时，会锁定id为1这一行的数据，然后事务提交之后，行锁释放。</p>
+<p>但是当我们在执行如下SQL时。(未加索引的字段)</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">update</span> course <span class="token keyword">set</span> name <span class="token operator">=</span> <span class="token string">'SpringBoot'</span> <span class="token keyword">where</span> name <span class="token operator">=</span> <span class="token string">'PHP'</span> <span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>当我们开启多个事务，在执行上述的SQL时，我们发现行锁升级为了表锁。 导致该update语句的性能大大降低。 </p>
+<p><strong>InnoDB的行锁是针对索引加的锁，不是针对记录加的锁 ,并且该索引不能失效，否则会从行锁升级为表锁 。</strong></p>
+<h4 id="7、索引失效"><a href="#7、索引失效" class="headerlink" title="7、索引失效"></a>7、索引失效</h4><p>1、<strong>索引列运算</strong></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202302262217534.png"></p>
+<p>2、<strong>字符串不加引号</strong></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202302262219304.png"></p>
+<p>我们会明显的发现，如果字符串不加单引号，对于查询结果，没什么影响，但是数据库存在隐式类型转换，索引将失效</p>
+<p>3、<strong>模糊查询</strong></p>
+<p>在like模糊查询中，在关键字后面加%，索引可以生效。而如果在关键字前面加了%，索引将会失效。 </p>
+<p>4、<strong>or</strong> <strong>连接条件</strong></p>
+<p>当or连接的条件，左右两侧字段都有索引时，索引才会生效</p>
+<p>5、<strong>数据分布影响</strong></p>
+<p><strong>（1）基本数值，数据不同</strong></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202302262236450.png"></p>
+<p>MySQL在查询时，会评估使用索引的效率与走全表扫描的效率，如果走全表扫描更快，则放弃索引，走全表扫描。 <strong>因为索引是用来索引少量数据的，如果通过索引查询返回大批量的数据，则还不如走全表扫描来的快，此时索引就会失效</strong></p>
+<p><strong>（2）is null   、 is not null</strong></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202302262242400.png"></p>
+<p>接下来，我们做一个操作将profession字段值全部更新为null，再次看下执行计划</p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202302262243088.png"></p>
+<p>最终我们看到，一模一样的SQL语句，先后执行了两次，结果查询计划是不一样的，为什么会出现这种 现象，这是和数据库的数据分布有关系。查询时MySQL会评估，走索引快，还是全表扫描快，如果全表扫描更快，则放弃索引走全表扫描。 因此，is null 、is not null是否走索引，得具体情况具体分析，并不是固定的</p>
+<p><strong>（3）总结：</strong></p>
+<p>数据分布会根据索引数据量和全表扫描快慢比较，哪个快走哪里</p>
+<h2 id="三、RabbitMQ"><a href="#三、RabbitMQ" class="headerlink" title="三、RabbitMQ"></a>三、RabbitMQ</h2><p>执行流程 、消息可靠性投递（现有企业封装了。。。）-小总结、</p>
+<h2 id="四、Redis"><a href="#四、Redis" class="headerlink" title="四、Redis"></a>四、Redis</h2><p>缓存一致性问题、十大数据结构</p>
+<h2 id="N、设计题"><a href="#N、设计题" class="headerlink" title="N、设计题"></a>N、设计题</h2><h3 id="1、MQ实现异步秒杀"><a href="#1、MQ实现异步秒杀" class="headerlink" title="1、MQ实现异步秒杀"></a>1、MQ实现异步秒杀</h3><h2 id="参考-↓"><a href="#参考-↓" class="headerlink" title="参考 ↓"></a>参考 ↓</h2><p>MySQL 执行流程 :<a target="_blank" rel="noopener" href="https://blog.csdn.net/qwer123451234123/article/details/124344299">https://blog.csdn.net/qwer123451234123/article/details/124344299</a></p>
 <p>数据结构可视化演变： <a target="_blank" rel="noopener" href="https://www.cs.usfca.edu/~galles/visualization/BPlusTree.html">https://www.cs.usfca.edu/~galles/visualization/BPlusTree.html</a></p>
 <p>B+Tree时间复杂度：<a target="_blank" rel="noopener" href="https://blog.csdn.net/yunduanyou/article/details/128233801">https://blog.csdn.net/yunduanyou/article/details/128233801</a></p>
 <p>1.8流操作题：<a target="_blank" rel="noopener" href="https://blog.csdn.net/Thinkingcao/article/details/108664921">https://blog.csdn.net/Thinkingcao/article/details/108664921</a></p>
@@ -1479,9 +1520,9 @@ new Valine({
                     <div class="card-image">
                         
                         
-                        <img src="https://v1.mykkto.cn/image/galleries/动漫插画/11.jpg" class="responsive-img" alt="JUC-深度面试题">
+                        <img src="https://v1.mykkto.cn/image/galleries/动漫风景/07.jpg" class="responsive-img" alt="JUC-深度面试题（粉丝投稿）">
                         
-                        <span class="card-title">JUC-深度面试题</span>
+                        <span class="card-title">JUC-深度面试题（粉丝投稿）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1754,7 +1795,7 @@ new Valine({
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">172.4k</span>&nbsp;字
+                class="white-color">166k</span>&nbsp;字
             
             
             
