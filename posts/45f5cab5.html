@@ -673,14 +673,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-02-27
+                    2023-02-28
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    5.8k
+                    5.9k
                 </div>
                 
 
@@ -733,8 +733,9 @@
 </ul>
 </li>
 </ul>
-<h2 id="一、你有过SpringCloud-？"><a href="#一、你有过SpringCloud-？" class="headerlink" title="一、你有过SpringCloud ？"></a>一、你有过SpringCloud ？</h2><p>当然，如果按照厂商分为两种：Netflix 和 alibaba ；如果按照技术栈则分为，注册中心、配置中心、网关、熔断器、服务调用、分布式事务、链路追踪等</p>
-<h3 id="1、注册中心"><a href="#1、注册中心" class="headerlink" title="1、注册中心"></a>1、注册中心</h3><h4 id="1、注册中心比较"><a href="#1、注册中心比较" class="headerlink" title="1、注册中心比较"></a>1、注册中心比较</h4><p><a target="_blank" rel="noopener" href="https://v1.mykkto.cn/image/blog/2022/springcloud/20220222205601.png">https://v1.mykkto.cn/image/blog/2022/springcloud/20220222205601.png</a></p>
+<h2 id="一、你有过SpringCloud-？"><a href="#一、你有过SpringCloud-？" class="headerlink" title="一、你有过SpringCloud ？"></a>一、你有过SpringCloud ？</h2><p>当然，如果按照厂商分为两种：Netflix 和 alibaba ；如果按照技术栈则分为，注册中心、配置中心、网关、熔断器、服务调用、分布式事务、链路追踪等，不过核心的组件有五大，cloud是 eureka,feign,ribbon,hystrix,zuul，alibbaba:nacos,sentinel,gateway.</p>
+<p>社区活跃，你在生产上遇到的问题不是第一个遇到，教程多</p>
+<h3 id="1、常规题（放松版）"><a href="#1、常规题（放松版）" class="headerlink" title="1、常规题（放松版）"></a>1、常规题（放松版）</h3><h4 id="1、"><a href="#1、" class="headerlink" title="1、"></a>1、</h4><h4 id="2、"><a href="#2、" class="headerlink" title="2、"></a>2、</h4><h3 id="1、注册中心"><a href="#1、注册中心" class="headerlink" title="1、注册中心"></a>1、注册中心</h3><h4 id="1、注册中心比较"><a href="#1、注册中心比较" class="headerlink" title="1、注册中心比较"></a>1、注册中心比较</h4><p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220222205601.png"></p>
 <h4 id="2、注册服务于发现流程"><a href="#2、注册服务于发现流程" class="headerlink" title="2、注册服务于发现流程"></a>2、注册服务于发现流程</h4><h3 id="2、熔断器"><a href="#2、熔断器" class="headerlink" title="2、熔断器"></a>2、熔断器</h3><h4 id="1、对比图"><a href="#1、对比图" class="headerlink" title="1、对比图"></a>1、对比图</h4><h2 id="二、Mysql高级面基"><a href="#二、Mysql高级面基" class="headerlink" title="二、Mysql高级面基"></a>二、Mysql高级面基</h2><p>高级特性本周整理大纲：<br>1、执行流程（5.7 and 8.0 暂不整理），逻辑架构（三层）；图、概述，白话总结<br>2、存储引擎（InnoDB MyISAM （核心对比图）…边缘5种简述-了解）；装逼：阿里自定义引擎：Xtradb<br>3、索引迭代设计（是非聚簇索引，二级、联合索引），索引使用常见（11 yes 7 not）；边缘所以你接口对比（HASH、AVL、B、B+）、Explain调优阿里、三范式 ER模型<br>N、事务（显式、隐式），锁（表锁：S锁、X锁、意向锁、自增锁、元数据锁；行锁：记录锁、间隙锁、临键锁、插入意向锁；乐观悲观锁…..） 扩展待定？</p>
 <h4 id="1、执行流程"><a href="#1、执行流程" class="headerlink" title="1、执行流程"></a>1、执行流程</h4><p><strong>SQL流程</strong> </p>
 <p>sql语句 -&gt; 查询缓存 -&gt; 解析器 -&gt; 优化器 -&gt; 执行器</p>
@@ -911,8 +912,8 @@ mysql –<span class="token operator">-</span><span class="token keyword">local<
 <li>尽量使用联合索引，减少单列索引，查询时，联合索引很多时候可以覆盖索引，节省存储空间，避免回表，提高查询效率。 </li>
 <li>要控制索引的数量，索引并不是多多益善，索引越多，维护索引结构的代价也就越大，会影响增删改的效率。</li>
 </ul>
-<h2 id="三、RabbitMQ"><a href="#三、RabbitMQ" class="headerlink" title="三、RabbitMQ"></a>三、RabbitMQ</h2><p>执行流程 、消息可靠性投递（现有企业封装了。。。）-小总结、</p>
-<h2 id="四、Redis"><a href="#四、Redis" class="headerlink" title="四、Redis"></a>四、Redis</h2><p>缓存一致性问题、十大数据结构</p>
+<h2 id="三、MQ"><a href="#三、MQ" class="headerlink" title="三、MQ"></a>三、MQ</h2><p>执行流程 、消息可靠性投递（现有企业封装了。。。）-小总结、</p>
+<h3 id="1、常规"><a href="#1、常规" class="headerlink" title="1、常规"></a>1、常规</h3><h4 id="1、-1"><a href="#1、-1" class="headerlink" title="1、"></a>1、</h4><h4 id="2、-1"><a href="#2、-1" class="headerlink" title="2、"></a>2、</h4><h4 id="3、"><a href="#3、" class="headerlink" title="3、"></a>3、</h4><h4 id="4、"><a href="#4、" class="headerlink" title="4、"></a>4、</h4><h4 id="5、"><a href="#5、" class="headerlink" title="5、"></a>5、</h4><h4 id="6、"><a href="#6、" class="headerlink" title="6、"></a>6、</h4><h4 id="7、"><a href="#7、" class="headerlink" title="7、"></a>7、</h4><h4 id="8、"><a href="#8、" class="headerlink" title="8、"></a>8、</h4><h4 id="9、"><a href="#9、" class="headerlink" title="9、"></a>9、</h4><h4 id="10、"><a href="#10、" class="headerlink" title="10、"></a>10、</h4><h3 id="2、进阶"><a href="#2、进阶" class="headerlink" title="2、进阶"></a>2、进阶</h3><h4 id="1、Rabbitmq-执行流程"><a href="#1、Rabbitmq-执行流程" class="headerlink" title="1、Rabbitmq 执行流程"></a>1、Rabbitmq 执行流程</h4><h2 id="四、Redis"><a href="#四、Redis" class="headerlink" title="四、Redis"></a>四、Redis</h2><p>缓存一致性问题、十大数据结构</p>
 <h2 id="五、分布式事务-seata"><a href="#五、分布式事务-seata" class="headerlink" title="五、分布式事务(seata)"></a>五、分布式事务(seata)</h2><h3 id="1、常规（放松解压版）"><a href="#1、常规（放松解压版）" class="headerlink" title="1、常规（放松解压版）"></a>1、常规（放松解压版）</h3><h4 id="1、事务的特性"><a href="#1、事务的特性" class="headerlink" title="1、事务的特性"></a>1、事务的特性</h4><p>1.原子性 要么一起成功要么一起失败</p>
 <p>2.一致性 事务执行前后数据保持一致性状态</p>
 <p>3.隔离性 多个事务之间是隔离的，互相不影响</p>
@@ -959,7 +960,7 @@ mysql –<span class="token operator">-</span><span class="token keyword">local<
 <li>@GlobalTransactional 注解表示开启分布式事务</li>
 </ul>
 <h4 id="14、2pc和Seata的at区别"><a href="#14、2pc和Seata的at区别" class="headerlink" title="14、2pc和Seata的at区别"></a>14、2pc和<strong>Seata的</strong>at区别</h4><p>at模式是增强版的2pc，第一阶段业务数据和回滚日志记录在同一个本地事务中提交,提交之后就会释放资源</p>
-<h4 id="15、Seata的四种模式"><a href="#15、Seata的四种模式" class="headerlink" title="15、Seata的四种模式"></a>15、Seata的四种模式</h4><h3 id="2、进阶"><a href="#2、进阶" class="headerlink" title="2、进阶"></a>2、进阶</h3><h4 id="1、设计：1ID-3组件"><a href="#1、设计：1ID-3组件" class="headerlink" title="1、设计：1ID+3组件"></a>1、设计：1ID+3组件</h4><h5 id="1、ID"><a href="#1、ID" class="headerlink" title="1、ID"></a>1、ID</h5><p>全局唯一的事务ID：Transaction ID XID</p>
+<h4 id="15、Seata的四种模式"><a href="#15、Seata的四种模式" class="headerlink" title="15、Seata的四种模式"></a>15、Seata的四种模式</h4><h3 id="2、进阶-1"><a href="#2、进阶-1" class="headerlink" title="2、进阶"></a>2、进阶</h3><h4 id="1、设计：1ID-3组件"><a href="#1、设计：1ID-3组件" class="headerlink" title="1、设计：1ID+3组件"></a>1、设计：1ID+3组件</h4><h5 id="1、ID"><a href="#1、ID" class="headerlink" title="1、ID"></a>1、ID</h5><p>全局唯一的事务ID：Transaction ID XID</p>
 <h5 id="2、组件"><a href="#2、组件" class="headerlink" title="2、组件"></a>2、组件</h5><p>Transaction Coordinator (TC)<strong>【打工人】</strong></p>
 <p><code>事务协调器</code>，维护全局事务的运行状态，负责协调并驱动全局事务的提交或回滚；</p>
 <p>Transaction Manager (TM)<strong>【老板】</strong></p>
@@ -971,8 +972,8 @@ mysql –<span class="token operator">-</span><span class="token keyword">local<
 <p>3、RM 向 TC 注册分支事务，将其纳入 XID 对应全局事务的管辖；</p>
 <p>4、TM 向 TC 发起针对 XID 的全局提交或回滚决议；</p>
 <p>5、TC 调度 XID 下管辖的全部分支事务完成提交或回滚请求。</p>
-<p><a target="_blank" rel="noopener" href="https://v1.mykkto.cn/image/blog/2022/springcloud/20220325203440.png">https://v1.mykkto.cn/image/blog/2022/springcloud/20220325203440.png</a></p>
-<h4 id="2、"><a href="#2、" class="headerlink" title="2、"></a>2、</h4><h2 id="N、设计题"><a href="#N、设计题" class="headerlink" title="N、设计题"></a>N、设计题</h2><h3 id="1、MQ实现异步秒杀"><a href="#1、MQ实现异步秒杀" class="headerlink" title="1、MQ实现异步秒杀"></a>1、MQ实现异步秒杀</h3><h4 id="1、介绍"><a href="#1、介绍" class="headerlink" title="1、介绍"></a>1、介绍</h4><p>场景：一万件商品同时被一万人秒杀成功，会导致瞬间上万请求访问到订单数据库中创建订单。此时对数据库的压力就会很大。</p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220325203440.png"></p>
+<h4 id="2、-2"><a href="#2、-2" class="headerlink" title="2、"></a>2、</h4><h2 id="N、设计题"><a href="#N、设计题" class="headerlink" title="N、设计题"></a>N、设计题</h2><h3 id="1、MQ实现异步秒杀"><a href="#1、MQ实现异步秒杀" class="headerlink" title="1、MQ实现异步秒杀"></a>1、MQ实现异步秒杀</h3><h4 id="1、介绍"><a href="#1、介绍" class="headerlink" title="1、介绍"></a>1、介绍</h4><p>场景：一万件商品同时被一万人秒杀成功，会导致瞬间上万请求访问到订单数据库中创建订单。此时对数据库的压力就会很大。</p>
 <p>方案：引入RocketMQ进行削峰处理。</p>
 <p>每个请求进来在Redis中秒杀库存成功，就认为需要生成订单，此时发送一个消息到RocketMQ中去。</p>
 <p>然后让普通订单系统从RocketMQ中消费秒杀成功的消息进行处理。对于MQ来说，这种上万的消息积压很容易就扛下来了，只要过了高峰期，订单系统很快就能消费、处理完。这个过程中不会对订单数据库造成过大的压力</p>
@@ -984,7 +985,7 @@ mysql –<span class="token operator">-</span><span class="token keyword">local<
 <li>秒杀结束之后，Nginx层过滤掉无效的请求，大幅度削减转发到后端的流量</li>
 <li>瞬时生成的大量下单请求直接进入RocketMQ进行削峰，订单系统慢慢拉取消息完成下单操作</li>
 </ul>
-<h2 id="参考-↓"><a href="#参考-↓" class="headerlink" title="参考 ↓"></a>参考 ↓</h2><p>MySQL 执行流程 :<a target="_blank" rel="noopener" href="https://blog.csdn.net/qwer123451234123/article/details/124344299">https://blog.csdn.net/qwer123451234123/article/details/124344299</a></p>
+<h3 id="2、RocketMQ事务最终一致性"><a href="#2、RocketMQ事务最终一致性" class="headerlink" title="2、RocketMQ事务最终一致性"></a>2、RocketMQ事务最终一致性</h3><h4 id="1、背景"><a href="#1、背景" class="headerlink" title="1、背景"></a>1、背景</h4><h4 id="2、图"><a href="#2、图" class="headerlink" title="2、图"></a>2、图</h4><h2 id="参考-↓"><a href="#参考-↓" class="headerlink" title="参考 ↓"></a>参考 ↓</h2><p>MySQL 执行流程 :<a target="_blank" rel="noopener" href="https://blog.csdn.net/qwer123451234123/article/details/124344299">https://blog.csdn.net/qwer123451234123/article/details/124344299</a></p>
 <p>数据结构可视化演变： <a target="_blank" rel="noopener" href="https://www.cs.usfca.edu/~galles/visualization/BPlusTree.html">https://www.cs.usfca.edu/~galles/visualization/BPlusTree.html</a></p>
 <p>B+Tree时间复杂度：<a target="_blank" rel="noopener" href="https://blog.csdn.net/yunduanyou/article/details/128233801">https://blog.csdn.net/yunduanyou/article/details/128233801</a></p>
 <p>1.8流操作题：<a target="_blank" rel="noopener" href="https://blog.csdn.net/Thinkingcao/article/details/108664921">https://blog.csdn.net/Thinkingcao/article/details/108664921</a></p>
@@ -1000,6 +1001,7 @@ mysql –<span class="token operator">-</span><span class="token keyword">local<
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/wuyongde_0922/article/details/125333625">https://blog.csdn.net/wuyongde_0922/article/details/125333625</a></p>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_58600248/article/details/126271252">https://blog.csdn.net/m0_58600248/article/details/126271252</a></p>
 <p>Spring 面试题：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/469797333">https://zhuanlan.zhihu.com/p/469797333</a><br>MQ面试题：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/470984789">https://zhuanlan.zhihu.com/p/470984789</a></p>
+<p>RocketMQ事务消息如何保证数据的最终一致性：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_42093488/article/details/114677515">https://blog.csdn.net/qq_42093488/article/details/114677515</a></p>
 
                 
             </div>
@@ -1879,7 +1881,7 @@ new Valine({
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">168.2k</span>&nbsp;字
+                class="white-color">168.3k</span>&nbsp;字
             
             
             
