@@ -673,21 +673,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-02-28
+                    2023-03-01
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    5.9k
+                    10.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    21 分
+                    38 分
                 </div>
                 
 
@@ -913,8 +913,73 @@ mysql –<span class="token operator">-</span><span class="token keyword">local<
 <li>要控制索引的数量，索引并不是多多益善，索引越多，维护索引结构的代价也就越大，会影响增删改的效率。</li>
 </ul>
 <h2 id="三、MQ"><a href="#三、MQ" class="headerlink" title="三、MQ"></a>三、MQ</h2><p>执行流程 、消息可靠性投递（现有企业封装了。。。）-小总结、</p>
-<h3 id="1、常规"><a href="#1、常规" class="headerlink" title="1、常规"></a>1、常规</h3><h4 id="1、-1"><a href="#1、-1" class="headerlink" title="1、"></a>1、</h4><h4 id="2、-1"><a href="#2、-1" class="headerlink" title="2、"></a>2、</h4><h4 id="3、"><a href="#3、" class="headerlink" title="3、"></a>3、</h4><h4 id="4、"><a href="#4、" class="headerlink" title="4、"></a>4、</h4><h4 id="5、"><a href="#5、" class="headerlink" title="5、"></a>5、</h4><h4 id="6、"><a href="#6、" class="headerlink" title="6、"></a>6、</h4><h4 id="7、"><a href="#7、" class="headerlink" title="7、"></a>7、</h4><h4 id="8、"><a href="#8、" class="headerlink" title="8、"></a>8、</h4><h4 id="9、"><a href="#9、" class="headerlink" title="9、"></a>9、</h4><h4 id="10、"><a href="#10、" class="headerlink" title="10、"></a>10、</h4><h3 id="2、进阶"><a href="#2、进阶" class="headerlink" title="2、进阶"></a>2、进阶</h3><h4 id="1、Rabbitmq-执行流程"><a href="#1、Rabbitmq-执行流程" class="headerlink" title="1、Rabbitmq 执行流程"></a>1、Rabbitmq 执行流程</h4><h2 id="四、Redis"><a href="#四、Redis" class="headerlink" title="四、Redis"></a>四、Redis</h2><p>缓存一致性问题、十大数据结构</p>
-<h2 id="五、分布式事务-seata"><a href="#五、分布式事务-seata" class="headerlink" title="五、分布式事务(seata)"></a>五、分布式事务(seata)</h2><h3 id="1、常规（放松解压版）"><a href="#1、常规（放松解压版）" class="headerlink" title="1、常规（放松解压版）"></a>1、常规（放松解压版）</h3><h4 id="1、事务的特性"><a href="#1、事务的特性" class="headerlink" title="1、事务的特性"></a>1、事务的特性</h4><p>1.原子性 要么一起成功要么一起失败</p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/mq/rabbitmq/202210092229549.png"></p>
+<h3 id="1、常规"><a href="#1、常规" class="headerlink" title="1、常规"></a>1、常规</h3><h4 id="1、什么是MQ，优缺点"><a href="#1、什么是MQ，优缺点" class="headerlink" title="1、什么是MQ，优缺点"></a>1、什么是MQ，优缺点</h4><p>消息队列</p>
+<p>异步处理，提高吞吐量</p>
+<p>应用解耦，比如发送短信</p>
+<p>流量削峰，可以通过消息队列长度控制请求量</p>
+<p>增加系统复杂度，需要保证消息不重复消费，保证一致性，消息可靠性</p>
+<h4 id="2、什么是RabbitMq？为什么用？应用场景？"><a href="#2、什么是RabbitMq？为什么用？应用场景？" class="headerlink" title="2、什么是RabbitMq？为什么用？应用场景？"></a>2、什么是RabbitMq？为什么用？应用场景？</h4><p>基于erlang语言开发，基于AMQP协议的消息中间件</p>
+<p>社区活跃，国内使用的公司也多，吞吐量万级到十万级别，完善的管理界面。成熟的消息队列。</p>
+<p>应用场景：服务间异步通信，顺序消费，定时任务，请求削峰</p>
+<h4 id="3、RabbitMQ基本概念"><a href="#3、RabbitMQ基本概念" class="headerlink" title="3、RabbitMQ基本概念?"></a>3、<strong>RabbitMQ基本概念?</strong></h4><p>Exchange 交换机</p>
+<p>Queue 消息队列</p>
+<p>Binding 绑定，将交换机和队列按路由规则绑定起来</p>
+<p>Routing Key 路由关键字，exchange根据这个关键字进行消息投递</p>
+<p>VHost 相当于某个数据库</p>
+<p>Producer 消息生产者</p>
+<p>Consumer 消息消费者</p>
+<h4 id="4、RabbitMq工作模式？"><a href="#4、RabbitMq工作模式？" class="headerlink" title="4、RabbitMq工作模式？"></a>4、RabbitMq工作模式？</h4><ol>
+<li>简单模式 HelloWorld ：一个生产者、一个消费者，不需要设置交换机（使用默认的交换机）。</li>
+<li>工作队列模式 Work Queue ：一个生产者、多个消费者（竞争关系），不需要设置交换机（使用默认的交换机）。</li>
+<li>发布订阅模式 Publish/subscribe ：需要设置类型为 fanout 的交换机，并且交换机和队列进行绑定，当发送消息到交换机后，交换机会将消息发送到绑定的队列。</li>
+<li>路由模式 Routing ：需要设置类型为 direct 的交换机，交换机和队列进行绑定，并且指定 routing key，当发送消息到交换机后，交换机会根据 routing key 将消息发送到对应的队列。</li>
+<li>通配符模式 Topic ：需要设置类型为 topic 的交换机，交换机和队列进行绑定，并且指定通配符方式的 routing key，当发送消息到交换机后，交换机会根据 routing key 将消息发送到对应的队列。</li>
+</ol>
+<h4 id="5、RabbitMq如何保证消息有序性"><a href="#5、RabbitMq如何保证消息有序性" class="headerlink" title="5、RabbitMq如何保证消息有序性?"></a>5、RabbitMq如何保证消息有序性?</h4><p>一个队列对应一个消费者</p>
+<h4 id="6、RabbitMq如何保证消费不会被重复消费？"><a href="#6、RabbitMq如何保证消费不会被重复消费？" class="headerlink" title="6、RabbitMq如何保证消费不会被重复消费？"></a>6、RabbitMq如何保证消费不会被重复消费？</h4><p>根据业务来，比如订单有状态。或者定义唯一标识，消费后缓存到redis。在此消费时候判断一下redis。</p>
+<h4 id="7、RabbitMQ如何保证消息的可靠性"><a href="#7、RabbitMQ如何保证消息的可靠性" class="headerlink" title="7、RabbitMQ如何保证消息的可靠性?"></a>7、RabbitMQ如何保证消息的可靠性?</h4><p>生产者丢失消息：</p>
+<p>1.使用事务机制，牺牲性能</p>
+<p>2.使用confirm模式，发送成功之后，会返回ack到生产者</p>
+<p>消息队列丢失消息：</p>
+<p>1.消息持久化</p>
+<p>Exchange 设置持久化 ,Queue 设置持久化，durable设置为true</p>
+<p>Message持久化发送：发送消息设置发送模式deliveryMode=2，代表持久化消息</p>
+<p>消费者丢失消息</p>
+<p>1.ACK确认机制</p>
+<p>消费者确认消费后，RabbitMq才会将消息删除</p>
+<h4 id="8、RabbitMQ部署方式"><a href="#8、RabbitMQ部署方式" class="headerlink" title="8、RabbitMQ部署方式?"></a>8、RabbitMQ部署方式?</h4><p>1.单机模式 2.普通集群(主从) 3.镜像集群</p>
+<h4 id="9、什么是RocketMQ？"><a href="#9、什么是RocketMQ？" class="headerlink" title="9、什么是RocketMQ？"></a>9、什么是<strong>RocketMQ？</strong></h4><p>java开发，面向互联网集群化，功能丰富，对在线业务的响应时延做了很多的优化，大多数情况下可以做到毫秒级的响应，每秒钟大概能处理几十万条消息</p>
+<h4 id="10、RocketMq实现消息事务的流程？"><a href="#10、RocketMq实现消息事务的流程？" class="headerlink" title="10、RocketMq实现消息事务的流程？"></a>10、RocketMq实现消息事务的流程？</h4><p>1.服务A发送一个半事务消息(half 消息)到RocketMq中,保证服务A和RocketMq正常通信,无法正常通信则回滚,正常则开始本地事务，处理本地业务逻辑并提交事务.</p>
+<p>2.事务提交成功则向RocketMq发送提交，表示将 half 消息提交，将 half 消息写入到磁盘.事务提交失败则向RocketMq发送回滚，删除 half 消息.</p>
+<p>3.如果RocketMq指定时间没有收到提交或者回滚消息，将尝试调用服务A提供的一个接口来判断half 消息对于的业务是否成功，成功则持久化，失败则删除</p>
+<p>4.服务B消费RocketMq中的消息，处理本地业务，提交事务</p>
+<h4 id="11、RocketMq的half-消息是什么？"><a href="#11、RocketMq的half-消息是什么？" class="headerlink" title="11、RocketMq的half 消息是什么？"></a>11、RocketMq的half 消息是什么？</h4><p>half消息只有被提交后才会被消费者消费</p>
+<h4 id="12、为什么要先发送-half-消息？"><a href="#12、为什么要先发送-half-消息？" class="headerlink" title="12、为什么要先发送 half 消息？"></a>12、为什么要先发送 half 消息？</h4><p>为了保证服务 A 和 RocketMq之间是否能正常通信</p>
+<h4 id="13、如果服务-A-本地事务执行失败了会怎么样？"><a href="#13、如果服务-A-本地事务执行失败了会怎么样？" class="headerlink" title="13、如果服务 A 本地事务执行失败了会怎么样？"></a>13、如果服务 A 本地事务执行失败了会怎么样？</h4><p>本地事务进行回滚，在向 RocketMq发送 rollback 操作。</p>
+<h4 id="14、服务-B-本地事务提交失败了会怎么样？"><a href="#14、服务-B-本地事务提交失败了会怎么样？" class="headerlink" title="14、服务 B 本地事务提交失败了会怎么样？"></a>14、服务 B 本地事务提交失败了会怎么样？</h4><p>可以进行多次重试，直到成功。如果重试多次后，还是提交失败，那么 MQ 会在一定时间后，继续将这条消息推送给服务 B，服务 B 就可以继续执行本地事务并提交了，直到成功。保证最终一致性</p>
+<h4 id="15、如何保证RocketMq消息不丢失"><a href="#15、如何保证RocketMq消息不丢失" class="headerlink" title="15、如何保证RocketMq消息不丢失?"></a>15、如何保证RocketMq消息不丢失?</h4><p>生产阶段只要发送返回ok状态就代表成功,</p>
+<p>异步发送在回调中可以检查发送状态ok就代表成功,</p>
+<p>存储阶段修改刷盘策略为同步刷盘。默认情况下是异步刷盘的。</p>
+<p>集群部署，一主多从。默认异步复制，设置同步复制，牺牲性能</p>
+<p>主节点设置同步复制 brokerRole=SYNC_MASTER</p>
+<h3 id="2、进阶"><a href="#2、进阶" class="headerlink" title="2、进阶"></a>2、进阶</h3><h4 id="1、Rabbitmq-执行流程"><a href="#1、Rabbitmq-执行流程" class="headerlink" title="1、Rabbitmq 执行流程"></a>1、Rabbitmq 执行流程</h4><p><img src="https://v1.mykkto.cn/image/blog/2022/mq/rabbitmq/202210092235471.png"></p>
+<ul>
+<li>Broker：接收和分发消息的应用，RabbitMQ Server就是 Message Broker</li>
+<li>Virtual host：出于多租户和安全因素设计的，把 AMQP 的基本组件划分到一个虚拟的分组中，类似于网 络中的 namespace 概念。当多个不同的用户使用同一个 RabbitMQ server 提供的服务时，可以划分出多 个vhost，每个用户在自己的 vhost 创建 exchange／queue 等</li>
+<li>Connection：publisher／consumer 和 broker 之间的 TCP 连接</li>
+<li>Channel：如果每一次访问 RabbitMQ 都建立一个 Connection，在消息量大的时候建立 TCP Connection 的开销将是巨大的，效率也较低。Channel 是在 connection 内部建立的逻辑连接，如果应用程序支持多线 程，通常每个thread创建单独的 channel 进行通讯，AMQP method 包含了channel id 帮助客户端和 message broker 识别 channel，所以 channel 之间是完全隔离的。Channel 作为轻量级的 Connection 极大减少了操作系统建立 TCP connection 的开销</li>
+<li>Exchange：message 到达 broker 的第一站，根据分发规则，匹配查询表中的 routing key，分发消息到 queue 中去。常用的类型有：direct (point-to-point), topic (publish-subscribe) and fanout (multicast)</li>
+<li>Queue：消息最终被送到这里等待 consumer 取走</li>
+<li>Binding：exchange 和 queue 之间的虚拟连接，binding 中可以包含 routing key。Binding 信息被保存到 exchange 中的查询表中，用于 message 的分发依据</li>
+</ul>
+<h2 id="四、Redis"><a href="#四、Redis" class="headerlink" title="四、Redis"></a>四、Redis</h2><p>缓存一致性问题、十大数据结构</p>
+<h3 id="1、常规（放松版）"><a href="#1、常规（放松版）" class="headerlink" title="1、常规（放松版）"></a>1、常规（放松版）</h3><h4 id="1、redis有哪些数据结构"><a href="#1、redis有哪些数据结构" class="headerlink" title="1、redis有哪些数据结构?"></a>1、redis有哪些数据结构?</h4><p>字符串String、字典Hash、列表List、集合Set、有序集合SortedSet</p>
+<p>HyperLogLog ：网站的UV统计</p>
+<p>Geo：获取位置的距离</p>
+<p>Bitmap:位图</p>
+<p>Stream：消息队列</p>
+<h4 id="2、-1"><a href="#2、-1" class="headerlink" title="2、"></a>2、</h4><h4 id="3、"><a href="#3、" class="headerlink" title="3、"></a>3、</h4><h4 id="4、"><a href="#4、" class="headerlink" title="4、"></a>4、</h4><h4 id="5、"><a href="#5、" class="headerlink" title="5、"></a>5、</h4><h4 id="6、"><a href="#6、" class="headerlink" title="6、"></a>6、</h4><h4 id="7、"><a href="#7、" class="headerlink" title="7、"></a>7、</h4><h4 id="8、"><a href="#8、" class="headerlink" title="8、"></a>8、</h4><h4 id="9、"><a href="#9、" class="headerlink" title="9、"></a>9、</h4><h4 id="10、"><a href="#10、" class="headerlink" title="10、"></a>10、</h4><h3 id="2、-2"><a href="#2、-2" class="headerlink" title="2、"></a>2、</h3><h2 id="五、分布式事务-seata"><a href="#五、分布式事务-seata" class="headerlink" title="五、分布式事务(seata)"></a>五、分布式事务(seata)</h2><h3 id="1、常规（放松解压版）"><a href="#1、常规（放松解压版）" class="headerlink" title="1、常规（放松解压版）"></a>1、常规（放松解压版）</h3><h4 id="1、事务的特性"><a href="#1、事务的特性" class="headerlink" title="1、事务的特性"></a>1、事务的特性</h4><p>1.原子性 要么一起成功要么一起失败</p>
 <p>2.一致性 事务执行前后数据保持一致性状态</p>
 <p>3.隔离性 多个事务之间是隔离的，互相不影响</p>
 <p>4.持久性 事务一旦提交数据的改变是持久的</p>
@@ -961,19 +1026,20 @@ mysql –<span class="token operator">-</span><span class="token keyword">local<
 </ul>
 <h4 id="14、2pc和Seata的at区别"><a href="#14、2pc和Seata的at区别" class="headerlink" title="14、2pc和Seata的at区别"></a>14、2pc和<strong>Seata的</strong>at区别</h4><p>at模式是增强版的2pc，第一阶段业务数据和回滚日志记录在同一个本地事务中提交,提交之后就会释放资源</p>
 <h4 id="15、Seata的四种模式"><a href="#15、Seata的四种模式" class="headerlink" title="15、Seata的四种模式"></a>15、Seata的四种模式</h4><h3 id="2、进阶-1"><a href="#2、进阶-1" class="headerlink" title="2、进阶"></a>2、进阶</h3><h4 id="1、设计：1ID-3组件"><a href="#1、设计：1ID-3组件" class="headerlink" title="1、设计：1ID+3组件"></a>1、设计：1ID+3组件</h4><h5 id="1、ID"><a href="#1、ID" class="headerlink" title="1、ID"></a>1、ID</h5><p>全局唯一的事务ID：Transaction ID XID</p>
-<h5 id="2、组件"><a href="#2、组件" class="headerlink" title="2、组件"></a>2、组件</h5><p>Transaction Coordinator (TC)<strong>【打工人】</strong></p>
+<h5 id="2、组件"><a href="#2、组件" class="headerlink" title="2、组件"></a>2、组件</h5><p>Transaction Coordinator (TC)<strong>【程序员】</strong></p>
 <p><code>事务协调器</code>，维护全局事务的运行状态，负责协调并驱动全局事务的提交或回滚；</p>
-<p>Transaction Manager (TM)<strong>【老板】</strong></p>
+<p>Transaction Manager (TM)<strong>【经理】</strong></p>
 <p><code>控制全局事务的边界</code>，负责开启一个全局事务，并最终发起全局提交或全局回滚的决议；</p>
-<p>Resource Manager (RM)<strong>【任务】</strong></p>
+<p>Resource Manager (RM)<strong>【用户】</strong></p>
 <p><code>控制分支事务</code>，负责分支注册、状态汇报，并接收事务协调器的指令，驱动分支（本地）事务的提交和回滚</p>
+<p>XID【程序】</p>
 <h4 id="2、处理过程"><a href="#2、处理过程" class="headerlink" title="2、处理过程"></a>2、处理过程</h4><p>1、TM 向 TC 申请开启一个全局事务，全局事务创建成功并生成一个全局唯一的 XID；</p>
 <p>2、XID 在微服务调用链路的上下文中传播；</p>
 <p>3、RM 向 TC 注册分支事务，将其纳入 XID 对应全局事务的管辖；</p>
 <p>4、TM 向 TC 发起针对 XID 的全局提交或回滚决议；</p>
 <p>5、TC 调度 XID 下管辖的全部分支事务完成提交或回滚请求。</p>
 <p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220325203440.png"></p>
-<h4 id="2、-2"><a href="#2、-2" class="headerlink" title="2、"></a>2、</h4><h2 id="N、设计题"><a href="#N、设计题" class="headerlink" title="N、设计题"></a>N、设计题</h2><h3 id="1、MQ实现异步秒杀"><a href="#1、MQ实现异步秒杀" class="headerlink" title="1、MQ实现异步秒杀"></a>1、MQ实现异步秒杀</h3><h4 id="1、介绍"><a href="#1、介绍" class="headerlink" title="1、介绍"></a>1、介绍</h4><p>场景：一万件商品同时被一万人秒杀成功，会导致瞬间上万请求访问到订单数据库中创建订单。此时对数据库的压力就会很大。</p>
+<h4 id="3、seata四种模式"><a href="#3、seata四种模式" class="headerlink" title="3、seata四种模式"></a>3、seata四种模式</h4><h2 id="N、设计题"><a href="#N、设计题" class="headerlink" title="N、设计题"></a>N、设计题</h2><h3 id="1、MQ实现异步秒杀"><a href="#1、MQ实现异步秒杀" class="headerlink" title="1、MQ实现异步秒杀"></a>1、MQ实现异步秒杀</h3><h4 id="1、介绍"><a href="#1、介绍" class="headerlink" title="1、介绍"></a>1、介绍</h4><p>场景：一万件商品同时被一万人秒杀成功，会导致瞬间上万请求访问到订单数据库中创建订单。此时对数据库的压力就会很大。</p>
 <p>方案：引入RocketMQ进行削峰处理。</p>
 <p>每个请求进来在Redis中秒杀库存成功，就认为需要生成订单，此时发送一个消息到RocketMQ中去。</p>
 <p>然后让普通订单系统从RocketMQ中消费秒杀成功的消息进行处理。对于MQ来说，这种上万的消息积压很容易就扛下来了，只要过了高峰期，订单系统很快就能消费、处理完。这个过程中不会对订单数据库造成过大的压力</p>
@@ -985,7 +1051,58 @@ mysql –<span class="token operator">-</span><span class="token keyword">local<
 <li>秒杀结束之后，Nginx层过滤掉无效的请求，大幅度削减转发到后端的流量</li>
 <li>瞬时生成的大量下单请求直接进入RocketMQ进行削峰，订单系统慢慢拉取消息完成下单操作</li>
 </ul>
-<h3 id="2、RocketMQ事务最终一致性"><a href="#2、RocketMQ事务最终一致性" class="headerlink" title="2、RocketMQ事务最终一致性"></a>2、RocketMQ事务最终一致性</h3><h4 id="1、背景"><a href="#1、背景" class="headerlink" title="1、背景"></a>1、背景</h4><h4 id="2、图"><a href="#2、图" class="headerlink" title="2、图"></a>2、图</h4><h2 id="参考-↓"><a href="#参考-↓" class="headerlink" title="参考 ↓"></a>参考 ↓</h2><p>MySQL 执行流程 :<a target="_blank" rel="noopener" href="https://blog.csdn.net/qwer123451234123/article/details/124344299">https://blog.csdn.net/qwer123451234123/article/details/124344299</a></p>
+<h3 id="2、RocketMQ事务最终一致性"><a href="#2、RocketMQ事务最终一致性" class="headerlink" title="2、RocketMQ事务最终一致性"></a>2、RocketMQ事务最终一致性</h3><h4 id="1、执行流程图"><a href="#1、执行流程图" class="headerlink" title="1、执行流程图"></a>1、执行流程图</h4><p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202303012201093.png"></p>
+<p>1、首先服务 A 发送一个半事务消息(也称 half 消息)至 MQ 中。为什么要先发送一个 half 消息呢？这是为了保证服务 A 和 MQ 之间的通信正常，如果无法正常通信，则服务 A 可以直接返回一个异常，也就不用处理后面的逻辑的了。</p>
+<p>2、如果 half 消息发送成功，MQ 收到这个 half 消息后，会返回一个 success 响应给服务 A。</p>
+<p>3、服务 A 接收到 MQ 返回的 success 响应后，开始处理本地的业务逻辑，并提交本地事务。</p>
+<p>4、如果服务 A 本地事务提交成功，则会向 MQ 中发送 commit，表示将 half 消息提交，MQ 就会执行第 5 步操作；如果服务 A 本地事务提交失败，则直接回滚本地事务，并向 MQ 中发送 rollback，表示将之前的 half 消息进行回滚，MQ 接收到 rollback 消息后，就会将 half 消息删除。</p>
+<p>5、如果 commit，则将 half 消息写入到磁盘。</p>
+<p>6、如果 MQ 长时间没有接收到 commit 或者 rollback 消息，例如：服务 A 在处理本地业务时宕机了，或者发送的 commit、rollback 因为在弱网环境，数据丢失了。那么 MQ 就会在一定时间后尝试调用服务 A 提供的一个接口，通过这个接口来判断 half 消息的状态。所以服务 A 提供的接口，需要实现的业务逻辑是：通过数据库中对应数据的状态来判断，之前的 half 消息对应的业务是否执行成功。如果 MQ 从这个接口中得知 half 消息执行成功了，那么 MQ 就会将 half 消息持久化到本地磁盘，如果得知没有执行成功，那么就会将 half 消息删除。</p>
+<p>7、服务 B 从 MQ 中消费到对应的消息。</p>
+<p>8、服务 B 处理本地业务逻辑，然后提交本地事务。</p>
+<h4 id="2、问答题"><a href="#2、问答题" class="headerlink" title="2、问答题"></a>2、问答题</h4><h5 id="Q-half-消息是个啥？"><a href="#Q-half-消息是个啥？" class="headerlink" title="Q: half 消息是个啥？"></a>Q: half 消息是个啥？</h5><p>A: 它和我们正常发送的普通消息是一样的，都是存储在 MQ 中，唯一不同的是 half 在 MQ 中不会立马被消费者消费到，除非这个 half 消息被 commit 了。(至于为什么未 commit 的 half 消息无法被消费者读取到，这是因为在 MQ 内部，对于事务消息而言，在 commit 之前，会先放在一个内部队列中，只有 commit 了，才会真正将消息放在消费者能读取到的 topic 队列中)</p>
+<h5 id="Q-为什么要先发送-half-消息？"><a href="#Q-为什么要先发送-half-消息？" class="headerlink" title="Q: 为什么要先发送 half 消息？"></a>Q: 为什么要先发送 half 消息？</h5><p>A: 前面已经解释过了，主要是为了保证服务 A 和 MQ 之间是否能正常通信，如果两者之间都不能正常通信，后面还玩个锤子，直接返回异常就可以了。</p>
+<h5 id="Q-如果-MQ-接收到了-half-消息，但是在返回-success-响应的时候，因为网络原因，导致服务-A-没有接收到-success-响应，这个时候是什么现象？"><a href="#Q-如果-MQ-接收到了-half-消息，但是在返回-success-响应的时候，因为网络原因，导致服务-A-没有接收到-success-响应，这个时候是什么现象？" class="headerlink" title="Q: 如果 MQ 接收到了 half 消息，但是在返回 success 响应的时候，因为网络原因，导致服务 A 没有接收到 success 响应，这个时候是什么现象？"></a>Q: 如果 MQ 接收到了 half 消息，但是在返回 success 响应的时候，因为网络原因，导致服务 A 没有接收到 success 响应，这个时候是什么现象？</h5><p>A: 当服务 A 发送 half 消息后，它会等待 MQ 给自己返回 success 响应，如果没有接收到，那么服务 A 也会直接结束，返回异常，不再执行后续逻辑。不执行后续逻辑，这样服务 A 也就不会提交 commit 消息给 MQ，MQ 长时间没接收到 commit 消息，那么它就会主动回调服务 A 的一个接口，服务 A 通过接口，查询本地数据后，发现这条消息对应的业务并没有正常执行，那么就告诉 MQ，这个 half 消息不能 commit，需要 rollback，MQ 知道后，就将 half 消息进行删除。</p>
+<p>Q: 如果服务 A 本地事务执行失败了，怎么办？</p>
+<p>A: 服务 A 本地事务执行失败后，先对自己本地事务进行回滚，然后再向 MQ 发送 rollback 操作。</p>
+<h5 id="Q-服务-A-本地事务提交成功或失败后，向-MQ-发送的-commit-或者-rollback-消息，因为网络问题丢失了，又该怎么处理？"><a href="#Q-服务-A-本地事务提交成功或失败后，向-MQ-发送的-commit-或者-rollback-消息，因为网络问题丢失了，又该怎么处理？" class="headerlink" title="Q: 服务 A 本地事务提交成功或失败后，向 MQ 发送的 commit 或者 rollback 消息，因为网络问题丢失了，又该怎么处理？"></a>Q: 服务 A 本地事务提交成功或失败后，向 MQ 发送的 commit 或者 rollback 消息，因为网络问题丢失了，又该怎么处理？</h5><p>A: 和上一个问题一样，MQ 长时间没有接收到 half 消息的 commit 或者 rollback 消息，MQ 会主动回调服务 A 的接口，通过这个接口来判断自己该对这个 half 消息如何处理。</p>
+<h5 id="Q-前面说的全是事务消息的实现流程，这和事务消息如何保证数据的最终一致性有什么关系呢？"><a href="#Q-前面说的全是事务消息的实现流程，这和事务消息如何保证数据的最终一致性有什么关系呢？" class="headerlink" title="Q: 前面说的全是事务消息的实现流程，这和事务消息如何保证数据的最终一致性有什么关系呢？"></a>Q: 前面说的全是事务消息的实现流程，这和事务消息如何保证数据的最终一致性有什么关系呢？</h5><p>A: 有关系。首先，服务 A 执行本地事务并提交和向 MQ 中发送消息这是两个写操作，然后通过 RocketMQ 的事务消息，我们保证了这两个写操作要么都执行成功，要么都执行失败。然后让其他系统，如服务 B 通过消费 MQ 中的消息，然后再去执行自己本地的事务，这样到最后，服务 A 和服务 B 这两个系统的数据状态是不是达到了一致？这就是最终一致性的含义。</p>
+<p>如果要求服务 A 和服务 B 的数据状态，在服务 A 返回给客户端之间，这两者就达到一致，这是强一致性，RocketMQ 是没法保证强一致性的。</p>
+<p>目前通过「可靠消息来保证数据的最终一致性」是很多大厂都采用的方案，基本都是通过 MQ 和补偿机制来保证数据的一致性。（所谓的可靠消息，就是消息不丢失，如何保证 MQ 的消息不丢失，下篇文章会写，这也是面试常考题）</p>
+<h5 id="Q-服务-B-本地事务提交失败了，怎么办？"><a href="#Q-服务-B-本地事务提交失败了，怎么办？" class="headerlink" title="Q: 服务 B 本地事务提交失败了，怎么办？"></a>Q: 服务 B 本地事务提交失败了，怎么办？</h5><p>A: 如果服务 B 本地事务提交失败了，可以进行多次重试，直到成功。如果重试多次后，还是提交失败，例如此时服务 B 对应的 DB 宕机了，这个时候只要服务 B 不向 MQ 提交本次消息的 offset 即可。如果不提交 offset，那么 MQ 会在一定时间后，继续将这条消息推送给服务 B，服务 B 就可以继续执行本地事务并提交了，直到成功。这样，依旧是保证了服务 A 和服务 B 数据的最终一致性。</p>
+<h2 id="T、散列"><a href="#T、散列" class="headerlink" title="T、散列"></a>T、散列</h2><h3 id="1、乱打"><a href="#1、乱打" class="headerlink" title="1、乱打"></a>1、乱打</h3><blockquote>
+<p>问题：库存为啥分为 锁定库存什么的，没有这个锁定库存的话，抢购成功，直接可销售库存 -1 ，已销售库存 + 1 不也可以嘛，为啥redis的秒杀产品 和 数据库商品表，都要加上什么锁定库存呢？</p>
+<p>答：库存分为锁定库存和可销售库存的原因是为了避免超卖和重复销售的情况发生。在秒杀场景中，由于用户的并发量非常高，可能会导致多个用户同时下单成功，但实际上库存只有一个，如果不加锁定库存的机制，就会导致超卖的情况。而且，在用户下单之后，订单并不一定会立即支付，如果将可销售库存减去，就有可能会出现订单未支付但库存已被扣减的情况，这也是需要锁定库存的原因。所以，在秒杀场景中，为了保证库存的正确性和售后服务的质量，需要对库存进行细分和管理。</p>
+</blockquote>
+<blockquote>
+<p>问题：Hystrix 为啥每次请求都用自己的线程</p>
+<p>答：Hystrix 是一种基于线程隔离的断路器模式实现。为了实现线程隔离，Hystrix 会在每个被保护的依赖服务调用中创建一个新的线程池，每次请求都会被分配到这个线程池中的一个线程中执行。这样做的好处是，即使被保护的依赖服务调用发生故障或延迟，也不会影响其他请求的执行，从而提高了系统的可靠性和稳定性。</p>
+<p>Hystrix 还可以对每个线程池进行配置，比如可以设置线程池的大小、队列的容量等参数，以达到更好的资源利用和负载均衡效果。因此，每次请求都使用自己的线程，可以更好地实现线程隔离，保障系统的可靠性和稳定性。</p>
+</blockquote>
+<blockquote>
+<p>问题：在seata分布式事务框架下，如果一个分布式事务分表调用A、B、C服务，A、B调用成功，C调用失败，进行回滚。在回滚的时候，A、B有没有提交到数据库持久化？</p>
+<p>答：其实已经成功了，但是seata底层自动生成用来回滚的sql，把你之前执行的数据库更新，给做一个反向操作</p>
+</blockquote>
+<blockquote>
+<p>问题：这个可靠消息最终一致性的核心思想是消息防丢吗？那RabbitMQ使用手动ACK也可以实现消息防丢，因此RabbitMQ也算是能实现可靠消息最终一致性吗？ 总感觉我理解错了。<br>答：对的，其实每个MQ都有自己的功能，往后看，即使没有RocketMQ，自己做点开发，也能实现类似的效果</p>
+</blockquote>
+<blockquote>
+<p>问题：基于内存分段生成订单号方案我觉得稍微复杂一些，而且还需要依靠数据库中的表来处理max id，这种内存分段的方案跟直接用redis的incr生成一个自增的数字相比有什么好处吗，直接用redis处理更简单，而且性能也很高</p>
+<p>答：redis的操作是需要去建立网络连接的，内存操作直接在内存中获取的，性能快很多</p>
+</blockquote>
+<blockquote>
+<p>问题：订单引入状态机后有什么好处呢，不用的话会有什么问题？状态机为什么要选用squirrel框架呢？<br>答：这样的好处就是将订单状态流转和对应的业务处理解耦，并且也不会再有一堆繁杂的 if…else 操作，每当需要新的订单状态流转操作的时候，可以去编写对应的一套operator和processor组件来完成，和已有业务的分离度很高。<br>squirrel框架 集成简单上手快，功能全面</p>
+</blockquote>
+<blockquote>
+<p>问题：商品考核我认为就是，运营会针对线上商品的一些销售数据情况作分析，比如上架了一批薯条，这个月销量很好，那我们就多进点货物，少那就少进点，但是针对海量的商品，也不能一个个给肉眼去审核，在审核时候有配置模版啥的，引入审核配置规则，比如一个配置模版里边有商品ID=》规则模版这样的。 不知道我的理解对不对?</p>
+<p>答：您的理解是正确的。商品考核通常是基于线上销售数据对商品进行评估和分析，以便运营人员做出更加明智的决策，比如调整商品的进货量、价格等，以提高销售业绩和利润。 对于海量商品的考核，手工审核确实是不切实际的。因此，可以引入自动化的审核配置规则，这些规则可以通过配置模板来实现，比如基于商品ID、销售额、库存、售后服务质量等指标来设计规则，从而更加高效地进行商品考核。在具体实现过程中，可以使用机器学习和数据分析技术，从大量数据中挖掘出有效规律和模式，提高商品考核的准确性和效率。</p>
+</blockquote>
+<h3 id="2、闲聊"><a href="#2、闲聊" class="headerlink" title="2、闲聊"></a>2、闲聊</h3><h4 id="1、离职原因"><a href="#1、离职原因" class="headerlink" title="1、离职原因"></a>1、离职原因</h4><ul>
+<li>薪资一方面，其次是触碰更多的事边缘技术，能成长的空间有限</li>
+<li>虽说能碰到一些核心技术，但是成长也比较缓慢，不是长久之策</li>
+<li>舒适圈待久了，有些迫切的危机感， 望得到更多的挑战和学习机会</li>
+</ul>
+<h4 id="2、-3"><a href="#2、-3" class="headerlink" title="2、"></a>2、</h4><h2 id="参考-↓"><a href="#参考-↓" class="headerlink" title="参考 ↓"></a>参考 ↓</h2><p>MySQL 执行流程 :<a target="_blank" rel="noopener" href="https://blog.csdn.net/qwer123451234123/article/details/124344299">https://blog.csdn.net/qwer123451234123/article/details/124344299</a></p>
 <p>数据结构可视化演变： <a target="_blank" rel="noopener" href="https://www.cs.usfca.edu/~galles/visualization/BPlusTree.html">https://www.cs.usfca.edu/~galles/visualization/BPlusTree.html</a></p>
 <p>B+Tree时间复杂度：<a target="_blank" rel="noopener" href="https://blog.csdn.net/yunduanyou/article/details/128233801">https://blog.csdn.net/yunduanyou/article/details/128233801</a></p>
 <p>1.8流操作题：<a target="_blank" rel="noopener" href="https://blog.csdn.net/Thinkingcao/article/details/108664921">https://blog.csdn.net/Thinkingcao/article/details/108664921</a></p>
@@ -1002,6 +1119,8 @@ mysql –<span class="token operator">-</span><span class="token keyword">local<
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_58600248/article/details/126271252">https://blog.csdn.net/m0_58600248/article/details/126271252</a></p>
 <p>Spring 面试题：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/469797333">https://zhuanlan.zhihu.com/p/469797333</a><br>MQ面试题：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/470984789">https://zhuanlan.zhihu.com/p/470984789</a></p>
 <p>RocketMQ事务消息如何保证数据的最终一致性：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_42093488/article/details/114677515">https://blog.csdn.net/qq_42093488/article/details/114677515</a></p>
+<p>七种分布式事务实现：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_36963950/article/details/108909780">https://blog.csdn.net/qq_36963950/article/details/108909780</a></p>
+<p>redis数据结构：<a target="_blank" rel="noopener" href="https://blog.csdn.net/mz474920631/article/details/125200050">https://blog.csdn.net/mz474920631/article/details/125200050</a></p>
 
                 
             </div>
@@ -1881,7 +2000,7 @@ new Valine({
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">168.3k</span>&nbsp;字
+                class="white-color">173.1k</span>&nbsp;字
             
             
             
