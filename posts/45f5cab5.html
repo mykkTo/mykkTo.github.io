@@ -680,14 +680,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    14.4k
+                    14.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    52 分
+                    53 分
                 </div>
                 
 
@@ -1142,7 +1142,7 @@ mysql –<span class="token operator">-</span><span class="token keyword">local<
 <p>5、<strong>惰性队列</strong></p>
 <p>5-1、<strong>堆积问题</strong></p>
 <p>当生产者发送消息的速度超过了消费者处理消息的速度，就会导致队列中的消息堆积，直到队列存储消息达到上限。之后发送的消息就会成为死信，可能会被丢弃，这就是消息堆积问题。</p>
-<p><img src="https://img-blog.csdnimg.cn/19c65e74a03249a990b1be2a71e9a5df.png"></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202303052229466.png"></p>
 <p><strong>解决消息堆积思路：</strong></p>
 <ul>
 <li>增加更多消费者，提高消费速度。也就是我们之前说的work queue模式</li>
@@ -1178,12 +1178,26 @@ Lazy ：策略名称，可以自定义
 
 
 
-
-
-
-
-
-
+<p>5-2-2、基于@Bean声明lazy-queue</p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202303052228644.png"></p>
+<p>5-2-3、基于@RabbitListener声明LazyQueue</p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202303052230941.png"></p>
+<p><strong>小结：</strong></p>
+<p>消息堆积问题的解决方案？</p>
+<ul>
+<li>队列上绑定多个消费者，提高消费速度</li>
+<li>使用惰性队列，可以再mq中保存更多消息</li>
+</ul>
+<p>惰性队列的优点有哪些？</p>
+<ul>
+<li>基于磁盘存储，消息上限高</li>
+<li>没有间歇性的page-out，性能比较稳定</li>
+</ul>
+<p>惰性队列的缺点有哪些？</p>
+<ul>
+<li>基于磁盘存储，消息时效性会降低</li>
+<li>性能受限于磁盘的IO</li>
+</ul>
 <h2 id="四、Redis"><a href="#四、Redis" class="headerlink" title="四、Redis"></a>四、Redis</h2><p>缓存一致性问题、十大数据结构</p>
 <h3 id="1、常规（放松版）"><a href="#1、常规（放松版）" class="headerlink" title="1、常规（放松版）"></a>1、常规（放松版）</h3><h4 id="1、redis有哪些数据结构"><a href="#1、redis有哪些数据结构" class="headerlink" title="1、redis有哪些数据结构?"></a>1、redis有哪些数据结构?</h4><p>字符串String、字典Hash、列表List、集合Set、有序集合SortedSet</p>
 <p>HyperLogLog ：网站的UV统计</p>
@@ -2245,7 +2259,7 @@ new Valine({
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">176.8k</span>&nbsp;字
+                class="white-color">177k</span>&nbsp;字
             
             
             
