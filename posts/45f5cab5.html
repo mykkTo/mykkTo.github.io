@@ -673,21 +673,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-03-01
+                    2023-03-05
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    10.7k
+                    14.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    38 分
+                    52 分
                 </div>
                 
 
@@ -973,13 +973,234 @@ mysql –<span class="token operator">-</span><span class="token keyword">local<
 <li>Queue：消息最终被送到这里等待 consumer 取走</li>
 <li>Binding：exchange 和 queue 之间的虚拟连接，binding 中可以包含 routing key。Binding 信息被保存到 exchange 中的查询表中，用于 message 的分发依据</li>
 </ul>
+<h4 id="2、MQ消息可靠性投递"><a href="#2、MQ消息可靠性投递" class="headerlink" title="2、MQ消息可靠性投递"></a>2、MQ消息可靠性投递</h4><p>0、<strong>主要实现步骤</strong></p>
+<ul>
+<li>生产者确认机制</li>
+<li>消费者确认机制</li>
+<li>持久化（交换机，队列，消息）</li>
+<li>失败重试机制</li>
+<li>消息堆积问题</li>
+</ul>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202303052036880.png"></p>
+<p>1、<strong>生产者消息确认</strong></p>
+<p>（1）publisher-comfirm：消息成功发送到exchange，返回ack消息发送失败，没有到达交换机，返回nack消息，发送过程中出现异常，没有收到回执</p>
+<p>（2）消息成功发送到exchange，但没有路由到queue，回调ReturnCallback</p>
+<p>（3）确认机制发送消息时，需要给每个消息设置一个全局唯一id，以区分不同消息，避免ack冲突</p>
+<p>2、<strong>消费者确认机制</strong></p>
+<p>RabbitMQ是<strong>阅后即焚</strong>机制，RabbitMQ确认消息被消费者消费后会立刻删除。</p>
+<p>而RabbitMQ是通过消费者回执来确认消费者是否成功处理消息的：消费者获取消息后，应该向RabbitMQ发送ACK回执，表明自己已经处理消息。</p>
+<p>设想这样的场景：</p>
+<p>1）RabbitMQ投递消息给消费者</p>
+<p>2）消费者获取消息后，返回ACK给RabbitMQ</p>
+<p>3）RabbitMQ删除消息</p>
+<p>4）消费者宕机，消息尚未处理</p>
+<p>这样，消息就丢失了。因此消费者返回ACK的时机非常重要。</p>
+<p>而SpringAMQP则允许配置三种确认模式：</p>
+<p>•manual：手动ack，需要在业务代码结束后，调用api发送ack。</p>
+<p>•auto：自动ack，由spring监测listener代码是否出现异常，没有异常则返回ack；抛出异常则返回nack</p>
+<p>•none：关闭ack，MQ假定消费者获取消息后会成功处理，因此消息投递后立即被删除</p>
+<p>由此可知：</p>
+<p>none模式下，消息投递是不可靠的，可能丢失</p>
+<p>auto模式类似事务机制，出现异常时返回nack，消息回滚到mq；没有异常，返回ack</p>
+<p>manual：自己根据业务情况，判断什么时候该ack</p>
+<p>一般，我们都是使用默认的auto即可</p>
+<p>3、<strong>持久化</strong></p>
+<p>（1）交换机持久化</p>
+<p>RabbitMQ中交换机默认是非持久化的，mq重启后就丢失。</p>
+<p>SpringAMQP中可以通过代码指定交换机持久化：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Bean</span>
+<span class="token keyword">public</span> <span class="token class-name">DirectExchange</span> <span class="token function">simpleExchange</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token comment">// 三个参数：交换机名称、是否持久化、当没有queue与其绑定时是否自动删除</span>
+    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">DirectExchange</span><span class="token punctuation">(</span><span class="token string">"simple.direct"</span><span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>事实上，默认情况下，由SpringAMQP声明的交换机都是持久化的。</p>
+<p>可以在RabbitMQ控制台看到持久化的交换机都会带上<code>D</code>的标示：</p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202303051551218.png"></p>
+<p>（2）队列持久化</p>
+<p>RabbitMQ中队列默认是非持久化的，mq重启后就丢失。</p>
+<p>SpringAMQP中可以通过代码指定交换机持久化：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Bean</span>
+<span class="token keyword">public</span> <span class="token class-name">Queue</span> <span class="token function">simpleQueue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token comment">// 使用QueueBuilder构建队列，durable就是持久化的</span>
+    <span class="token keyword">return</span> <span class="token class-name">QueueBuilder</span><span class="token punctuation">.</span><span class="token function">durable</span><span class="token punctuation">(</span><span class="token string">"simple.queue"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<p>事实上，默认情况下，由SpringAMQP声明的队列都是持久化的。</p>
+<p>可以在RabbitMQ控制台看到持久化的队列都会带上D的标示：</p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202303051517011.png"></p>
+<p>（3）消息持久化</p>
+<p>利用SpringAMQP发送消息时，可以设置消息的属性（MessageProperties），指定delivery-mode：</p>
+<ul>
+<li>1：非持久化</li>
+<li>2：持久化</li>
+</ul>
+<p>默认情况下，SpringAMQP发出的任何消息都是持久化的，不用特意指定。</p>
+<p>4、<strong>失败重试机制</strong></p>
+<p><strong>步骤：</strong></p>
+<p>本地重试机制 -》 死信队列</p>
+<p>4-1、<strong>本地重试</strong></p>
+<p>我们可以利用Spring的retry机制，在消费者出现异常时利用本地重试，而不是无限制的requeue到mq队列。</p>
+<p>修改consumer服务的application.yml文件，添加内容：</p>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token key atrule">spring</span><span class="token punctuation">:</span>
+  <span class="token key atrule">rabbitmq</span><span class="token punctuation">:</span>
+    <span class="token key atrule">listener</span><span class="token punctuation">:</span>
+      <span class="token key atrule">simple</span><span class="token punctuation">:</span>
+        <span class="token key atrule">retry</span><span class="token punctuation">:</span>
+          <span class="token key atrule">enabled</span><span class="token punctuation">:</span> <span class="token boolean important">true</span> <span class="token comment"># 开启消费者失败重试</span>
+          <span class="token key atrule">initial-interval</span><span class="token punctuation">:</span> 1000ms <span class="token comment"># 初始的失败等待时长为1秒</span>
+          <span class="token key atrule">multiplier</span><span class="token punctuation">:</span> <span class="token number">1</span> <span class="token comment"># 失败的等待时长倍数，下次等待时长 = multiplier * last-interval</span>
+          <span class="token key atrule">max-attempts</span><span class="token punctuation">:</span> <span class="token number">3</span> <span class="token comment"># 最大重试次数</span>
+          <span class="token key atrule">stateless</span><span class="token punctuation">:</span> <span class="token boolean important">true</span> <span class="token comment"># true无状态；false有状态。如果业务中包含事务，这里改为false</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p>结论：</p>
+<ul>
+<li>开启本地重试时，消息处理过程中抛出异常，不会requeue到队列，而是在消费者本地重试</li>
+<li><strong>重试达到最大次数后，Spring会返回ack，消息会被丢弃</strong></li>
+</ul>
+<p>4-2、<strong>失败策略</strong></p>
+<p>在之前的测试中，达到最大重试次数后，消息会被丢弃，这是由Spring内部机制决定的。</p>
+<p>在开启重试模式后，重试次数耗尽，如果消息依然失败，则需要有MessageRecovery接口来处理，它包含三种不同的实现：</p>
+<ul>
+<li>RejectAndDontRequeueRecoverer：重试耗尽后，直接reject，丢弃消息。默认就是这种方式</li>
+<li>ImmediateRequeueMessageRecoverer：重试耗尽后，返回nack，消息重新入队</li>
+<li><strong>RepublishMessageRecoverer：重试耗尽后，将失败消息投递到指定的交换机（死信，惰性，异常交换机）</strong></li>
+</ul>
+<p>比较优雅的一种处理方案是RepublishMessageRecoverer，失败后将消息投递到一个指定的，专门存放异常消息的队列，后续由人工集中处理。</p>
+<p>1）在consumer服务中定义处理失败消息的交换机和队列</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Bean</span>
+<span class="token keyword">public</span> <span class="token class-name">DirectExchange</span> <span class="token function">errorMessageExchange</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">DirectExchange</span><span class="token punctuation">(</span><span class="token string">"error.direct"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token annotation punctuation">@Bean</span>
+<span class="token keyword">public</span> <span class="token class-name">Queue</span> <span class="token function">errorQueue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Queue</span><span class="token punctuation">(</span><span class="token string">"error.queue"</span><span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token annotation punctuation">@Bean</span>
+<span class="token keyword">public</span> <span class="token class-name">Binding</span> <span class="token function">errorBinding</span><span class="token punctuation">(</span><span class="token class-name">Queue</span> errorQueue<span class="token punctuation">,</span> <span class="token class-name">DirectExchange</span> errorMessageExchange<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token class-name">BindingBuilder</span><span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span>errorQueue<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token keyword">to</span><span class="token punctuation">(</span>errorMessageExchange<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token keyword">with</span><span class="token punctuation">(</span><span class="token string">"error"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>2）定义一个RepublishMessageRecoverer，关联队列和交换机</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Bean</span>
+<span class="token keyword">public</span> <span class="token class-name">MessageRecoverer</span> <span class="token function">republishMessageRecoverer</span><span class="token punctuation">(</span><span class="token class-name">RabbitTemplate</span> rabbitTemplate<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">RepublishMessageRecoverer</span><span class="token punctuation">(</span>rabbitTemplate<span class="token punctuation">,</span> <span class="token string">"error.direct"</span><span class="token punctuation">,</span> <span class="token string">"error"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+<p>4-3、<strong>死信队列</strong></p>
+<p>什么样的消息会成为死信？</p>
+<blockquote>
+<p>消息被消费者reject或者返回nack ，拒绝</p>
+<p>消息超时未消费（TTL）</p>
+<p>普通队列满了（可指定到死信，不是一定死信也可以是惰性）</p>
+</blockquote>
+<p>如果这个包含死信的队列配置了<code>dead-letter-exchange</code>属性，指定了一个交换机，那么队列中的死信就会投递到这个交换机中，而这个交换机称为<strong>死信交换机</strong>（Dead Letter Exchange，检查DLX）</p>
+<p>队列将死信投递给死信交换机时，必须知道两个信息：</p>
+<ul>
+<li>死信交换机名称</li>
+<li>死信交换机与死信队列绑定的RoutingKey</li>
+</ul>
+<p>这样才能确保投递的消息能到达死信交换机，并且正确的路由到死信队列。</p>
+<p>4-4、<strong>死信作为重试机制策略</strong></p>
+<p>在失败重试策略中，默认的RejectAndDontRequeueRecoverer会在本地重试次数耗尽后，发送reject给RabbitMQ，消息变成死信，被丢弃。</p>
+<p>我们可以给simple.queue添加一个死信交换机，给死信交换机绑定一个队列。这样消息变成死信后也不会丢弃，而是最终投递到死信交换机，路由到与死信交换机绑定的队列。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// 声明普通的 simple.queue队列，并且为其指定死信交换机：dl.direct</span>
+<span class="token annotation punctuation">@Bean</span>
+<span class="token keyword">public</span> <span class="token class-name">Queue</span> <span class="token function">simpleQueue2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token class-name">QueueBuilder</span><span class="token punctuation">.</span><span class="token function">durable</span><span class="token punctuation">(</span><span class="token string">"simple.queue"</span><span class="token punctuation">)</span> <span class="token comment">// 指定队列名称，并持久化</span>
+        <span class="token punctuation">.</span><span class="token function">deadLetterExchange</span><span class="token punctuation">(</span><span class="token string">"dl.direct"</span><span class="token punctuation">)</span> <span class="token comment">// 指定死信交换机</span>
+        <span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// 声明死信交换机 dl.direct</span>
+<span class="token annotation punctuation">@Bean</span>
+<span class="token keyword">public</span> <span class="token class-name">DirectExchange</span> <span class="token function">dlExchange</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">DirectExchange</span><span class="token punctuation">(</span><span class="token string">"dl.direct"</span><span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// 声明存储死信的队列 dl.queue</span>
+<span class="token annotation punctuation">@Bean</span>
+<span class="token keyword">public</span> <span class="token class-name">Queue</span> <span class="token function">dlQueue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Queue</span><span class="token punctuation">(</span><span class="token string">"dl.queue"</span><span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// 将死信队列 与 死信交换机绑定</span>
+<span class="token annotation punctuation">@Bean</span>
+<span class="token keyword">public</span> <span class="token class-name">Binding</span> <span class="token function">dlBinding</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token class-name">BindingBuilder</span><span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span><span class="token function">dlQueue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token keyword">to</span><span class="token punctuation">(</span><span class="token function">dlExchange</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token keyword">with</span><span class="token punctuation">(</span><span class="token string">"simple"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p>消费者确认模式: auto<br>    acknowledge-mode: auto<br>    特征: 当消息不能被消费时,会重新入队,再次投递给消费者进行被消费<br>    default-requeue-rejected: false # 拒绝消息重新入队,如果队列绑定了死信交换机则消息会投递到死信交换机并路由到死信队列</p>
+<p>本地重试：底下是三种方案，不是三个步骤，需要注意</p>
+<p>​    当本地重试次数耗尽时,如果当前队列没有绑定死信交换机或错误队列,则消息丢弃<br>​    如果提供了异常队列,则消息投递到异常对象<br>​    如果队列绑定了死信交换机,则消息以死信的形式存放到死信队列</p>
+<p>5、<strong>惰性队列</strong></p>
+<p>5-1、<strong>堆积问题</strong></p>
+<p>当生产者发送消息的速度超过了消费者处理消息的速度，就会导致队列中的消息堆积，直到队列存储消息达到上限。之后发送的消息就会成为死信，可能会被丢弃，这就是消息堆积问题。</p>
+<p><img src="https://img-blog.csdnimg.cn/19c65e74a03249a990b1be2a71e9a5df.png"></p>
+<p><strong>解决消息堆积思路：</strong></p>
+<ul>
+<li>增加更多消费者，提高消费速度。也就是我们之前说的work queue模式</li>
+<li>在消费者内开启线程池加快消息处理速度</li>
+<li>扩大队列容积，提高堆积上限</li>
+</ul>
+<p>5-2、<strong>惰性队列</strong></p>
+<p>从RabbitMQ的3.6.0版本开始，就增加了Lazy Queues的概念，也就是惰性队列。惰性队列的特征如下：</p>
+<ul>
+<li>接收到消息后直接存入磁盘而非内存</li>
+<li>消费者要消费消息时才会从磁盘中读取并加载到内存</li>
+<li>支持数百万条的消息存储</li>
+</ul>
+<p>5-2-1、<strong>基于命令行设置lazy-queue</strong></p>
+<p>而要设置一个队列为惰性队列，只需要在声明队列时，指定x-queue-mode属性为lazy即可。可以通过命令行将一个运行中的队列修改为惰性队列：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">rabbitmqctl set_policy Lazy <span class="token string">"^simple.queue$"</span> <span class="token string">'{"queue-mode":"lazy"}'</span> --apply-to queues  <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<p>命令解读：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">rabbitmqctl ：RabbitMQ的命令行工具
+
+set_policy ：添加一个策略
+
+Lazy ：策略名称，可以自定义
+
+<span class="token string">"^lazy-queue$"</span> ：用正则表达式匹配队列的名字
+
+<span class="token string">'{"queue-mode":"lazy"}'</span> ：设置队列模式为lazy模式
+
+--apply-to queues：策略的作用对象，是所有的队列<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+
+
+
+
+
 <h2 id="四、Redis"><a href="#四、Redis" class="headerlink" title="四、Redis"></a>四、Redis</h2><p>缓存一致性问题、十大数据结构</p>
 <h3 id="1、常规（放松版）"><a href="#1、常规（放松版）" class="headerlink" title="1、常规（放松版）"></a>1、常规（放松版）</h3><h4 id="1、redis有哪些数据结构"><a href="#1、redis有哪些数据结构" class="headerlink" title="1、redis有哪些数据结构?"></a>1、redis有哪些数据结构?</h4><p>字符串String、字典Hash、列表List、集合Set、有序集合SortedSet</p>
 <p>HyperLogLog ：网站的UV统计</p>
 <p>Geo：获取位置的距离</p>
 <p>Bitmap:位图</p>
 <p>Stream：消息队列</p>
-<h4 id="2、-1"><a href="#2、-1" class="headerlink" title="2、"></a>2、</h4><h4 id="3、"><a href="#3、" class="headerlink" title="3、"></a>3、</h4><h4 id="4、"><a href="#4、" class="headerlink" title="4、"></a>4、</h4><h4 id="5、"><a href="#5、" class="headerlink" title="5、"></a>5、</h4><h4 id="6、"><a href="#6、" class="headerlink" title="6、"></a>6、</h4><h4 id="7、"><a href="#7、" class="headerlink" title="7、"></a>7、</h4><h4 id="8、"><a href="#8、" class="headerlink" title="8、"></a>8、</h4><h4 id="9、"><a href="#9、" class="headerlink" title="9、"></a>9、</h4><h4 id="10、"><a href="#10、" class="headerlink" title="10、"></a>10、</h4><h3 id="2、-2"><a href="#2、-2" class="headerlink" title="2、"></a>2、</h3><h2 id="五、分布式事务-seata"><a href="#五、分布式事务-seata" class="headerlink" title="五、分布式事务(seata)"></a>五、分布式事务(seata)</h2><h3 id="1、常规（放松解压版）"><a href="#1、常规（放松解压版）" class="headerlink" title="1、常规（放松解压版）"></a>1、常规（放松解压版）</h3><h4 id="1、事务的特性"><a href="#1、事务的特性" class="headerlink" title="1、事务的特性"></a>1、事务的特性</h4><p>1.原子性 要么一起成功要么一起失败</p>
+<h4 id="2、为什么要用redis"><a href="#2、为什么要用redis" class="headerlink" title="2、为什么要用redis?"></a>2、为什么要用redis?</h4><p>可以做缓存，耗时间的sql，且不频繁变动的可以缓存到redis，提高响应速度</p>
+<p>提高并发，大量的请求先请求到redis，而不是直接请求到数据库</p>
+<p>可以做分布式锁。</p>
+<h4 id="3、什么是分布式锁？"><a href="#3、什么是分布式锁？" class="headerlink" title="3、什么是分布式锁？"></a>3、什么是分布式锁？</h4><p>setnx来获取锁，expire来添加过期时间，防止资源占用过久</p>
+<h4 id="4、找出redis中以某个前缀开头的大量的key？"><a href="#4、找出redis中以某个前缀开头的大量的key？" class="headerlink" title="4、找出redis中以某个前缀开头的大量的key？"></a>4、找出redis中以某个前缀开头的大量的key？</h4><p>keys xx* 使用keys会造成阻塞</p>
+<p>scan 0 match key1111* count 20 不会造成阻塞</p>
+<h4 id="5、如何使用redis做消息队列？"><a href="#5、如何使用redis做消息队列？" class="headerlink" title="5、如何使用redis做消息队列？"></a>5、如何使用redis做消息队列？</h4><p>list结构作为队列，rpush生产消息，lpop消费消息，需要自己实现阻塞。blpop没有消息会阻塞，等到消息到来。</p>
+<h4 id="6、大量的key在同一时间过期，需要注意什么？"><a href="#6、大量的key在同一时间过期，需要注意什么？" class="headerlink" title="6、大量的key在同一时间过期，需要注意什么？"></a>6、大量的key在同一时间过期，需要注意什么？</h4><p>redis可能会出现卡顿现象，并发量大可能出现缓存雪崩，可以在过期时间添加一个随机数</p>
+<h4 id="7、什么是缓存穿透，缓存击穿？"><a href="#7、什么是缓存穿透，缓存击穿？" class="headerlink" title="7、什么是缓存穿透，缓存击穿？"></a>7、什么是缓存穿透，缓存击穿？</h4><p>缓存穿透：请求一个数据库和redis不存在的值，通过缓存null值和数据校验解决。</p>
+<p>缓存击穿: 一个key过期时，大量请求打到数据库。加互斥锁和热点数据不过期。</p>
+<h4 id="8、redis的线程模型？"><a href="#8、redis的线程模型？" class="headerlink" title="8、redis的线程模型？"></a>8、redis的线程模型？</h4><h4 id="9、"><a href="#9、" class="headerlink" title="9、"></a>9、</h4><h4 id="10、"><a href="#10、" class="headerlink" title="10、"></a>10、</h4><h3 id="2、-1"><a href="#2、-1" class="headerlink" title="2、"></a>2、</h3><h2 id="五、分布式事务"><a href="#五、分布式事务" class="headerlink" title="五、分布式事务"></a>五、分布式事务</h2><h3 id="1、常规（放松解压版）"><a href="#1、常规（放松解压版）" class="headerlink" title="1、常规（放松解压版）"></a>1、常规（放松解压版）</h3><h4 id="1、事务的特性"><a href="#1、事务的特性" class="headerlink" title="1、事务的特性"></a>1、事务的特性</h4><p>1.原子性 要么一起成功要么一起失败</p>
 <p>2.一致性 事务执行前后数据保持一致性状态</p>
 <p>3.隔离性 多个事务之间是隔离的，互相不影响</p>
 <p>4.持久性 事务一旦提交数据的改变是持久的</p>
@@ -1025,7 +1246,7 @@ mysql –<span class="token operator">-</span><span class="token keyword">local<
 <li>@GlobalTransactional 注解表示开启分布式事务</li>
 </ul>
 <h4 id="14、2pc和Seata的at区别"><a href="#14、2pc和Seata的at区别" class="headerlink" title="14、2pc和Seata的at区别"></a>14、2pc和<strong>Seata的</strong>at区别</h4><p>at模式是增强版的2pc，第一阶段业务数据和回滚日志记录在同一个本地事务中提交,提交之后就会释放资源</p>
-<h4 id="15、Seata的四种模式"><a href="#15、Seata的四种模式" class="headerlink" title="15、Seata的四种模式"></a>15、Seata的四种模式</h4><h3 id="2、进阶-1"><a href="#2、进阶-1" class="headerlink" title="2、进阶"></a>2、进阶</h3><h4 id="1、设计：1ID-3组件"><a href="#1、设计：1ID-3组件" class="headerlink" title="1、设计：1ID+3组件"></a>1、设计：1ID+3组件</h4><h5 id="1、ID"><a href="#1、ID" class="headerlink" title="1、ID"></a>1、ID</h5><p>全局唯一的事务ID：Transaction ID XID</p>
+<h4 id="15、Seata的四种模式"><a href="#15、Seata的四种模式" class="headerlink" title="15、Seata的四种模式"></a>15、Seata的四种模式</h4><h3 id="2、进阶-1"><a href="#2、进阶-1" class="headerlink" title="2、进阶"></a>2、进阶</h3><h4 id="1、设计：1ID-3组件（seata）"><a href="#1、设计：1ID-3组件（seata）" class="headerlink" title="1、设计：1ID+3组件（seata）"></a>1、设计：1ID+3组件（seata）</h4><h5 id="1、ID"><a href="#1、ID" class="headerlink" title="1、ID"></a>1、ID</h5><p>全局唯一的事务ID：Transaction ID XID</p>
 <h5 id="2、组件"><a href="#2、组件" class="headerlink" title="2、组件"></a>2、组件</h5><p>Transaction Coordinator (TC)<strong>【程序员】</strong></p>
 <p><code>事务协调器</code>，维护全局事务的运行状态，负责协调并驱动全局事务的提交或回滚；</p>
 <p>Transaction Manager (TM)<strong>【经理】</strong></p>
@@ -1039,7 +1260,7 @@ mysql –<span class="token operator">-</span><span class="token keyword">local<
 <p>4、TM 向 TC 发起针对 XID 的全局提交或回滚决议；</p>
 <p>5、TC 调度 XID 下管辖的全部分支事务完成提交或回滚请求。</p>
 <p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220325203440.png"></p>
-<h4 id="3、seata四种模式"><a href="#3、seata四种模式" class="headerlink" title="3、seata四种模式"></a>3、seata四种模式</h4><h2 id="N、设计题"><a href="#N、设计题" class="headerlink" title="N、设计题"></a>N、设计题</h2><h3 id="1、MQ实现异步秒杀"><a href="#1、MQ实现异步秒杀" class="headerlink" title="1、MQ实现异步秒杀"></a>1、MQ实现异步秒杀</h3><h4 id="1、介绍"><a href="#1、介绍" class="headerlink" title="1、介绍"></a>1、介绍</h4><p>场景：一万件商品同时被一万人秒杀成功，会导致瞬间上万请求访问到订单数据库中创建订单。此时对数据库的压力就会很大。</p>
+<h4 id=""><a href="#" class="headerlink" title=""></a></h4><h3 id="3、分布式事务的实现方式"><a href="#3、分布式事务的实现方式" class="headerlink" title="3、分布式事务的实现方式"></a>3、分布式事务的实现方式</h3><h4 id="1、-1"><a href="#1、-1" class="headerlink" title="1、"></a>1、</h4><h2 id="N、设计题"><a href="#N、设计题" class="headerlink" title="N、设计题"></a>N、设计题</h2><h3 id="1、MQ实现异步秒杀"><a href="#1、MQ实现异步秒杀" class="headerlink" title="1、MQ实现异步秒杀"></a>1、MQ实现异步秒杀</h3><h4 id="1、介绍"><a href="#1、介绍" class="headerlink" title="1、介绍"></a>1、介绍</h4><p>场景：一万件商品同时被一万人秒杀成功，会导致瞬间上万请求访问到订单数据库中创建订单。此时对数据库的压力就会很大。</p>
 <p>方案：引入RocketMQ进行削峰处理。</p>
 <p>每个请求进来在Redis中秒杀库存成功，就认为需要生成订单，此时发送一个消息到RocketMQ中去。</p>
 <p>然后让普通订单系统从RocketMQ中消费秒杀成功的消息进行处理。对于MQ来说，这种上万的消息积压很容易就扛下来了，只要过了高峰期，订单系统很快就能消费、处理完。这个过程中不会对订单数据库造成过大的压力</p>
@@ -1097,12 +1318,27 @@ mysql –<span class="token operator">-</span><span class="token keyword">local<
 <p>问题：商品考核我认为就是，运营会针对线上商品的一些销售数据情况作分析，比如上架了一批薯条，这个月销量很好，那我们就多进点货物，少那就少进点，但是针对海量的商品，也不能一个个给肉眼去审核，在审核时候有配置模版啥的，引入审核配置规则，比如一个配置模版里边有商品ID=》规则模版这样的。 不知道我的理解对不对?</p>
 <p>答：您的理解是正确的。商品考核通常是基于线上销售数据对商品进行评估和分析，以便运营人员做出更加明智的决策，比如调整商品的进货量、价格等，以提高销售业绩和利润。 对于海量商品的考核，手工审核确实是不切实际的。因此，可以引入自动化的审核配置规则，这些规则可以通过配置模板来实现，比如基于商品ID、销售额、库存、售后服务质量等指标来设计规则，从而更加高效地进行商品考核。在具体实现过程中，可以使用机器学习和数据分析技术，从大量数据中挖掘出有效规律和模式，提高商品考核的准确性和效率。</p>
 </blockquote>
+<blockquote>
+<p>问题：提交订单，会发一个延迟消息，如果一直订单未支付，到了触发的时候，恰好用户点击付款了，此时并发同时过来，是不是要在支付和取消的时候都要加分布式锁，那如果真的此时取消了，是不是只能通知用户，订单已取消，请重新下单吗</p>
+<p>答：对于订单支付的延迟消息，确保订单支付的一致性和正确性是非常重要的。在并发情况下，确保数据的一致性和正确性通常需要使用分布式锁来避免冲突。在订单取消的情况下，可以采用异步通知的方式向用户发送消息，告知订单已取消，并提醒用户重新下单。在实际实现中，可以使用消息队列等技术来实现延迟消息和异步通知，保证订单支付的正确性和用户体验。</p>
+</blockquote>
+<blockquote>
+<p>问题：我看好多书都参考&lt;深入理解java内存模型&gt;一书叫了StoreStore, StoreLoad, LoadLoad, LoadStore, 但是我发现还有一种叫法叫Release Barrier , Store Barrier, Acquire Barrier? 这两种叫法以什么为基准叫的???内存屏障是怎么分类的？？？</p>
+<p>答：内存屏障是指在编程中使用的一种同步机制，它能够确保在程序中特定位置处的内存操作按照特定顺序执行，从而保证了多线程环境下的可见性和有序性。</p>
+<p>在Java内存模型中，内存屏障按照功能被划分为四种：Load Barrier（读屏障）、Store Barrier（写屏障）、StoreLoad Barrier（写-读屏障）和LoadStore Barrier（读-写屏障）。这些屏障的作用如下：</p>
+<p>Load Barrier（读屏障）：它用于确保某个线程在读取某个变量时，能够看到其他线程对该变量的更新。<br>Store Barrier（写屏障）：它用于确保某个线程在修改某个变量时，对其他线程的修改可见。<br>StoreLoad Barrier（写-读屏障）：它用于确保某个线程在写入某个变量后，之后读取该变量时，能够看到其他线程在写入该变量之前的操作。<br>LoadStore Barrier（读-写屏障）：它用于确保某个线程在读取某个变量时，之前的写入操作对其他线程可见。<br>另外，Release Barrier 和 Acquire Barrier 是一种更高层次的内存屏障概念，它们是基于前面提到的四种内存屏障而定义的。Release Barrier 和 Acquire Barrier 分别用于确保某个线程的写操作对其他线程可见和确保某个线程的读操作看到其他线程的写操作。在Java内存模型中，Release Barrier 对应的是 Store Store Barrier 和 StoreLoad Barrier，而 Acquire Barrier 对应的是 LoadLoad Barrier 和 LoadStore Barrier。</p>
+<p>内存屏障的分类是根据其功能不同来划分的，而 Release Barrier 和 Acquire Barrier 则是一种更高层次的概念，它们是基于前面提到的四种内存屏障而定义的。</p>
+</blockquote>
+<blockquote>
+<p>问题2：能不能下订单的时候不推mq，在用户支付的成功后再向其他系统推送mq消息呢?如果延迟推送，用户刚下单就支付了，岂不是要等半个小时，才能收到红包系统发的红包?</p>
+<p>答：这是两条消息，一个是你创建订单了，完了有一个订单创建通知，你可以30分钟后消费这个消息，判断你的订单是否已经超过30分钟还没支付;另外一个是如果已经支付了，有一个订单支付的消息，然后你很多系统可以消费这个消息，做后续的处理</p>
+</blockquote>
 <h3 id="2、闲聊"><a href="#2、闲聊" class="headerlink" title="2、闲聊"></a>2、闲聊</h3><h4 id="1、离职原因"><a href="#1、离职原因" class="headerlink" title="1、离职原因"></a>1、离职原因</h4><ul>
 <li>薪资一方面，其次是触碰更多的事边缘技术，能成长的空间有限</li>
 <li>虽说能碰到一些核心技术，但是成长也比较缓慢，不是长久之策</li>
 <li>舒适圈待久了，有些迫切的危机感， 望得到更多的挑战和学习机会</li>
 </ul>
-<h4 id="2、-3"><a href="#2、-3" class="headerlink" title="2、"></a>2、</h4><h2 id="参考-↓"><a href="#参考-↓" class="headerlink" title="参考 ↓"></a>参考 ↓</h2><p>MySQL 执行流程 :<a target="_blank" rel="noopener" href="https://blog.csdn.net/qwer123451234123/article/details/124344299">https://blog.csdn.net/qwer123451234123/article/details/124344299</a></p>
+<h4 id="2、-2"><a href="#2、-2" class="headerlink" title="2、"></a>2、</h4><h2 id="参考-↓"><a href="#参考-↓" class="headerlink" title="参考 ↓"></a>参考 ↓</h2><p>MySQL 执行流程 :<a target="_blank" rel="noopener" href="https://blog.csdn.net/qwer123451234123/article/details/124344299">https://blog.csdn.net/qwer123451234123/article/details/124344299</a></p>
 <p>数据结构可视化演变： <a target="_blank" rel="noopener" href="https://www.cs.usfca.edu/~galles/visualization/BPlusTree.html">https://www.cs.usfca.edu/~galles/visualization/BPlusTree.html</a></p>
 <p>B+Tree时间复杂度：<a target="_blank" rel="noopener" href="https://blog.csdn.net/yunduanyou/article/details/128233801">https://blog.csdn.net/yunduanyou/article/details/128233801</a></p>
 <p>1.8流操作题：<a target="_blank" rel="noopener" href="https://blog.csdn.net/Thinkingcao/article/details/108664921">https://blog.csdn.net/Thinkingcao/article/details/108664921</a></p>
@@ -1121,6 +1357,15 @@ mysql –<span class="token operator">-</span><span class="token keyword">local<
 <p>RocketMQ事务消息如何保证数据的最终一致性：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_42093488/article/details/114677515">https://blog.csdn.net/qq_42093488/article/details/114677515</a></p>
 <p>七种分布式事务实现：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_36963950/article/details/108909780">https://blog.csdn.net/qq_36963950/article/details/108909780</a></p>
 <p>redis数据结构：<a target="_blank" rel="noopener" href="https://blog.csdn.net/mz474920631/article/details/125200050">https://blog.csdn.net/mz474920631/article/details/125200050</a></p>
+<p>TCC落地文章（有合集）：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_44102992/article/details/126493034?spm=1001.2014.3001.5501">https://blog.csdn.net/weixin_44102992/article/details/126493034?spm=1001.2014.3001.5501</a></p>
+<p>TCC和RocketMQ做分布式事务区别：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/183753774">https://zhuanlan.zhihu.com/p/183753774</a></p>
+<p>redis之如何实现消息队列：<a target="_blank" rel="noopener" href="https://blog.csdn.net/wang0907/article/details/127830591">https://blog.csdn.net/wang0907/article/details/127830591</a></p>
+<p>分布式事务四种方案和对比：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/muxilaoshi/p/15429404.html">https://www.cnblogs.com/muxilaoshi/p/15429404.html</a></p>
+<p>seata AT和XA的区别：<a target="_blank" rel="noopener" href="https://www.51cto.com/article/659139.html?u_atoken=908e9399-a703-4278-8438-3e2639de1e42&amp;u_asession=01cbB_xA5flpNlOFMXMMxwrHuPaiY7SlcCklCBZ6cSuxieaFEySACzsRygqqIcFf6yX0KNBwm7Lovlpxjd_P_q4JsKWYrT3W_NKPr8w6oU7K8PYmybX1Fb1-mAlyDPgbs_DvUNWlpfeCH_Z_6FnnXEnGBkFo3NEHBv0PZUm6pbxQU&amp;u_asig=05H6c_C18NzGqylFOgxYxOfyO9v0KX11HhF9UNuVuWDyDEKZsyCCsmlvOm93IX5QObFbfUNqdn8aQG1mI6aOKSs4Teqnna915rPIdR1R6vLUber5juuaXtMV73tq6jjhUPwNFoYr3TWz60hy4MRDOTCYy74sE94reA3i6Bm9SeXcv9JS7q8ZD7Xtz2Ly-b0kmuyAKRFSVJkkdwVUnyHAIJzdFdm6FtdJ6etcsGdFNqcU7WcMYF5aSO9Hw4ju-PP021VSW66CuWlZZ6ywL2zPMFnu3h9VXwMyh6PgyDIVSG1W8kCUCcLCVBKZk4XCs8ybF9IwNOrpX04BxodSt1A8Jz_TYwAep73xlDlF8jhaGyXHfBkISeMFkkfFA1VnMgsMutmWspDxyAEEo4kbsryBKb9Q&amp;u_aref=djAEUQI/tZgGE8x5s2Rr8+QuQKg=">https://www.51cto.com/article/659139.html?u_atoken=908e9399-a703-4278-8438-3e2639de1e42&amp;u_asession=01cbB_xA5flpNlOFMXMMxwrHuPaiY7SlcCklCBZ6cSuxieaFEySACzsRygqqIcFf6yX0KNBwm7Lovlpxjd_P_q4JsKWYrT3W_NKPr8w6oU7K8PYmybX1Fb1-mAlyDPgbs_DvUNWlpfeCH_Z_6FnnXEnGBkFo3NEHBv0PZUm6pbxQU&amp;u_asig=05H6c_C18NzGqylFOgxYxOfyO9v0KX11HhF9UNuVuWDyDEKZsyCCsmlvOm93IX5QObFbfUNqdn8aQG1mI6aOKSs4Teqnna915rPIdR1R6vLUber5juuaXtMV73tq6jjhUPwNFoYr3TWz60hy4MRDOTCYy74sE94reA3i6Bm9SeXcv9JS7q8ZD7Xtz2Ly-b0kmuyAKRFSVJkkdwVUnyHAIJzdFdm6FtdJ6etcsGdFNqcU7WcMYF5aSO9Hw4ju-PP021VSW66CuWlZZ6ywL2zPMFnu3h9VXwMyh6PgyDIVSG1W8kCUCcLCVBKZk4XCs8ybF9IwNOrpX04BxodSt1A8Jz_TYwAep73xlDlF8jhaGyXHfBkISeMFkkfFA1VnMgsMutmWspDxyAEEo4kbsryBKb9Q&amp;u_aref=djAEUQI%2FtZgGE8x5s2Rr8%2BQuQKg%3D</a></p>
+<p>金融项目seata说明：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/499041496">https://zhuanlan.zhihu.com/p/499041496</a></p>
+<p>接口幂等性校验实现：<a target="_blank" rel="noopener" href="https://blog.csdn.net/huchao_lingo/article/details/105540418">https://blog.csdn.net/huchao_lingo/article/details/105540418</a></p>
+<p>消息队列的可靠性：<a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_73859807/article/details/128861716">https://blog.csdn.net/m0_73859807/article/details/128861716</a></p>
+<p>字节跳动，高可用、不重复消费、可靠传输、顺序消费、消息堆积：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/binghe001/p/14443360.html">https://www.cnblogs.com/binghe001/p/14443360.html</a></p>
 
                 
             </div>
@@ -2000,7 +2245,7 @@ new Valine({
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">173.1k</span>&nbsp;字
+                class="white-color">176.8k</span>&nbsp;字
             
             
             
