@@ -673,21 +673,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-03-13
+                    2023-03-15
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    25.7k
+                    33.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    92 分
+                    123 分
                 </div>
                 
 
@@ -735,81 +735,264 @@
 </ul>
 <h2 id="一、你有过SpringCloud-？"><a href="#一、你有过SpringCloud-？" class="headerlink" title="一、你有过SpringCloud ？"></a>一、你有过SpringCloud ？</h2><p>当然，如果按照厂商分为两种：Netflix 和 alibaba ；如果按照技术栈则分为，注册中心、配置中心、网关、熔断器、服务调用、分布式事务、链路追踪等，不过核心的组件有五大，cloud是 eureka,feign,ribbon,hystrix,zuul，alibbaba:nacos,sentinel,gateway.</p>
 <p>社区活跃，你在生产上遇到的问题不是第一个遇到，教程多</p>
-<h3 id="1、常规题（放松版）"><a href="#1、常规题（放松版）" class="headerlink" title="1、常规题（放松版）"></a>1、常规题（放松版）</h3><h4 id="1、"><a href="#1、" class="headerlink" title="1、"></a>1、</h4><h4 id="2、"><a href="#2、" class="headerlink" title="2、"></a>2、</h4><h3 id="1、注册中心"><a href="#1、注册中心" class="headerlink" title="1、注册中心"></a>1、注册中心</h3><h4 id="1、注册中心比较"><a href="#1、注册中心比较" class="headerlink" title="1、注册中心比较"></a>1、注册中心比较</h4><p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220222205601.png"></p>
-<h4 id="2、注册服务于发现流程"><a href="#2、注册服务于发现流程" class="headerlink" title="2、注册服务于发现流程"></a>2、注册服务于发现流程</h4><h3 id="2、熔断器"><a href="#2、熔断器" class="headerlink" title="2、熔断器"></a>2、熔断器</h3><h4 id="1、对比图"><a href="#1、对比图" class="headerlink" title="1、对比图"></a>1、对比图</h4><h2 id="二、Mysql高级面基"><a href="#二、Mysql高级面基" class="headerlink" title="二、Mysql高级面基"></a>二、Mysql高级面基</h2><p>高级特性本周整理大纲：<br>1、执行流程（5.7 and 8.0 暂不整理），逻辑架构（三层）；图、概述，白话总结<br>2、存储引擎（InnoDB MyISAM （核心对比图）…边缘5种简述-了解）；装逼：阿里自定义引擎：Xtradb<br>3、索引迭代设计（是非聚簇索引，二级、联合索引），索引使用常见（11 yes 7 not）；边缘所以你接口对比（HASH、AVL、B、B+）、Explain调优阿里、三范式 ER模型<br>N、事务（显式、隐式），锁（表锁：S锁、X锁、意向锁、自增锁、元数据锁；行锁：记录锁、间隙锁、临键锁、插入意向锁；乐观悲观锁…..） 扩展待定？</p>
-<h4 id="1、执行流程"><a href="#1、执行流程" class="headerlink" title="1、执行流程"></a>1、执行流程</h4><p><strong>SQL流程</strong> </p>
-<p>sql语句 -&gt; 查询缓存 -&gt; 解析器 -&gt; 优化器 -&gt; 执行器</p>
-<p><strong>完整流程</strong></p>
-<p> 客户端程序 connectors &gt;&gt; 连接池 &gt;&gt; SQL接口 &gt;&gt; 解析器 &gt;&gt; 优化器 &gt;&gt; 查询缓存 &gt;&gt; 插件式存储引擎 &gt;&gt; File（文件系统/日志文件）</p>
-<p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202302171540587.png"></p>
-<blockquote>
-<ol>
-<li>客户端程序 : 包括一些mysql工具如：native 或者语言工具如：php 、go 、python</li>
-<li>连接池  : 提供多个用户客户端和服务端交互的线程</li>
-<li>SQL接口 : 接收sql命令，返回查询结果</li>
-<li>解析器  : 进行sql语法的解析、语意解析、生成语法树</li>
-<li>优化器  : mysql核心组件，对sql命令进行优化</li>
-<li>缓存    : 以key -&gt; value方式缓存查询结果 (如果查询sql指令有缓存直接在SQL接口部分返回缓存结果)</li>
-<li>存储引擎 : 与底层文件进行交互，查询数据文件系统、日志文件等</li>
-</ol>
-</blockquote>
-<p><strong>mysql server三层架构</strong></p>
-<p>1、连接层</p>
-<p>mysql服务器有专门的tcp连接池限制最大连接数，采用长连接模式复用tcp连接，进行连接交互</p>
-<p>2、服务层 </p>
+<h3 id="1、常规题（放松版）"><a href="#1、常规题（放松版）" class="headerlink" title="1、常规题（放松版）"></a>1、常规题（放松版）</h3><h4 id="1-Nacos如何支撑阿里内部数十万服务注册压力"><a href="#1-Nacos如何支撑阿里内部数十万服务注册压力" class="headerlink" title="1.Nacos如何支撑阿里内部数十万服务注册压力"></a>1.Nacos如何支撑阿里内部数十万服务注册压力</h4><p>Nacos内部接收到注册的请求时，不会立即写数据，而是将服务注册的任务放入一个阻塞队列就立即响应给客户端。然后利用线程池读取阻塞队列中的任务，异步来完成实例更新，从而提高并发写能力。</p>
+<h4 id="2-Nacos如何避免并发读写冲突问题"><a href="#2-Nacos如何避免并发读写冲突问题" class="headerlink" title="2.Nacos如何避免并发读写冲突问题"></a>2.Nacos如何避免并发读写冲突问题</h4><p>Nacos在更新实例列表时，会采用CopyOnWrite技术，首先将旧的实例列表拷贝一份，然后更新拷贝的实例列表，再用更新后的实例列表来覆盖旧的实例列表。</p>
+<p>这样在更新的过程中，就不会对读实例列表的请求产生影响，也不会出现脏读问题了。</p>
+<h4 id="3-Nacos与Eureka的区别有哪些"><a href="#3-Nacos与Eureka的区别有哪些" class="headerlink" title="3.Nacos与Eureka的区别有哪些"></a>3.Nacos与Eureka的区别有哪些</h4><ul>
+<li><p><strong>实例类型</strong>：Nacos的实例有永久和临时实例之分；而Eureka只支持临时实例</p>
+</li>
+<li><p><strong>健康检测</strong>：Nacos对临时实例采用心跳模式检测，对永久实例采用主动请求来检测；Eureka只支持心跳模式</p>
+</li>
+<li><p><strong>服务发现</strong>：Nacos支持定时拉取和订阅推送两种模式；Eureka只支持定时拉取模式</p>
+</li>
+<li><p><strong>CAP理论</strong>：eureka只支持AP，nacos支持CP和AP两种</p>
 <ul>
-<li>Interface 接口</li>
-<li>解析器</li>
-<li>查询优化器</li>
-<li>查询缓存组件</li>
-</ul>
-<p>3、引擎层</p>
-<p>插件式的存储引擎层，真正的负责了mysql中数据的存储和提取，对物理服务器级别维护的底层数据执行操作，服务器通过api与存储引擎通信。不同的存储引擎具有的功能不同，支持二开引擎【阿里：Xtradb】</p>
-<h4 id="2、聚簇索引和非聚簇索引"><a href="#2、聚簇索引和非聚簇索引" class="headerlink" title="2、聚簇索引和非聚簇索引"></a>2、聚簇索引和非聚簇索引</h4><p>对比：</p>
-<ul>
-<li>聚簇索引叶子节点存储的是行数据；而非聚簇索引叶子节点存储的是聚簇索引（通常是主键 ID）。</li>
-<li>聚簇索引查询效率更高，而非聚簇索引需要进行回表查询，因此性能不如聚簇索引。</li>
-<li>聚簇索引一般为主键索引，而主键一个表中只能有一个，因此聚簇索引一个表中也只能有一个，而非聚簇索引则没有数量上的限制</li>
-</ul>
-<p><strong>聚簇索引 id 对应的 B+ 树如下图所示：</strong> </p>
-<p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202302252030574.png"></p>
-<p><strong>在 student 中非聚簇索引 class_id 对应 B+ 树如下图所示：</strong> </p>
-<p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202302252030261.png"></p>
-<h4 id="3、存储引擎"><a href="#3、存储引擎" class="headerlink" title="3、存储引擎"></a>3、存储引擎</h4><p>对比图：</p>
-<p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202302251609760.png"></p>
-<p><strong>MyISAM</strong> <strong>与</strong> <strong>InnoDB两种引擎中索引的区别</strong></p>
-<p>① 在InnoDB存储引擎中，我们只需要根据主键值对聚簇索引进行一次查找就能找到对应的记录，而在MyISAM中却需要进行一次回表操作，意味着MyISAM中建立的索引相当于全部都是二级索引。</p>
-<p>② InnoDB的数据文件本身就是索引文件，而MyISAM索引文件和数据文件是分离的，索引文件仅保存数据记录的地址。</p>
-<p>③ InnoDB的非聚簇索引data域存储相应记录主键的值，而MyISAM索引记录的是地址。换句话说，InnoDB的所有非聚簇索引都引用主键作为data域。</p>
-<p>④ MyISAM的回表操作是十分快速的，因为是拿着地址偏移量直接到文件中取数据的，反观InnoDB是通过获取主键之后再去聚簇索引里找记录，虽然说也不慢，但还是比不上直接用地址去访问。</p>
-<p>⑤ InnoDB要求表必须有主键（MyISAM可以没有）。如果没有显式指定，则MySQL系统会自动选择一个可以非空且唯一标识数据记录的列作为主键。如果不存在这种列，则MySQL自动为InnoDB表生成一个隐含字段作为主键，这个字段长度为6个字节，类型为长整型。</p>
-<p>补充1：InnoDB的逻辑结构图：</p>
-<p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202302252055728.png"></p>
-<h4 id="4、为什么覆盖索引不用回表"><a href="#4、为什么覆盖索引不用回表" class="headerlink" title="4、为什么覆盖索引不用回表"></a>4、为什么覆盖索引不用回表</h4><p>一级索引：聚簇索引即主键索引<br>二级索引：非聚簇索引</p>
-<p>一级B+Tree：叶子节点保存着键（id的值）和数据（全部字段的值）<br>二级B+Tree：叶子节点保存着键（索引字段的值）和数据（主键索引值）</p>
-<p>查询 一级索引，根据一级B+Tree查询到数据，直接返回数据<br>查询 二级索引，根据二级B+Tree查询到对应的聚簇索引，再根据聚簇索引在一级B+Tree里查询到相应数据</p>
-<p>查询 一级索引只需要扫描一次B+Tree。<br>查询 二级索引需要扫描两次B+Tree。根据二级B+Tree扫描的结果，再去一级B+Tree里进行扫描就叫回表操作。</p>
-<p>如果使用组合索引，就可以利用覆盖索引避免回表操作<br>例如：表一共有五个字段：a（主键索引），b_c_d（组合索引），e（没有索引）</p>
-<p>如果用户查询时只查 b,c,d 例：SELECT <code>b</code>, <code>c</code>, <code>d</code> FROM <code>table</code> WHERE <code>b</code> = 3 AND <code>c</code> = 7 AND <code>d</code> = 5;</p>
-<p>因为查询的字段 b,c,d的值（B+Tree里的键） 已经在B+Tree里了，所以就可以直接返回，不用再拿聚簇索引去一级B+Tree里进行查询<br>如果查询字段为 a,b,c,d 因为a为主键索引，也保存再二级B+Tree的叶子节点里，所以也不用回表查询<br>如果查询字段为 a,b,c,d,e 因为e没有在这个二级B+Tree里，所以需要进行回表操作，拿着主键索引再去一级B+Tree里进行查询。</p>
-<h4 id="5、B-tree"><a href="#5、B-tree" class="headerlink" title="5、B+tree"></a>5、B+tree</h4><p>时间复杂度：<strong>O(logN)</strong></p>
-<p>B+Tree是B-Tree的变种，我们以一颗最大度数（max-degree）为4阶（4指针3key）的b+tree为例</p>
-<p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202302252105651.png"></p>
-<p>最终我们看到，B+Tree 与 B-Tree相比，主要有以下三点区别： </p>
-<ul>
-<li>所有的数据都会出现在叶子节点。 </li>
-<li>叶子节点形成一个单向链表。 </li>
-<li>非叶子节点仅仅起到索引数据作用，具体的数据都是在叶子节点存放的。 </li>
-</ul>
-<p>MySQL索引数据结构对经典的B+Tree进行了优化。在原B+Tree的基础上，增加一个指向相邻叶子节点的链表指针，就形成了带有顺序指针的B+Tree，提高区间访问的性能，利于排序。</p>
-<p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202302252123348.png"></p>
-<h4 id="6、SQL优化（慢SQL优化）"><a href="#6、SQL优化（慢SQL优化）" class="headerlink" title="6、SQL优化（慢SQL优化）"></a>6、SQL优化（慢SQL优化）</h4><p>第一步：可以用 <code>explain</code> 查看执行计划</p>
-<p>常见案例优化：</p>
-<p>1-1、<strong>insert</strong></p>
-<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">insert</span> <span class="token keyword">into</span> tb_test <span class="token keyword">values</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token string">'tom'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">insert</span> <span class="token keyword">into</span> tb_test <span class="token keyword">values</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token string">'cat'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">insert</span> <span class="token keyword">into</span> tb_test <span class="token keyword">values</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token string">'jerry'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<li><p>nacos是根据配置识别CP或AP模式,如果注册Nacos的client节点注册时是ephemeral=true即为临时节点,那么Naocs集群对这个client节点效果就是AP,反之则是CP,即不是临时节点</p>
+</li>
+<li><pre><code class="properties"> #false为永久实例，true表示临时实例开启，注册为临时实例
+ spring.cloud.nacos.discovery.ephemeral=true
+<pre class="line-numbers language-none"><code class="language-none">
+- **连接方式：**
 
+  - nacos使用的是netty和服务直接进行连接,属于长连接
+  - eureka是使用定时发送和服务进行联系,属于短连接
+
+- 
+
+#### 4.Sentinel的限流与Gateway的限流有什么差别
+
+限流算法常见的有三种实现：滑动时间窗口、令牌桶算法、漏桶算法。Gateway则采用了基于Redis实现的令牌桶算法。
+
+而Sentinel内部却比较复杂：
+
+- 默认限流模式是基于滑动时间窗口算法
+- 排队等待的限流模式则基于漏桶算法
+- 而热点参数限流则是基于令牌桶算法
+
+#### 5.Sentinel的线程隔离与Hystix的线程隔离有什么差别
+
+Hystix默认是基于线程池实现的线程隔离，每一个被隔离的业务都要创建一个独立的线程池，线程过多会带来额外的CPU开销，性能一般，但是隔离性更强。
+
+Sentinel是基于信号量（计数器）实现的线程隔离，不用创建线程池，性能较好，但是隔离性一般。
+
+
+
+### 1、注册中心
+
+#### 1、注册中心比较
+
+![](https://v1.mykkto.cn/image/blog/2022/springcloud/20220223225739.png)
+
+#### 2、注册服务于发现流程
+
+
+
+
+
+### 2、熔断器
+
+
+
+#### 1、对比图
+
+
+
+
+
+
+
+## 二、Mysql高级面基 
+
+高级特性本周整理大纲： 
+1、执行流程（5.7 and 8.0 暂不整理），逻辑架构（三层）；图、概述，白话总结
+2、存储引擎（InnoDB MyISAM （核心对比图）...边缘5种简述-了解）；装逼：阿里自定义引擎：Xtradb
+3、索引迭代设计（是非聚簇索引，二级、联合索引），索引使用常见（11 yes 7 not）；边缘所以你接口对比（HASH、AVL、B、B+）、Explain调优阿里、三范式 ER模型
+N、事务（显式、隐式），锁（表锁：S锁、X锁、意向锁、自增锁、元数据锁；行锁：记录锁、间隙锁、临键锁、插入意向锁；乐观悲观锁.....） 扩展待定？
+
+
+
+#### 1、执行流程
+
+
+
+**SQL流程** 
+
+sql语句 -&gt; 查询缓存 -&gt; 解析器 -&gt; 优化器 -&gt; 执行器
+
+
+
+**完整流程**
+
+ 客户端程序 connectors &gt;&gt; 连接池 &gt;&gt; SQL接口 &gt;&gt; 解析器 &gt;&gt; 优化器 &gt;&gt; 查询缓存 &gt;&gt; 插件式存储引擎 &gt;&gt; File（文件系统/日志文件）
+
+![](https://v1.mykkto.cn/image/blog/2022/Interview/202302171540587.png)
+
+&gt;1. 客户端程序 : 包括一些mysql工具如：native 或者语言工具如：php 、go 、python
+&gt;2. 连接池  : 提供多个用户客户端和服务端交互的线程
+&gt;3. SQL接口 : 接收sql命令，返回查询结果
+&gt;4. 解析器  : 进行sql语法的解析、语意解析、生成语法树
+&gt;5. 优化器  : mysql核心组件，对sql命令进行优化
+&gt;6. 缓存    : 以key -&gt; value方式缓存查询结果 (如果查询sql指令有缓存直接在SQL接口部分返回缓存结果)
+&gt;7. 存储引擎 : 与底层文件进行交互，查询数据文件系统、日志文件等
+
+
+
+**mysql server三层架构**
+
+
+
+1、连接层
+
+mysql服务器有专门的tcp连接池限制最大连接数，采用长连接模式复用tcp连接，进行连接交互
+
+
+
+2、服务层 
+
+- Interface 接口
+- 解析器
+- 查询优化器
+- 查询缓存组件
+
+
+
+
+
+3、引擎层
+
+插件式的存储引擎层，真正的负责了mysql中数据的存储和提取，对物理服务器级别维护的底层数据执行操作，服务器通过api与存储引擎通信。不同的存储引擎具有的功能不同，支持二开引擎【阿里：Xtradb】
+
+
+
+#### 2、聚簇索引和非聚簇索引
+
+
+
+对比：
+
+- 聚簇索引叶子节点存储的是行数据；而非聚簇索引叶子节点存储的是聚簇索引（通常是主键 ID）。
+- 聚簇索引查询效率更高，而非聚簇索引需要进行回表查询，因此性能不如聚簇索引。
+- 聚簇索引一般为主键索引，而主键一个表中只能有一个，因此聚簇索引一个表中也只能有一个，而非聚簇索引则没有数量上的限制
+
+
+
+**聚簇索引 id 对应的 B+ 树如下图所示：** 
+
+![](https://v1.mykkto.cn/image/blog/2022/Interview/202302252030574.png)
+
+
+
+**在 student 中非聚簇索引 class_id 对应 B+ 树如下图所示：** 
+
+![](https://v1.mykkto.cn/image/blog/2022/Interview/202302252030261.png)
+
+
+
+#### 3、存储引擎
+
+对比图：
+
+![](https://v1.mykkto.cn/image/blog/2022/Interview/202302251609760.png)
+
+
+
+**MyISAM** **与** **InnoDB两种引擎中索引的区别**
+
+① 在InnoDB存储引擎中，我们只需要根据主键值对聚簇索引进行一次查找就能找到对应的记录，而在MyISAM中却需要进行一次回表操作，意味着MyISAM中建立的索引相当于全部都是二级索引。
+
+② InnoDB的数据文件本身就是索引文件，而MyISAM索引文件和数据文件是分离的，索引文件仅保存数据记录的地址。
+
+③ InnoDB的非聚簇索引data域存储相应记录主键的值，而MyISAM索引记录的是地址。换句话说，InnoDB的所有非聚簇索引都引用主键作为data域。
+
+④ MyISAM的回表操作是十分快速的，因为是拿着地址偏移量直接到文件中取数据的，反观InnoDB是通过获取主键之后再去聚簇索引里找记录，虽然说也不慢，但还是比不上直接用地址去访问。
+
+⑤ InnoDB要求表必须有主键（MyISAM可以没有）。如果没有显式指定，则MySQL系统会自动选择一个可以非空且唯一标识数据记录的列作为主键。如果不存在这种列，则MySQL自动为InnoDB表生成一个隐含字段作为主键，这个字段长度为6个字节，类型为长整型。
+
+
+
+补充1：InnoDB的逻辑结构图：
+
+![](https://v1.mykkto.cn/image/blog/2022/Interview/202302252055728.png)
+
+
+
+
+
+#### 4、为什么覆盖索引不用回表
+
+一级索引：聚簇索引即主键索引
+二级索引：非聚簇索引
+
+一级B+Tree：叶子节点保存着键（id的值）和数据（全部字段的值）
+二级B+Tree：叶子节点保存着键（索引字段的值）和数据（主键索引值）
+
+查询 一级索引，根据一级B+Tree查询到数据，直接返回数据
+查询 二级索引，根据二级B+Tree查询到对应的聚簇索引，再根据聚簇索引在一级B+Tree里查询到相应数据
+
+查询 一级索引只需要扫描一次B+Tree。
+查询 二级索引需要扫描两次B+Tree。根据二级B+Tree扫描的结果，再去一级B+Tree里进行扫描就叫回表操作。
+
+
+如果使用组合索引，就可以利用覆盖索引避免回表操作
+例如：表一共有五个字段：a（主键索引），b_c_d（组合索引），e（没有索引）
+
+如果用户查询时只查 b,c,d 例：SELECT `b`, `c`, `d` FROM `table` WHERE `b` = 3 AND `c` = 7 AND `d` = 5;
+
+因为查询的字段 b,c,d的值（B+Tree里的键） 已经在B+Tree里了，所以就可以直接返回，不用再拿聚簇索引去一级B+Tree里进行查询
+如果查询字段为 a,b,c,d 因为a为主键索引，也保存再二级B+Tree的叶子节点里，所以也不用回表查询
+如果查询字段为 a,b,c,d,e 因为e没有在这个二级B+Tree里，所以需要进行回表操作，拿着主键索引再去一级B+Tree里进行查询。
+
+
+
+#### 5、B+tree
+
+时间复杂度：**O(logN)**
+
+
+
+B+Tree是B-Tree的变种，我们以一颗最大度数（max-degree）为4阶（4指针3key）的b+tree为例
+
+![](https://v1.mykkto.cn/image/blog/2022/Interview/202302252105651.png)
+
+
+
+最终我们看到，B+Tree 与 B-Tree相比，主要有以下三点区别： 
+
+- 所有的数据都会出现在叶子节点。 
+- 叶子节点形成一个单向链表。 
+- 非叶子节点仅仅起到索引数据作用，具体的数据都是在叶子节点存放的。 
+
+
+
+MySQL索引数据结构对经典的B+Tree进行了优化。在原B+Tree的基础上，增加一个指向相邻叶子节点的链表指针，就形成了带有顺序指针的B+Tree，提高区间访问的性能，利于排序。
+
+
+
+![](https://v1.mykkto.cn/image/blog/2022/Interview/202302252123348.png)
+
+
+
+#### 6、SQL优化（慢SQL优化）
+
+
+
+第一步：可以用 `explain` 查看执行计划
+
+
+
+常见案例优化：
+
+1-1、**insert**
+
+```sql
+insert into tb_test values(1,'tom');
+insert into tb_test values(2,'cat');
+insert into tb_test values(3,'jerry');<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
 <p>优化，通过手动控制事务</p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">start</span> <span class="token keyword">transaction</span><span class="token punctuation">;</span>
 <span class="token keyword">insert</span> <span class="token keyword">into</span> tb_test <span class="token keyword">values</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token string">'Tom'</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token string">'Cat'</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token string">'Jerry'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -1439,6 +1622,60 @@ Lazy ：策略名称，可以自定义
 <p>虽然文件事件处理器以单线程方式运行， 但通过使用 I/O 多路复用程序来监听多个套接字， 文件事件处理器既实现了高性能的网络通信模型， 又可以很好地与 redis 服务器中其他同样以单线程方式运行的模块进行对接， 这保持了 Redis 内部单线程设计的简单性。</p>
 <h4 id="—–事务—–"><a href="#—–事务—–" class="headerlink" title="—–事务—–"></a>—–事务—–</h4><p>Redis 事务的本质是一组命令的集合。事务支持一次执行多个命令，一个事务中所有命令都会被序列化。在事务执行过程，会按照顺序串行化执行队列中的命令，其他客户端提交的命令请求不会插入到事务执行命令序列中。</p>
 <p>总结说：redis事务就是一次性、顺序性、排他性的执行一个队列中的一系列命令。</p>
+<h4 id="0、站长简书，redis事务（还有lua秒杀案例）"><a href="#0、站长简书，redis事务（还有lua秒杀案例）" class="headerlink" title="0、站长简书，redis事务（还有lua秒杀案例）"></a>0、站长简书，redis事务（还有lua秒杀案例）</h4><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/879efff5f7b4">https://www.jianshu.com/p/879efff5f7b4</a></p>
+<p>从输入Multi命令开始(开启事务)，输入的命令都会依次进入命令队列中，但不会执行，直到输入Exec后，Redis会将之前的命令队列中的命令依次执行。</p>
+<p>组队的过程中可以通过discard来放弃组队</p>
+<p>（1）组队案例</p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css">127.0.0.1<span class="token punctuation">:</span>6379&gt; multi
+OK
+127.0.0.1<span class="token punctuation">:</span><span class="token function">6379</span><span class="token punctuation">(</span>TX<span class="token punctuation">)</span>&gt; set k1 v1
+QUEUED
+127.0.0.1<span class="token punctuation">:</span><span class="token function">6379</span><span class="token punctuation">(</span>TX<span class="token punctuation">)</span>&gt; set k2 v2
+QUEUED
+127.0.0.1<span class="token punctuation">:</span><span class="token function">6379</span><span class="token punctuation">(</span>TX<span class="token punctuation">)</span>&gt; exec
+1<span class="token punctuation">)</span> OK
+2<span class="token punctuation">)</span> OK<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>（2）放弃组队</p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css">127.0.0.1<span class="token punctuation">:</span>6379&gt; multi
+OK
+127.0.0.1<span class="token punctuation">:</span><span class="token function">6379</span><span class="token punctuation">(</span>TX<span class="token punctuation">)</span>&gt; set k1 v1
+QUEUED
+127.0.0.1<span class="token punctuation">:</span><span class="token function">6379</span><span class="token punctuation">(</span>TX<span class="token punctuation">)</span>&gt; set k2 v2
+QUEUED
+127.0.0.1<span class="token punctuation">:</span><span class="token function">6379</span><span class="token punctuation">(</span>TX<span class="token punctuation">)</span>&gt; discard
+1<span class="token punctuation">)</span> OK<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>（3）任何一个组队失败，都不会执行</p>
+<pre class="line-numbers language-ruby" data-language="ruby"><code class="language-ruby"><span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span><span class="token punctuation">:</span><span class="token number">6379</span><span class="token operator">&gt;</span> multi
+<span class="token constant">OK</span>
+<span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span><span class="token punctuation">:</span><span class="token number">6379</span><span class="token punctuation">(</span><span class="token constant">TX</span><span class="token punctuation">)</span><span class="token operator">&gt;</span> set k1 v1
+<span class="token constant">QUEUED</span>
+<span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span><span class="token punctuation">:</span><span class="token number">6379</span><span class="token punctuation">(</span><span class="token constant">TX</span><span class="token punctuation">)</span><span class="token operator">&gt;</span> set k2 v2
+<span class="token constant">QUEUED</span>
+<span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span><span class="token punctuation">:</span><span class="token number">6379</span><span class="token punctuation">(</span><span class="token constant">TX</span><span class="token punctuation">)</span><span class="token operator">&gt;</span> set k3
+<span class="token punctuation">(</span>error<span class="token punctuation">)</span> <span class="token constant">ERR</span> wrong number of arguments <span class="token keyword">for</span> <span class="token string">'set'</span> command
+<span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span><span class="token punctuation">:</span><span class="token number">6379</span><span class="token punctuation">(</span><span class="token constant">TX</span><span class="token punctuation">)</span><span class="token operator">&gt;</span> exec
+<span class="token punctuation">(</span>error<span class="token punctuation">)</span> <span class="token constant">EXECABORT</span> <span class="token constant">Transaction</span> discarded because of previous errors<span class="token punctuation">.</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>3、事务的错误处理</p>
+<p>（1）组队中某个命令出现了报告错误，执行时整个的所有队列都会被取消。（就是上面3的操作）</p>
+<p>（2）如果执行阶段某个命令报出了错误，则只有报错的命令不会被执行，而其他的命令都会执行，不会回滚。</p>
+<p>案例：字符串+1</p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css">127.0.0.1<span class="token punctuation">:</span>6379&gt; multi 
+OK
+127.0.0.1<span class="token punctuation">:</span><span class="token function">6379</span><span class="token punctuation">(</span>TX<span class="token punctuation">)</span>&gt; set k1 v1
+QUEUED
+127.0.0.1<span class="token punctuation">:</span><span class="token function">6379</span><span class="token punctuation">(</span>TX<span class="token punctuation">)</span>&gt; incr k1
+QUEUED
+127.0.0.1<span class="token punctuation">:</span><span class="token function">6379</span><span class="token punctuation">(</span>TX<span class="token punctuation">)</span>&gt; exec
+1<span class="token punctuation">)</span> OK
+2<span class="token punctuation">)</span> <span class="token punctuation">(</span>error<span class="token punctuation">)</span> ERR value is not an integer or out of range<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
 <h4 id="1、相关命令"><a href="#1、相关命令" class="headerlink" title="1、相关命令"></a>1、<strong>相关命令</strong></h4><ul>
 <li>MULTI ：开启事务，redis会将后续的命令逐个放入队列中，然后使用EXEC命令来原子化执行这个命令系列。</li>
 <li>EXEC：执行事务中的所有操作命令。</li>
@@ -1519,6 +1756,11 @@ Lazy ：策略名称，可以自定义
 <p>同时还会将从客户端 client 新收到的所有写命令缓存在内存中。<code>RDB</code> 文件生成完毕后， master 会将这个 <code>RDB</code> 发送给 slave，slave 会先写入本地磁盘，然后再从本地磁盘加载到内存中，</p>
 <p>接着 master 会将内存中缓存的写命令发送到 slave，slave 也会同步这些数据。</p>
 <p>slave node 如果跟 master node 有网络故障，断开了连接，会自动重连，连接之后 master node 仅会复制给 slave 部分缺少的数据。</p>
+<ul>
+<li>所有的slave节点数据的复制和同步都由master节点来处理，会照成master节点压力太大，使用主从从结构来解决</li>
+</ul>
+<hr>
+<p><strong>阿K站长提示</strong>；一下3阶段看下理解就好，面试上面这些点回答</p>
 <p><strong>第一阶段：主从库间建立连接、协商同步的过程</strong>，主要是为全量复制做准备。在这一步，从库和主库建立起连接，并告诉主库即将进行同步，主库确认回复后，主从库间就可以开始同步了。</p>
 <p>具体来说，从库给主库发送 psync 命令，表示要进行数据同步，主库根据这个命令的参数来启动复制。psync 命令包含了主库的 runID 和复制进度 offset 两个参数。runID，是每个 Redis 实例启动时都会自动生成的一个随机 ID，用来唯一标记这个实例。当从库和主库第一次复制时，因为不知道主库的 runID，所以将 runID 设为“？”。offset，此时设为 -1，表示第一次复制。主库收到 psync 命令后，会用 FULLRESYNC 响应命令带上两个参数：主库 runID 和主库目前的复制进度 offset，返回给从库。从库收到响应后，会记录下这两个参数。这里有个地方需要注意，FULLRESYNC 响应表示第一次复制采用的全量复制，也就是说，主库会把当前所有的数据都复制给从库。</p>
 <p><strong>第二阶段：主库将所有数据同步给从库</strong>。从库收到数据后，在本地完成数据加载。这个过程依赖于内存快照生成的 RDB 文件。</p>
@@ -1618,7 +1860,188 @@ Lazy ：策略名称，可以自定义
 <p>其实大型的公司，会有基础架构的 team 负责缓存集群的运维。</p>
 <h4 id="5、说说Redis哈希槽的概念"><a href="#5、说说Redis哈希槽的概念" class="headerlink" title="5、说说Redis哈希槽的概念"></a>5、说说Redis哈希槽的概念</h4><p>Redis集群没有使用一致性hash,而是引入了哈希槽的概念，Redis集群有16384个哈希槽，每个key通过CRC16校验后对16384取模来决定放置哪个槽，集群的每个节点负责一部分hash槽。</p>
 <h4 id="6、Redis集群会有写操作丢失吗？为什么？"><a href="#6、Redis集群会有写操作丢失吗？为什么？" class="headerlink" title="6、Redis集群会有写操作丢失吗？为什么？"></a>6、Redis集群会有写操作丢失吗？为什么？</h4><p>Redis并不能保证数据的强一致性，这意味这在实际中集群在特定的条件下可能会丢失写操作。</p>
-<h4 id="—-分区—–"><a href="#—-分区—–" class="headerlink" title="—-分区—–"></a>—-分区—–</h4><h4 id="1、Redis是单线程的，如何提高多核CPU的利用率？"><a href="#1、Redis是单线程的，如何提高多核CPU的利用率？" class="headerlink" title="1、Redis是单线程的，如何提高多核CPU的利用率？"></a>1、Redis是单线程的，如何提高多核CPU的利用率？</h4><p>可以在同一个服务器部署多个Redis的实例，并把他们当作不同的服务器来使用，在某些时候，无论如何一个服务器是不够的， 所以，如果你想使用多个CPU，你可以考虑一下分片（shard）</p>
+<h4 id="7、三种集群模式总结"><a href="#7、三种集群模式总结" class="headerlink" title="7、三种集群模式总结"></a>7、三种集群模式总结</h4><p><strong>详情看站长简书：</strong></p>
+<p>主从，哨兵：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/f6f386a62b7d">https://www.jianshu.com/p/f6f386a62b7d</a></p>
+<p>集群：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/d875a53b0167">https://www.jianshu.com/p/d875a53b0167</a></p>
+<p>因为 Redis 集群有两种，一种是主从复制，一种是 Redis Cluster，我不清楚您 问的是哪一种。 按照我的理解，我认为您可能说的是 Redis 哨兵集群和 Redis Cluster 的区别。 对于这个问题，我认为可以从 3 个方面来回答 ，Redis 哨兵集群是基于主从复制来实现的，所以它可以实现读写分离，分担 Redis 读操作的压力 ，而 Redis Cluster 集群的 Slave 节点只是实现冷备机制，它只有在 Master 宕机 之后才会工作。 </p>
+<p>Redis 哨兵集群无法在线扩容，所以它的并发压力受限于单个服务器的资源配置。 Redis Cluster 提供了基于 Slot 槽的数据分片机制，可以实现在线扩容提升写数 据的性能从集群架构上来说，Redis 哨兵集群是一主多从， 而 Redis Cluster 是多主多从</p>
+<h4 id="—-分区—–"><a href="#—-分区—–" class="headerlink" title="—-分区—–"></a>—-分区—–</h4><h4 id="1、Redis是单线程的，如何提高多核CPU的利用率"><a href="#1、Redis是单线程的，如何提高多核CPU的利用率" class="headerlink" title="1、Redis是单线程的，如何提高多核CPU的利用率"></a>1、Redis是单线程的，如何提高多核CPU的利用率</h4><p>可以在同一个服务器部署多个Redis的实例，并把他们当作不同的服务器来使用，在某些时候，无论如何一个服务器是不够的， 所以，如果你想使用多个CPU，你可以考虑一下分片（shard）</p>
+<h4 id="2、为什么要做Redis分区"><a href="#2、为什么要做Redis分区" class="headerlink" title="2、为什么要做Redis分区"></a>2、为什么要做Redis分区</h4><p>分区可以让Redis管理更大的内存，Redis将可以使用所有机器的内存。如果没有分区，你最多只能使用一台机器的内存。分区使Redis的计算能力通过简单地增加计算机得到成倍提升，Redis的网络带宽也会随着计算机和网卡的增加而成倍增长。</p>
+<h4 id="3、你知道有哪些Redis分区实现方案"><a href="#3、你知道有哪些Redis分区实现方案" class="headerlink" title="3、你知道有哪些Redis分区实现方案"></a>3、你知道有哪些Redis分区实现方案</h4><ul>
+<li>客户端分区就是在客户端就已经决定数据会被存储到哪个redis节点或者从哪个redis节点读取。大多数客户端已经实现了客户端分区。</li>
+<li>代理分区 意味着客户端将请求发送给代理，然后代理决定去哪个节点写数据或者读数据。代理根据分区规则决定请求哪些Redis实例，然后根据Redis的响应结果返回给客户端。redis和memcached的一种代理实现就是Twemproxy</li>
+<li>查询路由(Query routing) 的意思是客户端随机地请求任意一个redis实例，然后由Redis将请求转发给正确的Redis节点。Redis Cluster实现了一种混合形式的查询路由，但并不是直接将请求从一个redis节点转发到另一个redis节点，而是在客户端的帮助下直接redirected到正确的redis节点。</li>
+</ul>
+<h4 id="4、Redis分区有什么缺点"><a href="#4、Redis分区有什么缺点" class="headerlink" title="4、Redis分区有什么缺点"></a>4、Redis分区有什么缺点</h4><ul>
+<li>涉及多个key的操作通常不会被支持。例如你不能对两个集合求交集，因为他们可能被存储到不同的Redis实例（实际上这种情况也有办法，但是不能直接使用交集指令）。</li>
+<li>同时操作多个key,则不能使用Redis事务.</li>
+<li>分区使用的粒度是key，不能使用一个非常长的排序key存储一个数据集（The partitioning granularity is the key, so it is not possible to shard a dataset with a single huge key like a very big sorted set）</li>
+<li>当使用分区的时候，数据处理会非常复杂，例如为了备份你必须从不同的Redis实例和主机同时收集RDB / AOF文件。</li>
+<li>分区时动态扩容或缩容可能非常复杂。Redis集群在运行时增加或者删除Redis节点，能做到最大程度对用户透明地数据再平衡，但其他一些客户端分区或者代理分区方法则不支持这种特性。然而，有一种预分片的技术也可以较好的解决这个问题。</li>
+</ul>
+<h4 id="—–分布式问题—–"><a href="#—–分布式问题—–" class="headerlink" title="—–分布式问题—–"></a>—–分布式问题—–</h4><h4 id="1、Redis实现分布式锁（站长的简书）"><a href="#1、Redis实现分布式锁（站长的简书）" class="headerlink" title="1、Redis实现分布式锁（站长的简书）"></a>1、Redis实现分布式锁（站长的简书）</h4><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/2e995df9ccbc">https://www.jianshu.com/p/2e995df9ccbc</a></p>
+<p>分布式锁主流的实现方案：</p>
+<ol>
+<li>基于数据库实现分布式锁</li>
+<li>基于缓存（Redis等）</li>
+<li>基于Zookeeper<br>每一种分布式锁解决方案都有各自的优缺点：</li>
+<li>性能：redis最高</li>
+<li>可靠性：zookeeper最高<br>这里，我们就基于redis实现分布式锁。</li>
+</ol>
+<p>（1）redis:命令：<br>setnx 设置锁：setnx key val  </p>
+<p>设置成功，返回 1 。设置失败，返回 0 ；使用SETNX命令获取锁，若返回0（key已存在，锁已存在）则获取失败，反之获取成功</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token number">127.0</span>.0.1:637<span class="token operator"><span class="token file-descriptor important">9</span>&gt;</span> setnx username vv1
+<span class="token punctuation">(</span>integer<span class="token punctuation">)</span> <span class="token number">1</span>
+<span class="token number">127.0</span>.0.1:637<span class="token operator"><span class="token file-descriptor important">9</span>&gt;</span> setnx username vv2
+<span class="token punctuation">(</span>integer<span class="token punctuation">)</span> <span class="token number">0</span>
+<span class="token number">127.0</span>.0.1:637<span class="token operator"><span class="token file-descriptor important">9</span>&gt;</span> setnx username vv1
+<span class="token punctuation">(</span>integer<span class="token punctuation">)</span> <span class="token number">0</span>
+<span class="token number">127.0</span>.0.1:637<span class="token operator"><span class="token file-descriptor important">9</span>&gt;</span> setnx username vv1
+<span class="token punctuation">(</span>integer<span class="token punctuation">)</span> <span class="token number">0</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>del解除锁</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token number">127.0</span>.0.1:637<span class="token operator"><span class="token file-descriptor important">9</span>&gt;</span> del username
+<span class="token punctuation">(</span>integer<span class="token punctuation">)</span> <span class="token number">1</span>
+<span class="token number">127.0</span>.0.1:637<span class="token operator"><span class="token file-descriptor important">9</span>&gt;</span> setnx username vv2
+<span class="token punctuation">(</span>integer<span class="token punctuation">)</span> <span class="token number">1</span>
+<span class="token number">127.0</span>.0.1:637<span class="token operator"><span class="token file-descriptor important">9</span>&gt;</span> setnx username vv2
+<span class="token punctuation">(</span>integer<span class="token punctuation">)</span> <span class="token number">0</span>
+<span class="token number">127.0</span>.0.1:637<span class="token operator"><span class="token file-descriptor important">9</span>&gt;</span> setnx username vv2
+<span class="token punctuation">(</span>integer<span class="token punctuation">)</span> <span class="token number">0</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>expire设置过期时间，ttl查看过期时间</p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css">127.0.0.1<span class="token punctuation">:</span>6379&gt; expire username 19
+<span class="token punctuation">(</span>integer<span class="token punctuation">)</span> 1
+127.0.0.1<span class="token punctuation">:</span>6379&gt; ttl username
+<span class="token punctuation">(</span>integer<span class="token punctuation">)</span> 14
+127.0.0.1<span class="token punctuation">:</span>6379&gt; ttl username
+<span class="token punctuation">(</span>integer<span class="token punctuation">)</span> 12
+127.0.0.1<span class="token punctuation">:</span>6379&gt; ttl username
+<span class="token punctuation">(</span>integer<span class="token punctuation">)</span> 11
+127.0.0.1<span class="token punctuation">:</span>6379&gt; ttl username
+<span class="token punctuation">(</span>integer<span class="token punctuation">)</span> 11
+127.0.0.1<span class="token punctuation">:</span>6379&gt; ttl username
+<span class="token punctuation">(</span>integer<span class="token punctuation">)</span> 9 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>ttl 为 -2 已经过期，-1 是永久生效</p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css">127.0.0.1<span class="token punctuation">:</span>6379&gt; ttl username
+<span class="token punctuation">(</span>integer<span class="token punctuation">)</span> -2
+127.0.0.1<span class="token punctuation">:</span>6379&gt; setnx username vv2
+<span class="token punctuation">(</span>integer<span class="token punctuation">)</span> 1
+127.0.0.1<span class="token punctuation">:</span>6379&gt; setnx username vv2
+<span class="token punctuation">(</span>integer<span class="token punctuation">)</span> 0
+127.0.0.1<span class="token punctuation">:</span>6379&gt; setnx username vv2
+<span class="token punctuation">(</span>integer<span class="token punctuation">)</span> 0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>★ 既上锁又设置过期时间( nx 上锁，ex 过期时间)</p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css">127.0.0.1<span class="token punctuation">:</span>6379&gt; set age 10 nx ex 11
+OK
+127.0.0.1<span class="token punctuation">:</span>6379&gt; ttl age
+<span class="token punctuation">(</span>integer<span class="token punctuation">)</span> 7
+127.0.0.1<span class="token punctuation">:</span>6379&gt; ttl age
+<span class="token punctuation">(</span>integer<span class="token punctuation">)</span> 5<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>使用SETNX完成同步锁的流程及事项如下：</p>
+<p>使用SETNX命令获取锁，若返回0（key已存在，锁已存在）则获取失败，反之获取成功</p>
+<p>为了防止获取锁后程序出现异常，导致其他线程/进程调用SETNX命令总是返回0而进入死锁状态，需要为该key设置一个“合理”的过期时间</p>
+<p>释放锁，使用DEL命令将锁数据删除</p>
+<p><strong>其实最佳方案是：Redission框架实现分布式锁</strong></p>
+<h4 id="2、如何解决-Redis-的并发竞争-Key-问题"><a href="#2、如何解决-Redis-的并发竞争-Key-问题" class="headerlink" title="2、如何解决 Redis 的并发竞争 Key 问题"></a>2、如何解决 Redis 的并发竞争 Key 问题</h4><p>所谓 Redis 的并发竞争 Key 的问题也就是多个系统同时对一个 key 进行操作，但是最后执行的顺序和我们期望的顺序不同，这样也就导致了结果的不同！</p>
+<p>推荐一种方案：分布式锁（zookeeper 和 redis 都可以实现分布式锁）。（如果不存在 Redis 的并发竞争 Key 问题，不要使用分布式锁，这样会影响性能）</p>
+<p>基于zookeeper临时有序节点可以实现的分布式锁。大致思想为：每个客户端对某个方法加锁时，在zookeeper上的与该方法对应的指定节点的目录下，生成一个唯一的瞬时有序节点。判断是否获取锁的方式很简单，只需要判断有序节点中序号最小的一个。当释放锁的时候，只需将这个瞬时节点删除即可。同时，其可以避免服务宕机导致的锁无法释放，而产生的死锁问题。完成业务流程后，删除对应的子节点释放锁。</p>
+<p>在实践中，当然是从以可靠性为主。所以首推Zookeeper。</p>
+<h4 id="3、分布式Redis是前期做还是后期规模上来了再做好？为什么？"><a href="#3、分布式Redis是前期做还是后期规模上来了再做好？为什么？" class="headerlink" title="3、分布式Redis是前期做还是后期规模上来了再做好？为什么？"></a>3、分布式Redis是前期做还是后期规模上来了再做好？为什么？</h4><p>既然Redis是如此的轻量（单实例只使用1M内存），为防止以后的扩容，最好的办法就是一开始就启动较多实例。即便你只有一台服务器，你也可以一开始就让Redis以分布式的方式运行，使用分区，在同一台服务器上启动多个实例。</p>
+<p>一开始就多设置几个Redis实例，例如32或者64个实例，对大多数用户来说这操作起来可能比较麻烦，但是从长久来看做这点牺牲是值得的。</p>
+<p>这样的话，当你的数据不断增长，需要更多的Redis服务器时，你需要做的就是仅仅将Redis实例从一台服务迁移到另外一台服务器而已（而不用考虑重新分区的问题）。一旦你添加了另一台服务器，你需要将你一半的Redis实例从第一台机器迁移到第二台机器。</p>
+<h4 id="4、什么是-RedLock"><a href="#4、什么是-RedLock" class="headerlink" title="4、什么是 RedLock"></a>4、什么是 RedLock</h4><p>Redis 官方站提出了一种权威的基于 Redis 实现分布式锁的方式名叫 <em>Redlock</em>，此种方式比原先的单节点的方法更安全。它可以保证以下特性：</p>
+<ol>
+<li>安全特性：互斥访问，即永远只有一个 client 能拿到锁</li>
+<li>避免死锁：最终 client 都可能拿到锁，不会出现死锁的情况，即使原本锁住某资源的 client crash 了或者出现了网络分区</li>
+<li>容错性：只要大部分 Redis 节点存活就可以正常提供服务</li>
+</ol>
+<h4 id="——缓存异常——"><a href="#——缓存异常——" class="headerlink" title="——缓存异常——"></a>——缓存异常——</h4><h4 id="1、热点key"><a href="#1、热点key" class="headerlink" title="1、热点key"></a>1、热点key</h4><p>缓存中的一个Key(比如一个促销商品)，在某个时间点过期的时候，恰好在这个时间点对这个Key有大量的并发请求过来，这些请求发现缓存过期一般都会从后端DB加载数据并回设到缓存，这个时候大并发的请求可能会瞬间把后端DB压垮。</p>
+<p><strong>解决方案</strong></p>
+<p>对缓存查询加锁，如果KEY不存在，就加锁，然后查DB入缓存，然后解锁；其他进程如果发现有锁就等待，然后等解锁后返回数据或者进入DB查询</p>
+<h4 id="———其他———"><a href="#———其他———" class="headerlink" title="———其他———"></a>———其他———</h4><h4 id="1、缓存与数据库双写时的数据一致性"><a href="#1、缓存与数据库双写时的数据一致性" class="headerlink" title="1、缓存与数据库双写时的数据一致性"></a>1、缓存与数据库双写时的数据一致性</h4><p>三种方式：（详情可以看一下参考博客，这里站长做了减法）</p>
+<ol>
+<li>先更新数据库，再更新缓存</li>
+<li>先删除缓存，再更新数据库</li>
+<li>先更新数据库，再删除缓存（主）</li>
+</ol>
+<p><strong>一、先更新数据库，再更新缓存</strong></p>
+<p>容易出现脏读 以及浪费性能（不推荐）</p>
+<p><strong>二、先删缓存，再更新数据库</strong></p>
+<p><strong>1、存在问题：</strong></p>
+<p>该方案会导致不一致的原因是：同时有一个请求A进行更新操作，另一个请求B进行查询操作。那么会出现如下情形：</p>
+<blockquote>
+<ul>
+<li>（1）请求A进行写操作前，先删除缓存</li>
+<li>（2）请求B查询发现缓存不存在</li>
+<li>（3）请求B去数据库查询得到旧值</li>
+<li>（4）请求B将旧值写入缓存</li>
+<li>（5）请求A将新值写入数据库</li>
+</ul>
+</blockquote>
+<p>上述情况就会导致不一致的情形出现。而且，如果不采用给缓存设置过期时间策略，该数据永远都是脏数据。</p>
+<p><strong>2、解决方案：延时双删策略：</strong>性能差，吞吐量降低</p>
+<blockquote>
+<p>public void write(String key,Object data){</p>
+<p>​        redis.delKey(key);</p>
+<p>​        db.updateData(data);</p>
+<p>​        Thread.sleep(1000);</p>
+<p>​        redis.delKey(key);</p>
+<p>​    }</p>
+</blockquote>
+<p>转化为中文描述就是： </p>
+<blockquote>
+<ul>
+<li>（1）先淘汰缓存</li>
+<li>（2）再写数据库</li>
+<li>（3）休眠1秒，再次淘汰缓存</li>
+</ul>
+</blockquote>
+<p><strong>三、先更新数据库，再删缓存：</strong></p>
+<p>​      <strong>方案一：MQ</strong></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202303142148980.png"></p>
+<p>流程如下所示：</p>
+<blockquote>
+<ul>
+<li>（1）更新数据库数据；</li>
+<li>（2）缓存因为种种问题删除失败</li>
+<li>（3）将需要删除的key发送至消息队列</li>
+<li>（4）自己消费消息，获得需要删除的key</li>
+<li>（5）继续重试删除操作，直到成功</li>
+</ul>
+</blockquote>
+<p>​        然而，该方案有一个缺点，对业务线代码造成大量的侵入。于是有了方案二，在方案二中，启动一个订阅程序去订阅数据库的binlog，获得需要操作的数据。在应用程序中，另起一段程序，获得这个订阅程序传来的信息，进行删除缓存操作。</p>
+<p>​      <strong>方案二：Canal</strong></p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202303142148865.png"></p>
+<p>流程如下图所示：</p>
+<blockquote>
+<ul>
+<li>（1）更新数据库数据</li>
+<li>（2）数据库会将操作信息写入binlog日志当中</li>
+<li>（3）订阅程序提取出所需要的数据以及key</li>
+<li>（4）另起一段非业务代码，获得该信息</li>
+<li>（5）尝试删除缓存操作，发现删除失败</li>
+<li>（6）将这些信息发送至消息队列</li>
+<li>（7）重新从消息队列中获得该数据，重试操作</li>
+</ul>
+</blockquote>
+<p>备注说明：上述的订阅binlog程序在mysql中有现成的中间件叫canal，可以完成订阅binlog日志的功能。另外，重试机制，博主是采用的是消息队列的方式。如果对一致性要求不是很高，直接在程序中另起一个线程，每隔一段时间去重试即可，这些大家可以灵活自由发挥，只是提供一个思路。</p>
+<h4 id="2、假如Redis里面有1亿个key，其中有10w个key是以某个固定的已知的前缀开头的，如果将它们全部找出来"><a href="#2、假如Redis里面有1亿个key，其中有10w个key是以某个固定的已知的前缀开头的，如果将它们全部找出来" class="headerlink" title="2、假如Redis里面有1亿个key，其中有10w个key是以某个固定的已知的前缀开头的，如果将它们全部找出来"></a>2、假如Redis里面有1亿个key，其中有10w个key是以某个固定的已知的前缀开头的，如果将它们全部找出来</h4><p>使用keys指令可以扫出指定模式的key列表。</p>
+<p>对方接着追问：如果这个redis正在给线上的业务提供服务，那使用keys指令会有什么问题？</p>
+<p>这个时候你要回答redis关键的一个特性：redis的单线程的。keys指令会导致线程阻塞一段时间，线上服务会停顿，直到指令执行完毕，服务才能恢复。这个时候可以使用scan指令，scan指令可以无阻塞的提取出指定模式的key列表，但是会有一定的重复概率，在客户端做一次去重就可以了，但是整体所花费的时间会比直接用keys指令长。</p>
+<h4 id="3、使用Redis做过异步队列吗，是如何实现的"><a href="#3、使用Redis做过异步队列吗，是如何实现的" class="headerlink" title="3、使用Redis做过异步队列吗，是如何实现的"></a>3、使用Redis做过异步队列吗，是如何实现的</h4><p>使用list类型保存数据信息，rpush生产消息，lpop消费消息，当lpop没有消息时，可以sleep一段时间，然后再检查有没有信息，如果不想sleep的话，可以使用blpop, 在没有信息的时候，会一直阻塞，直到信息的到来。redis可以通过pub/sub主题订阅模式实现一个生产者，多个消费者，当然也存在一定的缺点，当消费者下线时，生产的消息会丢失。</p>
+<h4 id="4、Redis如何实现延时队列"><a href="#4、Redis如何实现延时队列" class="headerlink" title="4、Redis如何实现延时队列"></a>4、Redis如何实现延时队列</h4><p>使用sortedset，使用时间戳做score, 消息内容作为key,调用zadd来生产消息，消费者使用zrangbyscore获取n秒之前的数据做轮询处理。</p>
+<h4 id="5、Redis回收进程如何工作"><a href="#5、Redis回收进程如何工作" class="headerlink" title="5、Redis回收进程如何工作"></a>5、Redis回收进程如何工作</h4><ol>
+<li>一个客户端运行了新的命令，添加了新的数据。</li>
+<li>Redis检查内存使用情况，如果大于maxmemory的限制， 则根据设定好的策略进行回收。</li>
+<li>一个新的命令被执行，等等。</li>
+<li>所以我们不断地穿越内存限制的边界，通过不断达到边界然后不断地回收回到边界以下。</li>
+</ol>
+<p>如果一个命令的结果导致大量内存被使用（例如很大的集合的交集保存到一个新的键），不用多久内存限制就会被这个内存使用量超越。</p>
+<h4 id="6、Redis回收使用的是什么算法"><a href="#6、Redis回收使用的是什么算法" class="headerlink" title="6、Redis回收使用的是什么算法"></a>6、Redis回收使用的是什么算法</h4><p>LRU算法，不具体展开了</p>
 <h2 id="五、分布式事务"><a href="#五、分布式事务" class="headerlink" title="五、分布式事务"></a>五、分布式事务</h2><h3 id="1、常规（放松解压版）"><a href="#1、常规（放松解压版）" class="headerlink" title="1、常规（放松解压版）"></a>1、常规（放松解压版）</h3><h4 id="1、事务的特性"><a href="#1、事务的特性" class="headerlink" title="1、事务的特性"></a>1、事务的特性</h4><p>1.原子性 要么一起成功要么一起失败</p>
 <p>2.一致性 事务执行前后数据保持一致性状态</p>
 <p>3.隔离性 多个事务之间是隔离的，互相不影响</p>
@@ -1679,7 +2102,137 @@ Lazy ：策略名称，可以自定义
 <p>4、TM 向 TC 发起针对 XID 的全局提交或回滚决议；</p>
 <p>5、TC 调度 XID 下管辖的全部分支事务完成提交或回滚请求。</p>
 <p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220325203440.png"></p>
-<h4 id=""><a href="#" class="headerlink" title=""></a></h4><h3 id="3、分布式事务的实现方式"><a href="#3、分布式事务的实现方式" class="headerlink" title="3、分布式事务的实现方式"></a>3、分布式事务的实现方式</h3><h4 id="1、-1"><a href="#1、-1" class="headerlink" title="1、"></a>1、</h4><h2 id="N、设计题"><a href="#N、设计题" class="headerlink" title="N、设计题"></a>N、设计题</h2><h3 id="1、MQ实现异步秒杀"><a href="#1、MQ实现异步秒杀" class="headerlink" title="1、MQ实现异步秒杀"></a>1、MQ实现异步秒杀</h3><h4 id="1、介绍"><a href="#1、介绍" class="headerlink" title="1、介绍"></a>1、介绍</h4><p>场景：一万件商品同时被一万人秒杀成功，会导致瞬间上万请求访问到订单数据库中创建订单。此时对数据库的压力就会很大。</p>
+<h4 id=""><a href="#" class="headerlink" title=""></a></h4><h3 id="3、分布式事务的实现方式"><a href="#3、分布式事务的实现方式" class="headerlink" title="3、分布式事务的实现方式"></a>3、分布式事务的实现方式</h3><h4 id="1、"><a href="#1、" class="headerlink" title="1、"></a>1、</h4><h2 id="六、Spring"><a href="#六、Spring" class="headerlink" title="六、Spring"></a>六、Spring</h2><h3 id="1、热身题"><a href="#1、热身题" class="headerlink" title="1、热身题"></a>1、热身题</h3><h4 id="1-什么是spring"><a href="#1-什么是spring" class="headerlink" title="1.什么是spring?"></a><strong>1.什么是spring?</strong></h4><p>一个轻量级开源框架，简化开发。核心是ioc控制反转和aop面向切面编程。</p>
+<p>简化开发: 通过切面和模板减少重复性代码，通过依赖注入创建对象，实现松耦合</p>
+<h4 id="2-什么是ioc和aop？"><a href="#2-什么是ioc和aop？" class="headerlink" title="2.什么是ioc和aop？"></a><strong>2.什么是ioc和aop？</strong></h4><p>ioc控制反转，实现对象的耦合关系的管理，将对象的依赖关系交给ioc管理。</p>
+<p>aop面向切面编程,动态非侵入的方式增强服务。</p>
+<h4 id="3-aop的实现机制？"><a href="#3-aop的实现机制？" class="headerlink" title="3.aop的实现机制？"></a>3.aop的实现机制？</h4><p>静态代理和动态代理，两者区别是静态代理是事先已经定义好的，动态代理是在程序运行的时候创建的</p>
+<p>动态代理：分为jdk动态代理和cglib动态代理。</p>
+<h4 id="4-jdk动态代理和cglib动态代理的区别"><a href="#4-jdk动态代理和cglib动态代理的区别" class="headerlink" title="4.jdk动态代理和cglib动态代理的区别?"></a>4.jdk动态代理和cglib动态代理的区别?</h4><p>jdk动态代理通过实现被代理对象的接口，cglib动态代理通过继承被代理对象实现</p>
+<p>jdk动态代理只能代理实现接口的类，cglib动态代理只能代理没有被final修饰的类和方法</p>
+<p>jdk动态代理通过反射机制实现，cglib动态代理通过fastClass机制实现</p>
+<h4 id="5-aop有哪些通知类型？"><a href="#5-aop有哪些通知类型？" class="headerlink" title="5.aop有哪些通知类型？"></a>5.aop有哪些通知类型？</h4><p>前置通知 Before Advice:在方法前切入</p>
+<p>后置通知 After Advice:在方法后切入</p>
+<p>正常返回通知 After Returning Advice:在方法返回后切入，抛出异常则不会切入</p>
+<p>异常通知 After Throwing Advice:抛出异常时切入</p>
+<p>环绕通知 Around Advice:在方法执行前后切入，可以中断或忽略原有流程的执行</p>
+<h4 id="6-aop有哪些运用场景"><a href="#6-aop有哪些运用场景" class="headerlink" title="6.aop有哪些运用场景?"></a>6.aop有哪些运用场景?</h4><p>1.全局异常处理 2.防止接口重复提交 3.接口幂等性 4.日志记录 5.事务</p>
+<h4 id="7-aop的实现？"><a href="#7-aop的实现？" class="headerlink" title="7.aop的实现？"></a>7.aop的实现？</h4><p>@Aspect定义切面类 @Pointcut定义切入点</p>
+<p>定义通知类型 @Befor @After @Arounr @AfterReturning @AfterThrowing</p>
+<h4 id="8-spring有哪些优缺点"><a href="#8-spring有哪些优缺点" class="headerlink" title="8.spring有哪些优缺点?"></a>8.spring有哪些优缺点?</h4><p>1.ioc将对象的创建和依赖交给ioc容器，方便解耦，简化开发</p>
+<p>2.aop面向切面编程，非入侵方式增强服务，减少重复代码</p>
+<p>3.声明式事务，方便测试</p>
+<p>4.方便集成各种优秀框架</p>
+<p>缺点：配置繁琐，依赖反射影响性能，入门时间长</p>
+<h4 id="9-spring有哪些模块组成？"><a href="#9-spring有哪些模块组成？" class="headerlink" title="9.spring有哪些模块组成？"></a>9.spring有哪些模块组成？</h4><p>1.spring jdbc 2.spring core 3.sping beans</p>
+<p>4.spring aop 5.spring web 6.spring test</p>
+<h4 id="10-spring框架用到哪些设计模式？"><a href="#10-spring框架用到哪些设计模式？" class="headerlink" title="10.spring框架用到哪些设计模式？"></a>10.spring框架用到哪些设计模式？</h4><p>1.工厂模式 2.单例模式 3.模板方法 4.代理模式 等</p>
+<h4 id="11-spring中有哪些不同类型的事件"><a href="#11-spring中有哪些不同类型的事件" class="headerlink" title="11.spring中有哪些不同类型的事件?"></a>11.spring中有哪些不同类型的事件?</h4><ol>
+<li>上下文更新事件（ContextRefreshedEvent）：在调用ConfigurableApplicationContext 接口中的refresh()方法时被触发。</li>
+<li>上下文开始事件（ContextStartedEvent）：当容器调用ConfigurableApplicationContext的Start()方法开始/重新开始容器时触发该事件。</li>
+<li>上下文停止事件（ContextStoppedEvent）：当容器调用ConfigurableApplicationContext的Stop()方法停止容器时触发该事件。</li>
+<li>上下文关闭事件（ContextClosedEvent）：当ApplicationContext被关闭时触发该事件。容器被关闭时，其管理的所有单例Bean都被销毁。</li>
+<li>请求处理事件（RequestHandledEvent）：在Web应用中，当一个http请求（request）结束触发该事件。如果一个bean实现了ApplicationListener接口，当一个ApplicationEvent 被发布以后，bean会自动被通知。</li>
+</ol>
+<h4 id="12-BeanFactory-和-ApplicationContext有什么区别？"><a href="#12-BeanFactory-和-ApplicationContext有什么区别？" class="headerlink" title="12.BeanFactory 和 ApplicationContext有什么区别？"></a>12.<strong>BeanFactory 和 ApplicationContext有什么区别？</strong></h4><p>BeanFactory 是基础ioc容器，拥有基本的ioc容器功能</p>
+<p>ApplicationContext 是BeanFactory 的子类，拥有BeanFactory 的全部功能。还扩展了其他功能:国际化</p>
+<p>BeanFactory 采用延迟加载bean，ApplicationContext一次性加载bean</p>
+<p>BeanFactory和ApplicationContext都支持 BeanPostProcessor、BeanFactoryPostProcessor。</p>
+<p>BeanFactory 需要手动注册。ApplicationContext自动注册</p>
+<h4 id="13-spring有哪些依赖注入方式"><a href="#13-spring有哪些依赖注入方式" class="headerlink" title="13.spring有哪些依赖注入方式?"></a>13.spring有哪些依赖注入方式?</h4><p>1.构造器注入 2.set注入</p>
+<p>构造器参数实现强制依赖，setter方法实现可选依赖</p>
+<h4 id="14-什么是spring-beans"><a href="#14-什么是spring-beans" class="headerlink" title="14.什么是spring beans?"></a>14.什么是spring beans?</h4><p>就是java 对象,它们被Spring IOC容器初始化，装配，管理。</p>
+<h4 id="15-一个spring-bean定义包含什么"><a href="#15-一个spring-bean定义包含什么" class="headerlink" title="15.一个spring bean定义包含什么?"></a>15.一个spring bean定义包含什么?</h4><p>bean的创建, 生命周期，依赖</p>
+<h4 id="16-spring-bean的作用域"><a href="#16-spring-bean的作用域" class="headerlink" title="16.spring bean的作用域?"></a>16.spring bean的作用域?</h4><p>通知设置bean的 scope属性来定义bean的作用域,作用域类型有:</p>
+<p><strong>1.singleton :</strong> bean在每个ioc容器中只有一个实例。</p>
+<p><strong>2.prototype</strong>：一个bean的定义可以有多个实例。(开销大)</p>
+<p><strong>3.request</strong>：每次http请求都会创建一个bean(基于web的Spring ApplicationContext情形下有效)</p>
+<p><strong>4.session</strong>：在一个HTTP Session中，一个bean定义对应一个实例。(基于web的Spring ApplicationContext情形下有效)</p>
+<p><strong>5.global-session</strong>：在一个全局的HTTP Session中，一个bean定义对应一个实例。(基于web的Spring ApplicationContext情形下有效)</p>
+<h4 id="17-spring-中的单例bean是线程安全么"><a href="#17-spring-中的单例bean是线程安全么" class="headerlink" title="17.spring 中的单例bean是线程安全么?"></a>17.spring 中的单例bean是线程安全么?</h4><p>不是线程安全，大部分单例bean是无状态的，比如 dao 类，某种程度来说也是安全的。</p>
+<h4 id="18-spring-bean的生命周期"><a href="#18-spring-bean的生命周期" class="headerlink" title="18.spring bean的生命周期?"></a>18.spring bean的生命周期?</h4><p>1.实例化，创建bean对象</p>
+<p>2.属性填充</p>
+<p>3.初始化</p>
+<p>3.1.实现了xxxAware类型的接口，通过不同类型的Aware接口拿到Spring容器的资源</p>
+<p>3.1.1.简单的aware类型接口 BeanNameAware BeanClassLoaderAware BeanFactoryAware</p>
+<p>3.2.实现了beanPostProcessor接口，则会在初始化前后回调<code>postProcessBeforeInitialzation</code>和<code>postProcessAfterInitialization</code>方法</p>
+<p>3.3.配置了init-mothod方法，则会执行配置的方法</p>
+<p>4.销毁</p>
+<p>4.1.bean实现了DisposableBean，则会回调destroy方法</p>
+<p>4.2.配置了destroy-method方法，则会执行配置的方法</p>
+<h4 id="19-Autowired和-Resource"><a href="#19-Autowired和-Resource" class="headerlink" title="19.@Autowired和@Resource?"></a>19.<strong>@Autowired和</strong>@Resource?</h4><p>1.@Autowired默认按类型装配，查询结果为一个时，直接装配。查询结果为多个时，按名称装配。查询不到则报错。不报错则设置属性required=false。可以配和@Qualifier 按名字装配</p>
+<p>2.@Resource默认按名字装配，找不到则按照类型装配。指定name属性则按名称装配，找不到则报错。指定type则按照类型装配，找不到则报错</p>
+<h4 id="20-FactoryBean-和-BeanFactory有什么区别？"><a href="#20-FactoryBean-和-BeanFactory有什么区别？" class="headerlink" title="20.FactoryBean 和 BeanFactory有什么区别？"></a>20.<strong>FactoryBean 和 BeanFactory有什么区别？</strong></h4><p>BeanFactory 是 Bean 的工厂， ApplicationContext 的父类，IOC 容器的核心，负责生产和管理 Bean 对象。</p>
+<p>FactoryBean 是 Bean，可以通过实现 FactoryBean 接口定制实例化 Bean 的逻辑，通过代理一个Bean对象，对方法前后做一些操作。</p>
+<h4 id="21-Spring-如何解决循环依赖？"><a href="#21-Spring-如何解决循环依赖？" class="headerlink" title="21.Spring 如何解决循环依赖？"></a>21.<strong>Spring 如何解决循环依赖？</strong></h4><p>spring通过三级缓存解决循环依赖:</p>
+<ul>
+<li>singletonObjects 一级缓存，用于保存实例化、注入、初始化完成的bean实例</li>
+<li>earlySingletonObjects 二级缓存，用于保存实例化完成的bean实例</li>
+<li>singletonFactories 三级缓存，用于保存bean创建工厂，以便于后面扩展有机会创建代理对象。</li>
+</ul>
+<h4 id="22-为什么要三级缓存？二级缓存不行么"><a href="#22-为什么要三级缓存？二级缓存不行么" class="headerlink" title="22.为什么要三级缓存？二级缓存不行么?"></a>22.为什么要三级缓存？二级缓存不行么?</h4><p>三级缓存是为了保证不管什么时候使用的都是同一个对象。</p>
+<p>如果使用二级缓存，多线程情况下可能获取的对象不一致</p>
+<h4 id="23-spring解决循环依赖的方法"><a href="#23-spring解决循环依赖的方法" class="headerlink" title="23.spring解决循环依赖的方法?"></a>23.spring解决循环依赖的方法?</h4><p>使用<code>@Lazy</code>注解，延迟加载</p>
+<p>使用<code>@DependsOn</code>注解，指定加载先后关系</p>
+<h4 id="24-spring的事务传播方式？"><a href="#24-spring的事务传播方式？" class="headerlink" title="24.spring的事务传播方式？"></a>24.spring的事务传播方式？</h4><p>required 当前没有事务则创建事务，存在事务则加入。</p>
+<p>requires_new 不管有没事务都会创建一个新的事务执行。</p>
+<p>supports 存在事务则加入，不存在则已非事务只想。</p>
+<p>not_supported 以非事务执行，存在事务则挂起</p>
+<p>mandatory 存在事务则加入，不存在则报错</p>
+<p>never 以非事务执行，存在事务则报错</p>
+<p>nested 存在事务则嵌套事务执行</p>
+<h4 id="25-spring-事务的隔离级别"><a href="#25-spring-事务的隔离级别" class="headerlink" title="25.spring 事务的隔离级别?"></a>25.spring 事务的隔离级别?</h4><p>default 使用数据库设置的</p>
+<p>read_uncommitted 读未提交(出现幻读、脏读、不可重复读)</p>
+<p>read_committed 读已提交,读的都是别的事务已提交的（会造成幻读、不可重复读）sql server默认级别</p>
+<p>repeatable_read 可重复读，保证多次读取同一个数据时，其值都和事务开始时候的内容是一致，禁止读取到别的事务未提交的数据（会造成幻读)</p>
+<p>serializable 串行，代价最高最可靠的隔离级别，该隔离级别能防止脏读、不可重复读、幻读。</p>
+<p><strong>脏读</strong> ：表示一个事务能够读取另一个事务中还未提交的数据。</p>
+<p><strong>不可重复读</strong> ：是指在一个事务内，多次读同一数据。读取的数据不一致</p>
+<p><strong>幻读</strong> ：指同一个事务内多次查询返回的结果集不一样。</p>
+<h4 id="26-什么是spring-mvc"><a href="#26-什么是spring-mvc" class="headerlink" title="26 .什么是spring mvc?"></a>26 .什么是spring mvc?</h4><p>基于java实现了mvc设计模式请求驱动类型的轻量级框架，把模型，视图，控制器分离出来。将web层进行职责解耦，简化开发</p>
+<h4 id="27-spring-mvc工作原理？"><a href="#27-spring-mvc工作原理？" class="headerlink" title="27.spring mvc工作原理？"></a>27.spring mvc工作原理？</h4><p>1.用户发送请求到前端控制器(DispatcherServlet)</p>
+<p>2.前端控制器调用处理器映射器(HandlerMapping)</p>
+<p>3.处理器映射器根据url找到对应的处理器（Handler），生成处理器对象，如果有拦截器一起返回给前端控制器</p>
+<p>4.前端控制器调用处理器适配器（HandlerAdapter），经过适配器调用后端控制器</p>
+<p>5.执行完毕后返回ModelAndView，处理器适配器将结果返回前端控制器</p>
+<p>6.前端控制器传给试图解析器（ViewResolver）进行解析,返回具体的视图(view)，进行渲染返回给用户</p>
+<h4 id="28-spring-ioc容器构建流程"><a href="#28-spring-ioc容器构建流程" class="headerlink" title="28.spring ioc容器构建流程?"></a>28.spring ioc容器构建流程?</h4><p>1.获取一个新的bean工厂，通常是applicationContext</p>
+<p>2.加载和解析spring配置文件，解析bean对象封装成beanDefinition放到本地缓存</p>
+<p>3.实例化和调用beanFactoryPostProcessor的BeanDefinitionRegistryPostProcessor的扩展方法</p>
+<p>4.实例化beanPostProcessor,加载到beanFactory中。在bean的初始化前后触发扩展点postProcessBeforeInitialization() / postProcessAfterInitialization()</p>
+<p>5.实例化所有剩余的bean，包括创建bean，属性填充，初始化</p>
+<p>6.完成容器刷新，推送上下文刷新事件(contextRefresEvent)到监听器</p>
+<h4 id="29-spring-boot启动流程？"><a href="#29-spring-boot启动流程？" class="headerlink" title="29.spring boot启动流程？"></a>29.spring boot启动流程？</h4><p>1.创建springApplication实例以及初始化</p>
+<p>2.通过SpringFactoriesLoader加载监听器,发布EventPublishingRunListener.<strong>starting()事件</strong>；</p>
+<p>3.创建和配置Environment，触发ConfigFileApplicationListener监听器,加载application.properties/yml配置文件</p>
+<p>4.创建ApplicationContext,容器刷新的事前准备，容器刷新(ioc容器创建流程)，发布上下文刷新完毕事件</p>
+<p>5.发布SpringBoot程序已启动事件ApplicationStartedEvent</p>
+<p>6.调用ApplicationRunner和CommandLineRunner</p>
+<p>7.最后发布refresh完毕、runner执行完毕的事件</p>
+<h4 id="30-spring事务实现的原理"><a href="#30-spring事务实现的原理" class="headerlink" title="30.spring事务实现的原理?"></a>30.spring事务实现的原理?</h4><p>通过aop+threadLocal+try/catch实现:</p>
+<p>动态代理：基本所有要进行逻辑增强的地方都会用到动态代理，AOP 底层也是通过动态代理实现。</p>
+<p>ThreadLocal：主要用于线程间的资源隔离，以此实现不同线程可以使用不同的数据源、隔离级别等等。</p>
+<p>try/catch：最终是执行 commit 还是 rollback，是根据业务逻辑处理是否抛出异常来决定。</p>
+<h4 id="31-spring常见的扩展点"><a href="#31-spring常见的扩展点" class="headerlink" title="31.spring常见的扩展点?"></a>31.spring常见的扩展点?</h4><p>1.BeanFactoryPostProcessor</p>
+<p>postProcessBeanFactory 方法，在加载完 Bean 定义之后，创建 Bean 实例之前被触发，通常使用该扩展点来加载一些自己的 bean 定义。</p>
+<p>2.BeanPostProcessor</p>
+<p>postProcessBeforeInitialization 方法，执行 bean 的初始化方法前被触发；</p>
+<p>postProcessAfterInitialization 方法，执行 bean 的初始化方法后被触发。</p>
+<p>2.InitializingBean</p>
+<p>afterPropertiesSet 方法，在 bean 的属性填充之后，初始化方法（init-method）之前被触发</p>
+<p>3.DisposableBean</p>
+<p>destroy 方法，在 bean 的销毁阶段被触发，该方法的作用基本等同于</p>
+<p>destroy-method，主用用于执行销毁相关操作。</p>
+<h4 id="32-springboot如何实现自动装配"><a href="#32-springboot如何实现自动装配" class="headerlink" title="32.springboot如何实现自动装配?"></a>32.springboot如何实现自动装配?</h4><p>启动类中@SpringbootApplicaiton 注解是一个组合注解，里面有一个@EnableAutoConfiguration注解。</p>
+<p>这个注解类中使用@Import注解加载EnableAutoConfigurationImportSelector类。这个类是在spring-autoConfig包中。他会加载包中的spring.factories文件内定义的autoconfiguration类。</p>
+<h4 id="33-如何自己实现一个starter"><a href="#33-如何自己实现一个starter" class="headerlink" title="33.如何自己实现一个starter?"></a>33.如何自己实现一个starter?</h4><p>starter简单来说就是将一个繁琐的操作打包成一个jar，让你直接加入这个依赖，省去繁琐的步骤</p>
+<ol>
+<li>创建一个starter项目</li>
+<li>创建一个ConfigurationProperties用于保存你的配置信息（</li>
+<li>创建一个AutoConfiguration，引用定义好的配置信息；在AutoConfiguration中实现所有starter应该完成的操作，并且把这个类加入spring.factories配置文件中进行声明</li>
+<li>打包项目，之后在一个SpringBoot项目中引入该项目依赖，然后就可以使用该starter了</li>
+</ol>
+<h3 id="2、—"><a href="#2、—" class="headerlink" title="2、—"></a>2、—</h3><h2 id="N、设计题"><a href="#N、设计题" class="headerlink" title="N、设计题"></a>N、设计题</h2><h3 id="1、MQ实现异步秒杀"><a href="#1、MQ实现异步秒杀" class="headerlink" title="1、MQ实现异步秒杀"></a>1、MQ实现异步秒杀</h3><h4 id="1、介绍"><a href="#1、介绍" class="headerlink" title="1、介绍"></a>1、介绍</h4><p>场景：一万件商品同时被一万人秒杀成功，会导致瞬间上万请求访问到订单数据库中创建订单。此时对数据库的压力就会很大。</p>
 <p>方案：引入RocketMQ进行削峰处理。</p>
 <p>每个请求进来在Redis中秒杀库存成功，就认为需要生成订单，此时发送一个消息到RocketMQ中去。</p>
 <p>然后让普通订单系统从RocketMQ中消费秒杀成功的消息进行处理。对于MQ来说，这种上万的消息积压很容易就扛下来了，只要过了高峰期，订单系统很快就能消费、处理完。这个过程中不会对订单数据库造成过大的压力</p>
@@ -1753,11 +2306,11 @@ Lazy ：策略名称，可以自定义
 <p>答：这是两条消息，一个是你创建订单了，完了有一个订单创建通知，你可以30分钟后消费这个消息，判断你的订单是否已经超过30分钟还没支付;另外一个是如果已经支付了，有一个订单支付的消息，然后你很多系统可以消费这个消息，做后续的处理</p>
 </blockquote>
 <h3 id="2、闲聊"><a href="#2、闲聊" class="headerlink" title="2、闲聊"></a>2、闲聊</h3><h4 id="1、离职原因"><a href="#1、离职原因" class="headerlink" title="1、离职原因"></a>1、离职原因</h4><ul>
-<li>薪资一方面，其次是触碰更多的事边缘技术，能成长的空间有限</li>
+<li>薪资一方面，其次是触碰更多的是边缘技术，能成长的空间有限</li>
 <li>虽说能碰到一些核心技术，但是成长也比较缓慢，不是长久之策</li>
 <li>舒适圈待久了，有些迫切的危机感， 望得到更多的挑战和学习机会</li>
 </ul>
-<h4 id="2、-1"><a href="#2、-1" class="headerlink" title="2、"></a>2、</h4><h2 id="参考-↓"><a href="#参考-↓" class="headerlink" title="参考 ↓"></a>参考 ↓</h2><p>MySQL 执行流程 :<a target="_blank" rel="noopener" href="https://blog.csdn.net/qwer123451234123/article/details/124344299">https://blog.csdn.net/qwer123451234123/article/details/124344299</a></p>
+<h4 id="2、"><a href="#2、" class="headerlink" title="2、"></a>2、</h4><h2 id="参考-↓"><a href="#参考-↓" class="headerlink" title="参考 ↓"></a>参考 ↓</h2><p>MySQL 执行流程 :<a target="_blank" rel="noopener" href="https://blog.csdn.net/qwer123451234123/article/details/124344299">https://blog.csdn.net/qwer123451234123/article/details/124344299</a></p>
 <p>数据结构可视化演变： <a target="_blank" rel="noopener" href="https://www.cs.usfca.edu/~galles/visualization/BPlusTree.html">https://www.cs.usfca.edu/~galles/visualization/BPlusTree.html</a></p>
 <p>B+Tree时间复杂度：<a target="_blank" rel="noopener" href="https://blog.csdn.net/yunduanyou/article/details/128233801">https://blog.csdn.net/yunduanyou/article/details/128233801</a></p>
 <p>1.8流操作题：<a target="_blank" rel="noopener" href="https://blog.csdn.net/Thinkingcao/article/details/108664921">https://blog.csdn.net/Thinkingcao/article/details/108664921</a></p>
@@ -1789,6 +2342,9 @@ Lazy ：策略名称，可以自定义
 <p>Redis面试题：</p>
 <p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/567047691">https://zhuanlan.zhihu.com/p/567047691</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/javazhiyin/p/13839357.html">https://www.cnblogs.com/javazhiyin/p/13839357.html</a></p>
+<p>Redis缓存一致性：<a target="_blank" rel="noopener" href="https://blog.csdn.net/a745233700/article/details/88081219">https://blog.csdn.net/a745233700/article/details/88081219</a></p>
+<p>hystrix中信号量和线程池：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/chihirotan/p/11368520.html">https://www.cnblogs.com/chihirotan/p/11368520.html</a></p>
+<p>nacos面试等参考：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/482632893">https://zhuanlan.zhihu.com/p/482632893</a></p>
 
                 
             </div>
@@ -2668,7 +3224,7 @@ new Valine({
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">188.2k</span>&nbsp;字
+                class="white-color">196.1k</span>&nbsp;字
             
             
             
