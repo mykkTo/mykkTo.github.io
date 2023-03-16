@@ -680,14 +680,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    33.7k
+                    33.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    123 分
+                    122 分
                 </div>
                 
 
@@ -748,251 +748,108 @@
 <li><p><strong>CAP理论</strong>：eureka只支持AP，nacos支持CP和AP两种</p>
 <ul>
 <li><p>nacos是根据配置识别CP或AP模式,如果注册Nacos的client节点注册时是ephemeral=true即为临时节点,那么Naocs集群对这个client节点效果就是AP,反之则是CP,即不是临时节点</p>
-</li>
-<li><pre><code class="properties">#false为永久实例，true表示临时实例开启，注册为临时实例
- spring.cloud.nacos.discovery.ephemeral=true
-<pre class="line-numbers language-none"><code class="language-none">
-- **连接方式：**
+<pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token comment">#false为永久实例，true表示临时实例开启，注册为临时实例</span>
+<span class="token attr-name"> spring.cloud.nacos.discovery.ephemeral</span><span class="token punctuation">=</span><span class="token attr-value">true</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-  - nacos使用的是netty和服务直接进行连接,属于长连接
-  - eureka是使用定时发送和服务进行联系,属于短连接
 
-- 
 
-#### 4.Sentinel的限流与Gateway的限流有什么差别
-
-限流算法常见的有三种实现：滑动时间窗口、令牌桶算法、漏桶算法。Gateway则采用了基于Redis实现的令牌桶算法。
-
-而Sentinel内部却比较复杂：
-
-- 默认限流模式是基于滑动时间窗口算法
-- 排队等待的限流模式则基于漏桶算法
-- 而热点参数限流则是基于令牌桶算法
-
-#### 5.Sentinel的线程隔离与Hystix的线程隔离有什么差别
-
-Hystix默认是基于线程池实现的线程隔离，每一个被隔离的业务都要创建一个独立的线程池，线程过多会带来额外的CPU开销，性能一般，但是隔离性更强。
-
-Sentinel是基于信号量（计数器）实现的线程隔离，不用创建线程池，性能较好，但是隔离性一般。
-
-
-
-### 1、注册中心
-
-#### 1、注册中心比较
-
-![](https://v1.mykkto.cn/image/blog/2022/springcloud/20220223225739.png)
-
-#### 2、注册服务于发现流程
-
-
-
-
-
-### 2、熔断器
-
-
-
-#### 1、对比图
-
-
-
-
-
-
-
-## 二、Mysql高级面基 
-
-高级特性本周整理大纲： 
-1、执行流程（5.7 and 8.0 暂不整理），逻辑架构（三层）；图、概述，白话总结
-2、存储引擎（InnoDB MyISAM （核心对比图）...边缘5种简述-了解）；装逼：阿里自定义引擎：Xtradb
-3、索引迭代设计（是非聚簇索引，二级、联合索引），索引使用常见（11 yes 7 not）；边缘所以你接口对比（HASH、AVL、B、B+）、Explain调优阿里、三范式 ER模型
-N、事务（显式、隐式），锁（表锁：S锁、X锁、意向锁、自增锁、元数据锁；行锁：记录锁、间隙锁、临键锁、插入意向锁；乐观悲观锁.....） 扩展待定？
-
-
-
-#### 1、执行流程
-
-
-
-**SQL流程** 
-
-sql语句 -&gt; 查询缓存 -&gt; 解析器 -&gt; 优化器 -&gt; 执行器
-
-
-
-**完整流程**
-
- 客户端程序 connectors &gt;&gt; 连接池 &gt;&gt; SQL接口 &gt;&gt; 解析器 &gt;&gt; 优化器 &gt;&gt; 查询缓存 &gt;&gt; 插件式存储引擎 &gt;&gt; File（文件系统/日志文件）
-
-![](https://v1.mykkto.cn/image/blog/2022/Interview/202302171540587.png)
-
-&gt;1. 客户端程序 : 包括一些mysql工具如：native 或者语言工具如：php 、go 、python
-&gt;2. 连接池  : 提供多个用户客户端和服务端交互的线程
-&gt;3. SQL接口 : 接收sql命令，返回查询结果
-&gt;4. 解析器  : 进行sql语法的解析、语意解析、生成语法树
-&gt;5. 优化器  : mysql核心组件，对sql命令进行优化
-&gt;6. 缓存    : 以key -&gt; value方式缓存查询结果 (如果查询sql指令有缓存直接在SQL接口部分返回缓存结果)
-&gt;7. 存储引擎 : 与底层文件进行交互，查询数据文件系统、日志文件等
-
-
-
-**mysql server三层架构**
-
-
-
-1、连接层
-
-mysql服务器有专门的tcp连接池限制最大连接数，采用长连接模式复用tcp连接，进行连接交互
-
-
-
-2、服务层 
-
-- Interface 接口
-- 解析器
-- 查询优化器
-- 查询缓存组件
-
-
-
-
-
-3、引擎层
-
-插件式的存储引擎层，真正的负责了mysql中数据的存储和提取，对物理服务器级别维护的底层数据执行操作，服务器通过api与存储引擎通信。不同的存储引擎具有的功能不同，支持二开引擎【阿里：Xtradb】
-
-
-
-#### 2、聚簇索引和非聚簇索引
-
-
-
-对比：
-
-- 聚簇索引叶子节点存储的是行数据；而非聚簇索引叶子节点存储的是聚簇索引（通常是主键 ID）。
-- 聚簇索引查询效率更高，而非聚簇索引需要进行回表查询，因此性能不如聚簇索引。
-- 聚簇索引一般为主键索引，而主键一个表中只能有一个，因此聚簇索引一个表中也只能有一个，而非聚簇索引则没有数量上的限制
-
-
-
-**聚簇索引 id 对应的 B+ 树如下图所示：** 
-
-![](https://v1.mykkto.cn/image/blog/2022/Interview/202302252030574.png)
-
-
-
-**在 student 中非聚簇索引 class_id 对应 B+ 树如下图所示：** 
-
-![](https://v1.mykkto.cn/image/blog/2022/Interview/202302252030261.png)
-
-
-
-#### 3、存储引擎
-
-对比图：
-
-![](https://v1.mykkto.cn/image/blog/2022/Interview/202302251609760.png)
-
-
-
-**MyISAM** **与** **InnoDB两种引擎中索引的区别**
-
-① 在InnoDB存储引擎中，我们只需要根据主键值对聚簇索引进行一次查找就能找到对应的记录，而在MyISAM中却需要进行一次回表操作，意味着MyISAM中建立的索引相当于全部都是二级索引。
-
-② InnoDB的数据文件本身就是索引文件，而MyISAM索引文件和数据文件是分离的，索引文件仅保存数据记录的地址。
-
-③ InnoDB的非聚簇索引data域存储相应记录主键的值，而MyISAM索引记录的是地址。换句话说，InnoDB的所有非聚簇索引都引用主键作为data域。
-
-④ MyISAM的回表操作是十分快速的，因为是拿着地址偏移量直接到文件中取数据的，反观InnoDB是通过获取主键之后再去聚簇索引里找记录，虽然说也不慢，但还是比不上直接用地址去访问。
-
-⑤ InnoDB要求表必须有主键（MyISAM可以没有）。如果没有显式指定，则MySQL系统会自动选择一个可以非空且唯一标识数据记录的列作为主键。如果不存在这种列，则MySQL自动为InnoDB表生成一个隐含字段作为主键，这个字段长度为6个字节，类型为长整型。
-
-
-
-补充1：InnoDB的逻辑结构图：
-
-![](https://v1.mykkto.cn/image/blog/2022/Interview/202302252055728.png)
-
-
-
-
-
-#### 4、为什么覆盖索引不用回表
-
-一级索引：聚簇索引即主键索引
-二级索引：非聚簇索引
-
-一级B+Tree：叶子节点保存着键（id的值）和数据（全部字段的值）
-二级B+Tree：叶子节点保存着键（索引字段的值）和数据（主键索引值）
-
-查询 一级索引，根据一级B+Tree查询到数据，直接返回数据
-查询 二级索引，根据二级B+Tree查询到对应的聚簇索引，再根据聚簇索引在一级B+Tree里查询到相应数据
-
-查询 一级索引只需要扫描一次B+Tree。
-查询 二级索引需要扫描两次B+Tree。根据二级B+Tree扫描的结果，再去一级B+Tree里进行扫描就叫回表操作。
-
-
-如果使用组合索引，就可以利用覆盖索引避免回表操作
-例如：表一共有五个字段：a（主键索引），b_c_d（组合索引），e（没有索引）
-
-如果用户查询时只查 b,c,d 例：SELECT `b`, `c`, `d` FROM `table` WHERE `b` = 3 AND `c` = 7 AND `d` = 5;
-
-因为查询的字段 b,c,d的值（B+Tree里的键） 已经在B+Tree里了，所以就可以直接返回，不用再拿聚簇索引去一级B+Tree里进行查询
-如果查询字段为 a,b,c,d 因为a为主键索引，也保存再二级B+Tree的叶子节点里，所以也不用回表查询
-如果查询字段为 a,b,c,d,e 因为e没有在这个二级B+Tree里，所以需要进行回表操作，拿着主键索引再去一级B+Tree里进行查询。
-
-
-
-#### 5、B+tree
-
-时间复杂度：**O(logN)**
-
-
-
-B+Tree是B-Tree的变种，我们以一颗最大度数（max-degree）为4阶（4指针3key）的b+tree为例
-
-![](https://v1.mykkto.cn/image/blog/2022/Interview/202302252105651.png)
-
-
-
-最终我们看到，B+Tree 与 B-Tree相比，主要有以下三点区别： 
-
-- 所有的数据都会出现在叶子节点。 
-- 叶子节点形成一个单向链表。 
-- 非叶子节点仅仅起到索引数据作用，具体的数据都是在叶子节点存放的。 
-
-
-
-MySQL索引数据结构对经典的B+Tree进行了优化。在原B+Tree的基础上，增加一个指向相邻叶子节点的链表指针，就形成了带有顺序指针的B+Tree，提高区间访问的性能，利于排序。
-
-
-
-![](https://v1.mykkto.cn/image/blog/2022/Interview/202302252123348.png)
-
-
-
-#### 6、SQL优化（慢SQL优化）
-
-
-
-第一步：可以用 `explain` 查看执行计划
-
-
-
-常见案例优化：
-
-1-1、**insert**
-
-```sql
-insert into tb_test values(1,'tom');
-insert into tb_test values(2,'cat');
-insert into tb_test values(3,'jerry');<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</code></pre>
 </li>
 </ul>
 </li>
 </ul>
+<ul>
+<li><p><strong>连接方式：</strong></p>
+<ul>
+<li>nacos使用的是netty和服务直接进行连接,属于长连接</li>
+<li>eureka是使用定时发送和服务进行联系,属于短连接</li>
+</ul>
+</li>
+<li></li>
+</ul>
+<h4 id="4-Sentinel的限流与Gateway的限流有什么差别"><a href="#4-Sentinel的限流与Gateway的限流有什么差别" class="headerlink" title="4.Sentinel的限流与Gateway的限流有什么差别"></a>4.Sentinel的限流与Gateway的限流有什么差别</h4><p>限流算法常见的有三种实现：滑动时间窗口、令牌桶算法、漏桶算法。Gateway则采用了基于Redis实现的令牌桶算法。</p>
+<p>而Sentinel内部却比较复杂：</p>
+<ul>
+<li>默认限流模式是基于滑动时间窗口算法</li>
+<li>排队等待的限流模式则基于漏桶算法</li>
+<li>而热点参数限流则是基于令牌桶算法</li>
+</ul>
+<h4 id="5-Sentinel的线程隔离与Hystix的线程隔离有什么差别"><a href="#5-Sentinel的线程隔离与Hystix的线程隔离有什么差别" class="headerlink" title="5.Sentinel的线程隔离与Hystix的线程隔离有什么差别"></a>5.Sentinel的线程隔离与Hystix的线程隔离有什么差别</h4><p>Hystix默认是基于线程池实现的线程隔离，每一个被隔离的业务都要创建一个独立的线程池，线程过多会带来额外的CPU开销，性能一般，但是隔离性更强。</p>
+<p>Sentinel是基于信号量（计数器）实现的线程隔离，不用创建线程池，性能较好，但是隔离性一般。</p>
+<h3 id="1、注册中心"><a href="#1、注册中心" class="headerlink" title="1、注册中心"></a>1、注册中心</h3><h4 id="1、注册中心比较"><a href="#1、注册中心比较" class="headerlink" title="1、注册中心比较"></a>1、注册中心比较</h4><p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220223225739.png"></p>
+<h4 id="2、注册服务于发现流程"><a href="#2、注册服务于发现流程" class="headerlink" title="2、注册服务于发现流程"></a>2、注册服务于发现流程</h4><h3 id="2、熔断器"><a href="#2、熔断器" class="headerlink" title="2、熔断器"></a>2、熔断器</h3><h4 id="1、对比图"><a href="#1、对比图" class="headerlink" title="1、对比图"></a>1、对比图</h4><h2 id="二、Mysql高级面基"><a href="#二、Mysql高级面基" class="headerlink" title="二、Mysql高级面基"></a>二、Mysql高级面基</h2><p>高级特性本周整理大纲：<br>1、执行流程（5.7 and 8.0 暂不整理），逻辑架构（三层）；图、概述，白话总结<br>2、存储引擎（InnoDB MyISAM （核心对比图）…边缘5种简述-了解）；装逼：阿里自定义引擎：Xtradb<br>3、索引迭代设计（是非聚簇索引，二级、联合索引），索引使用常见（11 yes 7 not）；边缘所以你接口对比（HASH、AVL、B、B+）、Explain调优阿里、三范式 ER模型<br>N、事务（显式、隐式），锁（表锁：S锁、X锁、意向锁、自增锁、元数据锁；行锁：记录锁、间隙锁、临键锁、插入意向锁；乐观悲观锁…..） 扩展待定？</p>
+<h4 id="1、执行流程"><a href="#1、执行流程" class="headerlink" title="1、执行流程"></a>1、执行流程</h4><p><strong>SQL流程</strong> </p>
+<p>sql语句 -&gt; 查询缓存 -&gt; 解析器 -&gt; 优化器 -&gt; 执行器</p>
+<p><strong>完整流程</strong></p>
+<p> 客户端程序 connectors &gt;&gt; 连接池 &gt;&gt; SQL接口 &gt;&gt; 解析器 &gt;&gt; 优化器 &gt;&gt; 查询缓存 &gt;&gt; 插件式存储引擎 &gt;&gt; File（文件系统/日志文件）</p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202302171540587.png"></p>
+<blockquote>
+<ol>
+<li>客户端程序 : 包括一些mysql工具如：native 或者语言工具如：php 、go 、python</li>
+<li>连接池  : 提供多个用户客户端和服务端交互的线程</li>
+<li>SQL接口 : 接收sql命令，返回查询结果</li>
+<li>解析器  : 进行sql语法的解析、语意解析、生成语法树</li>
+<li>优化器  : mysql核心组件，对sql命令进行优化</li>
+<li>缓存    : 以key -&gt; value方式缓存查询结果 (如果查询sql指令有缓存直接在SQL接口部分返回缓存结果)</li>
+<li>存储引擎 : 与底层文件进行交互，查询数据文件系统、日志文件等</li>
+</ol>
+</blockquote>
+<p><strong>mysql server三层架构</strong></p>
+<p>1、连接层</p>
+<p>mysql服务器有专门的tcp连接池限制最大连接数，采用长连接模式复用tcp连接，进行连接交互</p>
+<p>2、服务层 </p>
+<ul>
+<li>Interface 接口</li>
+<li>解析器</li>
+<li>查询优化器</li>
+<li>查询缓存组件</li>
+</ul>
+<p>3、引擎层</p>
+<p>插件式的存储引擎层，真正的负责了mysql中数据的存储和提取，对物理服务器级别维护的底层数据执行操作，服务器通过api与存储引擎通信。不同的存储引擎具有的功能不同，支持二开引擎【阿里：Xtradb】</p>
+<h4 id="2、聚簇索引和非聚簇索引"><a href="#2、聚簇索引和非聚簇索引" class="headerlink" title="2、聚簇索引和非聚簇索引"></a>2、聚簇索引和非聚簇索引</h4><p>对比：</p>
+<ul>
+<li>聚簇索引叶子节点存储的是行数据；而非聚簇索引叶子节点存储的是聚簇索引（通常是主键 ID）。</li>
+<li>聚簇索引查询效率更高，而非聚簇索引需要进行回表查询，因此性能不如聚簇索引。</li>
+<li>聚簇索引一般为主键索引，而主键一个表中只能有一个，因此聚簇索引一个表中也只能有一个，而非聚簇索引则没有数量上的限制</li>
+</ul>
+<p><strong>聚簇索引 id 对应的 B+ 树如下图所示：</strong> </p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202302252030574.png"></p>
+<p><strong>在 student 中非聚簇索引 class_id 对应 B+ 树如下图所示：</strong> </p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202302252030261.png"></p>
+<h4 id="3、存储引擎"><a href="#3、存储引擎" class="headerlink" title="3、存储引擎"></a>3、存储引擎</h4><p>对比图：</p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202302251609760.png"></p>
+<p><strong>MyISAM</strong> <strong>与</strong> <strong>InnoDB两种引擎中索引的区别</strong></p>
+<p>① 在InnoDB存储引擎中，我们只需要根据主键值对聚簇索引进行一次查找就能找到对应的记录，而在MyISAM中却需要进行一次回表操作，意味着MyISAM中建立的索引相当于全部都是二级索引。</p>
+<p>② InnoDB的数据文件本身就是索引文件，而MyISAM索引文件和数据文件是分离的，索引文件仅保存数据记录的地址。</p>
+<p>③ InnoDB的非聚簇索引data域存储相应记录主键的值，而MyISAM索引记录的是地址。换句话说，InnoDB的所有非聚簇索引都引用主键作为data域。</p>
+<p>④ MyISAM的回表操作是十分快速的，因为是拿着地址偏移量直接到文件中取数据的，反观InnoDB是通过获取主键之后再去聚簇索引里找记录，虽然说也不慢，但还是比不上直接用地址去访问。</p>
+<p>⑤ InnoDB要求表必须有主键（MyISAM可以没有）。如果没有显式指定，则MySQL系统会自动选择一个可以非空且唯一标识数据记录的列作为主键。如果不存在这种列，则MySQL自动为InnoDB表生成一个隐含字段作为主键，这个字段长度为6个字节，类型为长整型。</p>
+<p>补充1：InnoDB的逻辑结构图：</p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202302252055728.png"></p>
+<h4 id="4、为什么覆盖索引不用回表"><a href="#4、为什么覆盖索引不用回表" class="headerlink" title="4、为什么覆盖索引不用回表"></a>4、为什么覆盖索引不用回表</h4><p>一级索引：聚簇索引即主键索引<br>二级索引：非聚簇索引</p>
+<p>一级B+Tree：叶子节点保存着键（id的值）和数据（全部字段的值）<br>二级B+Tree：叶子节点保存着键（索引字段的值）和数据（主键索引值）</p>
+<p>查询 一级索引，根据一级B+Tree查询到数据，直接返回数据<br>查询 二级索引，根据二级B+Tree查询到对应的聚簇索引，再根据聚簇索引在一级B+Tree里查询到相应数据</p>
+<p>查询 一级索引只需要扫描一次B+Tree。<br>查询 二级索引需要扫描两次B+Tree。根据二级B+Tree扫描的结果，再去一级B+Tree里进行扫描就叫回表操作。</p>
+<p>如果使用组合索引，就可以利用覆盖索引避免回表操作<br>例如：表一共有五个字段：a（主键索引），b_c_d（组合索引），e（没有索引）</p>
+<p>如果用户查询时只查 b,c,d 例：SELECT <code>b</code>, <code>c</code>, <code>d</code> FROM <code>table</code> WHERE <code>b</code> = 3 AND <code>c</code> = 7 AND <code>d</code> = 5;</p>
+<p>因为查询的字段 b,c,d的值（B+Tree里的键） 已经在B+Tree里了，所以就可以直接返回，不用再拿聚簇索引去一级B+Tree里进行查询<br>如果查询字段为 a,b,c,d 因为a为主键索引，也保存再二级B+Tree的叶子节点里，所以也不用回表查询<br>如果查询字段为 a,b,c,d,e 因为e没有在这个二级B+Tree里，所以需要进行回表操作，拿着主键索引再去一级B+Tree里进行查询。</p>
+<h4 id="5、B-tree"><a href="#5、B-tree" class="headerlink" title="5、B+tree"></a>5、B+tree</h4><p>时间复杂度：<strong>O(logN)</strong></p>
+<p>B+Tree是B-Tree的变种，我们以一颗最大度数（max-degree）为4阶（4指针3key）的b+tree为例</p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202302252105651.png"></p>
+<p>最终我们看到，B+Tree 与 B-Tree相比，主要有以下三点区别： </p>
+<ul>
+<li>所有的数据都会出现在叶子节点。 </li>
+<li>叶子节点形成一个单向链表。 </li>
+<li>非叶子节点仅仅起到索引数据作用，具体的数据都是在叶子节点存放的。 </li>
+</ul>
+<p>MySQL索引数据结构对经典的B+Tree进行了优化。在原B+Tree的基础上，增加一个指向相邻叶子节点的链表指针，就形成了带有顺序指针的B+Tree，提高区间访问的性能，利于排序。</p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202302252123348.png"></p>
+<h4 id="6、SQL优化（慢SQL优化）"><a href="#6、SQL优化（慢SQL优化）" class="headerlink" title="6、SQL优化（慢SQL优化）"></a>6、SQL优化（慢SQL优化）</h4><p>第一步：可以用 <code>explain</code> 查看执行计划</p>
+<p>常见案例优化：</p>
+<p>1-1、<strong>insert</strong></p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">insert</span> <span class="token keyword">into</span> tb_test <span class="token keyword">values</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token string">'tom'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">insert</span> <span class="token keyword">into</span> tb_test <span class="token keyword">values</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token string">'cat'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">insert</span> <span class="token keyword">into</span> tb_test <span class="token keyword">values</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token string">'jerry'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
 <p>优化，通过手动控制事务</p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">start</span> <span class="token keyword">transaction</span><span class="token punctuation">;</span>
 <span class="token keyword">insert</span> <span class="token keyword">into</span> tb_test <span class="token keyword">values</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token string">'Tom'</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token string">'Cat'</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token string">'Jerry'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -3224,7 +3081,7 @@ new Valine({
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">196.1k</span>&nbsp;字
+                class="white-color">196k</span>&nbsp;字
             
             
             
