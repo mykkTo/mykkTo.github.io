@@ -673,21 +673,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-03-16
+                    2023-03-20
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    33.6k
+                    36k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    122 分
+                    130 分
                 </div>
                 
 
@@ -775,9 +775,45 @@
 </ul>
 <h4 id="5-Sentinel的线程隔离与Hystix的线程隔离有什么差别"><a href="#5-Sentinel的线程隔离与Hystix的线程隔离有什么差别" class="headerlink" title="5.Sentinel的线程隔离与Hystix的线程隔离有什么差别"></a>5.Sentinel的线程隔离与Hystix的线程隔离有什么差别</h4><p>Hystix默认是基于线程池实现的线程隔离，每一个被隔离的业务都要创建一个独立的线程池，线程过多会带来额外的CPU开销，性能一般，但是隔离性更强。</p>
 <p>Sentinel是基于信号量（计数器）实现的线程隔离，不用创建线程池，性能较好，但是隔离性一般。</p>
-<h3 id="1、注册中心"><a href="#1、注册中心" class="headerlink" title="1、注册中心"></a>1、注册中心</h3><h4 id="1、注册中心比较"><a href="#1、注册中心比较" class="headerlink" title="1、注册中心比较"></a>1、注册中心比较</h4><p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220223225739.png"></p>
-<h4 id="2、注册服务于发现流程"><a href="#2、注册服务于发现流程" class="headerlink" title="2、注册服务于发现流程"></a>2、注册服务于发现流程</h4><h3 id="2、熔断器"><a href="#2、熔断器" class="headerlink" title="2、熔断器"></a>2、熔断器</h3><h4 id="1、对比图"><a href="#1、对比图" class="headerlink" title="1、对比图"></a>1、对比图</h4><h2 id="二、Mysql高级面基"><a href="#二、Mysql高级面基" class="headerlink" title="二、Mysql高级面基"></a>二、Mysql高级面基</h2><p>高级特性本周整理大纲：<br>1、执行流程（5.7 and 8.0 暂不整理），逻辑架构（三层）；图、概述，白话总结<br>2、存储引擎（InnoDB MyISAM （核心对比图）…边缘5种简述-了解）；装逼：阿里自定义引擎：Xtradb<br>3、索引迭代设计（是非聚簇索引，二级、联合索引），索引使用常见（11 yes 7 not）；边缘所以你接口对比（HASH、AVL、B、B+）、Explain调优阿里、三范式 ER模型<br>N、事务（显式、隐式），锁（表锁：S锁、X锁、意向锁、自增锁、元数据锁；行锁：记录锁、间隙锁、临键锁、插入意向锁；乐观悲观锁…..） 扩展待定？</p>
-<h4 id="1、执行流程"><a href="#1、执行流程" class="headerlink" title="1、执行流程"></a>1、执行流程</h4><p><strong>SQL流程</strong> </p>
+<h3 id="1、注册中心"><a href="#1、注册中心" class="headerlink" title="1、注册中心"></a>1、注册中心</h3><h4 id=""><a href="#" class="headerlink" title=""></a></h4><p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220223225739.png"></p>
+<h4 id="Eureka"><a href="#Eureka" class="headerlink" title="====Eureka====="></a>====Eureka=====</h4><p>包含2个组件：eureka server 和eureka client</p>
+<p>注册中心，包含了服务发现、治理等功能。@EnableEurekaServer，作为注册中心；</p>
+<p>@EnableEurekaClient，作为服务的提供者、或消费者。下面分析下服务发现和治理。</p>
+<h4 id="1、注册服务于发现流程（eureka）"><a href="#1、注册服务于发现流程（eureka）" class="headerlink" title="1、注册服务于发现流程（eureka）"></a>1、注册服务于发现流程（eureka）</h4><ul>
+<li>当EurekaClient启动后，首先会执行服务注册。</li>
+<li>EurekaClient将服务信息封装成InstanceInfo对象，通过EurekaHttpClient调用register方法发送POST请求执行服务注册</li>
+<li>EurekaServer提供了基于Jersey的Rest风格的接口，在ApplicationResource类中提供了addInstance方法用来接收注册信息。如果注册服务器信息通过校验，将服务信息保存至本地注册表。数据结构为双层ConcurrentHashMap，外层map：key是应用名，内层map：key是应用实例信息编号，value是InstanceInfo</li>
+<li>EurekaClient接收并解析注册结果，判断httpResponse的statusCode，如果是204则代表注册成功</li>
+<li>调用replicateToPeers方法将此次注册信息复制到对等的Eureka节点</li>
+</ul>
+<p><strong>客户端注册</strong>：Eureka客户端在启动时，首先会创建一个心跳的定时任务，定时向服务端发送心跳信息，服务端会对客户端心跳做出响应，如果响应状态码为404时，表示服务端没有该客户端的服务信息，那么客户端则会向服务端发送注册请求。</p>
+<p><strong>服务端如何保存客户端注册信息</strong>：客户端通过Jersey框架，将自己的注册信息发送给服务端，服务端保存在一个ConcurrentHashMap对象中。</p>
+<p><strong>客户端如何拉取服务端已保存的服务信息：</strong>客户端通过一个定时任务定时向服务端拉取信息，每次拉取后刷新本地已保存的信息，需要使用时直接从本地获取。</p>
+<h4 id="2、Eureka心跳机制"><a href="#2、Eureka心跳机制" class="headerlink" title="2、Eureka心跳机制"></a>2、Eureka心跳机制</h4><p><strong>心跳机制</strong></p>
+<p>客户端每隔30s想服务端发送一次心跳，告诉服务端自己还活着。</p>
+<p><strong>服务剔除机制</strong></p>
+<p>如果开了自我保护机制，那么所有的客户端包括没有长时间没有发送心跳的客户端都不会被剔除。<br>没开自我保护机制，注册到eureka的服务可能由于内存溢出或网络故障等原因使得服务不能正常的工作，而服务注册中心并未收到“服务下线”的请求。服务注册中心在启动时会创建一个定时任务，默认每隔一段时间（默认为60秒）将当前清单中超时（默认为90秒）没有续约的服务剔除，这个操作被称为失效剔除</p>
+<p><strong>Eureka为什么要采用自我保护机制</strong></p>
+<p>在分布式系统的CAP理论中，Eureka采用的AP，也就是Eureak保证了服务的可用性（A），而舍弃了数据的一致性（C）。当网络发生分区时，客户端和服务端的通讯将会终止，那么服务端在一定的时间内将收不到大部分的客户端的一个心跳，如果这个时候将这些收不到心跳</p>
+<h4 id="3、Eureka定时任务"><a href="#3、Eureka定时任务" class="headerlink" title="3、Eureka定时任务"></a>3、Eureka定时任务</h4><h5 id="拉取服务器注册实例"><a href="#拉取服务器注册实例" class="headerlink" title="拉取服务器注册实例"></a>拉取服务器注册实例</h5><ul>
+<li>该任务通过 ScheduledExecutorService 来实现任务调度，执行周期默认为 60 秒一次</li>
+<li>获取的方式有两种，全量获取和增量获取。第一次全量获取，后续增量获取；获取到服务器注册实例信息后，保存、或更新到本地</li>
+</ul>
+<p><strong>续约</strong><br>该任务通过 ScheduledExecutorService 来实现任务调度，默认周期为 30 秒一次，<br>通过 renew() 方法发起续约请求。将 AppName、AppId、以及InstanceInfo作为参数，通过EurekaHttpClient发送Http请求 EurekaServer 通过 renewLease() 方法接收续约请求首先根据AppName从注册表中获取对应的服务信息，并更新一些属性如renewsLastMin、lastUpdateTimestamp<br>EurekaServer 返回结果，200 或者 404，EurekaClient 接收续约结果；如果是 404 则发起一次 register 请求；如果是 200 则表示续约成功</p>
+<h4 id="Nacos"><a href="#Nacos" class="headerlink" title="=====Nacos====="></a>=====Nacos=====</h4><h4 id="1、Nacos-中的保护阈值作用"><a href="#1、Nacos-中的保护阈值作用" class="headerlink" title="1、Nacos 中的保护阈值作用"></a>1、Nacos 中的保护阈值作用</h4><p>假如现在有一个服务，本来有10个实例，但是现在挂掉了8个，剩下2个正常实例，此时本来由10个实例处理的流量，就全部交给这个两个正常实例来处理了，此时这两个实例很有可能是处理不过来的，最终导致被压垮，为了应对这种情况；</p>
+<p>Nacos提供了保护阈值这个功能，我们可以给某个服务设置一个0-1的阈值，比如0.5，那就表示，一旦实例中只剩下一半的健康实例了，比如10个实例，只剩下5个健康实例了，那么消费者在进行服务发现时，则会把该服务的所有实例，也包括不健康的实例都拉取到本地，然后再从所有实例中进行负载均衡，选出一个实例进行调用，在这种情况下，选出来的即可能是一个健康的实例，也可能是挂掉的实例，但是通过这种方式，很好的保护的剩下的健康实例，至少保证了一部分请求能正常的访问，而不至于所有请求都不能正常访问，这就是Nacos中的保护阈值，同时，这个功能在Spring Cloud Tencent中叫全死全活。</p>
+<h4 id="2、Nacos中的负载均衡"><a href="#2、Nacos中的负载均衡" class="headerlink" title="2、Nacos中的负载均衡"></a>2、Nacos中的负载均衡</h4><p>Nacos的负载均衡指的是，在进行服务发现时进行负载均衡，正常情况下，会根据服务名从Nacos中拉取所有的实例信息，拉取实例时，根据随机策略只拉取到所有实例中的某一个，这就是Nacos中的负载均衡，它跟Ribbon的负载均衡并不冲突，可以理解为Ribbon的负载均衡是发生在Nacos的负载均衡之后的</p>
+<h4 id="3、Nacos的就近访问是什么"><a href="#3、Nacos的就近访问是什么" class="headerlink" title="3、Nacos的就近访问是什么"></a>3、Nacos的就近访问是什么</h4><p>在Nacos中，一个服务可以有多个实例，并且可以给实例设置cluster-name，就是可以再进一步的给所有实例划分集群，那如果现在某个服务A想要调用服务B，那么Naocs会看调用服务A的实例是属于哪个集群的，并且调用服务B时，那就会调用同样集群下的服务B实例，根据cluster-name来判断两个实例是不是同一个集群，这就是Nacos的就近访问</p>
+<h4 id="4、Nacos中保证的是CP还是AP"><a href="#4、Nacos中保证的是CP还是AP" class="headerlink" title="4、Nacos中保证的是CP还是AP"></a>4、Nacos中保证的是CP还是AP</h4><p>通常我们说，Nacos技能保证CP，也能保证AP，具体看如何配置，但其实只不过是Nacos中的注册中心能保证CP或AP，Nacos中的配置中心其实没什么CP或AP，因为配置中心的数据是存在一个Mysql中的，只有注册中心的数据需要进行集群节点之间的同步，从而涉及到是CP还是AP，如果注册的节点是临时节点，那么就是AP，如果是非临时节点，那么就是CP，默认是临时节点。</p>
+<h4 id="5、如何理解Nacos中的命名空间"><a href="#5、如何理解Nacos中的命名空间" class="headerlink" title="5、如何理解Nacos中的命名空间"></a>5、如何理解Nacos中的命名空间</h4><p>在Nacos中，不管是配置还是服务，都是属于某一个命名空间中的，默认情况下是pulibc的，可以在Nacos中新增命名空间，也就相当于开辟了另外一套存放服务和配置的地方，命名空间之间是独立的，完全不冲突的，所以我们可以利用Nacos中的命名空间来实现不同环境、不同租户之间的服务注册和配置</p>
+<h4 id="6、你觉得注册中心应该是CP还是AP"><a href="#6、你觉得注册中心应该是CP还是AP" class="headerlink" title="6、你觉得注册中心应该是CP还是AP"></a>6、你觉得注册中心应该是CP还是AP</h4><p>大部分情况下，注册中心应该是AP；如果注册中心是CP的，那么我们向注册中心注册实例或移除实例时，都要等待注册中心集群中的数据达到一致后，才算注册或移除成功，而这是比较耗时的，随着业务应用规模的增大，应用频繁的上下线，会影响到服务发现的效率以及服务调用了；</p>
+<p>而如果注册中心是AP的，那么注册中心集群不管出现了什么情况，就算集群节点之间数据出现了不一致，对于业务应用而言，可能拉取到了一个已经下线了的服务节点，但是微服务框架或组件都提供了服务容错和重试功能，也可以避免这个问题。</p>
+<p>而如果是AP，对于注册中心而言就不需要消耗太多实时性来保证数据一致性了，既保证最终一致性就可以了，这样注册中心的压力会小一点；</p>
+<p>Zookeeper（CP）来作为注册中心，但是如果集群中如果大多数节点挂掉了，就算还剩下一些Zookeeper节点，这些节点也是不能提供服务的，所以这个也不太合适，所以综合来看，注册中心应该保证AP会更好，就像Euraka、Nacos他们默认保证的就是AP。</p>
+<h4 id="Zookeeper"><a href="#Zookeeper" class="headerlink" title="===Zookeeper===="></a>===Zookeeper====</h4><h4 id="1、是什么"><a href="#1、是什么" class="headerlink" title="1、是什么"></a>1、是什么</h4><p>zookeeper是一个分布式协调工具，为分布式应用提供一致性服务的软件，提供的功能包括：配置维护、域名服务、分布式同步、组服务等。</p>
+<h4 id="2、8大应用场景"><a href="#2、8大应用场景" class="headerlink" title="2、8大应用场景"></a>2、<strong>8大应用场景</strong></h4><p><strong>数据发布与订阅</strong></p>
+<h3 id="2、熔断器"><a href="#2、熔断器" class="headerlink" title="2、熔断器"></a>2、熔断器</h3><h4 id="1、对比图"><a href="#1、对比图" class="headerlink" title="1、对比图"></a>1、对比图</h4><h2 id="二、Mysql高级面基"><a href="#二、Mysql高级面基" class="headerlink" title="二、Mysql高级面基"></a>二、Mysql高级面基</h2><p>高级特性本周整理大纲：<br>1、执行流程（5.7 and 8.0 暂不整理），逻辑架构（三层）；图、概述，白话总结<br>2、存储引擎（InnoDB MyISAM （核心对比图）…边缘5种简述-了解）；装逼：阿里自定义引擎：Xtradb<br>3、索引迭代设计（是非聚簇索引，二级、联合索引），索引使用常见（11 yes 7 not）；边缘所以你接口对比（HASH、AVL、B、B+）、Explain调优阿里、三范式 ER模型<br>N、事务（显式、隐式），锁（表锁：S锁、X锁、意向锁、自增锁、元数据锁；行锁：记录锁、间隙锁、临键锁、插入意向锁；乐观悲观锁…..） 扩展待定？</p>
+<h3 id="1-精简"><a href="#1-精简" class="headerlink" title="1| 精简"></a>1| 精简</h3><h4 id="1、执行流程"><a href="#1、执行流程" class="headerlink" title="1、执行流程"></a>1、执行流程</h4><p><strong>SQL流程</strong> </p>
 <p>sql语句 -&gt; 查询缓存 -&gt; 解析器 -&gt; 优化器 -&gt; 执行器</p>
 <p><strong>完整流程</strong></p>
 <p> 客户端程序 connectors &gt;&gt; 连接池 &gt;&gt; SQL接口 &gt;&gt; 解析器 &gt;&gt; 优化器 &gt;&gt; 查询缓存 &gt;&gt; 插件式存储引擎 &gt;&gt; File（文件系统/日志文件）</p>
@@ -1959,7 +1995,7 @@ OK
 <p>4、TM 向 TC 发起针对 XID 的全局提交或回滚决议；</p>
 <p>5、TC 调度 XID 下管辖的全部分支事务完成提交或回滚请求。</p>
 <p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220325203440.png"></p>
-<h4 id=""><a href="#" class="headerlink" title=""></a></h4><h3 id="3、分布式事务的实现方式"><a href="#3、分布式事务的实现方式" class="headerlink" title="3、分布式事务的实现方式"></a>3、分布式事务的实现方式</h3><h4 id="1、"><a href="#1、" class="headerlink" title="1、"></a>1、</h4><h2 id="六、Spring"><a href="#六、Spring" class="headerlink" title="六、Spring"></a>六、Spring</h2><h3 id="1、热身题"><a href="#1、热身题" class="headerlink" title="1、热身题"></a>1、热身题</h3><h4 id="1-什么是spring"><a href="#1-什么是spring" class="headerlink" title="1.什么是spring?"></a><strong>1.什么是spring?</strong></h4><p>一个轻量级开源框架，简化开发。核心是ioc控制反转和aop面向切面编程。</p>
+<h4 id="-1"><a href="#-1" class="headerlink" title=""></a></h4><h3 id="3、分布式事务的实现方式"><a href="#3、分布式事务的实现方式" class="headerlink" title="3、分布式事务的实现方式"></a>3、分布式事务的实现方式</h3><h4 id="1、"><a href="#1、" class="headerlink" title="1、"></a>1、</h4><h2 id="六、Spring"><a href="#六、Spring" class="headerlink" title="六、Spring"></a>六、Spring</h2><h3 id="1、热身题"><a href="#1、热身题" class="headerlink" title="1、热身题"></a>1、热身题</h3><h4 id="1-什么是spring"><a href="#1-什么是spring" class="headerlink" title="1.什么是spring?"></a><strong>1.什么是spring?</strong></h4><p>一个轻量级开源框架，简化开发。核心是ioc控制反转和aop面向切面编程。</p>
 <p>简化开发: 通过切面和模板减少重复性代码，通过依赖注入创建对象，实现松耦合</p>
 <h4 id="2-什么是ioc和aop？"><a href="#2-什么是ioc和aop？" class="headerlink" title="2.什么是ioc和aop？"></a><strong>2.什么是ioc和aop？</strong></h4><p>ioc控制反转，实现对象的耦合关系的管理，将对象的依赖关系交给ioc管理。</p>
 <p>aop面向切面编程,动态非侵入的方式增强服务。</p>
@@ -2202,6 +2238,12 @@ OK
 <p>Redis缓存一致性：<a target="_blank" rel="noopener" href="https://blog.csdn.net/a745233700/article/details/88081219">https://blog.csdn.net/a745233700/article/details/88081219</a></p>
 <p>hystrix中信号量和线程池：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/chihirotan/p/11368520.html">https://www.cnblogs.com/chihirotan/p/11368520.html</a></p>
 <p>nacos面试等参考：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/482632893">https://zhuanlan.zhihu.com/p/482632893</a></p>
+<p>eureka:</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/lyc_liyanchao/article/details/120060221">https://blog.csdn.net/lyc_liyanchao/article/details/120060221</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_48227718/article/details/125620401">https://blog.csdn.net/weixin_48227718/article/details/125620401</a></p>
+<p>zookeeper:</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43495317/article/details/123142595">https://blog.csdn.net/weixin_43495317/article/details/123142595</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.51cto.com/u_15127568/2713356">https://blog.51cto.com/u_15127568/2713356</a></p>
 
                 
             </div>
@@ -3081,7 +3123,7 @@ new Valine({
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">196k</span>&nbsp;字
+                class="white-color">198.4k</span>&nbsp;字
             
             
             
