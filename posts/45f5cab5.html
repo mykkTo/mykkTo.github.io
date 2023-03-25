@@ -673,21 +673,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-03-20
+                    2023-03-25
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    36k
+                    40k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    130 分
+                    145 分
                 </div>
                 
 
@@ -775,7 +775,7 @@
 </ul>
 <h4 id="5-Sentinel的线程隔离与Hystix的线程隔离有什么差别"><a href="#5-Sentinel的线程隔离与Hystix的线程隔离有什么差别" class="headerlink" title="5.Sentinel的线程隔离与Hystix的线程隔离有什么差别"></a>5.Sentinel的线程隔离与Hystix的线程隔离有什么差别</h4><p>Hystix默认是基于线程池实现的线程隔离，每一个被隔离的业务都要创建一个独立的线程池，线程过多会带来额外的CPU开销，性能一般，但是隔离性更强。</p>
 <p>Sentinel是基于信号量（计数器）实现的线程隔离，不用创建线程池，性能较好，但是隔离性一般。</p>
-<h3 id="1、注册中心"><a href="#1、注册中心" class="headerlink" title="1、注册中心"></a>1、注册中心</h3><h4 id=""><a href="#" class="headerlink" title=""></a></h4><p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220223225739.png"></p>
+<h3 id="1、注册中心"><a href="#1、注册中心" class="headerlink" title="1、注册中心"></a>1、注册中心</h3><p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220223225739.png"></p>
 <h4 id="Eureka"><a href="#Eureka" class="headerlink" title="====Eureka====="></a>====Eureka=====</h4><p>包含2个组件：eureka server 和eureka client</p>
 <p>注册中心，包含了服务发现、治理等功能。@EnableEurekaServer，作为注册中心；</p>
 <p>@EnableEurekaClient，作为服务的提供者、或消费者。下面分析下服务发现和治理。</p>
@@ -811,7 +811,139 @@
 <p>而如果是AP，对于注册中心而言就不需要消耗太多实时性来保证数据一致性了，既保证最终一致性就可以了，这样注册中心的压力会小一点；</p>
 <p>Zookeeper（CP）来作为注册中心，但是如果集群中如果大多数节点挂掉了，就算还剩下一些Zookeeper节点，这些节点也是不能提供服务的，所以这个也不太合适，所以综合来看，注册中心应该保证AP会更好，就像Euraka、Nacos他们默认保证的就是AP。</p>
 <h4 id="Zookeeper"><a href="#Zookeeper" class="headerlink" title="===Zookeeper===="></a>===Zookeeper====</h4><h4 id="1、是什么"><a href="#1、是什么" class="headerlink" title="1、是什么"></a>1、是什么</h4><p>zookeeper是一个分布式协调工具，为分布式应用提供一致性服务的软件，提供的功能包括：配置维护、域名服务、分布式同步、组服务等。</p>
-<h4 id="2、8大应用场景"><a href="#2、8大应用场景" class="headerlink" title="2、8大应用场景"></a>2、<strong>8大应用场景</strong></h4><p><strong>数据发布与订阅</strong></p>
+<h4 id="2、8大应用场景"><a href="#2、8大应用场景" class="headerlink" title="2、8大应用场景"></a>2、<strong>8大应用场景</strong></h4><p><strong>（1）数据发布与订阅（配置中心）</strong></p>
+<p>发布与订阅即所谓的配置管理，顾名思义就是将数据发布到ZooKeeper节点上，供订阅者动态获取 </p>
+<p>数据，实现配置信息的集中式管理和动态更新。例如全局的配置信息，地址列表等就非常适合使 </p>
+<p>用。</p>
+<p>数据发布/订阅的一个常见的场景是配置中心，发布者把数据发布到 ZooKeeper 的一个或一系列的 </p>
+<p>节点上，供订阅者进行数据订阅，达到动态获取数据的目的。</p>
+<p>全局配置信息通常有3个特性：</p>
+<ul>
+<li>数据量小</li>
+<li>数据内容变化频繁</li>
+<li>集群中各机器配置共享、一致</li>
+</ul>
+<p>ZooKeeper 采用的是推拉结合的方式。 </p>
+<ol>
+<li><p>推: 服务端会推给注册了监控节点的客户端 Wathcer 事件通知 </p>
+</li>
+<li><p>拉: 客户端获得通知后，然后主动到服务端拉取最新的数据</p>
+</li>
+</ol>
+<p><strong>（2）分布式锁</strong></p>
+<p>处于不同节点上不同的服务，它们可能需要顺序的访问一些资源，这里需要一把分布式的锁。 </p>
+<p>分布式锁具有以下特性：写锁、读锁、时序锁。 </p>
+<p>写锁：在zk上创建的一个临时的无编号的节点。由于是无序编号，在创建时不会自动编号，导致只 </p>
+<p>能客户端有一个客户端得到锁，然后进行写入。 </p>
+<p>读锁：在zk上创建一个临时的有编号的节点，这样即使下次有客户端加入是同时创建相同的节点 </p>
+<p>时，他也会自动编号，也可以获得锁对象，然后对其进行读取。 </p>
+<p>时序锁：在zk上创建的一个临时的有编号的节点根据编号的大小控制锁。 </p>
+<p><strong>（3）负载均衡</strong></p>
+<p>这里说的负载均衡是指软负载均衡。在分布式环境中，为了保证高可用性，通常同一个应用或同一个服务的提供方都会部署多份，达到对等服务。而消费者就需要在这些对等的服务器中选择一个来执行相关的业务逻辑，其中比较典型的是消息中间件中的生产者，消费者负载均衡。</p>
+<p>消息中间件中发布者和订阅者的负载均衡，linkedin 开源的 KafkaMQ 和阿里开源的 metaq 都是通过 zookeeper 来做到生产者、消费者的负载均衡。这里以metaq为例如讲下： 生产者负载均衡：metaq 发送消息的时候，生产者在发送消息的时候必须选择一台 broker 上的一个分区来发送消息，因此metaq 在运行过程中，会把所有 broker和对应的分区信息全部注册到ZK指定节点上，默认的策略是一个依次轮询的过程，生产者在通过ZK获取分区列表之后，会按照 brokerId和partition的顺序排列组织成一个有序的分区列表，发送的时候按照从头到尾循环往复的方式选择一个分区来发送消息。 </p>
+<p>消费负载均衡：</p>
+<p>在消费过程中，一个消费者会消费一个或多个分区中的消息，但是一个分区只会由一个消费者来消费。MetaQ的消费策略是：</p>
+<p>每个分区针对同一个group只挂载一个消费者。 如果同一个group的消费者数目大于分区数目，则多出来的消费者将不参与消费。</p>
+<p>如果同一个group的消费者数目小于分区数目，则有部分消费者需要额外承担消费任务。</p>
+<p>在某个消费者故障或者重启等情况下，其他消费者会感知到这一变化（通过 zookeeper watch消费者列表），然后重新进行负载均衡，保证所有的分区都有消费者进行消费。</p>
+<p><strong>（4）命名服务</strong></p>
+<p>作为分布式命名服务，命名服务是指通过指定的名字来获取资源或者服务的地址，利用ZooKeeper </p>
+<p>创建一个全局的路径，这个路径就可以作为一个名字，指向集群中的集群，提供的服务的地址，或 </p>
+<p>者一个远程的对象等等</p>
+<p><strong>（5）分布式协调/通知</strong></p>
+<p>Zookeeper中特有的Watcher注册于异步通知机制，能够很好地实现分布式环境下不同机器，甚至不同系统之间的协调与通知，从而实现对数据变更的实时处理。通常的做法是不同的客户端都对Zookeeper上的同一个数据节点进行Watcher注册，监听数据节点的变化（包括节点本身和子节点），若数据节点发生变化，那么所有订阅的客户端都能够接收到相应的Watcher通知，并作出相应处理。</p>
+<p>在绝大多数分布式系统中，系统机器间的通信无外乎心跳检测、工作进度汇报和系统调度。这三种类型的机器通信方式都可以使用zookeeper来实现：</p>
+<p>1、心跳检测，不同机器间需要检测到彼此是否在正常运行，可以使用Zookeeper实现机器间的心跳检测，基于其临时节点特性（临时节点的生存周期是客户端会话，客户端若当即后，其临时节点自然不再存在），可以让不同机器都在Zookeeper的一个指定节点下创建临时子节点，不同的机器之间可以根据这个临时子节点来判断对应的客户端机器是否存活。通过Zookeeper可以大大减少系统耦合。</p>
+<p>2、工作进度汇报，通常任务被分发到不同机器后，需要实时地将自己的任务执行进度汇报给分发系统，可以在Zookeeper上选择一个节点，每个任务客户端都在这个节点下面创建临时子节点，这样不仅可以判断机器是否存活，同时各个机器可以将自己的任务执行进度写到该临时节点中去，以便中心系统能够实时获取任务的执行进度。</p>
+<p>3、系统调度，Zookeeper能够实现如下系统调度模式：分布式系统由控制台和一些客户端系统两部分构成，控制台的职责就是需要将一些指令信息发送给所有的客户端，以控制他们进行相应的业务逻辑，后台管理人员在控制台上做一些操作，实际上就是修改Zookeeper上某些节点的数据，Zookeeper可以把数据变更以时间通知的形式发送给订阅客户端。</p>
+<p><strong>（6）集群管理</strong></p>
+<p>Zookeeper的两大特性（节点特性和watcher机制）：</p>
+<p>1、客户端如果对Zookeeper的数据节点注册Watcher监听，那么当该数据及诶单内容或是其子节点列表发生变更时，Zookeeper服务器就会向订阅的客户端发送变更通知。</p>
+<p>2、对在Zookeeper上创建的临时节点，一旦客户端与服务器之间的会话失效，那么临时节点也会被自动删除。</p>
+<p>机器在线率有较高要求的场景，能够快速对集群中机器变化作出响应。这样的场景中，往往有一个监控系统，实时检测集群机器是否存活。过去的做法通常是：监控系统通过某种手段（比如ping）定时检测每个机器，或者每个机器自己定时向监控系统汇报“我还活着”。这种做法可行，但是存在两个比较明显的问题：</p>
+<ol>
+<li><p>  集群中机器有变动的时候，牵连修改的东西比较多。</p>
+</li>
+<li><p>  有一定的延时。</p>
+</li>
+</ol>
+<p>利用ZooKeeper有两个特性，就可以实时另一种集群机器存活性监控系统。可以实现集群机器存活监控系统，若监控系统在/clusterServers节点上注册一个Watcher监听，那么但凡进行动态添加机器的操作，就会在/clusterServers节点下创建一个临时节点：/clusterServers/[Hostname]，这样，监控系统就能够实时监测机器的变动情况。</p>
+<p>下面通过分布式日志收集系统的典型应用来学习Zookeeper如何实现集群管理。</p>
+<p>分布式日志收集系统的核心工作就是收集分布在不同机器上的系统日志，在典型的日志系统架构设计中，整个日志系统会把所有需要收集的日志机器分为多个组别，每个组别对应一个收集器，这个收集器其实就是一个后台机器，用于收集日志，对于大规模的分布式日志收集系统场景，通常需要解决两个问题：</p>
+<p>1、变化的日志源机器</p>
+<p>2、变化的收集器机器</p>
+<p>无论是日志源机器还是收集器机器的变更，最终都可以归结为如何快速、合理、动态地为每个收集器分配对应的日志源机器。</p>
+<p>a、注册收集器机器，在Zookeeper上创建一个节点作为收集器的根节点，例如/logs/collector的收集器节点，每个收集器机器启动时都会在收集器节点下创建自己的节点，如/logs/collector/[Hostname]<br> <img src="https://v1.mykkto.cn/image/blog/2022/Interview/202303212315402.png"></p>
+<p>b、任务分发，所有收集器机器都创建完对应节点后，系统根据收集器节点下子节点的个数，将所有日志源机器分成对应的若干组，然后将分组后的机器列表分别写到这些收集器机器创建的子节点，如/logs/collector/host1（持久节点）上去。这样，收集器机器就能够根据自己对应的收集器节点上获取日志源机器列表，进而开始进行日志收集工作。</p>
+<p>c、状态汇报，完成任务分发后，机器随时会宕机，所以需要有一个收集器的状态汇报机制，每个收集器机器上创建完节点后，还需要再对应子节点上创建一个状态子节点，如/logs/collector/host/status（临时节点），每个收集器机器都需要定期向该结点写入自己的状态信息，这可看做是心跳检测机制，通常收集器机器都会写入日志收集状态信息，日志系统通过判断状态子节点最后的更新时间来确定收集器机器是否存活。</p>
+<p>d、动态分配，若收集器机器宕机，则需要动态进行收集任务的分配，收集系统运行过程中关注/logs/collector节点下所有子节点的变更，一旦有机器停止汇报或有新机器加入，就开始进行任务的重新分配，此时通常由两种做法：</p>
+<p>1、全局动态分配，当收集器机器宕机或有新的机器加入，系统根据新的收集器机器列表，立即对所有的日志源机器重新进行一次分组，然后将其分配给剩下的收集器机器。</p>
+<p>2、局部动态分配，每个收集器机器在汇报自己日志收集状态的同时，也会把自己的负载汇报上去，如果一个机器宕机了，那么日志系统就会把之前分配给这个机器的任务重新分配到那些负载较低的机器，同样，如果有新机器加入，会从那些负载高的机器上转移一部分任务给新机器</p>
+<p><strong>（8）分布式队列</strong></p>
+<p>分布式队列分为两种： </p>
+<p>1、当一个队列的成员都聚齐时，这个队列才可用，否则一直等待所有成员到达，这种是同步队 </p>
+<p>列。 </p>
+<p>a）一个job由多个task组成，只有所有任务完成后，job才运行完成。 </p>
+<p>b）可为job创建一个/job目录，然后在该目录下，为每个完成的task创建一个临时的Znode，一旦 </p>
+<p>临时节点数目达到task总数，则表明job运行完成。 </p>
+<p>2、队列按照FIFO方式进行入队和出队操作，例如实现生产者和消费者模型。 </p>
+<h4 id="3、Zookeeper的工作原理"><a href="#3、Zookeeper的工作原理" class="headerlink" title="3、Zookeeper的工作原理"></a>3、<strong>Zookeeper</strong>的工作原理</h4><p>Zookeeper的核心是原子广播，这个机制保证了各个Server之间的同步。实现这个机制的协议叫做 </p>
+<p>Zab协议。 </p>
+<p>Zab协议有两种模式，它们 分别是恢复模式（选主）和广播模式（同步）。 </p>
+<p>Zookeeper 是通过 Zab 协议来保证分布式事务的最终一致性。Zab协议要求每个 Leader 都要经历三个阶段：发现，同步，广播。 </p>
+<p>当服务启动或者在领导者崩溃后，Zab就进入了恢复模式，当领导者被选举出来，且大多数Server </p>
+<p>完成了和 leader的状态同步以后，恢复模式就结束了。状态同步保证了leader和Server具有相同的 </p>
+<p>系统状态。 </p>
+<p>为了保证事务的顺序一致性，zookeeper采用了递增的事务id号（zxid）来标识事务。所有的提议 </p>
+<p>（proposal）都在被提出的时候加上了zxid。实现中zxid是一个64位的数字，它高32位是epoch用 </p>
+<p>来标识leader关系是否改变，每次一个leader被选出来，它都会有一个新的epoch（纪元），标识当前属于那个leader的统治时期。低32位用于递增计数。 </p>
+<p>epoch：可以理解为皇帝的年号，当新的皇帝leader产生后，将有一个新的epoch年号。 </p>
+<p>每个Server在工作过程中有三种状态： </p>
+<p>LOOKING：当前Server不知道leader是谁，正在搜寻。 </p>
+<p>LEADING：当前Server即为选举出来的leader。 </p>
+<p>FOLLOWING：leader已经选举出来，当前Server与之同步。 </p>
+<h4 id="4、Zookeeper-的通知机制是"><a href="#4、Zookeeper-的通知机制是" class="headerlink" title="4、Zookeeper 的通知机制是"></a>4、<strong>Zookeeper</strong> <strong>的通知机制是</strong></h4><p>Zookeeper 允许客户端向服务端的某个 znode 注册一个 Watcher 监听，当服务端的一些指定事件 </p>
+<p>触发了这个 Watcher ，服务端会向指定客户端发送一个事件通知来实现分布式的通知功能，然后客 </p>
+<p>户端根据 Watcher 通知状态和事件类型做出业务上的改变。</p>
+<p>大致分为三个步骤： </p>
+<ul>
+<li><p>客户端注册 Watcher </p>
+<ul>
+<li>1、调用 getData、getChildren、exist 三个 API ，传入Watcher 对象。 </li>
+<li>2、标记请求 request ，封装 Watcher 到 WatchRegistration 。</li>
+<li>3、封装成 Packet 对象，发服务端发送 request 。</li>
+<li>4、收到服务端响应后，将 Watcher 注册到 ZKWatcherManager 中进行管理。 </li>
+<li>5、 请求返回，完成注册。 </li>
+</ul>
+</li>
+<li><p>服务端处理 Watcher </p>
+<ul>
+<li>1、服务端接收 Watcher 并存储。 </li>
+<li>2、Watcher 触发 </li>
+<li>3、调用 process 方法来触发 Watcher 。 </li>
+</ul>
+</li>
+<li><p>客户端回调 Watcher </p>
+<ul>
+<li>1，客户端 SendThread 线程接收事件通知，交由 EventThread 线程回调Watcher 。 </li>
+<li>2，客户端 的 Watcher 机制同样是一次性的，一旦被触发后，该 Watcher 就失效了。 </li>
+<li>client 端会对某个 znode 建立一个 watcher 事件，当该 znode 发生变化时，这些 client 会收 到 zk 的通知，然后 client 可以根据 znode 变化来做出业务上的改变等。</li>
+</ul>
+</li>
+</ul>
+<h4 id="5、Zookeeper-对节点的-watch-监听通知是永久的吗"><a href="#5、Zookeeper-对节点的-watch-监听通知是永久的吗" class="headerlink" title="5、Zookeeper 对节点的 watch 监听通知是永久的吗"></a>5、<strong>Zookeeper</strong> <strong>对节点的</strong> <strong>watch</strong> <strong>监听通知是永久的吗</strong></h4><p><strong>一次性</strong>的。无论是服务端还是客户端，一旦一个 Watcher 被触发， Zookeeper 都会将其从 </p>
+<p>相应的存储中移除。这样的设计有效的减轻了服务端的压力，不然对于更新非常频繁的节点，服务 </p>
+<p>端会不断的向客户端发送事件通知，无论对于网络还是服务端的压力都非常大。</p>
+<h4 id="6、Zookeeper-集群中有哪些角色"><a href="#6、Zookeeper-集群中有哪些角色" class="headerlink" title="6、Zookeeper 集群中有哪些角色"></a>6、<strong>Zookeeper</strong> <strong>集群中有哪些角色</strong></h4><p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202303232346317.png"></p>
+<h4 id="7、Zookeeper-集群中Server有哪些工作状态"><a href="#7、Zookeeper-集群中Server有哪些工作状态" class="headerlink" title="7、Zookeeper 集群中Server有哪些工作状态"></a>7、<strong>Zookeeper</strong> <strong>集群中</strong>Server<strong>有哪些工作状态</strong></h4><p><strong>LOOKING</strong> </p>
+<p>寻找 Leader 状态；当服务器处于该状态时，它会认为当前集群中没有 Leader ，因此需要进入</p>
+<p>Leader 选举状态 </p>
+<p><strong>FOLLOWING</strong> </p>
+<p>跟随者状态；表明当前服务器角色是 Follower </p>
+<p><strong>LEADING</strong> </p>
+<p>领导者状态；表明当前服务器角色是 Leader </p>
+<p><strong>OBSERVING</strong> </p>
+<p>观察者状态；表明当前服务器角色是 Observer</p>
 <h3 id="2、熔断器"><a href="#2、熔断器" class="headerlink" title="2、熔断器"></a>2、熔断器</h3><h4 id="1、对比图"><a href="#1、对比图" class="headerlink" title="1、对比图"></a>1、对比图</h4><h2 id="二、Mysql高级面基"><a href="#二、Mysql高级面基" class="headerlink" title="二、Mysql高级面基"></a>二、Mysql高级面基</h2><p>高级特性本周整理大纲：<br>1、执行流程（5.7 and 8.0 暂不整理），逻辑架构（三层）；图、概述，白话总结<br>2、存储引擎（InnoDB MyISAM （核心对比图）…边缘5种简述-了解）；装逼：阿里自定义引擎：Xtradb<br>3、索引迭代设计（是非聚簇索引，二级、联合索引），索引使用常见（11 yes 7 not）；边缘所以你接口对比（HASH、AVL、B、B+）、Explain调优阿里、三范式 ER模型<br>N、事务（显式、隐式），锁（表锁：S锁、X锁、意向锁、自增锁、元数据锁；行锁：记录锁、间隙锁、临键锁、插入意向锁；乐观悲观锁…..） 扩展待定？</p>
 <h3 id="1-精简"><a href="#1-精简" class="headerlink" title="1| 精简"></a>1| 精简</h3><h4 id="1、执行流程"><a href="#1、执行流程" class="headerlink" title="1、执行流程"></a>1、执行流程</h4><p><strong>SQL流程</strong> </p>
 <p>sql语句 -&gt; 查询缓存 -&gt; 解析器 -&gt; 优化器 -&gt; 执行器</p>
@@ -1995,7 +2127,7 @@ OK
 <p>4、TM 向 TC 发起针对 XID 的全局提交或回滚决议；</p>
 <p>5、TC 调度 XID 下管辖的全部分支事务完成提交或回滚请求。</p>
 <p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220325203440.png"></p>
-<h4 id="-1"><a href="#-1" class="headerlink" title=""></a></h4><h3 id="3、分布式事务的实现方式"><a href="#3、分布式事务的实现方式" class="headerlink" title="3、分布式事务的实现方式"></a>3、分布式事务的实现方式</h3><h4 id="1、"><a href="#1、" class="headerlink" title="1、"></a>1、</h4><h2 id="六、Spring"><a href="#六、Spring" class="headerlink" title="六、Spring"></a>六、Spring</h2><h3 id="1、热身题"><a href="#1、热身题" class="headerlink" title="1、热身题"></a>1、热身题</h3><h4 id="1-什么是spring"><a href="#1-什么是spring" class="headerlink" title="1.什么是spring?"></a><strong>1.什么是spring?</strong></h4><p>一个轻量级开源框架，简化开发。核心是ioc控制反转和aop面向切面编程。</p>
+<h4 id=""><a href="#" class="headerlink" title=""></a></h4><h3 id="3、分布式事务的实现方式"><a href="#3、分布式事务的实现方式" class="headerlink" title="3、分布式事务的实现方式"></a>3、分布式事务的实现方式</h3><h4 id="1、"><a href="#1、" class="headerlink" title="1、"></a>1、</h4><h2 id="六、Spring"><a href="#六、Spring" class="headerlink" title="六、Spring"></a>六、Spring</h2><h3 id="1、热身题"><a href="#1、热身题" class="headerlink" title="1、热身题"></a>1、热身题</h3><h4 id="1-什么是spring"><a href="#1-什么是spring" class="headerlink" title="1.什么是spring?"></a><strong>1.什么是spring?</strong></h4><p>一个轻量级开源框架，简化开发。核心是ioc控制反转和aop面向切面编程。</p>
 <p>简化开发: 通过切面和模板减少重复性代码，通过依赖注入创建对象，实现松耦合</p>
 <h4 id="2-什么是ioc和aop？"><a href="#2-什么是ioc和aop？" class="headerlink" title="2.什么是ioc和aop？"></a><strong>2.什么是ioc和aop？</strong></h4><p>ioc控制反转，实现对象的耦合关系的管理，将对象的依赖关系交给ioc管理。</p>
 <p>aop面向切面编程,动态非侵入的方式增强服务。</p>
@@ -3123,7 +3255,7 @@ new Valine({
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">198.4k</span>&nbsp;字
+                class="white-color">204.5k</span>&nbsp;字
             
             
             
