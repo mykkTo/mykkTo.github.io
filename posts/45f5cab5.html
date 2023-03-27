@@ -673,7 +673,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-03-25
+                    2023-03-27
                 </div>
                 
 
@@ -847,9 +847,7 @@
 <p>如果同一个group的消费者数目小于分区数目，则有部分消费者需要额外承担消费任务。</p>
 <p>在某个消费者故障或者重启等情况下，其他消费者会感知到这一变化（通过 zookeeper watch消费者列表），然后重新进行负载均衡，保证所有的分区都有消费者进行消费。</p>
 <p><strong>（4）命名服务</strong></p>
-<p>作为分布式命名服务，命名服务是指通过指定的名字来获取资源或者服务的地址，利用ZooKeeper </p>
-<p>创建一个全局的路径，这个路径就可以作为一个名字，指向集群中的集群，提供的服务的地址，或 </p>
-<p>者一个远程的对象等等</p>
+<p>作为分布式命名服务，命名服务是指通过指定的名字来获取资源或者服务的地址，利用ZooKeeper 创建一个全局的路径，这个路径就可以作为一个名字，指向集群中的集群，提供的服务的地址，或者一个远程的对象等等</p>
 <p><strong>（5）分布式协调/通知</strong></p>
 <p>Zookeeper中特有的Watcher注册于异步通知机制，能够很好地实现分布式环境下不同机器，甚至不同系统之间的协调与通知，从而实现对数据变更的实时处理。通常的做法是不同的客户端都对Zookeeper上的同一个数据节点进行Watcher注册，监听数据节点的变化（包括节点本身和子节点），若数据节点发生变化，那么所有订阅的客户端都能够接收到相应的Watcher通知，并作出相应处理。</p>
 <p>在绝大多数分布式系统中，系统机器间的通信无外乎心跳检测、工作进度汇报和系统调度。这三种类型的机器通信方式都可以使用zookeeper来实现：</p>
@@ -944,7 +942,7 @@
 <p>领导者状态；表明当前服务器角色是 Leader </p>
 <p><strong>OBSERVING</strong> </p>
 <p>观察者状态；表明当前服务器角色是 Observer</p>
-<h3 id="2、熔断器"><a href="#2、熔断器" class="headerlink" title="2、熔断器"></a>2、熔断器</h3><h4 id="1、对比图"><a href="#1、对比图" class="headerlink" title="1、对比图"></a>1、对比图</h4><h2 id="二、Mysql高级面基"><a href="#二、Mysql高级面基" class="headerlink" title="二、Mysql高级面基"></a>二、Mysql高级面基</h2><p>高级特性本周整理大纲：<br>1、执行流程（5.7 and 8.0 暂不整理），逻辑架构（三层）；图、概述，白话总结<br>2、存储引擎（InnoDB MyISAM （核心对比图）…边缘5种简述-了解）；装逼：阿里自定义引擎：Xtradb<br>3、索引迭代设计（是非聚簇索引，二级、联合索引），索引使用常见（11 yes 7 not）；边缘所以你接口对比（HASH、AVL、B、B+）、Explain调优阿里、三范式 ER模型<br>N、事务（显式、隐式），锁（表锁：S锁、X锁、意向锁、自增锁、元数据锁；行锁：记录锁、间隙锁、临键锁、插入意向锁；乐观悲观锁…..） 扩展待定？</p>
+<h4 id="8、"><a href="#8、" class="headerlink" title="8、"></a>8、</h4><h4 id="9、"><a href="#9、" class="headerlink" title="9、"></a>9、</h4><h4 id="10、"><a href="#10、" class="headerlink" title="10、"></a>10、</h4><h4 id="11、"><a href="#11、" class="headerlink" title="11、"></a>11、</h4><h4 id="12、"><a href="#12、" class="headerlink" title="12、"></a>12、</h4><h4 id="13、"><a href="#13、" class="headerlink" title="13、"></a>13、</h4><h4 id="14、"><a href="#14、" class="headerlink" title="14、"></a>14、</h4><h4 id="15、"><a href="#15、" class="headerlink" title="15、"></a>15、</h4><h4 id="16、"><a href="#16、" class="headerlink" title="16、"></a>16、</h4><h4 id="17、"><a href="#17、" class="headerlink" title="17、"></a>17、</h4><h4 id="18、"><a href="#18、" class="headerlink" title="18、"></a>18、</h4><h3 id="2、熔断器"><a href="#2、熔断器" class="headerlink" title="2、熔断器"></a>2、熔断器</h3><h4 id="1、对比图"><a href="#1、对比图" class="headerlink" title="1、对比图"></a>1、对比图</h4><h3 id="3、网关"><a href="#3、网关" class="headerlink" title="3、网关"></a>3、网关</h3><h3 id="4、"><a href="#4、" class="headerlink" title="4、"></a>4、</h3><h3 id="5、"><a href="#5、" class="headerlink" title="5、"></a>5、</h3><h2 id="二、Mysql高级面基"><a href="#二、Mysql高级面基" class="headerlink" title="二、Mysql高级面基"></a>二、Mysql高级面基</h2><p>高级特性本周整理大纲：<br>1、执行流程（5.7 and 8.0 暂不整理），逻辑架构（三层）；图、概述，白话总结<br>2、存储引擎（InnoDB MyISAM （核心对比图）…边缘5种简述-了解）；装逼：阿里自定义引擎：Xtradb<br>3、索引迭代设计（是非聚簇索引，二级、联合索引），索引使用常见（11 yes 7 not）；边缘所以你接口对比（HASH、AVL、B、B+）、Explain调优阿里、三范式 ER模型<br>N、事务（显式、隐式），锁（表锁：S锁、X锁、意向锁、自增锁、元数据锁；行锁：记录锁、间隙锁、临键锁、插入意向锁；乐观悲观锁…..） 扩展待定？</p>
 <h3 id="1-精简"><a href="#1-精简" class="headerlink" title="1| 精简"></a>1| 精简</h3><h4 id="1、执行流程"><a href="#1、执行流程" class="headerlink" title="1、执行流程"></a>1、执行流程</h4><p><strong>SQL流程</strong> </p>
 <p>sql语句 -&gt; 查询缓存 -&gt; 解析器 -&gt; 优化器 -&gt; 执行器</p>
 <p><strong>完整流程</strong></p>
@@ -3255,7 +3253,7 @@ new Valine({
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">204.5k</span>&nbsp;字
+                class="white-color">205.5k</span>&nbsp;字
             
             
             

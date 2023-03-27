@@ -677,21 +677,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-03-25
+                    2023-03-27
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    16.3k
+                    17.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    68 分
+                    72 分
                 </div>
                 
 
@@ -1361,7 +1361,40 @@ bin/stop-cluster.sh<span aria-hidden="true" class="line-numbers-rows"><span></sp
 <p><img src="https://v1.mykkto.cn/image/blog/2022/bigdata/flink/202205212248685.png"></p>
 <p>5、任务提交成功之后，可点击左侧导航栏的“Running Jobs”查看程序运行列表情况</p>
 <p><img src="https://v1.mykkto.cn/image/blog/2022/bigdata/flink/202205220014860.png"></p>
-<h3 id="-5"><a href="#-5" class="headerlink" title=""></a></h3><h2 id="Ⅲ、DataStream-API"><a href="#Ⅲ、DataStream-API" class="headerlink" title="Ⅲ、DataStream API"></a>Ⅲ、DataStream API</h2><h3 id="一、概念"><a href="#一、概念" class="headerlink" title="一、概念"></a>一、概念</h3><p>DataStream（数据流）本身是 Flink 中一个用来表示数据集合的类，这套核心 API 可以做<code>流处理</code>以及<code>批处理</code>,这套API 主要做的是数据的转换</p>
+<h3 id="三、搭建kafka"><a href="#三、搭建kafka" class="headerlink" title="三、搭建kafka"></a>三、搭建kafka</h3><p>docker版本搭建 zookeeper and kafka</p>
+<h4 id="1、zookeeper"><a href="#1、zookeeper" class="headerlink" title="1、zookeeper"></a>1、zookeeper</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">docker run -d --name zookeeper -p <span class="token number">2181</span>:2181 -v /etc/localtime:/etc/localtime wurstmeister/zookeeper<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<h4 id="2、kafka"><a href="#2、kafka" class="headerlink" title="2、kafka"></a>2、kafka</h4><p>这边需要注意网段，192.168.16.4</p>
+<p><code>ifconfig</code> 查看下，如果用127.0.0.1 可能会闪退</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">docker run  -d --name kafka -p <span class="token number">9092</span>:9092 -e <span class="token assign-left variable">KAFKA_BROKER_ID</span><span class="token operator">=</span><span class="token number">0</span> -e <span class="token assign-left variable">KAFKA_ZOOKEEPER_CONNECT</span><span class="token operator">=</span><span class="token number">192.168</span>.16.4:2181 -e <span class="token assign-left variable">KAFKA_ADVERTISED_LISTENERS</span><span class="token operator">=</span>PLAINTEXT://106.12.159.22:9092 -e <span class="token assign-left variable">KAFKA_LISTENERS</span><span class="token operator">=</span>PLAINTEXT://0.0.0.0:9092 -t wurstmeister/kafka<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>-e KAFKA_BROKER_ID=0 在kafka集群中，每个kafka都有一个BROKER_ID来区分自己</p>
+<p>-e KAFKA_ZOOKEEPER_CONNECT=192.168.16.4:2181/kafka 配置zookeeper管理kafka的路径10.9.44.11:2181/kafka</p>
+<p>-e KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://192.168.16.4:9092 把kafka的地址端口注册给zookeeper</p>
+<p>-e KAFKA_LISTENERS=PLAINTEXT://0.0.0.0:9092 配置kafka的监听端口</p>
+<p>-v /etc/localtime:/etc/localtime 容器时间同步虚拟机的时间</p>
+<p>公网配置映射参数：才能让你的kafka被远程访问，底下配置只有 KAFKA_ADVERTISED_LISTENERS 必须是公网映射</p>
+<p>docker run -d –restart=always –name kafka <br>-p 9092:9092 <br>-e KAFKA_BROKER_ID=1 <br>-e KAFKA_auto_create_topics_enable=true \<br>-e KAFKA_HEAP_OPTS=”-Xmx256M -Xms128M” <br>-e KAFKA_ZOOKEEPER_CONNECT=公网ip:2181 <br>-e KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://公网ip:9092 <br>-e KAFKA_LISTENERS=PLAINTEXT://0.0.0.0:9092 \</p>
+<h4 id="3、检验kafka"><a href="#3、检验kafka" class="headerlink" title="3、检验kafka"></a>3、检验kafka</h4><h5 id="1、进入容器"><a href="#1、进入容器" class="headerlink" title="1、进入容器"></a>1、进入容器</h5><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">docker <span class="token builtin class-name">exec</span> -it kafka /bin/sh<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h5 id="2、切换到路径"><a href="#2、切换到路径" class="headerlink" title="2、切换到路径"></a>2、切换到路径</h5><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">cd</span> /opt/kafka/bin<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h5 id="3、运行kafka生产者命令"><a href="#3、运行kafka生产者命令" class="headerlink" title="3、运行kafka生产者命令"></a>3、运行kafka生产者命令</h5><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">./kafka-console-producer.sh --broker-list localhost:9092 --topic clicks<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h5 id="4、运行消费者命令"><a href="#4、运行消费者命令" class="headerlink" title="4、运行消费者命令"></a>4、运行消费者命令</h5><p>注意：topic 主题要一致，方能消费到</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">./kafka-console-consumer.sh --bootstrap-server localhost:9092 --from-beginning --topic clicks<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<h5 id="5、发送数据"><a href="#5、发送数据" class="headerlink" title="5、发送数据"></a>5、发送数据</h5><pre class="line-numbers language-bsh" data-language="bsh"><code class="language-bsh">aaa
+bbb<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+
+
+<h5 id="6、效果图"><a href="#6、效果图" class="headerlink" title="6、效果图"></a>6、效果图</h5><p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202303261226499.png"></p>
+<h2 id="Ⅲ、DataStream-API"><a href="#Ⅲ、DataStream-API" class="headerlink" title="Ⅲ、DataStream API"></a>Ⅲ、DataStream API</h2><h3 id="一、概念"><a href="#一、概念" class="headerlink" title="一、概念"></a>一、概念</h3><p>DataStream（数据流）本身是 Flink 中一个用来表示数据集合的类，这套核心 API 可以做<code>流处理</code>以及<code>批处理</code>,这套API 主要做的是数据的转换</p>
 <p>一个 Flink 程序，其实就是对 DataStream 的各种转换。具体来说，代码基本上都由以下几部分构成</p>
 <ul>
 <li>获取执行环境</li>
@@ -2205,7 +2238,124 @@ close生命周期被调用：1号任务启动
 
 
 
-<h3 id="五、输出算子"><a href="#五、输出算子" class="headerlink" title="五、输出算子"></a>五、输出算子</h3><h4 id="1、连接到外部系统"><a href="#1、连接到外部系统" class="headerlink" title="1、连接到外部系统"></a>1、连接到外部系统</h4><h4 id="2、输出到文件"><a href="#2、输出到文件" class="headerlink" title="2、输出到文件"></a>2、输出到文件</h4><h4 id="3、输出到kafka"><a href="#3、输出到kafka" class="headerlink" title="3、输出到kafka"></a>3、输出到kafka</h4><h4 id="4、输出到Redis"><a href="#4、输出到Redis" class="headerlink" title="4、输出到Redis"></a>4、输出到Redis</h4><h4 id="5、输出到ElasticecSearch"><a href="#5、输出到ElasticecSearch" class="headerlink" title="5、输出到ElasticecSearch"></a>5、输出到ElasticecSearch</h4><h4 id="6、输出到MySQL-JDBC"><a href="#6、输出到MySQL-JDBC" class="headerlink" title="6、输出到MySQL(JDBC)"></a>6、输出到MySQL(JDBC)</h4><h4 id="7、自定义Sink输出"><a href="#7、自定义Sink输出" class="headerlink" title="7、自定义Sink输出"></a>7、自定义Sink输出</h4><h2 id="Ⅳ、Flink-时间和窗口"><a href="#Ⅳ、Flink-时间和窗口" class="headerlink" title="Ⅳ、Flink 时间和窗口"></a>Ⅳ、Flink 时间和窗口</h2><h3 id="一、时间语义"><a href="#一、时间语义" class="headerlink" title="一、时间语义"></a>一、时间语义</h3><h3 id="二、水位线"><a href="#二、水位线" class="headerlink" title="二、水位线"></a>二、水位线</h3><h3 id="三、窗口"><a href="#三、窗口" class="headerlink" title="三、窗口"></a>三、窗口</h3><h3 id="四、迟到数据的处理"><a href="#四、迟到数据的处理" class="headerlink" title="四、迟到数据的处理"></a>四、迟到数据的处理</h3><h3 id="五、总结"><a href="#五、总结" class="headerlink" title="五、总结"></a>五、总结</h3><h2 id="Ⅴ、"><a href="#Ⅴ、" class="headerlink" title="Ⅴ、"></a>Ⅴ、</h2><h3 id="Ⅵ、"><a href="#Ⅵ、" class="headerlink" title="Ⅵ、"></a>Ⅵ、</h3><h2 id="Ⅶ、"><a href="#Ⅶ、" class="headerlink" title="Ⅶ、"></a>Ⅶ、</h2><h2 id="Ⅷ、"><a href="#Ⅷ、" class="headerlink" title="Ⅷ、"></a>Ⅷ、</h2><h2 id="Ⅸ、"><a href="#Ⅸ、" class="headerlink" title="Ⅸ、"></a>Ⅸ、</h2><h2 id="Ⅹ、"><a href="#Ⅹ、" class="headerlink" title="Ⅹ、"></a>Ⅹ、</h2><h2 id="参考地址-↓"><a href="#参考地址-↓" class="headerlink" title="参考地址 ↓"></a>参考地址 ↓</h2><h3 id="1、docker-加速（博主简书）"><a href="#1、docker-加速（博主简书）" class="headerlink" title="1、docker 加速（博主简书）"></a>1、docker 加速（博主简书）</h3><p>url：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/f554c85b25c1">https://www.jianshu.com/p/f554c85b25c1</a></p>
+<h3 id="五、输出算子"><a href="#五、输出算子" class="headerlink" title="五、输出算子"></a>五、输出算子</h3><h4 id="1、输出到文件"><a href="#1、输出到文件" class="headerlink" title="1、输出到文件"></a>1、输出到文件</h4><p>比如我们经常用的日志文件，就是类似于这种滚动输出</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>kk<span class="token punctuation">.</span>model4</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token namespace">com<span class="token punctuation">.</span>kk<span class="token punctuation">.</span></span><span class="token class-name">BaseUtil</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>flink<span class="token punctuation">.</span>api<span class="token punctuation">.</span>common<span class="token punctuation">.</span>serialization<span class="token punctuation">.</span></span><span class="token class-name">SimpleStringEncoder</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>flink<span class="token punctuation">.</span>core<span class="token punctuation">.</span>fs<span class="token punctuation">.</span></span><span class="token class-name">Path</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>flink<span class="token punctuation">.</span>streaming<span class="token punctuation">.</span>api<span class="token punctuation">.</span>functions<span class="token punctuation">.</span>sink<span class="token punctuation">.</span>filesystem<span class="token punctuation">.</span></span><span class="token class-name">StreamingFileSink</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>flink<span class="token punctuation">.</span>streaming<span class="token punctuation">.</span>api<span class="token punctuation">.</span>functions<span class="token punctuation">.</span>sink<span class="token punctuation">.</span>filesystem<span class="token punctuation">.</span>rollingpolicies<span class="token punctuation">.</span></span><span class="token class-name">DefaultRollingPolicy</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>concurrent<span class="token punctuation">.</span></span><span class="token class-name">TimeUnit</span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SinkToFileTest</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span> <span class="token punctuation">{</span>
+
+
+        <span class="token comment">// 1、定义String类型方便输出</span>
+
+        <span class="token class-name">StreamingFileSink</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> streamingFileSink <span class="token operator">=</span> <span class="token class-name">StreamingFileSink</span><span class="token punctuation">.</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span></span>forRowFormat <span class="token punctuation">(</span>
+                <span class="token keyword">new</span> <span class="token class-name">Path</span> <span class="token punctuation">(</span><span class="token string">"./output"</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token comment">// 输出路径</span>
+                <span class="token keyword">new</span> <span class="token class-name">SimpleStringEncoder</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span> <span class="token punctuation">(</span><span class="token string">"UTF-8"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment">//字符集</span>
+                <span class="token comment">// 指定滚动策略：</span>
+                <span class="token comment">//   比如日志文件不停写入，文件不停增大，那么需要一个策略设置一个文件多大停止写入，</span>
+                <span class="token comment">//   开启一个新的文件继续写入</span>
+                <span class="token punctuation">.</span>withRollingPolicy <span class="token punctuation">(</span>
+                        <span class="token class-name">DefaultRollingPolicy</span><span class="token punctuation">.</span>builder <span class="token punctuation">(</span> <span class="token punctuation">)</span>
+                                <span class="token punctuation">.</span>withMaxPartSize <span class="token punctuation">(</span><span class="token number">1024</span> <span class="token operator">*</span> <span class="token number">1024</span> <span class="token operator">*</span> <span class="token number">1024</span><span class="token punctuation">)</span><span class="token comment">// 滚动大小：1G</span>
+                                <span class="token comment">// 滚动时间，15分钟开启一个新的</span>
+                                <span class="token punctuation">.</span>withRolloverInterval <span class="token punctuation">(</span><span class="token class-name">TimeUnit</span><span class="token punctuation">.</span>MINUTES<span class="token punctuation">.</span>toMinutes <span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+                                <span class="token comment">// 滚动周期（如果5分钟没有数据写入，则开启一个新的文件）</span>
+                                <span class="token punctuation">.</span>withInactivityInterval <span class="token punctuation">(</span><span class="token class-name">TimeUnit</span><span class="token punctuation">.</span>MINUTES<span class="token punctuation">.</span>toMinutes <span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+                                <span class="token punctuation">.</span>build <span class="token punctuation">(</span> <span class="token punctuation">)</span>
+                <span class="token punctuation">)</span>
+                <span class="token punctuation">.</span>build <span class="token punctuation">(</span> <span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// 构建返回对象</span>
+
+        <span class="token class-name">BaseUtil</span><span class="token punctuation">.</span>stream<span class="token punctuation">.</span>map <span class="token punctuation">(</span>data <span class="token operator">-&gt;</span> data<span class="token punctuation">.</span>toString <span class="token punctuation">(</span> <span class="token punctuation">)</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span>addSink <span class="token punctuation">(</span>streamingFileSink<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">BaseUtil</span><span class="token punctuation">.</span>env<span class="token punctuation">.</span>setParallelism <span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">BaseUtil</span><span class="token punctuation">.</span>env<span class="token punctuation">.</span>execute <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+<h4 id="2、输出到kafka"><a href="#2、输出到kafka" class="headerlink" title="2、输出到kafka"></a>2、输出到kafka</h4><p>（1）创建生产者</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token number">1</span>、进入容器
+docker <span class="token builtin class-name">exec</span> -it kafka /bin/sh
+<span class="token number">2</span>、进入驱动文件路径
+<span class="token builtin class-name">cd</span> opt/kafka/bin
+<span class="token number">3</span>、创建生产者
+ ./kafka-console-producer.sh --broker-list localhost:9092 --topic clicks
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>（2）创建消费者</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token punctuation">.</span>/kafka<span class="token operator">-</span>console<span class="token operator">-</span>consumer<span class="token punctuation">.</span>sh <span class="token operator">--</span>bootstrap<span class="token operator">-</span>server localhost<span class="token operator">:</span><span class="token number">9092</span> <span class="token operator">--</span>from<span class="token operator">-</span>beginning <span class="token operator">--</span>topic events<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>（3）编码</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>kk<span class="token punctuation">.</span>model4</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token namespace">com<span class="token punctuation">.</span>kk<span class="token punctuation">.</span></span><span class="token class-name">BaseUtil</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">com<span class="token punctuation">.</span>kk<span class="token punctuation">.</span>model2<span class="token punctuation">.</span>pojo<span class="token punctuation">.</span></span><span class="token class-name">Event</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>flink<span class="token punctuation">.</span>api<span class="token punctuation">.</span>common<span class="token punctuation">.</span>functions<span class="token punctuation">.</span></span><span class="token class-name">MapFunction</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>flink<span class="token punctuation">.</span>api<span class="token punctuation">.</span>common<span class="token punctuation">.</span>serialization<span class="token punctuation">.</span></span><span class="token class-name">SimpleStringSchema</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>flink<span class="token punctuation">.</span>streaming<span class="token punctuation">.</span>api<span class="token punctuation">.</span>datastream<span class="token punctuation">.</span></span><span class="token class-name">DataStreamSource</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>flink<span class="token punctuation">.</span>streaming<span class="token punctuation">.</span>api<span class="token punctuation">.</span>datastream<span class="token punctuation">.</span></span><span class="token class-name">SingleOutputStreamOperator</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>flink<span class="token punctuation">.</span>streaming<span class="token punctuation">.</span>api<span class="token punctuation">.</span>environment<span class="token punctuation">.</span></span><span class="token class-name">StreamExecutionEnvironment</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>flink<span class="token punctuation">.</span>streaming<span class="token punctuation">.</span>connectors<span class="token punctuation">.</span>kafka<span class="token punctuation">.</span></span><span class="token class-name">FlinkKafkaConsumer</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>flink<span class="token punctuation">.</span>streaming<span class="token punctuation">.</span>connectors<span class="token punctuation">.</span>kafka<span class="token punctuation">.</span></span><span class="token class-name">FlinkKafkaProducer</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">Properties</span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SinkToKafka</span> <span class="token punctuation">{</span>
+
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span><span class="token keyword">throws</span> <span class="token class-name">Exception</span> <span class="token punctuation">{</span>
+        <span class="token class-name">StreamExecutionEnvironment</span> env <span class="token operator">=</span> <span class="token class-name">StreamExecutionEnvironment</span><span class="token punctuation">.</span>getExecutionEnvironment <span class="token punctuation">(</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+        env<span class="token punctuation">.</span>setParallelism <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token class-name">Properties</span> properties <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Properties</span> <span class="token punctuation">(</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+        properties<span class="token punctuation">.</span>setProperty <span class="token punctuation">(</span><span class="token string">"bootstrap.servers"</span><span class="token punctuation">,</span> <span class="token class-name">BaseUtil</span><span class="token punctuation">.</span>KAFKAURL<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// 1、从kafka中读取数据</span>
+        <span class="token class-name">DataStreamSource</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> kafkaStream <span class="token operator">=</span> env<span class="token punctuation">.</span>addSource <span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">FlinkKafkaConsumer</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> <span class="token punctuation">(</span>
+                <span class="token string">"clicks"</span><span class="token punctuation">,</span>
+                <span class="token keyword">new</span> <span class="token class-name">SimpleStringSchema</span> <span class="token punctuation">(</span> <span class="token punctuation">)</span><span class="token punctuation">,</span>
+                properties
+        <span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        kafkaStream<span class="token punctuation">.</span>print <span class="token punctuation">(</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// 2、用flink进行转换处理</span>
+        <span class="token class-name">SingleOutputStreamOperator</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> result <span class="token operator">=</span> kafkaStream<span class="token punctuation">.</span>map <span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">MapFunction</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> <span class="token punctuation">(</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token annotation punctuation">@Override</span>
+            <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">map</span><span class="token punctuation">(</span><span class="token class-name">String</span> value<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> fields <span class="token operator">=</span> value<span class="token punctuation">.</span>split <span class="token punctuation">(</span><span class="token string">","</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Event</span> <span class="token punctuation">(</span>fields<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>trim <span class="token punctuation">(</span> <span class="token punctuation">)</span><span class="token punctuation">,</span> fields<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>trim <span class="token punctuation">(</span> <span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token class-name">Long</span><span class="token punctuation">.</span>valueOf <span class="token punctuation">(</span>fields<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>toString <span class="token punctuation">(</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// 3、结果数据写入 kafka</span>
+        result<span class="token punctuation">.</span>addSink <span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">FlinkKafkaProducer</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> <span class="token punctuation">(</span><span class="token class-name">BaseUtil</span><span class="token punctuation">.</span>KAFKAURL<span class="token punctuation">,</span><span class="token string">"events"</span><span class="token punctuation">,</span><span class="token keyword">new</span> <span class="token class-name">SimpleStringSchema</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        env<span class="token punctuation">.</span>execute <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p>(4)流程</p>
+<p>生产者发送 -》 flink 接收处理 -》 kafka 消费者消费</p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202303262114955.png"></p>
+<p>（X）补充：kafka 对外远程映射</p>
+<p>docker 启动需要指定公网配置，如果没有配置的话，需要在配置文件配置(重启有自动重刷回原始的问题)</p>
+<p>配置路径：<code>opt/kafka/conf/services.properties</code></p>
+<h4 id="3、输出到Redis"><a href="#3、输出到Redis" class="headerlink" title="3、输出到Redis"></a>3、输出到Redis</h4><h4 id="4、输出到ElasticecSearch"><a href="#4、输出到ElasticecSearch" class="headerlink" title="4、输出到ElasticecSearch"></a>4、输出到ElasticecSearch</h4><h4 id="5、输出到MySQL-JDBC"><a href="#5、输出到MySQL-JDBC" class="headerlink" title="5、输出到MySQL(JDBC)"></a>5、输出到MySQL(JDBC)</h4><h4 id="6、自定义Sink输出"><a href="#6、自定义Sink输出" class="headerlink" title="6、自定义Sink输出"></a>6、自定义Sink输出</h4><h2 id="Ⅳ、Flink-时间和窗口"><a href="#Ⅳ、Flink-时间和窗口" class="headerlink" title="Ⅳ、Flink 时间和窗口"></a>Ⅳ、Flink 时间和窗口</h2><h3 id="一、时间语义"><a href="#一、时间语义" class="headerlink" title="一、时间语义"></a>一、时间语义</h3><h3 id="二、水位线"><a href="#二、水位线" class="headerlink" title="二、水位线"></a>二、水位线</h3><h3 id="三、窗口"><a href="#三、窗口" class="headerlink" title="三、窗口"></a>三、窗口</h3><h3 id="四、迟到数据的处理"><a href="#四、迟到数据的处理" class="headerlink" title="四、迟到数据的处理"></a>四、迟到数据的处理</h3><h3 id="五、总结"><a href="#五、总结" class="headerlink" title="五、总结"></a>五、总结</h3><h2 id="Ⅴ、处理函数"><a href="#Ⅴ、处理函数" class="headerlink" title="Ⅴ、处理函数"></a>Ⅴ、处理函数</h2><h2 id="Ⅵ、多流转换"><a href="#Ⅵ、多流转换" class="headerlink" title="Ⅵ、多流转换"></a>Ⅵ、多流转换</h2><h2 id="Ⅶ、状态编程"><a href="#Ⅶ、状态编程" class="headerlink" title="Ⅶ、状态编程"></a>Ⅶ、状态编程</h2><h2 id="Ⅷ、容错机制"><a href="#Ⅷ、容错机制" class="headerlink" title="Ⅷ、容错机制"></a>Ⅷ、容错机制</h2><h2 id="Ⅸ、Table-API-and-SQL"><a href="#Ⅸ、Table-API-and-SQL" class="headerlink" title="Ⅸ、Table API and SQL"></a>Ⅸ、Table API and SQL</h2><h2 id="Ⅹ、Flink-CEP"><a href="#Ⅹ、Flink-CEP" class="headerlink" title="Ⅹ、Flink CEP"></a>Ⅹ、Flink CEP</h2><h2 id="参考地址-↓"><a href="#参考地址-↓" class="headerlink" title="参考地址 ↓"></a>参考地址 ↓</h2><h3 id="1、docker-加速（博主简书）"><a href="#1、docker-加速（博主简书）" class="headerlink" title="1、docker 加速（博主简书）"></a>1、docker 加速（博主简书）</h3><p>url：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/f554c85b25c1">https://www.jianshu.com/p/f554c85b25c1</a></p>
 <h3 id="2、Hadoop-单机安装"><a href="#2、Hadoop-单机安装" class="headerlink" title="2、Hadoop 单机安装"></a>2、Hadoop 单机安装</h3><p>url：<a target="_blank" rel="noopener" href="https://blog.51cto.com/u_15187242/4760802">https://blog.51cto.com/u_15187242/4760802</a></p>
 <pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker run <span class="token punctuation">-</span>i <span class="token punctuation">-</span>t <span class="token punctuation">-</span><span class="token punctuation">-</span>network host <span class="token punctuation">-</span>p 50070<span class="token punctuation">:</span>50070 <span class="token punctuation">-</span>p 9000<span class="token punctuation">:</span>9000 <span class="token punctuation">-</span>p 8088<span class="token punctuation">:</span>8088 <span class="token punctuation">-</span>p 8040<span class="token punctuation">:</span>8040 <span class="token punctuation">-</span>p 8042<span class="token punctuation">:</span>8042 <span class="token punctuation">-</span>p 49707<span class="token punctuation">:</span>49707 <span class="token punctuation">-</span>p 50010<span class="token punctuation">:</span>50010 <span class="token punctuation">-</span>p 50075<span class="token punctuation">:</span>50075 <span class="token punctuation">-</span>p 50090<span class="token punctuation">:</span>50090 sequenceiq/hadoop<span class="token punctuation">-</span>docker<span class="token punctuation">:</span>2.7.0 /etc/bootstrap.sh <span class="token punctuation">-</span>bash<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
@@ -3108,7 +3258,7 @@ new Valine({
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">204.5k</span>&nbsp;字
+                class="white-color">205.5k</span>&nbsp;字
             
             
             
