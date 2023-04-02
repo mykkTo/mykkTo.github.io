@@ -673,21 +673,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-03-27
+                    2023-04-01
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    40k
+                    40.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    145 分
+                    146 分
                 </div>
                 
 
@@ -2119,13 +2119,15 @@ OK
 <p>Resource Manager (RM)<strong>【用户】</strong></p>
 <p><code>控制分支事务</code>，负责分支注册、状态汇报，并接收事务协调器的指令，驱动分支（本地）事务的提交和回滚</p>
 <p>XID【程序】</p>
-<h4 id="2、处理过程"><a href="#2、处理过程" class="headerlink" title="2、处理过程"></a>2、处理过程</h4><p>1、TM 向 TC 申请开启一个全局事务，全局事务创建成功并生成一个全局唯一的 XID；</p>
-<p>2、XID 在微服务调用链路的上下文中传播；</p>
-<p>3、RM 向 TC 注册分支事务，将其纳入 XID 对应全局事务的管辖；</p>
-<p>4、TM 向 TC 发起针对 XID 的全局提交或回滚决议；</p>
-<p>5、TC 调度 XID 下管辖的全部分支事务完成提交或回滚请求。</p>
-<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220325203440.png"></p>
-<h4 id=""><a href="#" class="headerlink" title=""></a></h4><h3 id="3、分布式事务的实现方式"><a href="#3、分布式事务的实现方式" class="headerlink" title="3、分布式事务的实现方式"></a>3、分布式事务的实现方式</h3><h4 id="1、"><a href="#1、" class="headerlink" title="1、"></a>1、</h4><h2 id="六、Spring"><a href="#六、Spring" class="headerlink" title="六、Spring"></a>六、Spring</h2><h3 id="1、热身题"><a href="#1、热身题" class="headerlink" title="1、热身题"></a>1、热身题</h3><h4 id="1-什么是spring"><a href="#1-什么是spring" class="headerlink" title="1.什么是spring?"></a><strong>1.什么是spring?</strong></h4><p>一个轻量级开源框架，简化开发。核心是ioc控制反转和aop面向切面编程。</p>
+<h4 id="2、处理过程"><a href="#2、处理过程" class="headerlink" title="2、处理过程"></a>2、处理过程</h4><p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202303302226889.png"></p>
+<p>AT模式主要分为两个阶段：</p>
+<p>一阶段：</p>
+<p>解析SQL，获取SQL类型（CRUD）、表信息、条件(where) 等相关信息<br>查询前镜像(改变之前的数据)，根据解析得到的条件信息，生成查询语句，定位数据<br>执行业务SQL，更新数据<br>查询后镜像（改变后的数据），根据前镜像的结果，通过主键都给你为数据<br>插入回滚日志，将前后镜像数据以及业务SQL等信息，组织成一条回滚日志记录，插入到undo Log表中<br>提交前，向TC注册分支，申请全局锁<br>本地事务提交，业务数据的更细腻和生成的undoLog一起提交<br>将本地事务提交的结果通知给TC</p>
+<p>二阶段：</p>
+<p>如果TC收到的是回滚请求</p>
+<p>开启本地事务，通过XID和BranchID查找到对应的undo Log记录<br>根据undoLog中的前镜像和业务SQL的相关信息生成并执行回滚语句<br>提交本地事务，将本地事务的执行结果（分支事务回滚的信息）通知给TC<br>如果没问题，执行提交操作</p>
+<p>收到TC分支提交请求，将请求放入到一个异步任务的队列中，马上返回提交成功的结果给TC<br>异步任务阶段的分支提交请求删除undoLog中记录</p>
+<h3 id="3、分布式事务的实现方式"><a href="#3、分布式事务的实现方式" class="headerlink" title="3、分布式事务的实现方式"></a>3、分布式事务的实现方式</h3><h4 id="1、"><a href="#1、" class="headerlink" title="1、"></a>1、</h4><h2 id="六、Spring"><a href="#六、Spring" class="headerlink" title="六、Spring"></a>六、Spring</h2><h3 id="1、热身题"><a href="#1、热身题" class="headerlink" title="1、热身题"></a>1、热身题</h3><h4 id="1-什么是spring"><a href="#1-什么是spring" class="headerlink" title="1.什么是spring?"></a><strong>1.什么是spring?</strong></h4><p>一个轻量级开源框架，简化开发。核心是ioc控制反转和aop面向切面编程。</p>
 <p>简化开发: 通过切面和模板减少重复性代码，通过依赖注入创建对象，实现松耦合</p>
 <h4 id="2-什么是ioc和aop？"><a href="#2-什么是ioc和aop？" class="headerlink" title="2.什么是ioc和aop？"></a><strong>2.什么是ioc和aop？</strong></h4><p>ioc控制反转，实现对象的耦合关系的管理，将对象的依赖关系交给ioc管理。</p>
 <p>aop面向切面编程,动态非侵入的方式增强服务。</p>
@@ -2267,6 +2269,7 @@ OK
 <li>秒杀结束之后，Nginx层过滤掉无效的请求，大幅度削减转发到后端的流量</li>
 <li>瞬时生成的大量下单请求直接进入RocketMQ进行削峰，订单系统慢慢拉取消息完成下单操作</li>
 </ul>
+<p>秒杀系统补充：<br>1、大量用户先进来页面详情页面，走CDN静态化加速，到Nginx集群（动静分离），其次去Redis集群加载秒杀数据（这个数据可以提交前缓存预热），然后到页面渲染，这个过程中理论是没有经过后端服务系统渲染，直接前端渲染，其实可以后端渲染（不建议）<br>2、大量系统下单，先到前端秒杀答题（当然也有的可以通过Nginx对请求切分分批），然后把无效请求经过Nginx集群过滤；有效请求进入秒杀系统，关于库存数据会提交预热到Redis集群进行库存扣除，大量成功的订单进入RocketMQ进行削峰，订单系统慢慢拉取完成下单操作</p>
 <h3 id="2、RocketMQ事务最终一致性"><a href="#2、RocketMQ事务最终一致性" class="headerlink" title="2、RocketMQ事务最终一致性"></a>2、RocketMQ事务最终一致性</h3><h4 id="1、执行流程图"><a href="#1、执行流程图" class="headerlink" title="1、执行流程图"></a>1、执行流程图</h4><p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202303012201093.png"></p>
 <p>1、首先服务 A 发送一个半事务消息(也称 half 消息)至 MQ 中。为什么要先发送一个 half 消息呢？这是为了保证服务 A 和 MQ 之间的通信正常，如果无法正常通信，则服务 A 可以直接返回一个异常，也就不用处理后面的逻辑的了。</p>
 <p>2、如果 half 消息发送成功，MQ 收到这个 half 消息后，会返回一个 success 响应给服务 A。</p>
@@ -2276,17 +2279,23 @@ OK
 <p>6、如果 MQ 长时间没有接收到 commit 或者 rollback 消息，例如：服务 A 在处理本地业务时宕机了，或者发送的 commit、rollback 因为在弱网环境，数据丢失了。那么 MQ 就会在一定时间后尝试调用服务 A 提供的一个接口，通过这个接口来判断 half 消息的状态。所以服务 A 提供的接口，需要实现的业务逻辑是：通过数据库中对应数据的状态来判断，之前的 half 消息对应的业务是否执行成功。如果 MQ 从这个接口中得知 half 消息执行成功了，那么 MQ 就会将 half 消息持久化到本地磁盘，如果得知没有执行成功，那么就会将 half 消息删除。</p>
 <p>7、服务 B 从 MQ 中消费到对应的消息。</p>
 <p>8、服务 B 处理本地业务逻辑，然后提交本地事务。</p>
-<h4 id="2、问答题"><a href="#2、问答题" class="headerlink" title="2、问答题"></a>2、问答题</h4><h5 id="Q-half-消息是个啥？"><a href="#Q-half-消息是个啥？" class="headerlink" title="Q: half 消息是个啥？"></a>Q: half 消息是个啥？</h5><p>A: 它和我们正常发送的普通消息是一样的，都是存储在 MQ 中，唯一不同的是 half 在 MQ 中不会立马被消费者消费到，除非这个 half 消息被 commit 了。(至于为什么未 commit 的 half 消息无法被消费者读取到，这是因为在 MQ 内部，对于事务消息而言，在 commit 之前，会先放在一个内部队列中，只有 commit 了，才会真正将消息放在消费者能读取到的 topic 队列中)</p>
-<h5 id="Q-为什么要先发送-half-消息？"><a href="#Q-为什么要先发送-half-消息？" class="headerlink" title="Q: 为什么要先发送 half 消息？"></a>Q: 为什么要先发送 half 消息？</h5><p>A: 前面已经解释过了，主要是为了保证服务 A 和 MQ 之间是否能正常通信，如果两者之间都不能正常通信，后面还玩个锤子，直接返回异常就可以了。</p>
-<h5 id="Q-如果-MQ-接收到了-half-消息，但是在返回-success-响应的时候，因为网络原因，导致服务-A-没有接收到-success-响应，这个时候是什么现象？"><a href="#Q-如果-MQ-接收到了-half-消息，但是在返回-success-响应的时候，因为网络原因，导致服务-A-没有接收到-success-响应，这个时候是什么现象？" class="headerlink" title="Q: 如果 MQ 接收到了 half 消息，但是在返回 success 响应的时候，因为网络原因，导致服务 A 没有接收到 success 响应，这个时候是什么现象？"></a>Q: 如果 MQ 接收到了 half 消息，但是在返回 success 响应的时候，因为网络原因，导致服务 A 没有接收到 success 响应，这个时候是什么现象？</h5><p>A: 当服务 A 发送 half 消息后，它会等待 MQ 给自己返回 success 响应，如果没有接收到，那么服务 A 也会直接结束，返回异常，不再执行后续逻辑。不执行后续逻辑，这样服务 A 也就不会提交 commit 消息给 MQ，MQ 长时间没接收到 commit 消息，那么它就会主动回调服务 A 的一个接口，服务 A 通过接口，查询本地数据后，发现这条消息对应的业务并没有正常执行，那么就告诉 MQ，这个 half 消息不能 commit，需要 rollback，MQ 知道后，就将 half 消息进行删除。</p>
-<p>Q: 如果服务 A 本地事务执行失败了，怎么办？</p>
+<h4 id="2、问答题"><a href="#2、问答题" class="headerlink" title="2、问答题"></a>2、问答题</h4><p><strong>Q: half 消息是个啥？</strong></p>
+<p>A: 它和我们正常发送的普通消息是一样的，都是存储在 MQ 中，唯一不同的是 half 在 MQ 中不会立马被消费者消费到，除非这个 half 消息被 commit 了。(至于为什么未 commit 的 half 消息无法被消费者读取到，这是因为在 MQ 内部，对于事务消息而言，在 commit 之前，会先放在一个内部队列中，只有 commit 了，才会真正将消息放在消费者能读取到的 topic 队列中)</p>
+<p><strong>Q: 为什么要先发送 half 消息？</strong></p>
+<p>A: 前面已经解释过了，主要是为了保证服务 A 和 MQ 之间是否能正常通信，如果两者之间都不能正常通信，后面还玩个锤子，直接返回异常就可以了。</p>
+<p><strong>Q: 如果 MQ 接收到了 half 消息，但是在返回 success 响应的时候，因为网络原因，导致服务 A 没有接收到 success 响应，这个时候是什么现象？</strong></p>
+<p>A: 当服务 A 发送 half 消息后，它会等待 MQ 给自己返回 success 响应，如果没有接收到，那么服务 A 也会直接结束，返回异常，不再执行后续逻辑。不执行后续逻辑，这样服务 A 也就不会提交 commit 消息给 MQ，MQ 长时间没接收到 commit 消息，那么它就会主动回调服务 A 的一个接口，服务 A 通过接口，查询本地数据后，发现这条消息对应的业务并没有正常执行，那么就告诉 MQ，这个 half 消息不能 commit，需要 rollback，MQ 知道后，就将 half 消息进行删除。</p>
+<p><strong>Q: 如果服务 A 本地事务执行失败了，怎么办？</strong></p>
 <p>A: 服务 A 本地事务执行失败后，先对自己本地事务进行回滚，然后再向 MQ 发送 rollback 操作。</p>
-<h5 id="Q-服务-A-本地事务提交成功或失败后，向-MQ-发送的-commit-或者-rollback-消息，因为网络问题丢失了，又该怎么处理？"><a href="#Q-服务-A-本地事务提交成功或失败后，向-MQ-发送的-commit-或者-rollback-消息，因为网络问题丢失了，又该怎么处理？" class="headerlink" title="Q: 服务 A 本地事务提交成功或失败后，向 MQ 发送的 commit 或者 rollback 消息，因为网络问题丢失了，又该怎么处理？"></a>Q: 服务 A 本地事务提交成功或失败后，向 MQ 发送的 commit 或者 rollback 消息，因为网络问题丢失了，又该怎么处理？</h5><p>A: 和上一个问题一样，MQ 长时间没有接收到 half 消息的 commit 或者 rollback 消息，MQ 会主动回调服务 A 的接口，通过这个接口来判断自己该对这个 half 消息如何处理。</p>
-<h5 id="Q-前面说的全是事务消息的实现流程，这和事务消息如何保证数据的最终一致性有什么关系呢？"><a href="#Q-前面说的全是事务消息的实现流程，这和事务消息如何保证数据的最终一致性有什么关系呢？" class="headerlink" title="Q: 前面说的全是事务消息的实现流程，这和事务消息如何保证数据的最终一致性有什么关系呢？"></a>Q: 前面说的全是事务消息的实现流程，这和事务消息如何保证数据的最终一致性有什么关系呢？</h5><p>A: 有关系。首先，服务 A 执行本地事务并提交和向 MQ 中发送消息这是两个写操作，然后通过 RocketMQ 的事务消息，我们保证了这两个写操作要么都执行成功，要么都执行失败。然后让其他系统，如服务 B 通过消费 MQ 中的消息，然后再去执行自己本地的事务，这样到最后，服务 A 和服务 B 这两个系统的数据状态是不是达到了一致？这就是最终一致性的含义。</p>
+<p><strong>Q: 服务 A 本地事务提交成功或失败后，向 MQ 发送的 commit 或者 rollback 消息，因为网络问题丢失了，又该怎么处理？</strong></p>
+<p>A: 和上一个问题一样，MQ 长时间没有接收到 half 消息的 commit 或者 rollback 消息，MQ 会主动回调服务 A 的接口，通过这个接口来判断自己该对这个 half 消息如何处理。</p>
+<p><strong>Q: 前面说的全是事务消息的实现流程，这和事务消息如何保证数据的最终一致性有什么关系呢？</strong></p>
+<p>A: 有关系。首先，服务 A 执行本地事务并提交和向 MQ 中发送消息这是两个写操作，然后通过 RocketMQ 的事务消息，我们保证了这两个写操作要么都执行成功，要么都执行失败。然后让其他系统，如服务 B 通过消费 MQ 中的消息，然后再去执行自己本地的事务，这样到最后，服务 A 和服务 B 这两个系统的数据状态是不是达到了一致？这就是最终一致性的含义。</p>
 <p>如果要求服务 A 和服务 B 的数据状态，在服务 A 返回给客户端之间，这两者就达到一致，这是强一致性，RocketMQ 是没法保证强一致性的。</p>
 <p>目前通过「可靠消息来保证数据的最终一致性」是很多大厂都采用的方案，基本都是通过 MQ 和补偿机制来保证数据的一致性。（所谓的可靠消息，就是消息不丢失，如何保证 MQ 的消息不丢失，下篇文章会写，这也是面试常考题）</p>
-<h5 id="Q-服务-B-本地事务提交失败了，怎么办？"><a href="#Q-服务-B-本地事务提交失败了，怎么办？" class="headerlink" title="Q: 服务 B 本地事务提交失败了，怎么办？"></a>Q: 服务 B 本地事务提交失败了，怎么办？</h5><p>A: 如果服务 B 本地事务提交失败了，可以进行多次重试，直到成功。如果重试多次后，还是提交失败，例如此时服务 B 对应的 DB 宕机了，这个时候只要服务 B 不向 MQ 提交本次消息的 offset 即可。如果不提交 offset，那么 MQ 会在一定时间后，继续将这条消息推送给服务 B，服务 B 就可以继续执行本地事务并提交了，直到成功。这样，依旧是保证了服务 A 和服务 B 数据的最终一致性。</p>
-<h2 id="T、散列"><a href="#T、散列" class="headerlink" title="T、散列"></a>T、散列</h2><h3 id="1、乱打"><a href="#1、乱打" class="headerlink" title="1、乱打"></a>1、乱打</h3><blockquote>
+<p><strong>Q: 服务 B 本地事务提交失败了，怎么办？</strong></p>
+<p>A: 如果服务 B 本地事务提交失败了，可以进行多次重试，直到成功。如果重试多次后，还是提交失败，例如此时服务 B 对应的 DB 宕机了，这个时候只要服务 B 不向 MQ 提交本次消息的 offset 即可。如果不提交 offset，那么 MQ 会在一定时间后，继续将这条消息推送给服务 B，服务 B 就可以继续执行本地事务并提交了，直到成功。这样，依旧是保证了服务 A 和服务 B 数据的最终一致性。</p>
+<h3 id="3、"><a href="#3、" class="headerlink" title="3、"></a>3、</h3><h2 id="T、散列"><a href="#T、散列" class="headerlink" title="T、散列"></a>T、散列</h2><h3 id="1、乱打"><a href="#1、乱打" class="headerlink" title="1、乱打"></a>1、乱打</h3><blockquote>
 <p>问题：库存为啥分为 锁定库存什么的，没有这个锁定库存的话，抢购成功，直接可销售库存 -1 ，已销售库存 + 1 不也可以嘛，为啥redis的秒杀产品 和 数据库商品表，都要加上什么锁定库存呢？</p>
 <p>答：库存分为锁定库存和可销售库存的原因是为了避免超卖和重复销售的情况发生。在秒杀场景中，由于用户的并发量非常高，可能会导致多个用户同时下单成功，但实际上库存只有一个，如果不加锁定库存的机制，就会导致超卖的情况。而且，在用户下单之后，订单并不一定会立即支付，如果将可销售库存减去，就有可能会出现订单未支付但库存已被扣减的情况，这也是需要锁定库存的原因。所以，在秒杀场景中，为了保证库存的正确性和售后服务的质量，需要对库存进行细分和管理。</p>
 </blockquote>
@@ -2374,6 +2383,11 @@ OK
 <p>zookeeper:</p>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43495317/article/details/123142595">https://blog.csdn.net/weixin_43495317/article/details/123142595</a></p>
 <p><a target="_blank" rel="noopener" href="https://blog.51cto.com/u_15127568/2713356">https://blog.51cto.com/u_15127568/2713356</a></p>
+<p>seata原理：</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_14996421/article/details/125706271">https://blog.csdn.net/qq_14996421/article/details/125706271</a></p>
+<p>redis原子性保证：<a target="_blank" rel="noopener" href="https://blog.csdn.net/u013277209/article/details/126274656">https://blog.csdn.net/u013277209/article/details/126274656</a></p>
+<p>binlog、redolog、undolog：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/474218953">https://zhuanlan.zhihu.com/p/474218953</a></p>
+<p>FlinkCDC and ETL :<a target="_blank" rel="noopener" href="https://blog.csdn.net/YiRan_Zhao/article/details/126946412">https://blog.csdn.net/YiRan_Zhao/article/details/126946412</a></p>
 
                 
             </div>
@@ -2915,52 +2929,54 @@ new Valine({
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/45f5cab5.html">
+                <a href="/posts/6dd7f78f.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://v1.mykkto.cn/image/galleries/动漫风景/05.jpg" class="responsive-img" alt="面试题-03(关于Cloud)">
+                        <img src="https://v1.mykkto.cn/image/galleries/动漫风景/05.jpg" class="responsive-img" alt="Scala语言纲要">
                         
-                        <span class="card-title">面试题-03(关于Cloud)</span>
+                        <span class="card-title">Scala语言纲要</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            这是一篇关于SpringCloud技术栈的合集面试题，也不仅仅是cloud.
+                            
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-02-15 22:28:51
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-04-02 12:11:10
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/" class="post-category">
-                                    面试题
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%AF%AD%E8%A8%80/" class="post-category">
+                                    计算机语言
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/springcloud/">
-                        <span class="chip bg-color">springcloud</span>
+                    <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/">
+                        <span class="chip bg-color">大数据</span>
                     </a>
                     
-                    <a href="/tags/%E9%9D%A2%E8%AF%95/">
-                        <span class="chip bg-color">面试</span>
+                    <a href="/tags/spark/">
+                        <span class="chip bg-color">spark</span>
+                    </a>
+                    
+                    <a href="/tags/scala/">
+                        <span class="chip bg-color">scala</span>
                     </a>
                     
                 </div>
@@ -3253,7 +3269,7 @@ new Valine({
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">205.5k</span>&nbsp;字
+                class="white-color">207.2k</span>&nbsp;字
             
             
             
