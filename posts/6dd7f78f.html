@@ -657,8 +657,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%AF%AD%E8%A8%80/" class="post-category">
-                                计算机语言
+                            <a href="/categories/%E7%94%B1%E4%BA%8Escala%E5%A4%AA%E8%BF%87%E4%BC%98%E9%9B%85%EF%BC%8C%E5%8D%9A%E4%B8%BB%E7%94%9A%E6%98%AF%E6%AC%A2%E5%96%9C%EF%BC%8C%E4%BA%8E%E6%98%AF%E6%9C%89%E4%BA%86%E8%BF%99%E7%AF%87%E6%96%87%E7%AB%A0%EF%BC%8C%E7%BC%96%E7%A0%81%E6%95%88%E7%8E%87%E4%BC%9A%E6%8F%90%E9%AB%98%E5%93%A6-%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%AF%AD%E8%A8%80/" class="post-category">
+                                由于scala太过优雅，博主甚是欢喜，于是有了这篇文章，编码效率会提高哦 - 计算机语言
                             </a>
                         
                     </div>
@@ -677,21 +677,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-04-05
+                    2023-04-09
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    6.6k
+                    9.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    29 分
+                    41 分
                 </div>
                 
 
@@ -719,6 +719,7 @@
 <p>scala 和 java ，就像 C and C++  ,其实 scala 也可以称为 java ++ ，它的语法简单，开发高效，其实即使你是java开发也可以玩他</p>
 <p>今天博主开了这个专栏，就是想搞了混合开发，下午搞了半天终于搞定 SpringBoot (scala + java) 的jar 打包部署 maven 项目</p>
 <p>当然了，这个专栏也会是完整的 scala 学习教程！</p>
+<p>完结撒花！~ 温馨提示，最好是有java基础，因为大多数案例是和java 对比</p>
 <h3 id="2、SpringBoot-Scala-and-Java"><a href="#2、SpringBoot-Scala-and-Java" class="headerlink" title="2、SpringBoot(Scala and Java)"></a>2、SpringBoot(Scala and Java)</h3><h4 id="1、准备开发环境"><a href="#1、准备开发环境" class="headerlink" title="1、准备开发环境"></a>1、准备开发环境</h4><p>首先 jdk8 就不说了，默认你已经安装了，目前提供的是scala 安装</p>
 <p>注意：当前适配版本 JDK1.8  ，Sdk 2.12.11</p>
 <p>1、配置环境变量,关于SDK 评论区见 👇</p>
@@ -2022,7 +2023,7 @@ Vector<span class="token punctuation">(</span><span class="token number">2</span
   print<span class="token punctuation">(</span>array3<span class="token punctuation">.</span>mkString<span class="token punctuation">(</span><span class="token string">","</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
   
 
-  <span class="token comment">// 4、如果参数只出现一种类型（比如:Int），则参数省略且后面参数可以用_代替</span>
+  <span class="token comment">// 4、如果参数只出现一次，则参数省略且后面参数可以用_代替</span>
   <span class="token keyword">var</span> array4 <span class="token operator">=</span> operation<span class="token punctuation">(</span>Array<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">,</span>_<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span>
   print<span class="token punctuation">(</span>array4<span class="token punctuation">.</span>mkString<span class="token punctuation">(</span><span class="token string">","</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
   
@@ -2053,7 +2054,7 @@ Vector<span class="token punctuation">(</span><span class="token number">2</span
   println<span class="token punctuation">(</span>calculator<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span> <span class="token keyword">=&gt;</span> x <span class="token operator">+</span> y<span class="token punctuation">)</span><span class="token punctuation">)</span>
 
 
-  <span class="token comment">// ( 4 )如果参数只出现一种类型，则参数省略且后面参数可以用_代替</span>
+  <span class="token comment">// ( 4 )如果参数只出现一次，则参数省略且后面参数可以用_代替</span>
   println<span class="token punctuation">(</span>calculator<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> _<span class="token operator">+</span>_<span class="token punctuation">)</span><span class="token punctuation">)</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
@@ -2062,11 +2063,482 @@ Vector<span class="token punctuation">(</span><span class="token number">2</span
 
 
 <h4 id="3、高阶函数案例"><a href="#3、高阶函数案例" class="headerlink" title="3、高阶函数案例"></a>3、高阶函数案例</h4><p>需求 ：模拟 Map 映射、Filter 过滤、  Reduce 聚合</p>
-<pre class="line-numbers language-scala" data-language="scala"><code class="language-scala"><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-scala" data-language="scala"><code class="language-scala"><span class="token keyword">def</span> main<span class="token punctuation">(</span>args<span class="token operator">:</span> Array<span class="token punctuation">[</span><span class="token builtin">String</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Unit</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token comment">// ( 1 ) map 映射</span>
+  <span class="token keyword">def</span> map<span class="token punctuation">(</span>arr<span class="token operator">:</span> Array<span class="token punctuation">[</span><span class="token builtin">Int</span><span class="token punctuation">]</span><span class="token punctuation">,</span> op<span class="token operator">:</span> <span class="token builtin">Int</span> <span class="token keyword">=&gt;</span> <span class="token builtin">Int</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span>elem <span class="token keyword">&lt;-</span> arr<span class="token punctuation">)</span> <span class="token keyword">yield</span> op<span class="token punctuation">(</span>elem<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">val</span> arr <span class="token operator">=</span> map<span class="token punctuation">(</span>Array<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">,</span> x <span class="token keyword">=&gt;</span> x <span class="token operator">*</span> x<span class="token punctuation">)</span>
+  <span class="token comment">//    println(arr.mkString(","))</span>
+
+
+  <span class="token comment">// ( 2 ) filter 过滤。有参数，且参数再后面只使用一次，则参数省略且后面参数用_表示</span>
+  <span class="token keyword">def</span> filter<span class="token punctuation">(</span>arr<span class="token operator">:</span> Array<span class="token punctuation">[</span><span class="token builtin">Int</span><span class="token punctuation">]</span><span class="token punctuation">,</span> op<span class="token operator">:</span> <span class="token builtin">Int</span> <span class="token keyword">=&gt;</span> <span class="token builtin">Boolean</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> arr1<span class="token operator">:</span> ArrayBuffer<span class="token punctuation">[</span><span class="token builtin">Int</span><span class="token punctuation">]</span> <span class="token operator">=</span> ArrayBuffer<span class="token punctuation">[</span><span class="token builtin">Int</span><span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span>elem <span class="token keyword">&lt;-</span> arr <span class="token keyword">if</span> op<span class="token punctuation">(</span>elem<span class="token punctuation">)</span><span class="token punctuation">)</span> arr1<span class="token punctuation">.</span>append<span class="token punctuation">(</span>elem<span class="token punctuation">)</span>
+    arr1<span class="token punctuation">.</span>toArray
+
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">var</span> arr1 <span class="token operator">=</span> filter<span class="token punctuation">(</span>Array<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">,</span> _ <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span>
+  println<span class="token punctuation">(</span>arr1<span class="token punctuation">.</span>mkString<span class="token punctuation">(</span><span class="token string">","</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
-<h4 id="4、函数柯里化-amp-闭包"><a href="#4、函数柯里化-amp-闭包" class="headerlink" title="4、函数柯里化&amp;闭包"></a>4、函数柯里化&amp;闭包</h4><h4 id="5、递归"><a href="#5、递归" class="headerlink" title="5、递归"></a>5、递归</h4><h4 id="6、控制抽象"><a href="#6、控制抽象" class="headerlink" title="6、控制抽象"></a>6、控制抽象</h4><h4 id="7、惰性加载"><a href="#7、惰性加载" class="headerlink" title="7、惰性加载"></a>7、惰性加载</h4><h3 id="3、Scala包"><a href="#3、Scala包" class="headerlink" title="3、Scala包"></a>3、Scala包</h3><h2 id="五、类和对象"><a href="#五、类和对象" class="headerlink" title="五、类和对象"></a>五、类和对象</h2><h2 id="六、数组和集合"><a href="#六、数组和集合" class="headerlink" title="六、数组和集合"></a>六、数组和集合</h2><h2 id="参考文章-↓"><a href="#参考文章-↓" class="headerlink" title="参考文章 ↓"></a>参考文章 ↓</h2><p>springboot混合双语言开发问题：</p>
+<h4 id="4、函数柯里化-amp-闭包"><a href="#4、函数柯里化-amp-闭包" class="headerlink" title="4、函数柯里化&amp;闭包"></a>4、函数柯里化&amp;闭包</h4><p>闭包 ：函数式编程的标配</p>
+<p>闭包 ：如果一个函数，访问到了它的外部(局部)变量的值，那么这个函数和他所处的 环境，称为闭包</p>
+<p>函数柯里化 ：把一个参数列表的多个参数，变成多个参数列表。</p>
+<pre class="line-numbers language-scala" data-language="scala"><code class="language-scala">  <span class="token keyword">def</span> main<span class="token punctuation">(</span>args<span class="token operator">:</span> Array<span class="token punctuation">[</span><span class="token builtin">String</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Unit</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token keyword">def</span> f1 <span class="token operator">=</span> <span class="token punctuation">{</span>
+      <span class="token keyword">var</span> a<span class="token operator">:</span> <span class="token builtin">Int</span> <span class="token operator">=</span> <span class="token number">10</span>
+      <span class="token keyword">def</span> f2<span class="token punctuation">(</span>b<span class="token operator">:</span> <span class="token builtin">Int</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+        a <span class="token operator">+</span> b
+      <span class="token punctuation">}</span>
+
+      f2 _
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// 在调用时，f1 函数执行完毕后，局部变量 a 应该随着栈空间释放掉</span>
+    <span class="token keyword">var</span> f <span class="token operator">=</span> f1
+    <span class="token comment">// 但是在此处，变量 a 其实并没有释放，而是包含在了 f2 函数的内部，形 成了闭合的效果</span>
+    print<span class="token punctuation">(</span>f<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment">//    println(f1()(3))</span>
+
+    <span class="token comment">// 函数柯里化，其实就是将复杂的参数逻辑变得简单化,函数柯里化一定存在闭包</span>
+    <span class="token keyword">def</span> f3<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">(</span>b<span class="token operator">:</span> <span class="token builtin">Int</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+      <span class="token keyword">var</span> a<span class="token operator">:</span> <span class="token builtin">Int</span> <span class="token operator">=</span> <span class="token number">10</span>
+      a <span class="token operator">+</span> b
+    <span class="token punctuation">}</span>
+    println<span class="token punctuation">(</span>f3<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+<h4 id="5、递归"><a href="#5、递归" class="headerlink" title="5、递归"></a>5、递归</h4><p>一个函数/方法在函数/方法体内又调用了本身，我们称之为递归调用</p>
+<pre class="line-numbers language-scala" data-language="scala"><code class="language-scala"><span class="token keyword">def</span> main<span class="token punctuation">(</span>args<span class="token operator">:</span> Array<span class="token punctuation">[</span><span class="token builtin">String</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Unit</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token comment">// 阶乘</span>
+  <span class="token comment">// 递归算法</span>
+  <span class="token comment">// 1) 方法调用自身</span>
+  <span class="token comment">// 2) 方法必须要有跳出的逻辑</span>
+  <span class="token comment">// 3) 方法调用自身时，传递的参数应该有规律</span>
+  <span class="token comment">// 4) scala 中的递归必须声明函数返回值类型</span>
+  <span class="token keyword">def</span> test<span class="token punctuation">(</span>i<span class="token operator">:</span> <span class="token builtin">Int</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Int</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span>
+      <span class="token number">1</span>
+    <span class="token keyword">else</span>
+      i <span class="token operator">*</span> test<span class="token punctuation">(</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+  print<span class="token punctuation">(</span>test<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="6、控制抽象"><a href="#6、控制抽象" class="headerlink" title="6、控制抽象"></a>6、控制抽象</h4><p><strong>Java 只有值调用 ；Scala 既有值调用，又有名调用。</strong></p>
+<p>1、值调用：把计算后的值传递过去</p>
+<pre class="line-numbers language-scala" data-language="scala"><code class="language-scala"><span class="token keyword">def</span> main<span class="token punctuation">(</span>args<span class="token operator">:</span> Array<span class="token punctuation">[</span><span class="token builtin">String</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Unit</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token keyword">def</span> f <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">=&gt;</span><span class="token punctuation">{</span>
+    println<span class="token punctuation">(</span><span class="token string">"f....."</span><span class="token punctuation">)</span>
+    <span class="token number">10</span>
+  <span class="token punctuation">}</span>
+  foo<span class="token punctuation">(</span>f<span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">def</span> foo<span class="token punctuation">(</span>a<span class="token operator">:</span><span class="token builtin">Int</span><span class="token punctuation">)</span><span class="token operator">:</span><span class="token builtin">Unit</span><span class="token operator">=</span><span class="token punctuation">{</span>
+  println<span class="token punctuation">(</span>a<span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>2、名调用：把代码传递过去</p>
+<pre class="line-numbers language-scala" data-language="scala"><code class="language-scala"><span class="token keyword">def</span> main<span class="token punctuation">(</span>args<span class="token operator">:</span> Array<span class="token punctuation">[</span><span class="token builtin">String</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Unit</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token keyword">def</span> f <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">=&gt;</span> <span class="token punctuation">{</span>
+    println<span class="token punctuation">(</span><span class="token string">"f。。。"</span><span class="token punctuation">)</span>
+    <span class="token number">10</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">def</span> foo<span class="token punctuation">(</span>a<span class="token operator">:</span> <span class="token keyword">=&gt;</span> <span class="token builtin">Int</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Unit</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+    println<span class="token punctuation">(</span>a<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  foo<span class="token punctuation">(</span>f<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+    
+      <span class="token comment">// ( 1 )传递代码块</span>
+  foo<span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token number">10</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+  <span class="token comment">// ( 2 ) 小括号可以省略</span>
+  foo <span class="token punctuation">{</span>
+    <span class="token number">10</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>3、自定义一个 while</p>
+<pre class="line-numbers language-scala" data-language="scala"><code class="language-scala"><span class="token keyword">def</span> main<span class="token punctuation">(</span>args<span class="token operator">:</span> Array<span class="token punctuation">[</span><span class="token builtin">String</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Unit</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+
+  <span class="token keyword">def</span> myWhile<span class="token punctuation">(</span>flag<span class="token operator">:</span> <span class="token keyword">=&gt;</span><span class="token builtin">Boolean</span><span class="token punctuation">)</span><span class="token punctuation">(</span>op<span class="token operator">:</span> <span class="token keyword">=&gt;</span><span class="token builtin">Unit</span><span class="token punctuation">)</span><span class="token operator">:</span><span class="token builtin">Unit</span><span class="token operator">=</span><span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>flag<span class="token punctuation">)</span><span class="token punctuation">{</span>
+      op
+      myWhile<span class="token punctuation">(</span>flag<span class="token punctuation">)</span><span class="token punctuation">(</span>op<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">var</span> i<span class="token operator">:</span><span class="token builtin">Int</span> <span class="token operator">=</span> <span class="token number">1</span>
+  myWhile<span class="token punctuation">(</span>i<span class="token operator">&lt;=</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    print<span class="token punctuation">(</span><span class="token string">" "</span><span class="token operator">+</span>i<span class="token punctuation">)</span>
+    i <span class="token operator">+=</span><span class="token number">1</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="7、惰性加载"><a href="#7、惰性加载" class="headerlink" title="7、惰性加载"></a>7、惰性加载</h4><p>当<strong>函数返回值被声明为 lazy</strong>时 ，函数的<strong>执行将被推迟</strong> ，直到我们<strong>首次对此取值，该函 数才会执行</strong>。这种函数我们称之为惰性函数。</p>
+<pre class="line-numbers language-scala" data-language="scala"><code class="language-scala"><span class="token keyword">def</span> main<span class="token punctuation">(</span>args<span class="token operator">:</span> Array<span class="token punctuation">[</span><span class="token builtin">String</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Unit</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+
+  <span class="token keyword">def</span> sum<span class="token punctuation">(</span>n1<span class="token operator">:</span><span class="token builtin">Int</span><span class="token punctuation">,</span>n2<span class="token operator">:</span><span class="token builtin">Int</span><span class="token punctuation">)</span><span class="token operator">:</span><span class="token builtin">Int</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+    print<span class="token punctuation">(</span><span class="token string">"sum 被执行"</span><span class="token punctuation">)</span>
+    n1<span class="token operator">+</span>n2
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">// lazy 不能修饰 var 类型的变量</span>
+  <span class="token keyword">lazy</span> <span class="token keyword">val</span> res <span class="token operator">=</span> sum<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span>
+  <span class="token comment">//println(res)</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>注意 ：lazy 不能修饰 var 类型的变量</p>
+<h3 id="3、Scala包"><a href="#3、Scala包" class="headerlink" title="3、Scala包"></a>3、Scala包</h3><h2 id="五、类和对象"><a href="#五、类和对象" class="headerlink" title="五、类和对象"></a>五、类和对象</h2><p>Scala 的面向对象思想和 Java 的面向对象思想和概念是一致的。</p>
+<p>Scala 中语法和 Java 不同 ，补充了更多的功能。</p>
+<h3 id="1、Scala包"><a href="#1、Scala包" class="headerlink" title="1、Scala包"></a>1、Scala包</h3><p> Scala 包的三大作用(<strong>和 Java 一样</strong>)</p>
+<p>​    ( 1 )区分相同名字的类</p>
+<p>​    ( 2 )当类很多时，可以很好的管理类</p>
+<p>​    ( 3 )控制访问范围</p>
+<h4 id="1、包命名"><a href="#1、包命名" class="headerlink" title="1、包命名"></a>1、包命名</h4><p>规则：</p>
+<p>只能包含数字、字母、下划线、小圆点. ，但不能用数字开头，也不要使用关键字。</p>
+<p>规范：</p>
+<p><strong>com</strong>.<strong>公司名</strong>.<strong>项目名</strong>.业务模块名</p>
+<h4 id="2、包管理风格"><a href="#2、包管理风格" class="headerlink" title="2、包管理风格"></a>2、包管理风格</h4><p>Scala 有两种包的管理风格</p>
+<ul>
+<li>一种方式和 Java 的包管理风格相同，每个源文件一个包(包 名和源文件所在路径不要求必须一致 )</li>
+<li>通过嵌套的风格表示层级关系</li>
+</ul>
+<pre class="line-numbers language-scala" data-language="scala"><code class="language-scala"><span class="token keyword">package</span> <span class="token namespace">com</span> <span class="token punctuation">{</span>
+  <span class="token keyword">package</span> <span class="token namespace">kk</span> <span class="token punctuation">{</span>
+    <span class="token keyword">package</span> <span class="token namespace">scala</span> <span class="token punctuation">{</span>
+
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p>第二种风格有以下特点：</p>
+<p>​    ( 1 )一个源文件中可以声明多个 package</p>
+<p>​    ( 2 )子包中的类可以直接访问父包中的内容，而无需导包</p>
+<pre class="line-numbers language-scala" data-language="scala"><code class="language-scala"><span class="token keyword">package</span> <span class="token namespace">com</span> <span class="token punctuation">{</span>
+
+  <span class="token keyword">import</span> <span class="token namespace">com<span class="token punctuation">.</span>kk<span class="token punctuation">.</span></span>Inner <span class="token comment">//父包访问子包需要导包</span>
+
+  <span class="token keyword">object</span> Outer <span class="token punctuation">{</span>
+    <span class="token keyword">val</span> out<span class="token operator">:</span> <span class="token builtin">String</span> <span class="token operator">=</span> <span class="token string">"out"</span>
+
+    <span class="token keyword">def</span> main<span class="token punctuation">(</span>args<span class="token operator">:</span> Array<span class="token punctuation">[</span><span class="token builtin">String</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Unit</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+      println<span class="token punctuation">(</span>Inner<span class="token punctuation">.</span>in<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">package</span> <span class="token namespace">kk</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">object</span> Inner <span class="token punctuation">{</span>
+      <span class="token keyword">val</span> in<span class="token operator">:</span> <span class="token builtin">String</span> <span class="token operator">=</span> <span class="token string">"in"</span>
+
+      <span class="token keyword">def</span> main<span class="token punctuation">(</span>args<span class="token operator">:</span> Array<span class="token punctuation">[</span><span class="token builtin">String</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Unit</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+        println<span class="token punctuation">(</span>Outer<span class="token punctuation">.</span>out<span class="token punctuation">)</span> <span class="token comment">//子包访问父包无需导包</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">package</span> <span class="token namespace">other</span> <span class="token punctuation">{</span>
+<span class="token punctuation">}</span>
+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="3、包对象"><a href="#3、包对象" class="headerlink" title="3、包对象"></a>3、包对象</h4><p>在 Scala 中可以为每个包定义一个<font color="red">同名</font>的包对象 ，定义在包对象中的成员 ，作为其<font color="red">对应包下</font>所有 class 和 object 的共享变量 ，可以被直接访问</p>
+<p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202304081716620.png"></p>
+<pre class="line-numbers language-scala" data-language="scala"><code class="language-scala"><span class="token keyword">package</span> <span class="token namespace">object</span> com <span class="token punctuation">{</span>
+  <span class="token keyword">val</span> name <span class="token operator">=</span> <span class="token string">"mykk"</span>
+  <span class="token keyword">def</span> testMenthod<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p>嵌套包管理</p>
+<pre class="line-numbers language-scala" data-language="scala"><code class="language-scala"><span class="token keyword">package</span> <span class="token namespace">com</span> <span class="token punctuation">{</span>
+
+  <span class="token keyword">object</span> Outer <span class="token punctuation">{</span>
+    <span class="token keyword">val</span> out<span class="token operator">:</span> <span class="token builtin">String</span> <span class="token operator">=</span> <span class="token string">"out"</span>
+
+    <span class="token keyword">def</span> main<span class="token punctuation">(</span>args<span class="token operator">:</span> Array<span class="token punctuation">[</span><span class="token builtin">String</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Unit</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+      println<span class="token punctuation">(</span>name<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">package</span> <span class="token namespace">object</span> com <span class="token punctuation">{</span>
+  <span class="token keyword">val</span> name <span class="token operator">=</span> <span class="token string">"mykk"</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="4、导包说明"><a href="#4、导包说明" class="headerlink" title="4、导包说明"></a>4、导包说明</h4><p>1 ) 和 Java 一样 ，可以在顶部使用 import 导入 ，在这个文件中的所有类都可以使用。 </p>
+<p>2 ) 局部导入：什么时候使用，什么时候导入。  在其作用范围内都可以使用              </p>
+<p>3 ) 通配符导入：import java.util._</p>
+<p>4 ) 给类起名： import java.util. {ArrayList=&gt;JL}</p>
+<p>5 ) 导入相同包的多个类：import java.util. {HashSet, ArrayList}</p>
+<p>6 )屏蔽类： import java.util. {ArrayList =&gt;<em>,</em>}</p>
+<p>7 ) 导入包的绝对路径： new _root_.java.util.HashMap</p>
+<pre class="line-numbers language-scala" data-language="scala"><code class="language-scala"><span class="token keyword">package</span> <span class="token namespace">java</span> <span class="token punctuation">{</span>
+  <span class="token keyword">package</span> <span class="token namespace">util</span> <span class="token punctuation">{</span>
+    <span class="token keyword">class</span> HashMap <span class="token punctuation">{</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<table>
+<thead>
+<tr>
+<th>import com.kk.Fruit</th>
+<th>引入 com.kk 包下 Fruit (class 和 object)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>import com.kk._</td>
+<td>引入 com.kk 下的所有成员</td>
+</tr>
+<tr>
+<td>import com.kk.Fruit._</td>
+<td>引入 Fruit(object)的所有成员</td>
+</tr>
+<tr>
+<td>import com.kk. {Fruit,Vegetable}</td>
+<td>引入 com.kk 下的 Fruit 和 Vegetable</td>
+</tr>
+<tr>
+<td>import com.kk. {Fruit=&gt;Shuiguo}</td>
+<td>引入 com.kk 包下的 Fruit 并更名为 Shuiguo</td>
+</tr>
+<tr>
+<td>import com.kk. {Fruit=&gt;Shuiguo,_}</td>
+<td>引入 com.kk 包下的所有成员，并将 Fruit 更名为 Shuiguo</td>
+</tr>
+<tr>
+<td>import com.kk. {Fruit=&gt;<em>,</em>}</td>
+<td>引入 com.kk包下屏蔽 Fruit 类</td>
+</tr>
+<tr>
+<td>new _root_.java.util.HashMap</td>
+<td>引入的 Java 的绝对路径</td>
+</tr>
+</tbody></table>
+<p>Scala 中的三个默认导入分别是</p>
+<p><strong>import</strong> <strong>java.lang._</strong></p>
+<p><strong>import</strong> <strong>scala._</strong></p>
+<p><strong>import</strong> <strong>scala</strong>.<strong>Predef.</strong></p>
+<h3 id="2、类和对象"><a href="#2、类和对象" class="headerlink" title="2、类和对象"></a>2、类和对象</h3><p>类 ：可以看成一个模板</p>
+<p>对象 ：表示具体的事物</p>
+<h4 id="1、定义类"><a href="#1、定义类" class="headerlink" title="1、定义类"></a>1、定义类</h4><p>一般 ，一个.java 有一个 public 类</p>
+<p><font color="red">Scala 中没有public ，一个.scala 中可以写多个类</font></p>
+<pre class="line-numbers language-scala" data-language="scala"><code class="language-scala"><span class="token comment">// ( 1 ) Scala 语法中，类并不声明为 public ，所有这些类都具有公有可见性(即默 认就是 public )</span>
+<span class="token keyword">class</span> Person <span class="token punctuation">{</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// ( 2 )一个 Scala 源文件可以包含多个类</span>
+<span class="token keyword">class</span> Teacher <span class="token punctuation">{</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="2、属性"><a href="#2、属性" class="headerlink" title="2、属性"></a>2、属性</h4><p><strong>[**修饰符</strong>]<strong>**var</strong>|<strong>val</strong>  属性名称  <strong>[</strong> ：类型<strong>]=</strong>  属性值</p>
+<p>注 ：Bean 属性(@BeanPropetry)，可以自动生成规范的 setXxx/getXxx 方法</p>
+<pre class="line-numbers language-scala" data-language="scala"><code class="language-scala"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>kk1<span class="token punctuation">.</span>demo6</span>
+
+<span class="token keyword">import</span> <span class="token namespace">scala<span class="token punctuation">.</span>beans<span class="token punctuation">.</span></span>BeanProperty
+
+<span class="token keyword">class</span> Person <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> name<span class="token operator">:</span> <span class="token builtin">String</span> <span class="token operator">=</span> <span class="token string">"bobo"</span> <span class="token comment">//定义属性</span>
+  <span class="token keyword">var</span> age<span class="token operator">:</span> <span class="token builtin">Int</span> <span class="token operator">=</span> _ <span class="token comment">// _表示给属性一个默认值</span>
+  <span class="token comment">//Bean 属性( @BeanProperty)</span>
+  <span class="token annotation punctuation">@BeanProperty</span> <span class="token keyword">var</span> sex<span class="token operator">:</span> <span class="token builtin">String</span> <span class="token operator">=</span> <span class="token string">"男"</span>
+
+  <span class="token keyword">def</span> main<span class="token punctuation">(</span>args<span class="token operator">:</span> Array<span class="token punctuation">[</span><span class="token builtin">String</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Unit</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> person <span class="token operator">=</span> <span class="token keyword">new</span> Person<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    println<span class="token punctuation">(</span>person<span class="token punctuation">.</span>name<span class="token punctuation">)</span>
+    person<span class="token punctuation">.</span>setSex<span class="token punctuation">(</span><span class="token string">"女"</span><span class="token punctuation">)</span>
+    println<span class="token punctuation">(</span>person<span class="token punctuation">.</span>getSex<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+<h4 id="3、方法"><a href="#3、方法" class="headerlink" title="3、方法"></a>3、方法</h4><pre class="line-numbers language-scala" data-language="scala"><code class="language-scala">
+<span class="token keyword">class</span> Person <span class="token punctuation">{</span>
+  <span class="token keyword">def</span> sum<span class="token punctuation">(</span>n1<span class="token operator">:</span> <span class="token builtin">Int</span><span class="token punctuation">,</span> n2<span class="token operator">:</span> <span class="token builtin">Int</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Int</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+    n1 <span class="token operator">+</span> n2
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">def</span> main<span class="token punctuation">(</span>args<span class="token operator">:</span> Array<span class="token punctuation">[</span><span class="token builtin">String</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Unit</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token keyword">def</span> main<span class="token punctuation">(</span>args<span class="token operator">:</span> Array<span class="token punctuation">[</span><span class="token builtin">String</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Unit</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+      <span class="token keyword">val</span> person <span class="token operator">=</span> <span class="token keyword">new</span> Person<span class="token punctuation">(</span><span class="token punctuation">)</span>
+      println<span class="token punctuation">(</span>person<span class="token punctuation">.</span>sum<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="4、创建对象"><a href="#4、创建对象" class="headerlink" title="4、创建对象"></a>4、创建对象</h4><p><strong>val</strong> <strong>|</strong> <strong>var</strong> 对象名  <strong>[</strong> ：类型<strong>]</strong>    <strong>=</strong> <strong>new</strong>  类型<strong>()</strong></p>
+<p>​    ( 1 ) val 修饰对象，不能改变对象的引用( 即：内存地址)  ，可以改变对象属性的值。</p>
+<p>​    ( 2 ) var 修饰对象， 可以修改对象的引用和修改对象的属性值</p>
+<p>​    ( 3 ) 自动推导变量类型不能多态，所以多态需要显示声明</p>
+<h4 id="5、构造器"><a href="#5、构造器" class="headerlink" title="5、构造器"></a>5、构造器</h4><p>和 Java 一样，Scala 构造对象也需要调用构造方法，并且可以有任意多个构造方法。</p>
+<p>Scala 类的构造器包括：<strong>主构造器和辅助构造器</strong></p>
+<p>语法：</p>
+<pre class="line-numbers language-scala" data-language="scala"><code class="language-scala"><span class="token keyword">class</span>  类名<span class="token punctuation">(</span>形参列表<span class="token punctuation">)</span> <span class="token punctuation">{</span>    <span class="token comment">//  主构造器</span>
+
+  <span class="token comment">//  类体</span>
+
+  <span class="token keyword">def</span>   <span class="token keyword">this</span><span class="token punctuation">(</span>形参列表<span class="token punctuation">)</span> <span class="token punctuation">{</span>   <span class="token comment">//  辅助构造器</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">def</span>   <span class="token keyword">this</span><span class="token punctuation">(</span>形参列表<span class="token punctuation">)</span> <span class="token punctuation">{</span>   <span class="token comment">//辅助构造器可以有多个...</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>说明：</p>
+<p>​    ( 1 )辅助构造器 ，函数的名称 this ，可以有多个 ，编译器通过参数的个数及类型来区分</p>
+<p>​    ( 2 )辅助构造方法不能直接构建对象 ，必须直接或者间接调用主构造方法</p>
+<p>​    ( 3 )<font color="red">构造器调用其他另外的构造器， 要求被调用构造器必须提前声明</font></p>
+<pre class="line-numbers language-scala" data-language="scala"><code class="language-scala"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>kk1<span class="token punctuation">.</span>demo6</span>
+
+
+<span class="token keyword">class</span> Person <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> name<span class="token operator">:</span> <span class="token builtin">String</span> <span class="token operator">=</span> _
+  <span class="token keyword">var</span> age<span class="token operator">:</span> <span class="token builtin">Int</span> <span class="token operator">=</span> _
+
+  <span class="token keyword">def</span> <span class="token keyword">this</span><span class="token punctuation">(</span>age<span class="token operator">:</span> <span class="token builtin">Int</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>age <span class="token operator">=</span> age
+    println<span class="token punctuation">(</span><span class="token string">"辅助构造器"</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">def</span> <span class="token keyword">this</span><span class="token punctuation">(</span>age<span class="token operator">:</span> <span class="token builtin">Int</span><span class="token punctuation">,</span> name<span class="token operator">:</span> <span class="token builtin">String</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">(</span>age<span class="token punctuation">)</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name
+  <span class="token punctuation">}</span>
+
+  println<span class="token punctuation">(</span><span class="token string">"主构造器"</span><span class="token punctuation">)</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token keyword">object</span> Person <span class="token punctuation">{</span>
+  <span class="token keyword">def</span> main<span class="token punctuation">(</span>args<span class="token operator">:</span> Array<span class="token punctuation">[</span><span class="token builtin">String</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Unit</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token keyword">val</span> person2 <span class="token operator">=</span> <span class="token keyword">new</span> Person<span class="token punctuation">(</span><span class="token number">18</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+
+
+<h4 id="6、构造器参数"><a href="#6、构造器参数" class="headerlink" title="6、构造器参数"></a>6、构造器参数</h4><p>Scala 类的主构造器函数的形参包括三种类型：未用任何修饰、  var 修饰、  val 修饰     </p>
+<p>​    ( 1 )未用任何修饰符修饰，这个参数就是一个局部变量</p>
+<p>​    ( 2 ) var 修饰参数，作为类的成员属性使用，可以修改</p>
+<p>​    ( 3 ) val 修饰参数，作为类只读属性使用，不能修改</p>
+<pre class="line-numbers language-scala" data-language="scala"><code class="language-scala"><span class="token keyword">def</span> main<span class="token punctuation">(</span>args<span class="token operator">:</span> Array<span class="token punctuation">[</span><span class="token builtin">String</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Unit</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> person <span class="token operator">=</span> <span class="token keyword">new</span> Person<span class="token punctuation">(</span> <span class="token number">18</span><span class="token punctuation">,</span> <span class="token string">"男"</span><span class="token punctuation">)</span>
+  <span class="token comment">// ( 1 )未用任何修饰符修饰，这个参数就是一个局部变量</span>
+   printf<span class="token punctuation">(</span>person<span class="token punctuation">.</span>name<span class="token punctuation">)</span>
+  <span class="token comment">// ( 2 ) var 修饰参数，作为类的成员属性使用，可以修改</span>
+  person<span class="token punctuation">.</span>age <span class="token operator">=</span> <span class="token number">19</span>
+  println<span class="token punctuation">(</span>person<span class="token punctuation">.</span>age<span class="token punctuation">)</span>
+
+  <span class="token comment">// ( 3 ) val 修饰参数，作为类的只读属性使用，不能修改</span>
+  person<span class="token punctuation">.</span>sex <span class="token operator">=</span> <span class="token string">"女"</span>
+  println<span class="token punctuation">(</span>person<span class="token punctuation">.</span>sex<span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h3 id="3、三特性"><a href="#3、三特性" class="headerlink" title="3、三特性"></a>3、三特性</h3><p>java 三特性和scala三特性是一样的，分别是：<strong>封装，继承，多态</strong></p>
+<h4 id="1、封装"><a href="#1、封装" class="headerlink" title="1、封装"></a>1、封装</h4><p>封装就是把抽象出的数据和对数据的操作封装在一起，数据被保护在内部，程序的其它 部分只有通过被授权的操作(成员方法)，才能对数据进行操作。  Java 封装操作如下，</p>
+<p>​    ( 1 )将属性进行私有化</p>
+<p>​    ( 2 )提供一个公共的 set 方法，用于对属性赋值</p>
+<p>​    ( 3 )提供一个公共的 get 方法，用于获取属性的值</p>
+<p>Scala 中的 public 属性，底层<font color="red">实际为 private</font> ，并通过 get 方法(obj.field())和 set 方法     (obj.field_=(value))对其进行操作。所以 Scala 并不推荐将属性设为 private ，再为其设置 public 的 get 和 set 方法的做法。但由于很多 Java 框架都利用反射调用 getXXX 和 setXXX 方 法，有时候为了和这些框架兼容，也会为 Scala 的属性设置 getXXX 和 setXXX 方法(通过 <font color="red">@BeanProperty</font> 注解实现)。</p>
+<p><strong>访问权限：</strong></p>
+<p>在 Java 中，访问权限分为：public，private，protected 和默认。在 Scala 中，你可以通过类似的修饰符达到同样的效果。但是使用上有区别。 </p>
+<p>（1）Scala 中属性和方法的默认访问权限为 public，但 Scala 中无 public 关键字。 </p>
+<p>（2）private 为私有权限，只在类的内部和伴生对象中可用。 </p>
+<p>（3）<font color="red">protected 为受保护权限，Scala 中受保护权限比 Java 中更严格，同类、子类可以访问，同包无法访问</font></p>
+<p>（4）<font color="red">private[包名]增加包访问权限，包名下的其他类也可以使用 </font></p>
+<pre class="line-numbers language-scala" data-language="scala"><code class="language-scala"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>kk1<span class="token punctuation">.</span>demo6</span>
+
+<span class="token keyword">class</span> Person <span class="token punctuation">{</span>
+  <span class="token keyword">private</span> <span class="token keyword">var</span> name<span class="token operator">:</span> <span class="token builtin">String</span> <span class="token operator">=</span> <span class="token string">"bobo"</span>
+  <span class="token keyword">protected</span> <span class="token keyword">var</span> age<span class="token operator">:</span> <span class="token builtin">Int</span> <span class="token operator">=</span> <span class="token number">18</span>
+  <span class="token keyword">private</span><span class="token punctuation">[</span>demo6<span class="token punctuation">]</span> <span class="token keyword">var</span> sex<span class="token operator">:</span> <span class="token builtin">String</span> <span class="token operator">=</span> <span class="token string">"男"</span>
+
+  <span class="token keyword">def</span> say<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Unit</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+    println<span class="token punctuation">(</span>name<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token keyword">object</span> Person <span class="token punctuation">{</span>
+  <span class="token keyword">def</span> main<span class="token punctuation">(</span>args<span class="token operator">:</span> Array<span class="token punctuation">[</span><span class="token builtin">String</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Unit</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token keyword">val</span> person <span class="token operator">=</span> <span class="token keyword">new</span> Person
+    person<span class="token punctuation">.</span>say<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    println<span class="token punctuation">(</span>person<span class="token punctuation">.</span>name<span class="token punctuation">)</span>
+    println<span class="token punctuation">(</span>person<span class="token punctuation">.</span>age<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> Teacher <span class="token keyword">extends</span> Person <span class="token punctuation">{</span>
+  <span class="token keyword">def</span> test<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Unit</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>age
+    <span class="token keyword">this</span><span class="token punctuation">.</span>sex
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> Animal <span class="token punctuation">{</span>
+  <span class="token keyword">def</span> test<span class="token operator">:</span> <span class="token builtin">Unit</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token keyword">new</span> Person<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>sex
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="2、继承和多态"><a href="#2、继承和多态" class="headerlink" title="2、继承和多态"></a>2、继承和多态</h4><h4 id=""><a href="#" class="headerlink" title=""></a></h4><h3 id="4、抽象类"><a href="#4、抽象类" class="headerlink" title="4、抽象类"></a>4、抽象类</h3><h4 id="1、"><a href="#1、" class="headerlink" title="1、"></a>1、</h4><h4 id="2、"><a href="#2、" class="headerlink" title="2、"></a>2、</h4><h4 id="3、"><a href="#3、" class="headerlink" title="3、"></a>3、</h4><h3 id="5、单例对象（伴生对象）"><a href="#5、单例对象（伴生对象）" class="headerlink" title="5、单例对象（伴生对象）"></a>5、单例对象（伴生对象）</h3><h4 id="1、-1"><a href="#1、-1" class="headerlink" title="1、"></a>1、</h4><h4 id="2、-1"><a href="#2、-1" class="headerlink" title="2、"></a>2、</h4><h4 id="3、-1"><a href="#3、-1" class="headerlink" title="3、"></a>3、</h4><h3 id="6、特质（Trait）"><a href="#6、特质（Trait）" class="headerlink" title="6、特质（Trait）"></a>6、特质（Trait）</h3><h4 id="1、-2"><a href="#1、-2" class="headerlink" title="1、"></a>1、</h4><h4 id="2、-2"><a href="#2、-2" class="headerlink" title="2、"></a>2、</h4><h4 id="3、-2"><a href="#3、-2" class="headerlink" title="3、"></a>3、</h4><h3 id="7、扩展"><a href="#7、扩展" class="headerlink" title="7、扩展"></a>7、扩展</h3><h4 id="1、-3"><a href="#1、-3" class="headerlink" title="1、"></a>1、</h4><h4 id="2、-3"><a href="#2、-3" class="headerlink" title="2、"></a>2、</h4><h4 id="3、-3"><a href="#3、-3" class="headerlink" title="3、"></a>3、</h4><h2 id="六、集合"><a href="#六、集合" class="headerlink" title="六、集合"></a>六、集合</h2><h3 id="1、数组"><a href="#1、数组" class="headerlink" title="1、数组"></a>1、数组</h3><h4 id="1、-4"><a href="#1、-4" class="headerlink" title="1、"></a>1、</h4><h4 id="2、-4"><a href="#2、-4" class="headerlink" title="2、"></a>2、</h4><h4 id="3、-4"><a href="#3、-4" class="headerlink" title="3、"></a>3、</h4><h3 id="2、Set集合"><a href="#2、Set集合" class="headerlink" title="2、Set集合"></a>2、Set集合</h3><h4 id="1、-5"><a href="#1、-5" class="headerlink" title="1、"></a>1、</h4><h4 id="2、-5"><a href="#2、-5" class="headerlink" title="2、"></a>2、</h4><h4 id="3、-5"><a href="#3、-5" class="headerlink" title="3、"></a>3、</h4><h3 id="3、元组"><a href="#3、元组" class="headerlink" title="3、元组"></a>3、元组</h3><h4 id="1、-6"><a href="#1、-6" class="headerlink" title="1、"></a>1、</h4><h4 id="2、-6"><a href="#2、-6" class="headerlink" title="2、"></a>2、</h4><h4 id="3、-6"><a href="#3、-6" class="headerlink" title="3、"></a>3、</h4><h3 id="4、集合常用函数"><a href="#4、集合常用函数" class="headerlink" title="4、集合常用函数"></a>4、集合常用函数</h3><h4 id="1、-7"><a href="#1、-7" class="headerlink" title="1、"></a>1、</h4><h4 id="2、-7"><a href="#2、-7" class="headerlink" title="2、"></a>2、</h4><h4 id="3、-7"><a href="#3、-7" class="headerlink" title="3、"></a>3、</h4><h3 id="5、队列"><a href="#5、队列" class="headerlink" title="5、队列"></a>5、队列</h3><h4 id="1、-8"><a href="#1、-8" class="headerlink" title="1、"></a>1、</h4><h4 id="2、-8"><a href="#2、-8" class="headerlink" title="2、"></a>2、</h4><h4 id="3、-8"><a href="#3、-8" class="headerlink" title="3、"></a>3、</h4><h2 id="七、异常"><a href="#七、异常" class="headerlink" title="七、异常"></a>七、异常</h2><h2 id="八、隐式转换"><a href="#八、隐式转换" class="headerlink" title="八、隐式转换"></a>八、隐式转换</h2><h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h2 id="参考文章-↓"><a href="#参考文章-↓" class="headerlink" title="参考文章 ↓"></a>参考文章 ↓</h2><p>springboot混合双语言开发问题：</p>
 <p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/zlslch/p/8553958.html">https://www.cnblogs.com/zlslch/p/8553958.html</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/6d241e5dbe7e">https://www.jianshu.com/p/6d241e5dbe7e</a></p>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/u014331143/article/details/127609845">https://blog.csdn.net/u014331143/article/details/127609845</a></p>
@@ -2644,8 +3116,8 @@ new Valine({
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%AF%AD%E8%A8%80/" class="post-category">
-                                    计算机语言
+                            <a href="/categories/%E7%94%B1%E4%BA%8Escala%E5%A4%AA%E8%BF%87%E4%BC%98%E9%9B%85%EF%BC%8C%E5%8D%9A%E4%B8%BB%E7%94%9A%E6%98%AF%E6%AC%A2%E5%96%9C%EF%BC%8C%E4%BA%8E%E6%98%AF%E6%9C%89%E4%BA%86%E8%BF%99%E7%AF%87%E6%96%87%E7%AB%A0%EF%BC%8C%E7%BC%96%E7%A0%81%E6%95%88%E7%8E%87%E4%BC%9A%E6%8F%90%E9%AB%98%E5%93%A6-%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%AF%AD%E8%A8%80/" class="post-category">
+                                    由于scala太过优雅，博主甚是欢喜，于是有了这篇文章，编码效率会提高哦 - 计算机语言
                                 </a>
                             
                             
@@ -2958,7 +3430,7 @@ new Valine({
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">212.6k</span>&nbsp;字
+                class="white-color">215.3k</span>&nbsp;字
             
             
             
