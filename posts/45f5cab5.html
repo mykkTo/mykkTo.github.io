@@ -637,12 +637,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E9%9D%A2%E8%AF%95/">
-                                <span class="chip bg-color">面试</span>
-                            </a>
-                        
                             <a href="/tags/springcloud/">
                                 <span class="chip bg-color">springcloud</span>
+                            </a>
+                        
+                            <a href="/tags/%E9%9D%A2%E8%AF%95/">
+                                <span class="chip bg-color">面试</span>
                             </a>
                         
                     </div>
@@ -1249,16 +1249,16 @@ mysql –<span class="token operator">-</span><span class="token keyword">local<
 <p>4-1、<strong>本地重试</strong></p>
 <p>我们可以利用Spring的retry机制，在消费者出现异常时利用本地重试，而不是无限制的requeue到mq队列。</p>
 <p>修改consumer服务的application.yml文件，添加内容：</p>
-<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">spring:
-  rabbitmq:
-    listener:
-      simple:
-        retry:
-          enabled: true # 开启消费者失败重试
-          initial-interval: 1000ms # 初始的失败等待时长为1秒
-          multiplier: 1 # 失败的等待时长倍数，下次等待时长 = multiplier * last-interval
-          max-attempts: 3 # 最大重试次数
-          stateless: true # true无状态；false有状态。如果业务中包含事务，这里改为false<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token key atrule">spring</span><span class="token punctuation">:</span>
+  <span class="token key atrule">rabbitmq</span><span class="token punctuation">:</span>
+    <span class="token key atrule">listener</span><span class="token punctuation">:</span>
+      <span class="token key atrule">simple</span><span class="token punctuation">:</span>
+        <span class="token key atrule">retry</span><span class="token punctuation">:</span>
+          <span class="token key atrule">enabled</span><span class="token punctuation">:</span> <span class="token boolean important">true</span> <span class="token comment"># 开启消费者失败重试</span>
+          <span class="token key atrule">initial-interval</span><span class="token punctuation">:</span> 1000ms <span class="token comment"># 初始的失败等待时长为1秒</span>
+          <span class="token key atrule">multiplier</span><span class="token punctuation">:</span> <span class="token number">1</span> <span class="token comment"># 失败的等待时长倍数，下次等待时长 = multiplier * last-interval</span>
+          <span class="token key atrule">max-attempts</span><span class="token punctuation">:</span> <span class="token number">3</span> <span class="token comment"># 最大重试次数</span>
+          <span class="token key atrule">stateless</span><span class="token punctuation">:</span> <span class="token boolean important">true</span> <span class="token comment"># true无状态；false有状态。如果业务中包含事务，这里改为false</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
@@ -2461,12 +2461,12 @@ OK
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E9%9D%A2%E8%AF%95/">
-                                    <span class="chip bg-color">面试</span>
-                                </a>
-                            
                                 <a href="/tags/springcloud/">
                                     <span class="chip bg-color">springcloud</span>
+                                </a>
+                            
+                                <a href="/tags/%E9%9D%A2%E8%AF%95/">
+                                    <span class="chip bg-color">面试</span>
                                 </a>
                             
                         </div>
@@ -2946,9 +2946,9 @@ new Valine({
                     <div class="card-image">
                         
                         
-                        <img src="https://v1.mykkto.cn/image/galleries/动漫风景/05.jpg" class="responsive-img" alt="Scala语言纲要">
+                        <img src="https://v1.mykkto.cn/image/galleries/动漫插画/09.jpg" class="responsive-img" alt="Scala语言入手纲要（完结）">
                         
-                        <span class="card-title">Scala语言纲要</span>
+                        <span class="card-title">Scala语言入手纲要（完结）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
