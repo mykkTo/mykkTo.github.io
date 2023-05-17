@@ -677,7 +677,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-04-25
+                    2023-05-18
                 </div>
                 
 
@@ -723,13 +723,13 @@
 <h3 id="2、SpringBoot-Scala-and-Java"><a href="#2、SpringBoot-Scala-and-Java" class="headerlink" title="2、SpringBoot(Scala and Java)"></a>2、SpringBoot(Scala and Java)</h3><h4 id="1、准备开发环境"><a href="#1、准备开发环境" class="headerlink" title="1、准备开发环境"></a>1、准备开发环境</h4><p>首先 jdk8 就不说了，默认你已经安装了，目前提供的是scala 安装</p>
 <p>注意：当前适配版本 JDK1.8  ，Sdk 2.12.11</p>
 <p>1、配置环境变量,关于SDK 评论区见 👇</p>
-<p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202304022129484.png"></p>
+<p><img src="https://mykkto.cn/image/blog/2022/Interview/202304022129484.png"></p>
 <p>2、测试</p>
-<p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202304022130615.png"></p>
+<p><img src="https://mykkto.cn/image/blog/2022/Interview/202304022130615.png"></p>
 <p>3、idea  中 scala 版本插件地址</p>
 <p><a target="_blank" rel="noopener" href="https://plugins.jetbrains.com/plugin/1347-scala/versions/stable">https://plugins.jetbrains.com/plugin/1347-scala/versions/stable</a></p>
 <p>4、项目配置等需要配置</p>
-<p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202304022151004.png"></p>
+<p><img src="https://mykkto.cn/image/blog/2022/Interview/202304022151004.png"></p>
 <h4 id="2、编码"><a href="#2、编码" class="headerlink" title="2、编码"></a>2、编码</h4><p>pom 文件</p>
 <pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>project</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://maven.apache.org/POM/4.0.0<span class="token punctuation">"</span></span>
@@ -837,7 +837,7 @@
 
 
 <p>注意：scala 和 java 要分开，不然编译会出问题</p>
-<p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202304022141350.png"></p>
+<p><img src="https://mykkto.cn/image/blog/2022/Interview/202304022141350.png"></p>
 <p>1、JavaDemo.java ，java代码调用 scala</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">com</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token namespace">com<span class="token punctuation">.</span>kk<span class="token punctuation">.</span>chapter01<span class="token punctuation">.</span></span><span class="token class-name">Car</span><span class="token punctuation">;</span>
@@ -1679,7 +1679,7 @@ Vector<span class="token punctuation">(</span><span class="token number">2</span
 
 
 
-<h2 id="四、函数式编程"><a href="#四、函数式编程" class="headerlink" title="四、函数式编程"></a>四、函数式编程</h2><h3 id="1、基本函数"><a href="#1、基本函数" class="headerlink" title="1、基本函数"></a>1、基本函数</h3><h4 id="1、基本语法"><a href="#1、基本语法" class="headerlink" title="1、基本语法"></a>1、基本语法</h4><p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202304051843727.png"></p>
+<h2 id="四、函数式编程"><a href="#四、函数式编程" class="headerlink" title="四、函数式编程"></a>四、函数式编程</h2><h3 id="1、基本函数"><a href="#1、基本函数" class="headerlink" title="1、基本函数"></a>1、基本函数</h3><h4 id="1、基本语法"><a href="#1、基本语法" class="headerlink" title="1、基本语法"></a>1、基本语法</h4><p><img src="https://mykkto.cn/image/blog/2022/Interview/202304051843727.png"></p>
 <pre class="line-numbers language-scala" data-language="scala"><code class="language-scala"><span class="token keyword">def</span> main<span class="token punctuation">(</span>args<span class="token operator">:</span> Array<span class="token punctuation">[</span><span class="token builtin">String</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Unit</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
   <span class="token keyword">def</span> test<span class="token punctuation">(</span>arg1<span class="token operator">:</span> <span class="token builtin">String</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Unit</span> <span class="token operator">=</span><span class="token punctuation">{</span>
     print<span class="token punctuation">(</span>arg1<span class="token punctuation">)</span>
@@ -2272,7 +2272,7 @@ Vector<span class="token punctuation">(</span><span class="token number">2</span
 
 
 <h4 id="3、包对象"><a href="#3、包对象" class="headerlink" title="3、包对象"></a>3、包对象</h4><p>在 Scala 中可以为每个包定义一个<font color="red">同名</font>的包对象 ，定义在包对象中的成员 ，作为其<font color="red">对应包下</font>所有 class 和 object 的共享变量 ，可以被直接访问</p>
-<p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202304081716620.png"></p>
+<p><img src="https://mykkto.cn/image/blog/2022/Interview/202304081716620.png"></p>
 <pre class="line-numbers language-scala" data-language="scala"><code class="language-scala"><span class="token keyword">package</span> <span class="token namespace">object</span> com <span class="token punctuation">{</span>
   <span class="token keyword">val</span> name <span class="token operator">=</span> <span class="token string">"mykk"</span>
   <span class="token keyword">def</span> testMenthod<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
@@ -2802,9 +2802,9 @@ say
 
 <h4 id="3、特质叠加"><a href="#3、特质叠加" class="headerlink" title="3、特质叠加"></a>3、特质叠加</h4><p>由于一个类可以混入多个 trait，且 trait 中可以有具体的属性和方法，若混入的特质中具有相同的方法（方法名，参数列表，返回值均相同），必然会出现继承冲突问题。 冲突分为以下两种：</p>
 <p>第一种，一个类（Sub）混入的两个 trait（TraitA，TraitB）中具有相同的具体方法，且两个 trait 之间没有任何关系，解决这类冲突问题，直接在类（Sub）中重写冲突方法</p>
-<p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202304142246982.png"></p>
+<p><img src="https://mykkto.cn/image/blog/2022/Interview/202304142246982.png"></p>
 <p>第二种，一个类（Sub）混入的两个 trait（TraitA，TraitB）中具有相同的具体方法，且两个 trait 继承自相同的 trait（TraitC），及所谓的“钻石问题”，解决这类冲突问题，Scala 采用了<strong>特质叠加</strong>的策略</p>
-<p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202304142247872.png"></p>
+<p><img src="https://mykkto.cn/image/blog/2022/Interview/202304142247872.png"></p>
 <p>所谓的<strong>特质叠加</strong>，就是将混入的多个 trait 中的冲突方法叠加起来，案例如下：</p>
 <pre class="line-numbers language-scala" data-language="scala"><code class="language-scala"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>kk1<span class="token punctuation">.</span>demo7</span>
 
@@ -2960,7 +2960,7 @@ insert into database <span class="token operator">:</span>mykk<span aria-hidden=
 </ul>
 <p>3、Scala 不可变集合，就是指该集合对象不可修改，每次修改就会返回一个新对象，而不会对原对象进行修改。类似于 java 中的 String 对象 </p>
 <p>4、可变集合，就是这个集合可以直接对原对象进行修改，而不会返回新的对象。类似于 java 中 StringBuilder 对象</p>
-<p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202304142329151.png"></p>
+<p><img src="https://mykkto.cn/image/blog/2022/Interview/202304142329151.png"></p>
 <p>1）Set、Map 是 Java 中也有的集合 </p>
 <p>2）Seq 是 Java 没有的，我们发现 List 归属到 Seq 了，因此这里的 List 就和 Java 不是同一个 </p>
 <p>概念了 </p>
@@ -2975,7 +2975,7 @@ insert into database <span class="token operator">:</span>mykk<span aria-hidden=
 <li><strong>IndexedSeq</strong> 是通过索引来查找和定位，因此速度快，比如 String 就是一个索引集合，通过索引即可定位</li>
 <li><strong>LinearSeq</strong> 是线型的，即有头尾的概念，这种数据结构一般是通过遍历来查找</li>
 </ul>
-<p><img src="https://v1.mykkto.cn/image/blog/2022/Interview/202304142338538.png"></p>
+<p><img src="https://mykkto.cn/image/blog/2022/Interview/202304142338538.png"></p>
 <h3 id="1、数组"><a href="#1、数组" class="headerlink" title="1、数组"></a>1、数组</h3><h4 id="1、不可变数组"><a href="#1、不可变数组" class="headerlink" title="1、不可变数组"></a>1、不可变数组</h4><p><strong>1、方式一：</strong>val arr1 = new Array[Int](10)</p>
 <pre class="line-numbers language-scala" data-language="scala"><code class="language-scala"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>kk1<span class="token punctuation">.</span>demo7</span>
 

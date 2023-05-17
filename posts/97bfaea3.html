@@ -677,7 +677,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-11-12
+                    2023-05-18
                 </div>
                 
 
@@ -718,16 +718,16 @@
 <p>ShardingSphere(塞腚-菲儿)【分片-球】、Proxy(普拉克谁)【代理】</p>
 <h3 id="2、分库分表"><a href="#2、分库分表" class="headerlink" title="2、分库分表"></a>2、分库分表</h3><h4 id="1、什么是分库分表"><a href="#1、什么是分库分表" class="headerlink" title="1、什么是分库分表"></a>1、什么是分库分表</h4><p><strong>分库分表就是为了解决由于数据量过大而导致数据库性能降低的问题，将原来独立的数据库拆分成若干数据库组成，将数据大表拆分成若干数据表组成，使得单一数据库、单一数据表的数据量变小，从而达到提升数据库性能的目的。</strong></p>
 <h4 id="2、分库分表方式"><a href="#2、分库分表方式" class="headerlink" title="2、分库分表方式"></a>2、分库分表方式</h4><p><strong>分库分表</strong></p>
-<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220411233301.png"></p>
+<p><img src="https://mykkto.cn/image/blog/2022/springcloud/20220411233301.png"></p>
 <p>分库分表包括<code>分库</code>和<code>分表</code>两个部分：</p>
 <p>在生产中通常包括：<strong>垂直分库、水平分库、垂直分表、水平分表</strong>四种方式。</p>
 <p><strong>水平拆分：</strong>根据表中数据的逻辑关系，将表中的数据按照某种条件拆分到多台数据库上。</p>
 <p><strong>垂直拆分：</strong>把单一的表拆分成多个表，并分散到不同的数据库（主机）上</p>
-<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220411233652.png"></p>
-<h4 id="2-1-垂直分库"><a href="#2-1-垂直分库" class="headerlink" title="2.1 垂直分库"></a>2.1 垂直分库</h4><p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/%E5%9B%BE3png.png"></p>
-<h4 id="2-2-垂直分表"><a href="#2-2-垂直分表" class="headerlink" title="2.2 垂直分表"></a>2.2 垂直分表</h4><p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/%E5%9B%BE2.png"></p>
-<h4 id="2-3-水平分表"><a href="#2-3-水平分表" class="headerlink" title="2.3 水平分表"></a>2.3 水平分表</h4><p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220411232915.png"></p>
-<h4 id="2-4-水平分库"><a href="#2-4-水平分库" class="headerlink" title="2.4 水平分库"></a>2.4 水平分库</h4><p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/%E5%9B%BE4.png"></p>
+<p><img src="https://mykkto.cn/image/blog/2022/springcloud/20220411233652.png"></p>
+<h4 id="2-1-垂直分库"><a href="#2-1-垂直分库" class="headerlink" title="2.1 垂直分库"></a>2.1 垂直分库</h4><p><img src="https://mykkto.cn/image/blog/2022/springcloud/%E5%9B%BE3png.png"></p>
+<h4 id="2-2-垂直分表"><a href="#2-2-垂直分表" class="headerlink" title="2.2 垂直分表"></a>2.2 垂直分表</h4><p><img src="https://mykkto.cn/image/blog/2022/springcloud/%E5%9B%BE2.png"></p>
+<h4 id="2-3-水平分表"><a href="#2-3-水平分表" class="headerlink" title="2.3 水平分表"></a>2.3 水平分表</h4><p><img src="https://mykkto.cn/image/blog/2022/springcloud/20220411232915.png"></p>
+<h4 id="2-4-水平分库"><a href="#2-4-水平分库" class="headerlink" title="2.4 水平分库"></a>2.4 水平分库</h4><p><img src="https://mykkto.cn/image/blog/2022/springcloud/%E5%9B%BE4.png"></p>
 <h4 id="3、为什么要分库分表"><a href="#3、为什么要分库分表" class="headerlink" title="3、为什么要分库分表"></a>3、为什么要分库分表</h4><p>一般的机器（4核16G），单库的MySQL并发（QPS+TPS）超过了2k，系统基本就宕机了。最好是并发量控制在1k左右。</p>
 <ul>
 <li>QPS：每秒并发量</li>
@@ -745,28 +745,28 @@
 <h3 id="1、基本介绍"><a href="#1、基本介绍" class="headerlink" title="1、基本介绍"></a>1、基本介绍</h3><p>Sharding-JDBC是当当网研发的开源分布式数据库中间件，从3.0 开始Sharding-JDBC 被包含在Sharding-Sphere中，</p>
 <p>之后该项目进入进入Apache孵化器，4.版本之后的版本为Apache版本。</p>
 <p>定位为轻量级 Java 框架，在 Java 的 JDBC 层提供的额外服务。 它使用客户端直连数据库，以 jar 包形式提供服务，无需额外部署和依赖，可理解为增强版的 JDBC 驱动，完全兼容 JDBC 和各种 ORM 框架。</p>
-<h4 id="Sharding-JDBC架构图："><a href="#Sharding-JDBC架构图：" class="headerlink" title="Sharding-JDBC架构图："></a><strong>Sharding-JDBC架构图：</strong></h4><p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220412141303.png"></p>
-<h4 id="Sharding-Proxy架构图："><a href="#Sharding-Proxy架构图：" class="headerlink" title="Sharding-Proxy架构图："></a><strong>Sharding-Proxy架构图：</strong></h4><p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220412141632.png"></p>
-<h4 id="Sharding-Jdbc混合架构："><a href="#Sharding-Jdbc混合架构：" class="headerlink" title="Sharding-Jdbc混合架构："></a>Sharding-Jdbc混合架构：</h4><p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220412142051.png"></p>
+<h4 id="Sharding-JDBC架构图："><a href="#Sharding-JDBC架构图：" class="headerlink" title="Sharding-JDBC架构图："></a><strong>Sharding-JDBC架构图：</strong></h4><p><img src="https://mykkto.cn/image/blog/2022/springcloud/20220412141303.png"></p>
+<h4 id="Sharding-Proxy架构图："><a href="#Sharding-Proxy架构图：" class="headerlink" title="Sharding-Proxy架构图："></a><strong>Sharding-Proxy架构图：</strong></h4><p><img src="https://mykkto.cn/image/blog/2022/springcloud/20220412141632.png"></p>
+<h4 id="Sharding-Jdbc混合架构："><a href="#Sharding-Jdbc混合架构：" class="headerlink" title="Sharding-Jdbc混合架构："></a>Sharding-Jdbc混合架构：</h4><p><img src="https://mykkto.cn/image/blog/2022/springcloud/20220412142051.png"></p>
 <p>ShardingSphere-JDBC 采用无中心化架构，适用于 Java 开发的高性能的轻量级 OLTP（连接事务处理） 应用；ShardingSphere-Proxy 提供静态入口以及异构语言的支持，适用于 OLAP（连接数据分析） 应用以及对分片数据库进行管理和运维的场景。</p>
 <p>Apache ShardingSphere 是多接入端共同组成的生态圈。 通过混合使用 ShardingSphere-JDBC 和 ShardingSphere-Proxy，并采用同一注册中心统一配置分片策略，能够灵活的搭建适用于各种场景的应用系统，使得架构师更加自由地调整适合与当前业务的最佳系统架构。</p>
-<h4 id="与jdbc性能对比"><a href="#与jdbc性能对比" class="headerlink" title="与jdbc性能对比"></a>与jdbc性能对比</h4><p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220413201213.png"></p>
-<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220413201228.png"></p>
+<h4 id="与jdbc性能对比"><a href="#与jdbc性能对比" class="headerlink" title="与jdbc性能对比"></a>与jdbc性能对比</h4><p><img src="https://mykkto.cn/image/blog/2022/springcloud/20220413201213.png"></p>
+<p><img src="https://mykkto.cn/image/blog/2022/springcloud/20220413201228.png"></p>
 <h3 id="2、需求说明"><a href="#2、需求说明" class="headerlink" title="2、需求说明"></a>2、需求说明</h3><h4 id="1、案例一：水平分表"><a href="#1、案例一：水平分表" class="headerlink" title="1、案例一：水平分表"></a>1、案例一：水平分表</h4><p>手动创建两张表，t_order_1和t_order_2，这两张表是订单表，拆分后的表，通过Sharding-Jdbc向课程表插入数据，按照一定的分片规则，<strong>主键为偶数的进入t_order_1，另一部分数据进入t_order_2</strong>，通过Sharding-Jdbc 查询数据，根据 SQL语句的内容从t_order_1或t_order_2查询数据。</p>
-<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220413232842.png"></p>
+<p><img src="https://mykkto.cn/image/blog/2022/springcloud/20220413232842.png"></p>
 <h4 id="2、案例二、水平分库"><a href="#2、案例二、水平分库" class="headerlink" title="2、案例二、水平分库"></a>2、案例二、水平分库</h4><p>在案例一的基础上，扩展出两个数据库，根据 user_id </p>
 <p>偶数入库，sharding_jdbc1</p>
 <p>奇数入库，sharding_jdbc2</p>
-<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220413233510.png"></p>
+<p><img src="https://mykkto.cn/image/blog/2022/springcloud/20220413233510.png"></p>
 <h4 id="3、案例三、垂直分库"><a href="#3、案例三、垂直分库" class="headerlink" title="3、案例三、垂直分库"></a>3、案例三、垂直分库</h4><p>按照业余去区分库</p>
-<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220416204322.png"></p>
+<p><img src="https://mykkto.cn/image/blog/2022/springcloud/20220416204322.png"></p>
 <h3 id="3、项目搭建"><a href="#3、项目搭建" class="headerlink" title="3、项目搭建"></a>3、项目搭建</h3><h4 id="1、技术选型"><a href="#1、技术选型" class="headerlink" title="1、技术选型"></a>1、技术选型</h4><p>springboot2.2.1+MybatisPlus+Sharding-JDBC+Druid连接池</p>
 <p>阿里镜像：比较快</p>
 <p><a target="_blank" rel="noopener" href="https://start.aliyun.com/">https://start.aliyun.com/</a></p>
-<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220413200217.png"></p>
+<p><img src="https://mykkto.cn/image/blog/2022/springcloud/20220413200217.png"></p>
 <p><strong>建表</strong></p>
 <p>两张结构一样</p>
-<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220413214847.png"></p>
+<p><img src="https://mykkto.cn/image/blog/2022/springcloud/20220413214847.png"></p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">DROP</span> <span class="token keyword">TABLE</span> <span class="token keyword">IF</span> <span class="token keyword">EXISTS</span> <span class="token punctuation">`</span>course_1<span class="token punctuation">`</span><span class="token punctuation">;</span>
 <span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> <span class="token punctuation">`</span>course_1<span class="token punctuation">`</span> <span class="token punctuation">(</span>
 <span class="token punctuation">`</span>cid<span class="token punctuation">`</span> <span class="token keyword">bigint</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span> <span class="token keyword">COMMENT</span> <span class="token string">'课程id'</span><span class="token punctuation">,</span>
@@ -790,7 +790,7 @@
 
 
 
-<h4 id="2、建model"><a href="#2、建model" class="headerlink" title="2、建model"></a>2、建model</h4><p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220413200115.png"></p>
+<h4 id="2、建model"><a href="#2、建model" class="headerlink" title="2、建model"></a>2、建model</h4><p><img src="https://mykkto.cn/image/blog/2022/springcloud/20220413200115.png"></p>
 <h4 id="3、导pom"><a href="#3、导pom" class="headerlink" title="3、导pom"></a>3、导pom</h4><pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependencies</span><span class="token punctuation">&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>
         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
@@ -958,9 +958,9 @@ spring.main.allow<span class="token punctuation">-</span>bean<span class="token 
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220413224245.png"></p>
+<p><img src="https://mykkto.cn/image/blog/2022/springcloud/20220413224245.png"></p>
 <h3 id="4、案例二"><a href="#4、案例二" class="headerlink" title="4、案例二"></a>4、案例二</h3><p>基于案例一扩展</p>
-<h4 id="1、当前库结构"><a href="#1、当前库结构" class="headerlink" title="1、当前库结构"></a>1、当前库结构</h4><p><img src="https://v1.mykkto.cn/image/blog/2022/springcloud/20220414205043.png"></p>
+<h4 id="1、当前库结构"><a href="#1、当前库结构" class="headerlink" title="1、当前库结构"></a>1、当前库结构</h4><p><img src="https://mykkto.cn/image/blog/2022/springcloud/20220414205043.png"></p>
 <h4 id="2、application-properties"><a href="#2、application-properties" class="headerlink" title="2、application.properties"></a>2、application.properties</h4><pre class="line-numbers language-application.properties" data-language="application.properties"><code class="language-application.properties"># sharding分片策略
 
 # 配置数据源，给数据源起别名
