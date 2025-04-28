@@ -20,7 +20,7 @@
 
     <title>Oracle11g(docker版) | jack</title>
 
-    <link rel="icon" type="image/jpeg" href="https://github.com/mykkTo/image/blog/my1SN{XEPO)])9$A7K_JK(BNOV.jpg">
+    <link rel="icon" type="image/jpeg" href="https://fastly.jsdelivr.net/gh/mykkTo/image@main/blog/my1SN{XEPO)])9$A7K_JK(BNOV.jpg">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
     <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
@@ -56,7 +56,7 @@
             <div class="brand-logo">
                 <a href="/" class="waves-effect waves-light">
                     
-                    <img src="https://github.com/mykkTo/image/blog/20211641568137986-ckt-抠图.png" class="logo-img" alt="LOGO">
+                    <img src="https://fastly.jsdelivr.net/gh/mykkTo/image@main/blog/20211641568137986-ckt-抠图.png" class="logo-img" alt="LOGO">
                     
                     <span class="logo-span">jack</span>
                 </a>
@@ -239,7 +239,7 @@
 
     <div class="mobile-head bg-color">
         
-        <img src="https://github.com/mykkTo/image/blog/20211641568137986-ckt-抠图.png" class="logo-img circle responsive-img">
+        <img src="https://fastly.jsdelivr.net/gh/mykkTo/image@main/blog/20211641568137986-ckt-抠图.png" class="logo-img circle responsive-img">
         
         <div class="logo-name">jack</div>
         <div class="logo-desc">
@@ -511,7 +511,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://github.com/mykkTo/image/galleries/动漫插画/13.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://fastly.jsdelivr.net/gh/mykkTo/image@main/galleries/动漫插画/13.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -720,10 +720,10 @@
 
 <h3 id="2、下载完后，查看"><a href="#2、下载完后，查看" class="headerlink" title="2、下载完后，查看"></a>2、下载完后，查看</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">docker images<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p><img src="https://github.com/mykkTo/image/blog/2022/springcloud/20220228105216.png"></p>
+<p><img src="https://fastly.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220228105216.png"></p>
 <h3 id="3、创建容器"><a href="#3、创建容器" class="headerlink" title="3、创建容器"></a>3、创建容器</h3><pre class="line-numbers language-dockerfile" data-language="dockerfile"><code class="language-dockerfile">docker run <span class="token punctuation">-</span>d <span class="token punctuation">-</span>p 1521<span class="token punctuation">:</span>1521 <span class="token punctuation">-</span><span class="token punctuation">-</span>name oracle11g registry.cn<span class="token punctuation">-</span>hangzhou.aliyuncs.com/helowin/oracle_11g<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p><img src="https://github.com/mykkTo/image/blog/2022/springcloud/20220228105956.png"></p>
+<p><img src="https://fastly.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220228105956.png"></p>
 <h3 id="4、启动容器，操作"><a href="#4、启动容器，操作" class="headerlink" title="4、启动容器，操作"></a>4、启动容器，操作</h3><h4 id="1、启动"><a href="#1、启动" class="headerlink" title="1、启动"></a>1、启动</h4><pre class="line-numbers language-dockerfile" data-language="dockerfile"><code class="language-dockerfile">docker start oracle11g<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h4 id="2、进入容器"><a href="#2、进入容器" class="headerlink" title="2、进入容器"></a>2、进入容器</h4><pre class="line-numbers language-dockerfile" data-language="dockerfile"><code class="language-dockerfile">docker exec <span class="token punctuation">-</span>it oracle11g bash<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -732,25 +732,25 @@
 密码：helowin<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p>注意：现在还不能退出，继续操作</p>
-<p><img src="https://github.com/mykkTo/image/blog/2022/springcloud/20220228110834.png"></p>
+<p><img src="https://fastly.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220228110834.png"></p>
 <h3 id="5、编辑profile文件配置ORACLE环境变量"><a href="#5、编辑profile文件配置ORACLE环境变量" class="headerlink" title="5、编辑profile文件配置ORACLE环境变量"></a>5、编辑profile文件配置ORACLE环境变量</h3><p>在docker中查找并编辑profile文件 vi /etc/profile</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">export</span> <span class="token assign-left variable">ORACLE_HOME</span><span class="token operator">=</span>/home/oracle/app/oracle/product/11.2.0/dbhome_2
 <span class="token builtin class-name">export</span> <span class="token assign-left variable">ORACLE_SID</span><span class="token operator">=</span>helowin
 <span class="token builtin class-name">export</span> <span class="token assign-left variable"><span class="token environment constant">PATH</span></span><span class="token operator">=</span><span class="token variable">$ORACLE_HOME</span>/bin:<span class="token environment constant">$PATH</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <p>在最后上加：</p>
-<p><img src="https://github.com/mykkTo/image/blog/2022/springcloud/20220228111122.png"></p>
+<p><img src="https://fastly.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220228111122.png"></p>
 <p>保存并退出 ：wq</p>
 <h3 id="6、oracle的配置"><a href="#6、oracle的配置" class="headerlink" title="6、oracle的配置"></a>6、oracle的配置</h3><h4 id="1-创建软连接"><a href="#1-创建软连接" class="headerlink" title="1. 创建软连接"></a>1. 创建软连接</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">ln</span> -s <span class="token variable">$ORACLE_HOME</span>/bin/sqlplus /usr/bin<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h4 id="2-切换到oracle-用户"><a href="#2-切换到oracle-用户" class="headerlink" title="2.切换到oracle 用户"></a>2.切换到oracle 用户</h4><p>这里还要说一下，一定要写中间的 - 必须要，否则软连接无效</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">su</span> - oracle<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p><img src="https://github.com/mykkTo/image/blog/2022/springcloud/20220228111344.png"></p>
+<p><img src="https://fastly.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220228111344.png"></p>
 <h3 id="7、oracle数据库的操作"><a href="#7、oracle数据库的操作" class="headerlink" title="7、oracle数据库的操作"></a>7、oracle数据库的操作</h3><h4 id="1-登录sqlplus并修改sys、system用户密码"><a href="#1-登录sqlplus并修改sys、system用户密码" class="headerlink" title="1. 登录sqlplus并修改sys、system用户密码"></a>1. 登录sqlplus并修改sys、system用户密码</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">sqlplus /nolog
 conn /as sysdba<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<p><img src="https://github.com/mykkTo/image/blog/2022/springcloud/20220228103729.png"></p>
+<p><img src="https://fastly.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220228103729.png"></p>
 <h4 id="2-修改和创建用户"><a href="#2-修改和创建用户" class="headerlink" title="2. 修改和创建用户"></a>2. 修改和创建用户</h4><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">alter</span> <span class="token keyword">user</span> system identified <span class="token keyword">by</span> system<span class="token punctuation">;</span>
 
 <span class="token keyword">alter</span> <span class="token keyword">user</span> sys identified <span class="token keyword">by</span> sys<span class="token punctuation">;</span>
@@ -773,15 +773,15 @@ conn /as sysdba<span aria-hidden="true" class="line-numbers-rows"><span></span><
 <h2 id="二、客户端连接"><a href="#二、客户端连接" class="headerlink" title="二、客户端连接"></a>二、客户端连接</h2><h3 id="1、navicat连接"><a href="#1、navicat连接" class="headerlink" title="1、navicat连接"></a>1、navicat连接</h3><p>打开navicat后（navicat12不用配置oci.dll文件了）</p>
 <p><img src="C:\Users\my_kk\AppData\Roaming\Typora\typora-user-images\1646018355584.png" alt="1646018355584"></p>
 <h3 id="2、pl-sql-连接"><a href="#2、pl-sql-连接" class="headerlink" title="2、pl/sql 连接"></a>2、pl/sql 连接</h3><p>101.xx.xxx.133:1521/helowinXDB<br>密码：tiger</p>
-<p><img src="https://github.com/mykkTo/image/blog/2022/springcloud/20220228112446.png"></p>
+<p><img src="https://fastly.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220228112446.png"></p>
 <h2 id="三、其他功能"><a href="#三、其他功能" class="headerlink" title="三、其他功能"></a>三、其他功能</h2><h4 id="1、scott赋予最高权限"><a href="#1、scott赋予最高权限" class="headerlink" title="1、scott赋予最高权限"></a>1、scott赋予最高权限</h4><p>分两条运行</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">CONN / AS SYSDBA<span class="token punctuation">;</span>
 GRANT DBA TO SCOTT<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 
 
-<p><img src="https://github.com/mykkTo/image/blog/2022/springcloud/20220228114707.png"></p>
-<p><img src="https://github.com/mykkTo/image/blog/2022/springcloud/20220228114949.png"></p>
+<p><img src="https://fastly.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220228114707.png"></p>
+<p><img src="https://fastly.jsdelivr.net/gh/mykkTo/image@main/blog/2022/springcloud/20220228114949.png"></p>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/laoluoits/p/13942119.html">https://www.cnblogs.com/laoluoits/p/13942119.html</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/flyingsand/p/9463460.html">https://www.cnblogs.com/flyingsand/p/9463460.html</a></p>
 
@@ -1337,7 +1337,7 @@ new Valine({
                     <div class="card-image">
                         
                         
-                        <img src="https://github.com/mykkTo/image/galleries/动漫插画/07.jpg" class="responsive-img" alt="高阶面试题：JUC-AQS">
+                        <img src="https://fastly.jsdelivr.net/gh/mykkTo/image@main/galleries/动漫插画/07.jpg" class="responsive-img" alt="高阶面试题：JUC-AQS">
                         
                         <span class="card-title">高阶面试题：JUC-AQS</span>
                     </div>
@@ -1394,7 +1394,7 @@ new Valine({
                     <div class="card-image">
                         
                         
-                        <img src="https://github.com/mykkTo/image/galleries/动漫风景/03.jpg" class="responsive-img" alt="SpringCloud-Alibaba-Nacos 服务注册+配置中心">
+                        <img src="https://fastly.jsdelivr.net/gh/mykkTo/image@main/galleries/动漫风景/03.jpg" class="responsive-img" alt="SpringCloud-Alibaba-Nacos 服务注册+配置中心">
                         
                         <span class="card-title">SpringCloud-Alibaba-Nacos 服务注册+配置中心</span>
                     </div>
