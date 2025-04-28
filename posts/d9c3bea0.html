@@ -20,7 +20,7 @@
 
     <title>Nacos 高可用集群（docker-compose） | jack</title>
 
-    <link rel="icon" type="image/jpeg" href="https://mykkto.cn/image/blog/my1SN{XEPO)])9$A7K_JK(BNOV.jpg">
+    <link rel="icon" type="image/jpeg" href="https://github.com/mykkTo/image/blog/my1SN{XEPO)])9$A7K_JK(BNOV.jpg">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
     <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
@@ -56,7 +56,7 @@
             <div class="brand-logo">
                 <a href="/" class="waves-effect waves-light">
                     
-                    <img src="https://mykkto.cn/image/blog/20211641568137986-ckt-抠图.png" class="logo-img" alt="LOGO">
+                    <img src="https://github.com/mykkTo/image/blog/20211641568137986-ckt-抠图.png" class="logo-img" alt="LOGO">
                     
                     <span class="logo-span">jack</span>
                 </a>
@@ -239,7 +239,7 @@
 
     <div class="mobile-head bg-color">
         
-        <img src="https://mykkto.cn/image/blog/20211641568137986-ckt-抠图.png" class="logo-img circle responsive-img">
+        <img src="https://github.com/mykkTo/image/blog/20211641568137986-ckt-抠图.png" class="logo-img circle responsive-img">
         
         <div class="logo-name">jack</div>
         <div class="logo-desc">
@@ -511,7 +511,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://mykkto.cn/image/galleries/动漫风景/02.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://github.com/mykkTo/image/galleries/动漫风景/02.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -641,12 +641,12 @@
                                 <span class="chip bg-color">springcloud-alibaba</span>
                             </a>
                         
-                            <a href="/tags/%E9%9B%86%E7%BE%A4/">
-                                <span class="chip bg-color">集群</span>
-                            </a>
-                        
                             <a href="/tags/nacos/">
                                 <span class="chip bg-color">nacos</span>
+                            </a>
+                        
+                            <a href="/tags/%E9%9B%86%E7%BE%A4/">
+                                <span class="chip bg-color">集群</span>
                             </a>
                         
                             <a href="/tags/docker-compose/">
@@ -681,7 +681,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-06-11
+                    2025-04-28
                 </div>
                 
 
@@ -719,7 +719,7 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="一、架构"><a href="#一、架构" class="headerlink" title="一、架构"></a>一、架构</h2><h3 id="1、前言"><a href="#1、前言" class="headerlink" title="1、前言"></a>1、前言</h3><p>本来这部分是要在  <a href="/posts/af0a257d">Spring-nacos 手册</a>中 ，但是后面搭建遇到很多坑找了很多资料，就单独整理后写出这篇。</p>
-<h3 id="2、架构图"><a href="#2、架构图" class="headerlink" title="2、架构图"></a>2、架构图</h3><p><img src="https://mykkto.cn/image/blog/2022/springcloud/20220312143557.png"></p>
+<h3 id="2、架构图"><a href="#2、架构图" class="headerlink" title="2、架构图"></a>2、架构图</h3><p><img src="https://github.com/mykkTo/image/blog/2022/springcloud/20220312143557.png"></p>
 <p>一个ngxin 负载 三个 nacos节点，mysql 主从两个节点</p>
 <h2 id="二、搭建-mysql-主从"><a href="#二、搭建-mysql-主从" class="headerlink" title="二、搭建 mysql 主从"></a>二、搭建 mysql 主从</h2><h3 id="1、拉取和创建"><a href="#1、拉取和创建" class="headerlink" title="1、拉取和创建"></a>1、拉取和创建</h3><pre class="line-numbers language-docker" data-language="docker"><code class="language-docker"><span class="token comment"># 1、拉取</span>
 <span class="token punctuation">[</span>root@VM_0_17_centos ~<span class="token punctuation">]</span>docker pull mysql<span class="token punctuation">:</span>5.7.13
@@ -815,15 +815,15 @@ MASTER_PASSWORD<span class="token operator">=</span><span class="token string">'
 <p>MASTER_PASSWORD 同步账号的密码</p>
 <h4 id="2、检查是否配置成功"><a href="#2、检查是否配置成功" class="headerlink" title="2、检查是否配置成功"></a>2、检查是否配置成功</h4><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">show</span> slave <span class="token keyword">status</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p><img src="https://mykkto.cn/image/blog/2022/springcloud/20220312161305.png"></p>
-<h3 id="7、检查主从"><a href="#7、检查主从" class="headerlink" title="7、检查主从"></a>7、检查主从</h3><p><img src="https://mykkto.cn/image/blog/2022/springcloud/20220312161712.png"></p>
-<p><img src="https://mykkto.cn/image/blog/2022/springcloud/20220312161734.png"></p>
+<p><img src="https://github.com/mykkTo/image/blog/2022/springcloud/20220312161305.png"></p>
+<h3 id="7、检查主从"><a href="#7、检查主从" class="headerlink" title="7、检查主从"></a>7、检查主从</h3><p><img src="https://github.com/mykkTo/image/blog/2022/springcloud/20220312161712.png"></p>
+<p><img src="https://github.com/mykkTo/image/blog/2022/springcloud/20220312161734.png"></p>
 <h2 id="三、搭建-nacos-集群"><a href="#三、搭建-nacos-集群" class="headerlink" title="三、搭建 nacos 集群"></a>三、搭建 nacos 集群</h2><h3 id="1、前言-1"><a href="#1、前言-1" class="headerlink" title="1、前言"></a>1、前言</h3><p>docker-compose配置的源码，已经上传到 github,可直接clone ：</p>
 <p><a target="_blank" rel="noopener" href="https://github.com/mykkTo/nacos-cluster-docker.git">https://github.com/mykkTo/nacos-cluster-docker.git</a></p>
 <h3 id="2、配置文件说明"><a href="#2、配置文件说明" class="headerlink" title="2、配置文件说明"></a>2、配置文件说明</h3><p>1、Nacos共用的<code>init.d/custom.properties</code>，与官方保持一致，按需使用</p>
 <p>2、docker-compose-nacos1.yml</p>
 <p>以 1为例， 带个都大同小异</p>
-<p><img src="https://mykkto.cn/image/blog/2022/springcloud/20220312163817.png"></p>
+<p><img src="https://github.com/mykkTo/image/blog/2022/springcloud/20220312163817.png"></p>
 <h3 id="3、启动-nacos-集群"><a href="#3、启动-nacos-集群" class="headerlink" title="3、启动 nacos 集群"></a>3、启动 nacos 集群</h3><h4 id="1、将源代码配置修改后，分别上传到三台主机"><a href="#1、将源代码配置修改后，分别上传到三台主机" class="headerlink" title="1、将源代码配置修改后，分别上传到三台主机"></a>1、将源代码配置修改后，分别上传到三台主机</h4><ul>
 <li><strong>101.34.180.133 对应 nacos-1</strong></li>
 <li><strong>106.52.23.202 对应 nacos-2</strong></li>
@@ -853,7 +853,7 @@ $ docker-compose -f docker-compose-nacos3.yml up -d<span aria-hidden="true" clas
 
 
 
-<h4 id="5、访问Nacos-UI界面"><a href="#5、访问Nacos-UI界面" class="headerlink" title="5、访问Nacos UI界面"></a>5、访问Nacos UI界面</h4><p><img src="https://mykkto.cn/image/blog/2022/springcloud/P9RM@BX1BNB%7D%8_G%7B7UT9SQ.png"></p>
+<h4 id="5、访问Nacos-UI界面"><a href="#5、访问Nacos-UI界面" class="headerlink" title="5、访问Nacos UI界面"></a>5、访问Nacos UI界面</h4><p><img src="https://github.com/mykkTo/image/blog/2022/springcloud/P9RM@BX1BNB%7D%8_G%7B7UT9SQ.png"></p>
 <p>这里我们看到Nacos集群各节点已经正常了，LEADER与FOLLOWER已经选出，一切正常了</p>
 <h2 id="四、nginx-负载"><a href="#四、nginx-负载" class="headerlink" title="四、nginx  负载"></a>四、nginx  负载</h2><h3 id="1、创建并启动"><a href="#1、创建并启动" class="headerlink" title="1、创建并启动"></a>1、创建并启动</h3><h4 id="1、拉取"><a href="#1、拉取" class="headerlink" title="1、拉取"></a>1、拉取</h4><pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker pull nginx<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
@@ -899,7 +899,7 @@ $ docker-compose -f docker-compose-nacos3.yml up -d<span aria-hidden="true" clas
 
 
 <h3 id="4、配置负载均衡"><a href="#4、配置负载均衡" class="headerlink" title="4、配置负载均衡"></a>4、配置负载均衡</h3><h4 id="1、进入-配置"><a href="#1、进入-配置" class="headerlink" title="1、进入 配置"></a>1、进入 配置</h4><p>在 root 底下</p>
-<p><img src="https://mykkto.cn/image/blog/2022/springcloud/20220312210733.png"></p>
+<p><img src="https://github.com/mykkTo/image/blog/2022/springcloud/20220312210733.png"></p>
 <h4 id="2、配置源码"><a href="#2、配置源码" class="headerlink" title="2、配置源码"></a>2、配置源码</h4><pre class="line-numbers language-nginx.conf" data-language="nginx.conf"><code class="language-nginx.conf">user  nginx;
 worker_processes  auto;
 
@@ -930,7 +930,7 @@ http {
 
 
 <p>主要的是这块</p>
-<p><img src="https://mykkto.cn/image/blog/2022/springcloud/20220312210843.png"></p>
+<p><img src="https://github.com/mykkTo/image/blog/2022/springcloud/20220312210843.png"></p>
 <p>说明下：</p>
 <p>新手可能不太会nginx，listen 为 80 是因为你容器启动时候是 80，当访问 80的时候转到 以上三个 ip 负载轮训，还可以设置权重可以去看文档</p>
 <h4 id="3、重启"><a href="#3、重启" class="headerlink" title="3、重启"></a>3、重启</h4><pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker restart nginx<span class="token punctuation">-</span>web<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -939,8 +939,8 @@ http {
 
 
 
-<h2 id="五、Spring-boot连接"><a href="#五、Spring-boot连接" class="headerlink" title="五、Spring-boot连接"></a>五、Spring-boot连接</h2><h4 id="1、yml配置"><a href="#1、yml配置" class="headerlink" title="1、yml配置"></a>1、yml配置</h4><p><img src="https://mykkto.cn/image/blog/2022/springcloud/20220312211044.png"></p>
-<h4 id="2、查看客户端"><a href="#2、查看客户端" class="headerlink" title="2、查看客户端"></a>2、查看客户端</h4><p><img src="https://mykkto.cn/image/blog/2022/springcloud/20220312211146.png"></p>
+<h2 id="五、Spring-boot连接"><a href="#五、Spring-boot连接" class="headerlink" title="五、Spring-boot连接"></a>五、Spring-boot连接</h2><h4 id="1、yml配置"><a href="#1、yml配置" class="headerlink" title="1、yml配置"></a>1、yml配置</h4><p><img src="https://github.com/mykkTo/image/blog/2022/springcloud/20220312211044.png"></p>
+<h4 id="2、查看客户端"><a href="#2、查看客户端" class="headerlink" title="2、查看客户端"></a>2、查看客户端</h4><p><img src="https://github.com/mykkTo/image/blog/2022/springcloud/20220312211146.png"></p>
 <h2 id="六、问题汇总"><a href="#六、问题汇总" class="headerlink" title="六、问题汇总"></a>六、问题汇总</h2><h3 id="1、关于-503"><a href="#1、关于-503" class="headerlink" title="1、关于 503"></a>1、关于 503</h3><p>异常信息：java.lang.IllegalStateException: failed to req API:/nacos/v1/ns/instance after all servers([101.34.180.133:8848]) tried: failed to req API:101.34.180.133:8848/nacos/v1/ns/instance. code:503 msg: server is DOWN now, please try again later!</p>
 <p>个人见解：这个问题博主认为是集群节点少于3个出现的，因为服务器过期了一台剩下了 两台，所以报这个错误，三台没有这个问题。</p>
 <h2 id="七、参考文档-↓"><a href="#七、参考文档-↓" class="headerlink" title="七、参考文档 ↓"></a>七、参考文档 ↓</h2><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/hellxz/p/nacos-cluster-docker.html">https://www.cnblogs.com/hellxz/p/nacos-cluster-docker.html</a></p>
@@ -1020,12 +1020,12 @@ http {
                                     <span class="chip bg-color">springcloud-alibaba</span>
                                 </a>
                             
-                                <a href="/tags/%E9%9B%86%E7%BE%A4/">
-                                    <span class="chip bg-color">集群</span>
-                                </a>
-                            
                                 <a href="/tags/nacos/">
                                     <span class="chip bg-color">nacos</span>
+                                </a>
+                            
+                                <a href="/tags/%E9%9B%86%E7%BE%A4/">
+                                    <span class="chip bg-color">集群</span>
                                 </a>
                             
                                 <a href="/tags/docker-compose/">
@@ -1509,7 +1509,7 @@ new Valine({
                     <div class="card-image">
                         
                         
-                        <img src="https://mykkto.cn/image/galleries/动漫风景/09.jpg" class="responsive-img" alt="SpringCloud-Alibaba-Sentinel 实现熔断与限流">
+                        <img src="https://github.com/mykkTo/image/galleries/动漫风景/09.jpg" class="responsive-img" alt="SpringCloud-Alibaba-Sentinel 实现熔断与限流">
                         
                         <span class="card-title">SpringCloud-Alibaba-Sentinel 实现熔断与限流</span>
                     </div>
@@ -1570,7 +1570,7 @@ new Valine({
                     <div class="card-image">
                         
                         
-                        <img src="https://mykkto.cn/image/galleries/动漫插画/07.jpg" class="responsive-img" alt="高阶面试题：JUC-AQS">
+                        <img src="https://github.com/mykkTo/image/galleries/动漫插画/07.jpg" class="responsive-img" alt="高阶面试题：JUC-AQS">
                         
                         <span class="card-title">高阶面试题：JUC-AQS</span>
                     </div>
@@ -1840,7 +1840,7 @@ new Valine({
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2022-2023</span>
+                <span id="year">2022-2025</span>
             
             <span id="year">2022</span>
             <a href="/about" target="_blank">jack</a>
@@ -1849,7 +1849,7 @@ new Valine({
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">239.2k</span>&nbsp;字
+                class="white-color">238.1k</span>&nbsp;字
             
             
             

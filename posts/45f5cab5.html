@@ -20,7 +20,7 @@
 
     <title>面试题-03(关于Cloud) | jack</title>
 
-    <link rel="icon" type="image/jpeg" href="https://mykkto.cn/image/blog/my1SN{XEPO)])9$A7K_JK(BNOV.jpg">
+    <link rel="icon" type="image/jpeg" href="https://github.com/mykkTo/image/blog/my1SN{XEPO)])9$A7K_JK(BNOV.jpg">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
     <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
@@ -56,7 +56,7 @@
             <div class="brand-logo">
                 <a href="/" class="waves-effect waves-light">
                     
-                    <img src="https://mykkto.cn/image/blog/20211641568137986-ckt-抠图.png" class="logo-img" alt="LOGO">
+                    <img src="https://github.com/mykkTo/image/blog/20211641568137986-ckt-抠图.png" class="logo-img" alt="LOGO">
                     
                     <span class="logo-span">jack</span>
                 </a>
@@ -239,7 +239,7 @@
 
     <div class="mobile-head bg-color">
         
-        <img src="https://mykkto.cn/image/blog/20211641568137986-ckt-抠图.png" class="logo-img circle responsive-img">
+        <img src="https://github.com/mykkTo/image/blog/20211641568137986-ckt-抠图.png" class="logo-img circle responsive-img">
         
         <div class="logo-name">jack</div>
         <div class="logo-desc">
@@ -511,7 +511,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://mykkto.cn/image/galleries/动漫风景/05.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://github.com/mykkTo/image/galleries/动漫风景/05.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -677,21 +677,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-12-10
+                    2025-04-28
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    50.3k
+                    49.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    181 分
+                    178 分
                 </div>
                 
 
@@ -779,10 +779,7 @@
 </ul>
 <h4 id="5-Sentinel的线程隔离与Hystix的线程隔离有什么差别"><a href="#5-Sentinel的线程隔离与Hystix的线程隔离有什么差别" class="headerlink" title="5.Sentinel的线程隔离与Hystix的线程隔离有什么差别"></a>5.Sentinel的线程隔离与Hystix的线程隔离有什么差别</h4><p>Hystix默认是基于线程池实现的线程隔离，每一个被隔离的业务都要创建一个独立的线程池，线程过多会带来额外的CPU开销，性能一般，但是隔离性更强。</p>
 <p>Sentinel是基于信号量（计数器）实现的线程隔离，不用创建线程池，性能较好，但是隔离性一般。</p>
-<h3 id="1、注册中心"><a href="#1、注册中心" class="headerlink" title="1、注册中心"></a>1、注册中心</h3><p><img src="https://mykkto.cn/image/blog/2022/springcloud/20220223225739.png"></p>
-<h4 id="Eureka"><a href="#Eureka" class="headerlink" title="====Eureka====="></a>====Eureka=====</h4><p>包含2个组件：eureka server 和eureka client</p>
-<p>注册中心，包含了服务发现、治理等功能。@EnableEurekaServer，作为注册中心；</p>
-<p>@EnableEurekaClient，作为服务的提供者、或消费者。下面分析下服务发现和治理。</p>
+<h3 id="1、注册中心"><a href="#1、注册中心" class="headerlink" title="1、注册中心"></a>1、注册中心</h3><p><img src="https://github.com/mykkTo/image/blog/2022/springcloud/20220223225739.png"></p>
 <h4 id="1、注册服务于发现流程（eureka）"><a href="#1、注册服务于发现流程（eureka）" class="headerlink" title="1、注册服务于发现流程（eureka）"></a>1、注册服务于发现流程（eureka）</h4><ul>
 <li>当EurekaClient启动后，首先会执行服务注册。</li>
 <li>EurekaClient将服务信息封装成InstanceInfo对象，通过EurekaHttpClient调用register方法发送POST请求执行服务注册</li>
@@ -875,7 +872,7 @@
 <p>1、变化的日志源机器</p>
 <p>2、变化的收集器机器</p>
 <p>无论是日志源机器还是收集器机器的变更，最终都可以归结为如何快速、合理、动态地为每个收集器分配对应的日志源机器。</p>
-<p>a、注册收集器机器，在Zookeeper上创建一个节点作为收集器的根节点，例如/logs/collector的收集器节点，每个收集器机器启动时都会在收集器节点下创建自己的节点，如/logs/collector/[Hostname]<br> <img src="https://mykkto.cn/image/blog/2022/Interview/202303212315402.png"></p>
+<p>a、注册收集器机器，在Zookeeper上创建一个节点作为收集器的根节点，例如/logs/collector的收集器节点，每个收集器机器启动时都会在收集器节点下创建自己的节点，如/logs/collector/[Hostname]<br> <img src="https://github.com/mykkTo/image/blog/2022/Interview/202303212315402.png"></p>
 <p>b、任务分发，所有收集器机器都创建完对应节点后，系统根据收集器节点下子节点的个数，将所有日志源机器分成对应的若干组，然后将分组后的机器列表分别写到这些收集器机器创建的子节点，如/logs/collector/host1（持久节点）上去。这样，收集器机器就能够根据自己对应的收集器节点上获取日志源机器列表，进而开始进行日志收集工作。</p>
 <p>c、状态汇报，完成任务分发后，机器随时会宕机，所以需要有一个收集器的状态汇报机制，每个收集器机器上创建完节点后，还需要再对应子节点上创建一个状态子节点，如/logs/collector/host/status（临时节点），每个收集器机器都需要定期向该结点写入自己的状态信息，这可看做是心跳检测机制，通常收集器机器都会写入日志收集状态信息，日志系统通过判断状态子节点最后的更新时间来确定收集器机器是否存活。</p>
 <p>d、动态分配，若收集器机器宕机，则需要动态进行收集任务的分配，收集系统运行过程中关注/logs/collector节点下所有子节点的变更，一旦有机器停止汇报或有新机器加入，就开始进行任务的重新分配，此时通常由两种做法：</p>
@@ -936,7 +933,7 @@
 <h4 id="5、Zookeeper-对节点的-watch-监听通知是永久的吗"><a href="#5、Zookeeper-对节点的-watch-监听通知是永久的吗" class="headerlink" title="5、Zookeeper 对节点的 watch 监听通知是永久的吗"></a>5、<strong>Zookeeper</strong> <strong>对节点的</strong> <strong>watch</strong> <strong>监听通知是永久的吗</strong></h4><p><strong>一次性</strong>的。无论是服务端还是客户端，一旦一个 Watcher 被触发， Zookeeper 都会将其从 </p>
 <p>相应的存储中移除。这样的设计有效的减轻了服务端的压力，不然对于更新非常频繁的节点，服务 </p>
 <p>端会不断的向客户端发送事件通知，无论对于网络还是服务端的压力都非常大。</p>
-<h4 id="6、Zookeeper-集群中有哪些角色"><a href="#6、Zookeeper-集群中有哪些角色" class="headerlink" title="6、Zookeeper 集群中有哪些角色"></a>6、<strong>Zookeeper</strong> <strong>集群中有哪些角色</strong></h4><p><img src="https://mykkto.cn/image/blog/2022/Interview/202303232346317.png"></p>
+<h4 id="6、Zookeeper-集群中有哪些角色"><a href="#6、Zookeeper-集群中有哪些角色" class="headerlink" title="6、Zookeeper 集群中有哪些角色"></a>6、<strong>Zookeeper</strong> <strong>集群中有哪些角色</strong></h4><p><img src="https://github.com/mykkTo/image/blog/2022/Interview/202303232346317.png"></p>
 <h4 id="7、Zookeeper-集群中Server有哪些工作状态"><a href="#7、Zookeeper-集群中Server有哪些工作状态" class="headerlink" title="7、Zookeeper 集群中Server有哪些工作状态"></a>7、<strong>Zookeeper</strong> <strong>集群中</strong>Server<strong>有哪些工作状态</strong></h4><p><strong>LOOKING</strong> </p>
 <p>寻找 Leader 状态；当服务器处于该状态时，它会认为当前集群中没有 Leader ，因此需要进入</p>
 <p>Leader 选举状态 </p>
@@ -946,12 +943,11 @@
 <p>领导者状态；表明当前服务器角色是 Leader </p>
 <p><strong>OBSERVING</strong> </p>
 <p>观察者状态；表明当前服务器角色是 Observer</p>
-<h4 id="8、"><a href="#8、" class="headerlink" title="8、"></a>8、</h4><h4 id="9、"><a href="#9、" class="headerlink" title="9、"></a>9、</h4><h4 id="10、"><a href="#10、" class="headerlink" title="10、"></a>10、</h4><h4 id="11、"><a href="#11、" class="headerlink" title="11、"></a>11、</h4><h4 id="12、"><a href="#12、" class="headerlink" title="12、"></a>12、</h4><h4 id="13、"><a href="#13、" class="headerlink" title="13、"></a>13、</h4><h4 id="14、"><a href="#14、" class="headerlink" title="14、"></a>14、</h4><h4 id="15、"><a href="#15、" class="headerlink" title="15、"></a>15、</h4><h4 id="16、"><a href="#16、" class="headerlink" title="16、"></a>16、</h4><h4 id="17、"><a href="#17、" class="headerlink" title="17、"></a>17、</h4><h4 id="18、"><a href="#18、" class="headerlink" title="18、"></a>18、</h4><h3 id="2、熔断器"><a href="#2、熔断器" class="headerlink" title="2、熔断器"></a>2、熔断器</h3><h4 id="1、对比图"><a href="#1、对比图" class="headerlink" title="1、对比图"></a>1、对比图</h4><h3 id="3、网关"><a href="#3、网关" class="headerlink" title="3、网关"></a>3、网关</h3><h3 id="4、"><a href="#4、" class="headerlink" title="4、"></a>4、</h3><h3 id="5、"><a href="#5、" class="headerlink" title="5、"></a>5、</h3><h2 id="二、Mysql高级面基"><a href="#二、Mysql高级面基" class="headerlink" title="二、Mysql高级面基"></a>二、Mysql高级面基</h2><p>高级特性本周整理大纲：<br>1、执行流程（5.7 and 8.0 暂不整理），逻辑架构（三层）；图、概述，白话总结<br>2、存储引擎（InnoDB MyISAM （核心对比图）…边缘5种简述-了解）；装逼：阿里自定义引擎：Xtradb<br>3、索引迭代设计（是非聚簇索引，二级、联合索引），索引使用常见（11 yes 7 not）；边缘所以你接口对比（HASH、AVL、B、B+）、Explain调优阿里、三范式 ER模型<br>N、事务（显式、隐式），锁（表锁：S锁、X锁、意向锁、自增锁、元数据锁；行锁：记录锁、间隙锁、临键锁、插入意向锁；乐观悲观锁…..） 扩展待定？</p>
-<h3 id="1-精简"><a href="#1-精简" class="headerlink" title="1| 精简"></a>1| 精简</h3><h4 id="1、执行流程"><a href="#1、执行流程" class="headerlink" title="1、执行流程"></a>1、执行流程</h4><p><strong>SQL流程</strong> </p>
+<h3 id="2、熔断器"><a href="#2、熔断器" class="headerlink" title="2、熔断器"></a>2、熔断器</h3><h4 id="1、对比图"><a href="#1、对比图" class="headerlink" title="1、对比图"></a>1、对比图</h4><h3 id="3、网关"><a href="#3、网关" class="headerlink" title="3、网关"></a>3、网关</h3><h3 id="4、"><a href="#4、" class="headerlink" title="4、"></a>4、</h3><h3 id="5、"><a href="#5、" class="headerlink" title="5、"></a>5、</h3><h2 id="二、Mysql高级面基"><a href="#二、Mysql高级面基" class="headerlink" title="二、Mysql高级面基"></a>二、Mysql高级面基</h2><h3 id="1-精简"><a href="#1-精简" class="headerlink" title="1| 精简"></a>1| 精简</h3><h4 id="1、执行流程"><a href="#1、执行流程" class="headerlink" title="1、执行流程"></a>1、执行流程</h4><p><strong>SQL流程</strong> </p>
 <p>sql语句 -&gt; 查询缓存 -&gt; 解析器 -&gt; 优化器 -&gt; 执行器</p>
 <p><strong>完整流程</strong></p>
 <p> 客户端程序 connectors &gt;&gt; 连接池 &gt;&gt; SQL接口 &gt;&gt; 解析器 &gt;&gt; 优化器 &gt;&gt; 查询缓存 &gt;&gt; 插件式存储引擎 &gt;&gt; File（文件系统/日志文件）</p>
-<p><img src="https://mykkto.cn/image/blog/2022/Interview/202302171540587.png"></p>
+<p><img src="https://github.com/mykkTo/image/blog/2022/Interview/202302171540587.png"></p>
 <blockquote>
 <ol>
 <li>客户端程序 : 包括一些mysql工具如：native 或者语言工具如：php 、go 、python</li>
@@ -982,11 +978,11 @@
 <li>聚簇索引一般为主键索引，而主键一个表中只能有一个，因此聚簇索引一个表中也只能有一个，而非聚簇索引则没有数量上的限制</li>
 </ul>
 <p><strong>聚簇索引 id 对应的 B+ 树如下图所示：</strong> </p>
-<p><img src="https://mykkto.cn/image/blog/2022/Interview/202302252030574.png"></p>
+<p><img src="https://github.com/mykkTo/image/blog/2022/Interview/202302252030574.png"></p>
 <p><strong>在 student 中非聚簇索引 class_id 对应 B+ 树如下图所示：</strong> </p>
-<p><img src="https://mykkto.cn/image/blog/2022/Interview/202302252030261.png"></p>
+<p><img src="https://github.com/mykkTo/image/blog/2022/Interview/202302252030261.png"></p>
 <h4 id="3、存储引擎"><a href="#3、存储引擎" class="headerlink" title="3、存储引擎"></a>3、存储引擎</h4><p>对比图：</p>
-<p><img src="https://mykkto.cn/image/blog/2022/Interview/202302251609760.png"></p>
+<p><img src="https://github.com/mykkTo/image/blog/2022/Interview/202302251609760.png"></p>
 <p><strong>MyISAM</strong> <strong>与</strong> <strong>InnoDB两种引擎中索引的区别</strong></p>
 <p>① 在InnoDB存储引擎中，我们只需要根据主键值对聚簇索引进行一次查找就能找到对应的记录，而在MyISAM中却需要进行一次回表操作，意味着MyISAM中建立的索引相当于全部都是二级索引。</p>
 <p>② InnoDB的数据文件本身就是索引文件，而MyISAM索引文件和数据文件是分离的，索引文件仅保存数据记录的地址。</p>
@@ -994,7 +990,7 @@
 <p>④ MyISAM的回表操作是十分快速的，因为是拿着地址偏移量直接到文件中取数据的，反观InnoDB是通过获取主键之后再去聚簇索引里找记录，虽然说也不慢，但还是比不上直接用地址去访问。</p>
 <p>⑤ InnoDB要求表必须有主键（MyISAM可以没有）。如果没有显式指定，则MySQL系统会自动选择一个可以非空且唯一标识数据记录的列作为主键。如果不存在这种列，则MySQL自动为InnoDB表生成一个隐含字段作为主键，这个字段长度为6个字节，类型为长整型。</p>
 <p>补充1：InnoDB的逻辑结构图：</p>
-<p><img src="https://mykkto.cn/image/blog/2022/Interview/202302252055728.png"></p>
+<p><img src="https://github.com/mykkTo/image/blog/2022/Interview/202302252055728.png"></p>
 <h4 id="4、为什么覆盖索引不用回表"><a href="#4、为什么覆盖索引不用回表" class="headerlink" title="4、为什么覆盖索引不用回表"></a>4、为什么覆盖索引不用回表</h4><p>一级索引：聚簇索引即主键索引<br>二级索引：非聚簇索引</p>
 <p>一级B+Tree：叶子节点保存着键（id的值）和数据（全部字段的值）<br>二级B+Tree：叶子节点保存着键（索引字段的值）和数据（主键索引值）</p>
 <p>查询 一级索引，根据一级B+Tree查询到数据，直接返回数据<br>查询 二级索引，根据二级B+Tree查询到对应的聚簇索引，再根据聚簇索引在一级B+Tree里查询到相应数据</p>
@@ -1004,7 +1000,7 @@
 <p>因为查询的字段 b,c,d的值（B+Tree里的键） 已经在B+Tree里了，所以就可以直接返回，不用再拿聚簇索引去一级B+Tree里进行查询<br>如果查询字段为 a,b,c,d 因为a为主键索引，也保存再二级B+Tree的叶子节点里，所以也不用回表查询<br>如果查询字段为 a,b,c,d,e 因为e没有在这个二级B+Tree里，所以需要进行回表操作，拿着主键索引再去一级B+Tree里进行查询。</p>
 <h4 id="5、B-tree"><a href="#5、B-tree" class="headerlink" title="5、B+tree"></a>5、B+tree</h4><p>时间复杂度：<strong>O(logN)</strong></p>
 <p>B+Tree是B-Tree的变种，我们以一颗最大度数（max-degree）为4阶（4指针3key）的b+tree为例</p>
-<p><img src="https://mykkto.cn/image/blog/2022/Interview/202302252105651.png"></p>
+<p><img src="https://github.com/mykkTo/image/blog/2022/Interview/202302252105651.png"></p>
 <p>最终我们看到，B+Tree 与 B-Tree相比，主要有以下三点区别： </p>
 <ul>
 <li>所有的数据都会出现在叶子节点。 </li>
@@ -1012,7 +1008,7 @@
 <li>非叶子节点仅仅起到索引数据作用，具体的数据都是在叶子节点存放的。 </li>
 </ul>
 <p>MySQL索引数据结构对经典的B+Tree进行了优化。在原B+Tree的基础上，增加一个指向相邻叶子节点的链表指针，就形成了带有顺序指针的B+Tree，提高区间访问的性能，利于排序。</p>
-<p><img src="https://mykkto.cn/image/blog/2022/Interview/202302252123348.png"></p>
+<p><img src="https://github.com/mykkTo/image/blog/2022/Interview/202302252123348.png"></p>
 <h4 id="6、SQL优化（慢SQL优化）"><a href="#6、SQL优化（慢SQL优化）" class="headerlink" title="6、SQL优化（慢SQL优化）"></a>6、SQL优化（慢SQL优化）</h4><p>第一步：可以用 <code>explain</code> 查看执行计划</p>
 <p>常见案例优化：</p>
 <p>1-1、<strong>insert</strong></p>
@@ -1056,7 +1052,7 @@ mysql –<span class="token operator">-</span><span class="token keyword">local<
 <p>科普：</p>
 <p>1、最左前缀法则（最左原则）：</p>
 <p>比如，age 字段有索引，phone 没有索引，那么排序的时候，先写age 写在左边</p>
-<p><img src="https://mykkto.cn/image/blog/2022/Interview/202302252153639.png"></p>
+<p><img src="https://github.com/mykkTo/image/blog/2022/Interview/202302252153639.png"></p>
 <p>2、Using filesort and Using index</p>
 <ul>
 <li>MySQL的排序，有两种方式： </li>
@@ -1064,8 +1060,8 @@ mysql –<span class="token operator">-</span><span class="token keyword">local<
 <li>Using index : 通过有序索引顺序扫描直接返回有序数据，这种情况即为 using index，不需要额外排序，操作效率高。 </li>
 <li>对于以上的两种排序方式，Using index的性能高，而Using filesort的性能低，我们在优化排序操作时，尽量要优化为 Using index。 </li>
 </ul>
-<p><img src="https://mykkto.cn/image/blog/2022/Interview/202302252150380.png"></p>
-<p><img src="https://mykkto.cn/image/blog/2022/Interview/202302252150422.png"></p>
+<p><img src="https://github.com/mykkTo/image/blog/2022/Interview/202302252150380.png"></p>
+<p><img src="https://github.com/mykkTo/image/blog/2022/Interview/202302252150422.png"></p>
 <p>3、覆盖索引：</p>
 <p>尽量使用覆盖索引，减少select *。那么什么是覆盖索引呢？覆盖索引是指查询使用了索引，且需要返回的列，在该索引中已经全部能够找到</p>
 <p>4-1、 <strong>group by ** **优化</strong> </p>
@@ -1081,7 +1077,7 @@ mysql –<span class="token operator">-</span><span class="token keyword">local<
 
 
 <p>6-1、<strong>count</strong> <strong>优化</strong></p>
-<p><img src="https://mykkto.cn/image/blog/2022/Interview/202302262102677.png"></p>
+<p><img src="https://github.com/mykkTo/image/blog/2022/Interview/202302262102677.png"></p>
 <p>按照效率排序的话，count(字段) &lt; count(主键 id) &lt; count(1) ≈ count(*)，所以尽量使用 count(*)。</p>
 <p><strong>7-1、update</strong> <strong>优化</strong></p>
 <p>我们主要需要注意一下update语句执行时的注意事项。(加索引的字段)</p>
@@ -1094,9 +1090,9 @@ mysql –<span class="token operator">-</span><span class="token keyword">local<
 <p>当我们开启多个事务，在执行上述的SQL时，我们发现行锁升级为了表锁。 导致该update语句的性能大大降低。 </p>
 <p><strong>InnoDB的行锁是针对索引加的锁，不是针对记录加的锁 ,并且该索引不能失效，否则会从行锁升级为表锁 。</strong></p>
 <h4 id="7、索引失效"><a href="#7、索引失效" class="headerlink" title="7、索引失效"></a>7、索引失效</h4><p>1、<strong>索引列运算</strong></p>
-<p><img src="https://mykkto.cn/image/blog/2022/Interview/202302262217534.png"></p>
+<p><img src="https://github.com/mykkTo/image/blog/2022/Interview/202302262217534.png"></p>
 <p>2、<strong>字符串不加引号</strong></p>
-<p><img src="https://mykkto.cn/image/blog/2022/Interview/202302262219304.png"></p>
+<p><img src="https://github.com/mykkTo/image/blog/2022/Interview/202302262219304.png"></p>
 <p>我们会明显的发现，如果字符串不加单引号，对于查询结果，没什么影响，但是数据库存在隐式类型转换，索引将失效</p>
 <p>3、<strong>模糊查询</strong></p>
 <p>在like模糊查询中，在关键字后面加%，索引可以生效。而如果在关键字前面加了%，索引将会失效。 </p>
@@ -1104,12 +1100,12 @@ mysql –<span class="token operator">-</span><span class="token keyword">local<
 <p>当or连接的条件，左右两侧字段都有索引时，索引才会生效</p>
 <p>5、<strong>数据分布影响</strong></p>
 <p><strong>（1）基本数值，数据不同</strong></p>
-<p><img src="https://mykkto.cn/image/blog/2022/Interview/202302262236450.png"></p>
+<p><img src="https://github.com/mykkTo/image/blog/2022/Interview/202302262236450.png"></p>
 <p>MySQL在查询时，会评估使用索引的效率与走全表扫描的效率，如果走全表扫描更快，则放弃索引，走全表扫描。 <strong>因为索引是用来索引少量数据的，如果通过索引查询返回大批量的数据，则还不如走全表扫描来的快，此时索引就会失效</strong></p>
 <p><strong>（2）is null   、 is not null</strong></p>
-<p><img src="https://mykkto.cn/image/blog/2022/Interview/202302262242400.png"></p>
+<p><img src="https://github.com/mykkTo/image/blog/2022/Interview/202302262242400.png"></p>
 <p>接下来，我们做一个操作将profession字段值全部更新为null，再次看下执行计划</p>
-<p><img src="https://mykkto.cn/image/blog/2022/Interview/202302262243088.png"></p>
+<p><img src="https://github.com/mykkTo/image/blog/2022/Interview/202302262243088.png"></p>
 <p>最终我们看到，一模一样的SQL语句，先后执行了两次，结果查询计划是不一样的，为什么会出现这种 现象，这是和数据库的数据分布有关系。查询时MySQL会评估，走索引快，还是全表扫描快，如果全表扫描更快，则放弃索引走全表扫描。 因此，is null 、is not null是否走索引，得具体情况具体分析，并不是固定的</p>
 <p><strong>（3）总结：</strong></p>
 <p>数据分布会根据索引数据量和全表扫描快慢比较，哪个快走哪里</p>
@@ -1122,8 +1118,15 @@ mysql –<span class="token operator">-</span><span class="token keyword">local<
 <li>尽量使用联合索引，减少单列索引，查询时，联合索引很多时候可以覆盖索引，节省存储空间，避免回表，提高查询效率。 </li>
 <li>要控制索引的数量，索引并不是多多益善，索引越多，维护索引结构的代价也就越大，会影响增删改的效率。</li>
 </ul>
-<h3 id="2-锁和事务"><a href="#2-锁和事务" class="headerlink" title="2|锁和事务"></a>2|锁和事务</h3><h4 id="1、事务A开启执行更新a，事务B开启执行删除事务b并且提交B事务，此时再提交A事务，会发生什么"><a href="#1、事务A开启执行更新a，事务B开启执行删除事务b并且提交B事务，此时再提交A事务，会发生什么" class="headerlink" title="1、事务A开启执行更新a，事务B开启执行删除事务b并且提交B事务，此时再提交A事务，会发生什么"></a>1、事务A开启执行更新a，事务B开启执行删除事务b并且提交B事务，此时再提交A事务，会发生什么</h4><h4 id="2、事务隔离级别"><a href="#2、事务隔离级别" class="headerlink" title="2、事务隔离级别"></a>2、事务隔离级别</h4><h2 id="三、MQ"><a href="#三、MQ" class="headerlink" title="三、MQ"></a>三、MQ</h2><p>执行流程 、消息可靠性投递（现有企业封装了。。。）-小总结、</p>
-<p><img src="https://mykkto.cn/image/blog/2022/mq/rabbitmq/202210092229549.png"></p>
+<h3 id="2-锁和事务"><a href="#2-锁和事务" class="headerlink" title="2|锁和事务"></a>2|锁和事务</h3><h4 id="1、事务隔离级别是默认的情况下，事务A开启，执行更新id-1，此时事务A未提交，事务B开启执行删除事务id-1，并且提交B事务，此时再提交A事务，会发生什么"><a href="#1、事务隔离级别是默认的情况下，事务A开启，执行更新id-1，此时事务A未提交，事务B开启执行删除事务id-1，并且提交B事务，此时再提交A事务，会发生什么" class="headerlink" title="1、事务隔离级别是默认的情况下，事务A开启，执行更新id=1，此时事务A未提交，事务B开启执行删除事务id=1，并且提交B事务，此时再提交A事务，会发生什么"></a>1、事务隔离级别是默认的情况下，事务A开启，执行更新id=1，此时事务A未提交，事务B开启执行删除事务id=1，并且提交B事务，此时再提交A事务，会发生什么</h4><p>此时B事务会卡住，因为A事务触发了排他锁（默认隔离级别可重复读的情况下是行级锁），需要等待A事务提交，或者锁过期，默认是50秒，这个可以设置的。</p>
+<h4 id="2、事务隔离级别"><a href="#2、事务隔离级别" class="headerlink" title="2、事务隔离级别"></a>2、事务隔离级别</h4><ul>
+<li>读未提交（Read Uncommitted）</li>
+<li>读已提交（Read Committed）</li>
+<li>可重复读（Repeatable Read），默认</li>
+<li>串行化（Serializable）</li>
+</ul>
+<h4 id=""><a href="#" class="headerlink" title=""></a></h4><h2 id="三、MQ"><a href="#三、MQ" class="headerlink" title="三、MQ"></a>三、MQ</h2><p>执行流程 、消息可靠性投递（现有企业封装了。。。）-小总结、</p>
+<p><img src="https://github.com/mykkTo/image/blog/2022/mq/rabbitmq/202210092229549.png"></p>
 <h3 id="1、常规"><a href="#1、常规" class="headerlink" title="1、常规"></a>1、常规</h3><h4 id="1、什么是MQ，优缺点"><a href="#1、什么是MQ，优缺点" class="headerlink" title="1、什么是MQ，优缺点"></a>1、什么是MQ，优缺点</h4><p>消息队列</p>
 <p>异步处理，提高吞吐量</p>
 <p>应用解耦，比如发送短信</p>
@@ -1173,7 +1176,7 @@ mysql –<span class="token operator">-</span><span class="token keyword">local<
 <p>存储阶段修改刷盘策略为同步刷盘。默认情况下是异步刷盘的。</p>
 <p>集群部署，一主多从。默认异步复制，设置同步复制，牺牲性能</p>
 <p>主节点设置同步复制 brokerRole=SYNC_MASTER</p>
-<h3 id="2、进阶"><a href="#2、进阶" class="headerlink" title="2、进阶"></a>2、进阶</h3><h4 id="1、Rabbitmq-执行流程"><a href="#1、Rabbitmq-执行流程" class="headerlink" title="1、Rabbitmq 执行流程"></a>1、Rabbitmq 执行流程</h4><p><img src="https://mykkto.cn/image/blog/2022/mq/rabbitmq/202210092235471.png"></p>
+<h3 id="2、进阶"><a href="#2、进阶" class="headerlink" title="2、进阶"></a>2、进阶</h3><h4 id="1、Rabbitmq-执行流程"><a href="#1、Rabbitmq-执行流程" class="headerlink" title="1、Rabbitmq 执行流程"></a>1、Rabbitmq 执行流程</h4><p><img src="https://github.com/mykkTo/image/blog/2022/mq/rabbitmq/202210092235471.png"></p>
 <ul>
 <li>Broker：接收和分发消息的应用，RabbitMQ Server就是 Message Broker</li>
 <li>Virtual host：出于多租户和安全因素设计的，把 AMQP 的基本组件划分到一个虚拟的分组中，类似于网 络中的 namespace 概念。当多个不同的用户使用同一个 RabbitMQ server 提供的服务时，可以划分出多 个vhost，每个用户在自己的 vhost 创建 exchange／queue 等</li>
@@ -1191,7 +1194,7 @@ mysql –<span class="token operator">-</span><span class="token keyword">local<
 <li>失败重试机制</li>
 <li>消息堆积问题</li>
 </ul>
-<p><img src="https://mykkto.cn/image/blog/2022/Interview/202303072220195.png"></p>
+<p><img src="https://github.com/mykkTo/image/blog/2022/Interview/202303072220195.png"></p>
 <p>1、<strong>生产者消息确认</strong></p>
 <p>（1）publisher-comfirm：消息成功发送到exchange，返回ack消息发送失败，没有到达交换机，返回nack消息，发送过程中出现异常，没有收到回执</p>
 <p>（2）消息成功发送到exchange，但没有路由到queue，回调ReturnCallback</p>
@@ -1226,7 +1229,7 @@ mysql –<span class="token operator">-</span><span class="token keyword">local<
 
 <p>事实上，默认情况下，由SpringAMQP声明的交换机都是持久化的。</p>
 <p>可以在RabbitMQ控制台看到持久化的交换机都会带上<code>D</code>的标示：</p>
-<p><img src="https://mykkto.cn/image/blog/2022/Interview/202303051551218.png"></p>
+<p><img src="https://github.com/mykkTo/image/blog/2022/Interview/202303051551218.png"></p>
 <p>（2）队列持久化</p>
 <p>RabbitMQ中队列默认是非持久化的，mq重启后就丢失。</p>
 <p>SpringAMQP中可以通过代码指定交换机持久化：</p>
@@ -1239,7 +1242,7 @@ mysql –<span class="token operator">-</span><span class="token keyword">local<
 
 <p>事实上，默认情况下，由SpringAMQP声明的队列都是持久化的。</p>
 <p>可以在RabbitMQ控制台看到持久化的队列都会带上D的标示：</p>
-<p><img src="https://mykkto.cn/image/blog/2022/Interview/202303051517011.png"></p>
+<p><img src="https://github.com/mykkTo/image/blog/2022/Interview/202303051517011.png"></p>
 <p>（3）消息持久化</p>
 <p>利用SpringAMQP发送消息时，可以设置消息的属性（MessageProperties），指定delivery-mode：</p>
 <ul>
@@ -1352,7 +1355,7 @@ mysql –<span class="token operator">-</span><span class="token keyword">local<
 <p>5、<strong>惰性队列</strong></p>
 <p>5-1、<strong>堆积问题</strong></p>
 <p>当生产者发送消息的速度超过了消费者处理消息的速度，就会导致队列中的消息堆积，直到队列存储消息达到上限。之后发送的消息就会成为死信，可能会被丢弃，这就是消息堆积问题。</p>
-<p><img src="https://mykkto.cn/image/blog/2022/Interview/202303052229466.png"></p>
+<p><img src="https://github.com/mykkTo/image/blog/2022/Interview/202303052229466.png"></p>
 <p><strong>解决消息堆积思路：</strong></p>
 <ul>
 <li>增加更多消费者，提高消费速度。也就是我们之前说的work queue模式</li>
@@ -1389,9 +1392,9 @@ Lazy ：策略名称，可以自定义
 
 
 <p>5-2-2、基于@Bean声明lazy-queue</p>
-<p><img src="https://mykkto.cn/image/blog/2022/Interview/202303052228644.png"></p>
+<p><img src="https://github.com/mykkTo/image/blog/2022/Interview/202303052228644.png"></p>
 <p>5-2-3、基于@RabbitListener声明LazyQueue</p>
-<p><img src="https://mykkto.cn/image/blog/2022/Interview/202303052230941.png"></p>
+<p><img src="https://github.com/mykkTo/image/blog/2022/Interview/202303052230941.png"></p>
 <p><strong>小结：</strong></p>
 <p>消息堆积问题的解决方案？</p>
 <ul>
@@ -1559,7 +1562,7 @@ Lazy ：策略名称，可以自定义
 <h4 id="—–持久化—"><a href="#—–持久化—" class="headerlink" title="—–持久化—-"></a>—–持久化—-</h4><h4 id="1、Redis-的持久化机制是什么？各自的优缺点？"><a href="#1、Redis-的持久化机制是什么？各自的优缺点？" class="headerlink" title="1、Redis 的持久化机制是什么？各自的优缺点？"></a>1、Redis 的持久化机制是什么？各自的优缺点？</h4><p>Redis 提供两种持久化机制 RDB（默认） 和 AOF 机制:</p>
 <p><strong>RDB：是Redis DataBase缩写快照</strong></p>
 <p>RDB是Redis默认的持久化方式。按照一定的时间将内存的数据以快照的形式保存到硬盘中，对应产生的数据文件为dump.rdb。通过配置文件中的save参数来定义快照的周期。</p>
-<p><img src="https://mykkto.cn/image/blog/2022/Interview/202303112207073.png"></p>
+<p><img src="https://github.com/mykkTo/image/blog/2022/Interview/202303112207073.png"></p>
 <p>优点：</p>
 <ul>
 <li>1、只有一个文件 dump.rdb，方便持久化。</li>
@@ -1715,7 +1718,7 @@ QUEUED
 <li><strong>入队</strong>：将多个命令入队到事务中，接到这些命令并不会立即执行，而是放到等待执行的事务队列里面</li>
 <li><strong>执行</strong>：由EXEC命令触发事务</li>
 </ul>
-<p><img src="https://mykkto.cn/image/blog/2022/Interview/202303121523348.png"></p>
+<p><img src="https://github.com/mykkTo/image/blog/2022/Interview/202303121523348.png"></p>
 <h4 id="3、Redis-对-ACID的支持性理解"><a href="#3、Redis-对-ACID的支持性理解" class="headerlink" title="3、Redis 对 ACID的支持性理解"></a>3、Redis 对 ACID的支持性理解</h4><ul>
 <li><strong>原子性atomicity</strong></li>
 </ul>
@@ -1771,13 +1774,13 @@ QUEUED
 <li>读操作：主库、从库都可以接收；</li>
 <li>写操作：首先到主库执行，然后，主库将写操作同步给从库</li>
 </ul>
-<p><img src="https://mykkto.cn/image/blog/2022/Interview/202303122214522.png"></p>
+<p><img src="https://github.com/mykkTo/image/blog/2022/Interview/202303122214522.png"></p>
 <ul>
 <li><strong>全量（同步）复制</strong>：比如第一次同步时</li>
 <li><strong>增量（同步）复制</strong>：只会把主从库网络断连期间主库收到的命令，同步给从库</li>
 </ul>
 <p><strong>Redis 全量复制的三个阶段（redis 主从复制的核心原理）：</strong></p>
-<p><img src="https://mykkto.cn/image/blog/2022/Interview/202303122215886.png"></p>
+<p><img src="https://github.com/mykkTo/image/blog/2022/Interview/202303122215886.png"></p>
 <p>当启动一个 slave node 的时候，它会发送一个 <code>PSYNC</code> 命令给 master node。</p>
 <p>如果这是 slave node 初次连接到 master node，那么会触发一次 <code>full resynchronization</code> 全量复制。此时 master 会启动一个后台线程，开始生成一份 <code>RDB</code> 快照文件，</p>
 <p>同时还会将从客户端 client 新收到的所有写命令缓存在内存中。<code>RDB</code> 文件生成完毕后， master 会将这个 <code>RDB</code> 发送给 slave，slave 会先写入本地磁盘，然后再从本地磁盘加载到内存中，</p>
@@ -1794,7 +1797,7 @@ QUEUED
 <p>具体来说，主库执行 bgsave 命令，生成 RDB 文件，接着将文件发给从库。从库接收到 RDB 文件后，会先清空当前数据库，然后加载 RDB 文件。这是因为从库在通过 replicaof 命令开始和主库同步前，可能保存了其他数据。为了避免之前数据的影响，从库需要先把当前数据库清空。在主库将数据同步给从库的过程中，主库不会被阻塞，仍然可以正常接收请求。否则，Redis 的服务就被中断了。但是，这些请求中的写操作并没有记录到刚刚生成的 RDB 文件中。为了保证主从库的数据一致性，主库会在内存中用专门的 replication buffer，记录 RDB 文件生成后收到的所有写操作。</p>
 <p><strong>第三个阶段：主库会把第二阶段执行过程中新收到的写命令，再发送给从库</strong>。具体的操作是，当主库完成 RDB 文件发送后，就会把此时 replication buffer 中的修改操作发给从库，从库再重新执行这些操作。这样一来，主从库就实现同步了。</p>
 <p><strong>Redis 增量复制的流程：</strong></p>
-<p><img src="https://mykkto.cn/image/blog/2022/Interview/202303122304116.png"></p>
+<p><img src="https://github.com/mykkTo/image/blog/2022/Interview/202303122304116.png"></p>
 <p><strong>Redis 为什么主从全量复制使用RDB而不使用AOF？</strong></p>
 <p>1、RDB文件内容是经过压缩的二进制数据（不同数据类型数据做了针对性优化），文件很小。而AOF文件记录的是每一次写操作的命令，写操作越多文件会变得很大，其中还包括很多对同一个key的多次冗余操作。在主从全量数据同步时，传输RDB文件可以尽量降低对主库机器网络带宽的消耗，从库在加载RDB文件时，一是文件小，读取整个文件的速度会很快，二是因为RDB文件存储的都是二进制数据，从库直接按照RDB协议解析还原数据即可，速度会非常快，而AOF需要依次重放每个写命令，这个过程会经历冗长的处理逻辑，恢复速度相比RDB会慢得多，所以使用RDB进行主从全量复制的成本最低。</p>
 <p>2、假设要使用AOF做全量复制，意味着必须打开AOF功能，打开AOF就要选择文件刷盘的策略，选择不当会严重影响Redis性能。而RDB只有在需要定时备份和主从全量复制数据时才会触发生成一次快照。而在很多丢失数据不敏感的业务场景，其实是不需要开启AOF的。</p>
@@ -1808,9 +1811,9 @@ QUEUED
 <p>replicaof 所选从库的IP 6379</p>
 </blockquote>
 <p>这样一来，这些从库就会知道，在进行同步时，不用再和主库进行交互了，只要和级联的从库进行写操作同步就行了，这就可以减轻主库上的压力，如下图所示：</p>
-<p><img src="https://mykkto.cn/image/blog/2022/Interview/202303122306011.png"></p>
+<p><img src="https://github.com/mykkTo/image/blog/2022/Interview/202303122306011.png"></p>
 <h4 id="2、哨兵模式"><a href="#2、哨兵模式" class="headerlink" title="2、哨兵模式"></a>2、哨兵模式</h4><p>哨兵的核心功能是主节点的自动故障转移。下图是一个典型的哨兵集群监控的逻辑图：（自动化主从架构）</p>
-<p><img src="https://mykkto.cn/image/blog/2022/Interview/202303122311211.png"></p>
+<p><img src="https://github.com/mykkTo/image/blog/2022/Interview/202303122311211.png"></p>
 <p><strong>哨兵的作用：</strong></p>
 <ul>
 <li><strong>监控（Monitoring）</strong>：哨兵会不断地检查主节点和从节点是否运作正常。</li>
@@ -1857,28 +1860,6 @@ QUEUED
 <li>不支持批量操作(pipeline管道操作)</li>
 <li>分布式逻辑和存储模块耦合等</li>
 </ul>
-<h4 id="3-1、基于客户端分配"><a href="#3-1、基于客户端分配" class="headerlink" title="3-1、基于客户端分配"></a>3-1、基于客户端分配</h4><p>Redis Sharding是Redis Cluster出来之前，业界普遍使用的多Redis实例集群方法。其主要思想是采用哈希算法将Redis数据的key进行散列，通过hash函数，特定的key会映射到特定的Redis节点上。Java redis客户端驱动jedis，支持Redis Sharding功能，即ShardedJedis以及结合缓存池的ShardedJedisPool</p>
-<p>优点</p>
-<ul>
-<li>优势在于非常简单，服务端的Redis实例彼此独立，相互无关联，每个Redis实例像单服务器一样运行，非常容易线性扩展，系统的灵活性很强</li>
-</ul>
-<p>缺点</p>
-<ul>
-<li>由于sharding处理放到客户端，规模进一步扩大时给运维带来挑战。</li>
-<li>客户端sharding不支持动态增删节点。服务端Redis实例群拓扑结构有变化时，每个客户端都需要更新调整。连接不能共享，当应用规模增大时，资源浪费制约优化</li>
-</ul>
-<h4 id="3-2、基于代理服务器分片"><a href="#3-2、基于代理服务器分片" class="headerlink" title="3-2、基于代理服务器分片"></a>3-2、基于代理服务器分片</h4><p>客户端发送请求到一个代理组件，代理解析客户端的数据，并将请求转发至正确的节点，最后将结果回复给客户端</p>
-<p><strong>特征</strong></p>
-<ul>
-<li>透明接入，业务程序不用关心后端Redis实例，切换成本低</li>
-<li>Proxy 的逻辑和存储的逻辑是隔离的</li>
-<li>代理层多了一次转发，性能有所损耗</li>
-</ul>
-<p><strong>业界开源方案</strong></p>
-<ul>
-<li>Twtter开源的Twemproxy</li>
-<li>豌豆荚开源的Codis</li>
-</ul>
 <h4 id="4、生产环境中的-redis-是怎么部署的"><a href="#4、生产环境中的-redis-是怎么部署的" class="headerlink" title="4、生产环境中的 redis 是怎么部署的"></a>4、生产环境中的 redis 是怎么部署的</h4><p>redis cluster，10 台机器，5 台机器部署了 redis 主实例，另外 5 台机器部署了 redis 的从实例，每个主实例挂了一个从实例，5 个节点对外提供读写服务，每个节点的读写高峰qps可能可以达到每秒 5 万，5 台机器最多是 25 万读写请求/s。</p>
 <p>机器是什么配置？32G 内存+ 8 核 CPU + 1T 磁盘，但是分配给 redis 进程的是10g内存，一般线上生产环境，redis 的内存尽量不要超过 10g，超过 10g 可能会有问题。</p>
 <p>5 台机器对外提供读写，一共有 50g 内存。</p>
@@ -1907,14 +1888,21 @@ QUEUED
 <li>分区时动态扩容或缩容可能非常复杂。Redis集群在运行时增加或者删除Redis节点，能做到最大程度对用户透明地数据再平衡，但其他一些客户端分区或者代理分区方法则不支持这种特性。然而，有一种预分片的技术也可以较好的解决这个问题。</li>
 </ul>
 <h4 id="—–分布式问题—–"><a href="#—–分布式问题—–" class="headerlink" title="—–分布式问题—–"></a>—–分布式问题—–</h4><h4 id="1、Redis实现分布式锁（站长的简书）"><a href="#1、Redis实现分布式锁（站长的简书）" class="headerlink" title="1、Redis实现分布式锁（站长的简书）"></a>1、Redis实现分布式锁（站长的简书）</h4><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/2e995df9ccbc">https://www.jianshu.com/p/2e995df9ccbc</a></p>
+<p>参考文章：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/shoulinniao/p/17110040.html">https://www.cnblogs.com/shoulinniao/p/17110040.html</a></p>
 <p>分布式锁主流的实现方案：</p>
 <ol>
-<li>基于数据库实现分布式锁</li>
-<li>基于缓存（Redis等）</li>
-<li>基于Zookeeper<br>每一种分布式锁解决方案都有各自的优缺点：</li>
-<li>性能：redis最高</li>
-<li>可靠性：zookeeper最高<br>这里，我们就基于redis实现分布式锁。</li>
+<li><p>基于数据库实现分布式锁</p>
+</li>
+<li><p>基于缓存（Redis等）</p>
+</li>
+<li><p>基于Zookeeper<br>每一种分布式锁解决方案都有各自的优缺点：</p>
+</li>
+<li><p>性能：redis最高</p>
+</li>
+<li><p>可靠性：zookeeper最高</p>
+</li>
 </ol>
+<p>   这里，我们就基于redis实现分布式锁</p>
 <p>（1）redis:命令：<br>setnx 设置锁：setnx key val  </p>
 <p>设置成功，返回 1 。设置失败，返回 0 ；使用SETNX命令获取锁，若返回0（key已存在，锁已存在）则获取失败，反之获取成功</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token number">127.0</span>.0.1:637<span class="token operator"><span class="token file-descriptor important">9</span>&gt;</span> setnx username vv1
@@ -2029,7 +2017,7 @@ OK
 </blockquote>
 <p><strong>三、先更新数据库，再删缓存：</strong></p>
 <p>​      <strong>方案一：MQ</strong></p>
-<p><img src="https://mykkto.cn/image/blog/2022/Interview/202303142148980.png"></p>
+<p><img src="https://github.com/mykkTo/image/blog/2022/Interview/202303142148980.png"></p>
 <p>流程如下所示：</p>
 <blockquote>
 <ul>
@@ -2042,7 +2030,7 @@ OK
 </blockquote>
 <p>​        然而，该方案有一个缺点，对业务线代码造成大量的侵入。于是有了方案二，在方案二中，启动一个订阅程序去订阅数据库的binlog，获得需要操作的数据。在应用程序中，另起一段程序，获得这个订阅程序传来的信息，进行删除缓存操作。</p>
 <p>​      <strong>方案二：Canal</strong></p>
-<p><img src="https://mykkto.cn/image/blog/2022/Interview/202303142148865.png"></p>
+<p><img src="https://github.com/mykkTo/image/blog/2022/Interview/202303142148865.png"></p>
 <p>流程如下图所示：</p>
 <blockquote>
 <ul>
@@ -2059,17 +2047,7 @@ OK
 <h4 id="2、假如Redis里面有1亿个key，其中有10w个key是以某个固定的已知的前缀开头的，如果将它们全部找出来"><a href="#2、假如Redis里面有1亿个key，其中有10w个key是以某个固定的已知的前缀开头的，如果将它们全部找出来" class="headerlink" title="2、假如Redis里面有1亿个key，其中有10w个key是以某个固定的已知的前缀开头的，如果将它们全部找出来"></a>2、假如Redis里面有1亿个key，其中有10w个key是以某个固定的已知的前缀开头的，如果将它们全部找出来</h4><p>使用keys指令可以扫出指定模式的key列表。</p>
 <p>对方接着追问：如果这个redis正在给线上的业务提供服务，那使用keys指令会有什么问题？</p>
 <p>这个时候你要回答redis关键的一个特性：redis的单线程的。keys指令会导致线程阻塞一段时间，线上服务会停顿，直到指令执行完毕，服务才能恢复。这个时候可以使用scan指令，scan指令可以无阻塞的提取出指定模式的key列表，但是会有一定的重复概率，在客户端做一次去重就可以了，但是整体所花费的时间会比直接用keys指令长。</p>
-<h4 id="3、使用Redis做过异步队列吗，是如何实现的"><a href="#3、使用Redis做过异步队列吗，是如何实现的" class="headerlink" title="3、使用Redis做过异步队列吗，是如何实现的"></a>3、使用Redis做过异步队列吗，是如何实现的</h4><p>使用list类型保存数据信息，rpush生产消息，lpop消费消息，当lpop没有消息时，可以sleep一段时间，然后再检查有没有信息，如果不想sleep的话，可以使用blpop, 在没有信息的时候，会一直阻塞，直到信息的到来。redis可以通过pub/sub主题订阅模式实现一个生产者，多个消费者，当然也存在一定的缺点，当消费者下线时，生产的消息会丢失。</p>
-<h4 id="4、Redis如何实现延时队列"><a href="#4、Redis如何实现延时队列" class="headerlink" title="4、Redis如何实现延时队列"></a>4、Redis如何实现延时队列</h4><p>使用sortedset，使用时间戳做score, 消息内容作为key,调用zadd来生产消息，消费者使用zrangbyscore获取n秒之前的数据做轮询处理。</p>
-<h4 id="5、Redis回收进程如何工作"><a href="#5、Redis回收进程如何工作" class="headerlink" title="5、Redis回收进程如何工作"></a>5、Redis回收进程如何工作</h4><ol>
-<li>一个客户端运行了新的命令，添加了新的数据。</li>
-<li>Redis检查内存使用情况，如果大于maxmemory的限制， 则根据设定好的策略进行回收。</li>
-<li>一个新的命令被执行，等等。</li>
-<li>所以我们不断地穿越内存限制的边界，通过不断达到边界然后不断地回收回到边界以下。</li>
-</ol>
-<p>如果一个命令的结果导致大量内存被使用（例如很大的集合的交集保存到一个新的键），不用多久内存限制就会被这个内存使用量超越。</p>
-<h4 id="6、Redis回收使用的是什么算法"><a href="#6、Redis回收使用的是什么算法" class="headerlink" title="6、Redis回收使用的是什么算法"></a>6、Redis回收使用的是什么算法</h4><p>LRU算法，不具体展开了</p>
-<h2 id="五、分布式事务"><a href="#五、分布式事务" class="headerlink" title="五、分布式事务"></a>五、分布式事务</h2><h3 id="1、常规（放松解压版）"><a href="#1、常规（放松解压版）" class="headerlink" title="1、常规（放松解压版）"></a>1、常规（放松解压版）</h3><h4 id="1、事务的特性"><a href="#1、事务的特性" class="headerlink" title="1、事务的特性"></a>1、事务的特性</h4><p>1.原子性 要么一起成功要么一起失败</p>
+<h2 id="五、分布式事务"><a href="#五、分布式事务" class="headerlink" title="五、分布式事务"></a>五、分布式事务</h2><h3 id="1、常规-1"><a href="#1、常规-1" class="headerlink" title="1、常规"></a>1、常规</h3><h4 id="1、事务的特性"><a href="#1、事务的特性" class="headerlink" title="1、事务的特性"></a>1、事务的特性</h4><p>1.原子性 要么一起成功要么一起失败</p>
 <p>2.一致性 事务执行前后数据保持一致性状态</p>
 <p>3.隔离性 多个事务之间是隔离的，互相不影响</p>
 <p>4.持久性 事务一旦提交数据的改变是持久的</p>
@@ -2123,7 +2101,7 @@ OK
 <p>Resource Manager (RM)<strong>【用户】</strong></p>
 <p><code>控制分支事务</code>，负责分支注册、状态汇报，并接收事务协调器的指令，驱动分支（本地）事务的提交和回滚</p>
 <p>XID【程序】</p>
-<h4 id="2、处理过程"><a href="#2、处理过程" class="headerlink" title="2、处理过程"></a>2、处理过程</h4><p><img src="https://mykkto.cn/image/blog/2022/Interview/202303302226889.png"></p>
+<h4 id="2、处理过程"><a href="#2、处理过程" class="headerlink" title="2、处理过程"></a>2、处理过程</h4><p><img src="https://github.com/mykkTo/image/blog/2022/Interview/202303302226889.png"></p>
 <p>AT模式主要分为两个阶段：</p>
 <p>一阶段：</p>
 <p>解析SQL，获取SQL类型（CRUD）、表信息、条件(where) 等相关信息<br>查询前镜像(改变之前的数据)，根据解析得到的条件信息，生成查询语句，定位数据<br>执行业务SQL，更新数据<br>查询后镜像（改变后的数据），根据前镜像的结果，通过主键都给你为数据<br>插入回滚日志，将前后镜像数据以及业务SQL等信息，组织成一条回滚日志记录，插入到undo Log表中<br>提交前，向TC注册分支，申请全局锁<br>本地事务提交，业务数据的更细腻和生成的undoLog一起提交<br>将本地事务提交的结果通知给TC</p>
@@ -2146,15 +2124,11 @@ OK
 <p>异常通知 After Throwing Advice:抛出异常时切入</p>
 <p>环绕通知 Around Advice:在方法执行前后切入，可以中断或忽略原有流程的执行</p>
 <h4 id="6-aop有哪些运用场景"><a href="#6-aop有哪些运用场景" class="headerlink" title="6.aop有哪些运用场景?"></a>6.aop有哪些运用场景?</h4><p>1.全局异常处理 2.防止接口重复提交 3.接口幂等性 4.日志记录 5.事务</p>
-<h4 id="7-aop的实现？"><a href="#7-aop的实现？" class="headerlink" title="7.aop的实现？"></a>7.aop的实现？</h4><p>@Aspect定义切面类 @Pointcut定义切入点</p>
-<p>定义通知类型 @Befor @After @Arounr @AfterReturning @AfterThrowing</p>
 <h4 id="8-spring有哪些优缺点"><a href="#8-spring有哪些优缺点" class="headerlink" title="8.spring有哪些优缺点?"></a>8.spring有哪些优缺点?</h4><p>1.ioc将对象的创建和依赖交给ioc容器，方便解耦，简化开发</p>
 <p>2.aop面向切面编程，非入侵方式增强服务，减少重复代码</p>
 <p>3.声明式事务，方便测试</p>
 <p>4.方便集成各种优秀框架</p>
 <p>缺点：配置繁琐，依赖反射影响性能，入门时间长</p>
-<h4 id="9-spring有哪些模块组成？"><a href="#9-spring有哪些模块组成？" class="headerlink" title="9.spring有哪些模块组成？"></a>9.spring有哪些模块组成？</h4><p>1.spring jdbc 2.spring core 3.sping beans</p>
-<p>4.spring aop 5.spring web 6.spring test</p>
 <h4 id="10-spring框架用到哪些设计模式？"><a href="#10-spring框架用到哪些设计模式？" class="headerlink" title="10.spring框架用到哪些设计模式？"></a>10.spring框架用到哪些设计模式？</h4><p>1.工厂模式 2.单例模式 3.模板方法 4.代理模式 等</p>
 <h4 id="11-spring中有哪些不同类型的事件"><a href="#11-spring中有哪些不同类型的事件" class="headerlink" title="11.spring中有哪些不同类型的事件?"></a>11.spring中有哪些不同类型的事件?</h4><ol>
 <li>上下文更新事件（ContextRefreshedEvent）：在调用ConfigurableApplicationContext 接口中的refresh()方法时被触发。</li>
@@ -2170,8 +2144,6 @@ OK
 <p>BeanFactory 需要手动注册。ApplicationContext自动注册</p>
 <h4 id="13-spring有哪些依赖注入方式"><a href="#13-spring有哪些依赖注入方式" class="headerlink" title="13.spring有哪些依赖注入方式?"></a>13.spring有哪些依赖注入方式?</h4><p>1.构造器注入 2.set注入</p>
 <p>构造器参数实现强制依赖，setter方法实现可选依赖</p>
-<h4 id="14-什么是spring-beans"><a href="#14-什么是spring-beans" class="headerlink" title="14.什么是spring beans?"></a>14.什么是spring beans?</h4><p>就是java 对象,它们被Spring IOC容器初始化，装配，管理。</p>
-<h4 id="15-一个spring-bean定义包含什么"><a href="#15-一个spring-bean定义包含什么" class="headerlink" title="15.一个spring bean定义包含什么?"></a>15.一个spring bean定义包含什么?</h4><p>bean的创建, 生命周期，依赖</p>
 <h4 id="16-spring-bean的作用域"><a href="#16-spring-bean的作用域" class="headerlink" title="16.spring bean的作用域?"></a>16.spring bean的作用域?</h4><p>通知设置bean的 scope属性来定义bean的作用域,作用域类型有:</p>
 <p><strong>1.singleton :</strong> bean在每个ioc容器中只有一个实例。</p>
 <p><strong>2.prototype</strong>：一个bean的定义可以有多个实例。(开销大)</p>
@@ -2193,16 +2165,44 @@ OK
 <p>2.@Resource默认按名字装配，找不到则按照类型装配。指定name属性则按名称装配，找不到则报错。指定type则按照类型装配，找不到则报错</p>
 <h4 id="20-FactoryBean-和-BeanFactory有什么区别？"><a href="#20-FactoryBean-和-BeanFactory有什么区别？" class="headerlink" title="20.FactoryBean 和 BeanFactory有什么区别？"></a>20.<strong>FactoryBean 和 BeanFactory有什么区别？</strong></h4><p>BeanFactory 是 Bean 的工厂， ApplicationContext 的父类，IOC 容器的核心，负责生产和管理 Bean 对象。</p>
 <p>FactoryBean 是 Bean，可以通过实现 FactoryBean 接口定制实例化 Bean 的逻辑，通过代理一个Bean对象，对方法前后做一些操作。</p>
-<h4 id="21-Spring-如何解决循环依赖？"><a href="#21-Spring-如何解决循环依赖？" class="headerlink" title="21.Spring 如何解决循环依赖？"></a>21.<strong>Spring 如何解决循环依赖？</strong></h4><p>spring通过三级缓存解决循环依赖:</p>
-<ul>
-<li>singletonObjects 一级缓存，用于保存实例化、注入、初始化完成的bean实例</li>
-<li>earlySingletonObjects 二级缓存，用于保存实例化完成的bean实例</li>
-<li>singletonFactories 三级缓存，用于保存bean创建工厂，以便于后面扩展有机会创建代理对象。</li>
+<h4 id="21-Spring-如何解决循环依赖-★★★★★"><a href="#21-Spring-如何解决循环依赖-★★★★★" class="headerlink" title="21.Spring 如何解决循环依赖 ★★★★★"></a>21.<strong>Spring 如何解决循环依赖 ★★★★★</strong></h4><h5 id="1-Singleton-Objects（一级缓存）"><a href="#1-Singleton-Objects（一级缓存）" class="headerlink" title="1. Singleton Objects（一级缓存）"></a>1. Singleton Objects（一级缓存）</h5><ul>
+<li><strong>作用</strong>:<ul>
+<li>存储完全初始化完成的Bean。</li>
+<li>一级缓存是Bean的最终缓存，所有完全创建和初始化的Bean都存放在这里。</li>
+</ul>
+</li>
+<li><strong>解决的循环依赖</strong>:<ul>
+<li>实际上，一级缓存本身并不直接解决循环依赖问题，但它是完成Bean创建和初始化过程后存放Bean的地方。</li>
+</ul>
+</li>
+</ul>
+<h5 id="2-Early-Singleton-Objects（二级缓存）"><a href="#2-Early-Singleton-Objects（二级缓存）" class="headerlink" title="2. Early Singleton Objects（二级缓存）"></a>2. Early Singleton Objects（二级缓存）</h5><ul>
+<li><strong>作用</strong>:<ul>
+<li>存储Bean的早期引用（early reference）。</li>
+<li>早期引用是在Bean完全初始化之前的一个原始状态，这时Bean已被实例化但可能尚未进行全部的依赖注入和初始化。</li>
+</ul>
+</li>
+<li><strong>解决的循环依赖</strong>:<ul>
+<li>当一个Bean正在创建过程中（例如正在进行依赖注入），如果另一个Bean请求当前正在创建的Bean，Spring就会提供这个Bean的早期引用。</li>
+<li>这样可以解决一种情况的循环依赖：当两个或多个Bean相互依赖，且其中一个Bean在创建过程中需要引用另一个尚未完全初始化的Bean。</li>
+</ul>
+</li>
+</ul>
+<h5 id="3-Singleton-Factories（三级缓存）"><a href="#3-Singleton-Factories（三级缓存）" class="headerlink" title="3. Singleton Factories（三级缓存）"></a>3. Singleton Factories（三级缓存）</h5><ul>
+<li><strong>作用</strong>:<ul>
+<li>存储能够生成Bean早期引用的工厂</li>
+<li>当一个Bean开始创建时，Spring会将一个工厂对象放入三级缓存，这个工厂对象可以在需要时生成Bean的早期引用。</li>
+</ul>
+</li>
+<li><strong>解决的循环依赖</strong>:<ul>
+<li>三级缓存主要解决的是在Bean实例化（尚未完成依赖注入和初始化）的早期阶段就发生的循环依赖。</li>
+<li>当一个Bean A依赖另一个Bean B，而Bean B又直接或间接地依赖Bean A，并且这种依赖在Bean A的构造过程中就需要满足时，三级缓存就会发挥作用。</li>
+<li>通过三级缓存，Spring可以在Bean A还在创建过程中就提供对Bean B的访问，从而避免因循环依赖而导致的死锁或异常。</li>
+</ul>
+</li>
 </ul>
 <h4 id="22-为什么要三级缓存？二级缓存不行么"><a href="#22-为什么要三级缓存？二级缓存不行么" class="headerlink" title="22.为什么要三级缓存？二级缓存不行么?"></a>22.为什么要三级缓存？二级缓存不行么?</h4><p>三级缓存是为了保证不管什么时候使用的都是同一个对象。</p>
 <p>如果使用二级缓存，多线程情况下可能获取的对象不一致</p>
-<h4 id="23-spring解决循环依赖的方法"><a href="#23-spring解决循环依赖的方法" class="headerlink" title="23.spring解决循环依赖的方法?"></a>23.spring解决循环依赖的方法?</h4><p>使用<code>@Lazy</code>注解，延迟加载</p>
-<p>使用<code>@DependsOn</code>注解，指定加载先后关系</p>
 <h4 id="24-spring的事务传播方式？"><a href="#24-spring的事务传播方式？" class="headerlink" title="24.spring的事务传播方式？"></a>24.spring的事务传播方式？</h4><p>required 当前没有事务则创建事务，存在事务则加入。</p>
 <p>requires_new 不管有没事务都会创建一个新的事务执行。</p>
 <p>supports 存在事务则加入，不存在则已非事务只想。</p>
@@ -2218,19 +2218,12 @@ OK
 <p><strong>脏读</strong> ：表示一个事务能够读取另一个事务中还未提交的数据。</p>
 <p><strong>不可重复读</strong> ：是指在一个事务内，多次读同一数据。读取的数据不一致</p>
 <p><strong>幻读</strong> ：指同一个事务内多次查询返回的结果集不一样。</p>
-<h4 id="26-什么是spring-mvc"><a href="#26-什么是spring-mvc" class="headerlink" title="26 .什么是spring mvc?"></a>26 .什么是spring mvc?</h4><p>基于java实现了mvc设计模式请求驱动类型的轻量级框架，把模型，视图，控制器分离出来。将web层进行职责解耦，简化开发</p>
 <h4 id="27-spring-mvc工作原理？"><a href="#27-spring-mvc工作原理？" class="headerlink" title="27.spring mvc工作原理？"></a>27.spring mvc工作原理？</h4><p>1.用户发送请求到前端控制器(DispatcherServlet)</p>
 <p>2.前端控制器调用处理器映射器(HandlerMapping)</p>
 <p>3.处理器映射器根据url找到对应的处理器（Handler），生成处理器对象，如果有拦截器一起返回给前端控制器</p>
 <p>4.前端控制器调用处理器适配器（HandlerAdapter），经过适配器调用后端控制器</p>
 <p>5.执行完毕后返回ModelAndView，处理器适配器将结果返回前端控制器</p>
 <p>6.前端控制器传给试图解析器（ViewResolver）进行解析,返回具体的视图(view)，进行渲染返回给用户</p>
-<h4 id="28-spring-ioc容器构建流程"><a href="#28-spring-ioc容器构建流程" class="headerlink" title="28.spring ioc容器构建流程?"></a>28.spring ioc容器构建流程?</h4><p>1.获取一个新的bean工厂，通常是applicationContext</p>
-<p>2.加载和解析spring配置文件，解析bean对象封装成beanDefinition放到本地缓存</p>
-<p>3.实例化和调用beanFactoryPostProcessor的BeanDefinitionRegistryPostProcessor的扩展方法</p>
-<p>4.实例化beanPostProcessor,加载到beanFactory中。在bean的初始化前后触发扩展点postProcessBeforeInitialization() / postProcessAfterInitialization()</p>
-<p>5.实例化所有剩余的bean，包括创建bean，属性填充，初始化</p>
-<p>6.完成容器刷新，推送上下文刷新事件(contextRefresEvent)到监听器</p>
 <h4 id="29-spring-boot启动流程？"><a href="#29-spring-boot启动流程？" class="headerlink" title="29.spring boot启动流程？"></a>29.spring boot启动流程？</h4><p>1.创建springApplication实例以及初始化</p>
 <p>2.通过SpringFactoriesLoader加载监听器,发布EventPublishingRunListener.<strong>starting()事件</strong>；</p>
 <p>3.创建和配置Environment，触发ConfigFileApplicationListener监听器,加载application.properties/yml配置文件</p>
@@ -2251,17 +2244,48 @@ OK
 <p>afterPropertiesSet 方法，在 bean 的属性填充之后，初始化方法（init-method）之前被触发</p>
 <p>3.DisposableBean</p>
 <p>destroy 方法，在 bean 的销毁阶段被触发，该方法的作用基本等同于</p>
-<p>destroy-method，主用用于执行销毁相关操作。</p>
+<p>destroy-method，主用用于执行销毁相关操作</p>
 <h4 id="32-springboot如何实现自动装配"><a href="#32-springboot如何实现自动装配" class="headerlink" title="32.springboot如何实现自动装配?"></a>32.springboot如何实现自动装配?</h4><p>启动类中@SpringbootApplicaiton 注解是一个组合注解，里面有一个@EnableAutoConfiguration注解。</p>
-<p>这个注解类中使用@Import注解加载EnableAutoConfigurationImportSelector类。这个类是在spring-autoConfig包中。他会加载包中的spring.factories文件内定义的autoconfiguration类。</p>
+<p>这个注解类中使用@Import注解加载EnableAutoConfigurationImportSelector类。这个类是在spring-autoConfig包中。他会加载包中的spring.factories文件内定义的autoconfiguration类</p>
 <h4 id="33-如何自己实现一个starter"><a href="#33-如何自己实现一个starter" class="headerlink" title="33.如何自己实现一个starter?"></a>33.如何自己实现一个starter?</h4><p>starter简单来说就是将一个繁琐的操作打包成一个jar，让你直接加入这个依赖，省去繁琐的步骤</p>
 <ol>
-<li>创建一个starter项目</li>
-<li>创建一个ConfigurationProperties用于保存你的配置信息（</li>
-<li>创建一个AutoConfiguration，引用定义好的配置信息；在AutoConfiguration中实现所有starter应该完成的操作，并且把这个类加入spring.factories配置文件中进行声明</li>
-<li>打包项目，之后在一个SpringBoot项目中引入该项目依赖，然后就可以使用该starter了</li>
+<li><p>创建一个starter项目</p>
+</li>
+<li><p>添加必要依赖</p>
+<pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependencies</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>spring-boot-starter<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span>
+    <span class="token comment">&lt;!-- 其他依赖 --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependencies</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>编写 自动配置类：<code>@Configuration</code>标记这个类，并根据需要添加<code>@Bean</code>方法</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Configuration</span>
+<span class="token annotation punctuation">@ConditionalOnClass</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token class-name">YourService</span><span class="token punctuation">.</span><span class="token keyword">class</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token annotation punctuation">@ConditionalOnProperty</span><span class="token punctuation">(</span>prefix <span class="token operator">=</span> <span class="token string">"your.starter"</span><span class="token punctuation">,</span> value <span class="token operator">=</span> <span class="token string">"enabled"</span><span class="token punctuation">,</span> havingValue <span class="token operator">=</span> <span class="token string">"true"</span><span class="token punctuation">,</span> matchIfMissing <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">YourAutoConfiguration</span> <span class="token punctuation">{</span>
+
+    <span class="token annotation punctuation">@Bean</span>
+    <span class="token annotation punctuation">@ConditionalOnMissingBean</span>
+    <span class="token keyword">public</span> <span class="token class-name">YourService</span> <span class="token function">yourService</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">YourServiceImpl</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// 其他bean定义...</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>指定自动配置类</p>
+<p>在项目的<code>resources/META-INF</code>目录下创建一个<code>spring.factories</code>文件。在这个文件中</p>
+<pre class="line-numbers language-spring.factories" data-language="spring.factories"><code class="language-spring.factories">org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.yourpackage.YourAutoConfiguration<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</li>
+<li><p>打包</p>
+<p>最后，将你的starter打包并发布到Maven仓库，这样其他项目就可以使用它了。</p>
+</li>
 </ol>
-<h3 id="2、—"><a href="#2、—" class="headerlink" title="2、—"></a>2、—</h3><h2 id="七、jvm"><a href="#七、jvm" class="headerlink" title="七、jvm"></a>七、jvm</h2><h3 id="1、类加载"><a href="#1、类加载" class="headerlink" title="1、类加载"></a>1、类加载</h3><h4 id="说说你认识的虚拟机-★★★"><a href="#说说你认识的虚拟机-★★★" class="headerlink" title="- 说说你认识的虚拟机 ★★★"></a>- 说说你认识的虚拟机 ★★★</h4><p>默认，Hotspot；阿里的 taobaoVM，华为的鸿蒙VM </p>
+<h3 id="2、–"><a href="#2、–" class="headerlink" title="2、–"></a>2、–</h3><h2 id="七、jvm"><a href="#七、jvm" class="headerlink" title="七、jvm"></a>七、jvm</h2><h3 id="1、类加载"><a href="#1、类加载" class="headerlink" title="1、类加载"></a>1、类加载</h3><h4 id="说说你认识的虚拟机-★★★"><a href="#说说你认识的虚拟机-★★★" class="headerlink" title="- 说说你认识的虚拟机 ★★★"></a>- 说说你认识的虚拟机 ★★★</h4><p>默认，Hotspot；阿里的 taobaoVM，华为的鸿蒙VM </p>
 <h4 id="JVM中类加载的生命周期（类加载原理机制）★必考★"><a href="#JVM中类加载的生命周期（类加载原理机制）★必考★" class="headerlink" title="- JVM中类加载的生命周期（类加载原理机制）★必考★"></a>- JVM中类加载的生命周期（类加载原理机制）★必考★</h4><p>装载 -&gt; 链接（验证-&gt;准备-&gt;解析）-&gt; 初始化-&gt;运行 -&gt; 卸载</p>
 <p>装载：将类的字节码加载到内存中</p>
 <p>链接：</p>
@@ -2328,11 +2352,12 @@ OK
 <p>OSGi实现模块化热部署的关键是<strong>它自定义的类加载器机制</strong>的实现。</p>
 <p>每一个程序模块（OSGi中称为 Bundle）都有一个自己的类加载器，当需要更换一个Bundle时，就把Bundle连同类加载器一起换掉以实 现代码的热替换</p>
 <p>在OSGi环境下，类加载器不再双亲委派模型推荐的树状结构，而是进一步发展为更 加复杂的<strong>网状结构</strong></p>
-<h3 id="2、内存篇"><a href="#2、内存篇" class="headerlink" title="2、内存篇"></a>2、内存篇</h3><h4 id="jvm内存结构（组成结构）★必考★"><a href="#jvm内存结构（组成结构）★必考★" class="headerlink" title="- jvm内存结构（组成结构）★必考★"></a>- jvm内存结构（组成结构）★必考★</h4><h5 id="1-堆（Heap）"><a href="#1-堆（Heap）" class="headerlink" title="1. 堆（Heap）"></a>1. 堆（Heap）</h5><ul>
-<li><strong>作用</strong>：堆是JVM内存中最大的一块，用于存储所有的对象实例和数组。</li>
-<li><strong>特点</strong>：它是在虚拟机启动时创建的，并且是垃圾回收器主要的工作区域。堆内存的大小是可以调整的，其大小和生存周期是JVM性能调优的关键因素。</li>
+<h3 id="2、内存篇"><a href="#2、内存篇" class="headerlink" title="2、内存篇"></a>2、内存篇</h3><h4 id="jvm内存结构（组成结构）★必考★"><a href="#jvm内存结构（组成结构）★必考★" class="headerlink" title="- jvm内存结构（组成结构）★必考★"></a>- jvm内存结构（组成结构）★必考★</h4><p><img src="https://github.com/mykkTo/image/blog/2022/Interview/202312121615732.jpg"></p>
+<h5 id="1-堆（Heap）"><a href="#1-堆（Heap）" class="headerlink" title="1. 堆（Heap）"></a>1. 堆（Heap）</h5><ul>
+<li><strong>作用</strong>：堆是JVM内存中最大的一块，用于存储所有的对象实例和数组</li>
+<li><strong>特点</strong>：它是在虚拟机启动时创建的，并且是垃圾回收器主要的工作区域。堆内存的大小是可以调整的，其大小和生存周期是JVM性能调优的关键因素</li>
 </ul>
-<h5 id="2-栈（Stack）"><a href="#2-栈（Stack）" class="headerlink" title="2. 栈（Stack）"></a>2. 栈（Stack）</h5><ul>
+<h5 id="2-虚拟机栈"><a href="#2-虚拟机栈" class="headerlink" title="2. 虚拟机栈"></a>2. 虚拟机栈</h5><ul>
 <li><strong>作用</strong>：每个线程都有自己的栈，用于存储局部变量表、操作数栈、动态链接信息、方法返回值以及方法调用的相关信息。</li>
 <li><strong>特点</strong>：栈内存存储的是基本类型的变量和对象的引用变量，而不是对象本身。每个方法调用时都会创建一个栈帧（Stack Frame），用于存储这些信息。</li>
 </ul>
@@ -2344,31 +2369,19 @@ OK
 <li><strong>作用</strong>：存储当前线程所执行的字节码的行号指示器。</li>
 <li><strong>特点</strong>：每个线程都有自己的程序计数器，是线程私有的。</li>
 </ul>
-<h5 id="5-本地方法栈（Native-Method-Stack）"><a href="#5-本地方法栈（Native-Method-Stack）" class="headerlink" title="5. 本地方法栈（Native Method Stack）"></a>5. 本地方法栈（Native Method Stack）</h5><ul>
+<h5 id="5-本地方法栈"><a href="#5-本地方法栈" class="headerlink" title="5. 本地方法栈"></a>5. 本地方法栈</h5><ul>
 <li><strong>作用</strong>：专门用于处理本地方法的调用。</li>
 <li><strong>特点</strong>：本地方法栈和Java栈的作用相似，但本地方法栈是为虚拟机使用到的Native方法服务</li>
 </ul>
-<h5 id="6-运行时常量池（Runtime-Constant-Pool）"><a href="#6-运行时常量池（Runtime-Constant-Pool）" class="headerlink" title="6. 运行时常量池（Runtime Constant Pool）"></a>6. 运行时常量池（Runtime Constant Pool）</h5><ul>
-<li><strong>作用</strong>：存储每个类的常量信息，包括直接常量（如字符串、数值类型常量）和对其他类型、字段、方法的符号引用。</li>
-<li><strong>特点</strong>：它是方法区的一部分，在类加载后被创建。</li>
+<h5 id="常量池"><a href="#常量池" class="headerlink" title="常量池"></a>常量池</h5><p>从 Java 8 开始，常量池被分成两部分：</p>
+<ul>
+<li>字符串常量池在堆内存中</li>
+<li>类和方法的常量池在元空间中</li>
 </ul>
 <h5 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h5><ul>
-<li><strong>垃圾回收</strong>：主要发生在堆区，部分情况下也涉及方法区。</li>
-<li><strong>内存溢出</strong>：堆、栈和方法区（元空间）都可能成为内存溢出的源头。</li>
+<li><strong>垃圾回收</strong>：主要发生在堆区，部分情况下也涉及方法区</li>
+<li><strong>内存溢出</strong>：堆、栈和方法区（元空间）都可能成为内存溢出的源头</li>
 </ul>
-<h5 id="堆和栈的区别"><a href="#堆和栈的区别" class="headerlink" title="堆和栈的区别"></a>堆和栈的区别</h5><ul>
-<li><strong>堆</strong>：所有线程共享的内存区域，用于存放对象实例和数组。它在虚拟机启动时创建。</li>
-<li><strong>栈</strong>：线程私有的内存区域，生命周期与线程相同，用于存放局部变量和部分方法调用信息。每个方法调用创建一个栈帧，用于存储局部变量、操作数栈、动态链接信息等。</li>
-</ul>
-<h4 id="JVM计数器如何记数"><a href="#JVM计数器如何记数" class="headerlink" title="- JVM计数器如何记数"></a>- JVM计数器如何记数</h4><p>在Java虚拟机（JVM）中，程序计数器（Program Counter, PC）是一种内存区域，用于记录当前线程执行的字节码的行号指示器。这种计数器的主要作用是保持线程执行状态的准确性。</p>
-<ol>
-<li><strong>线程私有</strong>：程序计数器是线程私有的内存空间，这意味着每个线程都有自己的程序计数器。</li>
-<li><strong>当前执行的指令地址</strong>：程序计数器存储的是当前线程所执行的字节码指令的地址。如果执行的是非本地方法（即非Native方法），计数器记录的是正在执行的虚拟机字节码指令的地址；如果是本地方法，则计数器的值为空（Undefined）。</li>
-<li><strong>指令流的跟踪</strong>：程序计数器确保了线程在执行过程中的控制流程，即在任何时刻都可以知道线程应该执行哪一条指令。</li>
-<li><strong>分支、循环、跳转、异常处理和线程恢复</strong>：程序计数器对于控制结构（如循环、条件分支）、方法调用和异常处理等具有重要作用。在这些控制流程中，计数器帮助线程确定下一步应该执行哪条指令。</li>
-<li><strong>线程间隔离，防止干扰</strong>：由于每个线程都有自己的程序计数器，因此在多线程环境中，一个线程的计数器不会对另一个线程的计数器产生影响。这样确保了线程切换后能够恢复到正确的执行位置。</li>
-<li><strong>内存需求极小</strong>：程序计数器占用的内存很小，但它对于线程的功能是必不可少的</li>
-</ol>
 <h4 id="什么情况栈会溢出-★"><a href="#什么情况栈会溢出-★" class="headerlink" title="- 什么情况栈会溢出 ★"></a>- 什么情况栈会溢出 ★</h4><ol>
 <li><strong>递归或者循环的深度</strong>：当一个函数递归调用自己，而没有适当的终止条件或递归深度太大，会导致栈内存耗尽。每次函数调用都会在栈上分配一定的内存空间，用于存储局部变量和返回地址等。如果递归调用次数过多，栈空间将被耗尽。</li>
 <li><strong>大量的局部变量</strong>：如果在函数内部声明了大量的局部变量或者局部变量的尺寸非常大（例如大数组），可能会占用大量的栈空间，导致栈溢出。</li>
@@ -2417,18 +2430,16 @@ OK
 <p>如果在Survivor区，有某一年龄的对象的总大小超过了Survivor区大小的50%，年龄大于或等于该年龄的对象就可以直接进入老年代</p>
 <p>（4）大对象直接进入老年代</p>
 <p>所谓大对象就是指需要大量的连续内存空间的Java对象，比如很长的字符串或数组（为什么？为了降低复制算法执行的次数）</p>
-<h4 id="新生代和老年代的回收策略-★★★"><a href="#新生代和老年代的回收策略-★★★" class="headerlink" title="- 新生代和老年代的回收策略 ★★★"></a>- 新生代和老年代的回收策略 ★★★</h4><h5 id="新生代回收策略"><a href="#新生代回收策略" class="headerlink" title="新生代回收策略"></a>新生代回收策略</h5><p>新生代主要存储生命周期短的对象。由于大多数对象都是“朝生夕死”的，新生代的垃圾回收频率相对较高，但每次GC所需时间较短。新生代的回收通常采用以下策略：</p>
+<h4 id="新生代和老年代的回收策略-★★★"><a href="#新生代和老年代的回收策略-★★★" class="headerlink" title="- 新生代和老年代的回收策略 ★★★"></a>- 新生代和老年代的回收策略 ★★★</h4><h5 id="新生代回收策略（Minor-GC）：新生代的垃圾回收称为Minor-GC，它只清理新生代，不涉及老年代，因此速度相对较快"><a href="#新生代回收策略（Minor-GC）：新生代的垃圾回收称为Minor-GC，它只清理新生代，不涉及老年代，因此速度相对较快" class="headerlink" title="新生代回收策略（Minor GC）：新生代的垃圾回收称为Minor GC，它只清理新生代，不涉及老年代，因此速度相对较快"></a>新生代回收策略（Minor GC）：新生代的垃圾回收称为Minor GC，它只清理新生代，不涉及老年代，因此速度相对较快</h5><p>新生代主要存储生命周期短的对象。由于大多数对象都是“朝生夕死”的，新生代的垃圾回收频率相对较高，但每次GC所需时间较短。新生代的回收通常采用以下策略：</p>
 <ol>
 <li><strong>复制算法（Copying）</strong>：新生代分为三个部分：一个Eden区和两个Survivor区（通常称为From和To）。大多数情况下，新分配的对象首先放在Eden区。进行GC时，活着的对象从Eden区和一个Survivor区复制到另一个Survivor区。这种方法的好处是只需处理存活的对象，且不会产生内存碎片。</li>
-<li><strong>分代年龄（Generational Aging）</strong>：存活对象在Survivor区间移动，并随着每次GC增加年龄。当对象达到特定年龄阈值（例如15）时，它们会被晋升到老年代。</li>
-<li><strong>Minor GC</strong>：新生代的垃圾回收称为Minor GC，它只清理新生代，不涉及老年代，因此速度相对较快。</li>
+<li><strong>分代年龄（Generational Aging）</strong>：存活对象在Survivor区间移动，并随着每次GC增加年龄。当对象达到特定年龄阈值（例如15）时，它们会被晋升到老年代</li>
 </ol>
-<h5 id="老年代回收策略"><a href="#老年代回收策略" class="headerlink" title="老年代回收策略"></a>老年代回收策略</h5><p>老年代存储生命周期较长的对象，其垃圾回收频率较低，但每次GC的成本较高，因为涉及到更多的数据和复杂的数据结构</p>
+<h5 id="老年代回收策略（Major-GC-Full-GC）：涉及整个堆（包括新生代和老年代）。这通常发生在老年代几乎满时，或者在永久代（PermGen）或元空间（Metaspace）不足时。Full-GC比Minor-GC耗时更长，会导致较长时间的应用暂停"><a href="#老年代回收策略（Major-GC-Full-GC）：涉及整个堆（包括新生代和老年代）。这通常发生在老年代几乎满时，或者在永久代（PermGen）或元空间（Metaspace）不足时。Full-GC比Minor-GC耗时更长，会导致较长时间的应用暂停" class="headerlink" title="老年代回收策略（Major GC / Full GC）：涉及整个堆（包括新生代和老年代）。这通常发生在老年代几乎满时，或者在永久代（PermGen）或元空间（Metaspace）不足时。Full GC比Minor GC耗时更长，会导致较长时间的应用暂停"></a>老年代回收策略（Major GC / Full GC）：涉及整个堆（包括新生代和老年代）。这通常发生在老年代几乎满时，或者在永久代（PermGen）或元空间（Metaspace）不足时。Full GC比Minor GC耗时更长，会导致较长时间的应用暂停</h5><p>老年代存储生命周期较长的对象，其垃圾回收频率较低，但每次GC的成本较高，因为涉及到更多的数据和复杂的数据结构</p>
 <ol>
 <li><strong>标记-清除（Mark-Sweep）算法</strong>：，其中首先标记所有从根集合可达的对象，然后清除所有未标记的对象。这种方法可能会导致内存碎片。</li>
 <li><strong>标记-整理（Mark-Compact）算法</strong>：但在清除未标记对象之后，它会将所有存活的对象压缩到内存的一端，以解决内存碎片问题。</li>
 <li><strong>增量收集（Incremental Collecting）</strong>：这种方法尝试分散GC的工作量，以避免长时间的停顿。例如，CMS（Concurrent Mark-Sweep）收集器就是一种实现，它在标记和清除阶段的大部分工作是并发进行的。</li>
-<li><strong>Major GC / Full GC</strong>：涉及整个堆（包括新生代和老年代）。这通常发生在老年代几乎满时，或者在永久代（PermGen）或元空间（Metaspace）不足时。Full GC比Minor GC耗时更长，会导致较长时间的应用暂停</li>
 </ol>
 <h4 id="Minor-新生代-GC-和-Full-GC-老年代）触发时机-★★★"><a href="#Minor-新生代-GC-和-Full-GC-老年代）触发时机-★★★" class="headerlink" title="- Minor (新生代) GC 和 Full GC (老年代）触发时机 ★★★"></a>- Minor (新生代) GC 和 Full GC (老年代）触发时机 ★★★</h4><ol>
 <li><strong>新生代空间不足</strong>：当新生代（特别是Eden区）中的空间不足以容纳新分配的对象时，JVM会触发Minor GC。新生代采用复制算法，将存活的对象从Eden区和一个Survivor区复制到另一个Survivor区，同时清理掉不再存活的对象。</li>
@@ -2458,7 +2469,7 @@ OK
 <li><strong>性能改进</strong>：这个改变旨在减少内存溢出（OutOfMemoryError）的风险，同时提升性能。</li>
 <li><strong>配置和监控</strong>：对元空间的大小和回收可以通过JVM参数进行配置和监控</li>
 </ol>
-<h4 id="new-对象的流程-★★★★"><a href="#new-对象的流程-★★★★" class="headerlink" title="- new 对象的流程 ★★★★"></a>- new 对象的流程 ★★★★</h4><h5 id="1-类加载检查"><a href="#1-类加载检查" class="headerlink" title="1. 类加载检查"></a>1. 类加载检查</h5><p>在可以创建对象之前，JVM首先检查这个类是否已经被加载、链接和初始化过。如果类没有被加载，JVM会执行类加载过程，这包括查找字节码、加载字节码到内存中、验证、准备、解析和初始化。</p>
+<h4 id="new-对象的流程-★★★"><a href="#new-对象的流程-★★★" class="headerlink" title="- new 对象的流程 ★★★"></a>- new 对象的流程 ★★★</h4><h5 id="1-类加载检查"><a href="#1-类加载检查" class="headerlink" title="1. 类加载检查"></a>1. 类加载检查</h5><p>在可以创建对象之前，JVM首先检查这个类是否已经被加载、链接和初始化过。如果类没有被加载，JVM会执行类加载过程，这包括查找字节码、加载字节码到内存中、验证、准备、解析和初始化。</p>
 <h5 id="2-分配内存"><a href="#2-分配内存" class="headerlink" title="2. 分配内存"></a>2. 分配内存</h5><p>一旦类检查完成，JVM接着在堆上为新对象分配内存。内存分配方式取决于垃圾回收器的配置和策略，通常有两种方式：</p>
 <ul>
 <li><strong>指针碰撞（Bump the Pointer）</strong>：如果堆内存是维护为连续的空闲空间，只需要将指向自由空间的指针向空间足够的地方移动。</li>
@@ -2534,42 +2545,30 @@ OK
 </ul>
 </li>
 </ol>
-<h4 id="常见的垃圾回收器算法有哪些"><a href="#常见的垃圾回收器算法有哪些" class="headerlink" title="- 常见的垃圾回收器算法有哪些"></a>- 常见的垃圾回收器算法有哪些</h4><h5 id="1-Serial-GC"><a href="#1-Serial-GC" class="headerlink" title="1. Serial GC"></a>1. Serial GC</h5><ul>
-<li><strong>JDK版本</strong>：早期版本。</li>
-<li><strong>算法</strong>：单线程，新生代使用复制算法，老年代使用标记-整理。</li>
-<li><strong>应用场景</strong>：单核处理器、小型应用、开发环境。</li>
-<li><strong>性能</strong>：吞吐量适中，停顿时间较长。</li>
-</ul>
-<h5 id="2-Parallel-GC"><a href="#2-Parallel-GC" class="headerlink" title="2. Parallel GC"></a>2. Parallel GC</h5><ul>
-<li><strong>JDK版本</strong>：自JDK 1.4起。</li>
-<li><strong>算法</strong>：多线程，新生代使用复制算法，老年代使用标记-整理。</li>
-<li><strong>应用场景</strong>：多核处理器，注重高吞吐量的后台处理和批处理系统。</li>
-<li><strong>性能</strong>：高吞吐量，但GC停顿时间较长。</li>
-</ul>
+<h4 id="常见的垃圾回收器算法有哪些"><a href="#常见的垃圾回收器算法有哪些" class="headerlink" title="- 常见的垃圾回收器算法有哪些"></a>- 常见的垃圾回收器算法有哪些</h4><p>早期两个本篇不关注</p>
 <h5 id="3-CMS-Concurrent-Mark-Sweep-GC"><a href="#3-CMS-Concurrent-Mark-Sweep-GC" class="headerlink" title="3. CMS (Concurrent Mark-Sweep) GC"></a>3. CMS (Concurrent Mark-Sweep) GC</h5><ul>
 <li><strong>JDK版本</strong>：自JDK 5起。</li>
 <li><strong>算法</strong>：并发标记和清除。</li>
 <li><strong>应用场景</strong>：WEB应用服务器，交互式应用。</li>
-<li><strong>性能</strong>：减少停顿时间，但可能产生内存碎片，占用更多CPU资源。</li>
+<li><strong>性能</strong>：减少停顿时间，但可能产生内存碎片，占用更多CPU资源</li>
 </ul>
 <h5 id="4-G1-Garbage-First-GC"><a href="#4-G1-Garbage-First-GC" class="headerlink" title="4. G1 (Garbage-First) GC"></a>4. G1 (Garbage-First) GC</h5><ul>
 <li><strong>JDK版本</strong>：自JDK 7起，JDK 9中成为默认选项。</li>
 <li><strong>算法</strong>：将堆分为多个区域，并行和增量式清理。</li>
-<li><strong>应用场景</strong>：大型Web应用和中间件，需要平衡吞吐量和响应时间。</li>
+<li><strong>应用场景</strong>：大型Web应用和中间件，需要平衡吞吐量和响应时间</li>
 <li><strong>性能</strong>：停顿时间可控，灵活处理大堆内存。</li>
 </ul>
 <h5 id="5-ZGC-Z-Garbage-Collector"><a href="#5-ZGC-Z-Garbage-Collector" class="headerlink" title="5. ZGC (Z Garbage Collector)"></a>5. ZGC (Z Garbage Collector)</h5><ul>
 <li><strong>JDK版本</strong>：自JDK 11起</li>
 <li><strong>算法</strong>：并发，基于区域的内存管理。</li>
-<li><strong>应用场景</strong>：大数据处理、实时系统、高频交易系统。</li>
-<li><strong>性能</strong>：极低的停顿时间，适合大堆内存。</li>
+<li><strong>应用场景</strong>：大数据处理、实时系统、高频交易系统</li>
+<li><strong>性能</strong>：极低的停顿时间，适合大堆内存</li>
 </ul>
 <h5 id="分代和分区"><a href="#分代和分区" class="headerlink" title="分代和分区"></a>分代和分区</h5><ul>
 <li><strong>分代（Serial, Parallel, CMS）</strong>：新生代使用复制算法，老年代使用标记-整理或标记-清除。</li>
 <li><strong>分区（G1, ZGC）</strong>：不严格遵循传统分代模型，通过将堆划分为多个区域来实现更细粒度的内存管理。</li>
 </ul>
 <h5 id="性能对比"><a href="#性能对比" class="headerlink" title="性能对比"></a>性能对比</h5><ul>
-<li><strong>吞吐量</strong>：Parallel GC提供最高的吞吐量，适合CPU资源充足的环境。</li>
 <li><strong>停顿时间</strong>：ZGC和Shenandoah在保证极低延迟方面表现最佳，特别适合需要低停顿的场景。</li>
 <li><strong>资源占用</strong>：Serial和Parallel GC资源占用较低，但在多核心环境中可能不是最佳选择。</li>
 <li><strong>灵活性</strong>：G1提供灵活的停顿时间控制，适合需要平衡吞吐量和响应时间的复杂应用。</li>
@@ -2659,11 +2658,48 @@ OK
 <li><strong>负载均衡</strong>：在多个服务器间分散负载，以提高系统的响应能力和可用性。</li>
 <li><strong>异步处理和消息队列</strong>：对于非实时性要求的任务使用异步处理和消息队列</li>
 </ul>
-<h2 id="N、设计题"><a href="#N、设计题" class="headerlink" title="N、设计题"></a>N、设计题</h2><h3 id="1、MQ实现异步秒杀"><a href="#1、MQ实现异步秒杀" class="headerlink" title="1、MQ实现异步秒杀"></a>1、MQ实现异步秒杀</h3><h4 id="1、介绍"><a href="#1、介绍" class="headerlink" title="1、介绍"></a>1、介绍</h4><p>场景：一万件商品同时被一万人秒杀成功，会导致瞬间上万请求访问到订单数据库中创建订单。此时对数据库的压力就会很大。</p>
+<h3 id="八、多线程"><a href="#八、多线程" class="headerlink" title="八、多线程"></a>八、多线程</h3><h4 id="1、CAS-是什么，中的ABA问题"><a href="#1、CAS-是什么，中的ABA问题" class="headerlink" title="1、CAS 是什么，中的ABA问题"></a>1、CAS 是什么，中的ABA问题</h4><p>cas</p>
+<p>是一种用于实现多线程环境下的无锁技术，比较并交换：</p>
+<ol>
+<li><strong>读取当前值</strong>：系统会自动读取当前内存位置V的实际值。</li>
+<li><strong>比较值</strong>：比较内存位置V的实际值与预期原值A是否相等。</li>
+<li><strong>更新值</strong>：如果相等，则将内存位置V的值更新为新值B。如果不相等，则不执行任何操作</li>
+</ol>
+<p>ABA：</p>
+<p>如果变量V先从A改为B，后又改回A，那么CAS检查时会发现值没有变化，但实际上该变量可能已经被其他线程修改过</p>
+<p>解决：使用原子类</p>
+<h4 id="2、synchronize-锁升级过程-★★★★"><a href="#2、synchronize-锁升级过程-★★★★" class="headerlink" title="2、synchronize 锁升级过程 ★★★★"></a>2、synchronize 锁升级过程 ★★★★</h4><ol>
+<li><strong>偏向锁（Biased Locking）</strong>：<ul>
+<li>当一个线程首次访问同步块时，JVM会将锁对象标记为偏向于该线程，简单地在对象头上设置一些标记位，而不进行任何锁操作。</li>
+<li>如果另一个线程尝试获取这个偏向锁，偏向模式会被撤销，并升级为轻量级锁。</li>
+</ul>
+</li>
+<li><strong>轻量级锁（Lightweight Locking）</strong>：<ul>
+<li>在这个阶段，JVM会在锁对象的对象头中创建一个锁记录（Lock Record）空间，并尝试使用CAS（Compare-And-Swap）操作将线程的锁记录地址写入对象头中</li>
+<li>如果CAS操作成功，当前线程获得锁。如果失败，说明有其他线程也在竞争锁</li>
+</ul>
+</li>
+<li><strong>重量级锁（Heavyweight Locking）</strong>：<ul>
+<li>如果多个线程同时尝试获取同一轻量级锁，会导致锁竞争。在锁竞争的情况下，轻量级锁会升级为重量级锁。</li>
+<li>在这个阶段，JVM会在操作系统层面创建一个互斥量（Mutex），线程需要通过操作系统来获取或释放这个互斥量，这个过程比轻量级锁更耗时和复杂</li>
+</ul>
+</li>
+</ol>
+<p><strong>锁竞争</strong>：</p>
+<ul>
+<li>如果CAS操作成功，该线程获取了锁。</li>
+<li>如果CAS操作失败，意味着有其他线程也在竞争这个锁。轻量级锁会检查锁是否已经被当前线程持有，如果是，则允许重入。如果不是，则轻量级锁会膨胀成重量级锁</li>
+</ul>
+<p><strong>锁膨胀与撤销</strong>：</p>
+<ul>
+<li>当锁从轻量级锁升级为重量级锁时，称为锁膨胀。</li>
+<li>JVM也提供了锁撤销的机制，即在某些情况下，可以将重量级锁降级为轻量级锁或偏向锁</li>
+</ul>
+<h4 id="3、说说AQS"><a href="#3、说说AQS" class="headerlink" title="3、说说AQS"></a>3、说说AQS</h4><h4 id="4、ThreadPoolExecutor-自定义线程的7个参数"><a href="#4、ThreadPoolExecutor-自定义线程的7个参数" class="headerlink" title="4、ThreadPoolExecutor 自定义线程的7个参数"></a>4、ThreadPoolExecutor 自定义线程的7个参数</h4><h2 id="N、设计题"><a href="#N、设计题" class="headerlink" title="N、设计题"></a>N、设计题</h2><h3 id="1、MQ实现异步秒杀"><a href="#1、MQ实现异步秒杀" class="headerlink" title="1、MQ实现异步秒杀"></a>1、MQ实现异步秒杀</h3><h4 id="1、介绍"><a href="#1、介绍" class="headerlink" title="1、介绍"></a>1、介绍</h4><p>场景：一万件商品同时被一万人秒杀成功，会导致瞬间上万请求访问到订单数据库中创建订单。此时对数据库的压力就会很大。</p>
 <p>方案：引入RocketMQ进行削峰处理。</p>
 <p>每个请求进来在Redis中秒杀库存成功，就认为需要生成订单，此时发送一个消息到RocketMQ中去。</p>
 <p>然后让普通订单系统从RocketMQ中消费秒杀成功的消息进行处理。对于MQ来说，这种上万的消息积压很容易就扛下来了，只要过了高峰期，订单系统很快就能消费、处理完。这个过程中不会对订单数据库造成过大的压力</p>
-<h4 id="2、架构图"><a href="#2、架构图" class="headerlink" title="2、架构图"></a>2、架构图</h4><p><img src="https://mykkto.cn/image/blog/2022/Interview/202302272128319.png"></p>
+<h4 id="2、架构图"><a href="#2、架构图" class="headerlink" title="2、架构图"></a>2、架构图</h4><p><img src="https://github.com/mykkTo/image/blog/2022/Interview/202302272128319.png"></p>
 <h4 id="3、总结"><a href="#3、总结" class="headerlink" title="3、总结"></a>3、总结</h4><ul>
 <li>在前端/客户端设置秒杀答题，错开大量人下单的时间，组织作弊器刷单</li>
 <li>独立出来一套秒杀系统，专门负责处理秒杀请求</li>
@@ -2672,7 +2708,7 @@ OK
 <li>瞬时生成的大量下单请求直接进入RocketMQ进行削峰，订单系统慢慢拉取消息完成下单操作</li>
 </ul>
 <p>秒杀系统补充：<br>1、大量用户先进来页面详情页面，走CDN静态化加速，到Nginx集群（动静分离），其次去Redis集群加载秒杀数据（这个数据可以提交前缓存预热），然后到页面渲染，这个过程中理论是没有经过后端服务系统渲染，直接前端渲染，其实可以后端渲染（不建议）<br>2、大量系统下单，先到前端秒杀答题（当然也有的可以通过Nginx对请求切分分批），然后把无效请求经过Nginx集群过滤；有效请求进入秒杀系统，关于库存数据会提交预热到Redis集群进行库存扣除，大量成功的订单进入RocketMQ进行削峰，订单系统慢慢拉取完成下单操作</p>
-<h3 id="2、RocketMQ事务最终一致性"><a href="#2、RocketMQ事务最终一致性" class="headerlink" title="2、RocketMQ事务最终一致性"></a>2、RocketMQ事务最终一致性</h3><h4 id="1、执行流程图"><a href="#1、执行流程图" class="headerlink" title="1、执行流程图"></a>1、执行流程图</h4><p><img src="https://mykkto.cn/image/blog/2022/Interview/202303012201093.png"></p>
+<h3 id="2、RocketMQ事务最终一致性"><a href="#2、RocketMQ事务最终一致性" class="headerlink" title="2、RocketMQ事务最终一致性"></a>2、RocketMQ事务最终一致性</h3><h4 id="1、执行流程图"><a href="#1、执行流程图" class="headerlink" title="1、执行流程图"></a>1、执行流程图</h4><p><img src="https://github.com/mykkTo/image/blog/2022/Interview/202303012201093.png"></p>
 <p>1、首先服务 A 发送一个半事务消息(也称 half 消息)至 MQ 中。为什么要先发送一个 half 消息呢？这是为了保证服务 A 和 MQ 之间的通信正常，如果无法正常通信，则服务 A 可以直接返回一个异常，也就不用处理后面的逻辑的了。</p>
 <p>2、如果 half 消息发送成功，MQ 收到这个 half 消息后，会返回一个 success 响应给服务 A。</p>
 <p>3、服务 A 接收到 MQ 返回的 success 响应后，开始处理本地的业务逻辑，并提交本地事务。</p>
@@ -3361,7 +3397,7 @@ new Valine({
                     <div class="card-image">
                         
                         
-                        <img src="https://mykkto.cn/image/galleries/动漫插画/09.jpg" class="responsive-img" alt="Scala语言入手纲要（完结）">
+                        <img src="https://github.com/mykkTo/image/galleries/动漫插画/09.jpg" class="responsive-img" alt="Scala语言入手纲要（完结）">
                         
                         <span class="card-title">Scala语言入手纲要（完结）</span>
                     </div>
@@ -3418,7 +3454,7 @@ new Valine({
                     <div class="card-image">
                         
                         
-                        <img src="https://mykkto.cn/image/galleries/动漫风景/07.jpg" class="responsive-img" alt="JUC-深度面试题（粉丝投稿）">
+                        <img src="https://github.com/mykkTo/image/galleries/动漫风景/07.jpg" class="responsive-img" alt="JUC-深度面试题（粉丝投稿）">
                         
                         <span class="card-title">JUC-深度面试题（粉丝投稿）</span>
                     </div>
@@ -3684,7 +3720,7 @@ new Valine({
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2022-2023</span>
+                <span id="year">2022-2025</span>
             
             <span id="year">2022</span>
             <a href="/about" target="_blank">jack</a>
@@ -3693,7 +3729,7 @@ new Valine({
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">239.2k</span>&nbsp;字
+                class="white-color">238.1k</span>&nbsp;字
             
             
             
